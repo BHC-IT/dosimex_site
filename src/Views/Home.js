@@ -1,4 +1,5 @@
 import React from 'react';
+import Carousel from '../Components/Carousel'
 
 export default class Home extends React.Component {
 
@@ -7,7 +8,7 @@ export default class Home extends React.Component {
 	}
 
 	render(){
-		return <div>Home</div>
+		return <Carousel></Carousel>
 	}
 
 }
