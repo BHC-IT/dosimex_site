@@ -10,7 +10,7 @@ export default class Redirection extends React.Component {
 
 	render(){
 		return (
-			<div>Redirection
+			<div>
 				<Redirect to={'/'}/>
 			</div>
 		)
