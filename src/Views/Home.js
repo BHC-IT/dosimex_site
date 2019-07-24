@@ -17,7 +17,7 @@ export default class Home extends React.Component {
 					<Carousel></Carousel>
 				<div>
 					<h1 className="WelcomeText">Bienvenue sur Dosimex</h1>
-					<p className="Fiftywords">Antoine est la reine des putes mais pour le moment il n'y a que peu de mots alors nous écrivons <br/>encore et encore en espérant atteindre les 50 mots, la question est: Est-ce que l'indentation sera cool or not</p>
+					<p className="Fiftywords">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.<br/> Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre</p>
 				</div>
 				</ReactPageScroller>
 				</div>

@@ -11,9 +11,9 @@ export default class Carousel extends React.Component {
 	render(){
 		return(
 		<Slider>
-			<img style={} src={Car1} />
-			<img style={} src="https://s18.postimg.cc/vunvhvvrt/img2.jpg" />
-			<img style={} src="https://s18.postimg.cc/tdc4amjl5/img3.jpg" />
+			<img src={Car1} />
+			<img src="https://s18.postimg.cc/vunvhvvrt/img2.jpg" />
+			<img src="https://s18.postimg.cc/tdc4amjl5/img3.jpg" />
 		</Slider>
 		);
 	}
