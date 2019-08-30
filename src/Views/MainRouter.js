@@ -9,6 +9,7 @@ import Redirection from './Redirection'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 function App() {
+	console.log("test");
 	return (
 		<Router>
 			<div>
