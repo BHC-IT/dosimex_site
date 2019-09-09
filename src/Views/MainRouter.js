@@ -1,22 +1,23 @@
 import React from 'react';
-import logo from '../logo.svg';
 import '../Styles/App.css';
 
 import About from './About'
 import Home from './Home'
 import Redirection from './Redirection'
-import Navbar from './components/navbar'
+import Navbar from '../Components/navbar'
 import Offres from './Offres'
 import Tutos from './Tutos'
 import Team from './Team'
 
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+import Color from '../Styles/colorSchemes.js'
+
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function App() {
-	console.log("test");
 	return (
 		<Router>
-			<div>
+			<div style={{backgroundColor:Color.lightergrey}} >
                                 <Navbar/>
                                 <Route exact path="/" component={Home} />
 				<Route path="/about" component={About} />

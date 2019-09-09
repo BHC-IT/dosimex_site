@@ -1,6 +1,6 @@
 import React from 'react';
 import Slider from 'react-animated-slider';
-import Car1 from '../../Images/image1Carousel.jpg'
+import Car1 from '../Images/image1Carousel.jpg'
 import 'react-animated-slider/build/horizontal.css';
 
 export default class Carousel extends React.Component {
