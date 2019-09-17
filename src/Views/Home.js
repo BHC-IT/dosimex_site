@@ -60,7 +60,6 @@ export default class Home extends React.Component {
 	}
 
 	componentWillMount(){
-		console.log("mount");
 		this.updateWindowDimensions();
 		window.addEventListener('resize', this.updateWindowDimensions);
 		// scroll.scrollToBottom();
@@ -131,7 +130,7 @@ export default class Home extends React.Component {
 						<FaQuoteLeft color={Color.blue} size={50} />
 					</Col>
 					<Col xs={{span:9}} >
-						<p style={{textAlign: 'justify', color:Color.blue, fontWeight:'bold', fontSize:30}} >Depuis maintenant 9 ans, nous proposons un ensemble de codes opérationnels simples d’emploi, validés, et qui permettent de répondre à de nombreuses situations rencontrées en radioprotection</p>
+						<p style={{textAlign: 'justify', color:Color.blue, fontWeight:'bold', fontStyle: 'italic', fontSize:30}} >Depuis maintenant 9 ans, nous proposons un ensemble de codes opérationnels simples d’emploi, validés, et qui permettent de répondre à de nombreuses situations rencontrées en radioprotection</p>
 					</Col>
 					<Col xs={{span:1}} style={{marginTop:40}} >
 						<FaQuoteRight color={Color.blue} size={50} />
@@ -148,7 +147,7 @@ export default class Home extends React.Component {
 					</Row>
 					<Row style={{justifyContent:'center'}} >
 						<Col xs={8} >
-							<p style={{textAlign: 'justify', color:Color.blue, fontWeight:'bold', fontSize:20}} >Depuis maintenant 9 ans, nous proposons un ensemble de codes opérationnels simples d’emploi, validés, et qui permettent de répondre à de nombreuses situations rencontrées en radioprotection</p>
+							<p style={{textAlign: 'justify', color:Color.blue, fontWeight:'bold', fontStyle: 'italic', fontSize:20}} >Depuis maintenant 9 ans, nous proposons un ensemble de codes opérationnels simples d’emploi, validés, et qui permettent de répondre à de nombreuses situations rencontrées en radioprotection</p>
 						</Col>
 					</Row>
 					<Row style={{}} >
