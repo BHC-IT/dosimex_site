@@ -8,6 +8,8 @@ import {Row, Col, Accordion, Button, Card} from 'react-bootstrap'
 
 import Color from '../Styles/colorSchemes.js'
 
+import image from '../Folders/DevisAryaV2.docx'
+
 export default class About extends React.Component {
 
 	constructor(props){
@@ -16,11 +18,16 @@ export default class About extends React.Component {
 
 	render(){
 		return (
-			<div style={{height:'100vh'}}>
-				<div style={{height:'100vh', backgroundColor:Color.green}} >
-					<Row style={{}} >
+			<div style={{height:'100%'}}>
+				<div style={{height:'100%', backgroundColor:Color.green}} >
+					<Row style={{marginTop:20}} >
 						<Col xs={{span:10, offset:1}} style={{backgroundColor:Color.red}} >
-							<Link to={'/'}>Home</Link>
+							<Row>
+								<Link to={'/'}>Home</Link>
+							</Row>
+							<Row>
+								<a href={image} >pdf</a>
+							</Row>
 						</Col>
 					</Row>
 				</div>
