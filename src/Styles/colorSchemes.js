@@ -8,5 +8,7 @@ export default  {
 	dark:"#1a1a1a",
 	black:'black',
 	white:'white',
-	darkBlue:"#0000e6"
+	darkBlue:"#0000e6",
+
+	Tlightgrey:"rgba(211,211,211, 0.8)"
 }

@@ -9,8 +9,8 @@ import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } 
 import Color from '../Styles/colorSchemes.js'
 import Size from '../Styles/Size.js'
 
-import i1a from "../Images/1a.png"
-import i1b from "../Images/1b.png"
+import i1a from "../Images/1a_t.png"
+import i1b from "../Images/1b_t.png"
 // import i1c from "../Images/image1c.png"
 // import i1d from "../Images/image1d.png"
 
@@ -105,7 +105,8 @@ export default class Home extends React.Component {
 
 	_packshot({pack}){
 		return (
-			<div>
+			<div style={{marginTop:10}} >
+				<p style={{textAlign:'center', color:Color.red, fontSize:22, fontWeight:'bold'}} >{pack.title}</p>
 				{pack.text.split('\n').map((t, i) => {
 					return (
 						<p style={{textAlign: 'justify'}} key={i}>{t}</p>
@@ -162,7 +163,7 @@ export default class Home extends React.Component {
 	renderPackshot = () => {
 		if (Size.greaterMd()){
 			return (
-				<Row style={{justifyContent:'space-between', height:this.state.height}} >
+				<Row style={{justifyContent:'space-between', height:'99vh'}} >
 					<Col xs={{span:3}} style={{ marginLeft:this.state.width/24, backgroundColor:Color.lightgrey}} >
 						<this._packshot pack={pack1} />
 					</Col>
@@ -177,12 +178,12 @@ export default class Home extends React.Component {
 		} else {
 			return (
 				<Row style={{height:this.state.height, justifyContent:'center'}} >
-					<Col xs={{span:9, offset:1}}  >
+					<Col xs={{span:12, offset:0}}  >
 						<Accordion>
 							<Card>
 								<Card.Header>
 									<Accordion.Toggle as={Button} variant="link" eventKey="0">
-										<p>Click me!</p>
+										<p style={{textAlign:'center'}} >{pack1.title}</p>
 									</Accordion.Toggle>
 								</Card.Header>
 								<Accordion.Collapse eventKey="0">
@@ -195,10 +196,10 @@ export default class Home extends React.Component {
 									</Card.Body>
 								</Accordion.Collapse>
 							</Card>
-							<Card>
-								<Card.Header>
-									<Accordion.Toggle as={Button} variant="link" eventKey="1">
-										<p>Click me!</p>
+							<Card color={Color.red} >
+								<Card.Header style={{alignItems:'center'}} >
+									<Accordion.Toggle style={{justifyContent:'center'}} as={Button} variant="link" eventKey="1">
+										<p>{pack2.title}</p>
 									</Accordion.Toggle>
 								</Card.Header>
 								<Accordion.Collapse eventKey="1">
@@ -214,7 +215,7 @@ export default class Home extends React.Component {
 							<Card>
 								<Card.Header>
 									<Accordion.Toggle as={Button} variant="link" eventKey="2">
-										<p>Click me!</p>
+										<p>{pack3.title}</p>
 									</Accordion.Toggle>
 								</Card.Header>
 								<Accordion.Collapse eventKey="2">
@@ -238,7 +239,6 @@ export default class Home extends React.Component {
 	}
 
 	render(){
-		console.log('screen size : ', this.state.width, "/", this.state.height);
 		return (
 			<div style={{width:'100%'}} >
 				<div style={{backgroundColor:Color.lightergrey, height:this.state.height, width:'100%'}} >
@@ -253,8 +253,8 @@ export default class Home extends React.Component {
 												src={s.uri}
 											/>
 											<Carousel.Caption style={{}} >
-												<h1 style={{color:Color.darkBlue, fontSize:50, fontWeight:'bold', backgroundColor:Color.white, marginBottom:175 }} >{s.title}</h1>
-												<p style={{color:Color.darkBlue, fontSize:30, fontWeight:'bold', backgroundColor:Color.white}} >{s.text}</p>
+												<h1 style={{color:Color.darkBlue, fontSize:50, fontWeight:'bold', marginBottom:175 }} >{s.title}</h1>
+												<p style={{color:Color.darkBlue, fontSize:30, fontWeight:'bold', backgroundColor:Color.Tlightgrey}} >{s.text}</p>
 											</Carousel.Caption>
 										</Carousel.Item>
 									);
@@ -333,6 +333,7 @@ const pack1 = {
 		dossiers de validations (comportant plus de 1000 valeurs de références (MCNP, RayXpert,\
 		Mercurad... )\n\
 		consulter les dossiers de validations de Dosimex-GX",
+	title:"pack opérationel"
 }
 
 const pack2 = {
@@ -350,7 +351,8 @@ const pack2 = {
 		o mieux comprendre la physique sous-jacente aux aspects de dose, de protection et de\n\
 		détection,\n\
 		o développer un sens physique permettant d’analyser plus sûrement les\n\
-		problématiques dans une situation donnée."
+		problématiques dans une situation donnée.",
+	title:"pack pédagogique"
 }
 
 const pack3 = {
@@ -361,5 +363,6 @@ const pack3 = {
 		o Calculs de seuil de décision et limite de détection\n\
 		o Outil Monte-Carlo de composition de variables aléatoires et d’incertitudes\
 		Accompagnés de documents de cours complets, ils complèteront vos capacités\
-		opérationnelles"
+		opérationnelles",
+	title:"pack mesure"
 }

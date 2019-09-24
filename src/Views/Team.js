@@ -54,13 +54,13 @@ export default class Team extends React.Component {
 			<div style={{marginTop:10, marginBottom:10}} >
 				<Row style={{}} >
 					<Col xs={{span:8, offset:2}} style={{justifyContent:'center', justifyContent:'center', alignItems:'center'}} >
-						<p style={{textAlign: 'center', fontWeight:'bold', fontSize:30}} >{user.name}</p>
+						<p style={{textAlign: 'center', fontWeight:'bold', fontSize:Size.greaterMd() ? 30 : 10}} >{user.name}</p>
 					</Col>
 					<Col xs={{span:8, offset:2}} style={{justifyContent:'center', marginTop:5, justifyContent:'center', alignItems:'center'}} >
 						<img className="d-block w-100" src={user.img}/>
 					</Col>
 					<Col xs={{span:12}} style={{justifyContent:'center', marginTop:5, justifyContent:'center', alignItems:'center'}} >
-						<p style={{textAlign: 'justify', fontSize:20}} >{user.text}</p>
+						<p style={{textAlign: 'justify', fontSize:Size.greaterMd() ? 20 : 7}} >{user.text}</p>
 					</Col>
 				</Row>
 			</div>
