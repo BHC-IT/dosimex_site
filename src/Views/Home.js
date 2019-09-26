@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactPageScroller from "react-page-scroller";
 import '../Styles/Landing.css'
-import {Carousel, Container, Row, Col, Accordion, Button, Card} from 'react-bootstrap'
+import {Carousel, Row, Col, Accordion, Button, Card} from 'react-bootstrap'
 
 import * as Scroll from 'react-scroll';
-import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+
+import { Link } from "react-router-dom";
 
 import Color from '../Styles/colorSchemes.js'
 import Size from '../Styles/Size.js'
@@ -63,7 +65,6 @@ export default class Home extends React.Component {
 		this.updateWindowDimensions();
 		window.addEventListener('resize', this.updateWindowDimensions);
 		// scroll.scrollToBottom();
-
 		Events.scrollEvent.register('end', (to, element) => {
 			if (this.state.offset === 1)
 				this.setState({offset:9999});
@@ -72,6 +73,7 @@ export default class Home extends React.Component {
 		});
 
 		window.onscroll = () => {
+			console.log("trigger");
 			if (!Size.greaterMd()){
 				if (window.pageYOffset < 20)
 					this.setState({offset:0});
@@ -97,10 +99,11 @@ export default class Home extends React.Component {
 			}
 		}
 
-		scrollSpy.update();
+		// scrollSpy.update();
 	}
 	componentWillUnmount(){
 		window.removeEventListener('resize', this.updateWindowDimensions);
+		window.onscroll = () => {};
 	}
 
 	_packshot({pack}){
@@ -112,6 +115,9 @@ export default class Home extends React.Component {
 						<p style={{textAlign: 'justify'}} key={i}>{t}</p>
 					);
 				})}
+				<Row style={{justifyContent:'center', bottom:'10em', position:'absolute', width:'100%'}} >
+					<Link style={{width:'100%'}} to={pack.url}> <p style={{textAlign:'center'}} >plus d'information</p> </Link>
+				</Row>
 				<div ref={(r) => {}} >
 					<Element name="bottom" />
 				</div>
@@ -315,7 +321,6 @@ export default class Home extends React.Component {
 	}
 }
 
-
 const pack1 = {
 	text:"	o Exposition externe gamma, générateurs X, NF C-15_160 (2018)\n\
 		o Exposition externe Bêtas\n\
@@ -333,7 +338,8 @@ const pack1 = {
 		dossiers de validations (comportant plus de 1000 valeurs de références (MCNP, RayXpert,\
 		Mercurad... )\n\
 		consulter les dossiers de validations de Dosimex-GX",
-	title:"pack opérationel"
+	title:"pack opérationel",
+	url:"/offres/packOperationel"
 }
 
 const pack2 = {
@@ -350,9 +356,10 @@ const pack2 = {
 		Ils vous permettront de :\n\
 		o mieux comprendre la physique sous-jacente aux aspects de dose, de protection et de\n\
 		détection,\n\
-		o développer un sens physique permettant d’analyser plus sûrement les\n\
+		o développer un sens physique permettant d’analyser plus sûrement les\
 		problématiques dans une situation donnée.",
-	title:"pack pédagogique"
+	title:"pack pédagogique",
+	url:"/offres/packPedagogique"
 }
 
 const pack3 = {
@@ -364,5 +371,6 @@ const pack3 = {
 		o Outil Monte-Carlo de composition de variables aléatoires et d’incertitudes\
 		Accompagnés de documents de cours complets, ils complèteront vos capacités\
 		opérationnelles",
-	title:"pack mesure"
+	title:"pack mesure",
+	url:"/offres/packMesure"
 }

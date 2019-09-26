@@ -50,11 +50,18 @@ class App extends React.Component {
 							<Redirection/>
 						);
 					}} />
-					<Route path="/offres" render={() => {
+					<Route path="/offres/:pack" render={({match}) => {
 						if (this.state.route !== 'Les offres Dosimex')
 							this.setState({route:'Les offres Dosimex'});
 						return(
-							<Offres/>
+							<Offres pack={match.params.pack} />
+						);
+					}} />
+					<Route exact path="/offres" render={() => {
+						if (this.state.route !== 'Les offres Dosimex')
+							this.setState({route:'Les offres Dosimex'});
+						return(
+							<Offres />
 						);
 					}} />
 					<Route path="/tutos" render={() => {
