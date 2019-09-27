@@ -32,8 +32,6 @@ export default class Home extends React.Component {
 	}
 
 	_keepTrack(i){
-		console.log(i);
-		console.log(this.state.currOpen);
 		if (this.state.currOpen === i)
 			this.setState({currOpen:null});
 		else

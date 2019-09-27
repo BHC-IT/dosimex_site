@@ -45,13 +45,13 @@ class MenuExamplePointing extends Component {
 				<Menu pointing style={{backgroundColor: Color.red, height:'5vh'}}>
 					<Menu.Item
 						style={{color: "white", fontSize:Size.greaterMd() ? 20 : 7, fontWeight:'bold'}}
-						name='Home'
+						name='Accueil'
 						active={this.props.route === 'Home'}
 						onClick={(e, name) => this.redirectTo(e, name, "/")}
 					/>
 					<Menu.Item
 						style={{color: "white", fontSize:Size.greaterMd() ? 20 : 7, fontWeight:'bold'}}
-						name='A propos'
+						name='Documentation'
 						active={this.props.route === 'A propos'}
 						onClick={(e, name) => this.redirectTo(e, name, "/about")}
 					/>
@@ -69,7 +69,7 @@ class MenuExamplePointing extends Component {
 					/>
 					<Menu.Item
 						style={{color: "white", fontSize:Size.greaterMd() ? 20 : 7, fontWeight:'bold'}}
-						name='Nos tutos'
+						name='Nos videos'
 						active={this.props.route === 'Nos tutos'}
 						onClick={(e, name) => this.redirectTo(e, name, "/tutos")}
 					/>
@@ -78,6 +78,13 @@ class MenuExamplePointing extends Component {
 						name='Formation'
 						active={this.props.route === 'Formation'}
 						onClick={(e, name) => this.redirectTo(e, name, "/Formation")}
+					/>
+					<Menu.Item
+						style={{color: "white", fontSize:Size.greaterMd() ? 20 : 7, fontWeight:'bold'}}
+						name='Achetez dosimex'
+						active={this.props.route === 'Formation'}
+						onClick={(e, name) => this.redirectTo(e, name, "/Formation")}
+						position='right'
 					/>
 				</Menu>
 			</div>

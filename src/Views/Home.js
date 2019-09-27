@@ -13,6 +13,10 @@ import Size from '../Styles/Size.js'
 
 import i1a from "../Images/1a_t.png"
 import i1b from "../Images/1b_t.png"
+import i1c from "../Images/1c_t.png"
+
+import arrow_right from '../Images/arrow_right.png'
+import arrow_left from '../Images/arrow_left.png'
 // import i1c from "../Images/image1c.png"
 // import i1d from "../Images/image1d.png"
 
@@ -27,6 +31,11 @@ const slides = [
 	},
 	{
 		uri:i1b,
+		title:"First slide label",
+		text:"Nulla vitae elit libero, a pharetra augue mollis interdum."
+	},
+	{
+		uri:i1c,
 		title:"First slide label",
 		text:"Nulla vitae elit libero, a pharetra augue mollis interdum."
 	},
@@ -137,7 +146,7 @@ export default class Home extends React.Component {
 						<FaQuoteLeft color={Color.blue} size={50} />
 					</Col>
 					<Col xs={{span:9}} >
-						<p style={{textAlign: 'justify', color:Color.blue, fontWeight:'bold', fontStyle: 'italic', fontSize:30}} >Depuis maintenant 9 ans, nous proposons un ensemble de codes opérationnels simples d’emploi, validés, et qui permettent de répondre à de nombreuses situations rencontrées en radioprotection</p>
+						<p style={{textAlign: 'justify', color:Color.blue, fontWeight:'bold', fontStyle: 'italic', fontSize:30}} >Depuis 2012, nous vous proposons un ensemble de codes opérationnels simples d’emploi, validés, et qui permettent de répondre à de nombreuses situations rencontrées en radioprotection.</p>
 					</Col>
 					<Col xs={{span:1}} style={{marginTop:40}} >
 						<FaQuoteRight color={Color.blue} size={50} />
@@ -154,7 +163,7 @@ export default class Home extends React.Component {
 					</Row>
 					<Row style={{justifyContent:'center'}} >
 						<Col xs={8} >
-							<p style={{textAlign: 'justify', color:Color.blue, fontWeight:'bold', fontStyle: 'italic', fontSize:20}} >Depuis maintenant 9 ans, nous proposons un ensemble de codes opérationnels simples d’emploi, validés, et qui permettent de répondre à de nombreuses situations rencontrées en radioprotection</p>
+							<p style={{textAlign: 'justify', color:Color.blue, fontWeight:'bold', fontStyle: 'italic', fontSize:20}} >Depuis 2012, nous vous proposons un ensemble de codes opérationnels simples d’emploi, validés, et qui permettent de répondre à de nombreuses situations rencontrées en radioprotection.</p>
 						</Col>
 					</Row>
 					<Row style={{}} >
@@ -250,7 +259,7 @@ export default class Home extends React.Component {
 				<div style={{backgroundColor:Color.lightergrey, height:this.state.height, width:'100%'}} >
 					<Row style={{backgroundColor:Color.lightergrey, justifyContent:'center', marginBottom:Size.greaterMd() ? 100 : 25 }}>
 						<Col className="d-none d-md-block" md={6} style={{marginTop:20}} >
-							<Carousel>
+							<Carousel nextIcon={<img src={arrow_right} />} prevIcon={<img src={arrow_left} /> } >
 								{slides.map((s, i) => {
 									return (
 										<Carousel.Item key={i} >
@@ -259,7 +268,7 @@ export default class Home extends React.Component {
 												src={s.uri}
 											/>
 											<Carousel.Caption style={{}} >
-												<h1 style={{color:Color.darkBlue, fontSize:50, fontWeight:'bold', marginBottom:175 }} >{s.title}</h1>
+												<h1 style={{color:Color.darkBlue, fontSize:50, fontWeight:'bold', marginBottom:175, backgroundColor:Color.Tlightgrey }} >{s.title}</h1>
 												<p style={{color:Color.darkBlue, fontSize:30, fontWeight:'bold', backgroundColor:Color.Tlightgrey}} >{s.text}</p>
 											</Carousel.Caption>
 										</Carousel.Item>

@@ -8,7 +8,7 @@ import {Row, Col, Accordion, Button, Card} from 'react-bootstrap'
 
 import Color from '../Styles/colorSchemes.js'
 
-import image from '../Folders/DevisAryaV2.docx'
+import image from '../Folders/DevisAryaV2.pdf'
 
 import TextSpliter from '../Components/TextSpliter.js'
 
