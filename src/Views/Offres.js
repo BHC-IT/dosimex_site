@@ -4,6 +4,8 @@ import { Row, Col, Accordion, Button, Card} from 'react-bootstrap'
 
 import Color from '../Styles/colorSchemes.js'
 
+import { Link } from "react-router-dom";
+
 import TextSpliter from '../Components/TextSpliter.js'
 
 const transform = {
@@ -56,6 +58,7 @@ export default class Home extends React.Component {
 						<Accordion.Collapse eventKey="0">
 							<Card.Body style={{backgroundColor:Color.lightergrey, height:'71vh'}} >
 								<TextSpliter text={pack1.text} textStyle={{textAlign: 'justify', fontSize:25}}/>
+								<Link style={{width:'100%'}} to={pack1.url}> <p style={{marginTop:75, textAlign:'center', fontSize:25, color:Color.red}} >voir les videos</p> </Link>
 							</Card.Body>
 						</Accordion.Collapse>
 					</Card>
@@ -68,6 +71,7 @@ export default class Home extends React.Component {
 						<Accordion.Collapse eventKey="1">
 							<Card.Body style={{backgroundColor:Color.lightergrey, height:'71vh'}} >
 								<TextSpliter text={pack2.text} textStyle={{textAlign: 'justify', fontSize:25}}/>
+								<Link style={{width:'100%'}} to={pack2.url}> <p style={{marginTop:75, textAlign:'center', fontSize:25, color:Color.red}} >voir les videos</p> </Link>
 							</Card.Body>
 						</Accordion.Collapse>
 					</Card>
@@ -80,6 +84,7 @@ export default class Home extends React.Component {
 						<Accordion.Collapse eventKey="2">
 							<Card.Body style={{backgroundColor:Color.lightergrey, height:'71vh'}} >
 								<TextSpliter text={pack3.text} textStyle={{textAlign: 'justify', fontSize:25}}/>
+								<Link style={{width:'100%'}} to={pack3.url}> <p style={{marginTop:75, textAlign:'center', fontSize:25, color:Color.red}} >voir les videos</p> </Link>
 							</Card.Body>
 						</Accordion.Collapse>
 					</Card>
@@ -108,6 +113,7 @@ const pack1 = {
 		absorbées par unité d’activité administrée pour les radiopharmaceutiques recensés dans les\
 		CIPR 53, 80, 106 et 128",
 	title:"Pack opérationel",
+	url:"/tutos/packOperationel"
 }
 
 const pack2 = {
@@ -127,6 +133,7 @@ const pack2 = {
 		fluence-équivalents de dose et kerma air normalisés pour les électrons, les\
 		photons et les neutrons.",
 	title:"Pack pédagogique",
+	url:"/tutos/packPedagogique"
 }
 
 const pack3 = {
@@ -144,4 +151,5 @@ const pack3 = {
 		la limite de détection en mesure nucléaire. Cet utilitaire est accompagné des\
 		documents de cours complets sur ce sujet et d’articles divers.",
 	title:"pack mesure",
+	url:"/tutos/packMesure"
 }

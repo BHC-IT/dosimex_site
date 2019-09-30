@@ -3,7 +3,7 @@ import '../Styles/App.css';
 
 import About from './About'
 import Home from './Home'
-import Redirection from './Redirection'
+import Formation from './Formation'
 import Navbar from '../Components/navbar'
 import Offres from './Offres'
 import Tutos from './Tutos'
@@ -47,7 +47,7 @@ class App extends React.Component {
 						if (this.state.route !== 'Formation')
 							this.setState({route:'Formation'});
 						return(
-							<Redirection/>
+							<Formation/>
 						);
 					}} />
 					<Route path="/offres/:pack" render={({match}) => {
@@ -64,7 +64,14 @@ class App extends React.Component {
 							<Offres />
 						);
 					}} />
-					<Route path="/tutos" render={() => {
+					<Route path="/tutos/:pack" render={({match}) => {
+						if (this.state.route !== 'Nos tutos')
+							this.setState({route:'Nos tutos'});
+						return(
+							<Tutos pack={match.params.pack} />
+						);
+					}} />
+					<Route exact path="/tutos" render={() => {
 						if (this.state.route !== 'Nos tutos')
 							this.setState({route:'Nos tutos'});
 						return(
@@ -78,7 +85,6 @@ class App extends React.Component {
 							<Team/>
 						);
 					}} />
-				{/* <div></div> */}
 
 				</div>
 			</Router>
