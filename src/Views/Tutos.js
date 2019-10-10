@@ -96,6 +96,17 @@ export default class Home extends React.Component {
 
 }
 
+const videoStyle = {
+	position: 'fixed',
+	right: 0,
+	bottom: 0,
+	minWidth: '100%',
+	minHeight: '100%',
+	width: 'auto',
+	height: 'auto',
+	zIndex: -100,
+}
+
 const pack1 = {
 	text:"	SOMMAIRE DOSIMEX OPERATIONNEL\n\
 		✓ DOSIMEX-GX 3.0 : code de calcul déterministe de débit de dose émetteurs gamma\

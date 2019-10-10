@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import Color from '../Styles/colorSchemes.js'
 import Size from '../Styles/Size.js'
 
+import logoDosi from "../Images/logo_dosimex.png"
 import i1a from "../Images/1a_t.png"
 import i1b from "../Images/1b_t.png"
 import i1c from "../Images/1c_t.png"
@@ -24,6 +25,11 @@ import { FaQuoteLeft } from 'react-icons/fa'
 import { FaQuoteRight } from 'react-icons/fa'
 
 const slides = [
+	{
+		uri:logoDosi,
+		title:"",
+		text:""
+	},
 	{
 		uri:i1a,
 		title:"DOSIMEX-GX",
@@ -268,8 +274,8 @@ export default class Home extends React.Component {
 												src={s.uri}
 											/>
 											<Carousel.Caption style={{}} >
-												<h1 style={{color:Color.darkBlue, fontSize:50, fontWeight:'bold', marginBottom:175, backgroundColor:Color.Tlightgrey }} >{s.title}</h1>
-												<p style={{color:Color.darkBlue, fontSize:30, fontWeight:'bold', backgroundColor:Color.Tlightgrey}} >{s.text}</p>
+												{s.title ? <h1 style={{color:Color.darkBlue, fontSize:50, fontWeight:'bold', marginBottom:175, backgroundColor:Color.Tlightgrey }} >{s.title}</h1> : null}
+												{s.text ? <p style={{color:Color.darkBlue, fontSize:30, fontWeight:'bold', backgroundColor:Color.Tlightgrey}} >{s.text}</p> : null}
 											</Carousel.Caption>
 										</Carousel.Item>
 									);

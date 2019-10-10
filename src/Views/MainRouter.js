@@ -8,7 +8,7 @@ import Navbar from '../Components/navbar'
 import Offres from './Offres'
 import Tutos from './Tutos'
 import Team from './Team'
-
+import Lecture from './Lecture'
 
 import Color from '../Styles/colorSchemes.js'
 
@@ -76,6 +76,20 @@ class App extends React.Component {
 							this.setState({route:'Nos tutos'});
 						return(
 							<Tutos/>
+						);
+					}} />
+					<Route path="/lecture/:pack" render={({match}) => {
+						if (this.state.route !== 'Lecture')
+							this.setState({route:'Lecture'});
+						return(
+							<Lecture pack={match.params.pack} />
+						);
+					}} />
+					<Route exact path="/lecture" render={() => {
+						if (this.state.route !== 'Lecture')
+							this.setState({route:'Lecture'});
+						return(
+							<Lecture/>
 						);
 					}} />
 					<Route path="/equipe" render={() => {

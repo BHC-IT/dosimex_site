@@ -8,6 +8,8 @@ import { Link } from "react-router-dom";
 
 import TextSpliter from '../Components/TextSpliter.js'
 
+import Retour from '../Folders/Synthèse_retour_utilisateurs_Dosimex.pdf'
+
 const transform = {
 	packOperationel:'0',
 	packPedagogique:'1',
@@ -92,46 +94,32 @@ export default class Home extends React.Component {
 			</Row>
 		);
 	}
-
 }
 
 const pack1 = {
-	text:"	SOMMAIRE DOSIMEX OPERATIONNEL\n\
-		✓ DOSIMEX-GX 3.0 : code de calcul déterministe de débit de dose émetteurs gamma\
-		(sources volumiques, surfaciques...) et générateur X, avec option feuille de calcul\
-		norme NF C15-160 /2018. Effet de ciel, rayonnement de freinage....\n\
-		✓ DOSIMEX-B 3 : code de calcul déterministe de débit de dose émetteur bêta et\
-		électrons monoénergétiques . Prise en compte sources volumiques (bécher,\
-		seringue) ou surfaciques (contamination peau)\n\
-		✓ DOSIMEX-N 3 : code de calcul de débit de dose Monte-Carlo émetteur neutron\
-		(type Am/Be) avec protection biologique (eau, polyéthylène, Bore, Cadmium etc..).\
-		Module pédagogique avec visualisation trajectoire neutron\n\
-		✓ DOSIMEX-I 3.0 : code de calcul de cinétique d’expositions dans un local suite à une\
-		contamination volumique (fuite continue, bouffée..). Calculs de transfert\
-		atmosphérique. Calcul mélanges RAI/RAV/RCA\n\
-		✓ DOSIMEX-MN 1.0 utilitaire de gestion de données permettant de connaitre les doses\
-		absorbées par unité d’activité administrée pour les radiopharmaceutiques recensés dans les\
-		CIPR 53, 80, 106 et 128",
+	text:"	Depuis maintenant 9 ans, nous proposons un ensemble de codes opérationnels simples d’emploi, validés, et qui permettent de répondre à de nombreuses situations rencontrées en radioprotection :\n\
+		• Exposition externe  gamma, générateurs X, NF C-15_160 (2018)\n\
+		• Exposition externe Bêtas\n\
+		• Exposition externe neutrons\n\
+		• Exposition interne, contamination volumiques, transfert atmosphérique\n\
+		• Dose patient en médecine nucléaire (radiopharmaceutiques)\n\
+		Ils vous permettront d’estimer les risques radiologiques à leurs justes hauteurs et de concevoir les protections nécessaires, de réaliser des prédictifs de dose, d’affiner vos démarches ALARA …. Quelles que soient vos fonctions dans le domaine de la radioprotection, ces codes vous permettront d’augmenter votre niveau d’expertise.\n\
+		Grâce à une collaboration active avec les utilisateurs de DOSIMEX 2.O (voir <a href=\"" + Retour + "\">Retours utilisateurs</a>) , Le pack DOSIMEX 3.0 bénéficie de nombreuses améliorations : Voir ici les modifications apportés à la version 3.0 de Dosimex-GX\n\
+		et des dossiers de validations renforcées. Dosimex-GX est accompagné à lui seul de 3 dossiers de validations  (comportant plus de 1000 valeurs de références (MCNP, RayXpert, Mercurad... )",
 	title:"Pack opérationel",
 	url:"/tutos/packOperationel"
 }
 
 const pack2 = {
-	text:"SOMMAIRE DOSIMEX PEDAGOGIQUE\n\
-		✓ IRM photon 3.0: utilitaire mettant en œuvre les principes d’interactions\
-		photon –matières dans les matériaux avec diverses applications : calcul de\
-		kerma, de dose, de libre parcours moyen, effet Compton, visualisation de\
-		trajectoires (Monte-Carlo).\n\
-		✓ IRM particules chargées 3..0 : utilitaire mettant en œuvre les principes\
-		d’interactions particules chargées–matières dans les matériaux avec diverses\
-		applications : calcul de parcours, de coefficient fluence-kerma, application aux\
-		spectres bêta.\n\
-		✓ Serious Game 3.0 : utilitaire à vocation pédagogique permettant de mettre en\
-		évidence les paramètres essentiels de la radioprotection : distance, temps,\
-		écran, activité, nature radionucléide\n\
-		✓ Coefficients ICRU 57 3.0 : utilitaire permettant de connaitre les coefficients\
-		fluence-équivalents de dose et kerma air normalisés pour les électrons, les\
-		photons et les neutrons.",
+	text:"En complément des outils à vocation opérationnelle, nous  proposons des outils à vocation pédagogique :\n\
+		• Interaction photon-matière\n\
+		• Interaction particules chargées-matière\n\
+		• Coefficient fluence /équivalent de dose (ICRU 57)\n\
+		• Serious Game (dose gamma, écran, zonage)…\n\
+		Leur objectif est de mieux comprendre la physique de l’interaction rayonnement-matière, à l’origine des doses générées par expositions aux rayonnements ionisants et des capacités de protections des écrans susceptibles d’être mis en œuvre contre ces même rayonnements.\
+		Ils vous permettront de :\n\
+		• mieux comprendre la physique sous-jacente aux aspects de dose, de protection et de détection,\n\
+		• développer un sens physique permettant d’analyser plus sûrement les problématiques dans une situation donnée.",
 	title:"Pack pédagogique",
 	url:"/tutos/packPedagogique"
 }

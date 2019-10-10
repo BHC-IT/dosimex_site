@@ -51,18 +51,6 @@ class MenuExamplePointing extends Component {
 					/>
 					<Menu.Item
 						style={{color: "white", fontSize:Size.greaterMd() ? 20 : 7, fontWeight:'bold'}}
-						name='Documentation'
-						active={this.props.route === 'A propos'}
-						onClick={(e, name) => this.redirectTo(e, name, "/about")}
-					/>
-					<Menu.Item
-						style={{color: "white", fontSize:Size.greaterMd() ? 20 : 7, fontWeight:'bold'}}
-						name='Notre équipe'
-						active={this.props.route === 'Notre équipe'}
-						onClick={(e, name) => this.redirectTo(e, name, "/equipe")}
-					/>
-					<Menu.Item
-						style={{color: "white", fontSize:Size.greaterMd() ? 20 : 7, fontWeight:'bold'}}
 						name='Les offres Dosimex'
 						active={this.props.route === 'Les offres Dosimex'}
 						onClick={(e, name) => this.redirectTo(e, name, "/offres")}
@@ -72,6 +60,24 @@ class MenuExamplePointing extends Component {
 						name='Nos videos'
 						active={this.props.route === 'Nos tutos'}
 						onClick={(e, name) => this.redirectTo(e, name, "/tutos")}
+					/>
+					<Menu.Item
+						style={{color: "white", fontSize:Size.greaterMd() ? 20 : 7, fontWeight:'bold'}}
+						name='Manuels et validation'
+						active={this.props.route === 'A propos'}
+						onClick={(e, name) => this.redirectTo(e, name, "/about")}
+					/>
+					<Menu.Item
+						style={{color: "white", fontSize:Size.greaterMd() ? 20 : 7, fontWeight:'bold'}}
+						name='Lectures'
+						active={this.props.route === 'Lecture'}
+						onClick={(e, name) => this.redirectTo(e, name, "/lecture")}
+					/>
+					<Menu.Item
+						style={{color: "white", fontSize:Size.greaterMd() ? 20 : 7, fontWeight:'bold'}}
+						name='Notre équipe'
+						active={this.props.route === 'Notre équipe'}
+						onClick={(e, name) => this.redirectTo(e, name, "/equipe")}
 					/>
 					<Menu.Item
 						style={{color: "white", fontSize:Size.greaterMd() ? 20 : 7, fontWeight:'bold'}}
