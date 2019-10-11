@@ -71,7 +71,7 @@ export default class About extends React.Component {
 								<TextSpliter textStyle={{textAlign:'justify', fontSize:20, margin:10, marginLeft:15, marginRight:15}} text={documentation} />
 							</Row>
 							<Row style={{justifyContent:'center'}} >
-								<a href={Catalogue} ><p style={{fontSize:22}} >voir catalogue complet des formations </p></a>
+								<a href={Catalogue} target="_blank" ><p style={{fontSize:22}} >voir catalogue complet des formations </p></a>
 							</Row>
 						</Col>
 					</Row>

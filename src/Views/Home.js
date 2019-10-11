@@ -28,7 +28,7 @@ const slides = [
 	{
 		uri:logoDosi,
 		title:"",
-		text:""
+		text:"Outils de calcul radioprotection et formations associées"
 	},
 	{
 		uri:i1a,
@@ -295,7 +295,7 @@ export default class Home extends React.Component {
 						}} >
 							<Col style={{justifyContent:'center'}} >
 								<Row style={{justifyContent:'center'}} >
-									<p style={{fontWeight:'bold', fontSize:20, color:Color.blue}}>PACK</p>
+									<p style={{fontWeight:'bold', fontSize:20, color:Color.blue}}>PRESENTATION PACK</p>
 								</Row>
 								<Row style={{justifyContent:'center'}} >
 									<p style={{fontWeight:'bold', fontSize:25, color:Color.blue}}>V</p>
@@ -353,7 +353,7 @@ const pack1 = {
 		dossiers de validations (comportant plus de 1000 valeurs de références (MCNP, RayXpert,\
 		Mercurad... )\n\
 		consulter les dossiers de validations de Dosimex-GX",
-	title:"pack opérationel",
+	title:"pack opérationel".toUpperCase(),
 	url:"/offres/packOperationel"
 }
 
@@ -373,7 +373,7 @@ const pack2 = {
 		détection,\n\
 		o développer un sens physique permettant d’analyser plus sûrement les\
 		problématiques dans une situation donnée.",
-	title:"pack pédagogique",
+	title:"pack pédagogique".toUpperCase(),
 	url:"/offres/packPedagogique"
 }
 
@@ -386,6 +386,6 @@ const pack3 = {
 		o Outil Monte-Carlo de composition de variables aléatoires et d’incertitudes\
 		Accompagnés de documents de cours complets, ils complèteront vos capacités\
 		opérationnelles",
-	title:"pack mesure",
+	title:"pack mesure".toUpperCase(),
 	url:"/offres/packMesure"
 }

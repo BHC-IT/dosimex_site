@@ -97,14 +97,14 @@ export default class Home extends React.Component {
 }
 
 const pack1 = {
-	text:"	Depuis maintenant 9 ans, nous proposons un ensemble de codes opérationnels simples d’emploi, validés, et qui permettent de répondre à de nombreuses situations rencontrées en radioprotection :\n\
-		• Exposition externe  gamma, générateurs X, NF C-15_160 (2018)\n\
-		• Exposition externe Bêtas\n\
-		• Exposition externe neutrons\n\
-		• Exposition interne, contamination volumiques, transfert atmosphérique\n\
-		• Dose patient en médecine nucléaire (radiopharmaceutiques)\n\
-		Ils vous permettront d’estimer les risques radiologiques à leurs justes hauteurs et de concevoir les protections nécessaires, de réaliser des prédictifs de dose, d’affiner vos démarches ALARA …. Quelles que soient vos fonctions dans le domaine de la radioprotection, ces codes vous permettront d’augmenter votre niveau d’expertise.\n\
-		Grâce à une collaboration active avec les utilisateurs de DOSIMEX 2.O (voir <a href=\"" + Retour + "\">Retours utilisateurs</a>) , Le pack DOSIMEX 3.0 bénéficie de nombreuses améliorations : Voir ici les modifications apportés à la version 3.0 de Dosimex-GX\n\
+	text:"\n\
+		• Dosimex-GX : Exposition externe  gamma, générateurs X, NF C-15_160 (2018)\n\
+		• Dosimex-B : Exposition externe Bêtas\n\
+		• Dosimex-N : Exposition externe neutrons\n\
+		• Dosimex-I : Exposition interne, contamination volumiques, transfert atmosphérique\n\
+		• Dosimex-MN : Dose patient en médecine nucléaire (radiopharmaceutiques)\n\
+		Ces vous permettront d’estimer les risques radiologiques à leurs justes hauteurs et de concevoir les protections nécessaires, de réaliser des prédictifs de dose, d’affiner vos démarches ALARA …. Quelles que soient vos fonctions dans le domaine de la radioprotection, ces codes vous permettront d’augmenter votre niveau d’expertise.\n\
+		Grâce à une collaboration active avec les utilisateurs de DOSIMEX 2.O (voir <a href=\"" + Retour + "\" target=\"_blank\">Retours utilisateurs</a>) , Le pack DOSIMEX 3.0 bénéficie de nombreuses améliorations : Voir ici les modifications apportés à la version 3.0 de Dosimex-GX\n\
 		et des dossiers de validations renforcées. Dosimex-GX est accompagné à lui seul de 3 dossiers de validations  (comportant plus de 1000 valeurs de références (MCNP, RayXpert, Mercurad... )",
 	title:"Pack opérationel",
 	url:"/tutos/packOperationel"

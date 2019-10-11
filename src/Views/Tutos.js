@@ -124,7 +124,7 @@ const pack1 = {
 		✓ DOSIMEX-MN 1.0 utilitaire de gestion de données permettant de connaitre les doses\
 		absorbées par unité d’activité administrée pour les radiopharmaceutiques recensés dans les\
 		CIPR 53, 80, 106 et 128",
-	title:"Pack opérationel",
+	title:"Video pack opérationel",
 }
 
 const pack2 = {
@@ -143,7 +143,7 @@ const pack2 = {
 		✓ Coefficients ICRU 57 3.0 : utilitaire permettant de connaitre les coefficients\
 		fluence-équivalents de dose et kerma air normalisés pour les électrons, les\
 		photons et les neutrons.",
-	title:"Pack pédagogique",
+	title:"Video pack pédagogique",
 }
 
 const pack3 = {
@@ -160,5 +160,5 @@ const pack3 = {
 		✓ Calcul de seuil de décision. Utilitaire permettant de déterminer le seuil de décision et\
 		la limite de détection en mesure nucléaire. Cet utilitaire est accompagné des\
 		documents de cours complets sur ce sujet et d’articles divers.",
-	title:"pack mesure",
+	title:"Video pack mesure",
 }
