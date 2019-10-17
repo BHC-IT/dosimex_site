@@ -36,7 +36,14 @@ class App extends React.Component {
 							<Home/>
 						);
 					}} />
-					<Route path="/about" render={() => {
+					<Route path="/about/:pack" render={({match}) => {
+						if (this.state.route !== 'A propos')
+							this.setState({route:'A propos'});
+						return(
+							<About pack={match.params.pack} />
+						);
+					}} />
+					<Route exact path="/about" render={() => {
 						if (this.state.route !== 'A propos')
 							this.setState({route:'A propos'});
 						return(

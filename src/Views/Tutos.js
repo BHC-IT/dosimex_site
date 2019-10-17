@@ -6,6 +6,8 @@ import Color from '../Styles/colorSchemes.js'
 
 import TextSpliter from '../Components/TextSpliter.js'
 
+import ImageCamenra from '../Images/camera.jpg'
+
 const transform = {
 	packOperationel:'0',
 	packPedagogique:'1',
@@ -44,12 +46,12 @@ export default class Home extends React.Component {
 				{this.isOpen() ?
 					null
 					:
-					<p style={{textAlign:'center', width:'100vw'}} >on peut mettre du text ici</p>
+					<p style={{textAlign:'center', width:'100vw'}} ><img src={ImageCamenra} style={{height:'50vh'}} /> </p>
 				}
 				<Accordion defaultActiveKey={transform[this.props.pack]} >
 					<Card style={{width:'101vw'}} >
 						<Card.Header style={{backgroundColor:Color.lightishgrey, height:'8vh'}} >
-							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="0" onClick={() => this._keepTrack(0)} >
+							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="0" onClick={() => this._keepTrack('0')} >
 								<p style={{fontSize:30}} >{pack1.title}</p>
 							</Accordion.Toggle>
 						</Card.Header>
@@ -67,7 +69,7 @@ export default class Home extends React.Component {
 					</Card>
 					<Card color={Color.red} >
 						<Card.Header style={{backgroundColor:Color.lightishgrey, height:'8vh'}} >
-							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="1" onClick={() => this._keepTrack(1)}>
+							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="1" onClick={() => this._keepTrack('1')}>
 								<p style={{fontSize:30}} >{pack2.title}</p>
 							</Accordion.Toggle>
 						</Card.Header>
@@ -79,7 +81,7 @@ export default class Home extends React.Component {
 					</Card>
 					<Card>
 						<Card.Header style={{backgroundColor:Color.lightishgrey, height:'8vh'}} >
-							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="2" onClick={() => this._keepTrack(2)}>
+							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="2" onClick={() => this._keepTrack('2')}>
 								<p style={{fontSize:30}} >{pack3.title}</p>
 							</Accordion.Toggle>
 						</Card.Header>

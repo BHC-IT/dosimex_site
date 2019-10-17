@@ -22,7 +22,7 @@ export default class Home extends React.Component {
 		super(props);
 
 		this.state = {
-			currOpen:transform[this.props.pack]?transform[this.props.pack]:null
+			currOpen:typeof transform[this.props.pack]!=="undefined"?transform[this.props.pack]:null
 		};
 
 		this._keepTrack = this._keepTrack.bind(this);
@@ -53,7 +53,7 @@ export default class Home extends React.Component {
 				<Accordion defaultActiveKey={transform[this.props.pack]} >
 					<Card style={{width:'101vw'}} >
 						<Card.Header style={{backgroundColor:Color.lightishgrey, height:'8vh'}} >
-							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="0" onClick={() => this._keepTrack(0)} >
+							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="0" onClick={() => this._keepTrack('0')} >
 								<p style={{fontSize:30}} >{pack1.title}</p>
 							</Accordion.Toggle>
 						</Card.Header>
@@ -66,7 +66,7 @@ export default class Home extends React.Component {
 					</Card>
 					<Card color={Color.red} >
 						<Card.Header style={{backgroundColor:Color.lightishgrey, height:'8vh'}} >
-							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="1" onClick={() => this._keepTrack(1)}>
+							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="1" onClick={() => this._keepTrack('1')}>
 								<p style={{fontSize:30}} >{pack2.title}</p>
 							</Accordion.Toggle>
 						</Card.Header>
@@ -79,7 +79,7 @@ export default class Home extends React.Component {
 					</Card>
 					<Card>
 						<Card.Header style={{backgroundColor:Color.lightishgrey, height:'8vh'}} >
-							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="2" onClick={() => this._keepTrack(2)}>
+							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="2" onClick={() => this._keepTrack('2')}>
 								<p style={{fontSize:30}} >{pack3.title}</p>
 							</Accordion.Toggle>
 						</Card.Header>

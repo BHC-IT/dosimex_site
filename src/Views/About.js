@@ -6,10 +6,20 @@ import Color from '../Styles/colorSchemes.js'
 
 import TextSpliter from '../Components/TextSpliter.js'
 
+import IManuel1 from '../Images/manuel1.png'
+import IManuel2 from '../Images/manuel2.png'
+import IManuel3 from '../Images/manuel3.png'
+import IManuel4 from '../Images/manuel4.png'
+
+import PManuel1 from '../Folders/Manuel_1_Radionucléide_3.0.pdf'
+import PManuel2 from '../Folders/Manuel_2_Géné_X_3.0.pdf'
+import PManuel3 from '../Folders/Manuel_3_Application_15_160.pdf'
+import PManuel4 from '../Folders/Annexe_S_ radiologie.pdf'
+
 const transform = {
-	packOperationel:'0',
-	packPedagogique:'1',
-	packMesure:'2'
+	Manuels:'0',
+	Validation:'1',
+	Rapports:'2'
 };
 
 export default class Home extends React.Component {
@@ -39,6 +49,7 @@ export default class Home extends React.Component {
 	}
 
 	render(){
+		console.log(this.props.pack)
 		return (
 			<Row style={{ height:'95vh', alignItems:'flex-end'}} >
 				{this.isOpen() ?
@@ -49,19 +60,32 @@ export default class Home extends React.Component {
 				<Accordion defaultActiveKey={transform[this.props.pack]} >
 					<Card style={{width:'101vw'}} >
 						<Card.Header style={{backgroundColor:Color.lightishgrey, height:'8vh'}} >
-							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="0" onClick={() => this._keepTrack(0)} >
+							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="0" onClick={() => this._keepTrack('0')} >
 								<p style={{fontSize:30}} >{pack1.title}</p>
 							</Accordion.Toggle>
 						</Card.Header>
 						<Accordion.Collapse eventKey="0">
-							<Card.Body style={{backgroundColor:Color.lightergrey, height:'71vh'}} >
-								<TextSpliter text={pack1.text} textStyle={{textAlign: 'justify', fontSize:25}}/>
+							<Card.Body style={{backgroundColor:Color.lightergrey, height:'71vh', justifyContent:'center', alignItems:'center'}} >
+								<div style={{backgroundColor:Color.blue}} >
+									<div style={{marginLeft:'2.5vw', marginRight:'2vw', backgroundColor:Color.red, width:'20vw', display:'inline-block'}} >
+										<a href={PManuel1} target="_blank" style={{}} ><img src={IManuel1} style={{height:'35vh'}} /><p style={{display:'inline'}} >test</p></a>
+									</div>
+									<div style={{marginLeft:'2.5vw', marginRight:'2vw', backgroundColor:Color.green, width:'20vw', display:'inline-block'}} >
+										<a href={PManuel2} target="_blank" style={{}} ><img src={IManuel2} style={{height:'35vh'}} /></a>
+									</div>
+									<div style={{marginLeft:'2.5vw', marginRight:'2vw', backgroundColor:Color.red, width:'20vw', display:'inline-block'}} >
+										<a href={PManuel3} target="_blank" style={{}} ><img src={IManuel3} style={{height:'35vh'}} /></a>
+									</div>
+									<div style={{marginLeft:'2.5vw', marginRight:'2vw', backgroundColor:Color.green, width:'20vw', display:'inline-block'}} >
+										<a href={PManuel4} target="_blank" style={{}} ><img src={IManuel4} style={{height:'35vh'}} /></a>
+									</div>
+								</div>
 							</Card.Body>
 						</Accordion.Collapse>
 					</Card>
 					<Card color={Color.red} >
 						<Card.Header style={{backgroundColor:Color.lightishgrey, height:'8vh'}} >
-							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="1" onClick={() => this._keepTrack(1)}>
+							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="1" onClick={() => this._keepTrack('1')}>
 								<p style={{fontSize:30}} >{pack2.title}</p>
 							</Accordion.Toggle>
 						</Card.Header>
@@ -73,7 +97,7 @@ export default class Home extends React.Component {
 					</Card>
 					<Card>
 						<Card.Header style={{backgroundColor:Color.lightishgrey, height:'8vh'}} >
-							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="2" onClick={() => this._keepTrack(2)}>
+							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="2" onClick={() => this._keepTrack('2')}>
 								<p style={{fontSize:30}} >{pack3.title}</p>
 							</Accordion.Toggle>
 						</Card.Header>
