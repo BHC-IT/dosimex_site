@@ -16,6 +16,28 @@ import PManuel2 from '../Folders/Manuel_2_Géné_X_3.0.pdf'
 import PManuel3 from '../Folders/Manuel_3_Application_15_160.pdf'
 import PManuel4 from '../Folders/Annexe_S_ radiologie.pdf'
 
+import IValidation1 from '../Images/Validation1.png'
+import IValidation2 from '../Images/Validation2.png'
+import IValidation3 from '../Images/Validation3.png'
+import IValidation4 from '../Images/Validation4.png'
+import IValidation5 from '../Images/Validation5.png'
+
+import PValidation1 from '../Folders/Validation_1_Radionucléide_3.0.pdf'
+import PValidation2 from '../Folders/Validation_2_Géné X_3.0.pdf'
+import PValidation3 from '../Folders/CEA-R-6452.pdf'
+import PValidation4 from '../Folders/NT_101682_42_0001_A-DOSIMEX.pdf'
+import PValidation5 from '../Folders/Article_facteur_transmission_L_Bourgois.pdf'
+
+import IRapport1 from '../Images/Rapport1.png'
+import IRapport2 from '../Images/Rapport2.png'
+import IRapport3 from '../Images/Rapport3.png'
+import IRapport4 from '../Images/Rapport4.png'
+
+import PRapport1 from '../Folders/Rapport_ULYSSE_reactor_dismantling.pdf'
+import PRapport2 from '../Folders/Rapport_mémoire_AREVA.pdf'
+import PRapport3 from '../Folders/Rapport_mémoire_SPR_Cadarache.pdf'
+import PRapport4 from '../Folders/Rapport_CJ_AREVA_2016.pdf'
+
 const transform = {
 	Manuels:'0',
 	Validation:'1',
@@ -66,18 +88,18 @@ export default class Home extends React.Component {
 						</Card.Header>
 						<Accordion.Collapse eventKey="0">
 							<Card.Body style={{backgroundColor:Color.lightergrey, height:'71vh', justifyContent:'center', alignItems:'center'}} >
-								<div style={{backgroundColor:Color.blue}} >
-									<div style={{marginLeft:'2.5vw', marginRight:'2vw', backgroundColor:Color.red, width:'20vw', display:'inline-block'}} >
-										<a href={PManuel1} target="_blank" style={{}} ><img src={IManuel1} style={{height:'35vh'}} /><p style={{display:'inline'}} >test</p></a>
+								<div style={{}} >
+									<div style={{marginLeft:'2.5vw', marginRight:'2vw', width:'20vw', height:'40vh', display:'inline-block'}} >
+										<a href={PManuel1} target="_blank" style={{}} ><img src={IManuel1} style={{height:'35vh'}} /><p style={{display:'inline', position:'relative', top:'19vh', left:'-15vh'}} >testtest</p></a>
 									</div>
-									<div style={{marginLeft:'2.5vw', marginRight:'2vw', backgroundColor:Color.green, width:'20vw', display:'inline-block'}} >
-										<a href={PManuel2} target="_blank" style={{}} ><img src={IManuel2} style={{height:'35vh'}} /></a>
+									<div style={{marginLeft:'2.5vw', marginRight:'2vw', width:'20vw', height:'40vh', display:'inline-block'}} >
+										<a href={PManuel2} target="_blank" style={{}} ><img src={IManuel2} style={{height:'35vh'}} /><p style={{display:'inline', position:'relative', top:'19vh', left:'-15vh'}} >testtest</p></a>
 									</div>
-									<div style={{marginLeft:'2.5vw', marginRight:'2vw', backgroundColor:Color.red, width:'20vw', display:'inline-block'}} >
-										<a href={PManuel3} target="_blank" style={{}} ><img src={IManuel3} style={{height:'35vh'}} /></a>
+									<div style={{marginLeft:'2.5vw', marginRight:'2vw', width:'20vw', height:'40vh', display:'inline-block'}} >
+										<a href={PManuel3} target="_blank" style={{}} ><img src={IManuel3} style={{height:'35vh'}} /><p style={{display:'inline', position:'relative', top:'19vh', left:'-15vh'}} >testtest</p></a>
 									</div>
-									<div style={{marginLeft:'2.5vw', marginRight:'2vw', backgroundColor:Color.green, width:'20vw', display:'inline-block'}} >
-										<a href={PManuel4} target="_blank" style={{}} ><img src={IManuel4} style={{height:'35vh'}} /></a>
+									<div style={{marginLeft:'2.5vw', marginRight:'2vw', width:'20vw', height:'40vh', display:'inline-block'}} >
+										<a href={PManuel4} target="_blank" style={{}} ><img src={IManuel4} style={{height:'35vh'}} /><p style={{display:'inline', position:'relative', top:'19vh', left:'-15vh'}} >testtest</p></a>
 									</div>
 								</div>
 							</Card.Body>
@@ -90,8 +112,24 @@ export default class Home extends React.Component {
 							</Accordion.Toggle>
 						</Card.Header>
 						<Accordion.Collapse eventKey="1">
-							<Card.Body style={{backgroundColor:Color.lightergrey, height:'71vh'}} >
-								<TextSpliter text={pack2.text} textStyle={{textAlign: 'justify', fontSize:25}}/>
+							<Card.Body style={{backgroundColor:Color.lightergrey, height:'71vh', justifyContent:'center', alignItems:'center'}} >
+								<div style={{}} >
+									<div style={{marginLeft:'2.5vw', marginRight:'2vw', width:'15vw', height:'30vh', display:'inline-block'}} >
+										<a href={PValidation1} target="_blank" style={{}} ><img src={IValidation1} style={{height:'30vh'}} /><p style={{display:'inline', position:'relative', top:'1vh', left:'7vh'}} >foobar</p></a>
+									</div>
+									<div style={{marginLeft:'2.5vw', marginRight:'2vw', width:'15vw', height:'30vh', display:'inline-block'}} >
+										<a href={PValidation2} target="_blank" style={{}} ><img src={IValidation2} style={{height:'30vh'}} /><p style={{display:'inline', position:'relative', top:'1vh', left:'7vh'}} >testtest</p></a>
+									</div>
+									<div style={{marginLeft:'2.5vw', marginRight:'2vw', width:'15vw', height:'30vh', display:'inline-block'}} >
+										<a href={PValidation3} target="_blank" style={{}} ><img src={IValidation3} style={{height:'30vh'}} /><p style={{display:'inline', position:'relative', top:'1vh', left:'7vh'}} >testtest</p></a>
+									</div>
+									<div style={{marginLeft:'2.5vw', marginRight:'2vw', width:'15vw', height:'30vh', display:'inline-block'}} >
+										<a href={PValidation4} target="_blank" style={{}} ><img src={IValidation4} style={{height:'30vh'}} /><p style={{display:'inline', position:'relative', top:'1vh', left:'7vh'}} >testtest</p></a>
+									</div>
+									<div style={{marginLeft:'2.5vw', marginRight:'2vw', width:'15vw', height:'30vh', display:'inline-block'}} >
+										<a href={PValidation5} target="_blank" style={{}} ><img src={IValidation5} style={{height:'30vh'}} /><p style={{display:'inline', position:'relative', top:'1vh', left:'7vh'}} >loilol</p></a>
+									</div>
+								</div>
 							</Card.Body>
 						</Accordion.Collapse>
 					</Card>
@@ -103,7 +141,20 @@ export default class Home extends React.Component {
 						</Card.Header>
 						<Accordion.Collapse eventKey="2">
 							<Card.Body style={{backgroundColor:Color.lightergrey, height:'71vh'}} >
-								<TextSpliter text={pack3.text} textStyle={{textAlign: 'justify', fontSize:25}}/>
+								<div style={{}} >
+									<div style={{marginLeft:'2.5vw', marginRight:'2vw', width:'20vw', height:'40vh', display:'inline-block'}} >
+										<a href={PRapport1} target="_blank" style={{}} ><img src={IRapport1} style={{height:'35vh'}} /><p style={{display:'inline', position:'relative', top:'19vh', left:'-15vh'}} >testtest</p></a>
+									</div>
+									<div style={{marginLeft:'2.5vw', marginRight:'2vw', width:'20vw', height:'40vh', display:'inline-block'}} >
+										<a href={PRapport2} target="_blank" style={{}} ><img src={IRapport2} style={{height:'35vh'}} /><p style={{display:'inline', position:'relative', top:'19vh', left:'-15vh'}} >testtest</p></a>
+									</div>
+									<div style={{marginLeft:'2.5vw', marginRight:'2vw', width:'20vw', height:'40vh', display:'inline-block'}} >
+										<a href={PRapport3} target="_blank" style={{}} ><img src={IRapport3} style={{height:'35vh'}} /><p style={{display:'inline', position:'relative', top:'19vh', left:'-15vh'}} >testtest</p></a>
+									</div>
+									<div style={{marginLeft:'2.5vw', marginRight:'2vw', width:'20vw', height:'40vh', display:'inline-block'}} >
+										<a href={PRapport4} target="_blank" style={{}} ><img src={IRapport4} style={{height:'35vh'}} /><p style={{display:'inline', position:'relative', top:'19vh', left:'-15vh'}} >testtest</p></a>
+									</div>
+								</div>
 							</Card.Body>
 						</Accordion.Collapse>
 					</Card>

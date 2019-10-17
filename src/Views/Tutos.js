@@ -58,11 +58,11 @@ export default class Home extends React.Component {
 						<Accordion.Collapse eventKey="0">
 							<Card.Body style={{backgroundColor:Color.lightergrey, height:'71vh'}} >
 								<Row style={{justifyContent:'space-between', margin:25}}>
-									<iframe width="250" height="200" src="https://www.youtube.com/embed/c85KaDSMIRM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-									<iframe width="250" height="200" src="https://www.youtube.com/embed/c85KaDSMIRM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-									<iframe width="250" height="200" src="https://www.youtube.com/embed/c85KaDSMIRM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-									<iframe width="250" height="200" src="https://www.youtube.com/embed/c85KaDSMIRM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-									<iframe width="250" height="200" src="https://www.youtube.com/embed/c85KaDSMIRM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+									<iframe width="250" height="200" src="https://www.youtube.com/embed/c85KaDSMIRM" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+									<iframe width="250" height="200" src="https://www.youtube.com/embed/c85KaDSMIRM" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+									<iframe width="250" height="200" src="https://www.youtube.com/embed/c85KaDSMIRM" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+									<iframe width="250" height="200" src="https://www.youtube.com/embed/c85KaDSMIRM" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+									<iframe width="250" height="200" src="https://www.youtube.com/embed/c85KaDSMIRM" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 								</Row>
 							</Card.Body>
 						</Accordion.Collapse>
