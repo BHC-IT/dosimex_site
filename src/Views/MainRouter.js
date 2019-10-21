@@ -17,7 +17,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 function App() {
 	return (
 		<Router>
-			<div style={{backgroundColor:Color.lightergrey}} >
+			<div style={{backgroundColor:Color.lightergrey, width:'100%'}} >
                                 <Navbar/>
                                 <Route exact path="/" component={Home} />
 				<Route path="/about" component={About} />

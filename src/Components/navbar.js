@@ -45,8 +45,8 @@ class MenuExamplePointing extends Component {
 				<Menu pointing style={{backgroundColor: Color.red}}>
 					<Menu.Item
 						style={{color: "white", fontSize:Size.greaterMd() ? 20 : 7, fontWeight:'bold'}}
-						name='Home'
-						active={activeItem === 'Home'}
+						name='Acceuil'
+						active={activeItem === 'Acceuil'}
 						onClick={(e, name) => this.redirectTo(e, name, "/")}
 					/>
 					<Menu.Item
@@ -72,6 +72,18 @@ class MenuExamplePointing extends Component {
 						name='Nos tutos'
 						active={activeItem === 'Nos tutos'}
 						onClick={(e, name) => this.redirectTo(e, name, "/tutos")}
+					/>
+					<Menu.Item
+						style={{color: "white", fontSize:Size.greaterMd() ? 20 : 7, fontWeight:'bold'}}
+						name='Formations'
+						active={activeItem === 'Formations'}
+						onClick={(e, name) => this.redirectTo(e, name, "/formations")}
+					/>
+					<Menu.Item
+						style={{color: "white", fontSize:Size.greaterMd() ? 20 : 7, fontWeight:'bold', position:'absolute', right:5}}
+						name='Acheter DOSIMEX'
+						active={activeItem === 'Acheter DOSIMEX'}
+						onClick={(e, name) => this.redirectTo(e, name, "/acheter")}
 					/>
 				</Menu>
 			</div>

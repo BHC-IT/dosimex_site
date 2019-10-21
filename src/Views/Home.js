@@ -178,12 +178,12 @@ export default class Home extends React.Component {
 		} else {
 			return (
 				<Row style={{height:this.state.height, justifyContent:'center'}} >
-					<Col xs={{span:9, offset:1}}  >
+					<Col xs={{span:11, margin:'auto'}}  >
 						<Accordion>
 							<Card>
 								<Card.Header>
 									<Accordion.Toggle as={Button} variant="link" eventKey="0">
-										<p>Click me!</p>
+										<p>Pack n°1</p>
 									</Accordion.Toggle>
 								</Card.Header>
 								<Accordion.Collapse eventKey="0">
@@ -199,7 +199,7 @@ export default class Home extends React.Component {
 							<Card>
 								<Card.Header>
 									<Accordion.Toggle as={Button} variant="link" eventKey="1">
-										<p>Click me!</p>
+										<p>Pack n°2</p>
 									</Accordion.Toggle>
 								</Card.Header>
 								<Accordion.Collapse eventKey="1">
@@ -215,7 +215,7 @@ export default class Home extends React.Component {
 							<Card>
 								<Card.Header>
 									<Accordion.Toggle as={Button} variant="link" eventKey="2">
-										<p>Click me!</p>
+										<p>Pack n°2</p>
 									</Accordion.Toggle>
 								</Card.Header>
 								<Accordion.Collapse eventKey="2">
