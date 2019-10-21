@@ -65,12 +65,10 @@ export default class About extends React.Component {
 					<Row style={{paddingTop:20}} >
 						<Col xs={{span:10, offset:1}} style={{backgroundColor:Color.lightishgrey}} >
 							<Row style={{justifyContent:'center'}} >
-								<img src={image}/>
+								<img src={image} style={{height:'36vh'}}/>
 							</Row>
-							<Row>
-								<TextSpliter textStyle={{textAlign:'justify', fontSize:20, margin:10, marginLeft:15, marginRight:15}} text={documentation} />
-							</Row>
-							<Row style={{justifyContent:'center'}} >
+							<Row style={{justifyContent:'center', height:'56vh'}} >
+								<TextSpliter textStyle={{textAlign:'justify', fontSize:16, margin:5, marginLeft:15, marginRight:15}} text={documentation} />
 								<a href={Catalogue} target="_blank" ><p style={{fontSize:22}} >voir catalogue complet des formations </p></a>
 							</Row>
 						</Col>
