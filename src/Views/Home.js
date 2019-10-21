@@ -1,16 +1,23 @@
 import React from 'react';
 import ReactPageScroller from "react-page-scroller";
 import '../Styles/Landing.css'
-import {Carousel, Container, Row, Col, Accordion, Button, Card} from 'react-bootstrap'
+import {Carousel, Row, Col, Accordion, Button, Card} from 'react-bootstrap'
 
 import * as Scroll from 'react-scroll';
-import { Link, Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { Element , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+
+import { Link } from "react-router-dom";
 
 import Color from '../Styles/colorSchemes.js'
 import Size from '../Styles/Size.js'
 
-import i1a from "../Images/1a.png"
-import i1b from "../Images/1b.png"
+import logoDosi from "../Images/logo_dosimex.png"
+import i1a from "../Images/1a_t.png"
+import i1b from "../Images/1b_t.png"
+import i1c from "../Images/1c_t.png"
+
+import arrow_right from '../Images/arrow_right.png'
+import arrow_left from '../Images/arrow_left.png'
 // import i1c from "../Images/image1c.png"
 // import i1d from "../Images/image1d.png"
 
@@ -19,12 +26,22 @@ import { FaQuoteRight } from 'react-icons/fa'
 
 const slides = [
 	{
+		uri:logoDosi,
+		title:"",
+		text:"Outils de calcul radioprotection et formations associées"
+	},
+	{
 		uri:i1a,
 		title:"DOSIMEX-GX",
 		text:"Exposition externe Gamma"
 	},
 	{
 		uri:i1b,
+		title:"First slide label",
+		text:"Nulla vitae elit libero, a pharetra augue mollis interdum."
+	},
+	{
+		uri:i1c,
 		title:"First slide label",
 		text:"Nulla vitae elit libero, a pharetra augue mollis interdum."
 	},
@@ -60,11 +77,9 @@ export default class Home extends React.Component {
 	}
 
 	componentWillMount(){
-		console.log("mount");
 		this.updateWindowDimensions();
 		window.addEventListener('resize', this.updateWindowDimensions);
 		// scroll.scrollToBottom();
-
 		Events.scrollEvent.register('end', (to, element) => {
 			if (this.state.offset === 1)
 				this.setState({offset:9999});
@@ -73,6 +88,7 @@ export default class Home extends React.Component {
 		});
 
 		window.onscroll = () => {
+			console.log("trigger");
 			if (!Size.greaterMd()){
 				if (window.pageYOffset < 20)
 					this.setState({offset:0});
@@ -98,20 +114,25 @@ export default class Home extends React.Component {
 			}
 		}
 
-		scrollSpy.update();
+		// scrollSpy.update();
 	}
 	componentWillUnmount(){
 		window.removeEventListener('resize', this.updateWindowDimensions);
+		window.onscroll = () => {};
 	}
 
 	_packshot({pack}){
 		return (
-			<div>
+			<div style={{marginTop:10}} >
+				<p style={{textAlign:'center', color:Color.red, fontSize:22, fontWeight:'bold'}} >{pack.title}</p>
 				{pack.text.split('\n').map((t, i) => {
 					return (
 						<p style={{textAlign: 'justify'}} key={i}>{t}</p>
 					);
 				})}
+				<Row style={{justifyContent:'center', bottom:'10em', position:'absolute', width:'100%'}} >
+					<Link style={{width:'100%'}} to={pack.url}> <p style={{textAlign:'center'}} >plus d'information</p> </Link>
+				</Row>
 				<div ref={(r) => {}} >
 					<Element name="bottom" />
 				</div>
@@ -131,7 +152,7 @@ export default class Home extends React.Component {
 						<FaQuoteLeft color={Color.blue} size={50} />
 					</Col>
 					<Col xs={{span:9}} >
-						<p style={{textAlign: 'justify', color:Color.blue, fontWeight:'bold', fontSize:30}} >Depuis maintenant 9 ans, nous proposons un ensemble de codes opérationnels simples d’emploi, validés, et qui permettent de répondre à de nombreuses situations rencontrées en radioprotection</p>
+						<p style={{textAlign: 'justify', color:Color.blue, fontWeight:'bold', fontStyle: 'italic', fontSize:30}} >Depuis 2012, nous vous proposons un ensemble de codes opérationnels simples d’emploi, validés, et qui permettent de répondre à de nombreuses situations rencontrées en radioprotection.</p>
 					</Col>
 					<Col xs={{span:1}} style={{marginTop:40}} >
 						<FaQuoteRight color={Color.blue} size={50} />
@@ -148,7 +169,7 @@ export default class Home extends React.Component {
 					</Row>
 					<Row style={{justifyContent:'center'}} >
 						<Col xs={8} >
-							<p style={{textAlign: 'justify', color:Color.blue, fontWeight:'bold', fontSize:20}} >Depuis maintenant 9 ans, nous proposons un ensemble de codes opérationnels simples d’emploi, validés, et qui permettent de répondre à de nombreuses situations rencontrées en radioprotection</p>
+							<p style={{textAlign: 'justify', color:Color.blue, fontWeight:'bold', fontStyle: 'italic', fontSize:20}} >Depuis 2012, nous vous proposons un ensemble de codes opérationnels simples d’emploi, validés, et qui permettent de répondre à de nombreuses situations rencontrées en radioprotection.</p>
 						</Col>
 					</Row>
 					<Row style={{}} >
@@ -163,7 +184,7 @@ export default class Home extends React.Component {
 	renderPackshot = () => {
 		if (Size.greaterMd()){
 			return (
-				<Row style={{justifyContent:'space-between', height:this.state.height}} >
+				<Row style={{justifyContent:'space-between', height:'99vh'}} >
 					<Col xs={{span:3}} style={{ marginLeft:this.state.width/24, backgroundColor:Color.lightgrey}} >
 						<this._packshot pack={pack1} />
 					</Col>
@@ -178,12 +199,12 @@ export default class Home extends React.Component {
 		} else {
 			return (
 				<Row style={{height:this.state.height, justifyContent:'center'}} >
-					<Col xs={{span:11, margin:'auto'}}  >
+					<Col xs={{span:12, offset:0}}  >
 						<Accordion>
 							<Card>
 								<Card.Header>
 									<Accordion.Toggle as={Button} variant="link" eventKey="0">
-										<p>Pack n°1</p>
+										<p style={{textAlign:'center'}} >{pack1.title}</p>
 									</Accordion.Toggle>
 								</Card.Header>
 								<Accordion.Collapse eventKey="0">
@@ -196,10 +217,10 @@ export default class Home extends React.Component {
 									</Card.Body>
 								</Accordion.Collapse>
 							</Card>
-							<Card>
-								<Card.Header>
-									<Accordion.Toggle as={Button} variant="link" eventKey="1">
-										<p>Pack n°2</p>
+							<Card color={Color.red} >
+								<Card.Header style={{alignItems:'center'}} >
+									<Accordion.Toggle style={{justifyContent:'center'}} as={Button} variant="link" eventKey="1">
+										<p>{pack2.title}</p>
 									</Accordion.Toggle>
 								</Card.Header>
 								<Accordion.Collapse eventKey="1">
@@ -215,7 +236,7 @@ export default class Home extends React.Component {
 							<Card>
 								<Card.Header>
 									<Accordion.Toggle as={Button} variant="link" eventKey="2">
-										<p>Pack n°2</p>
+										<p>{pack3.title}</p>
 									</Accordion.Toggle>
 								</Card.Header>
 								<Accordion.Collapse eventKey="2">
@@ -239,13 +260,12 @@ export default class Home extends React.Component {
 	}
 
 	render(){
-		console.log('screen size : ', this.state.width, "/", this.state.height);
 		return (
 			<div style={{width:'100%'}} >
 				<div style={{backgroundColor:Color.lightergrey, height:this.state.height, width:'100%'}} >
 					<Row style={{backgroundColor:Color.lightergrey, justifyContent:'center', marginBottom:Size.greaterMd() ? 100 : 25 }}>
 						<Col className="d-none d-md-block" md={6} style={{marginTop:20}} >
-							<Carousel>
+							<Carousel nextIcon={<img src={arrow_right} />} prevIcon={<img src={arrow_left} /> } >
 								{slides.map((s, i) => {
 									return (
 										<Carousel.Item key={i} >
@@ -254,8 +274,8 @@ export default class Home extends React.Component {
 												src={s.uri}
 											/>
 											<Carousel.Caption style={{}} >
-												<h1 style={{color:Color.darkBlue, fontSize:50, fontWeight:'bold', backgroundColor:Color.white, marginBottom:175 }} >{s.title}</h1>
-												<p style={{color:Color.darkBlue, fontSize:30, fontWeight:'bold', backgroundColor:Color.white}} >{s.text}</p>
+												{s.title ? <h1 style={{color:Color.darkBlue, fontSize:50, fontWeight:'bold', marginBottom:175, backgroundColor:Color.Tlightgrey }} >{s.title}</h1> : null}
+												{s.text ? <p style={{color:Color.darkBlue, fontSize:30, fontWeight:'bold', backgroundColor:Color.Tlightgrey}} >{s.text}</p> : null}
 											</Carousel.Caption>
 										</Carousel.Item>
 									);
@@ -275,7 +295,7 @@ export default class Home extends React.Component {
 						}} >
 							<Col style={{justifyContent:'center'}} >
 								<Row style={{justifyContent:'center'}} >
-									<p style={{fontWeight:'bold', fontSize:20, color:Color.blue}}>PACK</p>
+									<p style={{fontWeight:'bold', fontSize:20, color:Color.blue}}>PRESENTATION PACK</p>
 								</Row>
 								<Row style={{justifyContent:'center'}} >
 									<p style={{fontWeight:'bold', fontSize:25, color:Color.blue}}>V</p>
@@ -316,7 +336,6 @@ export default class Home extends React.Component {
 	}
 }
 
-
 const pack1 = {
 	text:"	o Exposition externe gamma, générateurs X, NF C-15_160 (2018)\n\
 		o Exposition externe Bêtas\n\
@@ -334,6 +353,8 @@ const pack1 = {
 		dossiers de validations (comportant plus de 1000 valeurs de références (MCNP, RayXpert,\
 		Mercurad... )\n\
 		consulter les dossiers de validations de Dosimex-GX",
+	title:"pack opérationel".toUpperCase(),
+	url:"/offres/packOperationel"
 }
 
 const pack2 = {
@@ -350,8 +371,10 @@ const pack2 = {
 		Ils vous permettront de :\n\
 		o mieux comprendre la physique sous-jacente aux aspects de dose, de protection et de\n\
 		détection,\n\
-		o développer un sens physique permettant d’analyser plus sûrement les\n\
-		problématiques dans une situation donnée."
+		o développer un sens physique permettant d’analyser plus sûrement les\
+		problématiques dans une situation donnée.",
+	title:"pack pédagogique".toUpperCase(),
+	url:"/offres/packPedagogique"
 }
 
 const pack3 = {
@@ -362,5 +385,7 @@ const pack3 = {
 		o Calculs de seuil de décision et limite de détection\n\
 		o Outil Monte-Carlo de composition de variables aléatoires et d’incertitudes\
 		Accompagnés de documents de cours complets, ils complèteront vos capacités\
-		opérationnelles"
+		opérationnelles",
+	title:"pack mesure".toUpperCase(),
+	url:"/offres/packMesure"
 }
