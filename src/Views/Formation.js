@@ -19,23 +19,29 @@ import { Parallax } from 'react-scroll-parallax';
 import Catalogue from "../Folders/Formations_Dosimex 2020.pdf";
 
 const documentation =
-	"Nous proposons des formations courtes permettant la prise en main de ces outils en l’appliquant à des cas concrets rencontrés dans le monde industriel et médical.\nL’objectif global est de travailler sur l’analyse des risques radiologiques.\
-\
-Quelques exemples de thématiques abordées :\n\
-\
-    • Gammagraphie\n\
-    • Ionisations alimentaires\n\
-    • Gestion d’une source de Radium de forte activité\n\
-    • Seringue au Technétium 99m et protection opérateur\n\
-    • Contamination au Fluor 18\n\
-    • Radioprotection dans un laboratoire de synthèse du FDG (Fluor 18)\n\
-    • Protection biologique d'une source de Californium 252 (neutrons +gamma)\n\
-    • Source Strontium-Yttrium 90 de forte activité\n\
-    • Analyse radioprotection d'un colis de déchets produit de fission ( CSDV)\n\
-    • Calcul de protection autour de générateurs X médicaux et industriels\n\
-\
-Fort de plus de 25 ans d’enseignement à l’Ecole des Applications Militaires de l’Energie Atomique (EAMEA, Cherbourg) et à l’Institut Nationale des Sciences et Techniques Nucléaires (INSTN, CEA) \
-nous proposons d’autres formations centrées sur la physique nucléaire, la spectrométrie gamma, la dosimétrie et les statistiques de mesures."
+	"Nous proposons des formations courtes sur site (intra) de 2 à 3 jours, permettant la prise en main de ces outils en l’appliquant à des cas concrets rencontrés dans le monde industriel et médical. Cette prise en main se fait naturellement en intégrant l’utilisation des codes dans le cadre plus général de l’analyse et l’estimation des risques radiologiques appliquées à des cas concrets.\n\
+	Quelques exemples de thématiques abordées :\n\
+	• Calcul de protection autour de générateurs X médicaux et industriels\n\
+	• Application NF C 15-160\n\
+	• Gestion d’une source de Radium de forte activité\n\
+	• Seringue au Technétium 99m et protection opérateur\n\
+	• Contamination au Fluor 18\n\
+	• Radioprotection dans un laboratoire de synthèse du FDG (Fluor 18)\n\
+	• Gammagraphie\n\
+	• Protection biologique d'une source de Californium 252 (neutrons +gamma)\n\
+	• Ionisations alimentaires\n\
+	• Source Strontium-Yttrium 90 de forte activité\n\
+	• Analyse radioprotection d'un colis de déchets produit de fission ( CSDV)\n\
+	Prix forfaitaire pour des formations sur sites : 1350 € HT par jours pour des formations de 4 à 8 personnes.\n\
+	Nous avons  aussi conçus, en partenariat avec Safetechnologies  d’autres formations centrées sur :\n\
+	• la physique nucléaire et la radioactivité\n\
+	• L’interaction rayonnement-matière\n\
+	• Les principes de la mesure nucléaire\n\
+	• la spectrométrie gamma\n\
+	• la dosimétrie\n\
+	• les statistiques de mesures : incertitude, seuil de décision et limite de détection, l’ISO 11929. \n\
+	<a href='mailto:contact@dosimex.fr?subject=formation&body=Expliquez votre besoin en formation ici' > contact@dosimex.fr</a>\n\
+	Tél : 06 89 70 90 35"
 
 // const documentation = "Nous proposons des formations courtes permettant la prise en main de ces outils en\
 // 			l’appliquant à des cas concrets rencontrés dans le monde industriel et médical. L’objectif\
@@ -63,13 +69,13 @@ export default class About extends React.Component {
 			<div style={{}}>
 				<div style={{height:'100%', backgroundColor:Color.lightergrey}} >
 					<Row style={{paddingTop:20}} >
-						<Col xs={{span:10, offset:1}} style={{backgroundColor:Color.lightishgrey}} >
-							<Row style={{justifyContent:'center'}} >
-								<img src={image} style={{height:'36vh'}}/>
+						<Col xs={{span:10, offset:1}} style={{backgroundColor:Color.lightishgrey, height:'92vh'}} >
+							<Row style={{justifyContent:'center', marginTop:'1vh'}} >
+								<img src={image} style={{height:'27vh'}}/>
 							</Row>
 							<Row style={{justifyContent:'center', height:'56vh'}} >
 								<TextSpliter textStyle={{textAlign:'justify', fontSize:16, margin:5, marginLeft:15, marginRight:15}} text={documentation} />
-								<a href={Catalogue} target="_blank" ><p style={{fontSize:22}} >voir catalogue complet des formations </p></a>
+								{/*<a href={Catalogue} target="_blank" ><p style={{fontSize:22}} >voir catalogue complet des formations </p></a>*/}
 							</Row>
 						</Col>
 					</Row>
