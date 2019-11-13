@@ -15,6 +15,13 @@ import logoDosi from "../Images/logo_dosimex.png"
 import i1a from "../Images/1a_t.png"
 import i1b from "../Images/1b_t.png"
 import i1c from "../Images/1c_t.png"
+import i1d from "../Images/1d_t.png"
+import i1e from "../Images/1e_t.png"
+import i1f from "../Images/1f_t.png"
+import i1g from "../Images/1g_t.png"
+import i1h from "../Images/1h_t.png"
+import i1i from "../Images/1i_t.png"
+import usbkey from "../Images/usbkey.png"
 
 import arrow_right from '../Images/arrow_right.png'
 import arrow_left from '../Images/arrow_left.png'
@@ -31,30 +38,55 @@ const slides = [
 		text:"Outils de calcul radioprotection et formations associées"
 	},
 	{
+		uri:usbkey,
+		title:null,
+		text:null
+	},
+	{
 		uri:i1a,
 		title:"DOSIMEX-GX",
-		text:"Exposition externe Gamma"
+		text:"Doses gamma sources volumiques, multi-écran …"
 	},
 	{
 		uri:i1b,
-		title:"First slide label",
-		text:"Nulla vitae elit libero, a pharetra augue mollis interdum."
+		title:"DOSIMEX-GX",
+		text:"Rayonnement de freinage…"
+	},
+	{
+		uri:i1d,
+		title:"DOSIMEX-GX",
+		text:"Effet de ciel"
 	},
 	{
 		uri:i1c,
-		title:"First slide label",
-		text:"Nulla vitae elit libero, a pharetra augue mollis interdum."
+		title:"DOSIMEX-GX",
+		text:"Modélisation générateur X primaire +diffusé."
 	},
-	// {
-	// 	uri:i1c,
-	// 	title:"First slide label",
-	// 	text:"Nulla vitae elit libero, a pharetra augue mollis interdum."
-	// },
-	// {
-	// 	uri:i1d,
-	// 	title:"First slide label",
-	// 	text:"Nulla vitae elit libero, a pharetra augue mollis interdum."
-	// }
+	{
+		uri:i1e,
+		title:"Dosimex-GX",
+		text:"Application NF C15-160"
+	},
+	{
+		uri:i1f,
+		title:"Dosimex-B",
+		text:"Dose Bêta, source volumique, calcul d’écran"
+	},
+	{
+		uri:i1g,
+		title:"Dosimex-N",
+		text:"Code Monte-Carlo neutron"
+	},
+	{
+		uri:i1h,
+		title:"Dosimex-I",
+		text:"exposition interne, transfert atmosphérique"
+	},
+	{
+		uri:i1i,
+		title:"Dosimex-MN",
+		text:"radiopharmaceutiques et dose patient"
+	},
 ]
 
 export default class Home extends React.Component {

@@ -47,7 +47,7 @@ export default class Home extends React.Component {
 		return (
 			<div style={{marginLeft:'4vw', paddingBottom:'2vh', borderBottom: '1px solid black', marginTop:'1vh', marginBottom:'3vh'}} >
 				<a href={Livre.link} target="_blank"><img style={{verticalAlign:'middle', marginBottom:'0.75em', width:'20vw'}} src={Livre.img} alt="" /></a>
-				<span style={{display:'block', float:'right', width:'70vw', marginLeft:'1vw', marginTop:70}} > <p style={{textAlign:'justify'}} >{ReactHtmlParser(Livre.text)}</p><a href={Livre.link} target="_blank">Lien vers l'éditeur</a> </span>
+				<span style={{display:'block', float:'right', width:'70vw', marginLeft:'1vw', marginTop:70}} > <p style={{textAlign:'justify', fontSize:16}} >{ReactHtmlParser(Livre.text)}</p><a href={Livre.link} target="_blank">Lien vers l'éditeur</a> </span>
 			</div>
 		);
 	}

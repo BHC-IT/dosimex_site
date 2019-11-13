@@ -24,7 +24,6 @@ class MenuExamplePointing extends Component {
 	handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
 	componentWillMount(){
-		console.log("mount");
 		this.updateWindowDimensions();
 		window.addEventListener('resize', this.updateWindowDimensions);
 	}
@@ -86,22 +85,9 @@ class MenuExamplePointing extends Component {
 						onClick={(e, name) => this.redirectTo(e, name, "/Formation")}
 					/>
 					<Menu.Item
-						style={{color: "white", fontSize:Size.greaterMd() ? 20 : 7, fontWeight:'bold'}}
-						name='Achetez dosimex'
-						active={this.props.route === 'Formation'}
-						onClick={(e, name) => this.redirectTo(e, name, "/Formation")}
-						position='right'
-					/>
-					<Menu.Item
-						style={{color: "white", fontSize:Size.greaterMd() ? 20 : 7, fontWeight:'bold'}}
-						name='Formations'
-						active={activeItem === 'Formations'}
-						onClick={(e, name) => this.redirectTo(e, name, "/formations")}
-					/>
-					<Menu.Item
 						style={{color: "white", fontSize:Size.greaterMd() ? 20 : 7, fontWeight:'bold', position:'absolute', right:5}}
 						name='Acheter DOSIMEX'
-						active={activeItem === 'Acheter DOSIMEX'}
+						active={this.props.route === 'Acheter DOSIMEX'}
 						onClick={(e, name) => this.redirectTo(e, name, "/acheter")}
 					/>
 				</Menu>
