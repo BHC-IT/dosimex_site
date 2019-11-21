@@ -76,7 +76,7 @@ export default class Home extends React.Component {
 					{form.map(e => <input type="hidden" name={e.name} value={e.value}/> )}
 					<input type="hidden" name="signature" value={sha1(to_sign)}/>
 					<Row style={{alignItems:'center', justifyContent: 'center', height:'90vh', width:'100vw',}} >
-						<input type="submit" name="payer" value="Payer" style={{color:Color.white, backgroundColor:Color.red, width:150, height:50, border:'none', borderRadius:5, fontSize:26}} />
+						<input type="submit" name="payer" value="Commander" style={{color:Color.white, backgroundColor:Color.red, width:200, height:50, border:'none', borderRadius:5, fontSize:26}} />
 					</Row>
 				</form>
 			</div>

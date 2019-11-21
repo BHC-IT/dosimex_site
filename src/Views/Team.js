@@ -87,8 +87,8 @@ export default class Team extends React.Component {
 	render(){
 		return (
 			<div style={{width:'100%', marginTop:15, backgroundColor:Color.ligthgrey}} >
-				<this._user user={team[0]} />
 				<this._user user={team[1]} />
+				<this._user user={team[0]} />
 			</div>
 		);
 	}

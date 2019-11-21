@@ -87,19 +87,23 @@ export default class Home extends React.Component {
 							</Accordion.Toggle>
 						</Card.Header>
 						<Accordion.Collapse eventKey="0">
-							<Card.Body style={{backgroundColor:Color.lightergrey, height:'71vh', justifyContent:'center', alignItems:'center'}} >
-								<div style={{}} >
-									<div style={{marginLeft:'2.5vw', marginRight:'2vw', width:'20vw', height:'40vh', display:'inline-block'}} >
-										<a href={PManuel1} target="_blank" style={{}} ><img src={IManuel1} style={{height:'35vh'}} /><p style={{display:'inline', position:'relative', top:'19vh', left:'-15vh'}} >testtest</p></a>
+							<Card.Body style={{backgroundColor:Color.lightergrey, height:'71vh'}} >
+								<div style={{display:'flex', 'flex-direction':'row', justifyContent:'space-evenly'}} >
+									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
+										<a href={PManuel1} target="_blank" style={{}} ><img src={IManuel1} style={{height:'35vh'}} /></a>
+										<a href={PManuel1} target="_blank" style={{}} ><p style={{}} >DOSSIER DE VALIDATION EMISSION GAMMA</p></a>
 									</div>
-									<div style={{marginLeft:'2.5vw', marginRight:'2vw', width:'20vw', height:'40vh', display:'inline-block'}} >
-										<a href={PManuel2} target="_blank" style={{}} ><img src={IManuel2} style={{height:'35vh'}} /><p style={{display:'inline', position:'relative', top:'19vh', left:'-15vh'}} >testtest</p></a>
+									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
+										<a href={PManuel2} target="_blank" style={{}} ><img src={IManuel2} style={{height:'35vh'}} /></a>
+										<a href={PManuel2} target="_blank" style={{}} ><p style={{}} >DOSSIER DE VALIDATION GÉNÉRATEUR X</p></a>
 									</div>
-									<div style={{marginLeft:'2.5vw', marginRight:'2vw', width:'20vw', height:'40vh', display:'inline-block'}} >
-										<a href={PManuel3} target="_blank" style={{}} ><img src={IManuel3} style={{height:'35vh'}} /><p style={{display:'inline', position:'relative', top:'19vh', left:'-15vh'}} >testtest</p></a>
+									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
+										<a href={PManuel3} target="_blank" style={{}} ><img src={IManuel3} style={{height:'35vh'}} /></a>
+										<a href={PManuel3} target="_blank" style={{}} ><p style={{}} >application norme NF C15-160</p></a>
 									</div>
-									<div style={{marginLeft:'2.5vw', marginRight:'2vw', width:'20vw', height:'40vh', display:'inline-block'}} >
-										<a href={PManuel4} target="_blank" style={{}} ><img src={IManuel4} style={{height:'35vh'}} /><p style={{display:'inline', position:'relative', top:'19vh', left:'-15vh'}} >testtest</p></a>
+									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
+										<a href={PManuel4} target="_blank" style={{}} ><img src={IManuel4} style={{height:'35vh'}} /></a>
+										<a href={PManuel4} target="_blank" style={{}} ><p style={{}} >Évaluation par calcul Monte-carlo</p></a>
 									</div>
 								</div>
 							</Card.Body>
@@ -112,22 +116,27 @@ export default class Home extends React.Component {
 							</Accordion.Toggle>
 						</Card.Header>
 						<Accordion.Collapse eventKey="1">
-							<Card.Body style={{backgroundColor:Color.lightergrey, height:'71vh', justifyContent:'center', alignItems:'center'}} >
-								<div style={{}} >
-									<div style={{marginLeft:'2.5vw', marginRight:'2vw', width:'15vw', height:'30vh', display:'inline-block'}} >
-										<a href={PValidation1} target="_blank" style={{}} ><img src={IValidation1} style={{height:'30vh'}} /><p style={{display:'inline', position:'relative', top:'1vh', left:'7vh'}} >foobar</p></a>
+							<Card.Body style={{backgroundColor:Color.lightergrey, height:'71vh'}} >
+								<div style={{display:'flex', 'flex-direction':'row', justifyContent:'space-evenly'}} >
+									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
+										<a href={PValidation1} target="_blank" style={{}} ><img src={IValidation1} style={{height:'35vh'}} /></a>
+										<a href={PValidation1} target="_blank" style={{}} ><p style={{}} >DOSSIER DE VALIDATION EMISSION GAMMA</p></a>
 									</div>
-									<div style={{marginLeft:'2.5vw', marginRight:'2vw', width:'15vw', height:'30vh', display:'inline-block'}} >
-										<a href={PValidation2} target="_blank" style={{}} ><img src={IValidation2} style={{height:'30vh'}} /><p style={{display:'inline', position:'relative', top:'1vh', left:'7vh'}} >testtest</p></a>
+									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
+										<a href={PValidation2} target="_blank" style={{}} ><img src={IValidation2} style={{height:'35vh'}} /></a>
+										<a href={PValidation2} target="_blank" style={{}} ><p style={{}} >DOSSIER DE VALIDATION GÉNÉRATEUR X</p></a>
 									</div>
-									<div style={{marginLeft:'2.5vw', marginRight:'2vw', width:'15vw', height:'30vh', display:'inline-block'}} >
-										<a href={PValidation3} target="_blank" style={{}} ><img src={IValidation3} style={{height:'30vh'}} /><p style={{display:'inline', position:'relative', top:'1vh', left:'7vh'}} >testtest</p></a>
+									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
+										<a href={PValidation3} target="_blank" style={{}} ><img src={IValidation3} style={{height:'35vh'}} /></a>
+										<a href={PValidation3} target="_blank" style={{}} ><p style={{}} >application norme NF C15-160</p></a>
 									</div>
-									<div style={{marginLeft:'2.5vw', marginRight:'2vw', width:'15vw', height:'30vh', display:'inline-block'}} >
-										<a href={PValidation4} target="_blank" style={{}} ><img src={IValidation4} style={{height:'30vh'}} /><p style={{display:'inline', position:'relative', top:'1vh', left:'7vh'}} >testtest</p></a>
+									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
+										<a href={PValidation4} target="_blank" style={{}} ><img src={IValidation4} style={{height:'35vh'}} /></a>
+										<a href={PValidation4} target="_blank" style={{}} ><p style={{}} >Évaluation par calcul Monte-carlo</p></a>
 									</div>
-									<div style={{marginLeft:'2.5vw', marginRight:'2vw', width:'15vw', height:'30vh', display:'inline-block'}} >
-										<a href={PValidation5} target="_blank" style={{}} ><img src={IValidation5} style={{height:'30vh'}} /><p style={{display:'inline', position:'relative', top:'1vh', left:'7vh'}} >loilol</p></a>
+									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
+										<a href={PValidation5} target="_blank" style={{}} ><img src={IValidation5} style={{height:'35vh'}} /></a>
+										<a href={PValidation5} target="_blank" style={{}} ><p style={{}} >Dose equivalent transmission data</p></a>
 									</div>
 								</div>
 							</Card.Body>
@@ -141,18 +150,22 @@ export default class Home extends React.Component {
 						</Card.Header>
 						<Accordion.Collapse eventKey="2">
 							<Card.Body style={{backgroundColor:Color.lightergrey, height:'71vh'}} >
-								<div style={{}} >
-									<div style={{marginLeft:'2.5vw', marginRight:'2vw', width:'20vw', height:'40vh', display:'inline-block'}} >
-										<a href={PRapport1} target="_blank" style={{}} ><img src={IRapport1} style={{height:'35vh'}} /><p style={{display:'inline', position:'relative', top:'19vh', left:'-15vh'}} >testtest</p></a>
+								<div style={{display:'flex', 'flex-direction':'row', justifyContent:'space-evenly'}} >
+									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
+										<a href={PRapport1} target="_blank" style={{}} ><img src={IRapport1} style={{height:'35vh'}} /></a>
+										<a href={PRapport1} target="_blank" style={{}} ><p style={{}} >DOSSIER DE VALIDATION EMISSION GAMMA</p></a>
 									</div>
-									<div style={{marginLeft:'2.5vw', marginRight:'2vw', width:'20vw', height:'40vh', display:'inline-block'}} >
-										<a href={PRapport2} target="_blank" style={{}} ><img src={IRapport2} style={{height:'35vh'}} /><p style={{display:'inline', position:'relative', top:'19vh', left:'-15vh'}} >testtest</p></a>
+									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
+										<a href={PRapport2} target="_blank" style={{}} ><img src={IRapport2} style={{height:'35vh'}} /></a>
+										<a href={PRapport2} target="_blank" style={{}} ><p style={{}} >DOSSIER DE VALIDATION GÉNÉRATEUR X</p></a>
 									</div>
-									<div style={{marginLeft:'2.5vw', marginRight:'2vw', width:'20vw', height:'40vh', display:'inline-block'}} >
-										<a href={PRapport3} target="_blank" style={{}} ><img src={IRapport3} style={{height:'35vh'}} /><p style={{display:'inline', position:'relative', top:'19vh', left:'-15vh'}} >testtest</p></a>
+									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
+										<a href={PRapport3} target="_blank" style={{}} ><img src={IRapport3} style={{height:'35vh'}} /></a>
+										<a href={PRapport3} target="_blank" style={{}} ><p style={{}} >application norme NF C15-160</p></a>
 									</div>
-									<div style={{marginLeft:'2.5vw', marginRight:'2vw', width:'20vw', height:'40vh', display:'inline-block'}} >
-										<a href={PRapport4} target="_blank" style={{}} ><img src={IRapport4} style={{height:'35vh'}} /><p style={{display:'inline', position:'relative', top:'19vh', left:'-15vh'}} >testtest</p></a>
+									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
+										<a href={PRapport4} target="_blank" style={{}} ><img src={IRapport4} style={{height:'35vh'}} /></a>
+										<a href={PRapport4} target="_blank" style={{}} ><p style={{}} >Évaluation par calcul Monte-carlo</p></a>
 									</div>
 								</div>
 							</Card.Body>
