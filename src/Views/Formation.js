@@ -16,6 +16,10 @@ import TextSpliter from '../Components/TextSpliter.js'
 
 import { Parallax } from 'react-scroll-parallax';
 
+import radium from '../Images/radium.png'
+import gam from '../Images/gam.png'
+import tec from '../Images/tec.png'
+
 import Catalogue from "../Folders/Formations_Dosimex 2020.pdf";
 
 const documentation =
@@ -32,7 +36,7 @@ const documentation =
 	• Ionisations alimentaires\n\
 	• Source Strontium-Yttrium 90 de forte activité\n\
 	• Analyse radioprotection d'un colis de déchets produit de fission ( CSDV)\n\
-	Prix forfaitaire pour des formations sur sites : 1350 € HT par jours pour des formations de 4 à 8 personnes.\n\
+	Prix forfaitaire pour des formations sur sites : 1500€ HT par jours pour des formations de 4 à 8 personnes. + 150€ HT clés stagiaire\n\
 	Nous avons  aussi conçus, en partenariat avec Safetechnologies  d’autres formations centrées sur :\n\
 	• la physique nucléaire et la radioactivité\n\
 	• L’interaction rayonnement-matière\n\
@@ -74,9 +78,12 @@ export default class About extends React.Component {
 								<img src={image} style={{height:'27vh'}}/>
 							</Row>
 							<Row style={{justifyContent:'center', height:'56vh'}} >
-								<TextSpliter textStyle={{textAlign:'justify', fontSize:16, margin:5, marginLeft:15, marginRight:15}} text={documentation} />
+								<TextSpliter textStyle={{textAlign:'justify', fontSize:14, margin:5, marginLeft:15, marginRight:15}} text={documentation} />
 								{/*<a href={Catalogue} target="_blank" ><p style={{fontSize:22}} >voir catalogue complet des formations </p></a>*/}
 							</Row>
+							<img src={radium} style={{height:'17vh', position:'absolute', top:'37%', right:'25px'}} />
+							<img src={gam} style={{height:'17vh', position:'absolute', top:'77%', right:'205px'}} />
+							<img src={tec} style={{height:'25vh', position:'absolute', top:'47%', right:'405px'}} />
 						</Col>
 					</Row>
 				</div>

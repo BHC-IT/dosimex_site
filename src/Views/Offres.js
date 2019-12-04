@@ -138,11 +138,11 @@ export default class Home extends React.Component {
 
 const pack1 = {
 	text:[
-		"• DOSIMEX-GX 3.0 : code de calcul déterministe de débit de dose émetteurs gamma (sources volumiques, surfaciques…) et générateur X, avec option feuille de calcul norme NF C15-160 /2018. Effet de ciel, rayonnement de freinage….",
-		"• DOSIMEX-B 3 : code de calcul déterministe de débit de dose émetteur bêta et électrons monoénergétiques. Prise en compte sources volumiques  (bécher, seringue) ou surfaciques (contamination peau)",
-		"• DOSIMEX-N 3 : code de calcul de débit de dose Monte-Carlo  émetteur neutron (type Am/Be) avec protection biologique (eau, polyéthylène, Bore, Cadmium etc..). Module pédagogique avec visualisation trajectoire neutron",
-		"• DOSIMEX-I 3.0 : code de  calcul de cinétique d’expositions dans un local suite à une contamination volumique (fuite continue, bouffée..). Calculs de transfert atmosphérique. Calcul mélanges RAI/RAV/RCA",
-		"• DOSIMEX-MN 1.0 : utilitaire de gestion de données permettant de connaitre les doses absorbées par unité d’activité administrée  pour les radiopharmaceutiques recensés dans les CIPR 53, 80, 106 et 128"
+		"• <h5 style='display:inline;font-weight:bold' >DOSIMEX-GX 3.0</h5> : code de calcul déterministe de débit de dose émetteurs gamma (sources volumiques, surfaciques…) et générateur X, avec option feuille de calcul norme NF C15-160 /2018. Effet de ciel, rayonnement de freinage….",
+		"• <h5 style='display:inline;font-weight:bold' >DOSIMEX-B 3</h5> : code de calcul déterministe de débit de dose émetteur bêta et électrons monoénergétiques. Prise en compte sources volumiques  (bécher, seringue) ou surfaciques (contamination peau)",
+		"• <h5 style='display:inline;font-weight:bold' >DOSIMEX-N 3</h5> : code de calcul de débit de dose Monte-Carlo  émetteur neutron (type Am/Be) avec protection biologique (eau, polyéthylène, Bore, Cadmium etc..). Module pédagogique avec visualisation trajectoire neutron",
+		"• <h5 style='display:inline;font-weight:bold' >DOSIMEX-I 3.0</h5> : code de  calcul de cinétique d’expositions dans un local suite à une contamination volumique (fuite continue, bouffée..). Calculs de transfert atmosphérique. Calcul mélanges RAI/RAV/RCA",
+		"• <h5 style='display:inline;font-weight:bold' >DOSIMEX-MN 1.0</h5> : utilitaire de gestion de données permettant de connaitre les doses absorbées par unité d’activité administrée  pour les radiopharmaceutiques recensés dans les CIPR 53, 80, 106 et 128"
 	],
 	img:[
 		dosigx,
@@ -151,16 +151,16 @@ const pack1 = {
 		dosii,
 		dosimn
 	],
-	title:"Pack opérationnelle",
+	title:"Pack opérationnel",
 	url:"/tutos/packOperationel"
 }
 
 const pack2 = {
 	text:[
-		"• IRM photon 3.0: utilitaire mettant en œuvre les principes d’interactions photon –matières dans les matériaux avec diverses applications : calcul de kerma, de dose, de libre parcours moyen, effet Compton, visualisation de trajectoires (Monte-Carlo).",
-		"• IRM particules chargées 3..0 : utilitaire mettant en œuvre les principes d’interactions particules chargées–matières dans les matériaux avec diverses applications : calcul de parcours, de coefficient fluence-kerma, application aux spectres bêta.",
-		"• Serious Game 3.0 : utilitaire à vocation pédagogique permettant de mettre en évidence les paramètres essentiels de la radioprotection : distance, temps, écran, activité, nature radionucléide",
-		"• Coefficients  ICRU 57 3.0 : utilitaire permettant de connaitre les coefficients fluence-équivalents de dose et kerma air normalisés pour les électrons, les photons et les neutrons.",
+		"• <h5 style='display:inline;font-weight:bold' >IRM photon 3.0</h5> : utilitaire mettant en œuvre les principes d’interactions photon –matières dans les matériaux avec diverses applications : calcul de kerma, de dose, de libre parcours moyen, effet Compton, visualisation de trajectoires (Monte-Carlo).",
+		"• <h5 style='display:inline;font-weight:bold' >IRM particules chargées 3.0</h5> : utilitaire mettant en œuvre les principes d’interactions particules chargées–matières dans les matériaux avec diverses applications : calcul de parcours, de coefficient fluence-kerma, application aux spectres bêta.",
+		"• <h5 style='display:inline;font-weight:bold' >Serious Game 3.0</h5> : utilitaire à vocation pédagogique permettant de mettre en évidence les paramètres essentiels de la radioprotection : distance, temps, écran, activité, nature radionucléide",
+		"• <h5 style='display:inline;font-weight:bold' >Coefficients  ICRU 57 3.0</h5> : utilitaire permettant de connaitre les coefficients fluence-équivalents de dose et kerma air normalisés pour les électrons, les photons et les neutrons.",
 	],
 	img:[
 		irm_photon,
@@ -174,10 +174,10 @@ const pack2 = {
 
 const pack3 = {
 	text:[
-		"• Code TAGE (Total Absorption Gamma Efficiency) : code déterministe calculant le rendement d’absorption totale en spectrométrie gamma, avec correction de couches mortes (caractérisation), correction de coïncidence et rendement de pics sommes.",
-		"• Code Co3 : code de calcul de Coefficient de Conversion Contaminamètres  permettant de calculer les rendements(Bq/cm2/ cps) de divers ictomètres et d’obtenir les activités surfaciques versus la nature de la sonde et le spectre isotopique mesuré.",
-		"• Composition de variables aléatoires : utilitaire permettant de combiner par méthode Monte-Carlo jusqu’à 5 variables de types différents . Cet utilitaire est accompagné des documents de cours complets sur le sujet des calculs d’incertitudes",
-		"• Calcul de seuil de décision. Utilitaire permettant de déterminer le seuil de décision et la limite de détection en mesure nucléaire. Cet utilitaire est accompagné des documents de cours complets sur ce sujet et d’articles divers.",
+		"• <h5 style='display:inline;font-weight:bold' >Code TAGE (Total Absorption Gamma Efficiency)</h5> : code déterministe calculant le rendement d’absorption totale en spectrométrie gamma, avec correction de couches mortes (caractérisation), correction de coïncidence et rendement de pics sommes.",
+		"• <h5 style='display:inline;font-weight:bold' >Code Co3</h5> : code de calcul de Coefficient de Conversion Contaminamètres  permettant de calculer les rendements(Bq/cm2/ cps) de divers ictomètres et d’obtenir les activités surfaciques versus la nature de la sonde et le spectre isotopique mesuré.",
+		"• <h5 style='display:inline;font-weight:bold' >Composition de variables aléatoires</h5> : utilitaire permettant de combiner par méthode Monte-Carlo jusqu’à 5 variables de types différents . Cet utilitaire est accompagné des documents de cours complets sur le sujet des calculs d’incertitudes",
+		"• <h5 style='display:inline;font-weight:bold' >Calcul de seuil de décision</h5> : Utilitaire permettant de déterminer le seuil de décision et la limite de détection en mesure nucléaire. Cet utilitaire est accompagné des documents de cours complets sur ce sujet et d’articles divers.",
 	],
 	img:[
 		tage,
