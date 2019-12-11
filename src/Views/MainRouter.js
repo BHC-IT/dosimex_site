@@ -27,7 +27,7 @@ class App extends React.Component {
 	render(){
 		return (
 			<Router>
-				<div style={{backgroundColor:Color.lightergrey}} >
+				<div style={{backgroundColor:Color.lightergrey, height:'100vh'}} >
 					<Navbar route={this.state.route} />
 					<Route exact path="/" render={() => {
 						if (this.state.route !== 'Home')

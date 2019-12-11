@@ -41,7 +41,7 @@ class MenuExamplePointing extends Component {
 		const { activeItem } = this.state
 		return (
 			<div style={{width:this.state.width}} >
-				<Menu pointing style={{backgroundColor: Color.red, height:'5vh'}}>
+				<Menu pointing style={{backgroundColor: Color.red}}>
 					<Menu.Item
 						style={{color: "white", fontSize:Size.greaterMd() ? 20 : 7, fontWeight:'bold'}}
 						name='Accueil'

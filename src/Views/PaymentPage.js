@@ -6,6 +6,10 @@ import Color from '../Styles/colorSchemes.js'
 
 import TextSpliter from '../Components/TextSpliter.js'
 
+import InputNumber from 'rc-input-number';
+
+import StripeCheckout from 'react-stripe-checkout';
+
 import XMLHttpRequestAsync from '../helpers/XMLHttpRequestAsync'
 
 var sha1 = require('sha1');
@@ -52,6 +56,7 @@ export default class Home extends React.Component {
 		super(props);
 
 		this.state = {
+			amount:1
 		};
 
 		this.request = new XMLHttpRequestAsync();
@@ -60,25 +65,40 @@ export default class Home extends React.Component {
 		this.request.send().then(res => console.log('res :', res)).catch(err => console.log('err :', err));
 	}
 
+	payment(){
+		let stripe = window.Stripe('pk_test_1s4uJA1Pt7i1h33CQVEUXiT800QTki0qvn');
+
+		if (this.state.amount <= 0 || this.state.amount > 10){
+			alert('nombre invalide');
+			return;
+		}
+		stripe.redirectToCheckout({
+			items: [{sku: 'sku_GLCNldRijwAK1V', quantity: this.state.amount|0}],
+
+			successUrl: 'http://dosimex.fr/success',
+			cancelUrl: 'http://dosimex.fr/canceled',
+			billingAddressCollection: 'required',
+			locale:'fr'
+		}).then(function (result) {
+			console.log(result);
+			if (result.error) {
+				alert(result.error.message);
+			}
+		}).catch(e => console.log(e));
+	}
+
 	render(){
-		form.sort((l,r) => l.name > r.name);
-		let to_sign = form.reduce((acc, e) => {
-			if (acc.length > 0)
-				acc += '+';
-			acc += e.value;
-			return (acc);
-		}, "");
-		to_sign += '+' + 'Izp9S6YP5DpyBwhM';
 		return (
-			<div style={{width:'100%', height:'100%'}} >
+			<div style={{display:'flex', flexDirection:'column', flex:1, flexGrow:1, alignItems:'center', justifyContent:'center'}} >
 				<p>achat</p>
-				<form method="POST" action="https://paiement.systempay.fr/vads-payment/">
-					{form.map(e => <input type="hidden" name={e.name} value={e.value}/> )}
-					<input type="hidden" name="signature" value={sha1(to_sign)}/>
-					<Row style={{alignItems:'center', justifyContent: 'center', height:'90vh', width:'100vw',}} >
-						<input type="submit" name="payer" value="Commander" style={{color:Color.white, backgroundColor:Color.red, width:200, height:50, border:'none', borderRadius:5, fontSize:26}} />
-					</Row>
-				</form>
+				<div style={{display:'flex', justifyContent:'center', alignItems:'center'}} >
+					<p>nombre :</p>
+					<InputNumber min={1} max={10} step={1} value={this.state.amount} onChange={(nb) => this.setState({amount:nb})} required style={{}} />
+
+				</div>
+				<button style={{backgroundColor:Color.red, borderWidth:0, borderRadius:15, height:50, width:200, marginTop:'2vh'}} onClick={() => this.payment()} >
+					<p style={{color:Color.white}} >Checkout</p>
+				</button>
 			</div>
 		);
 	}
