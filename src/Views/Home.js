@@ -15,17 +15,22 @@ import TextSpliter from '../Components/TextSpliter.js'
 import Color from '../Styles/colorSchemes.js'
 import Size from '../Styles/Size.js'
 
+import BackGroundHague from "../Images/BackGroundHague.png"
+
 import logoDosi from "../Images/logo_dosimex.png"
-import i1a from "../Images/1a.png"
-import i1b from "../Images/1b.png"
-import i1c from "../Images/1c_t.png"
-import i1d from "../Images/1d_t.png"
-import i1e from "../Images/1e_t.png"
-import i1f from "../Images/1f_t.png"
-import i1g from "../Images/1g_t.png"
-import i1h from "../Images/1h_t.png"
-import i1i from "../Images/1i_t.png"
 import usbkey from "../Images/usbkey.png"
+import i1a from "../Images/carousel/1_logo_t.png"
+import i1b from "../Images/carousel/2_photo_fiole_t.png"
+import i1c from "../Images/carousel/3-dose_gamma_t.png"
+import i1d from "../Images/carousel/4_photo-Ir192_t.png"
+import i1e from "../Images/carousel/4_seriousgame_t.png"
+import i1f from "../Images/carousel/5_photoX_t.png"
+import i1g from "../Images/carousel/6-calculX_t.png"
+import i1h from "../Images/carousel/7_NFC15160_t.png"
+import i1i from "../Images/carousel/8_beta_t.png"
+import i1j from "../Images/carousel/9_neutrons_t.png"
+import i1k from "../Images/carousel/10_conta_t.png"
+import i1l from "../Images/carousel/11_pharma_t.png"
 
 import Synthèse_retour_utilisateurs_Dosimex from '../Folders/Synthèse_retour_utilisateurs_Dosimex.pdf'
 import Modif_DOSIMEX_GX_3 from '../Folders/Modif_DOSIMEX_GX_3.0.pdf'
@@ -44,11 +49,11 @@ import { FaQuoteLeft } from 'react-icons/fa'
 import { FaQuoteRight } from 'react-icons/fa'
 
 const slides = [
-	{
-		uri:logoDosi,
-		title:"",
-		text:"Outils de calcul radioprotection et formations associées"
-	},
+	// {
+	// 	uri:logoDosi,
+	// 	title:"",
+	// 	text:"Outils de calcul radioprotection et formations associées"
+	// },
 	// {
 	// 	uri:usbkey,
 	// 	title:null,
@@ -56,49 +61,64 @@ const slides = [
 	// },
 	{
 		uri:i1a,
-		title:"DOSIMEX-GX",
-		text:"Doses gamma sources volumiques, multi-écran …"
+		title:"",
+		text:""
 	},
 	{
 		uri:i1b,
-		title:"DOSIMEX-GX",
-		text:"Rayonnement de freinage…"
-	},
-	{
-		uri:i1d,
-		title:"DOSIMEX-GX",
-		text:"Effet de ciel"
+		title:"",
+		text:""
 	},
 	{
 		uri:i1c,
-		title:"DOSIMEX-GX",
-		text:"Modélisation générateur X primaire +diffusé."
+		title:"",
+		text:""
+	},
+	{
+		uri:i1d,
+		title:"",
+		text:""
 	},
 	{
 		uri:i1e,
-		title:"Dosimex-GX",
-		text:"Application NF C15-160"
+		title:"",
+		text:""
 	},
 	{
 		uri:i1f,
-		title:"Dosimex-B",
-		text:"Dose Bêta, source volumique, calcul d’écran"
+		title:"",
+		text:""
 	},
 	{
 		uri:i1g,
-		title:"Dosimex-N",
-		text:"Code Monte-Carlo neutron"
+		title:"",
+		text:""
 	},
 	{
 		uri:i1h,
-		title:"Dosimex-I",
-		text:"exposition interne, transfert atmosphérique"
+		title:"",
+		text:""
 	},
 	{
 		uri:i1i,
-		title:"Dosimex-MN",
-		text:"radiopharmaceutiques et dose patient"
+		title:"",
+		text:""
 	},
+	{
+		uri:i1j,
+		title:"",
+		text:""
+	},
+	{
+		uri:i1k,
+		title:"",
+		text:""
+	},
+	{
+		uri:i1l,
+		title:"",
+		text:""
+	}
 ]
 
 export default class Home extends React.Component {
@@ -230,11 +250,15 @@ export default class Home extends React.Component {
 
 	renderPackshot = () => {
 		return (
-			<Row style={{justifyContent:'center', height:'99vh', alignItems:'center'}} >
-				<Col xs={{span:10}} >
-					<TextSpliter text={fin_text} textStyle={{fontSize:'2vh', alignSelf:'center', justifyContent:'center', textAlign:'justify'}} />
-				</Col>
-			</Row>
+			<div style={{backgroundColor:Color.black, backgroundImage: `url(${BackGroundHague})`, backgroundRepeat:'no-repeat', backgroundSize: "cover" }} >
+				<Row style={{justifyContent:'center', height:'99vh', alignItems:'center'}} >
+					<Col xs={{span:10}}  style={{}} >
+						<TextSpliter text={fin_text} textStyle={{fontSize:'2.3vh', alignSelf:'center', justifyContent:'center', textAlign:'justify', color:Color.white, fontWeight:1000,  textShadow:'1.5px 1.5px #000000'}} />
+						<a style={{display:'flex', fontSize:'2.3vh', alignSelf:'center', justifyContent:'center', textAlign:'justify', color:"#00ff00", fontWeight:1000}} href={Modif_DOSIMEX_GX_3} target='_blank' >*Voir  modifications  Dosimex-GX 3.0</a>
+						<a style={{display:'flex', fontSize:'2.3vh', alignSelf:'center', justifyContent:'center', textAlign:'justify', color:"#00ff00", fontWeight:1000}} href={Synthèse_retour_utilisateurs_Dosimex} target='_blank' >**Voir Retours utilisateurs</a>
+					</Col>
+				</Row>
+			</div>
 		);
 	}
 
@@ -242,7 +266,7 @@ export default class Home extends React.Component {
 		return (
 			<div style={{width:'100%'}} >
 				<div style={{backgroundColor:Color.lightergrey, height:this.state.height, width:'100%'}} >
-					<Row style={{backgroundColor:Color.lightergrey, justifyContent:'center', marginBottom:Size.greaterMd() ? 100 : 25 }}>
+					<Row style={{backgroundColor:Color.lightergrey, justifyContent:'center', marginBottom:Size.greaterMd() ? 50 : 25 }}>
 						<Col md={6} style={{marginTop:20, justifyContent:'center', alignItems:'center'}} >
 							<Carousel nextIcon={<img src={arrow_right} />} prevIcon={<img src={arrow_left} /> } >
 								{slides.map((s, i) => {
@@ -274,7 +298,7 @@ export default class Home extends React.Component {
 						}} >
 							<Col style={{justifyContent:'center'}} >
 								<Row style={{justifyContent:'center'}} >
-									<p style={{fontWeight:'bold', fontSize:'2vh', color:Color.blue}}>PRESENTATION RAPIDE</p>
+									<p style={{fontWeight:'bold', fontSize:'2vh', color:Color.blue}}>PRÉSENTATION GÉNÉRALE</p>
 								</Row>
 								<Row style={{justifyContent:'center'}} >
 									<p style={{fontWeight:'bold', fontSize:'2.5vh', color:Color.blue}}>V</p>
@@ -372,10 +396,10 @@ const pack3 = {
 	url:"/offres/packMesure"
 }
 
-let fin_text = "Les outils de calculs opérationnels vous permettront d’estimer à leurs justes hauteurs les risques radiologiques dans les scénarios d’exposition externe  (gamma, X , bêta , neutron…) et interne. Vous pourrez ainsi concevoir les protections nécessaires à mettre en place, réaliser des prédictifs de dose, affiner vos démarches ALARA ….(voir pack opérationnel).\n\
-Quelles que soient vos fonctions dans le domaine de la radioprotection, ces outils de calculs vous permettront d’augmenter votre niveau d’expertise. Vous trouverez sur le site des vidéos spécifiques à chaque codes  vous donnant un aperçu de la simplicité d’empli de ces derniers (voir onglet vidéos)\n\
-La version 3.0 bénéficie de nombreuses améliorations ( Voir  modifications  Dosimex-GX 3.0  grâce notamment à une collaboration active avec les utilisateurs  (voir Retours utilisateurs) et des dossiers de validations renforcées. Dosimex-GX est accompagné à lui seul de 3 dossiers de validations  comportant plus de 1000 valeurs de références. Ces validations mette en œuvre un benchmark complet s’appuyant sur MCNP, RayXpert, Mercurad.et Microshield (consulter les dossiers de validations de Dosimex-GX)\n\
+let fin_text = "Les outils de calculs opérationnels vous permettront d’estimer à leurs justes hauteurs les risques radiologiques dans les scénarios d’exposition externe  (gamma, X , bêta , neutron…) et interne. Vous pourrez ainsi concevoir les protections nécessaires à mettre en place, réaliser des prédictifs de dose, affiner vos démarches ALARA ….(<a href='/offres/packOperationel' style=color:#00ff00 >voir pack opérationnel</a>).\n\
+Quelles que soient vos fonctions dans le domaine de la radioprotection, ces outils de calculs vous permettront d’augmenter votre niveau d’expertise. Vous trouverez sur le site des vidéos spécifiques à chaque codes  vous donnant un aperçu de la simplicité d’empli de ces derniers (<a href='/tutos' style=color:#00ff00 >voir onglet vidéos</a>)\n\
+La version 3.0 bénéficie de nombreuses améliorations (*)  grâce notamment à une collaboration active avec les utilisateurs  (**) et des dossiers de validations renforcées. Dosimex-GX est accompagné à lui seul de 3 dossiers de validations  comportant plus de 1000 valeurs de références. Ces validations mette en œuvre un benchmark complet s’appuyant sur MCNP, RayXpert, Mercurad.et Microshield (<a href='/about/Validation' style=color:#00ff00 >consulter les dossiers de validations de Dosimex-GX</a>)\n\
 Nous proposons aussi des formations  sur site (voir onglet formations). S’appuyant sur des cas pratiques, l’objectif de ces formations, au delà de la  prise en main de ces outils, est centré sur l’analyse et l’estimation des risques radiologiques.\n\
-En complément des outils à vocation opérationnelle, nous proposons des outils à vocation pédagogique : Leur objectif est de mieux comprendre la physique de l’interaction rayonnement-matière, à l’origine des doses générées par expositions aux rayonnements ionisants et des capacités de protections des écrans susceptibles d’être mis en œuvre contre ces même rayonnements (voir pack pédagogique)\n\
-Un troisième pack comprend des codes et utilitaires liés à l’aspect mesure de ces rayonnements ionisants : spectrométrie gamma, contaminamètres , seuil  de décision, limite de détection  (voir pack mesures)\n\
-<p style=\"textAlign:center\" ><a href=\"/tutos\" style={{textAlign:'center'}} >Vidéo présentation générale</a></p>"
+En complément des outils à vocation opérationnelle, nous proposons des outils à vocation pédagogique : Leur objectif est de mieux comprendre la physique de l’interaction rayonnement-matière, à l’origine des doses générées par expositions aux rayonnements ionisants et des capacités de protections des écrans susceptibles d’être mis en œuvre contre ces même rayonnements (<a href='/offres/packPedagogique' style=color:#00ff00 >voir pack pédagogique</a>)\n\
+Un troisième pack comprend des codes et utilitaires liés à l’aspect mesure de ces rayonnements ionisants : spectrométrie gamma, contaminamètres , seuil  de décision, limite de détection  (<a href='/offres/packMesure' style=color:#00ff00 >voir pack mesures</a>)\n\
+<p style=\"textAlign:center;\" ><a href=\"/tutos\" style=color:#00ff00 >Vidéo présentation générale</a></p>"

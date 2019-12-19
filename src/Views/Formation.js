@@ -36,15 +36,15 @@ const documentation =
 	• Ionisations alimentaires\n\
 	• Source Strontium-Yttrium 90 de forte activité\n\
 	• Analyse radioprotection d'un colis de déchets produit de fission ( CSDV)\n\
-	Prix forfaitaire pour des formations sur sites : 1500€ HT par jours pour des formations de 4 à 8 personnes. + 150€ HT clés stagiaire\n\
-	Nous avons  aussi conçus, en partenariat avec Safetechnologies  d’autres formations centrées sur :\n\
+	<p style=marginTop:1vh >Prix forfaitaire pour des formations sur sites : 1500€ HT par jours pour des formations de 4 à 8 personnes. + 150€ HT clés stagiaire</p>\n\
+	<p style=marginTop:1vh >Nous avons  aussi conçus, en partenariat avec Safetechnologies  d’autres formations centrées sur :</p>\n\
 	• la physique nucléaire et la radioactivité\n\
 	• L’interaction rayonnement-matière\n\
 	• Les principes de la mesure nucléaire\n\
 	• la spectrométrie gamma\n\
 	• la dosimétrie\n\
-	• les statistiques de mesures : incertitude, seuil de décision et limite de détection, l’ISO 11929. \n\
-	<a href='mailto:contact@dosimex.fr?subject=formation&body=Expliquez votre besoin en formation ici' > contact@dosimex.fr</a>\n\
+	<p style=marginBottom:1vh >• les statistiques de mesures : incertitude, seuil de décision et limite de détection, l’ISO 11929.</p> \n\
+	<a href='mailto:contact@dosimex.fr?subject=formation&body=Expliquez votre besoin en formation ici' style=marginTop:2vh > contact@dosimex.fr</a>\n\
 	Tél : 06 89 70 90 35"
 
 // const documentation = "Nous proposons des formations courtes permettant la prise en main de ces outils en\
@@ -83,7 +83,7 @@ export default class About extends React.Component {
 							</Row>
 							<img src={radium} style={{height:'17vh', position:'absolute', top:'37%', right:'25px'}} />
 							<img src={gam} style={{height:'17vh', position:'absolute', top:'77%', right:'205px'}} />
-							<img src={tec} style={{height:'25vh', position:'absolute', top:'47%', right:'405px'}} />
+							<img src={tec} style={{height:'25vh', position:'absolute', top:'38%', right:'405px'}} />
 						</Col>
 					</Row>
 				</div>

@@ -88,7 +88,7 @@ class MenuExamplePointing extends Component {
 						style={{color: "white", fontSize:Size.greaterMd() ? 20 : 7, fontWeight:'bold', position:'absolute', right:5}}
 						name='Acheter DOSIMEX'
 						active={this.props.route === 'Acheter DOSIMEX'}
-						onClick={(e, name) => this.redirectTo(e, name, "/acheter")}
+						// onClick={(e, name) => this.redirectTo(e, name, "/acheter")}
 					/>
 				</Menu>
 			</div>

@@ -106,13 +106,13 @@ class App extends React.Component {
 							<Team/>
 						);
 					}} />
-					<Route path="/acheter" render={() => {
+					{/*<Route path="/acheter" render={() => {
 						if (this.state.route !== 'Acheter DOSIMEX')
 							this.setState({route:'Acheter DOSIMEX'});
 						return(
 							<PaymentPage/>
 						);
-					}} />
+					}} />*/}
 
 				</div>
 			</Router>

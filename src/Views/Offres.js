@@ -65,11 +65,11 @@ export default class Home extends React.Component {
 
 	_renderLine = ({line, img}) => {
 		return (
-			<div style={{marginLeft:'4vw', paddingBottom:'2vh', borderBottom: '1px solid '+ Color.lightgrey, marginTop:'1vh', marginBottom:'3vh'}} >
-				<div style={{justifyContent:'center', marginLeft:'5vw'}} >
-					<img style={{margin:'auto', marginBottom:'0.75em', height:'6vh'}} src={img} alt="" />
+			<div style={{marginLeft:'4vw', paddingBottom:'1vh', borderBottom: '1px solid '+ Color.lightgrey, marginTop:'1vh', marginBottom:'1vh'}} >
+				<div style={{justifyContent:'center', marginLeft:'3vw'}} >
+					<img style={{margin:'auto', marginBottom:'0.75em', height:'7vh'}} src={img} alt="" />
 				</div>
-				<span style={{display:'block', float:'right', width:'70vw', marginLeft:'1vw', marginTop:'-5vh'}} > <p style={{textAlign:'justify'}} >{ReactHtmlParser(line)}</p> </span>
+				<span style={{display:'block', float:'right', width:'70vw', marginLeft:'1vw', marginTop:'-6vh'}} > <p style={{textAlign:'justify', fontSize:'1.8vh'}} >{ReactHtmlParser(line)}</p> </span>
 			</div>
 		);
 	}
@@ -94,7 +94,7 @@ export default class Home extends React.Component {
 					<Card style={{width:'101vw'}} >
 						<Card.Header style={{backgroundColor:Color.lightishgrey, height:'8vh'}} >
 							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="0" onClick={() => this._keepTrack('0')} >
-								<p style={{fontSize:30, color:Color.blue}} >{pack1.title}</p>
+								<p style={{fontSize:'3vh', color:Color.blue}} >{pack1.title}</p>
 							</Accordion.Toggle>
 						</Card.Header>
 						<Accordion.Collapse eventKey="0">
@@ -107,7 +107,7 @@ export default class Home extends React.Component {
 					<Card color={Color.red} >
 						<Card.Header style={{backgroundColor:Color.lightishgrey, height:'8vh'}} >
 							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="1" onClick={() => this._keepTrack('1')}>
-								<p style={{fontSize:30}} >{pack2.title}</p>
+								<p style={{fontSize:'3vh'}} >{pack2.title}</p>
 							</Accordion.Toggle>
 						</Card.Header>
 						<Accordion.Collapse eventKey="1">
@@ -120,7 +120,7 @@ export default class Home extends React.Component {
 					<Card>
 						<Card.Header style={{backgroundColor:Color.lightishgrey, height:'8vh'}} >
 							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="2" onClick={() => this._keepTrack('2')}>
-								<p style={{fontSize:30}} >{pack3.title}</p>
+								<p style={{fontSize:'3vh'}} >{pack3.title}</p>
 							</Accordion.Toggle>
 						</Card.Header>
 						<Accordion.Collapse eventKey="2">
@@ -139,10 +139,10 @@ export default class Home extends React.Component {
 const pack1 = {
 	text:[
 		"• <h5 style='display:inline;font-weight:bold' >DOSIMEX-GX 3.0</h5> : code de calcul déterministe de débit de dose émetteurs gamma (sources volumiques, surfaciques…) et générateur X, avec option feuille de calcul norme NF C15-160 /2018. Effet de ciel, rayonnement de freinage….",
-		"• <h5 style='display:inline;font-weight:bold' >DOSIMEX-B 3</h5> : code de calcul déterministe de débit de dose émetteur bêta et électrons monoénergétiques. Prise en compte sources volumiques  (bécher, seringue) ou surfaciques (contamination peau)",
-		"• <h5 style='display:inline;font-weight:bold' >DOSIMEX-N 3</h5> : code de calcul de débit de dose Monte-Carlo  émetteur neutron (type Am/Be) avec protection biologique (eau, polyéthylène, Bore, Cadmium etc..). Module pédagogique avec visualisation trajectoire neutron",
+		"• <h5 style='display:inline;font-weight:bold' >DOSIMEX-B 3.0</h5> : code de calcul déterministe de débit de dose émetteur bêta et électrons monoénergétiques. Prise en compte sources volumiques  (bécher, seringue) ou surfaciques (contamination peau)",
+		"• <h5 style='display:inline;font-weight:bold' >DOSIMEX-N 3.0</h5> : code de calcul de débit de dose Monte-Carlo  émetteur neutron (type Am/Be) avec protection biologique (eau, polyéthylène, Bore, Cadmium etc..). Module pédagogique avec visualisation trajectoire neutron",
 		"• <h5 style='display:inline;font-weight:bold' >DOSIMEX-I 3.0</h5> : code de  calcul de cinétique d’expositions dans un local suite à une contamination volumique (fuite continue, bouffée..). Calculs de transfert atmosphérique. Calcul mélanges RAI/RAV/RCA",
-		"• <h5 style='display:inline;font-weight:bold' >DOSIMEX-MN 1.0</h5> : utilitaire de gestion de données permettant de connaitre les doses absorbées par unité d’activité administrée  pour les radiopharmaceutiques recensés dans les CIPR 53, 80, 106 et 128"
+		"• <h5 style='display:inline;font-weight:bold' >DOSIMEX-MN 3.0</h5> : utilitaire de gestion de données permettant de connaitre les doses absorbées par unité d’activité administrée  pour les radiopharmaceutiques recensés dans les CIPR 53, 80, 106 et 128"
 	],
 	img:[
 		dosigx,
