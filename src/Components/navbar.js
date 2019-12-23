@@ -16,7 +16,8 @@ class MenuExamplePointing extends Component {
 		this.state = {
 			activeItem:this.props.route,
 			width:0,
-			height:0
+			height:0,
+			mouseOver:false
 		}
 		this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
 	}
@@ -24,7 +25,6 @@ class MenuExamplePointing extends Component {
 	handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
 	componentWillMount(){
-		console.log("mount");
 		this.updateWindowDimensions();
 		window.addEventListener('resize', this.updateWindowDimensions);
 	}
@@ -40,57 +40,59 @@ class MenuExamplePointing extends Component {
 
 	render() {
 		const { activeItem } = this.state
+		const backColor = this.state.mouseOver ? Color.red : 'rgba(0,0,0,1)';
+		const fontSize = this.state.mouseOver ? (Size.greaterMd() ? 20 : 7) : (Size.greaterMd() ? 15 : 4)
+		const itemStyle = {color: "white", fontSize:fontSize, fontWeight:'bold', 'transition-property': 'font-size', 'transition-duration': '0.4s'};
 		return (
-			<div style={{width:this.state.width}} >
-				<Menu pointing style={{backgroundColor: Color.red, height:'5vh'}}>
+			<div style={{width:this.state.width}} onMouseOver={() => this.setState({mouseOver:true})} onMouseOut={() => this.setState({mouseOver:false})} >
+				<Menu pointing style={{backgroundColor: backColor, 'transition-property': 'background-color', 'transition-duration': '0.5s'}}>
 					<Menu.Item
-						style={{color: "white", fontSize:Size.greaterMd() ? 20 : 7, fontWeight:'bold'}}
+						style={itemStyle}
 						name='Accueil'
 						active={this.props.route === 'Home'}
 						onClick={(e, name) => this.redirectTo(e, name, "/")}
 					/>
 					<Menu.Item
-						style={{color: "white", fontSize:Size.greaterMd() ? 20 : 7, fontWeight:'bold'}}
+						style={itemStyle}
 						name='Les offres Dosimex'
 						active={this.props.route === 'Les offres Dosimex'}
 						onClick={(e, name) => this.redirectTo(e, name, "/offres")}
 					/>
 					<Menu.Item
-						style={{color: "white", fontSize:Size.greaterMd() ? 20 : 7, fontWeight:'bold'}}
+						style={itemStyle}
 						name='Nos videos'
 						active={this.props.route === 'Nos tutos'}
 						onClick={(e, name) => this.redirectTo(e, name, "/tutos")}
 					/>
 					<Menu.Item
-						style={{color: "white", fontSize:Size.greaterMd() ? 20 : 7, fontWeight:'bold'}}
+						style={itemStyle}
 						name='Manuels et validation'
 						active={this.props.route === 'A propos'}
 						onClick={(e, name) => this.redirectTo(e, name, "/about")}
 					/>
 					<Menu.Item
-						style={{color: "white", fontSize:Size.greaterMd() ? 20 : 7, fontWeight:'bold'}}
+						style={itemStyle}
 						name='Lectures'
 						active={this.props.route === 'Lecture'}
 						onClick={(e, name) => this.redirectTo(e, name, "/lecture")}
 					/>
 					<Menu.Item
-						style={{color: "white", fontSize:Size.greaterMd() ? 20 : 7, fontWeight:'bold'}}
+						style={itemStyle}
 						name='Notre équipe'
 						active={this.props.route === 'Notre équipe'}
 						onClick={(e, name) => this.redirectTo(e, name, "/equipe")}
 					/>
 					<Menu.Item
-						style={{color: "white", fontSize:Size.greaterMd() ? 20 : 7, fontWeight:'bold'}}
+						style={itemStyle}
 						name='Formation'
 						active={this.props.route === 'Formation'}
 						onClick={(e, name) => this.redirectTo(e, name, "/Formation")}
 					/>
 					<Menu.Item
-						style={{color: "white", fontSize:Size.greaterMd() ? 20 : 7, fontWeight:'bold'}}
-						name='Achetez dosimex'
-						active={this.props.route === 'Formation'}
-						onClick={(e, name) => this.redirectTo(e, name, "/Formation")}
-						position='right'
+						style={{...itemStyle, position:'absolute', right:5}}
+						name='Acheter DOSIMEX'
+						active={this.props.route === 'Acheter DOSIMEX'}
+						// onClick={(e, name) => this.redirectTo(e, name, "/acheter")}
 					/>
 				</Menu>
 			</div>

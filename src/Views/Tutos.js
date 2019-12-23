@@ -126,7 +126,7 @@ const pack1 = {
 		✓ DOSIMEX-MN 1.0 utilitaire de gestion de données permettant de connaitre les doses\
 		absorbées par unité d’activité administrée pour les radiopharmaceutiques recensés dans les\
 		CIPR 53, 80, 106 et 128",
-	title:"Video pack opérationel",
+	title:"Video pack opérationnel",
 }
 
 const pack2 = {

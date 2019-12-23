@@ -9,6 +9,7 @@ import Offres from './Offres'
 import Tutos from './Tutos'
 import Team from './Team'
 import Lecture from './Lecture'
+import PaymentPage from './PaymentPage'
 
 import Color from '../Styles/colorSchemes.js'
 
@@ -24,10 +25,9 @@ class App extends React.Component {
 	}
 
 	render(){
-		console.log(this.state.route);
 		return (
 			<Router>
-				<div style={{backgroundColor:Color.lightergrey}} >
+				<div style={{backgroundColor:Color.lightergrey, height:'100vh'}} >
 					<Navbar route={this.state.route} />
 					<Route exact path="/" render={() => {
 						if (this.state.route !== 'Home')
@@ -106,6 +106,13 @@ class App extends React.Component {
 							<Team/>
 						);
 					}} />
+					{/*<Route path="/acheter" render={() => {
+						if (this.state.route !== 'Acheter DOSIMEX')
+							this.setState({route:'Acheter DOSIMEX'});
+						return(
+							<PaymentPage/>
+						);
+					}} />*/}
 
 				</div>
 			</Router>
