@@ -10,6 +10,7 @@ import Tutos from './Tutos'
 import Team from './Team'
 import Lecture from './Lecture'
 import PaymentPage from './PaymentPage'
+import Partenaires from './Partenaires.js'
 
 import Color from '../Styles/colorSchemes.js'
 
@@ -106,13 +107,20 @@ class App extends React.Component {
 							<Team/>
 						);
 					}} />
-					{/*<Route path="/acheter" render={() => {
+					<Route path="/acheter" render={() => {
 						if (this.state.route !== 'Acheter DOSIMEX')
 							this.setState({route:'Acheter DOSIMEX'});
 						return(
 							<PaymentPage/>
 						);
-					}} />*/}
+					}} />
+					<Route path="/partenaires" render={() => {
+						if (this.state.route !== 'Partenaires')
+							this.setState({route:'Partenaires'});
+						return(
+							<Partenaires/>
+						);
+					}} />
 
 				</div>
 			</Router>

@@ -19,8 +19,14 @@ import { Parallax } from 'react-scroll-parallax';
 import radium from '../Images/radium.png'
 import gam from '../Images/gam.png'
 import tec from '../Images/tec.png'
+import seringue from '../Images/Bonhomme_seringue.jpg'
+import coures from  "../Images/Bonhomme_coures.png"
 
 import Catalogue from "../Folders/Formations_Dosimex 2020.pdf";
+
+const transform = {
+	packOperationel:'0',
+};
 
 const documentation =
 	"Nous proposons des formations courtes sur site (intra) de 2 à 3 jours, permettant la prise en main de ces outils en l’appliquant à des cas concrets rencontrés dans le monde industriel et médical. Cette prise en main se fait naturellement en intégrant l’utilisation des codes dans le cadre plus général de l’analyse et l’estimation des risques radiologiques appliquées à des cas concrets.\n\
@@ -32,6 +38,7 @@ const documentation =
 	• Contamination au Fluor 18\n\
 	• Radioprotection dans un laboratoire de synthèse du FDG (Fluor 18)\n\
 	• Gammagraphie\n\
+	• Les radionucléide préféres d'EDF\n\
 	• Protection biologique d'une source de Californium 252 (neutrons +gamma)\n\
 	• Ionisations alimentaires\n\
 	• Source Strontium-Yttrium 90 de forte activité\n\
@@ -45,7 +52,7 @@ const documentation =
 	• la dosimétrie\n\
 	<p style=marginBottom:1vh >• les statistiques de mesures : incertitude, seuil de décision et limite de détection, l’ISO 11929.</p> \n\
 	<a href='mailto:contact@dosimex.fr?subject=formation&body=Expliquez votre besoin en formation ici' style=marginTop:2vh > contact@dosimex.fr</a>\n\
-	Tél : 06 89 70 90 35"
+	Téléphone : 06 89 70 90 35"
 
 // const documentation = "Nous proposons des formations courtes permettant la prise en main de ces outils en\
 // 			l’appliquant à des cas concrets rencontrés dans le monde industriel et médical. L’objectif\
@@ -66,28 +73,52 @@ export default class About extends React.Component {
 
 	constructor(props){
 		super(props);
+
+		this.state = {
+			currOpen:transform[this.props.pack]?transform[this.props.pack]:null
+		}
+	}
+
+	isOpen(){
+		if (this.state.currOpen === null)
+			return (false);
+		return (true);
+	}
+
+	_keepTrack(i){
+		if (this.state.currOpen === i)
+			this.setState({currOpen:null});
+		else
+			this.setState({currOpen:i});
 	}
 
 	render(){
 		return (
-			<div style={{}}>
-				<div style={{height:'100%', backgroundColor:Color.lightergrey}} >
-					<Row style={{paddingTop:20}} >
-						<Col xs={{span:10, offset:1}} style={{backgroundColor:Color.lightishgrey, height:'92vh'}} >
-							<Row style={{justifyContent:'center', marginTop:'1vh'}} >
-								<img src={image} style={{height:'27vh'}}/>
-							</Row>
-							<Row style={{justifyContent:'center', height:'56vh'}} >
-								<TextSpliter textStyle={{textAlign:'justify', fontSize:14, margin:5, marginLeft:15, marginRight:15}} text={documentation} />
-								{/*<a href={Catalogue} target="_blank" ><p style={{fontSize:22}} >voir catalogue complet des formations </p></a>*/}
-							</Row>
-							<img src={radium} style={{height:'17vh', position:'absolute', top:'37%', right:'25px'}} />
-							<img src={gam} style={{height:'17vh', position:'absolute', top:'77%', right:'205px'}} />
-							<img src={tec} style={{height:'25vh', position:'absolute', top:'38%', right:'405px'}} />
-						</Col>
-					</Row>
-				</div>
-			</div>
+			<Row style={{ height:'95vh', alignItems:'flex-end'}} >
+				{this.isOpen() ?
+					null
+					:
+					<p style={{textAlign:'center', width:'100vw'}} ><img src={image} style={{height:'60vh'}} /> </p>
+				}
+				<Accordion defaultActiveKey={transform[this.props.pack]} >
+					<Card style={{width:'101vw'}} >
+						<Card.Header style={{backgroundColor:Color.lightishgrey, height:'8vh'}} >
+							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="0" onClick={() => this._keepTrack('0')} >
+								<p style={{fontSize:30}} >formation</p>
+							</Accordion.Toggle>
+						</Card.Header>
+						<Accordion.Collapse eventKey="0" style={{backgroundColor:Color.lightergrey}} >
+							<Col xs={{span:10, offset:1}} style={{backgroundColor:Color.white, backgroundImage: `url(${coures})`, height:'87vh', backgroundRepeat:'no-repeat', backgroundSize: "cover", marginTop:'1vh'}} >
+								<div style={{height:'100%', width:'100%', backgroundColor:'rgba(0,0,0,0.03)'}} >
+									<Row style={{justifyContent:'center', height:'56vh'}} >
+										<TextSpliter textStyle={{textAlign:'justify', fontSize:18, margin:5, marginLeft:15, marginRight:15}} text={documentation} />
+									</Row>
+								</div>
+							</Col>
+						</Accordion.Collapse>
+					</Card>
+				</Accordion>
+			</Row>
 		);
 	}
 

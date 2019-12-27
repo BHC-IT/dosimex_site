@@ -20,6 +20,8 @@ import Size from '../Styles/Size.js'
 import BackGroundHague from "../Images/BackGroundHague.png"
 import BackGroundHague2 from "../Images/BackGroundHague2.png"
 
+import LogoDosi2 from "../Images/logo_dosi.png"
+
 import logoDosi from "../Images/logo_dosimex.png"
 import usbkey from "../Images/usbkey.png"
 import i1a from "../Images/carousel/1_logo_t.png"
@@ -220,13 +222,11 @@ export default class Home extends React.Component {
 
 	renderPackshot = () => {
 		return (
-			<div style={{backgroundColor:Color.lightergrey }} >
-				<Row style={{justifyContent:'center', height:'100vh', alignItems:'center'}} >
-					<Col xs={{span:10}}  style={{}} >
-						<TextSpliter text={fin_text} textStyle={{fontSize:'2.5vh', alignSelf:'center', justifyContent:'center', textAlign:'justify', color:Color.black, paddingTop:'1.0vh'}} />
-					</Col>
-				</Row>
-			</div>
+			<Row style={{height:'80vh', justifyContent:'center', alignItems:'center'}} >
+				<Col xs={{span:10}}  style={{}} >
+					<TextSpliter text={fin_text} textStyle={{fontSize:'2.5vh', alignSelf:'center', justifyContent:'center', textAlign:'justify', color:Color.black, paddingTop:'1.0vh'}} />
+				</Col>
+			</Row>
 		);
 	}
 
@@ -324,18 +324,28 @@ export default class Home extends React.Component {
 						</div>
 					</div>
 				</div>
-				<div style={{height:'100vh'}} >
+				<div style={{height:'100vh', backgroundColor:Color.lightergrey}} >
+					<img src={LogoDosi2} style={{height:'10vh'}}/>
 					<this.renderPackshot/>
+					<div style={{display:'flex', alignItems:'center', justifyContent:'space-between', height:'10vh'}} >
+						<div style={{marginLeft:'2vw', justifyContent:'center'}} >
+							<p style={{}} >Email : <a href='mailto:contact@dosimex.fr'> contact@dosimex.fr</a></p>
+							<p>Téléphone : 06 89 70 90 35</p>
+						</div>
+						<div style={{display:'flex', alignItems:'flex-end', marginRight:'2vw', alignItems:'center'}} >
+							<img src={LogoDosi2} style={{height:'7vh'}}/>
+						</div>
+					</div>
 				</div>
 			</div>
 		);
 	}
 }
 
-let fin_text = "Les outils de calculs opérationnels vous permettront d’estimer à leurs justes hauteurs les risques radiologiques dans les scénarios d’exposition externe  (gamma, X , bêta , neutron…) et interne. Vous pourrez ainsi concevoir les protections nécessaires à mettre en place, réaliser des prédictifs de dose, affiner vos démarches ALARA ….(<a href='/offres/packOperationel' style='font-weight:bold' >voir pack opérationnel</a>).\n\
-Quelles que soient vos fonctions dans le domaine de la radioprotection, ces outils de calculs vous permettront d’augmenter votre niveau d’expertise. Vous trouverez sur le site des <a href='/tutos' style='font-weight:bold'>vidéos</a> spécifiques à chaque codes  vous donnant un aperçu de la simplicité d’emploi de ces derniers.\n\
-La version 3.0 bénéficie de <a href="+Modif_DOSIMEX_GX_3+" target='_blank' style='font-weight:bold' >nombreuses améliorations</a>  grâce notamment à une collaboration active <a href="+Synthèse_retour_utilisateurs_Dosimex+" target='_blank' style='font-weight:bold' >avec les utilisateurs</a> et des dossiers de validations renforcées. Dosimex-GX est accompagné à lui seul de <a href='/about/Validation' style='font-weight:bold'>3 dossiers de validations</a> comportant plus de 1000 valeurs de références. Ces validations mette en œuvre un benchmark complet s’appuyant sur MCNP, RayXpert, Mercurad.et Microshield.\n\
-Nous proposons aussi des <a href='/Formation' style='font-weight:bold'>formations</a> sur site. S’appuyant sur des cas pratiques, l’objectif de ces formations, au delà de la  prise en main de ces outils, est centré sur l’analyse et l’estimation des risques radiologiques.\n\
-En complément des outils à vocation opérationnelle, nous proposons des outils à vocation pédagogique : Leur objectif est de mieux comprendre la physique de l’interaction rayonnement-matière, à l’origine des doses générées par expositions aux rayonnements ionisants et des capacités de protections des écrans susceptibles d’être mis en œuvre contre ces même rayonnements (<a href='/offres/packPedagogique' style='font-weight:bold'>voir pack pédagogique</a>)\n\
-Un troisième pack comprend des codes et utilitaires liés à l’aspect mesure de ces rayonnements ionisants : spectrométrie gamma, contaminamètres , seuil  de décision, limite de détection  (<a href='/offres/packMesure' style='font-weight:bold'>voir pack mesures</a>)\n\
+let fin_text = "Les outils de calculs opérationnels vous permettront d’estimer à leurs justes hauteurs les risques radiologiques dans les scénarios d’exposition externe gamma, X, bêta , neutron et interne. Vous pourrez ainsi concevoir les protections nécessaires à mettre en place, réaliser des prédictifs de dose, affiner vos démarches ALARA. (<a href='/offres/packOperationel' style='font-weight:bold' >voir pack opérationnel</a>).\n\
+Quelles que soient vos fonctions dans le domaine de la radioprotection, ils vous donneront les moyens d'améliorer votre niveau d’expertise. Vous trouverez sur le site des <a href='/tutos' style='font-weight:bold'>vidéos</a> spécifiques à chaque code vous donnant un aperçu de leur simplicité d’emploi.\n\
+La version 3.0 bénéficie de <a href="+Modif_DOSIMEX_GX_3+" target='_blank' style='font-weight:bold' >nombreuses améliorations</a>  nées d'une collaboration active <a href="+Synthèse_retour_utilisateurs_Dosimex+" target='_blank' style='font-weight:bold' >avec les utilisateurs</a> ainsi que de dossiers de validations renforcés. Dosimex-GX est accompagné à lui seul de <a href='/about/Validation' style='font-weight:bold'>3 dossiers de validations</a> comportant plus de 1000 valeurs de références obtenues avec les codes MCNP, RayXpert, Mercurad.et Microshield.\n\
+Nous proposons aussi des <a href='/Formation' style='font-weight:bold'>formations</a> sur site. S’appuyant sur des cas pratiques, l’objectif de ces formations, au-delà de la prise en main de ces outils, est centré sur l’analyse et l’estimation des risques radiologiques.\n\
+En complément des aspects opérationnels, nous proposons des outils à vocation pédagogique. Leur objectif est de mieux comprendre la physique de l’interaction rayonnement-matière, à l’origine des doses générées par expositions aux rayonnements ionisants, ainsi que des capacités de protections des écrans susceptibles d’être mis en œuvre contre ces mêmes rayonnements (<a href='/offres/packPedagogique' style='font-weight:bold'>voir pack pédagogique</a>)\n\
+Un troisième pack comprend des codes et utilitaires liés à l’aspect mesure de ces rayonnements ionisants : spectrométrie gamma, contaminamètres , seuil de décision, limite de détection (<a href='/offres/packMesure' style='font-weight:bold'>voir pack mesures</a>)\n\
 <p style=\"textAlign:center;font-weight:bold\" ><a href=\"/tutos\">Vidéo présentation générale</a></p>"

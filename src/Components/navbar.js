@@ -41,7 +41,7 @@ class MenuExamplePointing extends Component {
 	render() {
 		const { activeItem } = this.state
 		const backColor = this.state.mouseOver ? Color.red : 'rgba(0,0,0,1)';
-		const fontSize = this.state.mouseOver ? (Size.greaterMd() ? 20 : 7) : (Size.greaterMd() ? 18 : 6)
+		const fontSize = this.state.mouseOver ? (Size.greaterMd() ? 15.5 : 4.5) : (Size.greaterMd() ? 15 : 4)
 		const itemStyle = {color: "white", fontSize:fontSize, fontWeight:'bold', 'transition-property': 'font-size', 'transition-duration': '0.4s'};
 		return (
 			<div style={{width:this.state.width}} onMouseOver={() => this.setState({mouseOver:true})} onMouseOut={() => this.setState({mouseOver:false})} >
@@ -89,10 +89,16 @@ class MenuExamplePointing extends Component {
 						onClick={(e, name) => this.redirectTo(e, name, "/Formation")}
 					/>
 					<Menu.Item
+						style={itemStyle}
+						name='Partenaires'
+						active={this.props.route === 'Partenaires'}
+						onClick={(e, name) => this.redirectTo(e, name, "/partenaires")}
+					/>
+					<Menu.Item
 						style={{...itemStyle, position:'absolute', right:5}}
 						name='Acheter DOSIMEX'
 						active={this.props.route === 'Acheter DOSIMEX'}
-						// onClick={(e, name) => this.redirectTo(e, name, "/acheter")}
+						onClick={(e, name) => this.redirectTo(e, name, "/acheter")}
 					/>
 				</Menu>
 			</div>
