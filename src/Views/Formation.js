@@ -29,45 +29,23 @@ const transform = {
 };
 
 const documentation =
-	"Nous proposons des formations courtes sur site (intra) de 2 à 3 jours, permettant la prise en main de ces outils en l’appliquant à des cas concrets rencontrés dans le monde industriel et médical. Cette prise en main se fait naturellement en intégrant l’utilisation des codes dans le cadre plus général de l’analyse et l’estimation des risques radiologiques appliquées à des cas concrets.\n\
-	Quelques exemples de thématiques abordées :\n\
-	• Calcul de protection autour de générateurs X médicaux et industriels\n\
-	• Application NF C 15-160\n\
-	• Gestion d’une source de Radium de forte activité\n\
-	• Seringue au Technétium 99m et protection opérateur\n\
-	• Contamination au Fluor 18\n\
-	• Gammagraphie Co60, Ir152, Sr95, Cs137\n\
-	• Les radionucléide préféres d'EDF\n\
-	• Approche ALARA sur tuyauterie primaire\n\
-	• Protection biologique d'une source de Californium 252 (neutrons +gamma)\n\
-	• Ionisations alimentaires\n\
-	• Source Strontium-Yttrium 90 de forte activité\n\
-	• Analyse radioprotection d'un colis de déchets produit de fission ( CSDV)\n\
-	<p style=marginTop:1vh >Prix forfaitaire pour des formations sur sites : 1500€ HT par jours pour des formations de 4 à 8 personnes.\n+ 150€ HT clés/stagiaire</p>\n\
-	<p style=marginTop:1vh >Nous avons  aussi conçus, en partenariat avec <a href='http://safetechnologies.fr/files/le_catalogue_de_formation_safe_technologies_v2.2.pdf' target='_blank'> Safetechnologies</a> d’autres formations centrées sur :</p>\n\
-	• la physique nucléaire et la radioactivité\n\
-	• L’interaction rayonnement-matière\n\
-	• Les principes de la mesure nucléaire\n\
-	• la spectrométrie gamma\n\
-	• la dosimétrie\n\
-	<p style=marginBottom:1vh >• les statistiques de mesures : incertitude, seuil de décision et limite de détection, l’ISO 11929.</p> \n\
-	<a href='mailto:contact@dosimex.fr?subject=formation&body=Expliquez votre besoin en formation ici' style=marginTop:2vh > contact@dosimex.fr</a>\n\
-	Téléphone : 06 89 70 90 35"
-
-// const documentation = "Nous proposons des formations courtes permettant la prise en main de ces outils en\
-// 			l’appliquant à des cas concrets rencontrés dans le monde industriel et médical. L’objectif\
-// 			global est de travailler sur l’analyse des risques radiologiques.\
-// 			Quelques exemples de thématiques abordées :\n\
-// 			o Gammagraphie\n\
-// 			o Ionisations alimentaires\n\
-// 			o Gestion d’une source de Radium de forte activité\n\
-// 			o Seringue au Technétium 99m et protection opérateur\n\
-// 			o Contamination au Fluor 18\n\
-// 			o Radioprotection dans un laboratoire de synthèse du FDG (Fluor 18)\n\
-// 			o Protection biologique d'une source de Californium 252 (neutrons +gamma)\n\
-// 			o Source Strontium-Yttrium 90 de forte activité\n\
-// 			o Analyse radioprotection d'un colis de déchets produit de fission ( CSDV)\n\
-// 			o Calcul de protection autour de générateurs X médicaux et industriels\n";
+"Nous proposons des formations courtes sur site de 2 à 3 jours, permettant la prise en main des outils et intégrant l’utilisation des codes dans le cadre de l’analyse et l’estimation des risques radiologiques appliqués à des cas concrets rencontrés dans le monde industriel et médical.\n\
+Exemples de thématiques abordées :\n\
+• Calcul de protection autour de générateurs X médicaux et industriels\n\
+• Application NF C 15-160\n\
+• Gestion d’une source de Radium de forte activité\n\
+• Seringue au Technétium 99m et protection opérateur\n\
+• Contamination au Fluor 18\n\
+• Gammagraphie Co60, Ir192, Sr95, Cs137\n\
+• Les radionucléide préférés d'EDF\n\
+• Approche ALARA sur tuyauterie primaire\n\
+• Protection biologique d'une source de Californium 252 (neutrons +gamma)\n\
+• Ionisations alimentaires\n\
+• Source Strontium-Yttrium 90 de forte activité\n\
+• Analyse radioprotection d'un colis de déchets produit de fission ( CSDV)\n\
+Prix forfaitaire pour des formations sur site : 1 500 € HT/jour pour 4 à 8 stagiaires (+ 150 € HT/clé/stagiaire) \n\
+<a href='mailto:contact@dosimex.fr?subject=formation&body=Expliquez votre besoin en formation ici' style=marginTop:2vh > contact@dosimex.fr</a>\n\
+Téléphone : 06 89 70 90 35"
 
 export default class About extends React.Component {
 

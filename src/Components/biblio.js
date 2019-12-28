@@ -7,6 +7,8 @@ import Livre5 from '../Images/Livre5.png'
 import Livre6 from '../Images/Livre6.png'
 import Livre7 from '../Images/Livre7.png'
 import Livre8 from '../Images/Livre8.png'
+import Livre9 from '../Images/Livre9.png'
+import Livre10 from '../Images/Livre10.png'
 
 var biblio;
 
@@ -30,10 +32,18 @@ export default biblio = [
 	}
 	,
 	{
-		text:"Il était temps de retracer l’histoire de la physique nucléaire. Bernard Fernandez vous prend par la main pour vous guider à travers les méandres d’une science compliquée mais passionnante. Utilisant la langue française ordinaire, sans jargon scientifique ni formules mathématiques, il s’adresse à la fois aux lecteurs spécialisés, à qui il offre une perspective historique de leur science, et à l’honnête homme, qui désire s’informer sans posséder de connaissances scientifiques particulières. Dans ce récit toujours vivant se mêlent personnages connus et moins connus, théories élaborées dans l’enthousiasme et parfois démolies ensuite, protocoles d’expériences et descriptions minutieuses d’instruments. Une idée-force du livre est en effet que jamais la théorie ne doit s’affranchir de la réalité expérimentale",
-		img:Livre3new,
-		link:'https://www.amazon.fr/latome-noyau-approche-historique-nucl%C3%A9aire/dp/2729827846',
-		author:'Bernard Fernandez'
+		text:'Ce volume correspond au module pratique dédié aux installations de l\'industrie et de la recherche concernées par la détention ou la gestion de sources non scellées et de sources scellées nécessaires à leur contrôle. Conforme aux exigences réglementaires stipulant que ce module doit permettre d\'appliquer les acquis de la formation théorique à des situations concrètes de travail susceptibles d\'être rencontrées, il comprend 8 chapitres traitant les aspects suivants :\n\
+		- la radioprotection dans les installations de l\'industrie et la recherche : utilisation des sources et risques associés, aménagement des locaux, évaluation des expositions, contrôles de radioprotection, \n\
+		- l\'utilisation des appareils de détection et de mesure de la contamination radioactive et de l\'exposition, associée à des méthodes et outils de calcul, \n\
+		- la gestion des déchets radioactifs, \n\
+		- la gestion des situations incidentelles et dégradées, \n\
+		- la méthodologie d\'analyse des postes de travail complétée par l\'application à des cas pratiques rencontrés dans les laboratoires.\n\
+		Dans certains chapitres, des situations concrètes de travail sont proposées au lecteur qui endosse le rôle d\'acteur. Par ailleurs, ce dernier peut vérifier sa compréhension et l\'acquisition des notions traitées grâce aux rubriques « Faîtes le point » qui clôturent les autres parties de ce volume. \n\
+		Cet ouvrage prépare ainsi efficacement au contrôle des connaissances du module pratique et constitue un outil d\'aide indispensable à l\'obtention de l\'attestation PCR.\n\
+		Les auteurs sont des experts en radioprotection, impliqués dans la formation de personnes compétentes ou même PCR issues des secteurs de l\'industrie et de la recherche.',
+		img:Livre9,
+		link:'https://laboutique.edpsciences.fr/produit/29/9782759808458/Radioprotection pratique pour lindustrie et la recherche',
+		author:'Hugues Bruchet'
 	}
 	,
 	{
@@ -41,6 +51,20 @@ export default biblio = [
 		img:Livre3,
 		link:'https://laboutique.edpsciences.fr/produit/953/9782759819928',
 		author:'Hugues Bruchet, Amélie Roué et Christine Jimonet'
+	}
+	,
+	{
+		text:"Il était temps de retracer l’histoire de la physique nucléaire. Bernard Fernandez vous prend par la main pour vous guider à travers les méandres d’une science compliquée mais passionnante. Utilisant la langue française ordinaire, sans jargon scientifique ni formules mathématiques, il s’adresse à la fois aux lecteurs spécialisés, à qui il offre une perspective historique de leur science, et à l’honnête homme, qui désire s’informer sans posséder de connaissances scientifiques particulières. Dans ce récit toujours vivant se mêlent personnages connus et moins connus, théories élaborées dans l’enthousiasme et parfois démolies ensuite, protocoles d’expériences et descriptions minutieuses d’instruments. Une idée-force du livre est en effet que jamais la théorie ne doit s’affranchir de la réalité expérimentale",
+		img:Livre3new,
+		link:'https://www.amazon.fr/latome-noyau-approche-historique-nucl%C3%A9aire/dp/2729827846',
+		author:'Bernard Fernandez'
+	}
+	,
+	{
+		text:"Destiné à un large public, Le monde subatomique décrit l'évolution des idées sur les interactions et les constituants de la matière, avec leurs applications, depuis la découverte du neutron jusqu'à celle du boson Z°. Il remplace le premier volume, Approche élémentaire, de l'ouvrage antérieur de Luc Valentin, Physique subatomique, manuel de référence qui connaît en France et à l'étranger la faveur des enseignants et des étudiants.",
+		img:Livre10,
+		link:'https://www.editions-hermann.fr/livre/9782705660437',
+		author:'Luc Valentin',
 	}
 	,
 	{

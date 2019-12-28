@@ -52,10 +52,10 @@ export default class Home extends React.Component {
 				</div>
 				<div style={{display:'flex', flexDirection:'column', flexGrow:1, alignItems:'flex-start', justifyContent:'center', marginLeft:'0vw'}} >
 					<div style={{display:'flex', flexDirection:'column', flexGrow:1, alignItems:'center', justifyContent:'center', marginLeft:'0vw'}} >
-						<img src={usbkey} style={{width:'15vw', marginBottom:'1vh'}} />
+						<img src={usbkey} style={{width:'20vw', marginBottom:'1vh'}} />
 						<div style={{display:'flex', justifyContent:'center', alignItems:'space-between'}} >
 							<p>nombre :</p>
-							<InputNumber min={1} max={10} step={1} value={this.state.amount} onChange={(nb) => this.setState({amount:nb})} required style={{}} />
+							<InputNumber min={1} max={10} step={1} value={this.state.amount} onChange={(nb) => this.setState({amount:nb})} required style={{width:''}} />
 
 						</div>
 						<button style={{backgroundColor:Color.red, borderWidth:0, borderRadius:15, height:50, width:200, marginTop:'2vh'}} onClick={() => this.payment()} >
