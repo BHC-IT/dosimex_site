@@ -63,13 +63,13 @@ export default class Home extends React.Component {
 			this.setState({currOpen:i});
 	}
 
-	_renderLine = ({line, img}) => {
+	_renderLine = ({line, img, length}) => {
 		return (
-			<div style={{marginLeft:'4vw', paddingBottom:'1vh', borderBottom: '1px solid '+ Color.lightgrey, marginTop:'1vh', marginBottom:'1vh', height:'10vh'}} >
+			<div style={{marginLeft:'4vw', paddingBottom:'1vh', borderBottom: '1px solid '+ Color.lightgrey, marginTop:'1vh', marginBottom:'1vh', height:length > 4 ? '11.5vh' : '13vh'}} >
 				<div style={{justifyContent:'center', marginLeft:'3vw'}} >
 					<img style={{margin:'auto', marginBottom:'0.75em', height:'7vh'}} src={img} alt="" />
 				</div>
-				<span style={{display:'block', float:'right', width:'70vw', marginLeft:'1vw', marginTop:'-6vh'}} > <p style={{textAlign:'justify', fontSize:'2.5vh'}} >{ReactHtmlParser(line)}</p> </span>
+				<span style={{display:'block', float:'right', width:'70vw', marginLeft:'1vw', marginTop:'-6vh'}} > <p style={{textAlign:'justify', fontSize:'2.2vh'}} >{ReactHtmlParser(line)}</p> </span>
 			</div>
 		);
 	}
@@ -77,7 +77,7 @@ export default class Home extends React.Component {
 	_renderPack = ({pack}) =>{
 		return (
 			<div>
-				{pack.text.map((e, i) => <this._renderLine line={e} img={pack.img[i]} key={i} />)}
+				{pack.text.map((e, i) => <this._renderLine line={e} img={pack.img[i]} length={pack.text.length} key={i} />)}
 			</div>
 		);
 	}
@@ -100,7 +100,7 @@ export default class Home extends React.Component {
 						<Accordion.Collapse eventKey="0">
 							<Card.Body style={{backgroundColor:Color.lightergrey, height:'71vh'}} >
 								<this._renderPack pack={pack1} />
-								<Link style={{width:'100%'}} to={pack1.url}> <p style={{marginTop:75, textAlign:'center', fontSize:25, color:Color.red}} >voir les videos</p> </Link>
+								<Link style={{width:'100%'}} to={pack1.url}> <p style={{marginTop:'1vh', textAlign:'center', fontSize:25, color:Color.red}} >voir les videos</p> </Link>
 							</Card.Body>
 						</Accordion.Collapse>
 					</Card>
@@ -142,7 +142,7 @@ const pack1 = {
 		"• <h5 style='display:inline;font-weight:bold;font-size:2.7vh' >DOSIMEX-B 3.0</h5> : code de calcul déterministe de débit de dose émetteur bêta et électrons monoénergétiques. Prise en compte sources volumiques  (bécher, seringue) ou surfaciques (contamination peau)",
 		"• <h5 style='display:inline;font-weight:bold;font-size:2.7vh' >DOSIMEX-N 3.0</h5> : code de calcul Monte-Carlo de débit de dose émetteur neutron (type Am/Be) avec protection biologique (eau, polyéthylène, Bore, Cadmium etc..). Module pédagogique avec visualisation trajectoire neutron",
 		"• <h5 style='display:inline;font-weight:bold;font-size:2.7vh' >DOSIMEX-I 3.0</h5> : code de  calcul expositions interne. Prise en compte cinétique fuite, renouvellement, dépôt au sol. Calculs de transfert atmosphérique. Calcul mélanges RAI/RAV/RCA",
-		"• <h5 style='display:inline;font-weight:bold;font-size:2.7vh' >DOSIMEX-MN 3.0</h5> : utilitaire de gestion de données permettant de connaitre les doses absorbées par unité d’activité administrée  pour les radiopharmaceutiques recensés dans les CIPR 53, 80, 106 et 128"
+		"• <h5 style='display:inline;font-weight:bold;font-size:2.7vh' >DOSIMEX-MN 3.0</h5> : utilitaire de gestion de données permettant de connaitre les doses absorbées par unité d’activité administrée  pour les radiopharmaceutiques CIPR 53, 80, 106 et 128"
 	],
 	img:[
 		dosigx,
@@ -177,7 +177,7 @@ const pack3 = {
 		"• <h5 style='display:inline;font-weight:bold;font-size:2.7vh' >Code TAGE (Total Absorption Gamma Efficiency)</h5> : code déterministe calculant le rendement d’absorption totale en spectrométrie gamma, avec correction de couches mortes (caractérisation), correction de coïncidence et rendement de pics sommes.",
 		"• <h5 style='display:inline;font-weight:bold;font-size:2.7vh' >Code Co3</h5> : code de calcul de Coefficient de Conversion Contaminamètres  permettant de calculer les rendements(Bq/cm2/ cps) de divers ictomètres et d’obtenir les activités surfaciques versus la nature de la sonde et le spectre isotopique mesuré.",
 		"• <h5 style='display:inline;font-weight:bold;font-size:2.7vh' >Composition de variables aléatoires</h5> : utilitaire permettant de combiner par méthode Monte-Carlo jusqu’à 5 variables de types différents . Cet utilitaire est accompagné des documents de cours complets sur le sujet des calculs d’incertitudes",
-		"• <h5 style='display:inline;font-weight:bold;font-size:2.7vh' >Calcul de seuil de décision</h5> : Utilitaire permettant de déterminer le seuil de décision et la limite de détection en mesure nucléaire. Cet utilitaire est accompagné des documents de cours complets sur ce sujet et d’articles divers.",
+		"• <h5 style='display:inline;font-weight:bold;font-size:2.7vh' >Calcul de seuil de décision</h5> : Utilitaire permettant de déterminer le seuil de décision et la limite de détection en mesure nucléaire. Cet utilitaire est accompagné des documents de cours.",
 	],
 	img:[
 		tage,

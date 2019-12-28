@@ -10,7 +10,8 @@ export default  {
 	black:'#0e0e0d',
 	white:'white',
 	darkBlue:"#0038e6",
-	bhcPurple:"#da03ce",
+	bhcPurple:"#781f7f",
+	bhcPurpleTypo:"#8831B7",
 
 	Tlightgrey:"rgba(211,211,211, 0.7)"
 }

@@ -91,11 +91,11 @@ export default class Home extends React.Component {
 								<div style={{display:'flex', 'flex-direction':'row', justifyContent:'space-evenly'}} >
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
 										<a href={PManuel1} target="_blank" style={{}} ><img src={IManuel1} style={{height:'35vh'}} /></a>
-										<a href={PManuel1} target="_blank" style={{}} ><p style={{marginTop:'1vh'}} >CODE DE CALCUL DE DOSE GAMMA</p></a>
+										<a href={PManuel1} target="_blank" style={{}} ><p style={{marginTop:'1vh'}} >MANUEL DOSE GAMMA</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
 										<a href={PManuel2} target="_blank" style={{}} ><img src={IManuel2} style={{height:'35vh'}} /></a>
-										<a href={PManuel2} target="_blank" style={{}} ><p style={{marginTop:'1vh'}} >MANUEL MODÈLE PHYSIQUE GÉNÉRATEUR X</p></a>
+										<a href={PManuel2} target="_blank" style={{}} ><p style={{marginTop:'1vh'}} >MANUEL GÉNÉRATEUR X</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
 										<a href={PManuel3} target="_blank" style={{}} ><img src={IManuel3} style={{height:'35vh'}} /></a>
@@ -128,11 +128,11 @@ export default class Home extends React.Component {
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
 										<a href={PValidation3} target="_blank" style={{}} ><img src={IValidation3} style={{height:'35vh'}} /></a>
-										<a href={PValidation3} target="_blank" style={{}} ><p style={{marginTop:'1vh'}} >{'Évaluation par calcul Monte-carlo'.toUpperCase()}</p></a>
+										<a href={PValidation3} target="_blank" style={{}} ><p style={{marginTop:'1vh'}} >{'Référence géné X MCNP/CEA'.toUpperCase()}</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
 										<a href={PValidation4} target="_blank" style={{}} ><img src={IValidation4} style={{height:'35vh'}} /></a>
-										<a href={PValidation4} target="_blank" style={{}} ><p style={{marginTop:'1vh'}} >DOSIMEX vs. MCNP</p></a>
+										<a href={PValidation4} target="_blank" style={{}} ><p style={{marginTop:'1vh'}} >{'Référance Radionucléide MCNP/AREVA'.toUpperCase()}</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
 										<a href={PValidation5} target="_blank" style={{}} ><img src={IValidation5} style={{height:'35vh'}} /></a>

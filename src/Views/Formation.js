@@ -25,7 +25,7 @@ import coures from  "../Images/Bonhomme_coures.png"
 import Catalogue from "../Folders/Formations_Dosimex 2020.pdf";
 
 const transform = {
-	packOperationel:'0',
+	open:'0',
 };
 
 const documentation =
@@ -36,15 +36,15 @@ const documentation =
 	• Gestion d’une source de Radium de forte activité\n\
 	• Seringue au Technétium 99m et protection opérateur\n\
 	• Contamination au Fluor 18\n\
-	• Radioprotection dans un laboratoire de synthèse du FDG (Fluor 18)\n\
-	• Gammagraphie\n\
+	• Gammagraphie Co60, Ir152, Sr95, Cs137\n\
 	• Les radionucléide préféres d'EDF\n\
+	• Approche ALARA sur tuyauterie primaire\n\
 	• Protection biologique d'une source de Californium 252 (neutrons +gamma)\n\
 	• Ionisations alimentaires\n\
 	• Source Strontium-Yttrium 90 de forte activité\n\
 	• Analyse radioprotection d'un colis de déchets produit de fission ( CSDV)\n\
-	<p style=marginTop:1vh >Prix forfaitaire pour des formations sur sites : 1500€ HT par jours pour des formations de 4 à 8 personnes. + 150€ HT clés stagiaire</p>\n\
-	<p style=marginTop:1vh >Nous avons  aussi conçus, en partenariat avec Safetechnologies  d’autres formations centrées sur :</p>\n\
+	<p style=marginTop:1vh >Prix forfaitaire pour des formations sur sites : 1500€ HT par jours pour des formations de 4 à 8 personnes.\n+ 150€ HT clés/stagiaire</p>\n\
+	<p style=marginTop:1vh >Nous avons  aussi conçus, en partenariat avec <a href='http://safetechnologies.fr/files/le_catalogue_de_formation_safe_technologies_v2.2.pdf' target='_blank'> Safetechnologies</a> d’autres formations centrées sur :</p>\n\
 	• la physique nucléaire et la radioactivité\n\
 	• L’interaction rayonnement-matière\n\
 	• Les principes de la mesure nucléaire\n\
@@ -108,12 +108,10 @@ export default class About extends React.Component {
 							</Accordion.Toggle>
 						</Card.Header>
 						<Accordion.Collapse eventKey="0" style={{backgroundColor:Color.lightergrey}} >
-							<Col xs={{span:10, offset:1}} style={{backgroundColor:Color.white, backgroundImage: `url(${coures})`, height:'87vh', backgroundRepeat:'no-repeat', backgroundSize: "cover", marginTop:'1vh'}} >
-								<div style={{height:'100%', width:'100%', backgroundColor:'rgba(0,0,0,0.03)'}} >
-									<Row style={{justifyContent:'center', height:'56vh'}} >
-										<TextSpliter textStyle={{textAlign:'justify', fontSize:18, margin:5, marginLeft:15, marginRight:15}} text={documentation} />
-									</Row>
-								</div>
+							<Col xs={{span:10, offset:1}} style={{backgroundColor:Color.white, backgroundImage: `url(${coures})`, backgroundPosition:'center', height:'87vh', backgroundRepeat:'no-repeat', backgroundSize: "cover", marginTop:'1vh'}} >
+								<Row style={{justifyContent:'center', height:'56vh'}} >
+									<TextSpliter textStyle={{textAlign:'justify', fontSize:18, margin:5, marginLeft:15, marginRight:15, marginTop:0}} text={documentation} />
+								</Row>
 							</Col>
 						</Accordion.Collapse>
 					</Card>

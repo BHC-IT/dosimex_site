@@ -44,7 +44,7 @@ class MenuExamplePointing extends Component {
 		const fontSize = this.state.mouseOver ? (Size.greaterMd() ? 15.5 : 4.5) : (Size.greaterMd() ? 15 : 4)
 		const itemStyle = {color: "white", fontSize:fontSize, fontWeight:'bold', 'transition-property': 'font-size', 'transition-duration': '0.4s'};
 		return (
-			<div style={{width:this.state.width}} onMouseOver={() => this.setState({mouseOver:true})} onMouseOut={() => this.setState({mouseOver:false})} >
+			<div style={{width:this.state.width, height:'4vh'}} onMouseOver={() => this.setState({mouseOver:true})} onMouseOut={() => this.setState({mouseOver:false})} >
 				<Menu pointing style={{backgroundColor: backColor, 'transition-property': 'background-color', 'transition-duration': '0.5s'}}>
 					<Menu.Item
 						style={itemStyle}

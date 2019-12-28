@@ -18,9 +18,11 @@ import Color from '../Styles/colorSchemes.js'
 import Size from '../Styles/Size.js'
 
 import BackGroundHague from "../Images/BackGroundHague.png"
-import BackGroundHague2 from "../Images/BackGroundHague2.png"
+import BackGroundHague2 from "../Images/BackGroundHague2_compressed.png"
+import BackGroundHague2U from "../Images/BackGroundHague2_ucompressed.png"
 
 import LogoDosi2 from "../Images/logo_dosi.png"
+import bhcLightNoText from '../Images/test6_name_customcolor_backless_v2_light.png'
 
 import logoDosi from "../Images/logo_dosimex.png"
 import usbkey from "../Images/usbkey.png"
@@ -310,10 +312,10 @@ export default class Home extends React.Component {
 	render(){
 		return (
 			<div style={{width:'100%'}} >
-				<div style={{backgroundColor:Color.black, backgroundImage: `url(${BackGroundHague2})`, backgroundPosition:'center', backgroundRepeat:'no-repeat', backgroundSize: "cover", height:'95vh', width:'100vw'}} >
+				<div style={{backgroundColor:Color.black, backgroundImage: `url(${BackGroundHague2})`, backgroundPosition:'center', backgroundRepeat:'no-repeat', backgroundSize: "cover", height:'96vh', width:'100vw'}} >
 					<div style={{backgroundColor:'rgba(0,0,0,0.2)', height:'100%', width:'100%'}} >
 						<div style={{display:'flex', flex:1, justifyContent:'center'}} >
-							<h1 style={{color:Color.white, fontSize:'7vw', marginTop:'3vh', fontFamily:'CODEBold',  textShadow:'1.5px 1.5px #000000'}}  >DOSIMEX</h1>
+							<h1 style={{color:Color.white, fontSize:'7vw', marginTop:'3vh', fontFamily:'CODEBold', textShadow:'1.5px 1.5px #000000'}}  >DOSIMEX</h1>
 						</div>
 						<div style={{display:'flex', height:'65vh', 'flex-direction':'row', width:'100vw', justifyContent:'center', alignItems:'center'}} >
 							<p style={{width:'80vw', textAlign: 'justify', color:Color.white, fontWeight:'bold', fontSize:'2vw',  textShadow:'1.5px 1.5px #000000'}} >Depuis 2012, nous vous proposons un ensemble d'outils de calculs pratiques, simples d’emploi, validés, et qui permettent de répondre à de nombreuses situations rencontrées en radioprotection.</p>
@@ -325,16 +327,21 @@ export default class Home extends React.Component {
 					</div>
 				</div>
 				<div style={{height:'100vh', backgroundColor:Color.lightergrey}} >
-					<img src={LogoDosi2} style={{height:'10vh'}}/>
 					<this.renderPackshot/>
 					<div style={{display:'flex', alignItems:'center', justifyContent:'space-between', height:'10vh'}} >
-						<div style={{marginLeft:'2vw', justifyContent:'center'}} >
-							<p style={{}} >Email : <a href='mailto:contact@dosimex.fr'> contact@dosimex.fr</a></p>
-							<p>Téléphone : 06 89 70 90 35</p>
-						</div>
 						<div style={{display:'flex', alignItems:'flex-end', marginRight:'2vw', alignItems:'center'}} >
-							<img src={LogoDosi2} style={{height:'7vh'}}/>
 						</div>
+					</div>
+					<div style={{display:'flex', backgroundColor:'#242424', height:'10vh', justifyContent:'space-between', alignItems:'center'}} >
+							<div style={{marginLeft:'2vw', justifyContent:'center'}} >
+								<p style={{color: Color.white}} >Email : <a href='mailto:contact@dosimex.fr'> contact@dosimex.fr</a></p>
+								<p style={{color: Color.white}} >Téléphone : 06 89 70 90 35</p>
+								<p style={{color: Color.white}} >Info légal</p>
+							</div>
+							<img src={LogoDosi2} style={{height:'7vh'}}/>
+							<div onClick={() => window.location.href = "https://bhc-it.com"} >
+								<p style={{color:Color.white, display:'flex', alignItems:'center', fontSize:18, marginRight:'1vw'}} >Designed by <p style={{display:'flex', color:Color.bhcPurpleTypo, alignItems:'center', marginLeft:'1vw'}} >BHC-IT<img src={bhcLightNoText} style={{height:'5vh', marginLeft:'1vw'}}/></p></p>
+							</div>
 					</div>
 				</div>
 			</div>

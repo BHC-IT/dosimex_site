@@ -51,11 +51,18 @@ class App extends React.Component {
 							<About/>
 						);
 					}} />
-					<Route path="/formation" render={() => {
+					<Route exact path="/formation" render={() => {
 						if (this.state.route !== 'Formation')
 							this.setState({route:'Formation'});
 						return(
 							<Formation/>
+						);
+					}} />
+					<Route path="/formation/:pack" render={({match}) => {
+						if (this.state.route !== 'Formation')
+							this.setState({route:'Formation'});
+						return(
+							<Formation pack={match.params.pack} />
 						);
 					}} />
 					<Route path="/offres/:pack" render={({match}) => {
