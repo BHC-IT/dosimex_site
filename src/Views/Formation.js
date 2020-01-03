@@ -29,8 +29,8 @@ const transform = {
 };
 
 const documentation =
-"Nous proposons des formations courtes sur site de 2 à 3 jours, permettant la prise en main des outils et intégrant l’utilisation des codes dans le cadre de l’analyse et l’estimation des risques radiologiques appliqués à des cas concrets rencontrés dans le monde industriel et médical.\n\
-Exemples de thématiques abordées :\n\
+"Nous proposons des formations courtes sur site de 2 à 3 jours, permettant la prise en main des outils et intégrant\nl’utilisation des codes dans le cadre de l’analyse et l’estimation des risques radiologiques appliqués à des cas\nconcrets rencontrés dans le monde industriel et médical.\n\
+<p style='margin-top:2vh' >Exemples de thématiques abordées :</p>\n\
 • Calcul de protection autour de générateurs X médicaux et industriels\n\
 • Application NF C 15-160\n\
 • Gestion d’une source de Radium de forte activité\n\
@@ -43,7 +43,7 @@ Exemples de thématiques abordées :\n\
 • Ionisations alimentaires\n\
 • Source Strontium-Yttrium 90 de forte activité\n\
 • Analyse radioprotection d'un colis de déchets produit de fission ( CSDV)\n\
-Prix forfaitaire pour des formations sur site : 1 500 € HT/jour pour 4 à 8 stagiaires (+ 150 € HT/clé/stagiaire) \n\
+<p style='margin-top:4vh' >Prix forfaitaire pour des formations sur site : 1 500 € HT/jour pour 4 à 8 stagiaires \n(+ 150 € HT/clé/stagiaire)</p> \n\
 <a href='mailto:contact@dosimex.fr?subject=formation&body=Expliquez votre besoin en formation ici' style=marginTop:2vh > contact@dosimex.fr</a>\n\
 Téléphone : 06 89 70 90 35"
 
@@ -82,12 +82,12 @@ export default class About extends React.Component {
 					<Card style={{width:'101vw'}} >
 						<Card.Header style={{backgroundColor:Color.lightishgrey, height:'8vh'}} >
 							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="0" onClick={() => this._keepTrack('0')} >
-								<p style={{fontSize:30}} >formation</p>
+								<p style={{fontSize:30}} >Formations</p>
 							</Accordion.Toggle>
 						</Card.Header>
 						<Accordion.Collapse eventKey="0" style={{backgroundColor:Color.lightergrey}} >
 							<Col xs={{span:10, offset:1}} style={{backgroundColor:Color.white, backgroundImage: `url(${coures})`, backgroundPosition:'center', height:'87vh', backgroundRepeat:'no-repeat', backgroundSize: "cover", marginTop:'1vh'}} >
-								<Row style={{justifyContent:'center', height:'56vh'}} >
+								<Row style={{justifyContent:'center', height:'56vh', justifyContent:'flex-start'}} >
 									<TextSpliter textStyle={{textAlign:'justify', fontSize:18, margin:5, marginLeft:15, marginRight:15, marginTop:0}} text={documentation} />
 								</Row>
 							</Col>

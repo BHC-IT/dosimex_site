@@ -41,6 +41,7 @@ import i1l from "../Images/carousel/11_pharma_t.png"
 
 import Synthèse_retour_utilisateurs_Dosimex from '../Folders/Synthèse_retour_utilisateurs_Dosimex.pdf'
 import Modif_DOSIMEX_GX_3 from '../Folders/Modif_DOSIMEX_GX_3.0.pdf'
+import Information_légales from '../Folders/Informations_légales.pdf'
 
 import pack_ops from "../Images/pres_pack_ops.png"
 import pack_peda from "../Images/pres_pack_peda.png"
@@ -317,12 +318,12 @@ export default class Home extends React.Component {
 						<div style={{display:'flex', flex:1, justifyContent:'center'}} >
 							<h1 style={{color:Color.white, fontSize:'7vw', marginTop:'3vh', fontFamily:'CODEBold', textShadow:'1.5px 1.5px #000000'}}  >DOSIMEX</h1>
 						</div>
-						<div style={{display:'flex', height:'65vh', 'flex-direction':'row', width:'100vw', justifyContent:'center', alignItems:'center'}} >
+						<div style={{display:'flex', height:'65vh', 'flexDirection':'row', width:'100vw', justifyContent:'center', alignItems:'center'}} >
 							<p style={{width:'80vw', textAlign: 'justify', color:Color.white, fontWeight:'bold', fontSize:'2vw',  textShadow:'1.5px 1.5px #000000'}} >Depuis 2012, nous vous proposons un ensemble d'outils de calculs pratiques, simples d’emploi, validés, et qui permettent de répondre à de nombreuses situations rencontrées en radioprotection.</p>
 						</div>
 						<this.scroller/>
-						<div style={{position:'absolute'}} >
-							<p style={{color:Color.lightergrey, fontSize:'0.9vw', marginLeft:'1vh'}} >Cap de la Hague - Site ORANO</p>
+						<div style={{position:'absolute', right:'2vw', bottom:'2vh'}} >
+							<p style={{color:Color.lightergrey, fontSize:'0.9vw', marginLeft:'1vh', fontStyle:'italic'}} >Cap de la Hague - Site ORANO</p>
 						</div>
 					</div>
 				</div>
@@ -333,15 +334,15 @@ export default class Home extends React.Component {
 						</div>
 					</div>
 					<div style={{display:'flex', backgroundColor:'#242424', height:'10vh', justifyContent:'space-between', alignItems:'center'}} >
-							<div style={{marginLeft:'2vw', justifyContent:'center'}} >
-								<p style={{color: Color.white}} >Email : <a href='mailto:contact@dosimex.fr'> contact@dosimex.fr</a></p>
-								<p style={{color: Color.white}} >Téléphone : 06 89 70 90 35</p>
-								<p style={{color: Color.white}} >Info légal</p>
-							</div>
-							<img src={LogoDosi2} style={{height:'7vh'}}/>
-							<div onClick={() => window.location.href = "https://bhc-it.com"} >
-								<p style={{color:Color.white, display:'flex', alignItems:'center', fontSize:18, marginRight:'1vw'}} >Designed by <p style={{display:'flex', color:Color.bhcPurpleTypo, alignItems:'center', marginLeft:'1vw'}} >BHC-IT<img src={bhcLightNoText} style={{height:'5vh', marginLeft:'1vw'}}/></p></p>
-							</div>
+						<div style={{marginLeft:'2vw', justifyContent:'center'}} >
+							<p style={{color: Color.white}} >Email : <a href='mailto:contact@dosimex.fr'> contact@dosimex.fr</a></p>
+							<p style={{color: Color.white}} >Téléphone : 06 89 70 90 35</p>
+							<a href={Information_légales} target="_blank"><p style={{color: Color.white}} >Information légale</p></a>
+						</div>
+						<img src={LogoDosi2} style={{height:'7vh'}}/>
+						<a href='https://bhc-it.com' >
+							<a href='https://bhc-it.com' style={{color:Color.white, display:'flex', alignItems:'center', fontSize:18, marginRight:'1vw'}} >Designed by <p style={{display:'flex', color:Color.bhcPurpleTypo, alignItems:'center', marginLeft:'1vw'}} >BHC-IT<img src={bhcLightNoText} style={{height:'5vh', marginLeft:'1vw'}}/></p></a>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -351,8 +352,8 @@ export default class Home extends React.Component {
 
 let fin_text = "Les outils de calculs opérationnels vous permettront d’estimer à leurs justes hauteurs les risques radiologiques dans les scénarios d’exposition externe gamma, X, bêta , neutron et interne. Vous pourrez ainsi concevoir les protections nécessaires à mettre en place, réaliser des prédictifs de dose, affiner vos démarches ALARA. (<a href='/offres/packOperationel' style='font-weight:bold' >voir pack opérationnel</a>).\n\
 Quelles que soient vos fonctions dans le domaine de la radioprotection, ils vous donneront les moyens d'améliorer votre niveau d’expertise. Vous trouverez sur le site des <a href='/tutos' style='font-weight:bold'>vidéos</a> spécifiques à chaque code vous donnant un aperçu de leur simplicité d’emploi.\n\
-La version 3.0 bénéficie de <a href="+Modif_DOSIMEX_GX_3+" target='_blank' style='font-weight:bold' >nombreuses améliorations</a>  nées d'une collaboration active <a href="+Synthèse_retour_utilisateurs_Dosimex+" target='_blank' style='font-weight:bold' >avec les utilisateurs</a> ainsi que de dossiers de validations renforcés. Dosimex-GX est accompagné à lui seul de <a href='/about/Validation' style='font-weight:bold'>3 dossiers de validations</a> comportant plus de 1000 valeurs de références obtenues avec les codes MCNP, RayXpert, Mercurad.et Microshield.\n\
+La version 3.0 bénéficie de <a href="+Modif_DOSIMEX_GX_3+" target='_blank' style='font-weight:bold' >nombreuses améliorations</a>  nées d'une collaboration active <a href="+Synthèse_retour_utilisateurs_Dosimex+" target='_blank' style='font-weight:bold' >avec les utilisateurs</a> ainsi que de dossiers de validations renforcés. Dosimex-GX est accompagné à lui seul de <a href='/about/Validation' style='font-weight:bold'>dossiers de validations</a> spécifiques <p style='font-style:italic; display:inline' >(radionucléides, générateurs X, NF C15-160)</p> comportant plus de 1000 valeurs de références obtenues avec les codes MCNP, RayXpert, Mercurad et Microshield.\n\
 Nous proposons aussi des <a href='/Formation' style='font-weight:bold'>formations</a> sur site. S’appuyant sur des cas pratiques, l’objectif de ces formations, au-delà de la prise en main de ces outils, est centré sur l’analyse et l’estimation des risques radiologiques.\n\
 En complément des aspects opérationnels, nous proposons des outils à vocation pédagogique. Leur objectif est de mieux comprendre la physique de l’interaction rayonnement-matière, à l’origine des doses générées par expositions aux rayonnements ionisants, ainsi que des capacités de protections des écrans susceptibles d’être mis en œuvre contre ces mêmes rayonnements (<a href='/offres/packPedagogique' style='font-weight:bold'>voir pack pédagogique</a>)\n\
 Un troisième pack comprend des codes et utilitaires liés à l’aspect mesure de ces rayonnements ionisants : spectrométrie gamma, contaminamètres , seuil de décision, limite de détection (<a href='/offres/packMesure' style='font-weight:bold'>voir pack mesures</a>)\n\
-<p style=\"textAlign:center;font-weight:bold\" ><a href=\"/tutos\">Vidéo présentation générale</a></p>"
+<p style=\"textAlign:center;font-weight:bold\" ><a href=\"https://www.youtube.com/watch?v=vPalFZk5io0&feature=youtu.be\">Vidéo présentation générale</a></p>"

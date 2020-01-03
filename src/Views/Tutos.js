@@ -58,7 +58,7 @@ export default class Home extends React.Component {
 						<Accordion.Collapse eventKey="0">
 							<Card.Body style={{backgroundColor:Color.lightergrey, height:'71vh'}} >
 								<Row style={{justifyContent:'space-between', margin:25}}>
-									<iframe width="250" height="200" src="https://www.youtube.com/embed/c85KaDSMIRM" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+									<iframe width="250" height="200" src="https://www.youtube.com/embed/vPalFZk5io0" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 									<iframe width="250" height="200" src="https://www.youtube.com/embed/c85KaDSMIRM" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 									<iframe width="250" height="200" src="https://www.youtube.com/embed/c85KaDSMIRM" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 									<iframe width="250" height="200" src="https://www.youtube.com/embed/c85KaDSMIRM" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
@@ -126,7 +126,7 @@ const pack1 = {
 		✓ DOSIMEX-MN 1.0 utilitaire de gestion de données permettant de connaitre les doses\
 		absorbées par unité d’activité administrée pour les radiopharmaceutiques recensés dans les\
 		CIPR 53, 80, 106 et 128",
-	title:"Video pack opérationnel",
+	title:"Vidéo Pack opérationnel",
 }
 
 const pack2 = {
@@ -145,7 +145,7 @@ const pack2 = {
 		✓ Coefficients ICRU 57 3.0 : utilitaire permettant de connaitre les coefficients\
 		fluence-équivalents de dose et kerma air normalisés pour les électrons, les\
 		photons et les neutrons.",
-	title:"Video pack pédagogique",
+	title:"Vidéo Pack pédagogique",
 }
 
 const pack3 = {
@@ -162,5 +162,5 @@ const pack3 = {
 		✓ Calcul de seuil de décision. Utilitaire permettant de déterminer le seuil de décision et\
 		la limite de détection en mesure nucléaire. Cet utilitaire est accompagné des\
 		documents de cours complets sur ce sujet et d’articles divers.",
-	title:"Video pack mesure",
+	title:"Vidéo Pack mesure",
 }

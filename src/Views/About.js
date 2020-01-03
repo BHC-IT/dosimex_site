@@ -91,19 +91,19 @@ export default class Home extends React.Component {
 								<div style={{display:'flex', 'flex-direction':'row', justifyContent:'space-evenly'}} >
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
 										<a href={PManuel1} target="_blank" style={{}} ><img src={IManuel1} style={{height:'35vh'}} /></a>
-										<a href={PManuel1} target="_blank" style={{}} ><p style={{marginTop:'1vh'}} >MANUEL DOSE GAMMA</p></a>
+										<a href={PManuel1} target="_blank" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >MANUEL DOSE GAMMA</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
 										<a href={PManuel2} target="_blank" style={{}} ><img src={IManuel2} style={{height:'35vh'}} /></a>
-										<a href={PManuel2} target="_blank" style={{}} ><p style={{marginTop:'1vh'}} >MANUEL GÉNÉRATEUR X</p></a>
+										<a href={PManuel2} target="_blank" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >MANUEL GÉNÉRATEUR X</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
 										<a href={PManuel3} target="_blank" style={{}} ><img src={IManuel3} style={{height:'35vh'}} /></a>
-										<a href={PManuel3} target="_blank" style={{}} ><p style={{marginTop:'1vh'}} >APPLICATION NORME NF C15-160</p></a>
+										<a href={PManuel3} target="_blank" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >MANUEL + VALIDATION NF C15-160</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
 										<a href={PManuel4} target="_blank" style={{}} ><img src={IManuel4} style={{height:'35vh'}} /></a>
-										<a href={PManuel4} target="_blank" style={{}} ><p style={{marginTop:'1vh'}} >{'Grandeurs pratiques en radiologie'.toUpperCase()}</p></a>
+										<a href={PManuel4} target="_blank" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Grandeurs pratiques en radiologie'.toUpperCase()}</p></a>
 									</div>
 								</div>
 							</Card.Body>
@@ -120,23 +120,23 @@ export default class Home extends React.Component {
 								<div style={{display:'flex', 'flex-direction':'row', justifyContent:'space-evenly'}} >
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
 										<a href={PValidation1} target="_blank" style={{}} ><img src={IValidation1} style={{height:'35vh'}} /></a>
-										<a href={PValidation1} target="_blank" style={{}} ><p style={{marginTop:'1vh'}} >DOSSIER DE VALIDATION EMISSION GAMMA</p></a>
+										<a href={PValidation1} target="_blank" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >DOSSIER DE VALIDATION EMISSION GAMMA</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
 										<a href={PValidation2} target="_blank" style={{}} ><img src={IValidation2} style={{height:'35vh'}} /></a>
-										<a href={PValidation2} target="_blank" style={{}} ><p style={{marginTop:'1vh'}} >DOSSIER DE VALIDATION GÉNÉRATEUR X</p></a>
+										<a href={PValidation2} target="_blank" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >DOSSIER DE VALIDATION GÉNÉRATEUR X</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
 										<a href={PValidation3} target="_blank" style={{}} ><img src={IValidation3} style={{height:'35vh'}} /></a>
-										<a href={PValidation3} target="_blank" style={{}} ><p style={{marginTop:'1vh'}} >{'Référence géné X MCNP/CEA'.toUpperCase()}</p></a>
+										<a href={PValidation3} target="_blank" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Référence géné X MCNP/CEA'.toUpperCase()}</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
 										<a href={PValidation4} target="_blank" style={{}} ><img src={IValidation4} style={{height:'35vh'}} /></a>
-										<a href={PValidation4} target="_blank" style={{}} ><p style={{marginTop:'1vh'}} >{'Référance Radionucléide MCNP/AREVA'.toUpperCase()}</p></a>
+										<a href={PValidation4} target="_blank" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Référance Radionucléide MCNP/AREVA'.toUpperCase()}</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
 										<a href={PValidation5} target="_blank" style={{}} ><img src={IValidation5} style={{height:'35vh'}} /></a>
-										<a href={PValidation5} target="_blank" style={{}} ><p style={{marginTop:'1vh'}} >{'Référence atténuation X'.toUpperCase()}</p></a>
+										<a href={PValidation5} target="_blank" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Référence atténuation X'.toUpperCase()}</p></a>
 									</div>
 								</div>
 							</Card.Body>
@@ -153,19 +153,19 @@ export default class Home extends React.Component {
 								<div style={{display:'flex', 'flex-direction':'row', justifyContent:'space-evenly'}} >
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
 										<a href={PRapport1} target="_blank" style={{}} ><img src={IRapport1} style={{height:'35vh'}} /></a>
-										<a href={PRapport1} target="_blank" style={{}} ><p style={{marginTop:'1vh'}} >{'Mémoire ulysse'.toUpperCase()}</p></a>
+										<a href={PRapport1} target="_blank" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Mémoire ulysse'.toUpperCase()}</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
 										<a href={PRapport2} target="_blank" style={{}} ><img src={IRapport2} style={{height:'35vh'}} /></a>
-										<a href={PRapport2} target="_blank" style={{}} ><p style={{marginTop:'1vh'}} >{'Mémoire microshield vs Dosimex 1'.toUpperCase()}</p></a>
+										<a href={PRapport2} target="_blank" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Mémoire microshield vs Dosimex 1'.toUpperCase()}</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
 										<a href={PRapport3} target="_blank" style={{}} ><img src={IRapport3} style={{height:'35vh'}} /></a>
-										<a href={PRapport3} target="_blank" style={{}} ><p style={{marginTop:'1vh'}} >{'Mémoire microshield vs Dosimex 2'.toUpperCase()}</p></a>
+										<a href={PRapport3} target="_blank" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Mémoire microshield vs Dosimex 2'.toUpperCase()}</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
 										<a href={PRapport4} target="_blank" style={{}} ><img src={IRapport4} style={{height:'35vh'}} /></a>
-										<a href={PRapport4} target="_blank" style={{}} ><p style={{marginTop:'1vh'}} >{'Mémoire microshield vs Dosimex 3'.toUpperCase()}</p></a>
+										<a href={PRapport4} target="_blank" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Mémoire microshield vs Dosimex 3'.toUpperCase()}</p></a>
 									</div>
 								</div>
 							</Card.Body>
@@ -238,9 +238,9 @@ const documentation = "Pour mieux vous permettre de juger des possibilités offe
 			notamment avec Dosimex-GX, vous pouvez télécharger\
 			l’ensemble de la documentation associée à ce code, soit un\
 			ensemble de 13 documents avec notamment :\n\
-			o les manuels d’utilisations présentant de façon détaillée\
-			les possibilités offertes par ce code et ses limites.\n\
-			o les dossiers de validations permettant d’apprécier la\
+			o Les manuels d’utilisations présentant de façon détaillée\
+			les possibilités offertes par ce code et ses limites\n\
+			o Les dossiers de validations permettant d’apprécier la\
 			fiabilité des résultats\n\
 			o Quelques rapports de stages de fin d'étude utilisant Dosimex";
 

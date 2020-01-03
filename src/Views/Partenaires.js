@@ -20,13 +20,13 @@ function RenderPart({part}){
 	}
 	let color = over ? 'rgba(246,246,246,0.8)' : 'rgba(255,255,255,0)';
 	return (
-		<div style={{height:350, width:350}} onMouseOver={() => setOver(true)} onMouseOut={() => {}} onPress={() => window.location.href = part.url} >
-			<div style={{height:350, width:350, backgroundImage: `url(${part.img})`, backgroundPosition:'center', backgroundRepeat:'no-repeat', backgroundSize: "contain"}}>
-				<div style={{display:'flex', alignItems:'center', justifyContent:'center', height:350, width:350, backgroundColor:color, 'transition-property': 'background-color', 'transition-duration': '0.5s'}} onMouseOut={() => setOver(false)} onClick={() => window.location.href = part.url} >
+		<a style={{height:'30vh', width:'30vh'}} onMouseOver={() => setOver(true)} onMouseOut={() => {}} href={part.url} target="_blank" >
+			<div style={{height:'30vh', width:'30vh', backgroundImage: `url(${part.img})`, backgroundPosition:'center', backgroundRepeat:'no-repeat', backgroundSize: "contain"}}>
+				<div style={{display:'flex', alignItems:'center', justifyContent:'center', height:'30vh', width:'30vh', backgroundColor:color, 'transition-property': 'background-color', 'transition-duration': '0.5s'}} onMouseOut={() => setOver(false)} >
 					<p style={{fontSize:20, fontWeight:'bold', color:part.textColor ? part.textColor : 'black', opacity:over?1:0, 'transition-property': 'opacity', 'transition-duration': '0.7s'}} >{part.text}</p>
 				</div>
 			</div>
-		</div>
+		</a>
 	);
 }
 
@@ -73,7 +73,7 @@ const partenaires = [
 		name:'Alara',
 		url:'https://www.alara-expertise.fr',
 		img:alara,
-		text:'exemple de text'
+		text:''
 	},
 	{
 		name:'Apave',

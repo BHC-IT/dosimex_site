@@ -40,12 +40,12 @@ class MenuExamplePointing extends Component {
 
 	render() {
 		const { activeItem } = this.state
-		const backColor = this.state.mouseOver ? Color.red : 'rgba(0,0,0,1)';
-		const fontSize = this.state.mouseOver ? (Size.greaterMd() ? 15.5 : 4.5) : (Size.greaterMd() ? 15 : 4)
-		const itemStyle = {color: "white", fontSize:fontSize, fontWeight:'bold', 'transition-property': 'font-size', 'transition-duration': '0.4s'};
+		const backColor = this.state.mouseOver ? "#991302" : 'rgba(0,0,0,1)';
+		const fontSize = this.state.mouseOver ? (Size.greaterMd() ? '15.5' : 4.5) : (Size.greaterMd() ? '15' : 4)
+		const itemStyle = {color: "white", height:this.state.mouseOver ? '4.2vh' : '4vh', fontSize:fontSize, fontWeight:'bold', 'transition-property': 'font-size', 'transition-duration': '0.4s'};
 		return (
-			<div style={{width:this.state.width, height:'4vh'}} onMouseOver={() => this.setState({mouseOver:true})} onMouseOut={() => this.setState({mouseOver:false})} >
-				<Menu pointing style={{backgroundColor: backColor, 'transition-property': 'background-color', 'transition-duration': '0.5s'}}>
+			<div style={{width:this.state.width, height:this.state.mouseOver ? '4.2vh' : '4vh'}} onMouseOver={() => this.setState({mouseOver:true})} onMouseOut={() => this.setState({mouseOver:false})} >
+				<Menu pointing  style={{backgroundColor: backColor, transitionProperty: 'background-color', transitionDuration: '0.5s', height:this.state.mouseOver ? '4.2vh' : '4vh'}}>
 					<Menu.Item
 						style={itemStyle}
 						name='Accueil'
@@ -60,13 +60,14 @@ class MenuExamplePointing extends Component {
 					/>
 					<Menu.Item
 						style={itemStyle}
-						name='Nos videos'
+						name='Nos Vidéos'
+						content='Nos Vidéos'
 						active={this.props.route === 'Nos tutos'}
 						onClick={(e, name) => this.redirectTo(e, name, "/tutos")}
 					/>
 					<Menu.Item
 						style={itemStyle}
-						name='Manuels et validation'
+						name='Manuels et validations'
 						active={this.props.route === 'A propos'}
 						onClick={(e, name) => this.redirectTo(e, name, "/about")}
 					/>
@@ -90,7 +91,7 @@ class MenuExamplePointing extends Component {
 					/>
 					<Menu.Item
 						style={itemStyle}
-						name='Partenaires'
+						name='Nos Partenaires'
 						active={this.props.route === 'Partenaires'}
 						onClick={(e, name) => this.redirectTo(e, name, "/partenaires")}
 					/>

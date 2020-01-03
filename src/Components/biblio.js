@@ -56,7 +56,7 @@ export default biblio = [
 	{
 		text:"Il était temps de retracer l’histoire de la physique nucléaire. Bernard Fernandez vous prend par la main pour vous guider à travers les méandres d’une science compliquée mais passionnante. Utilisant la langue française ordinaire, sans jargon scientifique ni formules mathématiques, il s’adresse à la fois aux lecteurs spécialisés, à qui il offre une perspective historique de leur science, et à l’honnête homme, qui désire s’informer sans posséder de connaissances scientifiques particulières. Dans ce récit toujours vivant se mêlent personnages connus et moins connus, théories élaborées dans l’enthousiasme et parfois démolies ensuite, protocoles d’expériences et descriptions minutieuses d’instruments. Une idée-force du livre est en effet que jamais la théorie ne doit s’affranchir de la réalité expérimentale",
 		img:Livre3new,
-		link:'https://www.amazon.fr/latome-noyau-approche-historique-nucl%C3%A9aire/dp/2729827846',
+		link:'https://www.editions-ellipses.fr/accueil/4133-de-l-atome-au-noyau-une-approche-historique-de-la-physique-atomique-et-de-la-physique-nucleaire-9782340025158.html',
 		author:'Bernard Fernandez'
 	}
 	,

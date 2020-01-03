@@ -72,16 +72,16 @@ export default class Team extends React.Component {
 
 	_user({user}){
 		return (
-			<div style={{display:'flex', flexDirection:'column', marginTop:10, marginBottom:'5vh', height:'95vh', backgroundColor:Color.lightergrey}} >
+			<div style={{display:'flex', flexDirection:'column', marginTop:'4vh', marginBottom:'5vh', height:'95vh', backgroundColor:Color.lightergrey}} >
 				<div style={{justifyContent:'center', justifyContent:'center', alignItems:'center'}} >
-					<p style={{textAlign: 'center', fontWeight:'bold', fontSize:Size.greaterMd() ? 30 : 10}} >{user.name}</p>
 				</div>
 				<div style={{display:'flex', flexGrow:1}}>
 					<div style={{marginTop:5}} >
 						<img style={{width:'20vw'}} src={user.img}/>
+						<p style={{textAlign: 'center', fontWeight:'bold', fontSize:Size.greaterMd() ? 30 : 10}} >{user.name}</p>
 					</div>
 					<div style={{justifyContent:'center', marginTop:5, justifyContent:'center', alignItems:'center', marginLeft:'3vw', marginRight:'3vw'}} >
-						<TextSpliter textStyle={{textAlign: 'justify', fontSize:Size.greaterMd() ? 20 : 7}} text={user.text} />
+						<TextSpliter textStyle={{textAlign: 'justify', fontSize:Size.greaterMd() ? '1.9vh' : 7}} text={user.text} />
 					</div>
 				</div>
 			</div>
