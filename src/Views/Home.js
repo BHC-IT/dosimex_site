@@ -341,7 +341,7 @@ export default class Home extends React.Component {
 						</div>
 						<img src={LogoDosi2} style={{height:'7vh'}}/>
 						<a href='https://bhc-it.com' >
-							<a href='https://bhc-it.com' style={{color:Color.white, display:'flex', alignItems:'center', fontSize:18, marginRight:'1vw'}} >Designed by <p style={{display:'flex', color:Color.bhcPurpleTypo, alignItems:'center', marginLeft:'1vw'}} >BHC-IT<img src={bhcLightNoText} style={{height:'5vh', marginLeft:'1vw'}}/></p></a>
+							<a href='https://bhc-it.com' style={{color:Color.white, display:'flex', alignItems:'center', fontSize:18, marginRight:'1vw'}} >Designed by <p style={{display:'flex', color:Color.bhcPurpleTypo, alignItems:'center', marginLeft:'1vw'}} ><img src={bhcLightNoText} style={{height:'5vh'}}/></p></a>
 						</a>
 					</div>
 				</div>
