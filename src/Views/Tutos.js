@@ -46,7 +46,9 @@ export default class Home extends React.Component {
 				{this.isOpen() ?
 					null
 					:
-					<p style={{textAlign:'center', width:'100vw'}} ><img src={ImageCamenra} style={{height:'50vh'}} /> </p>
+					<div style={{display:'flex', flex:1, alignItems:'center', justifyContent:'center'}} >
+						<iframe style={{width:'95vw', height:'50vh'}} src="https://www.youtube.com/embed/vPalFZk5io0" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+					</div>
 				}
 				<Accordion defaultActiveKey={transform[this.props.pack]} >
 					<Card style={{width:'101vw'}} >
@@ -57,13 +59,18 @@ export default class Home extends React.Component {
 						</Card.Header>
 						<Accordion.Collapse eventKey="0">
 							<Card.Body style={{backgroundColor:Color.lightergrey, height:'71vh'}} >
-								<Row style={{justifyContent:'space-between', margin:25}}>
-									<iframe width="250" height="200" src="https://www.youtube.com/embed/vPalFZk5io0" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-									<iframe width="250" height="200" src="https://www.youtube.com/embed/c85KaDSMIRM" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-									<iframe width="250" height="200" src="https://www.youtube.com/embed/c85KaDSMIRM" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-									<iframe width="250" height="200" src="https://www.youtube.com/embed/c85KaDSMIRM" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-									<iframe width="250" height="200" src="https://www.youtube.com/embed/c85KaDSMIRM" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-								</Row>
+								<div style={{display:'flex', justifyContent:'space-between', alignItems:'center', paddingRight:10, paddingLeft:10}}>
+									<iframe style={{width:'21vw', height:'30vh'}} src="https://www.youtube.com/embed/E5eWKTJaNxQ" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+									<iframe style={{width:'21vw', height:'30vh'}} src="https://www.youtube.com/embed/wkuVxTBXc8g" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+									<iframe style={{width:'21vw', height:'30vh'}} src="https://www.youtube.com/embed/ksOJEbihuvA" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+									<iframe style={{width:'21vw', height:'30vh'}} src="https://www.youtube.com/embed/4Cfya_rHa04" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+								</div>
+								<div style={{display:'flex', justifyContent:'space-between', alignItems:'center', paddingRight:10, paddingLeft:10, marginTop:'5vh'}}>
+									<iframe style={{width:'21vw', height:'30vh'}} src="https://www.youtube.com/embed/CnqQhyB6cEo" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+									<iframe style={{width:'21vw', height:'30vh'}} src="https://www.youtube.com/embed/7emAJHES-fw" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+									<iframe style={{width:'21vw', height:'30vh'}} src="https://www.youtube.com/embed/sj-FVjP87jA" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+									<iframe style={{width:'21vw', height:'30vh'}} src="https://www.youtube.com/embed/Ga4roi63sSM" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+								</div>
 							</Card.Body>
 						</Accordion.Collapse>
 					</Card>
@@ -75,7 +82,12 @@ export default class Home extends React.Component {
 						</Card.Header>
 						<Accordion.Collapse eventKey="1">
 							<Card.Body style={{backgroundColor:Color.lightergrey, height:'71vh'}} >
-								<TextSpliter text={pack2.text} textStyle={{textAlign: 'justify', fontSize:25}}/>
+								<div style={{display:'flex', justifyContent:'space-between', alignItems:'center', paddingRight:10, paddingLeft:10}}>
+									<iframe style={{width:'21vw', height:'35vh'}} src="https://www.youtube.com/embed/Ltk5x2dW_VI" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+									<iframe style={{width:'21vw', height:'35vh'}} src="https://www.youtube.com/embed/vXT2h8GJ8Qk" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+									<iframe style={{width:'21vw', height:'35vh'}} src="https://www.youtube.com/embed/cBQ5-CiqqT4" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+									<iframe style={{width:'21vw', height:'35vh'}} src="https://www.youtube.com/embed/pYbgwudKniA" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+								</div>
 							</Card.Body>
 						</Accordion.Collapse>
 					</Card>
@@ -87,7 +99,11 @@ export default class Home extends React.Component {
 						</Card.Header>
 						<Accordion.Collapse eventKey="2">
 							<Card.Body style={{backgroundColor:Color.lightergrey, height:'71vh'}} >
-								<TextSpliter text={pack3.text} textStyle={{textAlign: 'justify', fontSize:25}}/>
+								<div style={{display:'flex', justifyContent:'space-between', alignItems:'center', paddingRight:10, paddingLeft:10}}>
+									<iframe style={{width:'30vw', height:'50vh'}} src="https://www.youtube.com/embed/vSI75UZ_9UQ" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+									<iframe style={{width:'30vw', height:'50vh'}} src="https://www.youtube.com/embed/aA4QUutuaJc" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+									<iframe style={{width:'30vw', height:'50vh'}} src="https://www.youtube.com/embed/2Mq-TR8cG-o" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+								</div>
 							</Card.Body>
 						</Accordion.Collapse>
 					</Card>
