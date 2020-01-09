@@ -327,21 +327,21 @@ export default class Home extends React.Component {
 						</div>
 					</div>
 				</div>
-				<div style={{height:'100vh', backgroundColor:Color.lightergrey}} >
+				<div style={{height:'100vh', backgroundColor:Color.lightergrey, display:'flex', flexDirection:'column', justifyContent:'flex-end'}} >
 					<this.renderPackshot/>
 					<div style={{display:'flex', alignItems:'center', justifyContent:'space-between', height:'10vh'}} >
 						<div style={{display:'flex', alignItems:'flex-end', marginRight:'2vw', alignItems:'center'}} >
 						</div>
 					</div>
-					<div style={{display:'flex', backgroundColor:'#242424', height:'10vh', justifyContent:'space-between', alignItems:'center'}} >
+					<div style={{display:'flex', backgroundColor:'#242424', justifyContent:'space-between', alignItems:'center', justifySelf:'flex-end', paddingTop:'1vh', paddingBottom:'1vh'}} >
 						<div style={{marginLeft:'2vw', justifyContent:'center'}} >
-							<p style={{color: Color.white}} >Email : <a href='mailto:contact@dosimex.fr'> contact@dosimex.fr</a></p>
-							<p style={{color: Color.white}} >Téléphone : 06 89 70 90 35</p>
-							<a href={Information_légales} target="_blank"><p style={{color: Color.white}} >Information légale</p></a>
+							<p style={{color: Color.white, fontSize:'2vh'}} >Email : <a href='mailto:contact@dosimex.fr'> contact@dosimex.fr</a></p>
+							<p style={{color: Color.white, fontSize:'2vh'}} >Téléphone : 06 89 70 90 35</p>
+							<a href={Information_légales} target="_blank"><p style={{color: Color.white, fontSize:'2vh'}} >Information légale</p></a>
 						</div>
 						<img src={LogoDosi2} style={{height:'7vh'}}/>
 						<a href='https://bhc-it.com' >
-							<a href='https://bhc-it.com' style={{color:Color.white, display:'flex', alignItems:'center', fontSize:18, marginRight:'1vw'}} >Designed by <p style={{display:'flex', color:Color.bhcPurpleTypo, alignItems:'center', marginLeft:'1vw'}} ><img src={bhcLightNoText} style={{height:'5vh'}}/></p></a>
+							<a href='https://bhc-it.com' style={{color:Color.white, display:'flex', alignItems:'center', fontSize:18, marginRight:'1vw', fontSize:'2vh'}} >Designed by <p style={{display:'flex', color:Color.bhcPurpleTypo, alignItems:'center', marginLeft:'1vw'}} ><img src={bhcLightNoText} style={{height:'5vh'}}/></p></a>
 						</a>
 					</div>
 				</div>

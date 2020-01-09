@@ -29,7 +29,7 @@ const transform = {
 };
 
 const documentation =
-"Nous proposons des formations courtes sur site de 2 à 3 jours, permettant la prise en main des outils et intégrant\nl’utilisation des codes dans le cadre de l’analyse et l’estimation des risques radiologiques appliqués à des cas\nconcrets rencontrés dans le monde industriel et médical.\n\
+"Nous proposons des formations courtes sur site de 2 à 3 jours.\n Ces formations s’appuient sur des travaux dirigés intégrant l’utilisation des outils Dosimex\n dans le cadre plus large de l’analyse des risques radiologiques appliqués à des cas concrets rencontrés dans le monde industriel et médical.\n\
 <p style='margin-top:2vh' >Exemples de thématiques abordées :</p>\n\
 • Calcul de protection autour de générateurs X médicaux et industriels\n\
 • Application NF C 15-160\n\
@@ -82,13 +82,13 @@ export default class About extends React.Component {
 					<Card style={{width:'101vw'}} >
 						<Card.Header style={{backgroundColor:Color.lightishgrey, height:'8vh'}} >
 							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="0" onClick={() => this._keepTrack('0')} >
-								<p style={{fontSize:30}} >Formations</p>
+								<p style={{fontSize:'3vh'}} >Formations</p>
 							</Accordion.Toggle>
 						</Card.Header>
 						<Accordion.Collapse eventKey="0" style={{backgroundColor:Color.lightergrey}} >
 							<Col xs={{span:10, offset:1}} style={{backgroundColor:Color.white, backgroundImage: `url(${coures})`, backgroundPosition:'center', height:'87vh', backgroundRepeat:'no-repeat', backgroundSize: "cover", marginTop:'1vh'}} >
 								<Row style={{justifyContent:'center', height:'56vh', justifyContent:'flex-start'}} >
-									<TextSpliter textStyle={{textAlign:'justify', fontSize:18, margin:5, marginLeft:15, marginRight:15, marginTop:0}} text={documentation} />
+									<TextSpliter textStyle={{textAlign:'justify', fontSize:'2vh', margin:5, marginLeft:15, marginRight:15, marginTop:0}} text={documentation} />
 								</Row>
 							</Col>
 						</Accordion.Collapse>

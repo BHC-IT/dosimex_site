@@ -88,7 +88,7 @@ export default class Home extends React.Component {
 				{this.isOpen() ?
 					null
 					:
-					<Row style={{justifyContent:'center', alignItems:'center', width:'100vw'}} ><img style={{width:'40vw'}} src={Image}/></Row>
+					<Row style={{justifyContent:'center', alignItems:'center', width:'100vw'}} ><img style={{height:'50vh'}} src={Image}/></Row>
 				}
 				<Accordion defaultActiveKey={transform[this.props.pack]} >
 					<Card style={{width:'101vw'}} >

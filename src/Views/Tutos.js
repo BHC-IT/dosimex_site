@@ -46,15 +46,13 @@ export default class Home extends React.Component {
 				{this.isOpen() ?
 					null
 					:
-					<div style={{display:'flex', flex:1, alignItems:'center', justifyContent:'center'}} >
-						<iframe style={{width:'95vw', height:'50vh'}} src="https://www.youtube.com/embed/vPalFZk5io0" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-					</div>
+					<p style={{textAlign:'center', width:'100vw'}} ><img src={ImageCamenra} style={{height:'50vh'}} /> </p>
 				}
 				<Accordion defaultActiveKey={transform[this.props.pack]} >
 					<Card style={{width:'101vw'}} >
 						<Card.Header style={{backgroundColor:Color.lightishgrey, height:'8vh'}} >
 							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="0" onClick={() => this._keepTrack('0')} >
-								<p style={{fontSize:30}} >{pack1.title}</p>
+								<p style={{fontSize:'3vh'}} >{pack1.title}</p>
 							</Accordion.Toggle>
 						</Card.Header>
 						<Accordion.Collapse eventKey="0">
@@ -63,13 +61,13 @@ export default class Home extends React.Component {
 									<iframe style={{width:'21vw', height:'30vh'}} src="https://www.youtube.com/embed/E5eWKTJaNxQ" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 									<iframe style={{width:'21vw', height:'30vh'}} src="https://www.youtube.com/embed/wkuVxTBXc8g" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 									<iframe style={{width:'21vw', height:'30vh'}} src="https://www.youtube.com/embed/ksOJEbihuvA" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-									<iframe style={{width:'21vw', height:'30vh'}} src="https://www.youtube.com/embed/4Cfya_rHa04" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+									<iframe style={{width:'21vw', height:'30vh'}} src="https://www.youtube.com/embed/Ga4roi63sSM" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 								</div>
 								<div style={{display:'flex', justifyContent:'space-between', alignItems:'center', paddingRight:10, paddingLeft:10, marginTop:'5vh'}}>
-									<iframe style={{width:'21vw', height:'30vh'}} src="https://www.youtube.com/embed/CnqQhyB6cEo" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+									<iframe style={{width:'21vw', height:'30vh'}} src="https://www.youtube.com/embed/4Cfya_rHa04" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 									<iframe style={{width:'21vw', height:'30vh'}} src="https://www.youtube.com/embed/7emAJHES-fw" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+									<iframe style={{width:'21vw', height:'30vh'}} src="https://www.youtube.com/embed/CnqQhyB6cEo" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 									<iframe style={{width:'21vw', height:'30vh'}} src="https://www.youtube.com/embed/sj-FVjP87jA" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-									<iframe style={{width:'21vw', height:'30vh'}} src="https://www.youtube.com/embed/Ga4roi63sSM" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 								</div>
 							</Card.Body>
 						</Accordion.Collapse>
@@ -77,7 +75,7 @@ export default class Home extends React.Component {
 					<Card color={Color.red} >
 						<Card.Header style={{backgroundColor:Color.lightishgrey, height:'8vh'}} >
 							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="1" onClick={() => this._keepTrack('1')}>
-								<p style={{fontSize:30}} >{pack2.title}</p>
+								<p style={{fontSize:'3vh'}} >{pack2.title}</p>
 							</Accordion.Toggle>
 						</Card.Header>
 						<Accordion.Collapse eventKey="1">
@@ -94,7 +92,7 @@ export default class Home extends React.Component {
 					<Card>
 						<Card.Header style={{backgroundColor:Color.lightishgrey, height:'8vh'}} >
 							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="2" onClick={() => this._keepTrack('2')}>
-								<p style={{fontSize:30}} >{pack3.title}</p>
+								<p style={{fontSize:'3vh'}} >{pack3.title}</p>
 							</Accordion.Toggle>
 						</Card.Header>
 						<Accordion.Collapse eventKey="2">

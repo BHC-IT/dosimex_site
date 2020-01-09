@@ -45,9 +45,9 @@ export default class Home extends React.Component {
 
 	_renderLivre({Livre}){
 		return (
-			<div style={{marginLeft:'4vw', paddingBottom:'2vh', borderBottom: '1px solid black', marginTop:'1vh', marginBottom:'3vh'}} >
+			<div style={{marginLeft:'4vw', paddingBottom:'2vh', borderBottom: '1px solid black', marginTop:'1vh', marginBottom:'3vh', backgroundColor:Color.lightergrey}} >
 				<a href={Livre.link} target="_blank"><img style={{verticalAlign:'middle', marginBottom:'0.75em', width:'22vw'}} src={Livre.img} alt="" /></a>
-				<span style={{display:'block', float:'right', width:'70vw', marginLeft:'1vw'}} ><p style={{textAlign:'justify', fontSize:20}} >{Livre.author}</p> <p style={{textAlign:'justify', fontSize:16}} >{ReactHtmlParser(Livre.text)}</p><a href={Livre.link} target="_blank">Lien vers l'éditeur</a> </span>
+				<span style={{display:'block', float:'right', width:'70vw', marginLeft:'1vw'}} ><p style={{textAlign:'justify', fontSize:20}} >{Livre.author}</p> <TextSpliter textStyle={{textAlign:'justify', fontSize:13}} text={Livre.text} /><a href={Livre.link} target="_blank">Lien vers l'éditeur</a> </span>
 			</div>
 		);
 	}
@@ -55,7 +55,7 @@ export default class Home extends React.Component {
 	render(){
 		console.log(Biblio);
 		return (
-			<div style={{display:'inline-block'}} >
+			<div style={{display:'inline-block', backgroundColor:Color.lightergrey}} >
 
 				{Biblio.map((bib, i) => <this._renderLivre Livre={bib} key={i} />)
 

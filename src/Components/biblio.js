@@ -38,8 +38,8 @@ export default biblio = [
 		- la gestion des déchets radioactifs, \n\
 		- la gestion des situations incidentelles et dégradées, \n\
 		- la méthodologie d\'analyse des postes de travail complétée par l\'application à des cas pratiques rencontrés dans les laboratoires.\n\
-		Dans certains chapitres, des situations concrètes de travail sont proposées au lecteur qui endosse le rôle d\'acteur. Par ailleurs, ce dernier peut vérifier sa compréhension et l\'acquisition des notions traitées grâce aux rubriques « Faîtes le point » qui clôturent les autres parties de ce volume. \n\
-		Cet ouvrage prépare ainsi efficacement au contrôle des connaissances du module pratique et constitue un outil d\'aide indispensable à l\'obtention de l\'attestation PCR.\n\
+		Dans certains chapitres, des situations concrètes de travail sont proposées au lecteur qui endosse le rôle d\'acteur. Par ailleurs, ce dernier peut vérifier sa compréhension et l\'acquisition des notions traitées grâce aux rubriques « Faîtes le point » qui clôturent les autres parties de ce volume. \
+		Cet ouvrage prépare ainsi efficacement au contrôle des connaissances du module pratique et constitue un outil d\'aide indispensable à l\'obtention de l\'attestation PCR.\
 		Les auteurs sont des experts en radioprotection, impliqués dans la formation de personnes compétentes ou même PCR issues des secteurs de l\'industrie et de la recherche.',
 		img:Livre9,
 		link:'https://laboutique.edpsciences.fr/produit/29/9782759808458/Radioprotection pratique pour lindustrie et la recherche',
@@ -47,10 +47,35 @@ export default biblio = [
 	}
 	,
 	{
-		text:'Le rôle de la personne compétente en radioprotection (PCR) s’est largement développé ces dernières années pour occuper une fonction essentielle au sein des établissements. Désignée par l’employeur, la PCR doit obligatoirement suivre avec succès une formation dont les modalités sont définies par l’arrêté du 6 décembre 2013. Cette formation, structurée en deux modules – théorique et appliqué – est adaptée à l’importance du risque radiologique (« niveau » de formation), à la nature des activités concernées (secteur) et éventuellement au type d’utilisation de sources de rayonnements ionisants (option). Ce volume s’adresse aux PCR ou futures PCR concernées par les installations du secteur médical. Il traitera des différents types de sources utilisés : sources radioactives scellées (curiethérapie), sources radioactives non scellées (médecine nucléaire), ainsi que les dispositifs électriques émettant des rayonnements ionisants : générateurs de rayonnements X utilisés en radiologie conventionnelle et dentaire, scanners, accélérateurs en radiothérapie… Il comprend 9 chapitres traitant les domaines suivants : les aspects réglementaires et pratiques de la radioprotection dans les installations du secteur médical ; - la description des différents types d’application des rayonnements ionisants du secteur médical : radiologie, radiothérapie, curiethérapie et médecine nucléaire  - la gestion des déchets et des effluents radioactifs générés par certaines de ces applications ; - la mesure de l’exposition externe et la détection, avec une application à un cas concret de contamination surfacique ; - la gestion des situations incidentelles et dégradées dans le milieu médical ; - la méthodologie d’analyse de postes de travail et d’évaluation des risques, complétée par l’application à des cas pratiques rencontrés dans le secteur médical : scanographie, radiologie interventionnelle, curiethérapie et médecine nucléaire. Grâce à ce nouveau volume, la PCR exerçant dans le milieu médical disposera de toutes les informations indispensables à l’exercice de ses missions, depuis l’acquisition des notions réglementaires à respecter jusqu’au calcul des protections en passant par un rôle essentiel, celui de la mise en oeuvre des analyses de postes de travail.',
+		text:'Le rôle de la personne compétente en radioprotection (PCR) s’est largement développé ces dernières années pour occuper une fonction essentielle au sein des établissements. Désignée par l’employeur, la PCR doit obligatoirement suivre avec succès une formation dont les modalités sont définies par l’arrêté du 6 décembre 2013. Cette formation, structurée en deux modules\n\
+		– théorique et appliqué\n\
+		– est adaptée à l’importance du risque radiologique (« niveau » de formation), à la nature des activités concernées (secteur) et éventuellement au type d’utilisation de sources de rayonnements ionisants (option).\n\
+		Ce volume s’adresse aux PCR ou futures PCR concernées par les installations du secteur médical.\
+		Il traitera des différents types de sources utilisés : sources radioactives scellées (curiethérapie), sources radioactives non scellées (médecine nucléaire), ainsi que les dispositifs électriques émettant des rayonnements ionisants : générateurs de rayonnements X utilisés en radiologie conventionnelle et dentaire, scanners, accélérateurs en radiothérapie…\
+		Il comprend 9 chapitres traitant les domaines suivants :\
+		les aspects réglementaires et pratiques de la radioprotection dans les installations du secteur médical ;\n\
+		 - la description des différents types d’application des rayonnements ionisants du secteur médical : radiologie, radiothérapie, curiethérapie et médecine nucléaire\n\
+		 - la gestion des déchets et des effluents radioactifs générés par certaines de ces applications ;\n\
+		 - la mesure de l’exposition externe et la détection, avec une application à un cas concret de contamination surfacique ;\n\
+		 - la gestion des situations incidentelles et dégradées dans le milieu médical ;\n\
+		 - la méthodologie d’analyse de postes de travail et d’évaluation des risques, complétée par l’application à des cas pratiques rencontrés dans le secteur médical : scanographie, radiologie interventionnelle, curiethérapie et médecine nucléaire.\n\
+		 Grâce à ce nouveau volume, la PCR exerçant dans le milieu médical disposera de toutes les informations indispensables à l’exercice de ses missions, depuis l’acquisition des notions réglementaires à respecter jusqu’au calcul des protections en passant par un rôle essentiel, celui de la mise en oeuvre des analyses de postes de travail.',
 		img:Livre3,
 		link:'https://laboutique.edpsciences.fr/produit/953/9782759819928',
 		author:'Hugues Bruchet, Amélie Roué et Christine Jimonet'
+	}
+	,
+	{
+		text:'Ce volume correspond au module pratique dédié aux installations de l\'industrie et de la recherche concernées par la détention ou la gestion de générateurs X et de sources scellées. Conforme aux exigences réglementaires stipulant que ce module doit permettre d\'appliquer les acquis de la formation théorique à des situations concrètes de travail susceptibles d\'être rencontrées, il comprend 11 chapitres traitant les aspects suivants :\n\
+			- un panorama détaillé de l\'application de ces sources dans l\'industrie et la recherche ;\n\
+			- la radioprotection dans les installations de l\'industrie et la recherche : les moyens de prévention, protection, formation, détection associés ;\n\
+			- les critères de choix des détecteurs, la mesure de la contamination radioactive et des fuites de rayonnement, l\'exposition, associée à des méthodes d\'estimation des débits de dose et des écrans de protection ;\n\
+			- la gestion des situations incidentelles et dégradées ;\n\
+			- la méthodologie d\'analyse des postes de travail complétée par des études de cas pratiques.\n\
+			Cet ouvrage prépare ainsi efficacement au contrôle des connaissances du module pratique et constitue un outil d\'aide indispensable à l\'obtention de l\'attestation PCR.',
+		img:Livre4,
+		link:'https://laboutique.edpsciences.fr/produit/43/9782759809363/Radioprotection%20pratique%20pour%20lindustrie%20et%20la%20recherche',
+		author:'Jean-Claude Moreau et Marc Ammerich'
 	}
 	,
 	{
@@ -68,27 +93,12 @@ export default biblio = [
 	}
 	,
 	{
-		text:'Ce volume correspond au module pratique dédié aux installations de l\'industrie et de la recherche concernées par la détention ou la gestion de sources non scellées et de sources scellées nécessaires à leur contrôle. Conforme aux exigences réglementaires stipulant que ce module doit permettre d\'appliquer les acquis de la formation théorique à des situations concrètes de travail susceptibles d\'être rencontrées, il comprend 8 chapitres traitant les aspects suivants :<br/>\
-			- la radioprotection dans les installations de l\'industrie et la recherche : utilisation des sources et risques associés, aménagement des locaux, évaluation des expositions, contrôles de radioprotection,<br/>\
-			- l\'utilisation des appareils de détection et de mesure de la contamination radioactive et de l\'exposition, associée à des méthodes et outils de calcul,<br/>\
-			- la gestion des déchets radioactifs,<br/>\
-			- la gestion des situations incidentelles et dégradées,<br/>\
-			- la méthodologie d\'analyse des postes de travail complétée par l\'application à des cas pratiques rencontrés dans les laboratoires.<br/>\
-			Dans certains chapitres, des situations concrètes de travail sont proposées au lecteur qui endosse le rôle d\'acteur. Par ailleurs, ce dernier peut vérifier sa compréhension et l\'acquisition des notions traitées grâce aux rubriques « Faîtes le point » qui clôturent les autres parties de ce volume. \
-			Cet ouvrage prépare ainsi efficacement au contrôle des connaissances du module pratique et constitue un outil d\'aide indispensable à l\'obtention de l\'attestation PCR.\
-			Les auteurs sont des experts en radioprotection, impliqués dans la formation de personnes compétentes ou même PCR issues des secteurs de l\'industrie et de la recherche.',
-		img:Livre4,
-		link:'https://laboutique.edpsciences.fr/produit/29/9782759808458/Radioprotection%20pratique%20pour%20lindustrie%20et%20la%20recherche',
-		author:'Jean-Claude Moreau et Marc Ammerich'
-	}
-	,
-	{
-		text:'Cet ouvrage a pour ambition de faire la synthèse de nombreuses années d\'expériences dans le domaine de la dosimétrie externe et des techniques de protection contre ce type d\'exposition aussi bien dans les domaines industriels, de la recherche et du médical. \
-			Il est fondé sur la théorie liée à l\'interaction des rayonnements ionisants avec la matière, des formules empiriques, des abaques et illustré par de nombreuses applications numériques. En outre, il fait référence en permanence à l\'état de l\'art et notamment dans le domaine des codes de calcul pour l\'exposition externe et d\'un certain nombre de projets médicaux et de recherche récents. Par ailleurs, il compile des données dispersées dans de nombreux ouvrages de référence, dont certains sont difficilement disponibles. \
-			Cet ouvrage est dédié aux professionnels de la radioprotection, de la dosimétrie, de la mesure nucléaire mais permet également  de compléter le cursus des étudiants de niveau technicien à ingénieur. \
-			Cet ouvrage est articulé autour de deux niveaux de lecture : le premier abordable par l\'ensemble des lecteurs pour lequel des concepts de physiques élémentaires conduisant à la compréhension des phénomènes liés à l\'exposition externe sont étayés par des applications numériques simples ; le second au travers de compléments d\'informations (CI), accessibles en fin de chaque chapitre, détaillant des points plus complexes nécessitant le cas échéant des développements mathématiques non triviaux. \
-			Le premier chapitre traite de la définition des grandeurs radiométriques et dosimétriques fondamentales, permettant d\'aborder l\'interaction rayonnement matière sous un angle dédié au dépôt de la dose dans les tissus biologiques au travers du second chapitre, pour enfin définir et appliquer les grandeurs de protection et opérationnelles liée à la radioprotection au sein d\'un troisième chapitre. \
-			Un accent particulier a été porté, dans les deux chapitres suivants, quant à la définition des risques et contre-mesures associées (i.e. protections biologiques) inhérents aux sources de rayonnements usuelles : radionucléides, générateurs X, accélérateurs (électrons, ions) … mais également pour des dispositifs plus « exotiques » dont certains sont liés à des domaines en expansion ou d\'avenir : laser de puissance, accélérateurs … pour un domaine d\'énergies que l\'on peut qualifier de moyennes (0 à 200 MeV)\
+		text:'Cet ouvrage a pour ambition de faire la synthèse de nombreuses années d\'expériences dans le domaine de la dosimétrie externe et des techniques de protection contre ce type d\'exposition aussi bien dans les domaines industriels, de la recherche et du médical. \n\
+			Il est fondé sur la théorie liée à l\'interaction des rayonnements ionisants avec la matière, des formules empiriques, des abaques et illustré par de nombreuses applications numériques. En outre, il fait référence en permanence à l\'état de l\'art et notamment dans le domaine des codes de calcul pour l\'exposition externe et d\'un certain nombre de projets médicaux et de recherche récents. Par ailleurs, il compile des données dispersées dans de nombreux ouvrages de référence, dont certains sont difficilement disponibles. \n\
+			Cet ouvrage est dédié aux professionnels de la radioprotection, de la dosimétrie, de la mesure nucléaire mais permet également  de compléter le cursus des étudiants de niveau technicien à ingénieur. \n\
+			Cet ouvrage est articulé autour de deux niveaux de lecture : le premier abordable par l\'ensemble des lecteurs pour lequel des concepts de physiques élémentaires conduisant à la compréhension des phénomènes liés à l\'exposition externe sont étayés par des applications numériques simples ; le second au travers de compléments d\'informations (CI), accessibles en fin de chaque chapitre, détaillant des points plus complexes nécessitant le cas échéant des développements mathématiques non triviaux. \n\
+			Le premier chapitre traite de la définition des grandeurs radiométriques et dosimétriques fondamentales, permettant d\'aborder l\'interaction rayonnement matière sous un angle dédié au dépôt de la dose dans les tissus biologiques au travers du second chapitre, pour enfin définir et appliquer les grandeurs de protection et opérationnelles liée à la radioprotection au sein d\'un troisième chapitre. \n\
+			Un accent particulier a été porté, dans les deux chapitres suivants, quant à la définition des risques et contre-mesures associées (i.e. protections biologiques) inhérents aux sources de rayonnements usuelles : radionucléides, générateurs X, accélérateurs (électrons, ions) … mais également pour des dispositifs plus « exotiques » dont certains sont liés à des domaines en expansion ou d\'avenir : laser de puissance, accélérateurs … pour un domaine d\'énergies que l\'on peut qualifier de moyennes (0 à 200 MeV)\n\
 			Un chapitre en fin d\'ouvrage est entièrement consacré aux codes de calculs de transport de particules exploitant la méthode Monte-Carlo. Les principes généraux y sont explicités avec une orientation particulière vers l\'estimation de grandeurs radiométriques et dosimétriques décrites dans les chapitres antérieurs. Cette partie est là encore jalonnée d\'applications numériques permettant d\'éclaircir certaines thématiques. Rappelons que les codes de calculs dont les algorithmes exploitent cette méthode, constituent aujourd\'hui des outils de références pour les calculs liés à la dosimétrie, la radioprotection et la radiophysique. ',
 		img:Livre5,
 		link:'https://www.lavoisier.fr/livre/physique/physique-appliquee-a-l-exposition-externe/antoni/descriptif_2649448',

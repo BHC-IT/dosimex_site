@@ -83,7 +83,7 @@ export default class Home extends React.Component {
 					<Card style={{width:'101vw'}} >
 						<Card.Header style={{backgroundColor:Color.lightishgrey, height:'8vh'}} >
 							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="0" onClick={() => this._keepTrack('0')} >
-								<p style={{fontSize:30}} >{pack1.title}</p>
+								<p style={{fontSize:'3vh'}} >{pack1.title}</p>
 							</Accordion.Toggle>
 						</Card.Header>
 						<Accordion.Collapse eventKey="0">
@@ -112,7 +112,7 @@ export default class Home extends React.Component {
 					<Card color={Color.red} >
 						<Card.Header style={{backgroundColor:Color.lightishgrey, height:'8vh'}} >
 							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="1" onClick={() => this._keepTrack('1')}>
-								<p style={{fontSize:30}} >{pack2.title}</p>
+								<p style={{fontSize:'3vh'}} >{pack2.title}</p>
 							</Accordion.Toggle>
 						</Card.Header>
 						<Accordion.Collapse eventKey="1">
@@ -145,7 +145,7 @@ export default class Home extends React.Component {
 					<Card>
 						<Card.Header style={{backgroundColor:Color.lightishgrey, height:'8vh'}} >
 							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="2" onClick={() => this._keepTrack('2')}>
-								<p style={{fontSize:30}} >{pack3.title}</p>
+								<p style={{fontSize:'3vh'}} >{pack3.title}</p>
 							</Accordion.Toggle>
 						</Card.Header>
 						<Accordion.Collapse eventKey="2">

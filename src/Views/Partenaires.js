@@ -12,6 +12,7 @@ import rpcirkus from '../Images/logo_partenaires/rpcirkus.png'
 import cls from '../Images/logo_partenaires/cls.png'
 import b2c from '../Images/logo_partenaires/b2c.png'
 import edp from '../Images/logo_partenaires/edp.png'
+import cossen from '../Images/logo_partenaires/cossen.png'
 
 function RenderPart({part}){
 	const [over, setOver] = useState(false);
@@ -38,11 +39,29 @@ export default class Partenaires extends Component {
 	render(){
 		let rework_partenaires = []
 		for (let i = 0; i <= partenaires.length; i += 3){
-			rework_partenaires.push([partenaires[i], partenaires[i + 1], partenaires[i + 2]]);
+			let i1 ,i2, i3 = null;
+			i1 = partenaires[i];
+			if (partenaires[i + 1])
+				i2 = partenaires[i + 1];
+			if (partenaires[i + 2])
+				i3 = partenaires[i + 2];
+			rework_partenaires.push([i1, i2, i3]);
+		}
+		for (let i = 0; i < rework_partenaires.length; i++){
+			rework_partenaires[i] = rework_partenaires[i].filter(e => e !== null && e !== undefined);
 		}
 		return (
 			<div style={{display:'flex', flexDirection:'column', alignItems:'center', height:'96vh', backgroundColor:Color.lightergrey}} >
 				{rework_partenaires.map((e, i) => {
+					if (e.length ===  1){
+						return (
+							<div style={{display:'flex', marginBottom:i < rework_partenaires.length - 1 ? '2vh' : '0vh' , alignItems:'center', justifyContent:'center', width:'100vw', backgroundColor:Color.lightergrey}}>
+								<div style={{}} >
+									<RenderPart part={e[0]}/>
+								</div>
+							</div>
+						);
+					}
 					return (
 						<div style={{display:'flex', marginBottom:i < rework_partenaires.length - 1 ? '2vh' : '0vh' , alignItems:'center', justifyContent:'center', width:'100vw', backgroundColor:Color.lightergrey}}>
 							<div style={{marginLeft:'4vw', marginRight:'4vw'}} >
@@ -55,7 +74,7 @@ export default class Partenaires extends Component {
 								<RenderPart part={e[2]}/>
 							</div>
 						</div>
-					)
+					);
 				})}
 			</div>
 		);
@@ -74,6 +93,12 @@ const partenaires = [
 		url:'https://www.alara-expertise.fr',
 		img:alara,
 		text:''
+	},
+	{
+		name:'Cossen',
+		url:'https://www.linkedin.com/company/cossen',
+		img:cossen,
+		text:'Nous sommes fiers de les aider dans leurs missions'
 	},
 	{
 		name:'Apave',

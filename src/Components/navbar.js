@@ -41,10 +41,10 @@ class MenuExamplePointing extends Component {
 	render() {
 		const { activeItem } = this.state
 		const backColor = this.state.mouseOver ? "#991302" : 'rgba(0,0,0,1)';
-		const fontSize = this.state.mouseOver ? (Size.greaterMd() ? '15.5' : 4.5) : (Size.greaterMd() ? '15' : 4)
-		const itemStyle = {color: "white", height:this.state.mouseOver ? '4.2vh' : '4vh', fontSize:fontSize, fontWeight:'bold', 'transition-property': 'font-size', 'transition-duration': '0.4s'};
+		const fontSize = this.state.mouseOver ? (Size.greaterMd() ? '1.5vh' : 4.5) : (Size.greaterMd() ? '1.4vh' : 4)
+		const itemStyle = {color: "white", height:this.state.mouseOver ? '4vh' : '4vh', fontSize:fontSize, fontWeight:'bold', 'transition-property': 'font-size', 'transition-duration': '0.4s'};
 		return (
-			<div style={{width:this.state.width, height:this.state.mouseOver ? '4.2vh' : '4vh'}} onMouseOver={() => this.setState({mouseOver:true})} onMouseOut={() => this.setState({mouseOver:false})} >
+			<div style={{width:this.state.width, height:this.state.mouseOver ? '4vh' : '4vh'}} onMouseOver={() => this.setState({mouseOver:true})} onMouseOut={() => this.setState({mouseOver:false})} >
 				<Menu pointing  style={{backgroundColor: backColor, transitionProperty: 'background-color', transitionDuration: '0.5s', height:this.state.mouseOver ? '4.2vh' : '4vh'}}>
 					<Menu.Item
 						style={itemStyle}
