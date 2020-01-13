@@ -139,7 +139,8 @@ export default class Home extends React.Component {
 			direction:null,
 			width:0,
 			height:0,
-			offset:0
+			offset:0,
+			scrolling:false
 		}
 		this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
 	}
@@ -160,7 +161,10 @@ export default class Home extends React.Component {
 		});
 
 		window.onscroll = () => {
-			console.log("trigger");
+			if (this.scrolling)
+				return;
+			this.setState({scrolling:true});
+			setTimeout(() => this.setState({scrolling:false}), 1510);
 			if (!Size.greaterMd()){
 				if (window.pageYOffset < 20)
 					this.setState({offset:0});
@@ -238,6 +242,10 @@ export default class Home extends React.Component {
 			<div>
 				{ this.state.offset === 0 && Size.greaterMd() ?
 					<Row  className={"fixed-bottom"} style={{justifyContent:'center'}} onClick={() => {
+						if (this.state.scrolling)
+							return;
+						this.setState({scrolling:true});
+						setTimeout(() => this.setState({scrolling:false}), 1510);
 						scroll.scrollToBottom({
 							duration: 1500,
 							delay: 0,
@@ -250,7 +258,7 @@ export default class Home extends React.Component {
 								<p style={{fontWeight:'bold', fontSize:'2vh', color:Color.white,  textShadow:'1.5px 1.5px #000000'}}>PRÉSENTATION GÉNÉRALE</p>
 							</Row>
 							<Row style={{justifyContent:'center'}} >
-								<p style={{fontWeight:'bold', fontSize:'2.5vh', color:Color.white,  textShadow:'1.5px 1.5px #000000'}}>V</p>
+								<ion-icon name="arrow-down" size="large" style={{color:Color.white}}></ion-icon>
 							</Row>
 						</Col>
 					</Row>
@@ -313,7 +321,7 @@ export default class Home extends React.Component {
 	render(){
 		return (
 			<div style={{width:'100%'}} >
-				<div style={{backgroundColor:Color.black, backgroundImage: `url(${BackGroundHague2})`, backgroundPosition:'center', backgroundRepeat:'no-repeat', backgroundSize: "cover", height:'96vh', width:'100vw'}} >
+				<div style={{backgroundColor:Color.black, backgroundImage: `url(${BackGroundHague2})`, backgroundPosition:'center', backgroundRepeat:'no-repeat', backgroundSize: "cover", height:'96vh', width:'100vw', position:'relative', Zindex:-999}} >
 					<div style={{backgroundColor:'rgba(0,0,0,0.2)', height:'100%', width:'100%'}} >
 						<div style={{display:'flex', flex:1, justifyContent:'center'}} >
 							<h1 style={{color:Color.white, fontSize:'7vw', marginTop:'3vh', fontFamily:'CODEBold', textShadow:'1.5px 1.5px #000000'}}  >DOSIMEX</h1>
@@ -350,10 +358,10 @@ export default class Home extends React.Component {
 	}
 }
 
-let fin_text = "Les outils de calculs opérationnels vous permettront d’estimer à leurs justes hauteurs les risques radiologiques dans les scénarios d’exposition externe gamma, X, bêta , neutron et interne. Vous pourrez ainsi concevoir les protections nécessaires à mettre en place, réaliser des prédictifs de dose, affiner vos démarches ALARA. (<a href='/offres/packOperationel' style='font-weight:bold' >voir pack opérationnel</a>).\n\
-Quelles que soient vos fonctions dans le domaine de la radioprotection, ils vous donneront les moyens d'améliorer votre niveau d’expertise. Vous trouverez sur le site des <a href='/tutos' style='font-weight:bold'>vidéos</a> spécifiques à chaque code vous donnant un aperçu de leur simplicité d’emploi.\n\
-La version 3.0 bénéficie de <a href="+Modif_DOSIMEX_GX_3+" target='_blank' style='font-weight:bold' >nombreuses améliorations</a>  nées d'une collaboration active <a href="+Synthèse_retour_utilisateurs_Dosimex+" target='_blank' style='font-weight:bold' >avec les utilisateurs</a> ainsi que de dossiers de validations renforcés. Dosimex-GX est accompagné à lui seul de <a href='/about/Validation' style='font-weight:bold'>dossiers de validations</a> spécifiques <p style='font-style:italic; display:inline' >(radionucléides, générateurs X, NF C15-160)</p> comportant plus de 1000 valeurs de références obtenues avec les codes MCNP, RayXpert, Mercurad et Microshield.\n\
-Nous proposons aussi des <a href='/Formation' style='font-weight:bold'>formations</a> sur site. S’appuyant sur des cas pratiques, l’objectif de ces formations, au-delà de la prise en main de ces outils, est centré sur l’analyse et l’estimation des risques radiologiques.\n\
-En complément des aspects opérationnels, nous proposons des outils à vocation pédagogique. Leur objectif est de mieux comprendre la physique de l’interaction rayonnement-matière, à l’origine des doses générées par expositions aux rayonnements ionisants, ainsi que des capacités de protections des écrans susceptibles d’être mis en œuvre contre ces mêmes rayonnements (<a href='/offres/packPedagogique' style='font-weight:bold'>voir pack pédagogique</a>)\n\
-Un troisième pack comprend des codes et utilitaires liés à l’aspect mesure de ces rayonnements ionisants : spectrométrie gamma, contaminamètres , seuil de décision, limite de détection (<a href='/offres/packMesure' style='font-weight:bold'>voir pack mesures</a>)\n\
-<p style=\"textAlign:center;font-weight:bold\" ><a href=\"https://www.youtube.com/watch?v=vPalFZk5io0&feature=youtu.be\">Vidéo présentation générale</a></p>"
+let fin_text = "Les outils de calculs opérationnels vous permettent d’estimer à leurs justes hauteurs les risques radiologiques dans les scénarios d’exposition externe gamma, X, bêta , neutron et interne. Vous pouvez concevoir les protections nécessaires à mettre en place, réaliser des prévisionnels de dose, affiner vos démarches ALARA <a href='/offres/packOperationel' style='font-weight:bold' >(voir Pack opérationnel)</a>.\n\
+Quelles que soient vos fonctions dans le domaine de la radioprotection, ces utilitaires vous donnent les moyens d'améliorer votre niveau d’expertise. Vous trouverez sur le site des <a href='/tutos' style='font-weight:bold'>vidéos</a> spécifiques à chaque code vous donnant un aperçu de leur simplicité d’emploi.\n\
+La version 3.0 bénéficie de <a href="+Modif_DOSIMEX_GX_3+" target='_blank' style='font-weight:bold' >nombreuses améliorations</a> nées d'une collaboration active <a href="+Synthèse_retour_utilisateurs_Dosimex+" target='_blank' style='font-weight:bold' >avec les utilisateurs</a> ainsi que des dossiers de validation renforcés. A lui seul, Dosimex-GX est accompagné <a href='/about/Validation' style='font-weight:bold'>dossiers de validation</a> spécifiques <p style='font-style:italic; display:inline' >(radionucléides, générateurs X, NF C15-160)</p> comportant plus de 1000 valeurs de références obtenues avec les codes MCNP, RayXpert, Mercurad et Microshield.\n\
+Nous proposons aussi des <a href='/Formation' style='font-weight:bold'>formations</a> sur site centrées sur l’analyse et l’estimation des risques radiologiques et s’appuyant sur des cas pratiques.\n\
+En complément des aspects opérationnels, nous proposons des outils à vocation pédagogique. Leur objectif est de mieux comprendre la physique de l’interaction rayonnement-matière, à l’origine des doses générées par expositions aux rayonnements ionisants, ainsi que des capacités de protections des écrans susceptibles d’être mis en œuvre contre ces mêmes rayonnements <a href='/offres/packPedagogique' style='font-weight:bold'>(voir Pack pédagogique)</a>.\n\
+Un troisième pack comprend des codes et utilitaires liés à l’aspect mesure de ces rayonnements ionisants : spectrométrie gamma, contaminamètres , seuil de décision, limite de détection <a href='/offres/packMesure' style='font-weight:bold'>(voir Pack mesures)</a>.\n\
+<p style=\"textAlign:center;font-weight:bold\" ><a href=\"https://www.youtube.com/watch?v=vPalFZk5io0&feature=youtu.be\" target='_blank'>Vidéo présentation générale</a></p>"

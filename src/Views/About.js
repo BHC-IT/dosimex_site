@@ -132,7 +132,7 @@ export default class Home extends React.Component {
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
 										<a href={PValidation4} target="_blank" style={{}} ><img src={IValidation4} style={{height:'35vh'}} /></a>
-										<a href={PValidation4} target="_blank" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Référance Radionucléide MCNP/AREVA'.toUpperCase()}</p></a>
+										<a href={PValidation4} target="_blank" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Référence Radionucléide MCNP/AREVA'.toUpperCase()}</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
 										<a href={PValidation5} target="_blank" style={{}} ><img src={IValidation5} style={{height:'35vh'}} /></a>
@@ -195,7 +195,7 @@ const pack1 = {
 		✓ DOSIMEX-MN 1.0 utilitaire de gestion de données permettant de connaitre les doses\
 		absorbées par unité d’activité administrée pour les radiopharmaceutiques recensés dans les\
 		CIPR 53, 80, 106 et 128",
-	title:"Manuels d’utilisations",
+	title:"Manuels d’utilisation",
 }
 
 const pack2 = {
@@ -214,7 +214,7 @@ const pack2 = {
 		✓ Coefficients ICRU 57 3.0 : utilitaire permettant de connaitre les coefficients\
 		fluence-équivalents de dose et kerma air normalisés pour les électrons, les\
 		photons et les neutrons.",
-	title:"Dossiers de validations et références de validations MCNP",
+	title:"Dossiers de validation et références MCNP",
 }
 
 const pack3 = {
@@ -231,17 +231,14 @@ const pack3 = {
 		✓ Calcul de seuil de décision. Utilitaire permettant de déterminer le seuil de décision et\
 		la limite de détection en mesure nucléaire. Cet utilitaire est accompagné des\
 		documents de cours complets sur ce sujet et d’articles divers.",
-	title:"Rapports de stages de fin d’études vs Dosimex",
+	title:"Rapports de stages de fin d’étude vs Dosimex",
 }
 
 const documentation = "Pour mieux vous permettre de juger des possibilités offertes\
-			notamment avec Dosimex-GX, vous pouvez télécharger\
-			l’ensemble de la documentation associée à ce code, soit un\
-			ensemble de 13 documents avec notamment :\n\
-			o Les manuels d’utilisations présentant de façon détaillée\
-			les possibilités offertes par ce code et ses limites\n\
-			o Les dossiers de validations permettant d’apprécier la\
-			fiabilité des résultats\n\
+			avec Dosimex-GX, vous pouvez télécharger\
+			l’ensemble de la documentation associée à ce code :\n\
+			o Les manuels d’utilisation\n\
+			o Les dossiers de validation\n\
 			o Quelques rapports de stages de fin d'étude utilisant Dosimex";
 
 const peda = "Toujours dans un souci pédagogique, un ensemble complet de\

@@ -6,6 +6,8 @@ import { BrowserRouter as Redirect, withRouter } from "react-router-dom";
 import Color from '../Styles/colorSchemes.js'
 import Size from '../Styles/Size.js'
 
+import LogoDosi2 from "../Images/miniLogo.png"
+
 class MenuExamplePointing extends Component {
 
 
@@ -41,11 +43,12 @@ class MenuExamplePointing extends Component {
 	render() {
 		const { activeItem } = this.state
 		const backColor = this.state.mouseOver ? "#991302" : 'rgba(0,0,0,1)';
-		const fontSize = this.state.mouseOver ? (Size.greaterMd() ? '1.5vh' : 4.5) : (Size.greaterMd() ? '1.4vh' : 4)
-		const itemStyle = {color: "white", height:this.state.mouseOver ? '4vh' : '4vh', fontSize:fontSize, fontWeight:'bold', 'transition-property': 'font-size', 'transition-duration': '0.4s'};
+		const fontSize = this.state.mouseOver ? (Size.greaterMd() ? '0.95vw' : 4.5) : (Size.greaterMd() ? '0.95vw' : 4)
+		const itemStyle = {color: "white", fontSize:fontSize, fontWeight:'bold', 'transition-property': 'font-size', 'transition-duration': '0.4s', 'z-index':10, height:'4vh'};
 		return (
-			<div style={{width:this.state.width, height:this.state.mouseOver ? '4vh' : '4vh'}} onMouseOver={() => this.setState({mouseOver:true})} onMouseOut={() => this.setState({mouseOver:false})} >
-				<Menu pointing  style={{backgroundColor: backColor, transitionProperty: 'background-color', transitionDuration: '0.5s', height:this.state.mouseOver ? '4.2vh' : '4vh'}}>
+			<div style={{width:this.state.width, height:'4vh', overflow:'hidden'}} onMouseOver={() => this.setState({mouseOver:true})} onMouseOut={() => this.setState({mouseOver:false})} >
+				<Menu pointing  style={{backgroundColor: backColor, transitionProperty: 'background-color', transitionDuration: '0.5s', 'z-index':10, height:'4vh'}}>
+					<img src={LogoDosi2} style={{height:'4vh', marginRight:'1vw', paddingRight:'1vw', paddingLeft:'0.5vw', marginRight:'0.5vw'}}/>
 					<Menu.Item
 						style={itemStyle}
 						name='Accueil'
@@ -85,7 +88,7 @@ class MenuExamplePointing extends Component {
 					/>
 					<Menu.Item
 						style={itemStyle}
-						name='Formation'
+						name='Formations'
 						active={this.props.route === 'Formation'}
 						onClick={(e, name) => this.redirectTo(e, name, "/Formation")}
 					/>

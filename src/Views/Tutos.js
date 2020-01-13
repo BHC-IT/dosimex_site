@@ -176,5 +176,5 @@ const pack3 = {
 		✓ Calcul de seuil de décision. Utilitaire permettant de déterminer le seuil de décision et\
 		la limite de détection en mesure nucléaire. Cet utilitaire est accompagné des\
 		documents de cours complets sur ce sujet et d’articles divers.",
-	title:"Vidéo Pack mesure",
+	title:"Vidéo Pack mesures",
 }

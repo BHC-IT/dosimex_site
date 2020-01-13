@@ -84,7 +84,7 @@ export default class Home extends React.Component {
 
 	render(){
 		return (
-			<Row style={{ height:'95vh', alignItems:'flex-end'}} >
+			<Row style={{ height:'96vh', alignItems:'flex-end'}} >
 				{this.isOpen() ?
 					null
 					:
@@ -98,7 +98,7 @@ export default class Home extends React.Component {
 							</Accordion.Toggle>
 						</Card.Header>
 						<Accordion.Collapse eventKey="0">
-							<Card.Body style={{backgroundColor:Color.lightergrey, height:'71vh'}} >
+							<Card.Body style={{backgroundColor:Color.lightergrey, height:'72vh'}} >
 								<this._renderPack pack={pack1} />
 								<Link style={{width:'100%'}} to={pack1.url}> <p style={{marginTop:'1vh', textAlign:'center', fontSize:25, color:Color.red}} >voir les videos</p> </Link>
 							</Card.Body>
@@ -111,7 +111,7 @@ export default class Home extends React.Component {
 							</Accordion.Toggle>
 						</Card.Header>
 						<Accordion.Collapse eventKey="1">
-							<Card.Body style={{backgroundColor:Color.lightergrey, height:'71vh'}} >
+							<Card.Body style={{backgroundColor:Color.lightergrey, height:'72vh'}} >
 								<this._renderPack pack={pack2} />
 								<Link style={{width:'100%'}} to={pack2.url}> <p style={{marginTop:75, textAlign:'center', fontSize:25, color:Color.red}} >voir les videos</p> </Link>
 							</Card.Body>
@@ -124,7 +124,7 @@ export default class Home extends React.Component {
 							</Accordion.Toggle>
 						</Card.Header>
 						<Accordion.Collapse eventKey="2">
-							<Card.Body style={{backgroundColor:Color.lightergrey, height:'71vh'}} >
+							<Card.Body style={{backgroundColor:Color.lightergrey, height:'72vh'}} >
 								<this._renderPack pack={pack3} />
 								<Link style={{width:'100%'}} to={pack3.url}> <p style={{marginTop:75, textAlign:'center', fontSize:25, color:Color.red}} >voir les videos</p> </Link>
 							</Card.Body>
@@ -185,6 +185,6 @@ const pack3 = {
 		random,
 		decision,
 	],
-	title:"Pack mesure",
+	title:"Pack mesures",
 	url:"/tutos/packMesure"
 }

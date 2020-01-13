@@ -29,23 +29,31 @@ const transform = {
 };
 
 const documentation =
-"Nous proposons des formations courtes sur site de 2 à 3 jours.\n Ces formations s’appuient sur des travaux dirigés intégrant l’utilisation des outils Dosimex\n dans le cadre plus large de l’analyse des risques radiologiques appliqués à des cas concrets rencontrés dans le monde industriel et médical.\n\
-<p style='margin-top:2vh' >Exemples de thématiques abordées :</p>\n\
+"Nous proposons des formations sur site de 2 à 3 jours.\n Ces formations s’appuient sur des travaux dirigés intégrant l’utilisation des outils Dosimex\n dans le cadre plus large de l’analyse des risques radiologiques appliqués à des cas concrets rencontrés dans le monde industriel et médical.\n\
+<p style='margin-top:2vh' >Exemples de thématiques abordées, modulables selon les besoins :</p>\n\
 • Calcul de protection autour de générateurs X médicaux et industriels\n\
 • Application NF C 15-160\n\
 • Gestion d’une source de Radium de forte activité\n\
 • Seringue au Technétium 99m et protection opérateur\n\
 • Contamination au Fluor 18\n\
 • Gammagraphie Co60, Ir192, Sr95, Cs137\n\
-• Les radionucléide préférés d'EDF\n\
+• Les radionucléides préférés d'EDF\n\
 • Approche ALARA sur tuyauterie primaire\n\
+• Diffusion dans une chicane de blockhaus\n\
+• Radioprotection autours d'une piscine de stockage combustibles\n\
 • Protection biologique d'une source de Californium 252 (neutrons +gamma)\n\
 • Ionisations alimentaires\n\
 • Source Strontium-Yttrium 90 de forte activité\n\
 • Analyse radioprotection d'un colis de déchets produit de fission ( CSDV)\n\
-<p style='margin-top:4vh' >Prix forfaitaire pour des formations sur site : 1 500 € HT/jour pour 4 à 8 stagiaires \n(+ 150 € HT/clé/stagiaire)</p> \n\
+<p style='margin-top:4vh' >Pour un devis, nous contacter à :</p> \n\
 <a href='mailto:contact@dosimex.fr?subject=formation&body=Expliquez votre besoin en formation ici' style=marginTop:2vh > contact@dosimex.fr</a>\n\
-Téléphone : 06 89 70 90 35"
+Téléphone : 06 89 70 90 35\n\
+<p>Nous proposons en partenariat avec Safetechnologie d'autres formations sur les thématiques :</p>\n\
+• Physique nucléaire et radiactivité \n\
+• Interaction rayonnements matière\n\
+• Seuil de décision\n\
+• Spéctrométrie gamma\n\
+"
 
 export default class About extends React.Component {
 
@@ -72,7 +80,7 @@ export default class About extends React.Component {
 
 	render(){
 		return (
-			<Row style={{ height:'95vh', alignItems:'flex-end'}} >
+			<Row style={{ height:'96vh', alignItems:'flex-end'}} >
 				{this.isOpen() ?
 					null
 					:
@@ -82,12 +90,12 @@ export default class About extends React.Component {
 					<Card style={{width:'101vw'}} >
 						<Card.Header style={{backgroundColor:Color.lightishgrey, height:'8vh'}} >
 							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="0" onClick={() => this._keepTrack('0')} >
-								<p style={{fontSize:'3vh'}} >Formations</p>
+								<p style={{fontSize:'3vh', color:'#0000ff'}} >Formations</p>
 							</Accordion.Toggle>
 						</Card.Header>
 						<Accordion.Collapse eventKey="0" style={{backgroundColor:Color.lightergrey}} >
-							<Col xs={{span:10, offset:1}} style={{backgroundColor:Color.white, backgroundImage: `url(${coures})`, backgroundPosition:'center', height:'87vh', backgroundRepeat:'no-repeat', backgroundSize: "cover", marginTop:'1vh'}} >
-								<Row style={{justifyContent:'center', height:'56vh', justifyContent:'flex-start'}} >
+							<Col xs={{span:10, offset:1}} style={{backgroundColor:Color.white, backgroundImage: `url(${coures})`, backgroundPosition:'center', backgroundRepeat:'no-repeat', backgroundSize: "cover", marginTop:'1vh'}} >
+								<Row style={{justifyContent:'center', justifyContent:'flex-start'}} >
 									<TextSpliter textStyle={{textAlign:'justify', fontSize:'2vh', margin:5, marginLeft:15, marginRight:15, marginTop:0}} text={documentation} />
 								</Row>
 							</Col>
