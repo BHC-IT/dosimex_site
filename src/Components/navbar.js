@@ -48,7 +48,7 @@ class MenuExamplePointing extends Component {
 		return (
 			<div style={{width:this.state.width, height:'4vh', overflow:'hidden'}} onMouseOver={() => this.setState({mouseOver:true})} onMouseOut={() => this.setState({mouseOver:false})} >
 				<Menu pointing  style={{backgroundColor: backColor, transitionProperty: 'background-color', transitionDuration: '0.5s', 'z-index':10, height:'4vh'}}>
-					<img src={LogoDosi2} style={{height:'4vh', marginRight:'1vw', paddingRight:'1vw', paddingLeft:'0.5vw', marginRight:'0.5vw'}}/>
+					<img src={LogoDosi2} style={{height:'3vh', marginRight:'1vw', paddingRight:'1vw', paddingLeft:'0.5vw', marginRight:'0.5vw', alignSelf:'center'}}/>
 					<Menu.Item
 						style={itemStyle}
 						name='Accueil'
