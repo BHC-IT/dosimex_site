@@ -69,7 +69,7 @@ export default class Home extends React.Component {
 				<div style={{justifyContent:'center', marginLeft:'3vw'}} >
 					<img style={{margin:'auto', marginBottom:'0.75em', height:'7vh'}} src={img} alt="" />
 				</div>
-				<span style={{display:'block', float:'right', width:'70vw', marginLeft:'1vw', marginTop:'-6vh'}} > <p style={{textAlign:'justify', fontSize:'2.2vh'}} >{ReactHtmlParser(line)}</p> </span>
+				<span style={{display:'block', float:'right', width:'70vw', marginLeft:'1vw', marginTop:'-6vh'}} > <p style={{textAlign:'justify', fontSize:'1.8vh'}} >{ReactHtmlParser(line)}</p> </span>
 			</div>
 		);
 	}

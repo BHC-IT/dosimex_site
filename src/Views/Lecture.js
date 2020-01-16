@@ -45,9 +45,12 @@ export default class Home extends React.Component {
 
 	_renderLivre({Livre}){
 		return (
-			<div style={{marginLeft:'4vw', paddingBottom:'2vh', borderBottom: '1px solid black', marginTop:'1vh', marginBottom:'3vh', backgroundColor:Color.lightergrey}} >
-				<a href={Livre.link} target="_blank"><img style={{verticalAlign:'middle', marginBottom:'0.75em', width:'22vw'}} src={Livre.img} alt="" /></a>
-				<span style={{display:'block', float:'right', width:'70vw', marginLeft:'1vw'}} ><p style={{textAlign:'justify', fontSize:20}} >{Livre.author}</p> <TextSpliter textStyle={{textAlign:'justify', fontSize:13}} text={Livre.text} /><a href={Livre.link} target="_blank">Lien vers l'éditeur</a> </span>
+			<div style={{display:'flex', width:'100vw', paddingTop:'2vh', paddingBottom:'2vh', borderBottom: '1px solid black', paddingRight:'3vw' ,paddingLeft:'3vw'}} >
+				<a href={Livre.link} target="_blank"><img style={{verticalAlign:'middle', marginBottom:'0.75em', width:'18vw'}} src={Livre.img} alt="" /></a>
+				<div style={{marginLeft:'2vw', width:'73vw'}} >
+					<TextSpliter textStyle={{textAlign:'justify', fontSize:15}} text={Livre.text} />
+					<a href={Livre.link} target="_blank">Lien vers l'éditeur</a>
+				</div>
 			</div>
 		);
 	}

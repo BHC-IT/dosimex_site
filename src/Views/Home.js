@@ -12,6 +12,8 @@ import ReactHtmlParser from 'react-html-parser'
 
 import TextSpliter from '../Components/TextSpliter.js'
 
+import VizSensor from 'react-visibility-sensor';
+
 import '../Styles/Font.css';
 
 import Color from '../Styles/colorSchemes.js'
@@ -26,18 +28,6 @@ import bhcLightNoText from '../Images/test6_name_customcolor_backless_v2_light.p
 
 import logoDosi from "../Images/logo_dosimex.png"
 import usbkey from "../Images/usbkey.png"
-import i1a from "../Images/carousel/1_logo_t.png"
-import i1b from "../Images/carousel/2_photo_fiole_t.png"
-import i1c from "../Images/carousel/3-dose_gamma_t.png"
-import i1d from "../Images/carousel/4_photo-Ir192_t.png"
-import i1e from "../Images/carousel/4_seriousgame_t.png"
-import i1f from "../Images/carousel/5_photoX_t.png"
-import i1g from "../Images/carousel/6-calculX_t.png"
-import i1h from "../Images/carousel/7_NFC15160_t.png"
-import i1i from "../Images/carousel/8_beta_t.png"
-import i1j from "../Images/carousel/9_neutrons_t.png"
-import i1k from "../Images/carousel/10_conta_t.png"
-import i1l from "../Images/carousel/11_pharma_t.png"
 
 import Synthèse_retour_utilisateurs_Dosimex from '../Folders/Synthèse_retour_utilisateurs_Dosimex.pdf'
 import Modif_DOSIMEX_GX_3 from '../Folders/Modif_DOSIMEX_GX_3.0.pdf'
@@ -56,78 +46,6 @@ import arrow_left from '../Images/arrow_left.png'
 import { FaQuoteLeft } from 'react-icons/fa'
 import { FaQuoteRight } from 'react-icons/fa'
 
-const slides = [
-	// {
-	// 	uri:logoDosi,
-	// 	title:"",
-	// 	text:"Outils de calcul radioprotection et formations associées"
-	// },
-	// {
-	// 	uri:usbkey,
-	// 	title:null,
-	// 	text:null
-	// },
-	{
-		uri:i1a,
-		title:"",
-		text:""
-	},
-	{
-		uri:i1b,
-		title:"",
-		text:""
-	},
-	{
-		uri:i1c,
-		title:"",
-		text:""
-	},
-	{
-		uri:i1d,
-		title:"",
-		text:""
-	},
-	{
-		uri:i1e,
-		title:"",
-		text:""
-	},
-	{
-		uri:i1f,
-		title:"",
-		text:""
-	},
-	{
-		uri:i1g,
-		title:"",
-		text:""
-	},
-	{
-		uri:i1h,
-		title:"",
-		text:""
-	},
-	{
-		uri:i1i,
-		title:"",
-		text:""
-	},
-	{
-		uri:i1j,
-		title:"",
-		text:""
-	},
-	{
-		uri:i1k,
-		title:"",
-		text:""
-	},
-	{
-		uri:i1l,
-		title:"",
-		text:""
-	}
-]
 
 export default class Home extends React.Component {
 
@@ -140,7 +58,8 @@ export default class Home extends React.Component {
 			width:0,
 			height:0,
 			offset:0,
-			scrolling:false
+			scrolling:false,
+			loading:true
 		}
 		this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
 	}
@@ -150,6 +69,14 @@ export default class Home extends React.Component {
 	}
 
 	componentWillMount(){
+		// this.listenersSetUp();
+	}
+
+	componentDidMount(){
+		this.setState({loading:false});
+	}
+
+	listenersSetUp = () => {
 		this.updateWindowDimensions();
 		window.addEventListener('resize', this.updateWindowDimensions);
 		// scroll.scrollToBottom();
@@ -293,66 +220,140 @@ export default class Home extends React.Component {
 		);
 	}
 
-	renderCarrousel = () => {
+	footer = () => {
 		return (
-			<Row style={{backgroundColor:Color.lightergrey, justifyContent:'center', marginBottom:Size.greaterMd() ? 50 : 25 }}>
-				<Col md={6} style={{marginTop:20, justifyContent:'center', alignItems:'center'}} >
-					<Carousel nextIcon={<img src={arrow_right} />} prevIcon={<img src={arrow_left} /> } >
-						{slides.map((s, i) => {
-							return (
-								<Carousel.Item key={i} style={{alignItems:'center', justifyContent:'center'}} >
-									<img
-										src={s.uri}
-										style={{width:'100%'}}
-									/>
-									<Carousel.Caption style={{}} >
-										{s.title ? <h1 style={{color:Color.darkBlue, fontSize:'3.5vh', fontWeight:'bold', marginBottom:175, backgroundColor:Color.Tlightgrey }} >{s.title}</h1> : null}
-										{s.text ? <p style={{color:Color.darkBlue, fontSize:'2.5vh', fontWeight:'bold', backgroundColor:Color.Tlightgrey}} >{s.text}</p> : null}
-									</Carousel.Caption>
-								</Carousel.Item>
-							);
-						})}
-					</Carousel>
-				</Col>
-			</Row>
+			<div style={{display:'flex', backgroundColor:'#242424', justifyContent:'space-between', alignItems:'center', justifySelf:'flex-end', paddingTop:'1vh', paddingBottom:'1vh' /* height === 9vh */}} >
+				<div style={{marginLeft:'2vw', justifyContent:'center'}} >
+					<p style={{color: Color.white, fontSize:'2vh'}} >Email : <a href='mailto:contact@dosimex.fr'> contact@dosimex.fr</a></p>
+					<p style={{color: Color.white, fontSize:'2vh'}} >Téléphone : 06 89 70 90 35</p>
+					<a href={Information_légales} target="_blank"><p style={{color: Color.white, fontSize:'2vh'}} >Information légale</p></a>
+				</div>
+				<img src={LogoDosi2} style={{height:'7vh'}}/>
+				<a href='https://bhc-it.com' >
+					<a href='https://bhc-it.com' style={{color:Color.white, display:'flex', alignItems:'center', fontSize:18, marginRight:'1vw', fontSize:'2vh'}} >Designed by <p style={{display:'flex', color:Color.bhcPurpleTypo, alignItems:'center', marginLeft:'1vw'}} ><img src={bhcLightNoText} style={{height:'5vh'}}/></p></a>
+				</a>
+			</div>
 		);
 	}
 
 	render(){
+		if (this.state.loading){
+			return (
+				null
+			);
+		}
 		return (
-			<div style={{width:'100%'}} >
-				<div style={{backgroundColor:Color.black, backgroundImage: `url(${BackGroundHague2})`, backgroundPosition:'center', backgroundRepeat:'no-repeat', backgroundSize: "cover", height:'96vh', width:'100vw', position:'relative', Zindex:-999}} >
+			<div style={{}} >
+				<div style={{...backgroundImage(BackGroundHague2), ...boxStyle}} >
 					<div style={{backgroundColor:'rgba(0,0,0,0.2)', height:'100%', width:'100%'}} >
 						<div style={{display:'flex', flex:1, justifyContent:'center'}} >
-							<h1 style={{color:Color.white, fontSize:'7vw', marginTop:'3vh', fontFamily:'CODEBold', textShadow:'1.5px 1.5px #000000'}}  >DOSIMEX</h1>
+							<h1 style={{color:Color.white, fontSize:'7vw', marginTop:'5vh', fontFamily:'CODEBold', textShadow:'1.5px 1.5px #000000'}}  >DOSIMEX</h1>
 						</div>
 						<div style={{display:'flex', height:'65vh', 'flexDirection':'row', width:'100vw', justifyContent:'center', alignItems:'center'}} >
 							<p style={{width:'80vw', textAlign: 'justify', color:Color.white, fontWeight:'bold', fontSize:'2vw',  textShadow:'1.5px 1.5px #000000'}} >Depuis 2012, nous vous proposons un ensemble d'outils de calculs pratiques, simples d’emploi, validés, et qui permettent de répondre à de nombreuses situations rencontrées en radioprotection.</p>
 						</div>
-						<this.scroller/>
+						{/*<this.scroller/>*/}
 						<div style={{position:'absolute', right:'2vw', bottom:'2vh'}} >
 							<p style={{color:Color.lightergrey, fontSize:'0.9vw', marginLeft:'1vh', fontStyle:'italic'}} >Cap de la Hague - Site ORANO</p>
 						</div>
 					</div>
 				</div>
-				<div style={{height:'100vh', backgroundColor:Color.lightergrey, display:'flex', flexDirection:'column', justifyContent:'flex-end'}} >
-					<this.renderPackshot/>
-					<div style={{display:'flex', alignItems:'center', justifyContent:'space-between', height:'10vh'}} >
-						<div style={{display:'flex', alignItems:'flex-end', marginRight:'2vw', alignItems:'center'}} >
+				<div style={{...boxStyle, ...(backgroundImage(BackGroundHague2))}} /*utilistaeur*/ >
+					<div style={{...{height:'100%', width:'100%', backgroundColor:'rgba(255,255,255,0.5)'}, ...boxStyle}} >
+					<VizSensor onChange={(isVisible) =>this.setState({community:isVisible})} >
+						<div style={poperStyle} >
+							<div style={{display:'flex', opacity:this.state.community?0.7:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'absolute', top:'120vh', right:this.state.community?'50vw':0}} >
+								<ion-icon name="ios-people" style={{color:Color.white, fontSize:'50vh'}}></ion-icon>
+							</div>
+							<div style={{display:'flex', opacity:this.state.community?1:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'relative', right:this.state.community?'-5vw':'50vw'}} >
+								<h2 style={{fontSize:30, fontWeight:'bold', color:Color.darkred}} >Plus de 1000 utilisateurs</h2>
+							</div>
+							<div style={{opacity:this.state.community?1:0, 'transition-property': 'opacity', 'transition-duration': '0.5s', marginTop:'20vh'}} >
+								<p style={{color:Color.black, fontSize:18}} >Du text plus simple</p>
+							</div>
 						</div>
-					</div>
-					<div style={{display:'flex', backgroundColor:'#242424', justifyContent:'space-between', alignItems:'center', justifySelf:'flex-end', paddingTop:'1vh', paddingBottom:'1vh'}} >
-						<div style={{marginLeft:'2vw', justifyContent:'center'}} >
-							<p style={{color: Color.white, fontSize:'2vh'}} >Email : <a href='mailto:contact@dosimex.fr'> contact@dosimex.fr</a></p>
-							<p style={{color: Color.white, fontSize:'2vh'}} >Téléphone : 06 89 70 90 35</p>
-							<a href={Information_légales} target="_blank"><p style={{color: Color.white, fontSize:'2vh'}} >Information légale</p></a>
-						</div>
-						<img src={LogoDosi2} style={{height:'7vh'}}/>
-						<a href='https://bhc-it.com' >
-							<a href='https://bhc-it.com' style={{color:Color.white, display:'flex', alignItems:'center', fontSize:18, marginRight:'1vw', fontSize:'2vh'}} >Designed by <p style={{display:'flex', color:Color.bhcPurpleTypo, alignItems:'center', marginLeft:'1vw'}} ><img src={bhcLightNoText} style={{height:'5vh'}}/></p></a>
-						</a>
+					</VizSensor>
 					</div>
 				</div>
+				<div style={boxStyle} /*validation*/>
+					<div style={{height:'100%', width:'100%', backgroundColor:Color.blue, clipPath:'polygon(100% 60%, 100% 100%, 0 100%, 0 35%)', overflow:'visible', position:'absolute', top:'200vh'}} >
+					</div>
+					<VizSensor onChange={(isVisible) =>this.setState({validation:isVisible})} >
+						<div style={poperStyle} >
+							<div style={{display:'flex', opacity:this.state.validation?0.4:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'absolute', top:'220vh', right:this.state.validation?'50vw':0}} >
+								<ion-icon name="md-checkmark" style={{color:Color.green, fontSize:'50vh'}}></ion-icon>
+							</div>
+							<div style={{opacity:this.state.validation?1:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'relative', right:this.state.validation?0:'50vw'}} >
+								<h2 style={{color:Color.darkred}} >Validé via MCNP, RayXpert, Microshield et Mercurad</h2>
+							</div>
+							<div style={{opacity:this.state.validation?1:0, 'transition-property': 'opacity', 'transition-duration': '0.5s'}} >
+								<p>Du text plus simple</p>
+							</div>
+							</div>
+					</VizSensor>
+				</div>
+				<div style={boxStyle} /*experience*/>
+					<VizSensor onChange={(isVisible) =>this.setState({time:isVisible})} >
+						<div style={poperStyle} >
+							<div style={{display:'flex', opacity:this.state.time?0.4:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'absolute', top:'320vh', right:this.state.time?'50vw':0}} >
+								<ion-icon name="md-time" style={{color:Color.darkgrey, fontSize:'50vh'}}></ion-icon>
+							</div>
+							<div style={{opacity:this.state.time?1:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'relative', right:this.state.time?0:'50vw'}} >
+								<h2 style={{color:Color.darkred}} >Fruit de 30 années d'expérience</h2>
+							</div>
+							<div style={{opacity:this.state.time?1:0, 'transition-property': 'opacity', 'transition-duration': '0.5s'}} >
+								<p>Du text plus simple</p>
+							</div>
+						</div>
+					</VizSensor>
+				</div>
+				<div style={boxStyle} /*user friendly*/ >
+					<VizSensor onChange={(isVisible) =>this.setState({friendly:isVisible})} >
+						<div style={poperStyle} >
+							<div style={{display:'flex', opacity:this.state.friendly?0.4:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'absolute', top:'420vh', right:this.state.friendly?'50vw':0}} >
+								<ion-icon name="ios-bulb" style={{color:Color.darkgrey, fontSize:'50vh'}}></ion-icon>
+							</div>
+							<div style={{opacity:this.state.friendly?1:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'relative', right:this.state.friendly?0:'50vw'}} >
+								<h2 style={{color:Color.darkred}} >User friendly et sans installation</h2>
+							</div>
+							<div style={{opacity:this.state.friendly?1:0, 'transition-property': 'opacity', 'transition-duration': '0.5s'}} >
+								<p>Du text plus simple</p>
+							</div>
+						</div>
+					</VizSensor>
+				</div>
+				<div style={boxStyle} /*formation*/ >
+					<VizSensor onChange={(isVisible) =>this.setState({formation:isVisible})} >
+						<div style={poperStyle} >
+							<div style={{display:'flex', opacity:this.state.formation?0.4:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'absolute', top:'520vh', right:this.state.formation?'50vw':0}} >
+								<ion-icon name="md-school" style={{color:Color.darkgrey, fontSize:'50vh'}}></ion-icon>
+							</div>
+							<div style={{opacity:this.state.formation?1:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'relative', right:this.state.formation?0:'50vw'}} >
+								<h2 style={{color:Color.darkred}} >Formation Dosimex</h2>
+							</div>
+							<div style={{opacity:this.state.formation?1:0, 'transition-property': 'opacity', 'transition-duration': '0.5s'}} >
+								<p>Du text plus simple</p>
+							</div>
+						</div>
+					</VizSensor>
+				</div>
+				<div style={{...boxStyle, backgroundColor:Color.dark}} /* CTA */ >
+					<VizSensor onChange={(isVisible) =>this.setState({CTA:isVisible})} >
+						<div style={{poperStyle}} >
+							<div style={{display:'flex', opacity:this.state.CTA?0.4:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'absolute', top:'640vh', right:this.state.CTA?'80vw':0}} >
+								<ion-icon name="ios-cart" style={{color:Color.darkgrey, fontSize:'25vh'}}></ion-icon>
+							</div>
+							<div style={{opacity:this.state.CTA?1:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'absolute', right:this.state.CTA?'60vw':'50vw', top:'650vh'}} >
+								<h2 style={{color:Color.white}} >Achetez Dosimex dès maitenant</h2>
+							</div>
+							<div style={{display:'flex', opacity:this.state.CTA?1:0, 'transition-property': 'opacity', 'transition-duration': '0.5s', position:'relative', right:'25vw', top:'30vh', backgroundColor:Color.red, padding:12, borderRadius:20, alignItems:'center', justifyContent:'center', width:'12vw'}} onClick={() => window.location.href='/acheter'} >
+								<a href='/acheter' style={{color:Color.white, fontSize:18}} >Vers la boutique</a>
+							</div>
+						</div>
+					</VizSensor>
+					<iframe style={{width:'30vw', height:'30vh', position:'relative', marginLeft:'50vw'}} src="https://www.youtube.com/embed/E5eWKTJaNxQ" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+				</div>
+				<this.footer/>
 			</div>
 		);
 	}
@@ -365,3 +366,11 @@ Nous proposons aussi des <a href='/Formation' style='font-weight:bold'>formation
 En complément des aspects opérationnels, nous proposons des outils à vocation pédagogique. Leur objectif est de mieux comprendre la physique de l’interaction rayonnement-matière, à l’origine des doses générées par expositions aux rayonnements ionisants, ainsi que des capacités de protections des écrans susceptibles d’être mis en œuvre contre ces mêmes rayonnements <a href='/offres/packPedagogique' style='font-weight:bold'>(voir Pack pédagogique)</a>.\n\
 Un troisième pack comprend des codes et utilitaires liés à l’aspect mesure de ces rayonnements ionisants : spectrométrie gamma, contaminamètres , seuil de décision, limite de détection <a href='/offres/packMesure' style='font-weight:bold'>(voir Pack mesures)</a>.\n\
 <p style=\"textAlign:center;font-weight:bold\" ><a href=\"https://www.youtube.com/watch?v=vPalFZk5io0&feature=youtu.be\" target='_blank'>Vidéo présentation générale</a></p>"
+
+
+const boxStyle = {height:'100vh', display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'};
+const poperStyle = {display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'};
+
+function backgroundImage(url){
+	return ({backgroundColor:Color.black, backgroundImage: `url(${url})`, backgroundPosition:'center', backgroundRepeat:'no-repeat', backgroundSize: "cover"})
+}

@@ -46,7 +46,7 @@ class MenuExamplePointing extends Component {
 		const fontSize = this.state.mouseOver ? (Size.greaterMd() ? '0.95vw' : 4.5) : (Size.greaterMd() ? '0.95vw' : 4)
 		const itemStyle = {color: "white", fontSize:fontSize, fontWeight:'bold', 'transition-property': 'font-size', 'transition-duration': '0.4s', 'z-index':10, height:'4vh'};
 		return (
-			<div style={{width:this.state.width, height:'4vh', overflow:'hidden'}} onMouseOver={() => this.setState({mouseOver:true})} onMouseOut={() => this.setState({mouseOver:false})} >
+			<div style={{width:'100%', height:'4vh', overflow:'hidden', position:this.props.route === 'Home' ? 'fixed' : 'relative', top:0, zIndex:255}} onMouseOver={() => this.setState({mouseOver:true})} onMouseOut={() => this.setState({mouseOver:false})} >
 				<Menu pointing  style={{backgroundColor: backColor, transitionProperty: 'background-color', transitionDuration: '0.5s', 'z-index':10, height:'4vh'}}>
 					<img src={LogoDosi2} style={{height:'3vh', marginRight:'1vw', paddingRight:'1vw', paddingLeft:'0.5vw', marginRight:'0.5vw', alignSelf:'center'}}/>
 					<Menu.Item
