@@ -12,21 +12,11 @@ import Retour from '../Folders/Synthèse_retour_utilisateurs_Dosimex.pdf'
 
 import Image from '../Images/image_pc.jpg'
 
-import dosigx from '../Images/intext/dosigx.png'
-import dosib from '../Images/intext/dosib.png'
-import dosin from '../Images/intext/dosin.png'
-import dosii from '../Images/intext/dosii.png'
-import dosimn from '../Images/intext/dosimn.png'
+import packOpe from '../Images/packOpe.png'
 
-import irm_photon from '../Images/intext/irm_photon.png'
-import irm_particules from '../Images/intext/irm_particules.png'
-import serious_game from '../Images/intext/serious_game.png'
-import coef_icru from '../Images/intext/coef_icru.png'
+import packMesure from '../Images/packMesure.png'
 
-import tage from '../Images/intext/tage.png'
-import co3 from '../Images/intext/co3.png'
-import random from '../Images/intext/random.png'
-import decision from '../Images/intext/decision.png'
+import packPeda from '../Images/packPeda.png'
 
 import ReactHtmlParser from 'react-html-parser'
 
@@ -65,19 +55,24 @@ export default class Home extends React.Component {
 
 	_renderLine = ({line, img, length}) => {
 		return (
-			<div style={{marginLeft:'4vw', paddingBottom:'1vh', borderBottom: '1px solid '+ Color.lightgrey, marginTop:'1vh', marginBottom:'1vh', height:length > 4 ? '11.5vh' : '13vh'}} >
-				<div style={{justifyContent:'center', marginLeft:'3vw'}} >
-					<img style={{margin:'auto', marginBottom:'0.75em', height:'7vh'}} src={img} alt="" />
-				</div>
-				<span style={{display:'block', float:'right', width:'70vw', marginLeft:'1vw', marginTop:'-6vh'}} > <p style={{textAlign:'justify', fontSize:'1.8vh'}} >{ReactHtmlParser(line)}</p> </span>
+			<div style={{display:'flex', flexDirection:'column'}} >
+				<TextSpliter textStyle={{textAlign:'justify', fontSize:'1.4vw', margin:5, marginLeft:15, marginRight:15, marginTop:'1vh'}} text={line} />
 			</div>
 		);
 	}
 
 	_renderPack = ({pack}) =>{
 		return (
-			<div>
-				{pack.text.map((e, i) => <this._renderLine line={e} img={pack.img[i]} length={pack.text.length} key={i} />)}
+			<div style={{display:'flex', flexDirection:'column', flexGrow:1, flex:1, justifyContent:'center', alignItems:'center'}} >
+				<div style={{display:'flex', justifyContent:'center', alignItems:'flex-end',}} >
+					<p style={{fontSize:'1.4vw', fontWeight:'bold'}} >{pack.main}</p>
+				</div>
+				<div style={{display:'flex', justifyContent:'center', alignItems:'center', marginTop:'8vh'}} >
+					<img style={{width:'30vw', marginLeft:'2vw'}} src={pack.img} alt="" />
+					<div style={{display:'flex', flexDirection:'column', marginLeft:'4vw', marginRight:'4vw'}} >
+						{pack.text.map((e, i) => <this._renderLine line={e} img={pack.img[i]} length={pack.text.length} key={i} />)}
+					</div>
+				</div>
 			</div>
 		);
 	}
@@ -88,7 +83,7 @@ export default class Home extends React.Component {
 				{this.isOpen() ?
 					null
 					:
-					<Row style={{justifyContent:'center', alignItems:'center', width:'100vw'}} ><img style={{height:'50vh'}} src={Image}/></Row>
+					<Row style={{justifyContent:'center', alignItems:'center', width:'100vw'}} ><img style={{width:'50vw'}} src={Image}/></Row>
 				}
 				<Accordion defaultActiveKey={transform[this.props.pack]} >
 					<Card style={{width:'101vw'}} >
@@ -98,9 +93,8 @@ export default class Home extends React.Component {
 							</Accordion.Toggle>
 						</Card.Header>
 						<Accordion.Collapse eventKey="0">
-							<Card.Body style={{backgroundColor:Color.lightergrey, height:'72vh'}} >
+							<Card.Body style={{ display:'flex', flex:1, backgroundColor:Color.lightergrey, height:'72vh'}} >
 								<this._renderPack pack={pack1} />
-								<Link style={{width:'100%'}} to={pack1.url}> <p style={{marginTop:'1vh', textAlign:'center', fontSize:25, color:Color.red}} >voir les videos</p> </Link>
 							</Card.Body>
 						</Accordion.Collapse>
 					</Card>
@@ -111,9 +105,8 @@ export default class Home extends React.Component {
 							</Accordion.Toggle>
 						</Card.Header>
 						<Accordion.Collapse eventKey="1">
-							<Card.Body style={{backgroundColor:Color.lightergrey, height:'72vh'}} >
+							<Card.Body style={{display:'flex', flex:1, backgroundColor:Color.lightergrey, height:'72vh'}} >
 								<this._renderPack pack={pack2} />
-								<Link style={{width:'100%'}} to={pack2.url}> <p style={{marginTop:75, textAlign:'center', fontSize:25, color:Color.red}} >voir les videos</p> </Link>
 							</Card.Body>
 						</Accordion.Collapse>
 					</Card>
@@ -124,9 +117,8 @@ export default class Home extends React.Component {
 							</Accordion.Toggle>
 						</Card.Header>
 						<Accordion.Collapse eventKey="2">
-							<Card.Body style={{backgroundColor:Color.lightergrey, height:'72vh'}} >
+							<Card.Body style={{display:'flex', flex:1, backgroundColor:Color.lightergrey, height:'72vh'}} >
 								<this._renderPack pack={pack3} />
-								<Link style={{width:'100%'}} to={pack3.url}> <p style={{marginTop:75, textAlign:'center', fontSize:25, color:Color.red}} >voir les videos</p> </Link>
 							</Card.Body>
 						</Accordion.Collapse>
 					</Card>
@@ -138,53 +130,40 @@ export default class Home extends React.Component {
 
 const pack1 = {
 	text:[
-		"• <p style='display:inline;font-weight:bold;font-size:2.7vh' >DOSIMEX-GX 3.0</p> : code de calcul déterministe de débit de dose émetteurs gamma (sources volumiques, surfaciques…) et générateur X, avec option feuille de calcul norme NF C15-160 /2018. Effet de ciel, rayonnement de freinage….",
-		"• <p style='display:inline;font-weight:bold;font-size:2.7vh' >DOSIMEX-B 3.0</p> : code de calcul déterministe de débit de dose émetteur bêta et électrons monoénergétiques. Prise en compte sources volumiques  (bécher, seringue) ou surfaciques (contamination peau)",
-		"• <p style='display:inline;font-weight:bold;font-size:2.7vh' >DOSIMEX-N 3.0</p> : code de calcul Monte-Carlo de débit de dose émetteur neutron (type Am/Be) avec protection biologique (eau, polyéthylène, Bore, Cadmium etc..). Module pédagogique avec visualisation trajectoire neutron",
-		"• <p style='display:inline;font-weight:bold;font-size:2.7vh' >DOSIMEX-I 3.0</p> : code de  calcul expositions interne. Prise en compte cinétique fuite, renouvellement, dépôt au sol. Calculs de transfert atmosphérique. Calcul mélanges RAI/RAV/RCA",
-		"• <p style='display:inline;font-weight:bold;font-size:2.7vh' >DOSIMEX-MN 3.0</p> : utilitaire de gestion de données permettant de connaitre les doses absorbées par unité d’activité administrée  pour les radiopharmaceutiques CIPR 53, 80, 106 et 128"
+		"<p style='display:inline;font-weight:bold;font-size:1.7vw' >DOSIMEX-GX 3.0</p> : code de calcul déterministe de débit de dose émetteurs <a href='https://www.youtube.com/watch?v=E5eWKTJaNxQ' target='_blank' >gamma</a> et <a href='https://www.youtube.com/watch?v=wkuVxTBXc8g' target='_blank' >générateur X</a>, avec option feuille de calcul <a href='https://www.youtube.com/watch?v=Ga4roi63sSM' target='_blank' >norme NF C15-160 /2018</a>. Avec de nombreuses <a href='https://www.youtube.com/watch?v=ksOJEbihuvA' target='_blank' >options</a> : effet de ciel, rayonnement de freinage, zonage, build-up",
+		"<p style='display:inline;font-weight:bold;font-size:1.7vw' >DOSIMEX-B 3.0</p> : <a href='https://www.youtube.com/watch?v=4Cfya_rHa04' target='_blank'>code de calcul déterministe</a> de débit de dose émetteur bêta et électrons monoénergétiques. Prise en compte sources volumiques  (bécher, seringue) ou surfaciques (contamination peau)",
+		"<p style='display:inline;font-weight:bold;font-size:1.7vw' >DOSIMEX-N 3.0</p> : <a href='https://www.youtube.com/watch?v=7emAJHES-fw' target='_blank'>code de calcul Monte-Carlo</a> de débit de dose émetteur neutron (type Am/Be) avec protection biologique (eau, polyéthylène, Bore, Cadmium etc..). Module pédagogique avec visualisation trajectoire neutron",
+		"<p style='display:inline;font-weight:bold;font-size:1.7vw' >DOSIMEX-I 3.0</p> : <a href='https://www.youtube.com/watch?v=CnqQhyB6cEo4' target='_blank'>code de  calcul expositions interne</a>. Prise en compte cinétique fuite, renouvellement, dépôt au sol. Calculs de transfert atmosphérique. Calcul mélanges RAI/RAV/RCA",
+		"<p style='display:inline;font-weight:bold;font-size:1.7vw' >DOSIMEX-MN 1.0</p> : <a href='https://www.youtube.com/watch?v=sj-FVjP87jA' target='_blank'>utilitaire de gestion de données</a> permettant de connaitre les doses absorbées par unité d’activité administrée  pour les radiopharmaceutiques CIPR 53, 80, 106 et 128"
 	],
-	img:[
-		dosigx,
-		dosib,
-		dosin,
-		dosii,
-		dosimn
-	],
+	img: packOpe,
 	title:"Pack opérationnel",
-	url:"/tutos/packOperationel"
+	url:"/tutos/packOperationel",
+	main:'Ces outils de calculs permettent d’estimer à leurs justes hauteurs les risques radiologiques et de concevoir les protections nécessaires'
 }
 
 const pack2 = {
 	text:[
-		"• <p style='display:inline;font-weight:bold;font-size:2.7vh' >IRM photon 3.0</p> : utilitaire mettant en œuvre les principes d’interactions photon –matières dans les matériaux avec diverses applications : calcul de kerma, de dose, de libre parcours moyen, effet Compton, visualisation de trajectoires (Monte-Carlo).",
-		"• <p style='display:inline;font-weight:bold;font-size:2.7vh' >IRM particules chargées 3.0</p> : utilitaire mettant en œuvre les principes d’interactions particules chargées–matières dans les matériaux avec diverses applications : calcul de parcours, de coefficient fluence-dose, application aux spectres bêta.",
-		"• <p style='display:inline;font-weight:bold;font-size:2.7vh' >Serious Game 3.0</p> : utilitaire à vocation pédagogique permettant de mettre en évidence les paramètres essentiels de la radioprotection : distance, temps, écran, activité, nature radionucléide",
-		"• <p style='display:inline;font-weight:bold;font-size:2.7vh' >Coefficients  ICRU 57 3.0</p> : utilitaire permettant de connaitre les coefficients fluence-équivalents de dose et kerma air normalisés pour les électrons, les photons et les neutrons.",
+		"• <p style='display:inline;font-weight:bold;font-size:1.7vw' >IRM photon 3.0</p> : utilitaire mettant en œuvre les principes d’interactions photon –matières dans les matériaux avec diverses applications : calcul de kerma, de dose, de libre parcours moyen, effet Compton, visualisation de trajectoires (Monte-Carlo).",
+		"• <p style='display:inline;font-weight:bold;font-size:1.7vw' >IRM particules chargées 3.0</p> : utilitaire mettant en œuvre les principes d’interactions particules chargées–matières dans les matériaux avec diverses applications : calcul de parcours, de coefficient fluence-dose, application aux spectres bêta.",
+		"• <p style='display:inline;font-weight:bold;font-size:1.7vw' >Serious Game 3.0</p> : utilitaire à vocation pédagogique permettant de mettre en évidence les paramètres essentiels de la radioprotection : distance, temps, écran, activité, nature radionucléide",
+		"• <p style='display:inline;font-weight:bold;font-size:1.7vw' >Coefficients  ICRU 57 3.0</p> : utilitaire permettant de connaitre les coefficients fluence-équivalents de dose et kerma air normalisés pour les électrons, les photons et les neutrons.",
 	],
-	img:[
-		irm_photon,
-		irm_particules,
-		serious_game,
-		coef_icru,
-	],
+	img: packPeda,
 	title:"Pack pédagogique",
-	url:"/tutos/packPedagogique"
+	url:"/tutos/packPedagogique",
+	main:'Ils permettent de mieux comprendre la physique de l’interaction rayonnement-matière, à l’origine des doses générées, ainsi que des capacités de protections des écrans susceptibles d’être mis en œuvre'
 }
 
 const pack3 = {
 	text:[
-		"• <p style='display:inline;font-weight:bold;font-size:2.7vh' >Code TAGE (Total Absorption Gamma Efficiency)</p> : code déterministe calculant le rendement d’absorption totale en spectrométrie gamma, avec correction de couches mortes (caractérisation), correction de coïncidence et rendement de pics sommes.",
-		"• <p style='display:inline;font-weight:bold;font-size:2.7vh' >Code Co3</p> : code de calcul de Coefficient de Conversion Contaminamètres  permettant de calculer les rendements(Bq/cm2/ cps) de divers ictomètres et d’obtenir les activités surfaciques versus la nature de la sonde et le spectre isotopique mesuré.",
-		"• <p style='display:inline;font-weight:bold;font-size:2.7vh' >Composition de variables aléatoires</p> : utilitaire permettant de combiner par méthode Monte-Carlo jusqu’à 5 variables de types différents . Cet utilitaire est accompagné des documents de cours complets sur le sujet des calculs d’incertitudes",
-		"• <p style='display:inline;font-weight:bold;font-size:2.7vh' >Calcul de seuil de décision</p> : Utilitaire permettant de déterminer le seuil de décision et la limite de détection en mesure nucléaire. Cet utilitaire est accompagné des documents de cours.",
+		"• <p style='display:inline;font-weight:bold;font-size:1.7vw' >Code TAGE (Total Absorption Gamma Efficiency)</p> : code déterministe calculant le rendement d’absorption totale en spectrométrie gamma, avec correction de couches mortes (caractérisation), correction de coïncidence et rendement de pics sommes.",
+		"• <p style='display:inline;font-weight:bold;font-size:1.7vw' >Code Co3</p> : code de calcul de Coefficient de Conversion Contaminamètres  permettant de calculer les rendements(Bq/cm2/ cps) de divers ictomètres et d’obtenir les activités surfaciques versus la nature de la sonde et le spectre isotopique mesuré.",
+		"• <p style='display:inline;font-weight:bold;font-size:1.7vw' >Composition de variables aléatoires</p> : utilitaire permettant de combiner par méthode Monte-Carlo jusqu’à 5 variables de types différents . Cet utilitaire est accompagné des documents de cours complets sur le sujet des calculs d’incertitudes",
+		"• <p style='display:inline;font-weight:bold;font-size:1.7vw' >Calcul de seuil de décision</p> : Utilitaire permettant de déterminer le seuil de décision et la limite de détection en mesure nucléaire. Cet utilitaire est accompagné des documents de cours.",
 	],
-	img:[
-		tage,
-		co3,
-		random,
-		decision,
-	],
+	img: packMesure,
 	title:"Pack mesures",
-	url:"/tutos/packMesure"
+	url:"/tutos/packMesure",
+	main:'Utilitaires liés à l’aspect mesure des rayonnements ionisants'
 }

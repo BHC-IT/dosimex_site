@@ -64,7 +64,7 @@ class MenuExamplePointing extends Component {
 					<Menu.Item
 						style={itemStyle}
 						name='Nos Vidéos'
-						content='Nos Vidéos'
+						content='Archives Vidéos'
 						active={this.props.route === 'Nos tutos'}
 						onClick={(e, name) => this.redirectTo(e, name, "/tutos")}
 					/>

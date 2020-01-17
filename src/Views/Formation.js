@@ -22,7 +22,7 @@ import tec from '../Images/tec.png'
 import seringue from '../Images/Bonhomme_seringue.jpg'
 import coures from  "../Images/Bonhomme_coures.png"
 
-import Catalogue from "../Folders/Formations_Dosimex 2020.pdf";
+import Catalogue from "../Folders/le_catalogue_de_formation_safe_technologies_v2.2.pdf";
 
 const transform = {
 	open:'0',
@@ -95,8 +95,9 @@ export default class About extends React.Component {
 						</Card.Header>
 						<Accordion.Collapse eventKey="0" style={{backgroundColor:Color.lightergrey}} >
 							<Col xs={{span:10, offset:1}} style={{backgroundColor:Color.white, backgroundImage: `url(${coures})`, backgroundPosition:'center', backgroundRepeat:'no-repeat', backgroundSize: "cover", marginTop:'1vh'}} >
-								<Row style={{justifyContent:'center', justifyContent:'flex-start'}} >
+								<Row style={{justifyContent:'center', justifyContent:'flex-start', marginBottom:'4vh'}} >
 									<TextSpliter textStyle={{textAlign:'justify', fontSize:'2vh', margin:5, marginLeft:15, marginRight:15, marginTop:0}} text={documentation} />
+									<a href={Catalogue} target="_blank" style={{fontSize:'2vh', marginTop:'1vh', marginLeft:20}} >Téléchargez leur catalogue de formation</a>
 								</Row>
 							</Col>
 						</Accordion.Collapse>

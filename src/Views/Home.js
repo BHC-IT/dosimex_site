@@ -246,11 +246,11 @@ export default class Home extends React.Component {
 			<div style={{}} >
 				<div style={{...backgroundImage(BackGroundHague2), ...boxStyle}} >
 					<div style={{backgroundColor:'rgba(0,0,0,0.2)', height:'100%', width:'100%'}} >
-						<div style={{display:'flex', flex:1, justifyContent:'center'}} >
+						<div style={{display:'flex', flexDirection:'column', flex:1, justifyContent:'center', alignItems:'center'}} >
 							<h1 style={{color:Color.white, fontSize:'7vw', marginTop:'5vh', fontFamily:'CODEBold', textShadow:'1.5px 1.5px #000000'}}  >DOSIMEX</h1>
 						</div>
-						<div style={{display:'flex', height:'65vh', 'flexDirection':'row', width:'100vw', justifyContent:'center', alignItems:'center'}} >
-							<p style={{width:'80vw', textAlign: 'justify', color:Color.white, fontWeight:'bold', fontSize:'2vw',  textShadow:'1.5px 1.5px #000000'}} >Depuis 2012, nous vous proposons un ensemble d'outils de calculs pratiques, simples d’emploi, validés, et qui permettent de répondre à de nombreuses situations rencontrées en radioprotection.</p>
+						<div style={{display:'flex', marginTop:'15vh', height:'35vh', 'flexDirection':'row', width:'100vw', justifyContent:'center', alignItems:'center'}} >
+							<p style={{width:'80vw', textAlign: 'justify', color:Color.white, fontWeight:'bold', fontSize:'2vw',  textShadow:'1.5px 1.5px #000000'}} >Depuis 2012, nous vous proposons un ensemble d'outils de calculs pratiques, simples d’emploi, validés, et qui permettent de répondre à de nombreuses situations rencontrées en radioprotection. Ils vous permettront d'améliorer votre niveau d'expertise.</p>
 						</div>
 						{/*<this.scroller/>*/}
 						<div style={{position:'absolute', right:'2vw', bottom:'2vh'}} >
@@ -258,29 +258,44 @@ export default class Home extends React.Component {
 						</div>
 					</div>
 				</div>
+				<div style={{...boxStyle, ...(backgroundImage(BackGroundHague2))}} /*pack*/ >
+					<div style={{...{height:'100%', width:'100%', backgroundColor:'rgba(255,255,255,0.5)'}, ...boxStyle}} >
+					<VizSensor onChange={(isVisible) =>this.setState({pack:isVisible})} >
+						<div style={poperStyle} >
+							<div style={{display:'flex', opacity:this.state.pack?0.7:0, 'transition-property': 'right; opacity', 'transition-duration': '1s', position:'absolute', top:'120vh', right:this.state.pack?'50vw':0}} >
+								<ion-icon name="md-walk" style={{color:Color.white, fontSize:'50vh'}}></ion-icon>
+							</div>
+							<div style={{display:'flex', opacity:this.state.pack?1:0, 'transition-property': 'right; opacity', 'transition-duration': '1s', position:'relative', right:this.state.pack?'-5vw':'50vw'}} >
+								<h2 style={{fontSize:40, fontWeight:'bold', color:Color.darkred}} >A la découverte du pack Dosimex</h2>
+							</div>
+							<div style={{opacity:this.state.pack?1:0, 'transition-property': 'opacity', 'transition-duration': '1s', marginTop:'20vh'}} >
+								<p style={{color:Color.black, fontSize:28}} >test</p>
+							</div>
+						</div>
+					</VizSensor>
+					</div>
+				</div>
 				<div style={{...boxStyle, ...(backgroundImage(BackGroundHague2))}} /*utilistaeur*/ >
 					<div style={{...{height:'100%', width:'100%', backgroundColor:'rgba(255,255,255,0.5)'}, ...boxStyle}} >
 					<VizSensor onChange={(isVisible) =>this.setState({community:isVisible})} >
 						<div style={poperStyle} >
-							<div style={{display:'flex', opacity:this.state.community?0.7:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'absolute', top:'120vh', right:this.state.community?'50vw':0}} >
+							<div style={{display:'flex', opacity:this.state.community?0.7:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'absolute', top:'220vh', right:this.state.community?'50vw':0}} >
 								<ion-icon name="ios-people" style={{color:Color.white, fontSize:'50vh'}}></ion-icon>
 							</div>
 							<div style={{display:'flex', opacity:this.state.community?1:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'relative', right:this.state.community?'-5vw':'50vw'}} >
-								<h2 style={{fontSize:30, fontWeight:'bold', color:Color.darkred}} >Plus de 1000 utilisateurs</h2>
+								<h2 style={{fontSize:40, fontWeight:'bold', color:Color.darkred}} >Plus de 1000 radioprotectionnistes convaincus</h2>
 							</div>
 							<div style={{opacity:this.state.community?1:0, 'transition-property': 'opacity', 'transition-duration': '0.5s', marginTop:'20vh'}} >
-								<p style={{color:Color.black, fontSize:18}} >Du text plus simple</p>
+								<p style={{color:Color.black, fontSize:28}} >Vous pouvez lire quelques avis : <a href={Synthèse_retour_utilisateurs_Dosimex} taget="_blank" >ici</a></p>
 							</div>
 						</div>
 					</VizSensor>
 					</div>
 				</div>
 				<div style={boxStyle} /*validation*/>
-					<div style={{height:'100%', width:'100%', backgroundColor:Color.blue, clipPath:'polygon(100% 60%, 100% 100%, 0 100%, 0 35%)', overflow:'visible', position:'absolute', top:'200vh'}} >
-					</div>
 					<VizSensor onChange={(isVisible) =>this.setState({validation:isVisible})} >
 						<div style={poperStyle} >
-							<div style={{display:'flex', opacity:this.state.validation?0.4:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'absolute', top:'220vh', right:this.state.validation?'50vw':0}} >
+							<div style={{display:'flex', opacity:this.state.validation?0.4:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'absolute', top:'320vh', right:this.state.validation?'50vw':0}} >
 								<ion-icon name="md-checkmark" style={{color:Color.green, fontSize:'50vh'}}></ion-icon>
 							</div>
 							<div style={{opacity:this.state.validation?1:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'relative', right:this.state.validation?0:'50vw'}} >
@@ -295,7 +310,7 @@ export default class Home extends React.Component {
 				<div style={boxStyle} /*experience*/>
 					<VizSensor onChange={(isVisible) =>this.setState({time:isVisible})} >
 						<div style={poperStyle} >
-							<div style={{display:'flex', opacity:this.state.time?0.4:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'absolute', top:'320vh', right:this.state.time?'50vw':0}} >
+							<div style={{display:'flex', opacity:this.state.time?0.4:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'absolute', top:'420vh', right:this.state.time?'50vw':0}} >
 								<ion-icon name="md-time" style={{color:Color.darkgrey, fontSize:'50vh'}}></ion-icon>
 							</div>
 							<div style={{opacity:this.state.time?1:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'relative', right:this.state.time?0:'50vw'}} >
@@ -310,7 +325,7 @@ export default class Home extends React.Component {
 				<div style={boxStyle} /*user friendly*/ >
 					<VizSensor onChange={(isVisible) =>this.setState({friendly:isVisible})} >
 						<div style={poperStyle} >
-							<div style={{display:'flex', opacity:this.state.friendly?0.4:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'absolute', top:'420vh', right:this.state.friendly?'50vw':0}} >
+							<div style={{display:'flex', opacity:this.state.friendly?0.4:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'absolute', top:'520vh', right:this.state.friendly?'50vw':0}} >
 								<ion-icon name="ios-bulb" style={{color:Color.darkgrey, fontSize:'50vh'}}></ion-icon>
 							</div>
 							<div style={{opacity:this.state.friendly?1:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'relative', right:this.state.friendly?0:'50vw'}} >
@@ -322,10 +337,12 @@ export default class Home extends React.Component {
 						</div>
 					</VizSensor>
 				</div>
-				<div style={boxStyle} /*formation*/ >
+				<div style={{...boxStyle, ...(backgroundImage(BackGroundHague2))}} /*formation*/ >
+					<div style={{height:'100%', width:'100%', backgroundColor:Color.dark, clipPath:'polygon(100% 60%, 100% 100%, 0 100%, 0 35%)', overflow:'visible', position:'absolute', top:'600vh'}} >
+					</div>
 					<VizSensor onChange={(isVisible) =>this.setState({formation:isVisible})} >
 						<div style={poperStyle} >
-							<div style={{display:'flex', opacity:this.state.formation?0.4:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'absolute', top:'520vh', right:this.state.formation?'50vw':0}} >
+							<div style={{display:'flex', opacity:this.state.formation?0.4:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'absolute', top:'620vh', right:this.state.formation?'50vw':0}} >
 								<ion-icon name="md-school" style={{color:Color.darkgrey, fontSize:'50vh'}}></ion-icon>
 							</div>
 							<div style={{opacity:this.state.formation?1:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'relative', right:this.state.formation?0:'50vw'}} >
@@ -337,16 +354,16 @@ export default class Home extends React.Component {
 						</div>
 					</VizSensor>
 				</div>
-				<div style={{...boxStyle, backgroundColor:Color.dark}} /* CTA */ >
+				<div style={{...boxStyle, backgroundColor:Color.dark, height:'50vh'}} /* CTA */ >
 					<VizSensor onChange={(isVisible) =>this.setState({CTA:isVisible})} >
 						<div style={{poperStyle}} >
-							<div style={{display:'flex', opacity:this.state.CTA?0.4:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'absolute', top:'640vh', right:this.state.CTA?'80vw':0}} >
+							<div style={{display:'flex', opacity:this.state.CTA?0.4:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'absolute', top:'690vh', right:this.state.CTA?'80vw':0}} >
 								<ion-icon name="ios-cart" style={{color:Color.darkgrey, fontSize:'25vh'}}></ion-icon>
 							</div>
-							<div style={{opacity:this.state.CTA?1:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'absolute', right:this.state.CTA?'60vw':'50vw', top:'650vh'}} >
-								<h2 style={{color:Color.white}} >Achetez Dosimex dès maitenant</h2>
+							<div style={{opacity:this.state.CTA?1:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'absolute', right:this.state.CTA?'60vw':'50vw', top:'700vh'}} >
+								<h2 style={{color:Color.white}} >Achetez Dosimex dès maintenant</h2>
 							</div>
-							<div style={{display:'flex', opacity:this.state.CTA?1:0, 'transition-property': 'opacity', 'transition-duration': '0.5s', position:'relative', right:'25vw', top:'30vh', backgroundColor:Color.red, padding:12, borderRadius:20, alignItems:'center', justifyContent:'center', width:'12vw'}} onClick={() => window.location.href='/acheter'} >
+							<div style={{display:'flex', opacity:this.state.CTA?1:0, 'transition-property': 'opacity', 'transition-duration': '0.5s', position:'relative', right:'25vw', top:'10vh', backgroundColor:Color.red, padding:12, borderRadius:20, alignItems:'center', justifyContent:'center', width:'12vw'}} onClick={() => window.location.href='/acheter'} >
 								<a href='/acheter' style={{color:Color.white, fontSize:18}} >Vers la boutique</a>
 							</div>
 						</div>

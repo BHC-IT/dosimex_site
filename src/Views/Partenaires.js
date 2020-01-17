@@ -89,12 +89,6 @@ const partenaires = [
 		text:'Notre partenaire de longue date  pour les formations en spectrométrie gamma et autres'
 	},
 	{
-		name:'Alara',
-		url:'https://www.alara-expertise.fr',
-		img:alara,
-		text:''
-	},
-	{
 		name:'Cossen',
 		url:'https://www.linkedin.com/company/cossen',
 		img:cossen,
@@ -105,6 +99,12 @@ const partenaires = [
 		url:'https://apave.com',
 		img:apave,
 		text:'Les premiers a avoir utilisé Dosimex dans les formations PCR'
+	},
+	{
+		name:'Alara',
+		url:'https://www.alara-expertise.fr',
+		img:alara,
+		text:''
 	},
 	{
 		name:'Trad',
