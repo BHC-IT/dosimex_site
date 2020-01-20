@@ -19,14 +19,14 @@ export default class HomeStyler extends Component {
 			<div style={{...{height:'100%', width:'100%', backgroundColor:'rgba(255,255,255,0.5)', zIndex:5}, ...boxStyle, ... this.props.style}} >
 				<VizSensor partialVisibility offset={{top:-100, bottom:-100}} onChange={(isVisible) =>this.setState({pack:isVisible})} >
 					<div style={poperStyle} >
-						<div style={{display:'flex', opacity:this.state.pack?1:0, 'transition-property': 'right; opacity', 'transition-duration': '1s', position:'relative', top:'45%', right:this.state.pack?'-10vw':'50vw', zIndex:5}} >
+						<div style={{display:'flex', opacity:this.state.pack?1:0, 'transition-property': 'right; opacity', 'transition-duration': '1s', position:'relative', top:'45%', right:this.state.pack?'-10vw':'50vw', zIndex:6}} >
 							<h2 style={{fontSize:40, fontWeight:'bold', color:Color.red, textShadow:'1.5px 1.5px '+Color.darkred}} >{this.props.mainText}</h2>
 						</div>
-						<div style={{display:'flex', opacity:this.state.pack?1:0, 'transition-property': 'right; opacity', 'transition-duration': '1s', position:'relative', top:'0vh', right:this.state.pack?'10vw':'-50vw', zIndex:1}} >
+						<div style={{display:'flex', opacity:this.state.pack?1:0, 'transition-property': 'right; opacity', 'transition-duration': '1s', position:'relative', top:'0vh', right:this.state.pack?'10vw':'-50vw', zIndex:5}} >
 							<ion-icon name={this.props.icon} style={{color:this.props.iconColor, fontSize:'50vh'}}></ion-icon>
 						</div>
-						<div style={{opacity:this.state.pack?1:0, 'transition-property': 'opacity', 'transition-duration': '1s'}} >
-							<p style={{color:Color.black, fontSize:28, textShadow:'1.5px 1.5px ' + Color.dark}} >{this.props.secondText}</p>
+						<div style={{opacity:this.state.pack?1:0, 'transition-property': 'opacity', 'transition-duration': '1s', zIndex:6}} >
+							<p style={{color:Color.black, fontSize:28, textShadow:'1.5px 1.5px ' + Color.dark, zIndex:6}} >{this.props.secondText}</p>
 						</div>
 					</div>
 				</VizSensor>

@@ -260,23 +260,23 @@ export default class Home extends React.Component {
 					</div>
 				</div>
 				<div style={backgroundImage(BackGroundHague2)} >
-					<HomeStyler icon="md-walk" mainText='A la découverte du pack Dosimex' secondText='test' />
+					<HomeStyler icon="md-walk" mainText='A la découverte du pack Dosimex' secondText={<p style={{color:Color.black, fontSize:28}} >Retrouvez toutes nos offres <a href="/offres" >ici</a></p>} />
 				</div>
 				<div style={backgroundImage(BackGroundHague2)} >
 					<HomeStyler icon="ios-people" mainText='Plus de 1000 radioprotectionnistes convaincus' secondText={<p style={{color:Color.black, fontSize:28}} >Vous pouvez lire quelques avis : <a href={Synthèse_retour_utilisateurs_Dosimex} taget="_blank" >ici</a></p>} />
 				</div>
 				<div style={backgroundImage(BackGroundHague2)} >
-					<HomeStyler icon="md-checkmark" mainText='Validé via MCNP, RayXpert, Microshield et Mercurad' secondText='text' />
+					<HomeStyler icon="md-checkmark" mainText='Validé via MCNP, RayXpert, Microshield et Mercurad' secondText={<a href="/about/Validation" >Accedez aux dossier de validation</a>} />
 				</div>
 				<div style={backgroundImage(BackGroundHague2)} >
-					<HomeStyler icon="md-time" mainText="Fruit de 30 années d'expérience" secondText='text' />
+					<HomeStyler icon="md-time" mainText="Fruit de 30 années d'expérience" secondText={<a style={{color:Color.blue, fontSize:28}} href="/equipe" >Apprenez a nous connaitre</a>} />
 				</div>
 				<div style={backgroundImage(BackGroundHague2)} >
-					<HomeStyler icon="ios-bulb" mainText="User friendly et sans installation" secondText='text' />
+					<HomeStyler icon="ios-bulb" mainText="User friendly et sans installation" secondText={<a href="/about/Manuels" >Apprenez a utiliser Dosimex</a>} />
 				</div>
 				<div style={{...backgroundImage(BackGroundHague2), overflow:'visible'}} >
-					<HomeStyler icon="md-school" mainText="Formation Dosimex" secondText='text' style={{}} iconColor={Color.darkgrey} />
-					<div style={{position:'relative', top:'-100vh', height:'100%', width:'100%', clipPath:'polygon(100% 60%, 100% 100%, 0 100%, 0 35%)', backgroundColor:Color.dark, overflow:'visible'}}/>
+					<HomeStyler icon="md-school" mainText="Formation Dosimex" style={{}} iconColor={Color.lightgrey} secondText={<a style={{color:Color.blue, fontSize:28}} href="/formation/open" >En savoir plus</a>} />
+					<div style={{position:'relative', top:'-100vh', height:'100%', width:'100%', clipPath:'polygon(100% 60%, 100% 100%, 0 100%, 0 35%)', backgroundColor:Color.dark, overflow:'visible', zIndex:1}}/>
 				</div>
 
 				<div style={{...boxStyle, backgroundColor:Color.dark, width:'100vw', flexDirection:'row', alignItems:'center', justifyContent:'center'}} /* CTA */ >
