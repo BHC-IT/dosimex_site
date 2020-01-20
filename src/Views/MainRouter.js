@@ -26,6 +26,7 @@ class App extends React.Component {
 	}
 
 	render(){
+		window.scroll(0,0);
 		return (
 			<Router>
 				<div style={{backgroundColor:Color.lightergrey, height:'100vh'}} >

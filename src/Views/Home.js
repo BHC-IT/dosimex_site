@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import ReactHtmlParser from 'react-html-parser'
 
 import TextSpliter from '../Components/TextSpliter.js'
+import HomeStyler from '../Components/HomeStyler.js'
 
 import VizSensor from 'react-visibility-sensor';
 
@@ -29,7 +30,7 @@ import bhcLightNoText from '../Images/test6_name_customcolor_backless_v2_light.p
 import logoDosi from "../Images/logo_dosimex.png"
 import usbkey from "../Images/usbkey.png"
 
-import Synthèse_retour_utilisateurs_Dosimex from '../Folders/Synthèse_retour_utilisateurs_Dosimex.pdf'
+import Synthèse_retour_utilisateurs_Dosimex from '../Folders/extrait_validation2.htm'
 import Modif_DOSIMEX_GX_3 from '../Folders/Modif_DOSIMEX_GX_3.0.pdf'
 import Information_légales from '../Folders/Informations_légales.pdf'
 
@@ -250,7 +251,7 @@ export default class Home extends React.Component {
 							<h1 style={{color:Color.white, fontSize:'7vw', marginTop:'5vh', fontFamily:'CODEBold', textShadow:'1.5px 1.5px #000000'}}  >DOSIMEX</h1>
 						</div>
 						<div style={{display:'flex', marginTop:'15vh', height:'35vh', 'flexDirection':'row', width:'100vw', justifyContent:'center', alignItems:'center'}} >
-							<p style={{width:'80vw', textAlign: 'justify', color:Color.white, fontWeight:'bold', fontSize:'2vw',  textShadow:'1.5px 1.5px #000000'}} >Depuis 2012, nous vous proposons un ensemble d'outils de calculs pratiques, simples d’emploi, validés, et qui permettent de répondre à de nombreuses situations rencontrées en radioprotection. Ils vous permettront d'améliorer votre niveau d'expertise.</p>
+							<p style={{width:'80vw', textAlign: 'justify', color:Color.white, fontWeight:'bold', fontSize:'2vw',  textShadow:'1.5px 1.5px #000000'}} >Depuis 2012, nous vous proposons un ensemble d'outils de calculs pratiques, simples d’emploi, validés, et répondant à de nombreuses situations rencontrées en radioprotection. Ils vous permettront d'améliorer votre niveau d'expertise.</p>
 						</div>
 						{/*<this.scroller/>*/}
 						<div style={{position:'absolute', right:'2vw', bottom:'2vh'}} >
@@ -258,117 +259,33 @@ export default class Home extends React.Component {
 						</div>
 					</div>
 				</div>
-				<div style={{...boxStyle, ...(backgroundImage(BackGroundHague2))}} /*pack*/ >
-					<div style={{...{height:'100%', width:'100%', backgroundColor:'rgba(255,255,255,0.5)'}, ...boxStyle}} >
-					<VizSensor onChange={(isVisible) =>this.setState({pack:isVisible})} >
-						<div style={poperStyle} >
-							<div style={{display:'flex', opacity:this.state.pack?0.7:0, 'transition-property': 'right; opacity', 'transition-duration': '1s', position:'absolute', top:'120vh', right:this.state.pack?'50vw':0}} >
-								<ion-icon name="md-walk" style={{color:Color.white, fontSize:'50vh'}}></ion-icon>
-							</div>
-							<div style={{display:'flex', opacity:this.state.pack?1:0, 'transition-property': 'right; opacity', 'transition-duration': '1s', position:'relative', right:this.state.pack?'-5vw':'50vw'}} >
-								<h2 style={{fontSize:40, fontWeight:'bold', color:Color.darkred}} >A la découverte du pack Dosimex</h2>
-							</div>
-							<div style={{opacity:this.state.pack?1:0, 'transition-property': 'opacity', 'transition-duration': '1s', marginTop:'20vh'}} >
-								<p style={{color:Color.black, fontSize:28}} >test</p>
-							</div>
-						</div>
-					</VizSensor>
+				<div style={backgroundImage(BackGroundHague2)} >
+					<HomeStyler icon="md-walk" mainText='A la découverte du pack Dosimex' secondText='test' />
+				</div>
+				<div style={backgroundImage(BackGroundHague2)} >
+					<HomeStyler icon="ios-people" mainText='Plus de 1000 radioprotectionnistes convaincus' secondText={<p style={{color:Color.black, fontSize:28}} >Vous pouvez lire quelques avis : <a href={Synthèse_retour_utilisateurs_Dosimex} taget="_blank" >ici</a></p>} />
+				</div>
+				<div style={backgroundImage(BackGroundHague2)} >
+					<HomeStyler icon="md-checkmark" mainText='Validé via MCNP, RayXpert, Microshield et Mercurad' secondText='text' />
+				</div>
+				<div style={backgroundImage(BackGroundHague2)} >
+					<HomeStyler icon="md-time" mainText="Fruit de 30 années d'expérience" secondText='text' />
+				</div>
+				<div style={backgroundImage(BackGroundHague2)} >
+					<HomeStyler icon="ios-bulb" mainText="User friendly et sans installation" secondText='text' />
+				</div>
+				<div style={{...backgroundImage(BackGroundHague2), overflow:'visible'}} >
+					<HomeStyler icon="md-school" mainText="Formation Dosimex" secondText='text' style={{}} iconColor={Color.darkgrey} />
+					<div style={{position:'relative', top:'-100vh', height:'100%', width:'100%', clipPath:'polygon(100% 60%, 100% 100%, 0 100%, 0 35%)', backgroundColor:Color.dark, overflow:'visible'}}/>
+				</div>
+
+				<div style={{...boxStyle, backgroundColor:Color.dark, width:'100vw', flexDirection:'row', alignItems:'center', justifyContent:'center'}} /* CTA */ >
+					<div style={{height:'100vh', width:'50vw'}} >
+						<HomeStyler icon="ios-cart" mainText="Achetez Dosimex dès maintenant" iconColor={Color.darkgrey} secondText={<a href='/acheter' style={{color:Color.white, fontSize:18, backgroundColor:Color.red, padding:12, borderRadius:20, alignItems:'center', justifyContent:'center', textShadow:'0px 0px'}} >Vers la boutique</a>} style={{backgroundColor:Color.dark}} />
 					</div>
-				</div>
-				<div style={{...boxStyle, ...(backgroundImage(BackGroundHague2))}} /*utilistaeur*/ >
-					<div style={{...{height:'100%', width:'100%', backgroundColor:'rgba(255,255,255,0.5)'}, ...boxStyle}} >
-					<VizSensor onChange={(isVisible) =>this.setState({community:isVisible})} >
-						<div style={poperStyle} >
-							<div style={{display:'flex', opacity:this.state.community?0.7:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'absolute', top:'220vh', right:this.state.community?'50vw':0}} >
-								<ion-icon name="ios-people" style={{color:Color.white, fontSize:'50vh'}}></ion-icon>
-							</div>
-							<div style={{display:'flex', opacity:this.state.community?1:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'relative', right:this.state.community?'-5vw':'50vw'}} >
-								<h2 style={{fontSize:40, fontWeight:'bold', color:Color.darkred}} >Plus de 1000 radioprotectionnistes convaincus</h2>
-							</div>
-							<div style={{opacity:this.state.community?1:0, 'transition-property': 'opacity', 'transition-duration': '0.5s', marginTop:'20vh'}} >
-								<p style={{color:Color.black, fontSize:28}} >Vous pouvez lire quelques avis : <a href={Synthèse_retour_utilisateurs_Dosimex} taget="_blank" >ici</a></p>
-							</div>
-						</div>
-					</VizSensor>
+					<div style={{display:'flex', justifyContent:'center', alignItems:'center', height:'100vh', width:'50vw'}} >
+						<iframe style={{width:'30vw', height:'30vh'}} src="https://www.youtube.com/embed/E5eWKTJaNxQ" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 					</div>
-				</div>
-				<div style={boxStyle} /*validation*/>
-					<VizSensor onChange={(isVisible) =>this.setState({validation:isVisible})} >
-						<div style={poperStyle} >
-							<div style={{display:'flex', opacity:this.state.validation?0.4:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'absolute', top:'320vh', right:this.state.validation?'50vw':0}} >
-								<ion-icon name="md-checkmark" style={{color:Color.green, fontSize:'50vh'}}></ion-icon>
-							</div>
-							<div style={{opacity:this.state.validation?1:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'relative', right:this.state.validation?0:'50vw'}} >
-								<h2 style={{color:Color.darkred}} >Validé via MCNP, RayXpert, Microshield et Mercurad</h2>
-							</div>
-							<div style={{opacity:this.state.validation?1:0, 'transition-property': 'opacity', 'transition-duration': '0.5s'}} >
-								<p>Du text plus simple</p>
-							</div>
-							</div>
-					</VizSensor>
-				</div>
-				<div style={boxStyle} /*experience*/>
-					<VizSensor onChange={(isVisible) =>this.setState({time:isVisible})} >
-						<div style={poperStyle} >
-							<div style={{display:'flex', opacity:this.state.time?0.4:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'absolute', top:'420vh', right:this.state.time?'50vw':0}} >
-								<ion-icon name="md-time" style={{color:Color.darkgrey, fontSize:'50vh'}}></ion-icon>
-							</div>
-							<div style={{opacity:this.state.time?1:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'relative', right:this.state.time?0:'50vw'}} >
-								<h2 style={{color:Color.darkred}} >Fruit de 30 années d'expérience</h2>
-							</div>
-							<div style={{opacity:this.state.time?1:0, 'transition-property': 'opacity', 'transition-duration': '0.5s'}} >
-								<p>Du text plus simple</p>
-							</div>
-						</div>
-					</VizSensor>
-				</div>
-				<div style={boxStyle} /*user friendly*/ >
-					<VizSensor onChange={(isVisible) =>this.setState({friendly:isVisible})} >
-						<div style={poperStyle} >
-							<div style={{display:'flex', opacity:this.state.friendly?0.4:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'absolute', top:'520vh', right:this.state.friendly?'50vw':0}} >
-								<ion-icon name="ios-bulb" style={{color:Color.darkgrey, fontSize:'50vh'}}></ion-icon>
-							</div>
-							<div style={{opacity:this.state.friendly?1:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'relative', right:this.state.friendly?0:'50vw'}} >
-								<h2 style={{color:Color.darkred}} >User friendly et sans installation</h2>
-							</div>
-							<div style={{opacity:this.state.friendly?1:0, 'transition-property': 'opacity', 'transition-duration': '0.5s'}} >
-								<p>Du text plus simple</p>
-							</div>
-						</div>
-					</VizSensor>
-				</div>
-				<div style={{...boxStyle, ...(backgroundImage(BackGroundHague2))}} /*formation*/ >
-					<div style={{height:'100%', width:'100%', backgroundColor:Color.dark, clipPath:'polygon(100% 60%, 100% 100%, 0 100%, 0 35%)', overflow:'visible', position:'absolute', top:'600vh'}} >
-					</div>
-					<VizSensor onChange={(isVisible) =>this.setState({formation:isVisible})} >
-						<div style={poperStyle} >
-							<div style={{display:'flex', opacity:this.state.formation?0.4:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'absolute', top:'620vh', right:this.state.formation?'50vw':0}} >
-								<ion-icon name="md-school" style={{color:Color.darkgrey, fontSize:'50vh'}}></ion-icon>
-							</div>
-							<div style={{opacity:this.state.formation?1:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'relative', right:this.state.formation?0:'50vw'}} >
-								<h2 style={{color:Color.darkred}} >Formation Dosimex</h2>
-							</div>
-							<div style={{opacity:this.state.formation?1:0, 'transition-property': 'opacity', 'transition-duration': '0.5s'}} >
-								<p>Du text plus simple</p>
-							</div>
-						</div>
-					</VizSensor>
-				</div>
-				<div style={{...boxStyle, backgroundColor:Color.dark, height:'50vh'}} /* CTA */ >
-					<VizSensor onChange={(isVisible) =>this.setState({CTA:isVisible})} >
-						<div style={{poperStyle}} >
-							<div style={{display:'flex', opacity:this.state.CTA?0.4:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'absolute', top:'690vh', right:this.state.CTA?'80vw':0}} >
-								<ion-icon name="ios-cart" style={{color:Color.darkgrey, fontSize:'25vh'}}></ion-icon>
-							</div>
-							<div style={{opacity:this.state.CTA?1:0, 'transition-property': 'right; opacity', 'transition-duration': '0.5s', position:'absolute', right:this.state.CTA?'60vw':'50vw', top:'700vh'}} >
-								<h2 style={{color:Color.white}} >Achetez Dosimex dès maintenant</h2>
-							</div>
-							<div style={{display:'flex', opacity:this.state.CTA?1:0, 'transition-property': 'opacity', 'transition-duration': '0.5s', position:'relative', right:'25vw', top:'10vh', backgroundColor:Color.red, padding:12, borderRadius:20, alignItems:'center', justifyContent:'center', width:'12vw'}} onClick={() => window.location.href='/acheter'} >
-								<a href='/acheter' style={{color:Color.white, fontSize:18}} >Vers la boutique</a>
-							</div>
-						</div>
-					</VizSensor>
-					<iframe style={{width:'30vw', height:'30vh', position:'relative', marginLeft:'50vw'}} src="https://www.youtube.com/embed/E5eWKTJaNxQ" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 				</div>
 				<this.footer/>
 			</div>
@@ -389,5 +306,5 @@ const boxStyle = {height:'100vh', display:'flex', flexDirection:'column', justif
 const poperStyle = {display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'};
 
 function backgroundImage(url){
-	return ({backgroundColor:Color.black, backgroundImage: `url(${url})`, backgroundPosition:'center', backgroundRepeat:'no-repeat', backgroundSize: "cover"})
+	return ({backgroundColor:Color.black, backgroundImage: `url(${url})`, backgroundPosition:'center', backgroundRepeat:'no-repeat', backgroundSize: "cover", height:'100vh', backgroundAttachment:'fixed'})
 }

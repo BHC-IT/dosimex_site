@@ -8,8 +8,6 @@ import { Link } from "react-router-dom";
 
 import TextSpliter from '../Components/TextSpliter.js'
 
-import Retour from '../Folders/Synthèse_retour_utilisateurs_Dosimex.pdf'
-
 import Image from '../Images/image_pc.jpg'
 
 import packOpe from '../Images/packOpe.png'
