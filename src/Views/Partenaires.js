@@ -2,7 +2,6 @@ import React, {Component, useState} from 'react'
 
 import Color from '../Styles/colorSchemes.js'
 
-import Dosilogo from '../Images/logo_dosi.png'
 import bhcLightNoTextDark from '../Images/test6_name_customcolor_backless_v2_light_dark.png'
 import safe from '../Images/logo_partenaires/safe.png'
 import alara from '../Images/logo_partenaires/alara.png'
@@ -21,7 +20,7 @@ function RenderPart({part}){
 	}
 	let color = over ? 'rgba(246,246,246,0.8)' : 'rgba(255,255,255,0)';
 	return (
-		<a style={{height:'30vh', width:'30vh'}} onMouseOver={() => setOver(true)} onMouseOut={() => {}} href={part.url} target="_blank" >
+		<a style={{height:'30vh', width:'30vh'}} onMouseOver={() => setOver(true)} onMouseOut={() => {}} href={part.url} target="_blank" rel="noopener noreferrer" >
 			<div style={{height:'30vh', width:'30vh', backgroundImage: `url(${part.img})`, backgroundPosition:'center', backgroundRepeat:'no-repeat', backgroundSize: "contain"}}>
 				<div style={{display:'flex', alignItems:'center', justifyContent:'center', height:'30vh', width:'30vh', backgroundColor:color, 'transition-property': 'background-color', 'transition-duration': '0.5s'}} onMouseOut={() => setOver(false)} >
 					<p style={{fontSize:20, fontWeight:'bold', color:part.textColor ? part.textColor : 'black', opacity:over?1:0, 'transition-property': 'opacity', 'transition-duration': '0.7s'}} >{part.text}</p>
@@ -33,7 +32,9 @@ function RenderPart({part}){
 
 export default class Partenaires extends Component {
 	constructor(props){
-		super(props)
+		super(props);
+
+		this.state = {};
 	}
 
 	render(){

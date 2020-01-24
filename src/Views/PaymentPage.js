@@ -1,28 +1,12 @@
 import React from 'react';
 
-import { Row, Col,  Button, Card} from 'react-bootstrap'
-
 import Color from '../Styles/colorSchemes.js'
 
 import TextSpliter from '../Components/TextSpliter.js'
 
 import InputNumberLib from 'rc-input-number';
 
-import StripeCheckout from 'react-stripe-checkout';
-
-import XMLHttpRequestAsync from '../helpers/XMLHttpRequestAsync'
-
 import usbkey from "../Images/usbkey.png"
-
-class InputNumber extends React.Component {
-	constructor(props){
-		super(props);
-	}
-
-	render(){
-		return(null);
-	}
-}
 
 export default class Home extends React.Component {
 
@@ -62,7 +46,7 @@ export default class Home extends React.Component {
 				</div>
 				<div style={{display:'flex', flexDirection:'column', flexGrow:1, alignItems:'flex-start', justifyContent:'center', marginLeft:'0vw'}} >
 					<div style={{display:'flex', flexDirection:'column', flexGrow:1, alignItems:'center', justifyContent:'center', marginLeft:'0vw'}} >
-						<img src={usbkey} style={{width:'20vw', marginBottom:'1vh'}} />
+						<img src={usbkey} style={{width:'20vw', marginBottom:'1vh'}} alt='Dosimex key' />
 						<div style={{display:'flex', justifyContent:'center', alignItems:'space-between'}} >
 							<p>nombre :</p>
 							<InputNumberLib min={1} max={10} step={1} value={this.state.amount} onChange={(nb) => this.setState({amount:nb})} required style={{}} />
@@ -78,22 +62,22 @@ export default class Home extends React.Component {
 	}
 }
 
-const text = '\
-<p style="text-align:justify;font-weight:bold;font-size:16;margin-bottom:2vh" >FICHE TECHNIQUE DU PRODUIT</p>\
-La clé USB DOSIMEX 3.0 contient :\n\
-    • Tous les codes et utilitaires (13) des packs opérationnel, pédagogique et mesure présentés sur ce site\n\
-    • La documentation associée : manuel d’emploi et dossier de validation de chaque code.\n\
-    • Des documents de cours (11).\n\
-    • Les annexes (19) de l’ouvrage « calcul de dose générées par les rayonnements ionisant ».\n\
-\n\
-Cette clé fonctionne comme un dongle. Il suffit de la connecter sur un PC pour automatiquement voir apparaitre l’ensemble des dossiers (DOSIMEX 3.0 (E ) ).\n\
-Un sommaire général (SOMMAIRE GENERAL.pps ) à la racine des dossiers permet de naviguer sur l’ensemble du pack Dosimex.\n\
-Les codes s’ouvrent et s’utilisent directement sur la clé\n\
-Dans certains cas les sécurités bloquent l’utilisation des codes directement sur la clé.\n\
-Il est alors possible de transférer l’ensemble du pack sur le disque dur et d’exécuter les codes à partir de ce dernier.\n\
-Il faudra par contre dans ce cas que la clé Dosimex reste connectée sur le PC.\n\
-Suivant les mesures de sécurité mises en place dans les entreprises, il est conseillé de demander à votre service informatique de « whitelister » Dosimex\n\
-\n\
-Vous pouvez acheter Dosimex 3.0 en ligne (250 € HT, 300 € TTC) ou demander un devis à :\n\
-<a href="mailto:contact@dosimex.fr"> contact@dosimex.fr</a> ou 06 89 70 90 35\n\
-'
+const text = `
+<p style="text-align:justify;font-weight:bold;font-size:16;margin-bottom:2vh" >FICHE TECHNIQUE DU PRODUIT</p>
+La clé USB DOSIMEX 3.0 contient :\n
+    • Tous les codes et utilitaires (13) des packs opérationnel, pédagogique et mesure présentés sur ce site\n
+    • La documentation associée : manuel d’emploi et dossier de validation de chaque code.\n
+    • Des documents de cours (11).\n
+    • Les annexes (19) de l’ouvrage « calcul de dose générées par les rayonnements ionisant ».\n
+\n
+Cette clé fonctionne comme un dongle. Il suffit de la connecter sur un PC pour automatiquement voir apparaitre l’ensemble des dossiers (DOSIMEX 3.0 (E ) ).\n
+Un sommaire général (SOMMAIRE GENERAL.pps ) à la racine des dossiers permet de naviguer sur l’ensemble du pack Dosimex.\n
+Les codes s’ouvrent et s’utilisent directement sur la clé\n
+Dans certains cas les sécurités bloquent l’utilisation des codes directement sur la clé.\n
+Il est alors possible de transférer l’ensemble du pack sur le disque dur et d’exécuter les codes à partir de ce dernier.\n
+Il faudra par contre dans ce cas que la clé Dosimex reste connectée sur le PC.\n
+Suivant les mesures de sécurité mises en place dans les entreprises, il est conseillé de demander à votre service informatique de « whitelister » Dosimex\n
+\n
+Vous pouvez acheter Dosimex 3.0 en ligne (250 € HT, 300 € TTC) ou demander un devis à :\n
+<a href="mailto:contact@dosimex.fr"> contact@dosimex.fr</a> ou 06 89 70 90 35\n
+`

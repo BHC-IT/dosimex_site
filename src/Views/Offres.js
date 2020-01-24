@@ -1,10 +1,8 @@
 import React from 'react';
 
-import { Row, Col, Accordion, Button, Card} from 'react-bootstrap'
+import { Row, Accordion, Button, Card} from 'react-bootstrap'
 
 import Color from '../Styles/colorSchemes.js'
-
-import { Link } from "react-router-dom";
 
 import TextSpliter from '../Components/TextSpliter.js'
 
@@ -16,8 +14,10 @@ import packMesure from '../Images/packMesure.png'
 
 import packPeda from '../Images/packPeda.png'
 
-import ReactHtmlParser from 'react-html-parser'
-
+import {
+	BrowserView,
+	MobileView,
+} from "react-device-detect";
 
 const transform = {
 	packOperationel:'0',
@@ -54,7 +54,7 @@ export default class Home extends React.Component {
 	_renderLine = ({line, img, length}) => {
 		return (
 			<div style={{display:'flex', flexDirection:'column'}} >
-				<TextSpliter textStyle={{textAlign:'justify', fontSize:'1.4vw', margin:5, marginLeft:15, marginRight:15, marginTop:'1vh'}} text={line} />
+				<TextSpliter textStyle={{textAlign:'justify', fontSize:'1.4vh', margin:5, marginLeft:15, marginRight:15, marginTop:'1vh'}} text={line} />
 			</div>
 		);
 	}
@@ -62,15 +62,27 @@ export default class Home extends React.Component {
 	_renderPack = ({pack}) =>{
 		return (
 			<div style={{display:'flex', flexDirection:'column', flexGrow:1, flex:1, justifyContent:'center', alignItems:'center'}} >
-				<div style={{display:'flex', justifyContent:'center', alignItems:'flex-end',}} >
-					<p style={{fontSize:'1.4vw', fontWeight:'bold'}} >{pack.main}</p>
-				</div>
-				<div style={{display:'flex', justifyContent:'center', alignItems:'center', marginTop:'8vh'}} >
-					<img style={{width:'30vw', marginLeft:'2vw'}} src={pack.img} alt="" />
-					<div style={{display:'flex', flexDirection:'column', marginLeft:'4vw', marginRight:'4vw'}} >
-						{pack.text.map((e, i) => <this._renderLine line={e} img={pack.img[i]} length={pack.text.length} key={i} />)}
+				<BrowserView>
+					<div style={{display:'flex', justifyContent:'center', alignItems:'flex-end',}} >
+						<p style={{fontSize:'1.4vw', fontWeight:'bold'}} >{pack.main}</p>
 					</div>
-				</div>
+					<div style={{display:'flex', justifyContent:'center', alignItems:'center', marginTop:'8vh'}} >
+						<img style={{width:'30vw', marginLeft:'2vw'}} src={pack.img} alt="" />
+						<div style={{display:'flex', flexDirection:'column', marginLeft:'4vw', marginRight:'4vw'}} >
+							{pack.text.map((e, i) => <this._renderLine line={e} img={pack.img[i]} length={pack.text.length} key={i} />)}
+						</div>
+					</div>
+				</BrowserView>
+				<MobileView>
+					<div style={{display:'flex', justifyContent:'center', alignItems:'flex-end',}} >
+						<p style={{fontSize:'1.4vh', fontWeight:'bold'}} >{pack.main}</p>
+					</div>
+					<div style={{display:'flex', justifyContent:'center', alignItems:'center', marginTop:'8vh'}} >
+						<div style={{display:'flex', flexDirection:'column', marginLeft:'4vw', marginRight:'4vw'}} >
+							{pack.text.map((e, i) => <this._renderLine line={e} img={pack.img[i]} length={pack.text.length} key={i} />)}
+						</div>
+					</div>
+				</MobileView>
 			</div>
 		);
 	}
@@ -81,11 +93,11 @@ export default class Home extends React.Component {
 				{this.isOpen() ?
 					null
 					:
-					<Row style={{justifyContent:'center', alignItems:'center', width:'100vw'}} ><img style={{width:'50vw'}} src={Image}/></Row>
+					<Row style={{justifyContent:'center', alignItems:'center', width:'100vw'}} ><img style={{width:'50vw'}} src={Image} alt='offres' /></Row>
 				}
-				<Accordion defaultActiveKey={transform[this.props.pack]} >
+				<Accordion style={{width:'100vw'}} defaultActiveKey={transform[this.props.pack]} >
 					<Card style={{width:'101vw'}} >
-						<Card.Header style={{backgroundColor:Color.lightishgrey, height:'8vh'}} >
+						<Card.Header style={{backgroundColor:Color.lightishgrey, height:'8vh', width:'101vw'}} >
 							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="0" onClick={() => this._keepTrack('0')} >
 								<p style={{fontSize:'3vh', color:Color.blue}} >{pack1.title}</p>
 							</Accordion.Toggle>
@@ -96,8 +108,8 @@ export default class Home extends React.Component {
 							</Card.Body>
 						</Accordion.Collapse>
 					</Card>
-					<Card color={Color.red} >
-						<Card.Header style={{backgroundColor:Color.lightishgrey, height:'8vh'}} >
+					<Card style={{width:'101vw'}} >
+						<Card.Header style={{backgroundColor:Color.lightishgrey, height:'8vh', width:'101vw'}} >
 							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="1" onClick={() => this._keepTrack('1')}>
 								<p style={{fontSize:'3vh'}} >{pack2.title}</p>
 							</Accordion.Toggle>
@@ -108,8 +120,8 @@ export default class Home extends React.Component {
 							</Card.Body>
 						</Accordion.Collapse>
 					</Card>
-					<Card>
-						<Card.Header style={{backgroundColor:Color.lightishgrey, height:'8vh'}} >
+					<Card style={{width:'101vw'}} >
+						<Card.Header style={{backgroundColor:Color.lightishgrey, height:'8vh', width:'101vw'}} >
 							<Accordion.Toggle style={{width:'100%'}} as={Button} variant="link" eventKey="2" onClick={() => this._keepTrack('2')}>
 								<p style={{fontSize:'3vh'}} >{pack3.title}</p>
 							</Accordion.Toggle>
@@ -128,11 +140,11 @@ export default class Home extends React.Component {
 
 const pack1 = {
 	text:[
-		"<p style='display:inline;font-weight:bold;font-size:1.7vw' >DOSIMEX-GX 3.0</p> : code de calcul déterministe de débit de dose émetteurs <a href='https://www.youtube.com/watch?v=E5eWKTJaNxQ' target='_blank' >gamma</a> et <a href='https://www.youtube.com/watch?v=wkuVxTBXc8g' target='_blank' >générateur X</a>, avec option feuille de calcul <a href='https://www.youtube.com/watch?v=Ga4roi63sSM' target='_blank' >norme NF C15-160 /2018</a>. Avec de nombreuses <a href='https://www.youtube.com/watch?v=ksOJEbihuvA' target='_blank' >options</a> : effet de ciel, rayonnement de freinage, zonage, build-up",
-		"<p style='display:inline;font-weight:bold;font-size:1.7vw' >DOSIMEX-B 3.0</p> : <a href='https://www.youtube.com/watch?v=4Cfya_rHa04' target='_blank'>code de calcul déterministe</a> de débit de dose émetteur bêta et électrons monoénergétiques. Prise en compte sources volumiques  (bécher, seringue) ou surfaciques (contamination peau)",
-		"<p style='display:inline;font-weight:bold;font-size:1.7vw' >DOSIMEX-N 3.0</p> : <a href='https://www.youtube.com/watch?v=7emAJHES-fw' target='_blank'>code de calcul Monte-Carlo</a> de débit de dose émetteur neutron (type Am/Be) avec protection biologique (eau, polyéthylène, Bore, Cadmium etc..). Module pédagogique avec visualisation trajectoire neutron",
-		"<p style='display:inline;font-weight:bold;font-size:1.7vw' >DOSIMEX-I 3.0</p> : <a href='https://www.youtube.com/watch?v=CnqQhyB6cEo4' target='_blank'>code de  calcul expositions interne</a>. Prise en compte cinétique fuite, renouvellement, dépôt au sol. Calculs de transfert atmosphérique. Calcul mélanges RAI/RAV/RCA",
-		"<p style='display:inline;font-weight:bold;font-size:1.7vw' >DOSIMEX-MN 1.0</p> : <a href='https://www.youtube.com/watch?v=sj-FVjP87jA' target='_blank'>utilitaire de gestion de données</a> permettant de connaitre les doses absorbées par unité d’activité administrée  pour les radiopharmaceutiques CIPR 53, 80, 106 et 128"
+		"<p style='display:inline;font-weight:bold;font-size:1.7vh' >DOSIMEX-GX 3.0</p> : code de calcul déterministe de débit de dose émetteurs <a href='https://www.youtube.com/watch?v=E5eWKTJaNxQ' target='_blank' >gamma</a> et <a href='https://www.youtube.com/watch?v=wkuVxTBXc8g' target='_blank' >générateur X</a>, avec option feuille de calcul <a href='https://www.youtube.com/watch?v=Ga4roi63sSM' target='_blank' >norme NF C15-160 /2018</a>. Avec de nombreuses <a href='https://www.youtube.com/watch?v=ksOJEbihuvA' target='_blank' >options</a> : effet de ciel, rayonnement de freinage, zonage, build-up",
+		"<p style='display:inline;font-weight:bold;font-size:1.7vh' >DOSIMEX-B 3.0</p> : <a href='https://www.youtube.com/watch?v=4Cfya_rHa04' target='_blank'>code de calcul déterministe</a> de débit de dose émetteur bêta et électrons monoénergétiques. Prise en compte sources volumiques  (bécher, seringue) ou surfaciques (contamination peau)",
+		"<p style='display:inline;font-weight:bold;font-size:1.7vh' >DOSIMEX-N 3.0</p> : <a href='https://www.youtube.com/watch?v=7emAJHES-fw' target='_blank'>code de calcul Monte-Carlo</a> de débit de dose émetteur neutron (type Am/Be) avec protection biologique (eau, polyéthylène, Bore, Cadmium etc..). Module pédagogique avec visualisation trajectoire neutron",
+		"<p style='display:inline;font-weight:bold;font-size:1.7vh' >DOSIMEX-I 3.0</p> : <a href='https://www.youtube.com/watch?v=CnqQhyB6cEo4' target='_blank'>code de  calcul expositions interne</a>. Prise en compte cinétique fuite, renouvellement, dépôt au sol. Calculs de transfert atmosphérique. Calcul mélanges RAI/RAV/RCA",
+		"<p style='display:inline;font-weight:bold;font-size:1.7vh' >DOSIMEX-MN 1.0</p> : <a href='https://www.youtube.com/watch?v=sj-FVjP87jA' target='_blank'>utilitaire de gestion de données</a> permettant de connaitre les doses absorbées par unité d’activité administrée  pour les radiopharmaceutiques CIPR 53, 80, 106 et 128"
 	],
 	img: packOpe,
 	title:"Pack opérationnel",

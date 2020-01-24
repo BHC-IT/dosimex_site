@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Row, Col, Accordion, Button, Card} from 'react-bootstrap'
+import { Row, Accordion, Button, Card} from 'react-bootstrap'
 
 import Color from '../Styles/colorSchemes.js'
 
@@ -90,20 +90,20 @@ export default class Home extends React.Component {
 							<Card.Body style={{backgroundColor:Color.lightergrey, height:'71vh'}} >
 								<div style={{display:'flex', 'flex-direction':'row', justifyContent:'space-evenly'}} >
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
-										<a href={PManuel1} target="_blank" style={{}} ><img src={IManuel1} style={{height:'35vh'}} /></a>
-										<a href={PManuel1} target="_blank" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >MANUEL DOSE GAMMA</p></a>
+										<a href={PManuel1} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IManuel1} style={{height:'35vh'}} alt='' /></a>
+										<a href={PManuel1} target="_blank" rel="noopener noreferrer" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >MANUEL DOSE GAMMA</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
-										<a href={PManuel2} target="_blank" style={{}} ><img src={IManuel2} style={{height:'35vh'}} /></a>
-										<a href={PManuel2} target="_blank" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >MANUEL GÉNÉRATEUR X</p></a>
+										<a href={PManuel2} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IManuel2} style={{height:'35vh'}} alt='' /></a>
+										<a href={PManuel2} target="_blank" rel="noopener noreferrer" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >MANUEL GÉNÉRATEUR X</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
-										<a href={PManuel3} target="_blank" style={{}} ><img src={IManuel3} style={{height:'35vh'}} /></a>
-										<a href={PManuel3} target="_blank" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >MANUEL + VALIDATION NF C15-160</p></a>
+										<a href={PManuel3} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IManuel3} style={{height:'35vh'}} alt='' /></a>
+										<a href={PManuel3} target="_blank" rel="noopener noreferrer" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >MANUEL + VALIDATION NF C15-160</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
-										<a href={PManuel4} target="_blank" style={{}} ><img src={IManuel4} style={{height:'35vh'}} /></a>
-										<a href={PManuel4} target="_blank" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Grandeurs pratiques en radiologie'.toUpperCase()}</p></a>
+										<a href={PManuel4} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IManuel4} style={{height:'35vh'}} alt='' /></a>
+										<a href={PManuel4} target="_blank" rel="noopener noreferrer" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Grandeurs pratiques en radiologie'.toUpperCase()}</p></a>
 									</div>
 								</div>
 							</Card.Body>
@@ -119,24 +119,24 @@ export default class Home extends React.Component {
 							<Card.Body style={{backgroundColor:Color.lightergrey, height:'71vh'}} >
 								<div style={{display:'flex', 'flex-direction':'row', justifyContent:'space-evenly'}} >
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
-										<a href={PValidation1} target="_blank" style={{}} ><img src={IValidation1} style={{height:'35vh'}} /></a>
-										<a href={PValidation1} target="_blank" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >DOSSIER DE VALIDATION EMISSION GAMMA</p></a>
+										<a href={PValidation1} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IValidation1} style={{height:'35vh'}} alt='' /></a>
+										<a href={PValidation1} target="_blank" rel="noopener noreferrer" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >DOSSIER DE VALIDATION EMISSION GAMMA</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
-										<a href={PValidation2} target="_blank" style={{}} ><img src={IValidation2} style={{height:'35vh'}} /></a>
-										<a href={PValidation2} target="_blank" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >DOSSIER DE VALIDATION GÉNÉRATEUR X</p></a>
+										<a href={PValidation2} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IValidation2} style={{height:'35vh'}} alt='' /></a>
+										<a href={PValidation2} target="_blank" rel="noopener noreferrer" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >DOSSIER DE VALIDATION GÉNÉRATEUR X</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
-										<a href={PValidation3} target="_blank" style={{}} ><img src={IValidation3} style={{height:'35vh'}} /></a>
-										<a href={PValidation3} target="_blank" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Référence géné X MCNP/CEA'.toUpperCase()}</p></a>
+										<a href={PValidation3} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IValidation3} style={{height:'35vh'}} alt='' /></a>
+										<a href={PValidation3} target="_blank" rel="noopener noreferrer" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Référence géné X MCNP/CEA'.toUpperCase()}</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
-										<a href={PValidation4} target="_blank" style={{}} ><img src={IValidation4} style={{height:'35vh'}} /></a>
-										<a href={PValidation4} target="_blank" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Référence Radionucléide MCNP/AREVA'.toUpperCase()}</p></a>
+										<a href={PValidation4} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IValidation4} style={{height:'35vh'}} alt='' /></a>
+										<a href={PValidation4} target="_blank" rel="noopener noreferrer" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Référence Radionucléide MCNP/AREVA'.toUpperCase()}</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
-										<a href={PValidation5} target="_blank" style={{}} ><img src={IValidation5} style={{height:'35vh'}} /></a>
-										<a href={PValidation5} target="_blank" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Référence atténuation X'.toUpperCase()}</p></a>
+										<a href={PValidation5} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IValidation5} style={{height:'35vh'}} alt='' /></a>
+										<a href={PValidation5} target="_blank" rel="noopener noreferrer" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Référence atténuation X'.toUpperCase()}</p></a>
 									</div>
 								</div>
 							</Card.Body>
@@ -152,20 +152,20 @@ export default class Home extends React.Component {
 							<Card.Body style={{backgroundColor:Color.lightergrey, height:'71vh'}} >
 								<div style={{display:'flex', 'flex-direction':'row', justifyContent:'space-evenly'}} >
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
-										<a href={PRapport1} target="_blank" style={{}} ><img src={IRapport1} style={{height:'35vh'}} /></a>
-										<a href={PRapport1} target="_blank" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Mémoire ulysse'.toUpperCase()}</p></a>
+										<a href={PRapport1} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IRapport1} style={{height:'35vh'}} alt='' /></a>
+										<a href={PRapport1} target="_blank" rel="noopener noreferrer" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Mémoire ulysse'.toUpperCase()}</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
-										<a href={PRapport2} target="_blank" style={{}} ><img src={IRapport2} style={{height:'35vh'}} /></a>
-										<a href={PRapport2} target="_blank" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Mémoire microshield vs Dosimex 1'.toUpperCase()}</p></a>
+										<a href={PRapport2} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IRapport2} style={{height:'35vh'}} alt='' /></a>
+										<a href={PRapport2} target="_blank" rel="noopener noreferrer" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Mémoire microshield vs Dosimex 1'.toUpperCase()}</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
-										<a href={PRapport3} target="_blank" style={{}} ><img src={IRapport3} style={{height:'35vh'}} /></a>
-										<a href={PRapport3} target="_blank" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Mémoire microshield vs Dosimex 2'.toUpperCase()}</p></a>
+										<a href={PRapport3} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IRapport3} style={{height:'35vh'}} alt='' /></a>
+										<a href={PRapport3} target="_blank" rel="noopener noreferrer" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Mémoire microshield vs Dosimex 2'.toUpperCase()}</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
-										<a href={PRapport4} target="_blank" style={{}} ><img src={IRapport4} style={{height:'35vh'}} /></a>
-										<a href={PRapport4} target="_blank" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Mémoire microshield vs Dosimex 3'.toUpperCase()}</p></a>
+										<a href={PRapport4} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IRapport4} style={{height:'35vh'}} alt='' /></a>
+										<a href={PRapport4} target="_blank" rel="noopener noreferrer" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Mémoire microshield vs Dosimex 3'.toUpperCase()}</p></a>
 									</div>
 								</div>
 							</Card.Body>
@@ -179,71 +179,20 @@ export default class Home extends React.Component {
 }
 
 const pack1 = {
-	text:"	SOMMAIRE DOSIMEX OPERATIONNEL\n\
-		✓ DOSIMEX-GX 3.0 : code de calcul déterministe de débit de dose émetteurs gamma\
-		(sources volumiques, surfaciques...) et générateur X, avec option feuille de calcul\
-		norme NF C15-160 /2018. Effet de ciel, rayonnement de freinage....\n\
-		✓ DOSIMEX-B 3 : code de calcul déterministe de débit de dose émetteur bêta et\
-		électrons monoénergétiques . Prise en compte sources volumiques (bécher,\
-		seringue) ou surfaciques (contamination peau)\n\
-		✓ DOSIMEX-N 3 : code de calcul de débit de dose Monte-Carlo émetteur neutron\
-		(type Am/Be) avec protection biologique (eau, polyéthylène, Bore, Cadmium etc..).\
-		Module pédagogique avec visualisation trajectoire neutron\n\
-		✓ DOSIMEX-I 3.0 : code de calcul de cinétique d’expositions dans un local suite à une\
-		contamination volumique (fuite continue, bouffée..). Calculs de transfert\
-		atmosphérique. Calcul mélanges RAI/RAV/RCA\n\
-		✓ DOSIMEX-MN 1.0 utilitaire de gestion de données permettant de connaitre les doses\
-		absorbées par unité d’activité administrée pour les radiopharmaceutiques recensés dans les\
-		CIPR 53, 80, 106 et 128",
 	title:"Manuels d’utilisation",
 }
 
 const pack2 = {
-	text:"SOMMAIRE DOSIMEX PEDAGOGIQUE\n\
-		✓ IRM photon 3.0: utilitaire mettant en œuvre les principes d’interactions\
-		photon –matières dans les matériaux avec diverses applications : calcul de\
-		kerma, de dose, de libre parcours moyen, effet Compton, visualisation de\
-		trajectoires (Monte-Carlo).\n\
-		✓ IRM particules chargées 3..0 : utilitaire mettant en œuvre les principes\
-		d’interactions particules chargées–matières dans les matériaux avec diverses\
-		applications : calcul de parcours, de coefficient fluence-kerma, application aux\
-		spectres bêta.\n\
-		✓ Serious Game 3.0 : utilitaire à vocation pédagogique permettant de mettre en\
-		évidence les paramètres essentiels de la radioprotection : distance, temps,\
-		écran, activité, nature radionucléide\n\
-		✓ Coefficients ICRU 57 3.0 : utilitaire permettant de connaitre les coefficients\
-		fluence-équivalents de dose et kerma air normalisés pour les électrons, les\
-		photons et les neutrons.",
 	title:"Dossiers de validation et références MCNP",
 }
 
 const pack3 = {
-	text:"SOMMAIRE DOSIMEX MESURE\n\
-		✓ Code TAGE (Total Absorption Gamma Efficiency) : code déterministe calculant le\
-		rendement d’absorption totale en spectrométrie gamma, avec correction de couches\
-		mortes (caractérisation), correction de coïncidence et rendement de pics sommes.\n\
-		✓ Code Co 3 : code de calcul de Coefficient de Conversion Contaminamètres permettant\
-		de calculer les rendements(Bq/cm2/ cps) de divers ictomètres et d’obtenir les\
-		activités surfaciques versus la nature de la sonde et le spectre isotopique mesuré.\n\
-		✓ Composition de variables aléatoires : utilitaire permettant de combiner par méthode\
-		Monte-Carlo jusqu’à 5 variables de types différents . Cet utilitaire est accompagné des\
-		documents de cours complets sur le sujet des calculs d’incertitudes\n\
-		✓ Calcul de seuil de décision. Utilitaire permettant de déterminer le seuil de décision et\
-		la limite de détection en mesure nucléaire. Cet utilitaire est accompagné des\
-		documents de cours complets sur ce sujet et d’articles divers.",
 	title:"Rapports de stages de fin d’étude vs Dosimex",
 }
 
-const documentation = "Pour mieux vous permettre de juger des possibilités offertes\
-			avec Dosimex-GX, vous pouvez télécharger\
-			l’ensemble de la documentation associée à ce code :\n\
-			o Les manuels d’utilisation\n\
-			o Les dossiers de validation\n\
-			o Quelques rapports de stages de fin d'étude utilisant Dosimex";
-
-const peda = "Toujours dans un souci pédagogique, un ensemble complet de\
-		documents de cours on été rajouté au pack Dosimex 3.0 :\n 10\
-		documents allant de la physique nucléaire, passant par les\
-		principes d’interaction rayonnement-matières et de détection,\
-		jusqu’ aux aspects statistiques et incertitudes.\nCes documents\
-		représentent un total de 1000 pages";
+const documentation = `Pour mieux vous permettre de juger des possibilités offertes
+			avec Dosimex-GX, vous pouvez télécharger
+			l’ensemble de la documentation associée à ce code :\n
+			o Les manuels d’utilisation\n
+			o Les dossiers de validation\n
+			o Quelques rapports de stages de fin d'étude utilisant Dosimex`;

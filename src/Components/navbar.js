@@ -3,10 +3,15 @@ import { Menu } from 'semantic-ui-react'
 
 import { BrowserRouter as Redirect, withRouter } from "react-router-dom";
 
-import Color from '../Styles/colorSchemes.js'
-import Size from '../Styles/Size.js'
-
 import LogoDosi2 from "../Images/miniLogo.png"
+
+import {
+	isMobile
+} from "react-device-detect";
+
+function noop(op){
+	return (op);
+}
 
 class MenuExamplePointing extends Component {
 
@@ -22,6 +27,7 @@ class MenuExamplePointing extends Component {
 			mouseOver:false
 		}
 		this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+		noop(Redirect);
 	}
 
 	handleItemClick = (e, { name }) => this.setState({ activeItem: name })
@@ -41,14 +47,16 @@ class MenuExamplePointing extends Component {
 	}
 
 	render() {
-		const { activeItem } = this.state
 		const backColor = this.state.mouseOver ? "#991302" : 'rgba(0,0,0,1)';
-		const fontSize = this.state.mouseOver ? (Size.greaterMd() ? '0.95vw' : 4.5) : (Size.greaterMd() ? '0.95vw' : 4)
-		const itemStyle = {color: "white", fontSize:fontSize, fontWeight:'bold', 'transition-property': 'font-size', 'transition-duration': '0.4s', 'z-index':10, height:'4vh'};
+		let fontSize = this.state.mouseOver ? '0.95vw' : '0.95vw'
+		if (isMobile){
+			fontSize = '1vw';
+		}
+		const itemStyle = {color: "white", fontSize:fontSize, fontWeight:'bold', transitionProperty: 'font-size', transitionDuration: '0.4s', zIndex:10, height:'4vh'};
 		return (
 			<div style={{width:'100%', height:'4vh', overflow:'hidden', position:this.props.route === 'Home' ? 'fixed' : 'relative', top:0, zIndex:255}} onMouseOver={() => this.setState({mouseOver:true})} onMouseOut={() => this.setState({mouseOver:false})} >
 				<Menu pointing  style={{backgroundColor: backColor, transitionProperty: 'background-color', transitionDuration: '0.5s', 'z-index':10, height:'4vh'}}>
-					<img src={LogoDosi2} style={{height:'3vh', marginRight:'1vw', paddingRight:'1vw', paddingLeft:'0.5vw', marginRight:'0.5vw', alignSelf:'center'}}/>
+					<img src={LogoDosi2} style={{height:'3vh', paddingRight:'1vw', paddingLeft:'0.5vw', marginRight:'0.5vw', alignSelf:'center'}} alt='logo' />
 					<Menu.Item
 						style={itemStyle}
 						name='Accueil'

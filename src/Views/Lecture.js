@@ -1,15 +1,15 @@
 import React from 'react';
 
-import { Row, Col, Accordion, Button, Card} from 'react-bootstrap'
-
 import Color from '../Styles/colorSchemes.js'
 
 import TextSpliter from '../Components/TextSpliter.js'
 
 import Biblio from '../Components/biblio'
 
-import ReactHtmlParser from 'react-html-parser'
-
+import {
+	BrowserView,
+	MobileView,
+} from "react-device-detect";
 
 const transform = {
 	packOperationel:'0',
@@ -45,12 +45,31 @@ export default class Home extends React.Component {
 
 	_renderLivre({Livre}){
 		return (
-			<div style={{display:'flex', width:'100vw', paddingTop:'2vh', paddingBottom:'2vh', borderBottom: '1px solid black', paddingRight:'3vw' ,paddingLeft:'3vw'}} >
-				<a href={Livre.link} target="_blank"><img style={{verticalAlign:'middle', marginBottom:'0.75em', width:'18vw'}} src={Livre.img} alt="" /></a>
-				<div style={{marginLeft:'2vw', width:'73vw'}} >
-					<TextSpliter textStyle={{textAlign:'justify', fontSize:15}} text={Livre.text} />
-					<a href={Livre.link} target="_blank">Lien vers l'éditeur</a>
-				</div>
+			<div>
+				<BrowserView>
+					<div style={{display:'flex', width:'100vw', paddingTop:'2vh', paddingBottom:'2vh', borderBottom: '1px solid black', paddingRight:'3vw' ,paddingLeft:'3vw'}} >
+						<a href={Livre.link} target="_blank" rel='noopener noreferrer' ><img style={{verticalAlign:'middle', marginBottom:'0.75em', width:'18vw'}} src={Livre.img} alt="" /></a>
+						<div style={{marginLeft:'2vw', width:'73vw'}} >
+							<p style={{fontSize:17, fontWeight:'bold'}} >{Livre.author}</p>
+							<TextSpliter textStyle={{textAlign:'justify', fontSize:15}} text={Livre.text} />
+							<div style={{marginTop:'4vh'}} >
+								<a style={{fontSize:16}} href={Livre.link} target="_blank" rel='noopener noreferrer' >Lien vers l'éditeur</a>
+							</div>
+						</div>
+					</div>
+				</BrowserView>
+				<MobileView>
+					<div style={{display:'flex', flexDirection:'column', width:'100vw', paddingTop:'2vh', paddingBottom:'2vh', borderBottom: '1px solid black', paddingRight:'3vw' ,paddingLeft:'3vw', alignItems:'center', justifyContent:'center'}} >
+						<p style={{fontSize:17, fontWeight:'bold'}} >{Livre.author}</p>
+						<a href={Livre.link} target="_blank" rel='noopener noreferrer' ><img style={{verticalAlign:'middle', marginBottom:'0.75em', width:'50vw'}} src={Livre.img} alt="" /></a>
+						<div style={{marginLeft:'2vw', width:'80vw'}} >
+							<TextSpliter textStyle={{textAlign:'justify', fontSize:12}} text={Livre.text} />
+							<div style={{marginTop:'4vh'}} >
+								<a style={{fontSize:16}} href={Livre.link} target="_blank" rel='noopener noreferrer' >Lien vers l'éditeur</a>
+							</div>
+						</div>
+					</div>
+				</MobileView>
 			</div>
 		);
 	}
