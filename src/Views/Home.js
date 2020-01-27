@@ -35,7 +35,8 @@ export default class Home extends React.Component {
 			height:0,
 			offset:0,
 			scrolling:false,
-			loading:true
+			loading:true,
+			bandeau:false,
 		}
 		this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
 	}
@@ -104,6 +105,80 @@ export default class Home extends React.Component {
 				null
 			);
 		}
+
+		if (this.state.bandeau === true){
+			return (
+				<div style={{}} >
+					<div style={{...backgroundImage(BackGroundHague2), ...boxStyle}} >
+						<BrowserView style={{ height:'100%', width:'100%'}} >
+							<div style={{backgroundColor:'rgba(0,0,0,0.2)', height:'100%', width:'100%'}} >
+								<div style={{display:'flex', flexDirection:'column', flex:1, justifyContent:'center', alignItems:'center'}} >
+									<h1 style={{color:Color.white, fontSize:'7vw', marginTop:'5vh', fontFamily:'CODEBold', textShadow:'1.5px 1.5px #000000'}}  >DOSIMEX</h1>
+								</div>
+								<div style={{display:'flex', marginTop:'15vh', height:'35vh', 'flexDirection':'row', width:'100vw', justifyContent:'center', alignItems:'center'}} >
+									<p style={{width:'80vw', textAlign: 'justify', color:Color.white, fontWeight:'bold', fontSize:'2vw',  textShadow:'1.5px 1.5px #000000'}} >Depuis 2012, nous vous proposons un ensemble d'outils de calculs pratiques, simples d’emploi, validés, et répondant à de nombreuses situations rencontrées en radioprotection. Ils vous permettront d'améliorer votre niveau d'expertise.</p>
+								</div>
+								{/*<this.scroller/>*/}
+								<div onClick={() => this.setState({bandeau:!this.state.bandeau})} style={{position:'absolute', bottom:'6vh', zIndex:10}} >
+									<p style={{color:Color.lightergrey, fontSize:'1.3vw', right:'4vw', fontStyle:'italic', position:'fixed'}} >Cap de la Hague - Site ORANO</p>
+								</div>
+							</div>
+						</BrowserView>
+						<MobileView style={{ height:'100%', width:'100%'}} >
+							<div style={{backgroundColor:'rgba(0,0,0,0.2)', height:'100%', width:'100%'}} >
+								<div style={{display:'flex', flexDirection:'column', flex:1, justifyContent:'center', alignItems:'center'}} >
+									<h1 style={{color:Color.white, fontSize:'7vh', marginTop:'5vh', fontFamily:'CODEBold', textShadow:'1.5px 1.5px #000000'}}  >DOSIMEX</h1>
+								</div>
+								<div style={{display:'flex', marginTop:'15vh', height:'35vh', 'flexDirection':'row', width:'100vw', justifyContent:'center', alignItems:'center'}} >
+									<p style={{width:'80vw', textAlign: 'justify', color:Color.white, fontWeight:'bold', fontSize:'2vh',  textShadow:'1.5px 1.5px #000000'}} >Depuis 2012, nous vous proposons un ensemble d'outils de calculs pratiques, simples d’emploi, validés, et répondant à de nombreuses situations rencontrées en radioprotection. Ils vous permettront d'améliorer votre niveau d'expertise.</p>
+								</div>
+								{/*<this.scroller/>*/}
+								<div style={{position:'absolute', right:'2vw', bottom:'2vh', zIndex:10}} >
+									<p style={{color:Color.lightergrey, fontSize:'0.9vh', right:'1vh', fontStyle:'italic', position:'fixed'}} >Cap de la Hague - Site ORANO</p>
+								</div>
+							</div>
+						</MobileView>
+					</div>
+					<BrowserView>
+						<div style={backgroundImage(BackGroundHague2)} >
+							<HomeStyler icon="md-walk" mainText='A la découverte du pack Dosimex' secondText={<p style={{color:Color.black, fontSize:28}} >Retrouvez toutes nos offres <a href="/offres" >ici</a></p>} />
+							<div style={{position:'relative', top:'-120vh', height:'100%', width:'100%', clipPath:'polygon(100% 90%, 100% 100%, 0 55%, 0 45%)', backgroundColor:Color.white + '40', overflow:'visible', zIndex:1}}/>
+						</div>
+						<div style={backgroundImage(BackGroundHague2)} >
+							<HomeStyler icon="ios-people" mainText='Plus de 1000 radioprotectionnistes convaincus' secondText={<p style={{color:Color.black, fontSize:28}} >Vous pouvez lire quelques avis : <a href={Synthèse_retour_utilisateurs_Dosimex} taget="_blank" >ici</a></p>} />
+							<div style={{position:'relative', top:'-120vh', height:'100%', width:'100%', clipPath:'polygon(0% 90%, 0% 100%, 100% 55%, 100% 45%)', backgroundColor:Color.blue + '40', overflow:'visible', zIndex:1}}/>
+						</div>
+						<div style={backgroundImage(BackGroundHague2)} >
+							<HomeStyler icon="md-checkmark" mainText='Validé via MCNP, RayXpert, Microshield et Mercurad' secondText={<a href="/about/Validation" >Accedez aux dossier de validation</a>} />
+							<div style={{position:'relative', top:'-120vh', height:'100%', width:'100%', clipPath:'polygon(100% 90%, 100% 100%, 0 55%, 0 45%)', backgroundColor:Color.darkGreen + '40', overflow:'visible', zIndex:1}}/>
+						</div>
+						<div style={backgroundImage(BackGroundHague2)} >
+							<HomeStyler icon="md-time" mainText="Fruit de 30 années d'expérience" secondText={<a style={{color:Color.blue, fontSize:28}} href="/equipe" >Apprenez a nous connaitre</a>} />
+							<div style={{position:'relative', top:'-120vh', height:'100%', width:'100%', clipPath:'polygon(0% 90%, 0% 100%, 100% 55%, 100% 45%)', backgroundColor:Color.darkred + '40', overflow:'visible', zIndex:1}}/>
+						</div>
+						<div style={backgroundImage(BackGroundHague2)} >
+							<HomeStyler icon="ios-bulb" mainText="User friendly et sans installation" secondText={<a href="/about/Manuels" >Apprenez a utiliser Dosimex</a>} />
+							<div style={{position:'relative', top:'-120vh', height:'100%', width:'100%', clipPath:'polygon(100% 90%, 100% 100%, 0 55%, 0 45%)', backgroundColor:Color.darkBlue1 + '40', overflow:'visible', zIndex:1}}/>
+						</div>
+						<div style={{...backgroundImage(BackGroundHague2), overflow:'visible'}} >
+							<HomeStyler icon="md-school" mainText="Formation Dosimex" style={{}} iconColor={Color.lightgrey} secondText={<a style={{color:Color.blue, fontSize:28}} href="/formation/open" >En savoir plus</a>} />
+							<div style={{position:'relative', top:'-100vh', height:'100%', width:'100%', clipPath:'polygon(100% 60%, 100% 100%, 0 100%, 0 35%)', backgroundColor:Color.dark, overflow:'visible', zIndex:1}}/>
+						</div>
+
+						<div style={{...boxStyle, backgroundColor:Color.dark, width:'100vw', flexDirection:'row', alignItems:'center', justifyContent:'center'}} /* CTA */ >
+							<div style={{height:'100vh', width:'50vw'}} >
+								<HomeStyler icon="ios-cart" mainText="Achetez Dosimex dès maintenant" iconColor={Color.darkgrey} secondText={<a href='/acheter' style={{color:Color.white, fontSize:18, backgroundColor:Color.red, padding:12, borderRadius:20, alignItems:'center', justifyContent:'center', textShadow:'0px 0px'}} >Vers la boutique</a>} style={{backgroundColor:Color.dark}} />
+							</div>
+							<div style={{display:'flex', justifyContent:'center', alignItems:'center', height:'100vh', width:'50vw'}} >
+								<iframe style={{width:'30vw', height:'30vh'}} src="https://www.youtube.com/embed/E5eWKTJaNxQ" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title='présentation' ></iframe>
+							</div>
+						</div>
+					</BrowserView>
+					<this.footer/>
+				</div>
+			);
+		}
+
 		return (
 			<div style={{}} >
 				<div style={{...backgroundImage(BackGroundHague2), ...boxStyle}} >
@@ -116,8 +191,8 @@ export default class Home extends React.Component {
 								<p style={{width:'80vw', textAlign: 'justify', color:Color.white, fontWeight:'bold', fontSize:'2vw',  textShadow:'1.5px 1.5px #000000'}} >Depuis 2012, nous vous proposons un ensemble d'outils de calculs pratiques, simples d’emploi, validés, et répondant à de nombreuses situations rencontrées en radioprotection. Ils vous permettront d'améliorer votre niveau d'expertise.</p>
 							</div>
 							{/*<this.scroller/>*/}
-							<div style={{position:'absolute', right:'2vw', bottom:'2vh', zIndex:10}} >
-								<p style={{color:Color.lightergrey, fontSize:'0.9vw', right:'1vh', fontStyle:'italic', position:'fixed'}} >Cap de la Hague - Site ORANO</p>
+							<div onClick={() => this.setState({bandeau:!this.state.bandeau})} style={{position:'absolute', bottom:'6vh', zIndex:10}} >
+								<p style={{color:Color.lightergrey, fontSize:'1.3vw', right:'4vw', fontStyle:'italic', position:'fixed'}} >Cap de la Hague - Site ORANO</p>
 							</div>
 						</div>
 					</BrowserView>
@@ -139,18 +214,23 @@ export default class Home extends React.Component {
 				<BrowserView>
 					<div style={backgroundImage(BackGroundHague2)} >
 						<HomeStyler icon="md-walk" mainText='A la découverte du pack Dosimex' secondText={<p style={{color:Color.black, fontSize:28}} >Retrouvez toutes nos offres <a href="/offres" >ici</a></p>} />
+						<div style={{position:'relative', top:'-100vh', height:'100%', width:'100%', clipPath:'polygon(100% 80%, 100% 100%, 0 100%, 0 55%)', backgroundColor:Color.white + '40', overflow:'visible', zIndex:1}}/>
 					</div>
 					<div style={backgroundImage(BackGroundHague2)} >
 						<HomeStyler icon="ios-people" mainText='Plus de 1000 radioprotectionnistes convaincus' secondText={<p style={{color:Color.black, fontSize:28}} >Vous pouvez lire quelques avis : <a href={Synthèse_retour_utilisateurs_Dosimex} taget="_blank" >ici</a></p>} />
+						<div style={{position:'relative', top:'-100vh', height:'100%', width:'100%', clipPath:'polygon(100% 80%, 100% 100%, 0 100%, 0 55%)', backgroundColor:Color.blue + '40', overflow:'visible', zIndex:1}}/>
 					</div>
 					<div style={backgroundImage(BackGroundHague2)} >
 						<HomeStyler icon="md-checkmark" mainText='Validé via MCNP, RayXpert, Microshield et Mercurad' secondText={<a href="/about/Validation" >Accedez aux dossier de validation</a>} />
+						<div style={{position:'relative', top:'-100vh', height:'100%', width:'100%', clipPath:'polygon(100% 80%, 100% 100%, 0 100%, 0 55%)', backgroundColor:Color.darkGreen + '40', overflow:'visible', zIndex:1}}/>
 					</div>
 					<div style={backgroundImage(BackGroundHague2)} >
 						<HomeStyler icon="md-time" mainText="Fruit de 30 années d'expérience" secondText={<a style={{color:Color.blue, fontSize:28}} href="/equipe" >Apprenez a nous connaitre</a>} />
+						<div style={{position:'relative', top:'-100vh', height:'100%', width:'100%', clipPath:'polygon(100% 80%, 100% 100%, 0 100%, 0 55%)', backgroundColor:Color.darkred + '40', overflow:'visible', zIndex:1}}/>
 					</div>
 					<div style={backgroundImage(BackGroundHague2)} >
 						<HomeStyler icon="ios-bulb" mainText="User friendly et sans installation" secondText={<a href="/about/Manuels" >Apprenez a utiliser Dosimex</a>} />
+						<div style={{position:'relative', top:'-100vh', height:'100%', width:'100%', clipPath:'polygon(100% 80%, 100% 100%, 0 100%, 0 55%)', backgroundColor:Color.darkBlue1 + '40', overflow:'visible', zIndex:1}}/>
 					</div>
 					<div style={{...backgroundImage(BackGroundHague2), overflow:'visible'}} >
 						<HomeStyler icon="md-school" mainText="Formation Dosimex" style={{}} iconColor={Color.lightgrey} secondText={<a style={{color:Color.blue, fontSize:28}} href="/formation/open" >En savoir plus</a>} />

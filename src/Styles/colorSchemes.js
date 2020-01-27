@@ -9,10 +9,13 @@ export default  {
 	darkgrey:'darkgrey',
 	dark:"#1a1a1a",
 	black:'#0e0e0d',
-	white:'white',
+	white:'#ffffff',
 	darkBlue:"#0038e6",
 	bhcPurple:"#781f7f",
 	bhcPurpleTypo:"#8831B7",
+	darkBlue1:'#006492',
+
+	darkGreen:'#029019',
 
 	Tlightgrey:"rgba(211,211,211, 0.7)"
 }

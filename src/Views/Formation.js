@@ -38,10 +38,10 @@ const documentation =
 <p style='margin-top:4vh' >Pour un devis, nous contacter à :</p> \n
 <a href='mailto:contact@dosimex.fr?subject=formation&body=Expliquez votre besoin en formation ici' style=marginTop:2vh > contact@dosimex.fr</a>\n
 Téléphone : 06 89 70 90 35\n
-<p>Nous proposons en partenariat avec Safetechnologie d'autres formations sur les thématiques :</p>\n
+<p style='margin-top:4vh' >Nous proposons en partenariat avec Safetechnologie d'autres formations sur les thématiques :</p>\n
 • Physique nucléaire et radiactivité \n
 • Interaction rayonnements matière\n
-• Seuil de décision\n
+• Seuil de décision (ISO 11929)\n
 • Spéctrométrie gamma\n
 `
 
@@ -85,10 +85,10 @@ export default class About extends React.Component {
 						</Card.Header>
 						<Accordion.Collapse eventKey="0" style={{backgroundColor:Color.lightergrey}} >
 							<Col xs={{span:10, offset:1}} style={{backgroundColor:Color.white, backgroundImage: `url(${coures})`, backgroundPosition:'center', backgroundRepeat:'no-repeat', backgroundSize: "cover", marginTop:'1vh'}} >
-								<Row style={{justifyContent:'flex-start', marginBottom:'4vh'}} >
+								<div style={{ display:'flex', flexDirection:'Column', justifyContent:'flex-start', marginBottom:'4vh'}} >
 									<TextSpliter textStyle={{textAlign:'justify', fontSize:'2vh', margin:5, marginLeft:15, marginRight:15, marginTop:0}} text={documentation} />
-									<a href={Catalogue} target="_blank" style={{fontSize:'2vh', marginTop:'1vh', marginLeft:20}} rel='noopener noreferrer' >Téléchargez leur catalogue de formation</a>
-								</Row>
+									<a href={Catalogue} target="_blank" style={{fontSize:'2vh', marginTop:'1vh', marginLeft:20, marginBottom:'4vh'}} rel='noopener noreferrer' >Téléchargez le catalogue de formation</a>
+								</div>
 							</Col>
 						</Accordion.Collapse>
 					</Card>

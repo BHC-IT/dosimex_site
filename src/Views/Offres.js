@@ -54,7 +54,12 @@ export default class Home extends React.Component {
 	_renderLine = ({line, img, length}) => {
 		return (
 			<div style={{display:'flex', flexDirection:'column'}} >
-				<TextSpliter textStyle={{textAlign:'justify', fontSize:'1.4vh', margin:5, marginLeft:15, marginRight:15, marginTop:'1vh'}} text={line} />
+				<BrowserView>
+					<TextSpliter textStyle={{textAlign:'justify', fontSize:'2vh', margin:5, marginLeft:15, marginRight:15, marginTop:'1vh'}} text={line} />
+				</BrowserView>
+				<MobileView>
+					<TextSpliter textStyle={{textAlign:'justify', fontSize:'1.4vw', margin:5, marginLeft:15, marginRight:15, marginTop:'1vh'}} text={line} />
+				</MobileView>
 			</div>
 		);
 	}
@@ -67,7 +72,7 @@ export default class Home extends React.Component {
 						<p style={{fontSize:'1.4vw', fontWeight:'bold'}} >{pack.main}</p>
 					</div>
 					<div style={{display:'flex', justifyContent:'center', alignItems:'center', marginTop:'8vh'}} >
-						<img style={{width:'30vw', marginLeft:'2vw'}} src={pack.img} alt="" />
+						<img style={{width:'25vw', marginLeft:'2vw'}} src={pack.img} alt="" />
 						<div style={{display:'flex', flexDirection:'column', marginLeft:'4vw', marginRight:'4vw'}} >
 							{pack.text.map((e, i) => <this._renderLine line={e} img={pack.img[i]} length={pack.text.length} key={i} />)}
 						</div>
@@ -93,7 +98,7 @@ export default class Home extends React.Component {
 				{this.isOpen() ?
 					null
 					:
-					<Row style={{justifyContent:'center', alignItems:'center', width:'100vw'}} ><img style={{width:'50vw'}} src={Image} alt='offres' /></Row>
+					<Row style={{justifyContent:'center', alignItems:'center', width:'100vw'}} ><img style={{width:'75vh'}} src={Image} alt='offres' /></Row>
 				}
 				<Accordion style={{width:'100vw'}} defaultActiveKey={transform[this.props.pack]} >
 					<Card style={{width:'101vw'}} >
