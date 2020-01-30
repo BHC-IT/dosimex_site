@@ -58,7 +58,7 @@ export default class Home extends React.Component {
 					<TextSpliter textStyle={{textAlign:'justify', fontSize:'2vh', margin:5, marginLeft:15, marginRight:15, marginTop:'1vh'}} text={line} />
 				</BrowserView>
 				<MobileView>
-					<TextSpliter textStyle={{textAlign:'justify', fontSize:'1.4vw', margin:5, marginLeft:15, marginRight:15, marginTop:'1vh'}} text={line} />
+					<TextSpliter textStyle={{textAlign:'justify', fontSize:'1.4vh', margin:5, marginLeft:15, marginRight:15, marginTop:'1vh'}} text={line} />
 				</MobileView>
 			</div>
 		);
@@ -94,7 +94,7 @@ export default class Home extends React.Component {
 
 	render(){
 		return (
-			<Row style={{ height:'96vh', alignItems:'flex-end'}} >
+			<Row style={{ height:'96vh', alignItems:'flex-end', width:'100vw'}} >
 				{this.isOpen() ?
 					null
 					:
@@ -159,10 +159,10 @@ const pack1 = {
 
 const pack2 = {
 	text:[
-		"• <p style='display:inline;font-weight:bold;font-size:1.7vw' >IRM photon 3.0</p> : utilitaire mettant en œuvre les principes d’interactions photon –matières dans les matériaux avec diverses applications : calcul de kerma, de dose, de libre parcours moyen, effet Compton, visualisation de trajectoires (Monte-Carlo).",
-		"• <p style='display:inline;font-weight:bold;font-size:1.7vw' >IRM particules chargées 3.0</p> : utilitaire mettant en œuvre les principes d’interactions particules chargées–matières dans les matériaux avec diverses applications : calcul de parcours, de coefficient fluence-dose, application aux spectres bêta.",
-		"• <p style='display:inline;font-weight:bold;font-size:1.7vw' >Serious Game 3.0</p> : utilitaire à vocation pédagogique permettant de mettre en évidence les paramètres essentiels de la radioprotection : distance, temps, écran, activité, nature radionucléide",
-		"• <p style='display:inline;font-weight:bold;font-size:1.7vw' >Coefficients  ICRU 57 3.0</p> : utilitaire permettant de connaitre les coefficients fluence-équivalents de dose et kerma air normalisés pour les électrons, les photons et les neutrons.",
+		"• <p style='display:inline;font-weight:bold;font-size:1.vh' >IRM photon 3.0</p> : utilitaire mettant en œuvre les principes d’interactions photon –matières dans les matériaux avec diverses applications : calcul de kerma, de dose, de libre parcours moyen, effet Compton, visualisation de trajectoires (Monte-Carlo).",
+		"• <p style='display:inline;font-weight:bold;font-size:1.vh' >IRM particules chargées 3.0</p> : utilitaire mettant en œuvre les principes d’interactions particules chargées–matières dans les matériaux avec diverses applications : calcul de parcours, de coefficient fluence-dose, application aux spectres bêta.",
+		"• <p style='display:inline;font-weight:bold;font-size:1.vh' >Serious Game 3.0</p> : utilitaire à vocation pédagogique permettant de mettre en évidence les paramètres essentiels de la radioprotection : distance, temps, écran, activité, nature radionucléide",
+		"• <p style='display:inline;font-weight:bold;font-size:1.vh' >Coefficients  ICRU 57 3.0</p> : utilitaire permettant de connaitre les coefficients fluence-équivalents de dose et kerma air normalisés pour les électrons, les photons et les neutrons.",
 	],
 	img: packPeda,
 	title:"Pack pédagogique",
@@ -172,10 +172,10 @@ const pack2 = {
 
 const pack3 = {
 	text:[
-		"• <p style='display:inline;font-weight:bold;font-size:1.7vw' >Code TAGE (Total Absorption Gamma Efficiency)</p> : code déterministe calculant le rendement d’absorption totale en spectrométrie gamma, avec correction de couches mortes (caractérisation), correction de coïncidence et rendement de pics sommes.",
-		"• <p style='display:inline;font-weight:bold;font-size:1.7vw' >Code Co3</p> : code de calcul de Coefficient de Conversion Contaminamètres  permettant de calculer les rendements(Bq/cm2/ cps) de divers ictomètres et d’obtenir les activités surfaciques versus la nature de la sonde et le spectre isotopique mesuré.",
-		"• <p style='display:inline;font-weight:bold;font-size:1.7vw' >Composition de variables aléatoires</p> : utilitaire permettant de combiner par méthode Monte-Carlo jusqu’à 5 variables de types différents . Cet utilitaire est accompagné des documents de cours complets sur le sujet des calculs d’incertitudes",
-		"• <p style='display:inline;font-weight:bold;font-size:1.7vw' >Calcul de seuil de décision</p> : Utilitaire permettant de déterminer le seuil de décision et la limite de détection en mesure nucléaire. Cet utilitaire est accompagné des documents de cours.",
+		"• <p style='display:inline;font-weight:bold;font-size:1.vh' >Code TAGE (Total Absorption Gamma Efficiency)</p> : code déterministe calculant le rendement d’absorption totale en spectrométrie gamma, avec correction de couches mortes (caractérisation), correction de coïncidence et rendement de pics sommes.",
+		"• <p style='display:inline;font-weight:bold;font-size:1.vh' >Code Co3</p> : code de calcul de Coefficient de Conversion Contaminamètres  permettant de calculer les rendements(Bq/cm2/ cps) de divers ictomètres et d’obtenir les activités surfaciques versus la nature de la sonde et le spectre isotopique mesuré.",
+		"• <p style='display:inline;font-weight:bold;font-size:1.vh' >Composition de variables aléatoires</p> : utilitaire permettant de combiner par méthode Monte-Carlo jusqu’à 5 variables de types différents . Cet utilitaire est accompagné des documents de cours complets sur le sujet des calculs d’incertitudes",
+		"• <p style='display:inline;font-weight:bold;font-size:1.vh' >Calcul de seuil de décision</p> : Utilitaire permettant de déterminer le seuil de décision et la limite de détection en mesure nucléaire. Cet utilitaire est accompagné des documents de cours.",
 	],
 	img: packMesure,
 	title:"Pack mesures",

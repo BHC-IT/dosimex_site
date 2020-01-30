@@ -11,6 +11,7 @@ import Team from './Team'
 import Lecture from './Lecture'
 import PaymentPage from './PaymentPage'
 import Partenaires from './Partenaires.js'
+import Contact from './Contact.js'
 
 import Color from '../Styles/colorSchemes.js'
 
@@ -126,6 +127,13 @@ class App extends React.Component {
 							this.setState({route:'Partenaires'});
 						return(
 							<Partenaires/>
+						);
+					}} />
+					<Route path="/contact" render={() => {
+						if (this.state.route !== 'Contact')
+							this.setState({route:'Contact'});
+						return(
+							<Contact/>
 						);
 					}} />
 

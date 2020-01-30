@@ -90,19 +90,19 @@ export default class Home extends React.Component {
 							<Card.Body style={{backgroundColor:Color.lightergrey, height:'71vh'}} >
 								<div style={{display:'flex', 'flex-direction':'row', justifyContent:'space-evenly'}} >
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
-										<a href={PManuel1} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IManuel1} style={{height:'35vh'}} alt='' /></a>
+										<a href={PManuel1} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IManuel1} style={{width:'20vw'}} alt='' /></a>
 										<a href={PManuel1} target="_blank" rel="noopener noreferrer" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >MANUEL DOSE GAMMA</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
-										<a href={PManuel2} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IManuel2} style={{height:'35vh'}} alt='' /></a>
+										<a href={PManuel2} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IManuel2} style={{width:'20vw'}} alt='' /></a>
 										<a href={PManuel2} target="_blank" rel="noopener noreferrer" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >MANUEL GÉNÉRATEUR X</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
-										<a href={PManuel3} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IManuel3} style={{height:'35vh'}} alt='' /></a>
+										<a href={PManuel3} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IManuel3} style={{width:'20vw'}} alt='' /></a>
 										<a href={PManuel3} target="_blank" rel="noopener noreferrer" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >MANUEL + VALIDATION NF C15-160</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
-										<a href={PManuel4} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IManuel4} style={{height:'35vh'}} alt='' /></a>
+										<a href={PManuel4} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IManuel4} style={{width:'20vw'}} alt='' /></a>
 										<a href={PManuel4} target="_blank" rel="noopener noreferrer" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Grandeurs pratiques en radiologie'.toUpperCase()}</p></a>
 									</div>
 								</div>
@@ -119,23 +119,23 @@ export default class Home extends React.Component {
 							<Card.Body style={{backgroundColor:Color.lightergrey, height:'71vh'}} >
 								<div style={{display:'flex', 'flex-direction':'row', justifyContent:'space-evenly'}} >
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
-										<a href={PValidation1} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IValidation1} style={{height:'35vh'}} alt='' /></a>
+										<a href={PValidation1} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IValidation1} style={{width:'16vw'}} alt='' /></a>
 										<a href={PValidation1} target="_blank" rel="noopener noreferrer" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >DOSSIER DE VALIDATION EMISSION GAMMA</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
-										<a href={PValidation2} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IValidation2} style={{height:'35vh'}} alt='' /></a>
+										<a href={PValidation2} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IValidation2} style={{width:'16vw'}} alt='' /></a>
 										<a href={PValidation2} target="_blank" rel="noopener noreferrer" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >DOSSIER DE VALIDATION GÉNÉRATEUR X</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
-										<a href={PValidation3} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IValidation3} style={{height:'35vh'}} alt='' /></a>
+										<a href={PValidation3} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IValidation3} style={{width:'16vw'}} alt='' /></a>
 										<a href={PValidation3} target="_blank" rel="noopener noreferrer" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Référence géné X MCNP/CEA'.toUpperCase()}</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
-										<a href={PValidation4} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IValidation4} style={{height:'35vh'}} alt='' /></a>
+										<a href={PValidation4} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IValidation4} style={{width:'16vw'}} alt='' /></a>
 										<a href={PValidation4} target="_blank" rel="noopener noreferrer" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Référence Radionucléide MCNP/AREVA'.toUpperCase()}</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
-										<a href={PValidation5} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IValidation5} style={{height:'35vh'}} alt='' /></a>
+										<a href={PValidation5} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IValidation5} style={{width:'16vw'}} alt='' /></a>
 										<a href={PValidation5} target="_blank" rel="noopener noreferrer" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Référence atténuation X'.toUpperCase()}</p></a>
 									</div>
 								</div>
@@ -152,19 +152,19 @@ export default class Home extends React.Component {
 							<Card.Body style={{backgroundColor:Color.lightergrey, height:'71vh'}} >
 								<div style={{display:'flex', 'flex-direction':'row', justifyContent:'space-evenly'}} >
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
-										<a href={PRapport1} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IRapport1} style={{height:'35vh'}} alt='' /></a>
+										<a href={PRapport1} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IRapport1} style={{width:'20vw'}} alt='' /></a>
 										<a href={PRapport1} target="_blank" rel="noopener noreferrer" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Mémoire ulysse'.toUpperCase()}</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
-										<a href={PRapport2} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IRapport2} style={{height:'35vh'}} alt='' /></a>
+										<a href={PRapport2} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IRapport2} style={{width:'20vw'}} alt='' /></a>
 										<a href={PRapport2} target="_blank" rel="noopener noreferrer" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Mémoire microshield vs Dosimex 1'.toUpperCase()}</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
-										<a href={PRapport3} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IRapport3} style={{height:'35vh'}} alt='' /></a>
+										<a href={PRapport3} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IRapport3} style={{width:'20vw'}} alt='' /></a>
 										<a href={PRapport3} target="_blank" rel="noopener noreferrer" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Mémoire microshield vs Dosimex 2'.toUpperCase()}</p></a>
 									</div>
 									<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
-										<a href={PRapport4} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IRapport4} style={{height:'35vh'}} alt='' /></a>
+										<a href={PRapport4} target="_blank" rel="noopener noreferrer" style={{}} ><img src={IRapport4} style={{width:'20vw'}} alt='' /></a>
 										<a href={PRapport4} target="_blank" rel="noopener noreferrer" style={{}} ><p style={{marginTop:'1vh', color:Color.black}} >{'Mémoire microshield vs Dosimex 3'.toUpperCase()}</p></a>
 									</div>
 								</div>

@@ -20,9 +20,9 @@ function RenderPart({part}){
 	}
 	let color = over ? 'rgba(246,246,246,0.8)' : 'rgba(255,255,255,0)';
 	return (
-		<a style={{height:'30vh', width:'30vh'}} onMouseOver={() => setOver(true)} onMouseOut={() => {}} href={part.url} target="_blank" rel="noopener noreferrer" >
-			<div style={{height:'30vh', width:'30vh', backgroundImage: `url(${part.img})`, backgroundPosition:'center', backgroundRepeat:'no-repeat', backgroundSize: "contain"}}>
-				<div style={{display:'flex', alignItems:'center', justifyContent:'center', height:'30vh', width:'30vh', backgroundColor:color, 'transition-property': 'background-color', 'transition-duration': '0.5s'}} onMouseOut={() => setOver(false)} >
+		<a style={{height:'30vh', width:'25vw'}} onMouseOver={() => setOver(true)} onMouseOut={() => {}} href={part.url} target="_blank" rel="noopener noreferrer" >
+			<div style={{height:'30vh', width:'25vw', backgroundImage: `url(${part.img})`, backgroundPosition:'center', backgroundRepeat:'no-repeat', backgroundSize: "contain"}}>
+				<div style={{display:'flex', alignItems:'center', justifyContent:'center', height:'30vh', width:'25vw', backgroundColor:color, 'transition-property': 'background-color', 'transition-duration': '0.5s'}} onMouseOut={() => setOver(false)} >
 					<p style={{fontSize:20, fontWeight:'bold', color:part.textColor ? part.textColor : 'black', opacity:over?1:0, 'transition-property': 'opacity', 'transition-duration': '0.7s'}} >{part.text}</p>
 				</div>
 			</div>
