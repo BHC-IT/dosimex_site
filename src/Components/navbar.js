@@ -122,7 +122,7 @@ class MenuExamplePointing extends Component {
 							style={{...itemStyle}}
 							name='Acheter DOSIMEX'
 							active={this.props.route === 'Acheter DOSIMEX'}
-							// onClick={(e, name) => this.redirectTo(e, name, "/acheter")}
+							onClick={(e, name) => this.redirectTo(e, name, "/acheter")}
 						/>
 				</Sidebar>
 				<Sidebar.Pusher style={{position:'fixed', zIndex:755555, top:'2vh', left:'2vw'}} onClick={() => this.setState({visible:true})} >
@@ -203,7 +203,7 @@ class MenuExamplePointing extends Component {
 						style={{...itemStyle, position:'absolute', right:5}}
 						name='Acheter DOSIMEX'
 						active={this.props.route === 'Acheter DOSIMEX'}
-						// onClick={(e, name) => this.redirectTo(e, name, "/acheter")}
+						onClick={(e, name) => this.redirectTo(e, name, "/acheter")}
 					/>
 				</Menu>
 			</div>
