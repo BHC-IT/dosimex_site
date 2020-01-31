@@ -47,14 +47,12 @@ export default class Home extends React.Component {
 				<div style={{display:'flex', flexDirection:'column', flexGrow:1, alignItems:'flex-start', justifyContent:'center', marginLeft:'0vw'}} >
 					<div style={{display:'flex', flexDirection:'column', flexGrow:1, alignItems:'center', justifyContent:'center', marginLeft:'0vw'}} >
 						<img src={usbkey} style={{width:'20vw', marginBottom:'1vh'}} alt='Dosimex key' />
-						<div style={{display:'flex', justifyContent:'center', alignItems:'space-between'}} >
-							<p>nombre :</p>
-							<InputNumberLib min={1} max={10} step={1} value={this.state.amount} onChange={(nb) => this.setState({amount:nb})} required style={{}} />
-
-						</div>
-						<button style={{backgroundColor:Color.red, borderWidth:0, borderRadius:15, height:50, width:200, marginTop:'2vh'}} onClick={() => this.payment()} >
-							<p style={{color:Color.white, fontSize:16, fontWeight:'bold'}} >Commander</p>
-						</button>
+						<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+							<input type="hidden" name="cmd" value="_s-xclick"/>
+							<input type="hidden" name="hosted_button_id" value="5ZR8G5EHFRUH4"/>
+							<input type="image" src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal, le réflexe sécurité pour payer en ligne"/>
+							<img alt="" border="0" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" width="1" height="1"/>
+						</form>
 					</div>
 				</div>
 			</div>
