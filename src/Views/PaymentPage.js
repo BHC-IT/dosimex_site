@@ -4,8 +4,6 @@ import Color from '../Styles/colorSchemes.js'
 
 import TextSpliter from '../Components/TextSpliter.js'
 
-import InputNumberLib from 'rc-input-number';
-
 import usbkey from "../Images/usbkey.png"
 
 export default class Home extends React.Component {
