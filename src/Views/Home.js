@@ -21,7 +21,7 @@ import {
 } from "react-device-detect";
 
 import Synthèse_retour_utilisateurs_Dosimex from '../Folders/extrait_retour_utilisateurs.pdf'
-// import Modif_DOSIMEX_GX_3 from '../Folders/Modif_DOSIMEX_GX_3.0.pdf'
+import Modification_Dosimex_GX_3 from '../Folders/Modification_Dosimex GX_3.0.pdf'
 import Information_légales from '../Folders/Informations_légales.pdf'
 import extrait_validation_gamma from '../Folders/extrait_validation_gamma.pdf'
 import extrait_validation_géné_X from '../Folders/extrait_validation_géné_X.pdf'
@@ -158,20 +158,36 @@ export default class Home extends React.Component {
 					<div style={backgroundImage(BackGroundHague2)} >
 						<div style={{...boxStyle, width:'100vw', flexDirection:'row', alignItems:'center', justifyContent:'center'}} /* CTA */ >
 							<div style={{height:'100vh', width:'50vw'}} >
-								<HomeStyler icon="ios-bulb" mainText="User friendly et sans installation" secondText={<a href="/about/Manuels" >Apprenez a utiliser Dosimex</a>} />
+								<HomeStyler icon="ios-bulb" mainText="User friendly et sans installation" />
 							</div>
 							<div style={{display:'flex', justifyContent:'center', alignItems:'center', height:'100vh', width:'50vw', backgroundColor:'rgba(255,255,255,0.5)'}} >
-								<iframe style={{width:'30vw', height:'30vh'}} src="https://www.youtube.com/embed/vPalFZk5io0" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title='présentation' ></iframe>
+								<iframe style={{width:'30vw', height:'30vh', marginTop:'5vh'}} src="https://www.youtube.com/embed/vPalFZk5io0" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title='présentation' ></iframe>
 							</div>
 						</div>
 						<div style={{position:'relative', top:'-100vh', height:'100%', width:'100%', clipPath:'polygon(100% 80%, 100% 100%, 0 100%, 0 55%)', backgroundColor:Color.darkBlue1 + '40', overflow:'visible', zIndex:1}}/>
 					</div>
 					<div style={backgroundImage(BackGroundHague2)} >
-						<HomeStyler icon="md-walk" mainText='A la découverte du pack Dosimex' secondText={<p style={{color:Color.black, fontSize:28}} >Retrouvez les packs Dosimex : <a href="/offres/packOperationel" >opérationnel</a>, <a href="/offres/packPedagogique" >pédagogique</a>, <a href="/offres/packMesure" >mesure</a> </p>} />
+						<HomeStyler icon="md-walk" mainText='A la découverte du pack Dosimex' secondText={
+							<div>
+								<p style={{color:Color.black, fontSize:28}} >Retrouvez tous les utilitaires Dosimex avec des vidéos spécifiques :
+									<a href="/offres/packOperationel" > pack opérationnel</a>,
+									<a href="/offres/packPedagogique" > pack pédagogique</a>,
+									<a href="/offres/packMesure" > pack mesure</a>
+								</p>
+								<div style={{display:'flex', justifyContent:'space-between', marginTop:'4vh'}} >
+									<div style={{flex:1}} >
+										<p style={{fontSize:'2vh', zIndex:6, color:Color.black}} >Les <a href={Modification_Dosimex_GX_3} target='_blank' rel='noopener noreferrer' >nouveautés</a> à découvrir dans Dosimex-GX 3.0</p>
+									</div>
+									<div style={{flex:1}} >
+										<p style={{fontSize:'2vh', zIndex:6, color:Color.black}} >Accédez aux <a href='/about/Manuels'>manuels d’utilisation</a> de Dosimex-GX pour en découvrir toutes le spossibilités</p>
+									</div>
+								</div>
+							</div>
+						} />
 						<div style={{position:'relative', top:'-100vh', height:'100%', width:'100%', clipPath:'polygon(100% 80%, 100% 100%, 0 100%, 0 55%)', backgroundColor:Color.white + '40', overflow:'visible', zIndex:1}}/>
 					</div>
 					<div style={backgroundImage(BackGroundHague2)} >
-						<HomeStyler icon="ios-people" mainText='Plus de 1000 radioprotectionnistes convaincus' secondText={<div><p style={{color:Color.black, fontSize:28}} >Vous pouvez lire quelques avis : <a href={Synthèse_retour_utilisateurs_Dosimex} target="_blank" rel='noreferrer noopener' >ici</a></p><a href='/partenaires' >Ils nous font confiance</a></div>} />
+						<HomeStyler icon="ios-people" mainText='Plus de 1000 radioprotectionnistes convaincus' secondText={<div><p style={{color:Color.black, fontSize:28}} >Quelques retours utilisateurs à lire <a href={Synthèse_retour_utilisateurs_Dosimex} target="_blank" rel='noreferrer noopener' >ici</a></p><a href='/partenaires' >Ils nous font confiance</a></div>} />
 						<div style={{position:'relative', top:'-100vh', height:'100%', width:'100%', clipPath:'polygon(100% 80%, 100% 100%, 0 100%, 0 55%)', backgroundColor:Color.blue + '40', overflow:'visible', zIndex:1}}/>
 					</div>
 					<div style={backgroundImage(BackGroundHague2)} >
@@ -183,7 +199,7 @@ export default class Home extends React.Component {
 						<div style={{position:'relative', top:'-100vh', height:'100%', width:'100%', clipPath:'polygon(100% 80%, 100% 100%, 0 100%, 0 55%)', backgroundColor:Color.darkred + '40', overflow:'visible', zIndex:1}}/>
 					</div>
 					<div style={{...backgroundImage(BackGroundHague2), overflow:'visible'}} >
-						<HomeStyler icon="md-school" mainText="Formation Dosimex" style={{}} iconColor={Color.lightgrey} secondText={<a style={{color:Color.blue, fontSize:28}} href="/formation/open" >En savoir plus</a>} />
+						<HomeStyler icon="md-school" mainText="Formation Dosimex" style={{}} iconColor={Color.lightgrey} secondText={<p style={{color:Color.white, width:'50vw'}} >Nous vous accompagnons pour prendre en mains ces outils de calculs en nous adaptant à vos problèmes specifiques.<a style={{color:Color.blue, fontSize:28, display:'block', textAlign:'center'}} href="/formation/open" >En savoir plus</a></p>} />
 						<div style={{position:'relative', top:'-100vh', height:'100%', width:'100%', clipPath:'polygon(100% 60%, 100% 100%, 0 100%, 0 35%)', backgroundColor:Color.dark, overflow:'visible', zIndex:1}}/>
 					</div>
 
