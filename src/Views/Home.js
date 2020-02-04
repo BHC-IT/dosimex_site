@@ -78,7 +78,6 @@ export default class Home extends React.Component {
 					<BrowserView>
 						<div style={{display:'flex', backgroundColor:'#242424', justifyContent:'space-between', alignItems:'center', justifySelf:'flex-end', paddingTop:'1vh', paddingBottom:'1vh' /* height === 9vh */}} >
 							<div style={{marginLeft:'2vw', justifyContent:'center'}} >
-								<p style={{color: Color.white, fontSize:'2vh'}} >Email : <a href='mailto:contact@dosimex.fr'> contact@dosimex.fr</a></p>
 								<p style={{color: Color.white, fontSize:'2vh'}} >Téléphone : 06 89 70 90 35</p>
 								<a href={Information_légales} target="_blank" rel='noopener noreferrer' ><p style={{color: Color.white, fontSize:'2vh'}} >Information légale</p></a>
 							</div>
@@ -107,7 +106,6 @@ export default class Home extends React.Component {
 	}
 
 	render(){
-		let popTextStyle = {display:'inline', backgroundColor:Color.darkred};
 		if (this.state.loading){
 			return (
 				null
@@ -123,7 +121,7 @@ export default class Home extends React.Component {
 								<h1 style={{color:Color.white, fontSize:'7vw', marginTop:'5vh', fontFamily:'CODEBold', textShadow:'1.5px 1.5px #000000'}}  >DOSIMEX</h1>
 							</div>
 							<div style={{display:'flex', marginTop:'15vh', height:'35vh', 'flexDirection':'row', width:'100vw', justifyContent:'center', alignItems:'center'}} >
-								<p style={{width:'80vw', textAlign: 'justify', color:Color.white, fontWeight:'bold', fontSize:'2vw',  textShadow:'1.5px 1.5px #000000'}} >Depuis <p style={popTextStyle} >2012</p>, nous vous proposons un ensemble d'outils de calculs pratiques, <p style={popTextStyle} >simples</p> d’emploi, <p style={popTextStyle} >validés</p>, et répondant à de nombreuses situations rencontrées en <p style={popTextStyle} >radioprotection</p>. Ils vous permettront d'améliorer votre niveau d'<p style={popTextStyle} >expertise</p>.</p>
+								<p style={{width:'80vw', textAlign: 'justify', color:Color.white, fontWeight:'bold', fontSize:'2vw',  textShadow:'1.5px 1.5px #000000'}} >Depuis 2012, nous vous proposons un ensemble d'outils de calculs pratiques, simples d’emploi, validés, et répondant à de nombreuses situations rencontrées en radioprotection. Ils vous permettront d'améliorer votre niveau d'expertise.</p>
 							</div>
 							{/*<this.scroller/>*/}
 							<div onClick={() => this.setState({bandeau:!this.state.bandeau})} style={{position:'absolute', bottom:'6vh', zIndex:10}} >
@@ -140,8 +138,9 @@ export default class Home extends React.Component {
 							<div style={{display:'flex', flexDirection:'column', flex:1, justifyContent:'center', alignItems:'center'}} >
 								<h1 style={{color:Color.white, fontSize:'7vh', marginTop:'5vh', fontFamily:'CODEBold', textShadow:'1.5px 1.5px #000000'}}  >DOSIMEX</h1>
 							</div>
-							<div style={{display:'flex', marginTop:'15vh', height:'35vh', 'flexDirection':'row', width:'100vw', justifyContent:'center', alignItems:'center'}} >
-								<p style={{width:'80vw', textAlign: 'justify', color:Color.white, fontWeight:'bold', fontSize:'2vh',  textShadow:'1.5px 1.5px #000000'}} >Depuis 2012, nous vous proposons un ensemble d'outils de calculs pratiques, simples d’emploi, validés, et répondant à de nombreuses situations rencontrées en radioprotection. Ils vous permettront d'améliorer votre niveau d'expertise.</p>
+							<div style={{display:'flex', flexDirection:'column', marginTop:'24vh', height:'35vh', width:'100vw', justifyContent:'center', alignItems:'center'}} >
+								<p style={{width:'80vw', textAlign: 'justify', color:Color.white, fontWeight:'bold', fontSize:'2.4vh',  textShadow:'1.5px 1.5px #000000'}} >Depuis 2012, nous vous proposons un ensemble d'outils de calculs pratiques, simples d’emploi, validés, et répondant à de nombreuses situations rencontrées en radioprotection.</p>
+								<p style={{width:'80vw', textAlign: 'justify', color:Color.white, fontWeight:'bold', fontSize:'2.4vh',  textShadow:'1.5px 1.5px #000000'}} >Ils vous permettront d'améliorer votre niveau d'expertise.</p>
 							</div>
 							{/*<this.scroller/>*/}
 							<div onClick={() => this.setState({bandeau:!this.state.bandeau})} style={{position:'absolute', bottom:'6vh', zIndex:10}} >
@@ -169,17 +168,17 @@ export default class Home extends React.Component {
 					<div style={backgroundImage(BackGroundHague2)} >
 						<HomeStyler icon="md-walk" mainText='A la découverte du pack Dosimex' secondText={
 							<div>
-								<p style={{color:Color.black, fontSize:28}} >Retrouvez tous les utilitaires Dosimex avec des vidéos spécifiques :
+								<p style={{color:Color.black, fontSize:'1.8vw'}} >Retrouvez tous les utilitaires Dosimex avec des vidéos spécifiques :
 									<a href="/offres/packOperationel" > pack opérationnel</a>,
 									<a href="/offres/packPedagogique" > pack pédagogique</a>,
 									<a href="/offres/packMesure" > pack mesure</a>
 								</p>
-								<div style={{display:'flex', justifyContent:'space-between', marginTop:'4vh'}} >
+								<div style={{display:'flex', justifyContent:'space-between', marginTop:'4vh', marginLeft:'2vw'}} >
 									<div style={{flex:1}} >
-										<p style={{fontSize:'2vh', zIndex:6, color:Color.black}} >Les <a href={Modification_Dosimex_GX_3} target='_blank' rel='noopener noreferrer' >nouveautés</a> à découvrir dans Dosimex-GX 3.0</p>
+										<p style={{fontSize:'1.5vw', zIndex:6, color:Color.black, textShadow:'none'}} >Les <a href={Modification_Dosimex_GX_3} target='_blank' rel='noopener noreferrer' >nouveautés</a> à découvrir dans Dosimex-GX 3.0</p>
 									</div>
 									<div style={{flex:1}} >
-										<p style={{fontSize:'2vh', zIndex:6, color:Color.black}} >Accédez aux <a href='/about/Manuels'>manuels d’utilisation</a> de Dosimex-GX pour en découvrir toutes le spossibilités</p>
+										<p style={{fontSize:'1.5vw', zIndex:6, color:Color.black, textShadow:'none'}} >Accédez aux <a href='/about/Manuels'>manuels d’utilisation</a> de Dosimex-GX pour en découvrir toutes les possibilités</p>
 									</div>
 								</div>
 							</div>
@@ -187,11 +186,11 @@ export default class Home extends React.Component {
 						<div style={{position:'relative', top:'-100vh', height:'100%', width:'100%', clipPath:'polygon(100% 80%, 100% 100%, 0 100%, 0 55%)', backgroundColor:Color.white + '40', overflow:'visible', zIndex:1}}/>
 					</div>
 					<div style={backgroundImage(BackGroundHague2)} >
-						<HomeStyler icon="ios-people" mainText='Plus de 1000 radioprotectionnistes convaincus' secondText={<div><p style={{color:Color.black, fontSize:28}} >Quelques retours utilisateurs à lire <a href={Synthèse_retour_utilisateurs_Dosimex} target="_blank" rel='noreferrer noopener' >ici</a></p><a href='/partenaires' >Ils nous font confiance</a></div>} />
+						<HomeStyler icon="ios-people" mainText='Plus de 1000 radioprotectionnistes convaincus' secondText={<div><p style={{color:Color.black, fontSize:28}} >Quelques retours utilisateurs à lire <a href={Synthèse_retour_utilisateurs_Dosimex} target="_blank" rel='noreferrer noopener' >ici</a></p>Ils nous font confiance : <a href='/partenaires' >nos partenaires</a></div>} />
 						<div style={{position:'relative', top:'-100vh', height:'100%', width:'100%', clipPath:'polygon(100% 80%, 100% 100%, 0 100%, 0 55%)', backgroundColor:Color.blue + '40', overflow:'visible', zIndex:1}}/>
 					</div>
 					<div style={backgroundImage(BackGroundHague2)} >
-						<HomeStyler icon="md-checkmark" mainText='Validé via MCNP, RayXpert, Microshield et Mercurad' secondText={<div><a href="/about/Validation" >Accédez aux dossiers de validation complet</a><p>Ou aux extraits <a href={extrait_validation_gamma} target="_blank" rel='noreferrer noopener' >validation source gamma</a> ou <a href={extrait_validation_géné_X} target="_blank" rel='noreferrer noopener' >validation générateur X</a> </p></div>} />
+						<HomeStyler icon="md-checkmark" mainText='Validé via MCNP, RayXpert, Microshield et Mercurad' secondText={<div><a href="/about/Validation" >Accédez aux dossiers de validation complets</a><p>Ou aux extraits <a href={extrait_validation_gamma} target="_blank" rel='noreferrer noopener' >validation source gamma</a> et <a href={extrait_validation_géné_X} target="_blank" rel='noreferrer noopener' >validation générateur X</a> </p></div>} />
 						<div style={{position:'relative', top:'-100vh', height:'100%', width:'100%', clipPath:'polygon(100% 80%, 100% 100%, 0 100%, 0 55%)', backgroundColor:Color.darkGreen + '40', overflow:'visible', zIndex:1}}/>
 					</div>
 					<div style={backgroundImage(BackGroundHague2)} >

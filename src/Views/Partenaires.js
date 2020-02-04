@@ -4,6 +4,7 @@ import Color from '../Styles/colorSchemes.js'
 
 import bhcLightNoTextDark from '../Images/test6_name_customcolor_backless_v2_light_dark.png'
 import safe from '../Images/logo_partenaires/safe.png'
+import lea from '../Images/logo_partenaires/lea.png'
 import alara from '../Images/logo_partenaires/alara.png'
 import apave from '../Images/logo_partenaires/apave.png'
 import trad from '../Images/logo_partenaires/trad.png'
@@ -20,9 +21,9 @@ function RenderPart({part}){
 	}
 	let color = over ? 'rgba(246,246,246,0.8)' : 'rgba(255,255,255,0)';
 	return (
-		<a style={{height:'30vh', width:'25vw'}} onMouseOver={() => setOver(true)} onMouseOut={() => {}} href={part.url} target="_blank" rel="noopener noreferrer" >
-			<div style={{height:'30vh', width:'25vw', backgroundImage: `url(${part.img})`, backgroundPosition:'center', backgroundRepeat:'no-repeat', backgroundSize: "contain"}}>
-				<div style={{display:'flex', alignItems:'center', justifyContent:'center', height:'30vh', width:'25vw', backgroundColor:color, 'transition-property': 'background-color', 'transition-duration': '0.5s'}} onMouseOut={() => setOver(false)} >
+		<a style={{height:'22vh', width:'25vw'}} onMouseOver={() => setOver(true)} onMouseOut={() => {}} href={part.url} target="_blank" rel="noopener noreferrer" >
+			<div style={{height:'22vh', width:'25vw', backgroundImage: `url(${part.img})`, backgroundPosition:'center', backgroundRepeat:'no-repeat', backgroundSize: "contain"}}>
+				<div style={{display:'flex', alignItems:'center', justifyContent:'center', height:'22vh', width:'25vw', backgroundColor:color, 'transition-property': 'background-color', 'transition-duration': '0.5s'}} onMouseOut={() => setOver(false)} >
 					<p style={{fontSize:20, fontWeight:'bold', color:part.textColor ? part.textColor : 'black', opacity:over?1:0, 'transition-property': 'opacity', 'transition-duration': '0.7s'}} >{part.text}</p>
 				</div>
 			</div>
@@ -52,7 +53,7 @@ export default class Partenaires extends Component {
 			rework_partenaires[i] = rework_partenaires[i].filter(e => e !== null && e !== undefined);
 		}
 		return (
-			<div style={{display:'flex', flexDirection:'column', alignItems:'center', height:'96vh', backgroundColor:Color.lightergrey}} >
+			<div style={{display:'flex', flexDirection:'column', alignItems:'center', height:'96vh', backgroundColor:Color.lightergrey, marginTop:'2vh'}} >
 				{rework_partenaires.map((e, i) => {
 					if (e.length ===  1){
 						return (
@@ -96,6 +97,12 @@ const partenaires = [
 		text:'Nous sommes fiers de les aider dans leurs missions'
 	},
 	{
+		name:'Lea',
+		url:'https://www.orano.group/fr/expertise-sur-tout-le-cycle/tour-des-implantations/laboratoire-etalons-activite/lea',
+		img:lea,
+		text:'Utilisent Dosimex à gogo dans leurs calculs'
+	},
+	{
 		name:'Apave',
 		url:'https://apave.com',
 		img:apave,
@@ -105,7 +112,7 @@ const partenaires = [
 		name:'Alara',
 		url:'https://www.alara-expertise.fr',
 		img:alara,
-		text:''
+		text:'Une entreprise qui aime les projets. Nous aussi'
 	},
 	{
 		name:'Trad',

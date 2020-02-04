@@ -14,6 +14,10 @@ import coures from  "../Images/Bonhomme_coures.png"
 
 import Catalogue from "../Folders/le_catalogue_de_formation_safe_technologies_v2.2.pdf";
 
+import {
+	isBrowser,
+} from "react-device-detect";
+
 const transform = {
 	open:'0',
 };
@@ -36,7 +40,7 @@ const documentation =
 • Source Strontium-Yttrium 90 de forte activité\n
 • Analyse radioprotection d'un colis de déchets produit de fission ( CSDV)\n
 <p style='margin-top:4vh' >Pour un devis, nous contacter à :</p> \n
-<a href='mailto:contact@dosimex.fr?subject=formation&body=Expliquez votre besoin en formation ici' style=marginTop:2vh > contact@dosimex.fr</a>\n
+<a href='/contact' style=marginTop:2vh > Par mail </a>\n
 Téléphone : 06 89 70 90 35\n
 <p style='margin-top:4vh' >Nous proposons en partenariat avec Safetechnologie d'autres formations sur les thématiques :</p>\n
 • Physique nucléaire et radiactivité \n
@@ -74,7 +78,7 @@ export default class About extends React.Component {
 				{this.isOpen() ?
 					null
 					:
-					<p style={{textAlign:'center', width:'100vw'}} ><img src={image} style={{height:'60vh'}} alt='formation' /> </p>
+					<p style={{textAlign:'center', width:'100vw'}} ><img src={image} style={{height:isBrowser ? '60vh' : '60vw'}} alt='formation' /> </p>
 				}
 				<Accordion defaultActiveKey={transform[this.props.pack]} >
 					<Card style={{width:'101vw'}} >

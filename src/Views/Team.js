@@ -5,6 +5,11 @@ import Size from '../Styles/Size.js'
 import Gerald from '../Images/Gerald.png'
 import Alain from '../Images/Alain.png'
 
+import {
+	BrowserView,
+	MobileView,
+} from "react-device-detect";
+
 import TextSpliter from '../Components/TextSpliter.js'
 
 const team = [
@@ -22,7 +27,7 @@ const team = [
 	title:"title here"
 },
 {
-	name:"Gerald Lopez",
+	name:"Gérald Lopez",
 	text:`J’ai commencé ma carrière, en 1997, dans la Marine Nationale en tant qu’électrotechnicien sur systèmes d’armement. Après une formation de technicien en radioprotection (TR), j’ai intégré le SPR de l’Ile Longue, avec diverses missions centrées sur les sous-marins nucléaires Lanceur d’engins (SNLE) : assistance radiologique, cartographies du compartiment réacteur, analyses radiologiques au laboratoire de moyenne activité, exercices de sécurité nucléaires…\n
 		En 2003, après une formation de technicien supérieur en radioprotection (TSR) à l’INSTN, j’ai rejoint l’Ecole des Applications Militaire à l’Energie Atomique (EAMEA) où j’ai enseigné la radioactivité, la radioprotection, la dosimétrie, la mesure nucléaire. A partir de cette époque, pour palier le manque flagrant d'outils, j’ai commencé à créer mes propres outils de calcul afin de réaliser simplement et rapidement des travaux dirigés dans le cadre de mes enseignements.\n
 		En 2010, J’ai intégré le SPR de l’Arsenal de Cherbourg en charge du 2SNM (Système de Surveillance Nucléaire Marine), système relié au Réseau Nationale de Mesure (RNM). Cette expérience m’a, entre autres, permis, de créer le code Dosimex-I, notamment sur l’option de transfert atmosphérique.\n
@@ -65,18 +70,35 @@ export default class Team extends React.Component {
 
 	_user({user}){
 		return (
-			<div style={{display:'flex', flexDirection:'column', marginTop:'4vh', marginBottom:'5vh', height:'95vh', backgroundColor:Color.lightergrey}} >
-				<div style={{ justifyContent:'center', alignItems:'center'}} >
-				</div>
-				<div style={{display:'flex', flexGrow:1}}>
-					<div style={{marginTop:5}} >
-						<img style={{width:'20vw'}} src={user.img} alt='team member' />
-						<p style={{textAlign: 'center', fontWeight:'bold', fontSize:Size.greaterMd() ? 30 : 10}} >{user.name}</p>
+			<div>
+				<BrowserView>
+					<div style={{display:'flex', flexDirection:'column', marginTop:'4vh', marginBottom:'5vh', height:'95vh', backgroundColor:Color.lightergrey}} >
+						<div style={{ justifyContent:'center', alignItems:'center'}} >
+						</div>
+						<div style={{display:'flex', flexGrow:1}}>
+							<div style={{marginTop:5}} >
+								<img style={{width:'20vw'}} src={user.img} alt='team member' />
+								<p style={{textAlign: 'center', fontWeight:'bold', fontSize:Size.greaterMd() ? 30 : 10}} >{user.name}</p>
+							</div>
+							<div style={{marginTop:5, justifyContent:'center', alignItems:'center', marginLeft:'3vw', marginRight:'3vw'}} >
+								<TextSpliter textStyle={{textAlign: 'justify', fontSize:Size.greaterMd() ? '1.9vh' : 7}} text={user.text} />
+							</div>
+						</div>
 					</div>
-					<div style={{marginTop:5, justifyContent:'center', alignItems:'center', marginLeft:'3vw', marginRight:'3vw'}} >
-						<TextSpliter textStyle={{textAlign: 'justify', fontSize:Size.greaterMd() ? '1.9vh' : 7}} text={user.text} />
+				</BrowserView>
+				<MobileView>
+					<div style={{display:'flex', flexDirection:'column', paddingTop:'4vh', paddingBottom:'5vh', backgroundColor:Color.lightergrey}} >
+						<div style={{display:'flex', flexDirection:'column', alignItems:'center'}} >
+							<img style={{width:'20vw'}} src={user.img} alt='team member' />
+							<p style={{textAlign: 'center', fontWeight:'bold', fontSize:Size.greaterMd() ? 30 : 10}} >{user.name}</p>
+						</div>
+						<div style={{display:'flex', flexGrow:1}}>
+							<div style={{marginTop:5, justifyContent:'center', alignItems:'center', marginLeft:'3vw', marginRight:'3vw'}} >
+								<TextSpliter textStyle={{textAlign: 'justify', fontSize:Size.greaterMd() ? '1.9vh' : '1.5vh'}} text={user.text} />
+							</div>
+						</div>
 					</div>
-				</div>
+				</MobileView>
 			</div>
 		);
 	}

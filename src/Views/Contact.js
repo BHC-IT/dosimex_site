@@ -1,4 +1,9 @@
 import React from 'react'
+import LogoDosi2 from "../Images/logo_dosi.png"
+
+import {
+  isBrowser
+} from "react-device-detect";
 
 let InputStyled = ({active, onChangeFocus, onChange, label}) => {
 	return (
@@ -59,30 +64,39 @@ export default class Contact extends React.Component {
 	render(){
 		console.log(this.state);
 		return (
-			<div style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'space-between', height:'80vh'}} >
-				<this.displayWellSent/>
-				<this.displayError/>
-				<div style={{display:'flex', width:'60%', justifyContent:'space-between', marginTop:'3vh'}} >
-					<InputStyled label='Nom' active={this.state.focusName === false && this.state.name === ''} onChange={(t) => this.setState({name:t})} onChangeFocus={(s) => this.setState({focusName:s})} />
-					<InputStyled label='Email' active={this.state.focusEmail === false && this.state.email === ''} onChange={(t) => this.setState({email:t})} onChangeFocus={(s) => this.setState({focusEmail:s})} />
-				</div>
-				<div>
-					<p style={{fontWeight:'bold', fontSize:18}} >Message</p>
-					<textArea style={{width:'60vw', height:'30vh'}} onChange={(t) => this.setState({text:t.target.value})} />
-				</div>
-				<div>
-					{this.state.sending === false ?
-						this.state.name === '' || this.state.email === '' || this.state.text === '' ?
-							<div style={{backgroundColor:'#db2828', paddingLeft:20, paddingRight:20, borderRadius:5}} >
-								<p style={{color:'white', fontSize:22}} >Envoyer</p>
-							</div>
+			<div style={{display:'flex', flexDirection:'column'}} >
+				<div style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', height:'60vh', marginTop:isBrowser ? '0vh' : '2vh', paddingBottom:'5vh'}} >
+					<p style={{fontWeight:'bold', fontSize:'2vh'}} >Envoyez nous un message ici</p>
+					<div style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'space-between'}} >
+						<this.displayWellSent/>
+						<this.displayError/>
+						<div style={{display:'flex',  width:'60vw', justifyContent:'space-between', marginTop:'3vh', flexDirection:isBrowser ? 'row' : 'column'}} >
+							<InputStyled label='Nom' active={this.state.focusName === false && this.state.name === ''} onChange={(t) => this.setState({name:t})} onChangeFocus={(s) => this.setState({focusName:s})} />
+							<InputStyled label='Email' active={this.state.focusEmail === false && this.state.email === ''} onChange={(t) => this.setState({email:t})} onChangeFocus={(s) => this.setState({focusEmail:s})} />
+						</div>
+						<div style={{marginTop:'5vh'}} >
+							<p style={{fontWeight:'bold', fontSize:18}} >Message</p>
+							<textArea style={{width:'60vw', height:'15vh'}} onChange={(t) => this.setState({text:t.target.value})} />
+						</div>
+					</div>
+					<div style={{marginTop:'5vh'}} >
+						{this.state.sending === false ?
+							this.state.name === '' || this.state.email === '' || this.state.text === '' ?
+								<div style={{backgroundColor:'#db2828', paddingLeft:20, paddingRight:20, borderRadius:5}} >
+									<p style={{color:'white', fontSize:22}} >Envoyer</p>
+								</div>
+								:
+								<div style={{backgroundColor:'#1678c2', paddingLeft:20, paddingRight:20, borderRadius:5}} onClick={() => this.sendMail()}>
+									<p style={{color:'white', fontSize:22}} >Envoyer</p>
+								</div>
 							:
-							<div style={{backgroundColor:'#1678c2', paddingLeft:20, paddingRight:20, borderRadius:5}} onClick={() => this.sendMail()}>
-								<p style={{color:'white', fontSize:22}} >Envoyer</p>
-							</div>
-						:
-						null
-					}
+							null
+						}
+					</div>
+				</div>
+				<div style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', height:'30vh', borderTopWidth:1, borderColor:"#000000", borderTopStyle:'solid'}} >
+					<p style={{fontSize:'2vh'}} >Où contactez nous par téléphone au : 06 89 70 90 35</p>
+					<img src={LogoDosi2} style={{width:'20vw', backgroundColor:"#ffffff"}} alt='logo dosimex' />
 				</div>
 			</div>
 		)

@@ -126,7 +126,7 @@ class MenuExamplePointing extends Component {
 						/>
 				</Sidebar>
 				<Sidebar.Pusher style={{position:'fixed', zIndex:755555, top:'2vh', left:'2vw'}} onClick={() => this.setState({visible:true})} >
-					<ion-icon name='md-menu' style={{color:'black', fontSize:'5vh'}}></ion-icon>
+					<ion-icon name='md-menu' style={{color:this.props.route === 'Home' ? 'white' : 'black', fontSize:'5vh'}}></ion-icon>
 				</Sidebar.Pusher>
 			</div>
 		)
@@ -139,10 +139,10 @@ class MenuExamplePointing extends Component {
 			fontSize = '1vw';
 			return this.renderMobile();
 		}
-		const itemStyle = {color: "white", fontSize:fontSize, fontWeight:'bold', transitionProperty: 'font-size', transitionDuration: '0.4s', zIndex:10, height:'4vh'};
+		const itemStyle = {color: "white", fontSize:fontSize, fontWeight:'bold', transitionProperty: 'font-size', transitionDuration: '0.4s', zIndex:10};
 		return (
-			<div style={{width:'100%', height:'4vh', overflow:'hidden', position:this.props.route === 'Home' ? 'fixed' : 'relative', top:0, zIndex:255}} onMouseOver={() => this.setState({mouseOver:true})} onMouseOut={() => this.setState({mouseOver:false})} >
-				<Menu pointing  style={{backgroundColor: backColor, transitionProperty: 'background-color', transitionDuration: '0.5s', 'z-index':10, height:'4vh'}}>
+			<div style={{width:'100%', position:this.props.route === 'Home' ? 'fixed' : 'relative', top:0, zIndex:255}} onMouseOver={() => this.setState({mouseOver:true})} onMouseOut={() => this.setState({mouseOver:false})} >
+				<Menu pointing  style={{ display:'flex', flexDirection:'row', alignItems:'center', backgroundColor: backColor, transitionProperty: 'background-color', transitionDuration: '0.5s', 'z-index':10}}>
 					<img src={LogoDosi2} style={{height:'3vh', paddingRight:'1vw', paddingLeft:'0.5vw', marginRight:'0.5vw', alignSelf:'center'}} alt='logo' />
 					<Menu.Item
 						style={itemStyle}
