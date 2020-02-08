@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Color from '../Styles/colorSchemes.js'
+// import Color from '../Styles/colorSchemes.js'
 
 import TextSpliter from '../Components/TextSpliter.js'
 
@@ -17,38 +17,72 @@ export default class Home extends React.Component {
 		super(props);
 
 		this.state = {
-			amount:1
+			amount:1,
+			wellSent:this.props.etat === 'paid' ? true : false,
+			error:this.props.etat === 'cancel' ? true : false
 		};
+		console.log(this.props)
+	}
+
+	componentWillMount(){
+		setTimeout(() => this.setState({wellSent:false, error:false}), 3000);
 	}
 
 	payment(){
 	}
 
+	displayWellSent = () => {
+		if (this.state.wellSent){
+			return (
+				<div style={{display:'flex', position:'fixed', height:'100vh', width:'100vw', backgroundColor:'rgba(255,255,255,0.7)', zIndex:99999, alignItems:'center', justifyContent:'center'}} >
+					<p style={{color:'#21ba45', fontWeight:'bold', fontSize:'2vw'}} >Votre commande a bien été prise en compte par l'équipe Dosimex</p>
+				</div>
+			);
+		}
+		return (null);
+	}
+
+	displayError = () => {
+		if (this.state.error){
+			setTimeout(() => this.setState({error:false}), 2500);
+			return (
+				<div style={{display:'flex', position:'fixed', height:'100vh', width:'100vw', backgroundColor:'rgba(255,255,255,0.7)', zIndex:99999, alignItems:'center', justifyContent:'center'}} >
+					<p style={{color:'#db2828', fontWeight:'bold', fontSize:'2vw'}} >Il y'a eu une erreur lors de votre paiement</p>
+				</div>
+			);
+		}
+		return (null);
+	}
+
 	render(){
 		return (
 			<div>
+				<this.displayWellSent/>
+				<this.displayError/>
 				<BrowserView>
-					<div style={{display:'flex', flexDirection:'row', height:'96vh', flexGrow:1, alignItems:'center', justifyContent:'center'}} >
-						<div style={{display:'flex', flexDirection:'column', flexGrow:1, alignItems:'flex-end', justifyContent:'center', borderRightWidth:1, borderColor:Color.black, borderRightStyle:'solid', paddingRight:'2.5vw', marginRight:'2.5vw', marginLeft:'5vw'}}>
-							<TextSpliter textStyle={{textAlign:'justify', fontSize:16}} text={text} />
+					<div style={{display:'flex', flexDirection:'column', height:'96vh', flexGrow:1, alignItems:'center', paddingTop:'5vh'}} >
+						<div style={{display:'flex', flexDirection:'column', flexGrow:1, alignItems:'center'}} >
+							<p style={{fontSize:18, fontWeight:'bold'}} >Clé USB Dosimex 3.0</p>
+							<img src={usbkey} style={{height:'25vh', marginBottom:'1vh'}} alt='Dosimex key' />
+							<p style={{fontSize:18, fontWeight:'bold'}} >250€HT, 300€ TTC</p>
+							<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+								<input type="hidden" name="cmd" value="_s-xclick"/>
+								<input type="hidden" name="hosted_button_id" value="5ZR8G5EHFRUH4"/>
+								<input type="image" src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal, le réflexe sécurité pour payer en ligne"/>
+								<img alt="" border="0" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" width="1" height="1"/>
+							</form>
 						</div>
-						<div style={{display:'flex', flexDirection:'column', flexGrow:1, alignItems:'flex-start', justifyContent:'center', marginLeft:'0vw'}} >
-							<div style={{display:'flex', flexDirection:'column', flexGrow:1, alignItems:'center', justifyContent:'center', marginLeft:'0vw'}} >
-								<img src={usbkey} style={{width:'20vw', marginBottom:'1vh'}} alt='Dosimex key' />
-								<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-									<input type="hidden" name="cmd" value="_s-xclick"/>
-									<input type="hidden" name="hosted_button_id" value="5ZR8G5EHFRUH4"/>
-									<input type="image" src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal, le réflexe sécurité pour payer en ligne"/>
-									<img alt="" border="0" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" width="1" height="1"/>
-								</form>
-							</div>
+						<div style={{display:'flex', flexDirection:'column', flexGrow:1, alignItems:'flex-end', justifyContent:'center', marginLeft:'3vw', marginRight:'3vw'}}>
+							<TextSpliter textStyle={{textAlign:'justify', fontSize:16}} text={text} />
 						</div>
 					</div>
 				</BrowserView>
 				<MobileView>
 					<div style={{display:'flex', flexDirection:'column', height:'96vh', flexGrow:1, alignItems:'center', paddingTop:'5vh'}} >
 						<div style={{display:'flex', flexDirection:'column', flexGrow:1, alignItems:'center'}} >
+							<p style={{fontSize:18, fontWeight:'bold'}} >Clé USB Dosimex 3.0</p>
 							<img src={usbkey} style={{width:'50vw', marginBottom:'1vh'}} alt='Dosimex key' />
+							<p style={{fontSize:18, fontWeight:'bold'}} >250€HT, 300€ TTC</p>
 							<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 								<input type="hidden" name="cmd" value="_s-xclick"/>
 								<input type="hidden" name="hosted_button_id" value="5ZR8G5EHFRUH4"/>
@@ -79,6 +113,6 @@ Un sommaire général (Sommaire général.pps) à la racine des dossiers permet 
 La <p style='font-weight:bold; display:inline' >partition D</p> protégée en écriture permet une restauration des fichiers si nécessaire.
 <p style='font-weight:bold; display:inline' >Prérequis</p> : les codes sont écrits en VBA sous Excel. Le pack Dosimex fonctionne avec Windows XP à Windows 10 et Excel 2003 à 2019 en autorisant le fonctionnement des macros. Sur Mac il est nécessaire de créer une « machine virtuelle ».
 Suivant les mesures de sécurité mises en place dans l’entreprise, il est conseillé de demander à votre service informatique de « whitelister » Dosimex.
-Vous pouvez acheter Dosimex 3.0 en ligne ou demander un devis par message.
+Vous pouvez acheter Dosimex 3.0 en ligne ou demander un devis par <a href='/contact' >message</a>.
 N’hésitez pas à nous contacter directement au <p style='font-weight:bold;display:inline' >06 89 70 90 35</p>.
 `

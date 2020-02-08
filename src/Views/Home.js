@@ -15,6 +15,8 @@ import BackGroundHague2 from "../Images/BackGroundHague2_compressed.png"
 import LogoDosi2 from "../Images/logo_dosi.png"
 import bhcLightNoText from '../Images/test6_name_customcolor_backless_v2_light.png'
 
+import bonhomme_fleche from '../Images/bonhomme_fleche.png'
+
 import {
 	BrowserView,
 	MobileView,
@@ -118,9 +120,9 @@ export default class Home extends React.Component {
 					<BrowserView style={{ height:'100%', width:'100%'}} >
 						<div style={{backgroundColor:'rgba(0,0,0,0.2)', height:'100%', width:'100%'}} >
 							<div style={{display:'flex', flexDirection:'column', flex:1, justifyContent:'center', alignItems:'center'}} >
-								<h1 style={{color:Color.white, fontSize:'7vw', marginTop:'5vh', fontFamily:'CODEBold', textShadow:'1.5px 1.5px #000000'}}  >DOSIMEX</h1>
+								<h1 style={{color:Color.white, fontSize:'7vw', marginTop:'13vh', fontFamily:'CODEBold', textShadow:'1.5px 1.5px #000000'}}  >DOSIMEX</h1>
 							</div>
-							<div style={{display:'flex', marginTop:'15vh', height:'35vh', 'flexDirection':'row', width:'100vw', justifyContent:'center', alignItems:'center'}} >
+							<div style={{display:'flex', marginTop:'15vh', height:'27vh', 'flexDirection':'row', width:'100vw', justifyContent:'center', alignItems:'center'}} >
 								<p style={{width:'80vw', textAlign: 'justify', color:Color.white, fontWeight:'bold', fontSize:'2vw',  textShadow:'1.5px 1.5px #000000'}} >Depuis 2012, nous vous proposons un ensemble d'outils de calculs pratiques, simples d’emploi, validés, et répondant à de nombreuses situations rencontrées en radioprotection. Ils vous permettront d'améliorer votre niveau d'expertise.</p>
 							</div>
 							{/*<this.scroller/>*/}
@@ -131,6 +133,8 @@ export default class Home extends React.Component {
 									null
 								}
 							</div>
+							<img src={bonhomme_fleche} alt='fleche' style={{position:'absolute', bottom:'4vh', left:'48vw', width:'4vw'}} />
+							<div style={{position:'relative', top:'-50vh', height:'100%', width:'100%', clipPath:'polygon(100% 50%, 50% 80%, 50% 80%, 0 50%)', backgroundColor:Color.white + '40', overflow:'visible', zIndex:1}}/>
 						</div>
 					</BrowserView>
 					<MobileView style={{ height:'100%', width:'100%'}} >
@@ -205,7 +209,7 @@ export default class Home extends React.Component {
 					<VizSensor partialVisibility onChange={(isVisible) =>this.setState({bottom:isVisible})} >
 						<div style={{...boxStyle, backgroundColor:Color.dark, width:'100vw', flexDirection:'row', alignItems:'center', justifyContent:'center'}} /* CTA */ >
 							<div style={{height:'100vh', width:'50vw'}} >
-								<HomeStyler icon="ios-cart" mainText="Achetez Dosimex dès maintenant" iconColor={Color.darkgrey} secondText={<a href='/acheter' style={{color:Color.white, fontSize:18, backgroundColor:Color.red, padding:12, borderRadius:20, alignItems:'center', justifyContent:'center', textShadow:'0px 0px'}} >Vers la boutique</a>} style={{backgroundColor:Color.dark}} />
+								<HomeStyler icon="ios-cart" mainText="Achetez Dosimex dès maintenant" iconColor={Color.darkgrey} secondText={<p style={{color:Color.white, textAlign:'center'}} >300€ TTC<a href='/acheter' style={{color:Color.white, fontSize:18, backgroundColor:Color.red, padding:12, borderRadius:20, alignItems:'center', justifyContent:'center', textShadow:'0px 0px', display:'block'}} >Vers la boutique</a></p>} style={{backgroundColor:Color.dark}}/>
 							</div>
 							<div style={{display:'flex', justifyContent:'center', alignItems:'center', height:'100vh', width:'50vw'}} >
 								<img src={LogoDosi2} style={{width:'30vw', backgroundColor:Color.white}} alt='logo dosimex' />

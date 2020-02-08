@@ -98,7 +98,10 @@ export default class Home extends React.Component {
 				{this.isOpen() ?
 					null
 					:
-					<Row style={{justifyContent:'center', alignItems:'center', width:'100vw'}} ><img style={{width:'75vh'}} src={Image} alt='offres' /></Row>
+					<div style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', width:'100vw'}} >
+						<img style={{width:'75vh'}} src={Image} alt='offres' />
+						<p style={{marginTop:'1vh', fontSize:16, fontWeight:'bold'}} >L'ensemble des 3 packs pour 300€ TTC</p>
+					</div>
 				}
 				<Accordion style={{width:'100vw'}} defaultActiveKey={transform[this.props.pack]} >
 					<Card style={{width:'101vw'}} >

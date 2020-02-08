@@ -115,11 +115,18 @@ class App extends React.Component {
 							<Team/>
 						);
 					}} />
-					<Route path="/acheter" render={() => {
+					<Route path="/acheter/:etat" render={({match}) => {
 						if (this.state.route !== 'Acheter DOSIMEX')
 							this.setState({route:'Acheter DOSIMEX'});
 						return(
-							<PaymentPage/>
+							<PaymentPage etat={match.params.etat} />
+						);
+					}} />
+					<Route exact path="/acheter" render={() => {
+						if (this.state.route !== 'Acheter DOSIMEX')
+							this.setState({route:'Acheter DOSIMEX'});
+						return(
+							<PaymentPage />
 						);
 					}} />
 					<Route path="/partenaires" render={() => {
