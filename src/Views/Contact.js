@@ -1,0 +1,104 @@
+import React from 'react'
+import LogoDosi2 from "../Images/logo_dosi.png"
+
+import {
+  isBrowser
+} from "react-device-detect";
+
+let InputStyled = ({active, onChangeFocus, onChange, label}) => {
+	return (
+		<div>
+			<div style={{position:'relative', left:5, bottom:active ? -30 : 5, marginBottom:0, width:0, transitionProperty:'bottom', transitionDuration:'0.5s'}} >
+				<p style={{fontWeight:active ? 'bold' : '', fontSize:active ? 18 : 16, transitionDuration:'0.5s', transitionProperty:'fontWeight; fontSize' }} >{label}</p>
+			</div>
+			<input onChange={(t) => onChange(t.target.value)} onFocus={() => onChangeFocus(true)} onBlur={() => onChangeFocus(false)} />
+		</div>
+	);
+}
+
+export default class Contact extends React.Component {
+	constructor(props){
+		super(props);
+
+		this.state = {
+			name:'',
+			email:'',
+			text:'',
+			error:false,
+			wellSent:false,
+			sending:false,
+			focusName:false,
+			focusEmail:false
+		}
+
+	}
+
+	sendMail = () => {
+		this.setState({sending:true});
+		window.emailjs.send('smtp_server', 'template_9bIlFiWV', {text:this.state.text, name:this.state.name, email:this.state.email }).then(res => this.setState({wellSent:true, sending:false})).catch(e => this.setState({error:true, sending:false}));
+	}
+
+	displayWellSent = () => {
+		if (this.state.wellSent){
+			return (
+				<div style={{display:'flex', position:'fixed', height:'100vh', width:'100vw', backgroundColor:'rgba(255,255,255,0.5)', zIndex:99999, alignItems:'center', justifyContent:'center'}} >
+					<p style={{color:'#21ba45', fontWeight:'bold', fontSize:'2vw'}} >Votre message a bien été envoyé</p>
+				</div>
+			);
+		}
+		return (null);
+	}
+
+	displayError = () => {
+		if (this.state.error){
+			setTimeout(() => this.setState({error:false}), 2500);
+			return (
+				<div style={{display:'flex', position:'fixed', height:'100vh', width:'100vw', backgroundColor:'rgba(255,255,255,0.5)', zIndex:99999, alignItems:'center', justifyContent:'center'}} >
+					<p style={{color:'#db2828', fontWeight:'bold', fontSize:'2vw'}} >Il y'a eu une erreur lors de l'envoie de votre message</p>
+				</div>
+			);
+		}
+		return (null);
+	}
+
+	render(){
+		console.log(this.state);
+		return (
+			<div style={{display:'flex', flexDirection:'column'}} >
+				<div style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', height:'60vh', marginTop:isBrowser ? '0vh' : '2vh', paddingBottom:'5vh'}} >
+					<p style={{fontWeight:'bold', fontSize:'2vh'}} >Envoyez nous un message ici</p>
+					<div style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'space-between'}} >
+						<this.displayWellSent/>
+						<this.displayError/>
+						<div style={{display:'flex',  width:'60vw', justifyContent:'space-between', marginTop:'3vh', flexDirection:isBrowser ? 'row' : 'column'}} >
+							<InputStyled label='Nom' active={this.state.focusName === false && this.state.name === ''} onChange={(t) => this.setState({name:t})} onChangeFocus={(s) => this.setState({focusName:s})} />
+							<InputStyled label='Email' active={this.state.focusEmail === false && this.state.email === ''} onChange={(t) => this.setState({email:t})} onChangeFocus={(s) => this.setState({focusEmail:s})} />
+						</div>
+						<div style={{marginTop:'5vh'}} >
+							<p style={{fontWeight:'bold', fontSize:18}} >Message</p>
+							<textArea style={{width:'60vw', height:'15vh'}} onChange={(t) => this.setState({text:t.target.value})} />
+						</div>
+					</div>
+					<div style={{marginTop:'5vh'}} >
+						{this.state.sending === false ?
+							this.state.name === '' || this.state.email === '' || this.state.text === '' ?
+								<div style={{backgroundColor:'#db2828', paddingLeft:20, paddingRight:20, borderRadius:5}} >
+									<p style={{color:'white', fontSize:22}} >Envoyer</p>
+								</div>
+								:
+								<div style={{backgroundColor:'#1678c2', paddingLeft:20, paddingRight:20, borderRadius:5}} onClick={() => this.sendMail()}>
+									<p style={{color:'white', fontSize:22}} >Envoyer</p>
+								</div>
+							:
+							null
+						}
+					</div>
+				</div>
+				<div style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', height:'30vh', borderTopWidth:1, borderColor:"#000000", borderTopStyle:'solid'}} >
+					<p style={{fontSize:'2vh'}} >Où contactez nous par téléphone au : 06 89 70 90 35</p>
+					<img src={LogoDosi2} style={{width:'20vw', backgroundColor:"#ffffff"}} alt='logo dosimex' />
+				</div>
+			</div>
+		)
+	}
+}
