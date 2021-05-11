@@ -13,6 +13,7 @@ import cls from '../Images/logo_partenaires/cls.png'
 import b2c from '../Images/logo_partenaires/b2c.png'
 import edp from '../Images/logo_partenaires/edp.png'
 import cossen from '../Images/logo_partenaires/cossen.png'
+import pcr from '../Images/logo_partenaires/logo-PCR-Long-title-CouleurHD.png'
 
 function RenderPart({part}){
 	const [over, setOver] = useState(false);
@@ -91,16 +92,28 @@ const partenaires = [
 		text:'Notre partenaire de longue date  pour les formations en spectrométrie gamma et autres'
 	},
 	{
-		name:'Cossen',
-		url:'https://www.linkedin.com/company/cossen',
-		img:cossen,
-		text:'Nous sommes fiers de les aider dans leurs missions'
+		name:'',
+		url:'https://www.pcrstrategie.fr/',
+		img:pcr,
+		text:''
+	},
+	{
+		name:'Trad',
+		url:'https://www.rayxpert.com/',
+		img:trad,
+		text:'Ils nous ont fait l’honneur d’apprécier nos codes. Et nous recommandons chaudement le code RayXpert'
 	},
 	{
 		name:'Lea',
 		url:'https://www.orano.group/fr/expertise-sur-tout-le-cycle/tour-des-implantations/laboratoire-etalons-activite/lea',
 		img:lea,
 		text:'Utilisent Dosimex à gogo dans leurs calculs'
+	},
+	{
+		name:'Cossen',
+		url:'https://www.linkedin.com/company/cossen',
+		img:cossen,
+		text:'Nous sommes fiers de les aider dans leurs missions'
 	},
 	{
 		name:'Apave',
@@ -113,12 +126,6 @@ const partenaires = [
 		url:'https://www.alara-expertise.fr',
 		img:alara,
 		text:'Une entreprise qui aime les projets. Nous aussi'
-	},
-	{
-		name:'Trad',
-		url:'https://www.rayxpert.com/',
-		img:trad,
-		text:'Ils nous ont fait l’honneur d’apprécier nos codes. Et nous recommandons chaudement le code RayXpert'
 	},
 	{
 		name:'rpcirkus',
