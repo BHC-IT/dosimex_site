@@ -64,7 +64,7 @@ export default class Home extends React.Component {
 						<div style={{display:'flex', flexDirection:'column', flexGrow:1, alignItems:'center'}} >
 							<p style={{fontSize:18, fontWeight:'bold'}} >Clé USB Dosimex 3.0</p>
 							<img src={usbkey} style={{height:'25vh', marginBottom:'1vh'}} alt='Dosimex key' />
-							<p style={{fontSize:18, fontWeight:'bold'}} >Sur devis</p>
+							<p style={{fontSize:18, fontWeight:'bold'}} >Sur devi</p>
 							{ /*<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 								<input type="hidden" name="cmd" value="_s-xclick"/>
 								<input type="hidden" name="hosted_button_id" value="5ZR8G5EHFRUH4"/>
