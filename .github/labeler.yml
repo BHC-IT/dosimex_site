@@ -1,0 +1,11 @@
+test:
+  - test/**/*
+
+ts scope:
+  - src/**/*
+
+actions:
+  - .github/*
+
+archi:
+  - ./*
