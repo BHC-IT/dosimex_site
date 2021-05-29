@@ -1,79 +1,113 @@
-import React, { Component } from 'react'
-import { Menu } from 'semantic-ui-react'
+import * as React from 'react';
+import * as CSS from 'csstype';
+import ItemNavbar from './ItemNavbar'
 import Link from 'next/link'
-//import logo from '../Images/logo_dosimex_new.png'
+// import logo from '../Images/logo-dosimex-new.png'
+
 
 interface IProps {
+	onClick?: Function,
 }
 
 interface IState {
-	activeItem: object,
-	language: string,
+	activeItem: string,
+	activeLanguage: string,
 }
 
-export default class Navbar extends Component {
+interface IPage {
+	route: string,
+	name: string,
+}
+export interface IStyles {
+	navbar: CSS.Properties,
+	navbarUl: CSS.Properties,
+	navbarButton: CSS.Properties,
+}
+
+const pages : IPage[] = [
+	{route: 'Software', name: 'Nos offres'},
+	{route: 'Training', name: 'Formation'},
+	{route: 'About', name: 'Qui sommes-nous ?'},
+	{route: 'Contact', name: 'Contact'},
+
+]
+
+export default class Navbar extends React.Component<IProps, IState> {
+
 	constructor(props : IProps) {
-    		super(props);
+		super(props);
 
 		this.state = {
-		activeItem: 'home',
-		activeLanguage: 'fr',
+			activeItem: 'Accueil',
+			activeLanguage: 'fr',
 		}
 	}
 
-	handleItemClick = ({ name }) => this.setState({ activeItem: name })
-	handleLanguageClick = (lang : string) => this.setState({ language: lang })
+	handleClick = (activeItem : string) => {
+		this.setState({activeItem: activeItem})
+		this.props.onClick?.(this.state)
+	}
+
+	renderNav = () => {
+		return (
+			<>
+			{
+				pages.map((page: IPage) =>
+					<li key={page.name} style={{paddingLeft: "20px"}}>
+						<ItemNavbar
+							name={page.name}
+							route={page.route}
+							isActive={this.state.activeItem === page.name}
+							onClick={() => this.handleClick(page.name)}
+						/>
+					</li>
+				)
+			}
+			</>
+		)
+}
 
 	render() {
 		return (
-			<div className="container">
-				<Menu pointing secondary>
-					<Link href="/Home" replace>
-						<div>
-							{/*<img src={logo} alt="logo dosimex"/>*/}
-						</div>
+			<nav style={style.navbar}>
+				<ul style={style.navbarUl}>
+					<Link href="/" replace passHref>
+						<li>
+							<a style={{color: "black", cursor: "pointer"}}>logo</a>
+						</li>
 					</Link>
-					<Link href="/Software" replace>
-						<Menu.Item
-							name='nos offres'
-							active={this.state.activeItem === 'nos offres'}
-							onClick={this.handleItemClick}
-						/>
-					</Link>
-					<Link href="/Training" replace>
-						<Menu.Item
-							name='formation'
-							active={this.state.activeItem === 'formation'}
-							onClick={this.handleItemClick}
-						/>
-					</Link>
-					<Link href="/About" replace>
-						<Menu.Item
-							name='qui sommes-nous ?'
-							active={this.state.activeItem === 'qui sommes-nous ?'}
-							onClick={this.handleItemClick}
-						/>
-					</Link>
-					<Link href="/Contact" replace>
-						<Menu.Item
-							name='contact'
-							active={this.state.activeItem === 'contact'}
-							onClick={this.handleItemClick}
-						/>
-					</Link>
-					<div id="switch-language">
-						<i className="flaticon-translation"/>
-						<p onClick={() => this.handleLanguageClick('fr')}>Fr</p>
-						<p>|</p>
-						<p onClick={() => this.handleLanguageClick('en')}>En</p>
-					</div>
-					<Menu.Menu position='right'>
-						<Link href="/Product" replace>
-							<button>Acheter Dosimex</button>
-						</Link>
-					</Menu.Menu>
-				</Menu>
-			</div>
-		)
+					<this.renderNav/>
+					{/*Faire un composant pour le switch language ?? */}
+					<li style={{paddingLeft: "20px"}}><i className="flaticon-translation"/></li>
+					<li>Fr</li>
+					<li>|</li>
+					<li>En</li>
+				</ul>
+				{/*Faire un composant pour le button*/}
+				<Link href="/Product" replace passHref>
+					<button style={style.navbarButton}>Acheter Dosimex</button>
+				</Link>
+			</nav>
+		);
 	}
+}
+
+export const style: IStyles =  {
+	navbar: {
+		display: "flex",
+		alignItems: "center",
+		justifyContent: "space-between",
+		padding: "3px 100px",
+
+	},
+	navbarUl: {
+		padding: "0px",
+		listStyle: "none",
+		display: "flex",
+		alignItems: "center",
+		color: "black",
+	},
+	navbarButton: {
+		float: "right",
+	},
 }

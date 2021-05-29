@@ -1,17 +1,14 @@
 import * as React from 'react';
 import * as CSS from 'csstype';
 import Link from 'next/link'
+import { useRouter } from "next/router";
 
 
 interface IProps {
-	children: string,
-	isActive: boolean,
+	name: string,
 	route?: string,
-	onClick?: Function,
-}
-
-interface IState {
 	isActive: boolean,
+	onClick?: Function,
 }
 
 export interface IStyles {
@@ -19,38 +16,38 @@ export interface IStyles {
 	itemActive: CSS.Properties,
 }
 
-export default class ItemNavbar extends React.Component<IProps, IState> {
+const ItemNavbar = (props: IProps) => {
 
-	constructor(props : IProps) {
-		super(props);
-
-		this.state = {
-			isActive: false,
-		}
+	const handleClick = () => {
 	}
 
-	handleClick = (isActive : boolean) => this.setState({isActive: isActive});
+	const router = useRouter();
 
-	render() {
-		return (
-			<Link href={`/${this.props.route}`} replace>
-				<li
-					style={this.state.isActive ? style.itemActive : style.item}
-					onClick={() => this.handleClick(this.props.isActive)}
-				>
-				{this.props.children}
-				</li>
-			</Link>
-		);
-	}
+	return (
+		<Link href={`/${props.route}`} replace passHref>
+			<a
+				style={router.pathname == `/${props.route}` ? style.itemActive : style.item}
+				onClick={handleClick}
+			>
+				{props.name}
+			</a>
+		</Link>
+	);
+
 }
+
+export default ItemNavbar;
 
 export const style: IStyles =  {
 	item: {
-		padding: "3px 5px",
+		textDecoration: "none",
+		color: "inherit",
+		cursor: "pointer",
 	},
 	itemActive: {
-		padding: "3px 5px",
-		borderBottom: "1px solid red",
+		borderBottom: "2px solid red",
+		textDecoration: "none",
+		color: "inherit",
+		cursor: "pointer",
 	},
 }
