@@ -1,0 +1,41 @@
+@font-face {
+    font-family: "flaticon";
+    src: url("./flaticon.ttf?cb19581edc958155f20d1edfbde5c505") format("truetype"),
+url("./flaticon.woff?cb19581edc958155f20d1edfbde5c505") format("woff"),
+url("./flaticon.woff2?cb19581edc958155f20d1edfbde5c505") format("woff2"),
+url("./flaticon.eot?cb19581edc958155f20d1edfbde5c505#iefix") format("embedded-opentype"),
+url("./flaticon.svg?cb19581edc958155f20d1edfbde5c505#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.flaticon-youtube:before {
+    content: "\f101";
+}
+.flaticon-tablet:before {
+    content: "\f102";
+}
+.flaticon-translation:before {
+    content: "\f103";
+}
+.flaticon-telephone:before {
+    content: "\f104";
+}
+.flaticon-open-book:before {
+    content: "\f105";
+}
+.flaticon-planning:before {
+    content: "\f106";
+}
+.flaticon-linkedin:before {
+    content: "\f107";
+}
