@@ -1,36 +1,31 @@
 import * as React from 'react';
 import * as CSS from 'csstype';
-import Link from 'next/link'
+import Link from 'next/link';
 import { useRouter } from "next/router";
 
 
 interface IProps {
 	name: string,
-	route?: string,
-	isActive: boolean,
-	onClick?: Function,
+	route: string,
 }
 
 export interface IStyles {
 	item: CSS.Properties,
-	itemActive: CSS.Properties,
 }
 
 const ItemNavbar = (props: IProps) => {
 
-	const handleClick = () => {
-	}
-
 	const router = useRouter();
 
+	let style : CSS.Properties = router.pathname === `/${props.route}` ? {...styles.item, borderBottom: "2px solid red"} : styles.item;
+
 	return (
-		<Link href={`/${props.route}`} replace passHref>
-			<a
-				style={router.pathname == `/${props.route}` ? style.itemActive : style.item}
-				onClick={handleClick}
+		<Link href={`/${props.route}`} replace>
+			<p
+				style={style}
 			>
 				{props.name}
-			</a>
+			</p>
 		</Link>
 	);
 
@@ -38,14 +33,8 @@ const ItemNavbar = (props: IProps) => {
 
 export default ItemNavbar;
 
-export const style: IStyles =  {
+export const styles: IStyles =  {
 	item: {
-		textDecoration: "none",
-		color: "inherit",
-		cursor: "pointer",
-	},
-	itemActive: {
-		borderBottom: "2px solid red",
 		textDecoration: "none",
 		color: "inherit",
 		cursor: "pointer",
