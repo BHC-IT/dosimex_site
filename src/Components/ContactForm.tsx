@@ -12,9 +12,15 @@ interface IState {
 }
 
 export interface IStyles {
+	form: CSS.Properties,
+	label: CSS.Properties,
+	input: CSS.Properties,
 	divInput: CSS.Properties,
+	divTextarea: CSS.Properties,
 	button: CSS.Properties,
 }
+
+const mailFormat : string = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
 
 class ContactForm extends React.Component<IProps, IState> {
 
@@ -26,39 +32,52 @@ class ContactForm extends React.Component<IProps, IState> {
 			email: '',
 			subject: '',
 			message: '',
+			error: true,
+			wellSent: false,
 		}
 	}
 
 	handleSubmit = () => {
-
+		if (this.state.name.trim() !== '' || this.state.email.trim() !== '' || this.state.message.trim() !== '' || isEmailValid()) {
+			this.sendEmail();
+			this.setState({wellSent: true});
+		}
 	}
 
-	checkErrors = () => {
-
+	sendEmail = () => {
 	}
 
+	isValid = () => this.state.error ? {...styles.input, borderColor: "1px solid red"} : styles.input
+
+	isEmailValid = () => (this.state.email.match(mailFormat) || this.state.email.trim() !== '') ? null : <p>L'email n'est pas valide</p>
+
+	isInputEmpty = (value: string, message: string) => value.trim() !== '' ? null : <p>{message}</p>
 
 	render() {
 		return (
 			<form style={styles.form} onSubmit={this.handleSubmit}>
 				<h1>Contactez-nous</h1>
+				{this.state.wellSent ? <p>Votre message a bien été envoyé</p> : null}
 				<div style={{display: "flex", wrap: "column", justifyContent: "space-between"}}>
 					<div style={styles.divInput}>
 						<label style={styles.label} htmlFor="name">Votre nom</label>
-						<input style={styles.input} type="text" id="name" onChange={(e) => this.setState({name: e.target.value})} required />
+						<input style={this.isValid()} type="text" id="name" onChange={(e) => this.setState({name: e.target.value})} onBlur={() => this.isValid()} required />
+						{this.isInputEmpty(this.state.name, "Le nom ne doit pas être vide")}
 					</div>
 					<div style={styles.divInput}>
 						<label style={styles.label} htmlFor="email">Email</label>
-						<input style={styles.input} type="email" id="email" onChange={(e) => this.setState({email: e.target.value})} required />
+						<input style={this.isValid()} type="email" id="email" onChange={(e) => this.setState({email: e.target.value})} required />
+						{this.isEmailValid()}
 					</div>
 				</div>
 				<div style={styles.divInput}>
 					<label style={styles.label} htmlFor="subject">Sujet</label>
-					<input style={styles.input} type="text" id="subject" onChange={(e) => this.setState({subject: e.target.value})} required />
+					<input style={this.isValid()} type="text" id="subject" onChange={(e) => this.setState({subject: e.target.value})} />
 				</div>
 				<div style={styles.divTextarea}>
 					<label style={styles.label} htmlFor="message">Message</label>
-					<textarea style={styles.input} id="message" onChange={(e) => this.setState({message: e.target.value})} rows="10" required />
+					<textarea style={this.isValid()} id="message" onChange={(e) => this.setState({message: e.target.value})} rows="10" required />
+					{this.isInputEmpty(this.state.message, "Le message ne doit pas être vide")}
 				</div>
 				<button style={styles.button} type="submit">Envoyer</button>
 			</form>
