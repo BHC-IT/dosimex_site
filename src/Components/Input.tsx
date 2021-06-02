@@ -5,6 +5,7 @@ interface IProps {
 	type: string,
 	name: string,
 	label: string,
+	value: string | null,
 	messageError?: string,
 	placeholder?: string,
 	style?: IStyles,
@@ -13,6 +14,7 @@ interface IProps {
 	cols?: number,
 	isValid?: (arg1: string) => boolean,
 	getValue: (arg1: string) => any,
+	onChange?: (arg0 : string) => any,
 }
 
 interface IStyles {
@@ -42,6 +44,7 @@ const Input = (props: IProps) => {
 	const styleInput = {...styles.input, ...props.style?.input};
 	const styleInputInvalid = {...styleInput, ...styles.inputInvalid, ...props.style?.inputInvalid};
 
+	console.log(props.value);
 
 	return (
 		<div style={{...styles.divInput, ...props.style?.divInput}}>
@@ -50,21 +53,23 @@ const Input = (props: IProps) => {
 				<textarea
 					style={isValid ? styleInput : styleInputInvalid}
 					id={props.name}
+					value={props.value ?? ''}
 					placeholder={props.placeholder ?? undefined}
 					rows={props.rows ?? 10}
 					cols={props.cols ?? 20}
-					onChange={(e) => setValue(e.target.value)}
+					onChange={(e) => {setValue(e.target.value); props.onChange?.(e.target.value)}}
 					onBlur={() => handleBlur()}
-					required={true ?? props.required}
+					required={props.required ?? false}
 				/>
 			:
 				<input
 					style={isValid ? styleInput : styleInputInvalid}
 					type={props.type} id={props.name}
+					value={props.value ?? ''}
 					placeholder={props.placeholder ?? undefined}
-					onChange={(e) => setValue(e.target.value)}
+					onChange={(e) => {setValue(e.target.value); props.onChange?.(e.target.value)}}
 					onBlur={() => handleBlur()}
-					required={false ?? props.required}
+					required={props.required ?? false}
 				/>
 			}
 			{!isValid ? <p style={{color: "red"}}>{props.messageError}</p> : null}
