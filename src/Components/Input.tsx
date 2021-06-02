@@ -4,10 +4,14 @@ import * as CSS from 'csstype';
 interface IProps {
 	type: string,
 	name: string,
-	content: string,
-	messageError: string,
+	label: string,
+	messageError?: string,
+	placeholder?: string,
 	style?: IStyles,
-	isValid: (arg1: string) => boolean,
+	required?: boolean,
+	rows?: number,
+	cols?: number,
+	isValid?: (arg1: string) => boolean,
 	getValue: (arg1: string) => any,
 }
 
@@ -25,23 +29,45 @@ const Input = (props: IProps) => {
 
 	const handleBlur = () => {
 
-		if (value === null) return;
+		if (props.isValid) {
+			if (value === null) return setIsValid(false);
 
-		const valid = props.isValid(value);
+			const valid = props.isValid(value);
 
-		setIsValid(valid);
-		if (valid) props.getValue(value);
-
+			setIsValid(valid);
+			if (valid) props.getValue(value);
+		}
 	}
 
 	const styleInput = {...styles.input, ...props.style?.input};
 	const styleInputInvalid = {...styleInput, ...styles.inputInvalid, ...props.style?.inputInvalid};
 
+
 	return (
 		<div style={{...styles.divInput, ...props.style?.divInput}}>
-			<label style={{...styles.label, ...props.style?.label}} htmlFor={props.name}>{props.content}</label>
-			<input style={isValid ? styleInput : styleInputInvalid} type={props.type} id={props.name} onChange={(e) => setValue(e.target.value)} onBlur={() => handleBlur()} required />
-			{isValid ? <p>{props.messageError}</p> : null}
+			<label style={{...styles.label, ...props.style?.label}} htmlFor={props.name}>{props.label}</label>
+			{props.type === "textarea" ?
+				<textarea
+					style={isValid ? styleInput : styleInputInvalid}
+					id={props.name}
+					placeholder={props.placeholder ?? undefined}
+					rows={props.rows ?? 10}
+					cols={props.cols ?? 20}
+					onChange={(e) => setValue(e.target.value)}
+					onBlur={() => handleBlur()}
+					required={true ?? props.required}
+				/>
+			:
+				<input
+					style={isValid ? styleInput : styleInputInvalid}
+					type={props.type} id={props.name}
+					placeholder={props.placeholder ?? undefined}
+					onChange={(e) => setValue(e.target.value)}
+					onBlur={() => handleBlur()}
+					required={false ?? props.required}
+				/>
+			}
+			{!isValid ? <p style={{color: "red"}}>{props.messageError}</p> : null}
 		</div>
 	);
 
@@ -53,11 +79,11 @@ export const styles: IStyles =  {
 	divInput: {
 		display:'flex',
 		flexDirection:'column',
-		width: "45%",
 	},
 	input: {
 		border: "1px solid #DAD8E0",
 		borderRadius: "5px",
+		resize: "none",
 	},
 	label: {
 		textTransform: "uppercase",
