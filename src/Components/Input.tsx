@@ -17,7 +17,7 @@ interface IProps {
 	areaSize?: [number, number],
 	isValid?: (arg0: boolean) => any,
 	onChange?: (arg1: string) => any,
-	validator: IValidator[],
+	validator?: IValidator[],
 }
 
 interface IStyles {
@@ -44,14 +44,16 @@ const Input = (props: IProps) => {
 
 	const handleBlur = () => {
 
-			if (value === null || value === undefined) return setErroredValidator([]);
+		if (props.validator === undefined) return;
 
-			const errored = runValidator(props.validator, value);
-			const valid = errored.length === 0;
+		if (value === null || value === undefined) return setErroredValidator([]);
+
+		const errored = runValidator(props.validator, value);
+		const valid = errored.length === 0;
 
 
-			setErroredValidator(errored);
-			props.isValid?.(valid);
+		setErroredValidator(errored);
+		props.isValid?.(valid);
 	}
 
 	const handleChange = (value : string) => {
@@ -70,6 +72,7 @@ const Input = (props: IProps) => {
 			<label style={{...styles.label, ...props.style?.label}} htmlFor={props.id}>{props.label}</label>
 			{props.type === "textarea" ?
 				<textarea
+					value={value ?? ''}
 					style={isValid ? styleInput : styleInputInvalid}
 					id={props.id}
 					placeholder={props.placeholder}
@@ -81,10 +84,11 @@ const Input = (props: IProps) => {
 				/>
 			:
 				<input
-					style={isValid ? styleInput : styleInputInvalid}
-					type={props.type} id={props.id}
-					placeholder={props.placeholder}
 					value={value ?? ''}
+					type={props.type}
+					id={props.id}
+					style={isValid ? styleInput : styleInputInvalid}
+					placeholder={props.placeholder}
 					onChange={(e) => handleChange(e.target.value)}
 					onBlur={handleBlur}
 					required={props.required}

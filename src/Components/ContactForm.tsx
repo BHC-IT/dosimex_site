@@ -10,8 +10,9 @@ interface IState {
 	name: string | null,
 	nameValid: boolean,
 	email: string | null,
-	validEmail: boolean,
+	emailValid: boolean,
 	message: string | null,
+	messageValid: boolean,
 	subject: string | null,
 	error: boolean,
 	wellSent: boolean,
@@ -37,8 +38,10 @@ class ContactForm extends React.Component<IProps, IState> {
 			name: null,
 			nameValid: false,
 			email: null,
-			subject: null,
+			emailValid: false,
 			message: null,
+			messageValid: false,
+			subject: null,
 			error: true,
 			wellSent: false,
 		}
@@ -52,9 +55,11 @@ class ContactForm extends React.Component<IProps, IState> {
 				name: null,
 				nameValid: false,
 				email: null,
-				validEmail: false,
-				subject: null,
+				emailValid: false,
 				message: null,
+				messageValid: false,
+				subject: null,
+				error: true,
 				wellSent: true,
 			});
 		}
@@ -76,47 +81,52 @@ class ContactForm extends React.Component<IProps, IState> {
 				{this.state.wellSent ? <p>Votre message a bien été envoyé</p> : null}
 				<div style={{display: "flex", flexWrap: "wrap", justifyContent: "space-between"}}>
 					<Input
+						value={this.state.name}
 						type="text"
 						id="name"
 						label="Votre nom"
 						style={{divInput: {width: "45%"}}}
 						required
-						value={this.state.name}
 						isValid={(isValid : boolean) => this.setState({nameValid: isValid})}
 						onChange={(value : string) => this.setState({name: value})}
 						validator={[
-							{ validationFunction:(value) => this.isInputValid(value), errorMessage: 'ne peut pas être vide' },
-							{ validationFunction:(value) => this.isEmailValid(value), errorMessage: 'doit etre un mail' },
+							{ validationFunction:(value) => this.isInputValid(value), errorMessage: 'Le nom ne peut pas être vide' },
 						] as IValidator[]}
 					/>
-{/*					<Input
+					<Input
+						value={this.state.email}
 						type="email"
 						id="email"
 						label="Email"
-						value={this.state.email}
-						messageError="L'email n'est pas valide"
 						style={{divInput: {width: "45%"}}}
 						required
-						isValid={() => this.isEmailValid(this.state.email)}
-						getValue={(value) => this.setState({name: value})}
-					/>*/}
+						isValid={(isValid : boolean) => this.setState({emailValid: isValid})}
+						onChange={(value : string) => this.setState({email: value})}
+						validator={[
+							{ validationFunction:(value) => this.isInputValid(value), errorMessage: 'L\'email ne peut pas être vide' },
+							{ validationFunction:(value) => this.isEmailValid(value), errorMessage: 'L\'email n\'est pas valide' },
+						] as IValidator[]}
+					/>
 				</div>
-{/*				<Input
+				<Input
+						value={this.state.subject}
 						type="text"
 						id="subject"
 						label="Sujet"
-						value={this.state.subject}
-						getValue={(value) => this.setState({subject: value})}
+						onChange={(value : string) => this.setState({subject: value})}
 				/>
 				<Input
+						value={this.state.message}
 						type="textarea"
 						id="message"
 						label="Message"
-						value={this.state.message}
-						messageError="Le message ne doit pas être vide"
-						isValid={() => this.isInputValid(this.state.message)}
-						getValue={(value) => this.setState({message: value})}
-				/>*/}
+						required
+						isValid={(isValid : boolean) => this.setState({messageValid: isValid})}
+						onChange={(value : string) => this.setState({message: value})}
+						validator={[
+							{ validationFunction:(value) => this.isInputValid(value), errorMessage: 'Le message ne peut pas être vide' },
+						] as IValidator[]}
+				/>
 				<button style={styles.button} type="submit">Envoyer</button>
 			</form>
 		);
