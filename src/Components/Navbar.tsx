@@ -63,16 +63,18 @@ class Navbar extends React.Component<IProps, IState> {
 	}
 
 	render() {
+		const ratio = 0.5;
 		return (
 			<nav style={style.navbar}>
 				<ul style={style.navbarUl}>
 					<Link href="/" replace>
 						<li>
-							{/*<Image
-								src="/../../public/Images/logo_dosimex_new.png"
+							<Image
+								src="/Images/logo_dosimex_new.png"
 								alt="logo dosimex"
-								layout="fill"
-							/>*/}
+								width={`${212 * ratio}px`}
+								height={`${44 * ratio}px`}
+							/>
 						</li>
 					</Link>
 					<this.renderNav/>
