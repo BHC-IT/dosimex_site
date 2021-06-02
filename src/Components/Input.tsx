@@ -44,16 +44,14 @@ const Input = (props: IProps) => {
 
 	const handleBlur = () => {
 
-		if (props.isValid) {
-			if (value === null) return setErroredValidator([]);
+			if (value === null || value === undefined) return setErroredValidator([]);
 
 			const errored = runValidator(props.validator, value);
 			const valid = errored.length === 0;
 
 
 			setErroredValidator(errored);
-			props.isValid(valid);
-		}
+			props.isValid?.(valid);
 	}
 
 	const handleChange = (value : string) => {
@@ -79,7 +77,7 @@ const Input = (props: IProps) => {
 					cols={props.areaSize?.[1] ?? 20}
 					onChange={(e) => handleChange(e.target.value)}
 					onBlur={handleBlur}
-					required={true ?? props.required}
+					required={props.required}
 				/>
 			:
 				<input
@@ -89,10 +87,10 @@ const Input = (props: IProps) => {
 					value={value ?? ''}
 					onChange={(e) => handleChange(e.target.value)}
 					onBlur={handleBlur}
-					required={false ?? props.required}
+					required={props.required}
 				/>
 			}
-			{erroredValidator.length ?
+			{!isValid ?
 				erroredValidator.map((e) => <p style={{color: "red"}}>{e.errorMessage}</p>)
 			 : null}
 		</div>
