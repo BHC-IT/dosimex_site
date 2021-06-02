@@ -9,9 +9,10 @@ interface IProps {
 interface IState {
 	name: string | null,
 	nameValid: boolean,
-	email: string,
-	message: string,
-	subject: string,
+	email: string | null,
+	validEmail: boolean,
+	message: string | null,
+	subject: string | null,
 	error: boolean,
 	wellSent: boolean,
 }
@@ -35,33 +36,43 @@ class ContactForm extends React.Component<IProps, IState> {
 		this.state = {
 			name: null,
 			nameValid: false,
-			email: '',
-			subject: '',
-			message: '',
+			email: null,
+			subject: null,
+			message: null,
 			error: true,
 			wellSent: false,
 		}
 	}
 
-	handleSubmit = () => {
-		if (this.state.name?.trim() !== '' || this.state.email.trim() !== '' || this.state.message.trim() !== '' || isEmailValid()) {
+	handleSubmit = (e: React.FormEvent) => {
+		e.preventDefault();
+		if (this.state.nameValid && this.state.validEmail) {
 			this.sendEmail();
-			this.setState({wellSent: true});
+			this.setState({
+				name: null,
+				nameValid: false,
+				email: null,
+				validEmail: false,
+				subject: null,
+				message: null,
+				validMessage: null,
+				wellSent: true,
+			});
 		}
 	}
 
 	sendEmail = () => {
 	}
 
-	isValid = () => this.state.error ? {...styles.input, borderColor: "1px solid red"} : styles.input
 
 	isEmailValid = (value: string) =>  mailFormat.test(value);
 
 	isInputValid = (value: string) => value.trim() !== ''
 
 	render() {
+		console.log(this.state)
 		return (
-			<form style={styles.form} onSubmit={this.handleSubmit}>
+			<form style={styles.form} onSubmit={(e: React.FormEvent) => this.handleSubmit(e)}>
 				<h1>Contactez-nous</h1>
 				{this.state.wellSent ? <p>Votre message a bien été envoyé</p> : null}
 				<div style={{display: "flex", flexWrap: "wrap", justifyContent: "space-between"}}>
@@ -83,6 +94,7 @@ class ContactForm extends React.Component<IProps, IState> {
 						type="email"
 						id="email"
 						label="Email"
+						value={this.state.email}
 						messageError="L'email n'est pas valide"
 						style={{divInput: {width: "45%"}}}
 						required
@@ -94,12 +106,14 @@ class ContactForm extends React.Component<IProps, IState> {
 						type="text"
 						id="subject"
 						label="Sujet"
+						value={this.state.subject}
 						getValue={(value) => this.setState({subject: value})}
 				/>
 				<Input
 						type="textarea"
 						id="message"
 						label="Message"
+						value={this.state.message}
 						messageError="Le message ne doit pas être vide"
 						isValid={() => this.isInputValid(this.state.message)}
 						getValue={(value) => this.setState({message: value})}
