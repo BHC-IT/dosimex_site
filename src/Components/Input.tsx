@@ -34,12 +34,12 @@ const runValidator = (validator : IValidator[], value : string) =>
 
 const Input = (props: IProps) => {
 
-	const [value, setValue] = React.useState<string | null>(props.value === undefined ? null : props.value);
+	const [value, setValue] = React.useState<string | null | undefined>(props.value === undefined ? null : props.value);
 	const [erroredValidator, setErroredValidator] = React.useState<IValidator[]>([]);
 
 	React.useEffect(() => {
-		if (!props.value) return;
-		setErroredValidator(runValidator(props.validator, props.value));
+		if (props.value === value) return;
+		setValue(props.value);
 	}, [props.value]);
 
 	const handleBlur = () => {

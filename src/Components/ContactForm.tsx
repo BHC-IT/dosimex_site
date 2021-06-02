@@ -46,7 +46,7 @@ class ContactForm extends React.Component<IProps, IState> {
 
 	handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
-		if (this.state.nameValid && this.state.validEmail) {
+		if (this.state.nameValid) {
 			this.sendEmail();
 			this.setState({
 				name: null,
@@ -55,7 +55,6 @@ class ContactForm extends React.Component<IProps, IState> {
 				validEmail: false,
 				subject: null,
 				message: null,
-				validMessage: null,
 				wellSent: true,
 			});
 		}
