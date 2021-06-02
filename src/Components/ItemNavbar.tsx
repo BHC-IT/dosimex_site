@@ -19,14 +19,17 @@ export interface IStyles {
 const ItemNavbar = (props: IProps) => {
 
 	const handleClick = () => {
+		props.onClick?.();
 	}
 
 	const router = useRouter();
 
+	let style : CSS.Properties = router.pathname === `/${props.route}` ? { ...styles.item, ...styles.itemActive} : styles.item;
+
 	return (
 		<Link href={`/${props.route}`} replace passHref>
 			<a
-				style={router.pathname == `/${props.route}` ? style.itemActive : style.item}
+				style={style}
 				onClick={handleClick}
 			>
 				{props.name}
@@ -38,7 +41,7 @@ const ItemNavbar = (props: IProps) => {
 
 export default ItemNavbar;
 
-export const style: IStyles =  {
+export const styles: IStyles =  {
 	item: {
 		textDecoration: "none",
 		color: "inherit",
@@ -47,7 +50,5 @@ export const style: IStyles =  {
 	itemActive: {
 		borderBottom: "2px solid red",
 		textDecoration: "none",
-		color: "inherit",
-		cursor: "pointer",
 	},
 }

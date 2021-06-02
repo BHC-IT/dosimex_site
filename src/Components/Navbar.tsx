@@ -39,33 +39,30 @@ export default class Navbar extends React.Component<IProps, IState> {
 
 		this.state = {
 			activeItem: 'Accueil',
-			activeLanguage: 'fr',
+			activeLanguage: navigator.language.substr(0, 2),
 		}
 	}
 
 	handleClick = (activeItem : string) => {
-		this.setState({activeItem: activeItem})
+		this.setState({activeItem: activeItem});
 		this.props.onClick?.(this.state)
 	}
 
-	renderNav = () => {
-		return (
-			<>
-			{
-				pages.map((page: IPage) =>
-					<li key={page.name} style={{paddingLeft: "20px"}}>
-						<ItemNavbar
-							name={page.name}
-							route={page.route}
-							isActive={this.state.activeItem === page.name}
-							onClick={() => this.handleClick(page.name)}
-						/>
-					</li>
-				)
-			}
-			</>
-		)
-}
+	renderNav = () =>
+		<>
+		{
+			pages.map((page: IPage) =>
+				<li key={page.name} style={{paddingLeft: "20px"}}>
+					<ItemNavbar
+						name={page.name}
+						route={page.route}
+						isActive={this.state.activeItem === page.name}
+						onClick={() => this.handleClick(page.name)}
+					/>
+				</li>
+			)
+		}
+		</>
 
 	render() {
 		return (
