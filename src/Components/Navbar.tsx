@@ -1,23 +1,27 @@
 import * as React from 'react';
 import * as CSS from 'csstype';
-import ItemNavbar from './ItemNavbar'
-import Link from 'next/link'
-// import logo from '../Images/logo-dosimex-new.png'
-
-
-interface IProps {
-	onClick?: Function,
-}
+import ItemNavbar from './ItemNavbar';
+import Button from './Button';
+import LanguageSwitch from './LanguageSwitch';
+import Link from 'next/link';
+import Image from 'next/image';
+import { withRouter, NextRouter } from 'next/router';
 
 interface IState {
-	activeItem: string,
-	activeLanguage: string,
 }
 
 interface IPage {
 	route: string,
 	name: string,
 }
+
+interface WithRouterProps {
+  router: NextRouter
+}
+
+interface IProps extends WithRouterProps {}
+
+
 export interface IStyles {
 	navbar: CSS.Properties,
 	navbarUl: CSS.Properties,
@@ -32,62 +36,59 @@ const pages : IPage[] = [
 
 ]
 
-export default class Navbar extends React.Component<IProps, IState> {
+class Navbar extends React.Component<IProps, IState> {
 
 	constructor(props : IProps) {
 		super(props);
 
 		this.state = {
-			activeItem: 'Accueil',
-			activeLanguage: navigator.language.substr(0, 2),
 		}
 	}
 
-	handleClick = (activeItem : string) => {
-		this.setState({activeItem: activeItem});
-		this.props.onClick?.(this.state)
+	renderNav = () => {
+		return (
+			<>
+			{
+				pages.map((page: IPage) =>
+					<li key={page.name} style={{paddingLeft: "20px"}}>
+						<ItemNavbar
+							name={page.name}
+							route={page.route}
+						/>
+					</li>
+				)
+			}
+			</>
+		)
 	}
-
-	renderNav = () =>
-		<>
-		{
-			pages.map((page: IPage) =>
-				<li key={page.name} style={{paddingLeft: "20px"}}>
-					<ItemNavbar
-						name={page.name}
-						route={page.route}
-						isActive={this.state.activeItem === page.name}
-						onClick={() => this.handleClick(page.name)}
-					/>
-				</li>
-			)
-		}
-		</>
 
 	render() {
 		return (
 			<nav style={style.navbar}>
 				<ul style={style.navbarUl}>
-					<Link href="/" replace passHref>
+					<Link href="/" replace>
 						<li>
-							<a style={{color: "black", cursor: "pointer"}}>logo</a>
+							{/*<Image
+								src="/../../public/Images/logo_dosimex_new.png"
+								alt="logo dosimex"
+								layout="fill"
+							/>*/}
 						</li>
 					</Link>
 					<this.renderNav/>
-					{/*Faire un composant pour le switch language ?? */}
-					<li style={{paddingLeft: "20px"}}><i className="flaticon-translation"/></li>
-					<li>Fr</li>
-					<li>|</li>
-					<li>En</li>
+					<LanguageSwitch route={this.props.router.pathname} language={this.props.router.locale}/>
 				</ul>
-				{/*Faire un composant pour le button*/}
-				<Link href="/Product" replace passHref>
-					<button style={style.navbarButton}>Acheter Dosimex</button>
-				</Link>
+				<Button
+					name="Acheter Dosimex"
+					route="Product"
+				/>
 			</nav>
 		);
 	}
 }
+
+
+export default withRouter(Navbar);
 
 export const style: IStyles =  {
 	navbar: {
