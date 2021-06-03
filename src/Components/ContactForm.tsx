@@ -160,7 +160,8 @@ export const styles: IStyles =  {
 	},
 	button: {
 		padding: "1.6vh 1.6vw",
-		margin: "5% 40%",
+		display: "block",
+		margin: "5% auto",
 		backgroundColor: "red",
 		borderRadius: "50px",
 		color: "white",
