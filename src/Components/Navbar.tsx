@@ -28,13 +28,23 @@ export interface IStyles {
 	navbarButton: CSS.Properties,
 }
 
-const pages : IPage[] = [
-	{route: 'Software', name: 'Nos offres'},
-	{route: 'Training', name: 'Formation'},
-	{route: 'About', name: 'Qui sommes-nous ?'},
-	{route: 'Contact', name: 'Contact'},
+const text = {
+	items: {
+		li1: "Nos offres",
+		li2: "Formations",
+		li3: "Qui sommes-nous ?",
+		li4: "Contact",
+	},
+	button: "Acheter Dosimex",
+}
 
+const pages : IPage[] = [
+	{route: 'Software', name: text.items.li1},
+	{route: 'Training', name: text.items.li2},
+	{route: 'About', name: text.items.li3},
+	{route: 'Contact', name: text.items.li4},
 ]
+
 
 class Navbar extends React.Component<IProps, IState> {
 
@@ -81,7 +91,7 @@ class Navbar extends React.Component<IProps, IState> {
 					<LanguageSwitch route={this.props.router.pathname} language={this.props.router.locale}/>
 				</ul>
 				<Button
-					name="Acheter Dosimex"
+					name={text.button}
 					route="Product"
 				/>
 			</nav>
