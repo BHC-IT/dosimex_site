@@ -107,7 +107,7 @@ export const style: IStyles =  {
 		display: "flex",
 		alignItems: "center",
 		justifyContent: "space-between",
-		padding: "5vh 7vw",
+		padding: "0 10vw",
 		color: "var(--dark)",
 
 	},

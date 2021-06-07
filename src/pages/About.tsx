@@ -33,41 +33,39 @@ const text = {
 }
 
 export interface IStyles {
+	global: CSS.Properties,
+	header: CSS.Properties,
+	headerSubtitle: CSS.Properties,
 	div: CSS.Properties,
 	circleImage: CSS.Properties,
-	circle: CSS.Properties,
 	name: CSS.Properties,
+	section: CSS.Properties,
 	sectionFlex: CSS.Properties,
-}
-
-function Picture() {
-	const nameStyle = {left: "calc(50% - ???????"}
-
-	return (
-		<div style={styles.div}>
-			<div style={styles.circleImage}></div>
-			<div style={styles.circle}></div>
-			<h3 style={{...styles.name, ...nameStyle}}>Gérald Lopez</h3>
-		</div>
-	);
+	pFlex: CSS.Properties,
+	pBorder: CSS.Properties,
 }
 
 const About = () => {
 	return (
-		<div className="container">
-			<h2>{text.header.title}</h2>
-			<p>{text.header.p}</p>
-			<div>
+		<div className="container" style={styles.global}>
+			<div style={styles.header}>
+				<h2>{text.header.title}</h2>
+				<p style={styles.headerSubtitle}>{text.header.p}</p>
+			</div>
+			<div style={styles.section}>
 				<div style={styles.sectionFlex}>
-					<Picture />
-					<div>
+					<div style={styles.div}>
+						<div style={{...styles.circleImage, backgroundImage: "url('/Images/Gerald.png')"}}></div>
+						<h3 style={styles.name}>Gérald Lopez</h3>
+					</div>
+					<div style={styles.pFlex}>
 						<p>{text.gerald.p1}</p>
 						<p>{text.gerald.p2}</p>
 						<p>{text.gerald.p3}</p>
 					</div>
 				</div>
 				<p>{text.gerald.p4}</p>
-				<div>
+				<div style={styles.pBorder}>
 					<p>{text.gerald.pBorder.p1}</p>
 					<p>{text.gerald.pBorder.p2}</p>
 					<p>{text.gerald.pBorder.p3}</p>
@@ -76,22 +74,24 @@ const About = () => {
 				</div>
 				<p>{text.gerald.p5}</p>
 			</div>
-			<div>
+			<div style={styles.section}>
 				<div style={styles.sectionFlex}>
-					<Picture />
-					<div>
+					<div style={{marginRight: "5%"}}>
 						<p>{text.alain.p1}</p>
 						<p>{text.alain.p2}</p>
 						<p>{text.alain.p3}</p>
 					</div>
+					<div style={styles.div}>
+						<div style={{...styles.circleImage, backgroundImage: "url('/Images/Alain.png')"}}></div>
+						<h3 style={styles.name}>Alain Vivier</h3>
+					</div>
 				</div>
-				<p>{text.alain.p4}</p>
+				<p style={{marginTop: "5vh"}}>{text.alain.p4}</p>
 				<p>{text.alain.p5}</p>
 				<p>{text.alain.p6}</p>
 				<p>{text.alain.p7}</p>
+				<p style={{fontStyle: "italic", textAlign: "center", marginTop: "8vh"}}>{text.epilogue}</p>
 			</div>
-			<p>{text.epilogue}</p>
-			<div></div>
 		</div>
 	);
 }
@@ -99,41 +99,59 @@ const About = () => {
 export default Radium(About);
 
 export const styles: IStyles =  {
+	global: {
+		color: "var(--dark)",
+		textAlign: "justify",
+		lineHeight: "3.2rem",
+	},
+	header: {
+		textAlign: "center",
+		padding: "20vh auto",
+		marginTop: "15vh",
+		marginBottom: "15vh",
+	},
+	headerSubtitle: {
+		padding: "4vh 15vw",
+		color: "var(--grey)",
+		fontSize: "1.8rem",
+	},
 	div: {
-		height: "70vh",
+		height: "45vh",
 		width: "30vw",
-		position: "relative",
-		display: 'flex',
-		justifyContent: 'center',
-		flexShrink: 0,
-
 	},
 	circleImage: {
-		height: "30vw",
-		width: "30vw",
+		width: "370px",
+		height: "370px",
 		backgroundImage: "url('/Images/Gerald.png')",
 		backgroundPosition: 'center',
 		backgroundRepeat: 'no-repeat',
 		backgroundSize: 'cover',
 		borderRadius: "50%",
-		position: "absolute",
-		zIndex: 1,
-	},
-	circle: {
-		height: "22vw",
-		width: "22vw",
-		background: "yellow",
-		borderRadius: "50%",
-		position: "absolute",
-		top: "40%",
-		left: "40%",
 	},
 	name: {
-		position: "absolute",
-		bottom: "0",
+		textAlign: "center",
+		fontFamily: "var(--lato)",
+		fontSize: "2.8rem",
+		fontWeight: 900,
+	},
+	section: {
+		marginTop: "8vh",
+		marginBottom: "15vh",
 	},
 	sectionFlex: {
 		display: "flex",
 		alignItems: "center",
+		justifyContent: "space-between",
+		marginBottom: "2vh",
+	},
+	pFlex: {
+		padding: "5% 0 5% 5%",
+	},
+	pBorder: {
+		paddingLeft: "3vw",
+		marginLeft: "3vw",
+		marginTop: "5vh",
+		marginBottom: "5vh",
+		borderLeft: "3px solid var(--flash)",
 	}
 }
