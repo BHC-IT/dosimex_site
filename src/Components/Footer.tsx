@@ -2,9 +2,11 @@ import * as React from 'react';
 import * as CSS from 'csstype';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faYoutube } from '@fortawesome/free-brands-svg-icons'
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import Icon from '@mdi/react';
+import { mdiYoutube } from '@mdi/js';
+import { mdiLinkedin } from '@mdi/js';
+import { mdiPhone } from '@mdi/js';
+
 
 interface IProps {
 }
@@ -14,7 +16,15 @@ interface IState {
 }
 
 export interface IStyles {
-
+	footer: CSS.Properties,
+	col1: CSS.Properties,
+	col2: CSS.Properties,
+	col: CSS.Properties,
+	divPhone: CSS.Properties,
+	divSocialMedia: CSS.Properties,
+	divIconSocial: CSS.Properties,
+	iconSocial: CSS.Properties,
+	pSocialMedia: CSS.Properties,
 }
 
 const text = {
@@ -50,49 +60,53 @@ class ContactForm extends React.Component<IProps, IState> {
 	render() {
 		const ratio = 0.27;
 		return (
-			<div style={{display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", padding: "30px", backgroundColor: "black", color: "white"}}>
-				<div style={{width: "20%"}}>
+			<footer style={styles.footer}>
+				<div style={styles.col1}>
 					<Image
 						src="/Images/trefle.png"
 						alt="icône trèfle radioactivité"
-						width={`${154 * ratio}px`}
-						height={`${154* ratio}px`}
+						width={`${154 * ratio}rem`}
+						height={`${154* ratio}rem`}
 					/>
 					<p>{text.col1.p1}</p>
 					<p>{text.col1.p2}</p>
-					<div style={{display: "flex", alignItems: "center"}}>
-						<i className="flaticon-telephone" style={{fontSize: "1.5rem"}}/>
-						<p>{text.col1.p3}</p>
+					<div style={styles.divPhone}>
+						<Icon path={mdiPhone} size={1.8} />
+						<p style={{marginLeft: "0.5vw"}}>{text.col1.p3}</p>
 					</div>
-					<div style={{display: "flex", alignItems: "center"}}>
-						<div style={{display: "flex", alignItems: "center"}}>
-							<Link href="https://www.youtube.com/channel/UCmijJyGaFfJte4xsTk90MVA/featured" replace>
-								<FontAwesomeIcon icon={faYoutube} style={{fontSize: "1.5rem"}}/>
-							</Link>
-							<Link href="https://fr.linkedin.com/company/dosimex" replace>
-								<FontAwesomeIcon icon={faLinkedin} style={{fontSize: "1.28rem"}}/>
-							</Link>
+					<div style={styles.divSocialMedia}>
+						<div style={styles.divIconSocial}>
+							<div style={styles.iconSocial}>
+								<Link href="https://www.youtube.com/channel/UCmijJyGaFfJte4xsTk90MVA/featured" replace>
+									<Icon path={mdiYoutube} size={2} />
+								</Link>
+							</div>
+							<div style={styles.iconSocial}>
+								<Link href="https://fr.linkedin.com/company/dosimex" replace>
+									<Icon path={mdiLinkedin} size={1.6} />
+								</Link>
+							</div>
 						</div>
-						<div>
-							<p style={{margin: "0", color: "red"}}>{text.col1.p4}</p>
+						<div style={{width: "30%"}}>
+							<p style={styles.pSocialMedia}>{text.col1.p4}</p>
 						</div>
 					</div>
 				</div>
-				<div style={{width: "40%", display: "flex", flexWrap: "wrap", justifyContent: "center"}}>
-					<div style={{width: "30%"}}>
+				<div style={styles.col2}>
+					<div style={styles.col}>
 						<h4>{text.col2.title}</h4>
 						<Link href="/Videos" replace><p>{text.col2.p1}</p></Link>
 						<Link href="/Manuals" replace><p>{text.col2.p2}</p></Link>
 						<Link href="/Books" replace><p>{text.col2.p3}</p></Link>
 					</div>
-					<div style={{width: "30%"}}>
+					<div style={styles.col}>
 						<h4>{text.col3.title}</h4>
 						<Link href="/About" replace><p>{text.col3.p1}</p></Link>
 						<Link href="/" replace><p>{text.col3.p2}</p></Link>
 						<Link href="/Contact" replace><p>{text.col3.p3}</p></Link>
 					</div>
 				</div>
-			</div>
+			</footer>
 		);
 	}
 }
@@ -100,5 +114,48 @@ class ContactForm extends React.Component<IProps, IState> {
 export default ContactForm;
 
 export const styles: IStyles =  {
-
+	footer: {
+		display: "flex",
+		flexWrap: "wrap",
+		justifyContent: "center",
+		alignItems: "center",
+		padding: "7vh 5vw",
+		backgroundColor: "var(--dark)",
+		color: "var(--light)",
+	},
+	col1: {
+		width: "30%",
+	},
+	col2: {
+		width: "50%",
+		display: "flex",
+		flexWrap: "wrap",
+		justifyContent: "center",
+	},
+	col: {
+		width: "40%",
+	},
+	divPhone: {
+		display: "flex",
+		alignItems: "center",
+	},
+	divSocialMedia: {
+		display: "flex",
+		alignItems: "center",
+	},
+	divIconSocial: {
+		display: "flex",
+		alignItems: "center",
+	},
+	iconSocial: {
+		marginRight: "0.5vw",
+		cursor: "pointer",
+	},
+	pSocialMedia: {
+		margin: "0",
+		color: "var(--main)",
+		fontFamily: "Leckerli One, cursive",
+		fontSize: "1.8rem",
+		marginLeft: "1vw",
+	}
 }

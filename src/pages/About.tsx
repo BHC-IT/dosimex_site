@@ -1,3 +1,6 @@
+import * as CSS from 'csstype';
+import Radium from 'radium';
+
 const text = {
 	header: {
 		title: "Notre équipe",
@@ -29,22 +32,39 @@ const text = {
 	epilogue: "Epilogue : c’est grâce à Dosimex, que j’ai enfin pu avoir, 25 ans après, une idée du risque radiologique encouru avec les générateur X, risque qui est loin d’être négligeable",
 }
 
+export interface IStyles {
+	div: CSS.Properties,
+	circleImage: CSS.Properties,
+	circle: CSS.Properties,
+	name: CSS.Properties,
+	sectionFlex: CSS.Properties,
+}
 
-export default function About() {
+function Picture() {
+	const nameStyle = {left: "calc(50% - ???????"}
+
 	return (
-		<>
+		<div style={styles.div}>
+			<div style={styles.circleImage}></div>
+			<div style={styles.circle}></div>
+			<h3 style={{...styles.name, ...nameStyle}}>Gérald Lopez</h3>
+		</div>
+	);
+}
+
+const About = () => {
+	return (
+		<div className="container">
 			<h2>{text.header.title}</h2>
 			<p>{text.header.p}</p>
 			<div>
-				<div>
-					{/*<Image />*/}
-					<div></div>
-					<h3>Gérald Lopez</h3>
-				</div>
-				<div>
-					<p>{text.gerald.p1}</p>
-					<p>{text.gerald.p2}</p>
-					<p>{text.gerald.p3}</p>
+				<div style={styles.sectionFlex}>
+					<Picture />
+					<div>
+						<p>{text.gerald.p1}</p>
+						<p>{text.gerald.p2}</p>
+						<p>{text.gerald.p3}</p>
+					</div>
 				</div>
 				<p>{text.gerald.p4}</p>
 				<div>
@@ -57,15 +77,13 @@ export default function About() {
 				<p>{text.gerald.p5}</p>
 			</div>
 			<div>
-				<div>
-					<p>{text.alain.p1}</p>
-					<p>{text.alain.p2}</p>
-					<p>{text.alain.p3}</p>
-				</div>
-				<div>
-					{/*<Image />*/}
-					<div></div>
-					<h3>Alain Vivier</h3>
+				<div style={styles.sectionFlex}>
+					<Picture />
+					<div>
+						<p>{text.alain.p1}</p>
+						<p>{text.alain.p2}</p>
+						<p>{text.alain.p3}</p>
+					</div>
 				</div>
 				<p>{text.alain.p4}</p>
 				<p>{text.alain.p5}</p>
@@ -74,6 +92,48 @@ export default function About() {
 			</div>
 			<p>{text.epilogue}</p>
 			<div></div>
-		</>
+		</div>
 	);
+}
+
+export default Radium(About);
+
+export const styles: IStyles =  {
+	div: {
+		height: "70vh",
+		width: "30vw",
+		position: "relative",
+		display: 'flex',
+		justifyContent: 'center',
+		flexShrink: 0,
+
+	},
+	circleImage: {
+		height: "30vw",
+		width: "30vw",
+		backgroundImage: "url('/Images/Gerald.png')",
+		backgroundPosition: 'center',
+		backgroundRepeat: 'no-repeat',
+		backgroundSize: 'cover',
+		borderRadius: "50%",
+		position: "absolute",
+		zIndex: 1,
+	},
+	circle: {
+		height: "22vw",
+		width: "22vw",
+		background: "yellow",
+		borderRadius: "50%",
+		position: "absolute",
+		top: "40%",
+		left: "40%",
+	},
+	name: {
+		position: "absolute",
+		bottom: "0",
+	},
+	sectionFlex: {
+		display: "flex",
+		alignItems: "center",
+	}
 }

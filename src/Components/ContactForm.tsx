@@ -138,7 +138,7 @@ class ContactForm extends React.Component<IProps, IState> {
 						isValid={(isValid : boolean) => this.setState({messageValid: isValid})}
 						onChange={(value : string) => this.setState({message: value})}
 						validator={[
-							{ validationFunction:(value) => this.isInputValid(value), errorMessage: 'Le message ne peut pas être vide' },
+							{ validationFunction:(value) => this.isInputValid(value), errorMessage: text.errorMessage },
 						] as IValidator[]}
 				/>
 				<button style={styles.button} type="submit">{text.button}</button>

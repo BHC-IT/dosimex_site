@@ -60,7 +60,7 @@ class Navbar extends React.Component<IProps, IState> {
 			<>
 			{
 				pages.map((page: IPage) =>
-					<li key={page.name} style={{paddingLeft: "20px"}}>
+					<li key={page.name} style={{paddingLeft: "1.7vw"}}>
 						<ItemNavbar
 							name={page.name}
 							route={page.route}
@@ -77,16 +77,16 @@ class Navbar extends React.Component<IProps, IState> {
 		return (
 			<nav style={style.navbar}>
 				<ul style={style.navbarUl}>
-					<Link href="/" replace>
-						<li>
-							<Image
-								src="/Images/logo_dosimex_new.png"
-								alt="logo dosimex"
-								width={`${212 * ratio}px`}
-								height={`${44 * ratio}px`}
-							/>
+						<li style={{display: "flex", alignItems: "center", marginRight: "2vw"}}>
+							<Link href="/" replace>
+								<Image
+									src="/Images/logo_dosimex_new.png"
+									alt="logo dosimex"
+									width={`${212 * ratio}rem`}
+									height={`${44 * ratio}rem`}
+								/>
+							</Link>
 						</li>
-					</Link>
 					<this.renderNav/>
 					<LanguageSwitch route={this.props.router.pathname} language={this.props.router.locale}/>
 				</ul>
@@ -107,15 +107,13 @@ export const style: IStyles =  {
 		display: "flex",
 		alignItems: "center",
 		justifyContent: "space-between",
-		padding: "3px 100px",
+		padding: "5vh 7vw",
+		color: "var(--dark)",
 
 	},
 	navbarUl: {
-		padding: "0px",
-		listStyle: "none",
 		display: "flex",
 		alignItems: "center",
-		color: "black",
 	},
 	navbarButton: {
 		float: "right",
