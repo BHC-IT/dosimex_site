@@ -114,17 +114,17 @@ export default function Books() {
 					<p style={styles.headerSubtitle}>{text.header.p}</p>
 				</div>
 				<div>
-					<Book author={text.book1.author} text={text.book1.extract} href="/" imageUrl="livre1.png"/>
-					<Book author={text.book2.author} text={text.book2.extract} href="/" imageUrl="livre2.png"/>
-					<Book author={text.book3.author} text={text.book3.extract} href="/" imageUrl="livre3.png"/>
-					<Book author={text.book4.author} text={text.book4.extract} href="/" imageUrl="livre4.png"/>
-					<Book author={text.book5.author} text={text.book5.extract} href="/" imageUrl="livre5.png"/>
-					<Book author={text.book6.author} text={text.book6.extract} href="/" imageUrl="livre6.png"/>
-					<Book author={text.book7.author} text={text.book7.extract} href="/" imageUrl="livre7.png"/>
-					<Book author={text.book8.author} text={text.book8.extract} href="/" imageUrl="livre8.png"/>
-					<Book author={text.book9.author} text={text.book9.extract} href="/" imageUrl="livre9.png"/>
-					<Book author={text.book10.author} text={text.book10.extract} href="/" imageUrl="livre10.png"/>
-					<Book author={text.book11.author} text={text.book11.extract} href="/" imageUrl="livre11.png"/>
+					<Book author={text.book1.author} text={text.book1.extract} href="https://laboutique.edpsciences.fr/produit/1070/9782759823147/Physique%20nucleaire%20et%20radioprotection" imageUrl="livre1.png"/>
+					<Book author={text.book2.author} text={text.book2.extract} href="https://laboutique.edpsciences.fr/produit/843/9782759816736" imageUrl="livre2.png"/>
+					<Book author={text.book3.author} text={text.book3.extract} href="https://laboutique.edpsciences.fr/produit/843/9782759816736" imageUrl="livre3.png"/>
+					<Book author={text.book4.author} text={text.book4.extract} href="https://laboutique.edpsciences.fr/produit/953/9782759819928" imageUrl="livre4.png"/>
+					<Book author={text.book5.author} text={text.book5.extract} href="https://laboutique.edpsciences.fr/produit/43/9782759809363/Radioprotection%20pratique%20pour%20lindustrie%20et%20la%20recherche" imageUrl="livre5.png"/>
+					<Book author={text.book6.author} text={text.book6.extract} href="https://www.editions-ellipses.fr/accueil/4133-de-l-atome-au-noyau-une-approche-historique-de-la-physique-atomique-et-de-la-physique-nucleaire-9782340025158.html" imageUrl="livre6.png"/>
+					<Book author={text.book7.author} text={text.book7.extract} href="https://www.editions-hermann.fr/livre/9782705660437" imageUrl="livre7.png"/>
+					<Book author={text.book8.author} text={text.book8.extract} href="https://www.lavoisier.fr/livre/physique/physique-appliquee-a-l-exposition-externe/antoni/descriptif_2649448" imageUrl="livre8.png"/>
+					<Book author={text.book9.author} text={text.book9.extract} href="https://laboutique.edpsciences.fr/produit/1071/9782759823123/Resolutions%20de%20problemes%20sur%20les%20rayonnements%20ionisants" imageUrl="livre9.png"/>
+					<Book author={text.book10.author} text={text.book10.extract} href="https://laboutique.edpsciences.fr/produit/617/9782759809929/La%20radioactivite%20sous%20surveillance" imageUrl="livre10.png"/>
+					<Book author={text.book11.author} text={text.book11.extract} href="https://laboutique.edpsciences.fr/produit/1081/9782759823482/Exercices%20de%20radioprotection%20-%20Tome%203" imageUrl="livre11.png"/>
 				</div>
 			</div>
 		</>

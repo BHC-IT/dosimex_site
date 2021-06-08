@@ -10,9 +10,9 @@ interface IProps {
 const Button = (props: IProps) => {
 
 	return (
-		<div style={styles}>
+		<button style={styles}>
 			<Link href={`/${props.route}`} replace>{props.name}</Link>
-		</div>
+		</button>
 	);
 
 }

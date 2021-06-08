@@ -122,7 +122,6 @@ export const styles: IStyles =  {
 	circleImage: {
 		width: "370px",
 		height: "370px",
-		backgroundImage: "url('/Images/Gerald.png')",
 		backgroundPosition: 'center',
 		backgroundRepeat: 'no-repeat',
 		backgroundSize: 'cover',

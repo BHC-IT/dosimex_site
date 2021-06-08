@@ -20,6 +20,7 @@ export interface IStyles {
 	col1: CSS.Properties,
 	col2: CSS.Properties,
 	col: CSS.Properties,
+	colTitle: CSS.Properties,
 	divPhone: CSS.Properties,
 	divSocialMedia: CSS.Properties,
 	divIconSocial: CSS.Properties,
@@ -95,13 +96,13 @@ class ContactForm extends React.Component<IProps, IState> {
 				</div>
 				<div style={styles.col2}>
 					<div style={styles.col}>
-						<h4>{text.col2.title}</h4>
+						<p style={styles.colTitle}>{text.col2.title}</p>
 						<Link href="/Videos" replace><p style={styles.linkRessource}>{text.col2.p1}</p></Link>
 						<Link href="/Manuals" replace><p style={styles.linkRessource}>{text.col2.p2}</p></Link>
 						<Link href="/Books" replace><p style={styles.linkRessource}>{text.col2.p3}</p></Link>
 					</div>
 					<div style={styles.col}>
-						<h4>{text.col3.title}</h4>
+						<p style={styles.colTitle}>{text.col3.title}</p>
 						<Link href="/About" replace><p style={styles.linkRessource}>{text.col3.p1}</p></Link>
 						<Link href="/" replace><p style={styles.linkRessource}>{text.col3.p2}</p></Link>
 						<Link href="/Contact" replace><p style={styles.linkRessource}>{text.col3.p3}</p></Link>
@@ -135,6 +136,11 @@ export const styles: IStyles =  {
 	},
 	col: {
 		width: "40%",
+	},
+	colTitle: {
+		fontFamily: "var(--lato)",
+		fontWeight: "700",
+		fontSize: "2.4rem",
 	},
 	divPhone: {
 		display: "flex",
