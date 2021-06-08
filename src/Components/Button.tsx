@@ -21,7 +21,7 @@ export default Radium(Button);
 
 export const styles =  {
 	padding: "8px 25px",
-	backgroundColor: "red",
+	backgroundColor: "var(--main)",
 	borderRadius: "50px",
 	color: "white",
 	textTransform: "uppercase",

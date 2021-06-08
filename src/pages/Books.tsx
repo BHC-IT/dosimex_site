@@ -1,3 +1,5 @@
+import Book from '../Components/Book';
+
 const text = {
 	header: {
 		title: "Lectures",
@@ -103,21 +105,47 @@ const text = {
 
 
 export default function Books() {
+
 	return (
 		<>
-			<h2>{text.header.title}</h2>
-			<p>{text.header.p}</p>
-			<div>
-				<div></div>
-				<div>
-					{/*<Image />*/}
-					<p>{text.book1.author}</p>
+			<div className="container" style={styles.global}>
+				<div style={styles.header}>
+					<h2>{text.header.title}</h2>
+					<p style={styles.headerSubtitle}>{text.header.p}</p>
 				</div>
 				<div>
-					<p>{text.book1.extract}</p>
+					<Book author={text.book1.author} text={text.book1.extract} href="/" imageUrl="livre1.png"/>
+					<Book author={text.book2.author} text={text.book2.extract} href="/" imageUrl="livre2.png"/>
+					<Book author={text.book3.author} text={text.book3.extract} href="/" imageUrl="livre3.png"/>
+					<Book author={text.book4.author} text={text.book4.extract} href="/" imageUrl="livre4.png"/>
+					<Book author={text.book5.author} text={text.book5.extract} href="/" imageUrl="livre5.png"/>
+					<Book author={text.book6.author} text={text.book6.extract} href="/" imageUrl="livre6.png"/>
+					<Book author={text.book7.author} text={text.book7.extract} href="/" imageUrl="livre7.png"/>
+					<Book author={text.book8.author} text={text.book8.extract} href="/" imageUrl="livre8.png"/>
+					<Book author={text.book9.author} text={text.book9.extract} href="/" imageUrl="livre9.png"/>
+					<Book author={text.book10.author} text={text.book10.extract} href="/" imageUrl="livre10.png"/>
+					<Book author={text.book11.author} text={text.book11.extract} href="/" imageUrl="livre11.png"/>
 				</div>
 			</div>
-			<button>Voir plus</button>
 		</>
 	);
+}
+
+export const styles = {
+	global: {
+		color: "var(--dark)",
+		textAlign: "justify",
+		lineHeight: "3.2rem",
+	},
+	header: {
+		textAlign: "center",
+		padding: "20vh auto",
+		marginTop: "15vh",
+		marginBottom: "15vh",
+	},
+	headerSubtitle: {
+		padding: "4vh 15vw",
+		color: "var(--grey)",
+		fontSize: "1.8rem",
+	},
 }

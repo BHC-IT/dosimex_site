@@ -2,19 +2,20 @@ import ContactForm from '../Components/ContactForm'
 import Image from 'next/image';
 
 export default function Contact() {
-	const ratio = 5;
 	return (
 		<>
-			{/*<div style={{position: "relative"}}>
-				<Image
-					src="/Images/trefle.png"
-					alt="icône trèfle radioactivité"
-					width={`${154 * ratio}px`}
-					height={`${154* ratio}px`}
-				/>
-			</div>*/}
-			<div style={{}}>
-				<ContactForm />
+			<div>
+				<div style={{position: "absolute"}}>
+					<Image
+						src="/Images/motif_trefle.svg"
+						alt="motif filigrane trèfle radioativité"
+						width={548}
+						height={548}
+					/>
+				</div>
+				<div style={{position: "relative"}}>
+					<ContactForm />
+				</div>
 			</div>
 		</>
 		);
