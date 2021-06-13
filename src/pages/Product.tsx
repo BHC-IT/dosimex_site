@@ -2,7 +2,11 @@ import Button from '../Components/Button';
 import ContactForm from '../Components/ContactForm';
 import Image from 'next/image';
 import Link from 'next/link';
+import * as CSS from 'csstype';
 
+interface IStyles {
+	[key: string] : CSS.Properties
+}
 
 const text = {
 	header: {
@@ -98,7 +102,7 @@ export default function Product() {
 	</div>
 }
 
-export const styles = {
+export const styles: IStyles = {
 	global: {
 		color: "var(--dark)",
 		textAlign: "justify",
