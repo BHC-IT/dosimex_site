@@ -1,5 +1,7 @@
 import { GetStaticPropsContext, GetStaticProps } from 'next';
 import IArticle from '../../../interfaces/IArticle'
+import * as axios from 'axios';
+import Link from 'next/link';
 
 
 const Articles = (props: any) => {
@@ -7,7 +9,22 @@ const Articles = (props: any) => {
 	return (
 		<div>
 			<ul>
-				{props.articles.map((e: IArticle) => <li>{e.title}</li>)}
+				{props.articles.map((e: IArticle) => {
+
+					return (
+						<li>
+							<ul>
+								<li>{e.title}</li>
+								<li>{e.updatedAt}</li>
+								<li>{e.description}</li>
+								<li>{e.markdown}</li>
+							</ul>
+							<Link href={`/articles/${e.slug}`}>
+								<button>Voir plus</button>
+							</Link>
+						</li>
+					)}
+				)}
 			</ul>
 		</div>
 	)
@@ -15,13 +32,20 @@ const Articles = (props: any) => {
 
 export const getStaticProps: GetStaticProps = async (context : GetStaticPropsContext) => {
 
-	const res = await fetch('http://localhost:3000/api/articles');
+	try {
+		const res = await axios.get('http://localhost:3000/api/articles');
 
-	const data = (await res.json()).data
-
+		return {
+			props: {
+				articles: res.data.data,
+			},
+			revalidate: 1,
+		}
+	} catch (e) {
+	}
 	return {
 		props: {
-			articles: data,
+			articles: [],
 		},
 		revalidate: 1,
 	}

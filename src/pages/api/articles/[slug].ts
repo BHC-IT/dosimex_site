@@ -3,6 +3,7 @@ import dbConnect from '../../../../utils/dbConnect';
 import Article from '../../../../models/Article';
 import IArticle from '../../../../interfaces/IArticle';
 import verifyToken from '../../../../middleware/auth';
+import * as urlSlug from 'url-slug';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
 
@@ -25,7 +26,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 			if (!decodedToken) {
 				throw new Error('Token not valid')
 			}
-			const article: IArticle = await Article.findOneAndUpdate({slug: req.query.slug}, {...req.body}).exec()
+			let slug = req.query.slug
+			if (req.body.title)
+				slug = urlSlug.convert(req.body.title, {dictionary: {'?': '', '=': '', '/': '', '&': ''}})
+			const article: IArticle = await Article.findOneAndUpdate({slug: req.query.slug}, {...req.body, slug: slug}).exec()
 			res.status(201).json({success: true, data: article})
 		} catch {
 			res.status(400).json({success: false})

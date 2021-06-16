@@ -1,12 +1,9 @@
 import * as React from 'react';
 import { GetStaticPropsContext, GetStaticProps, GetStaticPaths } from 'next';
-import IArticle from '../../../interfaces/IArticle'
+import IArticle from '../../../../interfaces/IArticle'
 import * as axios from 'axios';
-import useUser from '../../../Hooks/useUser'
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-
-
+import useUser from '../../../../Hooks/useUser'
+import ArticleForm from '../../../Components/ArticleForm'
 
 export interface IProps {
 	article: IArticle,
@@ -14,41 +11,11 @@ export interface IProps {
 
 const Article = (props : IProps) => {
 
-	const router = useRouter();
 	const user = useUser()
-
-	const renderButtonDeleteEdit = () => {
-		return (
-			<div>
-				<button onClick={async () => {
-
-						try {
-							await axios.delete(`http://localhost:3000/api/articles/${props.article.slug}`,
-								{headers: {authorization : `Bearer ${user}`}});
-							router.push('/articles')
-						} catch (e) {
-							console.error(e.response)
-						}
-				}} >
-					<p>Supprimer</p>
-				</button>
-				<Link href={`/articles/edit/${props.article.slug}`}>
-					<button>Modifier</button>
-				</Link>
-			</div>
-		)
-	}
 
 	return (
 		<>
-			<ul>
-				<li>{props.article.title}</li>
-				<li>{props.article.updatedAt}</li>
-				<li>{props.article.description}</li>
-				<li>{props.article.markdown}</li>
-			</ul>
-
-			{ user ? renderButtonDeleteEdit() : null}
+			<ArticleForm user={user} article={props.article} method='PATCH'/>
 		</>
 	)
 }
@@ -89,7 +56,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 		};
 	} catch (e) {
 	}
-	const paths = null
+	const paths = {}
 	return {
 		paths,
 		fallback: false,

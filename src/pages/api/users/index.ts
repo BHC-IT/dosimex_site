@@ -24,7 +24,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 			.then(hash => {
 				const user = new User({
 				username: req.body.username,
-				password: hash
+				password: hash,
+				email: req.body.email
 			});
 			user.save()
 			.then(() => res.status(201).json({ message: 'Utilisateur créé !' }))

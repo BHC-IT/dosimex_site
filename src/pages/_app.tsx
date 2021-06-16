@@ -3,8 +3,12 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import Navbar from '../Components/Navbar'
 import Footer from '../Components/Footer'
+import useUser from '../../Hooks/useUser'
 
 function MyApp({ Component, pageProps }: AppProps) {
+
+	const user = useUser()
+
 	return <>
 		<Head>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,7 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 			<title>Dosimex</title>
 		</Head>
 		<Navbar />
-		<Component {...pageProps} />
+		<Component {...pageProps} user={user}/>
 		<Footer />
 	</>
 
