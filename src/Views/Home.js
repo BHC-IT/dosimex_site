@@ -209,7 +209,7 @@ export default class Home extends React.Component {
 					<VizSensor partialVisibility onChange={(isVisible) =>this.setState({bottom:isVisible})} >
 						<div style={{...boxStyle, backgroundColor:Color.dark, width:'100vw', flexDirection:'row', alignItems:'center', justifyContent:'center'}} /* CTA */ >
 							<div style={{height:'100vh', width:'50vw'}} >
-								<HomeStyler icon="ios-cart" mainText="Achetez Dosimex dès maintenant" iconColor={Color.darkgrey} secondText={<p style={{color:Color.white, textAlign:'center'}} >300€ TTC<a href='/acheter' style={{color:Color.white, fontSize:18, backgroundColor:Color.red, padding:12, borderRadius:20, alignItems:'center', justifyContent:'center', textShadow:'0px 0px', display:'block'}} >Vers la boutique</a></p>} style={{backgroundColor:Color.dark}}/>
+								<HomeStyler icon="ios-cart" mainText="Achetez Dosimex dès maintenant" iconColor={Color.darkgrey} secondText={<p style={{color:Color.white, textAlign:'center'}} ><a href='/acheter' style={{color:Color.white, fontSize:18, backgroundColor:Color.red, padding:12, borderRadius:20, alignItems:'center', justifyContent:'center', textShadow:'0px 0px', display:'block'}} >Vers la boutique</a></p>} style={{backgroundColor:Color.dark}}/>
 							</div>
 							<div style={{display:'flex', justifyContent:'center', alignItems:'center', height:'100vh', width:'50vw'}} >
 								<img src={LogoDosi2} style={{width:'30vw', backgroundColor:Color.white}} alt='logo dosimex' />
