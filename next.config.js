@@ -10,7 +10,7 @@ module.exports =  {
 module.exports = {
 	distDir: 'build',
 	i18n: {
-		locales: ['en-US', 'fr'],
+		locales: ['en-US', 'fr', 'debug'],
 		defaultLocale: 'fr',
 	},
 };

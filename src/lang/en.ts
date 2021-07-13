@@ -1,4 +1,6 @@
-const text : {[$:string]:any} = {
+import ILang from './interface';
+
+const text : ILang = {
 	Home: {
 		header: {
 			title: "The référence des outils de calculs pour la radioprotection ",
