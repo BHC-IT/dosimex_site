@@ -3,7 +3,7 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import Navbar from '../Components/Navbar'
 import Footer from '../Components/Footer'
-import useUser from '../../Hooks/useUser'
+import useUser from '../Hooks/useUser'
 
 function MyApp({ Component, pageProps }: AppProps) {
 
