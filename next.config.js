@@ -10,17 +10,7 @@ module.exports =  {
 module.exports = {
 	distDir: 'build',
 	i18n: {
-	locales: ['en-US', 'fr'],
-	defaultLocale: 'fr',
-	domains: [
-		{
-			domain: 'dosimex.com',
-			defaultLocale: 'en-US',
-		},
-		{
-			domain: 'dosimex.fr',
-			defaultLocale: 'fr',
-		},
-	],
+		locales: ['en-US', 'fr'],
+		defaultLocale: 'fr',
 	},
 };
