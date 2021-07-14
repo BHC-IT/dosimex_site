@@ -26,6 +26,8 @@
 html {
     font-size: 62.5%;
     font-family: var(--nunito);
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -62,6 +64,15 @@ ul {
 
 h2 {
   font-size: 5rem;
+  font-family: var(--lato);
+  font-weight: 900;
+  color: var(--dark);
+}
+
+h1 {
+  font-size: 7rem;
+  line-height: 1.2;
+  margin-bottom: 3vh;
   font-family: var(--lato);
   font-weight: 900;
   color: var(--dark);

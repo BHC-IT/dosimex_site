@@ -1,4 +1,4 @@
-const text: {
+const text = {
 	header: {
 		title: "Manuels et validations",
 		p: "Pour mieux vous permettre de juger des possibilités offertes avec Dosimex-GX, vous pouvez télécharger l’ensemble de la documentation associée à ce code :",
@@ -32,5 +32,6 @@ const text: {
 
 
 export default function Manuals() {
+	console.log(text);
 	return <div>Manuals</div>
 }

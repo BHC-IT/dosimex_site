@@ -35,7 +35,7 @@ export default () => {
 						} catch (e) {
 						}
 					}} >
-						<p>login</p>
+						<p>Se connecter</p>
 					</button>
 				</div>
 

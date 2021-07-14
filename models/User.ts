@@ -1,14 +1,11 @@
-const mongoose = require('mongoose');
+import IUser from '../interfaces/IUser'
+import * as mongoose from 'mongoose'
 
-export interface IUser {
-  username: string,
-  password: string,
-}
 
-const UserSchema : IUser = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   email: { type: String, required: true },
 });
 
-export default mongoose.models.User || mongoose.model('User', UserSchema);
+export default mongoose.models.User || mongoose.model<IUser>('User', UserSchema);

@@ -9,19 +9,23 @@ function MyApp({ Component, pageProps }: AppProps) {
 
 	const user = useUser()
 
-	return <>
-		<Head>
-			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-			<link rel="preconnect" href="https://fonts.gstatic.com" />
-			<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet" /> 
-			<link rel="preconnect" href="https://fonts.gstatic.com" />
-			<link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet" />
-			<title>Dosimex</title>
-		</Head>
-		<Navbar />
-		<Component {...pageProps} user={user}/>
-		<Footer />
-	</>
+	return (
+		<>
+			<Head>
+				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+				<link rel="preconnect" href="https://fonts.gstatic.com" />
+				<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet" /> 
+				<link rel="preconnect" href="https://fonts.gstatic.com" />
+				<link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet" />
+				<title>Dosimex</title>
+			</Head>
+			<div style={{minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "space-between"}}>
+				<Navbar />
+				<Component {...pageProps} user={user}/>
+				<Footer />
+			</div>
+		</>
+	);
 
 }
 export default MyApp;
