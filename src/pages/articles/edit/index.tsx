@@ -1,5 +1,5 @@
 import ArticleForm from '../../../Components/ArticleForm'
-import useUser from '../../../../Hooks/useUser'
+import useUser from '../../../Hooks/useUser'
 
 const ArticlePost = () => {
 

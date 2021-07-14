@@ -1,5 +1,5 @@
 import { GetStaticPropsContext, GetStaticProps } from 'next';
-import IArticle from '../../../interfaces/IArticle'
+import IArticle from '../../interfaces/IArticle'
 import * as axios from 'axios';
 import Link from 'next/link';
 

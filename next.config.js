@@ -3,14 +3,12 @@ const withImages = require("next-images");
 const withSass = require("@zeit/next-sass");
 const webpack = require("webpack");
 const path = require("path");
+const removeImports = require('next-remove-imports')();
 
-module.exports =  {
-
-};
-module.exports = {
+module.exports = removeImports({
 	distDir: 'build',
 	i18n: {
 		locales: ['en-US', 'fr', 'debug'],
 		defaultLocale: 'fr',
-	},
-};
+	}
+});

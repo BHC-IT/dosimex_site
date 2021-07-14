@@ -1,9 +1,12 @@
 import * as React from 'react';
 import * as CSS from 'csstype';
-import IArticle from '../../interfaces/IArticle';
+import Radium from 'radium';
+import IArticle from '../interfaces/IArticle';
 import * as axios from 'axios';
-import verifyToken from '../../middleware/auth';
 import Input from './Input';
+import MDEditor from '@uiw/react-md-editor';
+import '@uiw/react-md-editor/dist/markdown-editor.css'
+import '@uiw/react-markdown-preview/dist/markdown.css';
 
 const text = {
 	label_title: "Titre",
@@ -19,7 +22,7 @@ interface IProps {
 }
 
 interface IStyles {
-
+	button: CSS.Properties,
 }
 
 const Article = (props: IProps) => {
@@ -27,15 +30,12 @@ const Article = (props: IProps) => {
 
 	const [title, setTitle] = React.useState<string | null>(null);
 	const [description, setDescription] = React.useState<string | null>(null);
-	const [markdown, setMarkdown] = React.useState<string | null>(null);
+	const [markdown, setMarkdown] = React.useState<string | undefined>(undefined);
 	const [urlImage, setUrlImage] = React.useState<string | null>(null);
 
-	console.log(title)
-	console.log(props.user)
-
 	return (
-		<div style={{display: 'flex', flexDirection: 'column', width: '100%', height:'100%', justifyContent:'center', alignItems:'center'}} >
-			<div style={{display: 'flex', flexDirection: 'column', height:'50%', width: '50%', justifyContent:'space-evenly', alignItems:'center'}} >
+		<div>
+			<div className="container">
 
 				<Input
 						value={props.article?.title}
@@ -51,13 +51,13 @@ const Article = (props: IProps) => {
 						label={text.label_description}
 						onChange={(value : string) => setDescription(value)}
 				/>
-				<Input
+				{/*<Input
 						value={props.article?.markdown}
 						type="text"
 						id="markdown"
 						label={text.label_markdown}
 						onChange={(value : string) => setMarkdown(value)}
-				/>
+				/>*/}
 				<Input
 						value={props.article?.urlImage}
 						type="text"
@@ -66,8 +66,14 @@ const Article = (props: IProps) => {
 						onChange={(value : string) => setUrlImage(value)}
 				/>
 
+				<p>{text.label_markdown}</p>
+				<MDEditor
+					value={markdown}
+					onChange={setMarkdown}
+				/>
+				<MDEditor.Markdown source={markdown} />
 				<div>
-					<button onClick={async () => {
+					<button style={styles.button} onClick={async () => {
 						if (props.method === 'POST') {
 
 							try {
@@ -93,7 +99,7 @@ const Article = (props: IProps) => {
 							}
 						}
 					}} >
-						<p>Envoyer</p>
+					Envoyer
 					</button>
 				</div>
 
@@ -103,8 +109,19 @@ const Article = (props: IProps) => {
 
 }
 
-export default Article;
+export default Radium(Article);
 
 export const styles: IStyles =  {
-
+	button: {
+		padding: "8px 25px",
+		backgroundColor: "var(--main)",
+		borderRadius: "50px",
+		color: "white",
+		textTransform: "uppercase",
+		transition: "all 0.3s ease 0s",
+		':hover': {
+			transform: "translateY(-4px)",
+			boxShadow: "0px 5px 5px rgba(0, 0, 0, 0.1)",
+		}
+	}
 }

@@ -6,6 +6,7 @@ const text : ILang = {
 			title: "The référence des outils de calculs pour la radioprotection ",
 			p: "Ensemble d'outils de calculs pratiques, simples d’emploi, validés, et répondant à de nombreuses situations rencontrées en radioprotection. Ils vous permettront d'améliorer votre niveau d'expertise.",
 			button: "Découvrir",
+			textImage: ["Dosimex GX Générateur X"],
 		},
 		partners: {
 			title: "Nos partenaires",
@@ -40,7 +41,9 @@ const text : ILang = {
 			button: "Découvrir les autres vidéos",
 		},
 		opinion: {
-
+			name: "Jean-Lionel Trolet",
+			job: "EAMEA",
+			opinion: "J’utilise DOSIMEX, qui me donne totalement satisfaction, tant par la qualité de ses résultats que par sa facilité d’usage, dans les formations du personnel du ministère des armées. Il possède, entre autres, la force de tenir compte de situations courantes auxquelles sont confrontées les agents de MinArm, tant dans les rôles de PCR médicaux (merci au module de calcul X !) que les intervenants de tous niveaux dans le domaine industriel (du PNR à l’ingénieur). Enfin son usage est si simple que quasiment tous les PCR que nous formons l’ont adopté dans leurs unités."
 		},
 		callToAction: {
 			title: "Phrase call to action lorem ipsum magnalus rib te lesatre",

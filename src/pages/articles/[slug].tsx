@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { GetStaticPropsContext, GetStaticProps, GetStaticPaths } from 'next';
-import IArticle from '../../../interfaces/IArticle'
+import IArticle from '../../interfaces/IArticle'
 import * as axios from 'axios';
-import useUser from '../../../Hooks/useUser'
+import useUser from '../../Hooks/useUser'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 

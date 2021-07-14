@@ -29,20 +29,16 @@ export interface IStyles {
 }
 
 const text = {
-	items: {
-		li1: "Nos offres",
-		li2: "Formations",
-		li3: "Qui sommes-nous ?",
-		li4: "Contact",
-	},
+	items: ["Nos offres", "Formations", "Qui sommes-nous ?", "Nouveautés", "Contact"],
 	button: "Acheter Dosimex",
 }
 
 const pages : IPage[] = [
-	{route: 'Software', name: text.items.li1},
-	{route: 'Training', name: text.items.li2},
-	{route: 'About', name: text.items.li3},
-	{route: 'Contact', name: text.items.li4},
+	{route: 'Software', name: text.items[0]},
+	{route: 'Training', name: text.items[1]},
+	{route: 'About', name: text.items[2]},
+	{route: 'articles', name: text.items[3]},
+	{route: 'Contact', name: text.items[4]},
 ]
 
 

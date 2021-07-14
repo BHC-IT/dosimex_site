@@ -4,6 +4,7 @@ export default interface Lang {
 			title: string,
 			p: string,
 			button: string,
+			textImage: string[],
 		},
 		partners: {
 			title: string,
@@ -38,7 +39,9 @@ export default interface Lang {
 			button: string,
 		},
 		opinion: {
-
+			name: string,
+			job: string,
+			opinion: string,
 		},
 		callToAction: {
 			title: string,

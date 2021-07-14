@@ -19,11 +19,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 				<link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet" />
 				<title>Dosimex</title>
 			</Head>
-			<div style={{minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "space-between"}}>
+			<body style={{minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "space-between"}}>
 				<Navbar />
 				<Component {...pageProps} user={user}/>
 				<Footer />
-			</div>
+			</body>
 		</>
 	);
 
