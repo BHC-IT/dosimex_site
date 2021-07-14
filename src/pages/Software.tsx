@@ -30,7 +30,7 @@ const LinkLabel = styled.a`
 
 	${LinkZone}:hover & {
 		cursor: pointer;
-		text-decoration: underline var(--main)
+		text-decoration: underline var(--main);
 	}
 `;
 
@@ -202,6 +202,19 @@ export default function Software() {
 				)}
 				<div style={{marginTop: '5vh'}} >
 					<Button name={text.button.label} route="Videos"/>
+				</div>
+				<div style={{marginTop:'20vh', backgroundColor:'var(--grey-bg)', width:'100%', display: 'flex', flexDirection: 'column', alignItems:'center', justifyContent: 'center', paddingTop:'3vh', paddingBottom:'6vh'}} >
+					<h3>{text.more.title}</h3>
+					{ text.more.links.map(e =>
+						<div style={{width: '80%', marginTop: '3vh'}} >
+							<Link href={`/`} replace><p style={{textDecoration: "underline var(--dark)"}} >{e.toUpperCase()}</p></Link>
+						</div>
+					)}
+				</div>
+				<div style={{marginTop:'5vh', width:'100%', display: 'flex', flexDirection: 'column', alignItems:'center', justifyContent: 'center', paddingBottom: '25vh'}} >
+					<h3>{text.ask.title}</h3>
+					<p style={{...styles.headerText, width: '25vw', marginTop: 0, textAlign: 'center' }} >{text.ask.text}</p>
+					<Button name={text.ask.labelButton} route="Contact"/>
 				</div>
 			</div>
 		</div>

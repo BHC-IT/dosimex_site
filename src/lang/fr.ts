@@ -86,6 +86,18 @@ const text : ILang = {
 				"utilitaire permettant de déterminer le seuil de décision et la limite de détection en mesure nucléaire. Cet utilitaire est accompagné des documents de cours."
 			],
 		},
+		more: {
+			title: "Plus de ressources",
+			links: ["manuels d’utilisation de Dosimex-GX pour en découvrir toutes les possibilités",
+				"dossiers de validation complets Ou aux extraits validation source gamma et validation générateur X",
+				"Les nouveautés à découvrir dans Dosimex-GX 3.0"
+			]
+		},
+		ask: {
+			title: "Des questions ?",
+			text: "Pour un devis, n’hésitez pas à nous contacter ici ou par téléphone au 06 89 70 90 35",
+			labelButton: "Nous contacter"
+		}
 
 	}
 }
