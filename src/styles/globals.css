@@ -1,80 +1,99 @@
+@import url(https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap);
+
 :root {
-    --main: #FF2532;
-    --dark: #0B0D17;
-    --light: #F3F4FA;
-    --flash: #FFC03D;
-    --flashTrans: rgba(255, 192, 61, 0.29);
-    --grey: #857C8B;
-    --grey-bg: #DAD8E0;
-    --lato:  'Lato', sans-serif;;
-    --nunito:  'Nunito', sans-serif;;
+	--main: #FF2532;
+	--dark: #0B0D17;
+	--light: #F3F4FA;
+	--flash: #FFC03D;
+	--flashTrans: rgba(255, 192, 61, 0.29);
+	--grey: #857C8B;
+	--grey-bg: #DAD8E0;
+	--yellow-bg: #FFC03D;
+	--lato:  'Lato', sans-serif;;
+	--nunito:  'Nunito', sans-serif;;
 }
 
 * {
-  box-sizing: border-box;
-  outline: none;
-  text-decoration: none;
-  transition: all .2s ease 0s;
-   /*Visualisation des éléments */
-  /*border: 1px dotted rgba(0,0,0,0.3);*/
+	box-sizing: border-box;
+	outline: none;
+	text-decoration: none;
+	/*Visualisation des éléments */
+	/*border: 1px dotted rgba(0,0,0,0.3);*/
 }
 
 *:hover {
-    transition: all .2s ease 0s;
+	transition: all .2s ease 0s;
 }
 
 html {
-    font-size: 62.5%;
-    font-family: var(--nunito);
+	font-size: 62.5%;
+	font-family: var(--nunito);
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    font-size: 1.7rem;
-    line-height: 1.7;
+	margin: 0;
+	padding: 0;
+	font-size: 1.7rem;
+	line-height: 1.7;
 }
 
 button {
-  background: none;
-  color: inherit;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-  border-radius: 50px;
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+	border-radius: 50px;
 }
 
 a,
 a:hover,
 a:visited,
 a:active {
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
+	text-decoration: none;
+	color: inherit;
+	cursor: pointer;
+	font-family: var(--lato);
 }
 
 ul {
-    list-style: none;
-    padding-left: 0;
+	list-style: none;
+	padding-left: 0;
 }
 
 h2 {
-  font-size: 5rem;
-  font-family: var(--lato);
-  font-weight: 900;
-  color: var(--dark);
+	font-size: 5rem;
+	font-family: var(--lato);
+	font-weight: 900;
+	color: var(--dark);
+}
+
+h3 {
+	font-size: 2em;
+	font-family: var(--lato);
+	font-weight: 900;
+	color: var(--dark);
 }
 
 h4 {
-    font-size: 3rem;
-    font-family: var(--lato);
-    font-weight: 700;
-    color: var(--dark);
-    text-transform: uppercase;
+	font-size: 3rem;
+	font-family: var(--lato);
+	font-weight: 700;
+	color: var(--dark);
+	text-transform: uppercase;
+}
+
+h5 {
+	font-size: 2rem;
+	font-family: var(--lato);
+	font-weight: 700;
+	color: var(--dark);
+	text-transform: uppercase;
 }
 
 .container {
-  padding: 5vh 10vw;
+	padding: 5vh 10vw;
 }
