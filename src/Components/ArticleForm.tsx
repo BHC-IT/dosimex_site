@@ -23,6 +23,7 @@ interface IProps {
 
 interface IStyles {
 	button: CSS.Properties,
+	divInput: CSS.Properties,
 }
 
 const Article = (props: IProps) => {
@@ -37,42 +38,44 @@ const Article = (props: IProps) => {
 		<div>
 			<div className="container">
 
-				<Input
-						value={props.article?.title}
-						type="text"
-						id="title"
-						label={text.label_title}
-						onChange={(value : string) => setTitle(value)}
-				/>
-				<Input
-						value={props.article?.description}
-						type="text"
-						id="description"
-						label={text.label_description}
-						onChange={(value : string) => setDescription(value)}
-				/>
-				{/*<Input
-						value={props.article?.markdown}
-						type="text"
-						id="markdown"
-						label={text.label_markdown}
-						onChange={(value : string) => setMarkdown(value)}
-				/>*/}
-				<Input
-						value={props.article?.urlImage}
-						type="text"
-						id="urlImage"
-						label={text.label_urlImage}
-						onChange={(value : string) => setUrlImage(value)}
-				/>
+				<div style={styles.divInput}>
+					<Input
+							value={props.article?.title}
+							type="text"
+							id="title"
+							label={text.label_title}
+							onChange={(value : string) => setTitle(value)}
+					/>
+					<Input
+							value={props.article?.description}
+							type="text"
+							id="description"
+							label={text.label_description}
+							onChange={(value : string) => setDescription(value)}
+					/>
+					{/*<Input
+							value={props.article?.markdown}
+							type="text"
+							id="markdown"
+							label={text.label_markdown}
+							onChange={(value : string) => setMarkdown(value)}
+					/>*/}
+					<Input
+							value={props.article?.urlImage}
+							type="text"
+							id="urlImage"
+							label={text.label_urlImage}
+							onChange={(value : string) => setUrlImage(value)}
+					/>
+				</div>
 
-				<p>{text.label_markdown}</p>
+				<p style={{textTransform: "uppercase"}}>{text.label_markdown}</p>
 				<MDEditor
 					value={markdown}
 					onChange={setMarkdown}
 				/>
 				<MDEditor.Markdown source={markdown} />
-				<div>
+				<div style={{textAlign: "center"}}>
 					<button style={styles.button} onClick={async () => {
 						if (props.method === 'POST') {
 
@@ -114,6 +117,9 @@ export default Radium(Article);
 export const styles: IStyles =  {
 	button: {
 		padding: "8px 25px",
+		marginTop: "7vh",
+		marginBottom: "8vh",
+		textAlign: "center",
 		backgroundColor: "var(--main)",
 		borderRadius: "50px",
 		color: "white",
@@ -123,5 +129,12 @@ export const styles: IStyles =  {
 			transform: "translateY(-4px)",
 			boxShadow: "0px 5px 5px rgba(0, 0, 0, 0.1)",
 		}
+	},
+	divInput: {
+		display: "flex",
+		flexDirection: "column",
+		justifyContent: "space-between",
+		height: "20vh",
+		marginTop: "7vh",
 	}
 }

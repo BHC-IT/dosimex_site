@@ -5,11 +5,16 @@ import * as axios from 'axios';
 import useUser from '../../Hooks/useUser'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-
+import * as CSS from 'csstype';
 
 
 export interface IProps {
 	article: IArticle,
+}
+
+interface IStyles {
+	button: CSS.Properties,
+	buttonEdit: CSS.Properties,
 }
 
 const Article = (props : IProps) => {
@@ -19,8 +24,11 @@ const Article = (props : IProps) => {
 
 	const renderButtonDeleteEdit = () => {
 		return (
-			<div>
-				<button onClick={async () => {
+			<div style={{textAlign: "center"}}>
+				<Link href={`/articles/edit/${props.article.slug}`}>
+					<button style={styles.buttonEdit}>Modifier</button>
+				</Link>
+				<button style={styles.button} onClick={async () => {
 
 						try {
 							await axios.delete(`http://localhost:3000/api/articles/${props.article.slug}`,
@@ -30,11 +38,8 @@ const Article = (props : IProps) => {
 							console.error(e.response)
 						}
 				}} >
-					<p>Supprimer</p>
+				Supprimer
 				</button>
-				<Link href={`/articles/edit/${props.article.slug}`}>
-					<button>Modifier</button>
-				</Link>
 			</div>
 		)
 	}
@@ -98,3 +103,24 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 
 export default Article;
+
+export const styles: IStyles =  {
+	buttonEdit: {
+		padding: "8px 25px",
+		textAlign: "center",
+		backgroundColor: "var(--main)",
+		borderRadius: "50px",
+		color: "white",
+		textTransform: "uppercase",
+		marginRight: "3vw",
+	},
+	button: {
+		padding: "8px 25px",
+		textAlign: "center",
+		backgroundColor: "white",
+		border: "solid 2px var(--main)",
+		color: "var(--main)",
+		borderRadius: "50px",
+		textTransform: "uppercase",
+	},
+}

@@ -111,6 +111,7 @@ export const styles: IStyles =  {
 	},
 	input: {
 		border: "1px solid #DAD8E0",
+		height: "3vh",
 		borderRadius: "5px",
 		resize: "none",
 	},
