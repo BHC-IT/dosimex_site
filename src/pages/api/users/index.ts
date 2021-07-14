@@ -1,9 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import dbConnect from '../../../../utils/dbConnect';
-import User from '../../../../models/User';
-import IUser from '../../../../interfaces/IUser';
 import bcrypt from 'bcrypt';
-import verifyToken from '../../../../middleware/auth';
+
+import dbConnect from '../../../utils/dbConnect';
+import User from '../../../models/User';
+import IUser from '../../../interfaces/IUser';
+import verifyToken from '../../../middleware/auth';
 
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {

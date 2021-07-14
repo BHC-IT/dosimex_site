@@ -1,9 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import dbConnect from '../../../../utils/dbConnect';
-import Article from '../../../../models/Article';
-import IArticle from '../../../../interfaces/IArticle';
-import verifyToken from '../../../../middleware/auth';
 import * as urlSlug from 'url-slug';
+
+import dbConnect from '../../../utils/dbConnect';
+import Article from '../../../models/Article';
+import IArticle from '../../../interfaces/IArticle';
+import verifyToken from '../../../middleware/auth';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
 
