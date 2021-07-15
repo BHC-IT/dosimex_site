@@ -1,3 +1,4 @@
+import * as React from 'react';
 import Button from '../Components/Button';
 import CSS from 'csstype';
 import Image from 'next/image';
@@ -114,8 +115,32 @@ const LiLabel = styled.p`
 	margin-left: 1vw;
 `;
 
+const hashes = ["#op", "#pedago", "#mesure"]
+
 export default function Software() {
 	const text = useText('Software');
+
+	const [dummy, setDummy] = React.useState<number>(0);
+
+	const opRef = React.useRef();
+	const pedaRef = React.useRef();
+	const mesureRef = React.useRef();
+
+	React.useEffect(() => {
+		if (window.location.hash === '#op') {
+			opRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start', inline:'center' });
+			opRef.current?.focus();
+		}
+		if (window.location.hash === '#pedago') {
+			pedaRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start', inline:'center' });
+			pedaRef.current?.focus();
+		}
+		if (window.location.hash === '#mesure') {
+			mesureRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start', inline:'center' });
+			mesureRef.current?.focus();
+		}
+	}, [dummy]);
+
 	return (
 		<div style={styles.main} >
 			<div>
@@ -127,10 +152,10 @@ export default function Software() {
 						<h2 style={{padding: 0, margin: 0, lineHeight: 0.7}} >{text.header.title}</h2>
 						<p style={styles.headerText} >{text.header.p}</p>
 						<ul>
-							{text.header.li.map(e =>
+							{text.header.li.map((e, i) =>
 								<LinkZone key={e} >
 									<FontAwesomeIcon icon={faLongArrowAltRight} size={"3x"} style={{color: "var(--main)"}} />
-									<LinkLabel href="#test" >{e}</LinkLabel>
+									<LinkLabel onClick={() => setTimeout(() => setDummy(dummy+1), 100)} href={hashes[i]} >{e}</LinkLabel>
 								</LinkZone>
 							)}
 						</ul>
@@ -139,7 +164,7 @@ export default function Software() {
 			</div>
 
 			<div style={{display:'flex', flexDirection:'column', marginTop: '25vh', width: '100%', alignItems: 'center' }}>
-				<div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', width: '100%' }}>
+				<div ref={opRef} style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', width: '100%' }}>
 					<PartHeader>
 						<div style={{display:'flex', flexDirection: 'column', width: '70%'}} >
 							<h3>{text.packOpe.title}</h3>
@@ -161,7 +186,7 @@ export default function Software() {
 				</div>
 			</div>
 			<div style={{display:'flex', flexDirection:'column', marginTop: '25vh', width: '100%', alignItems: 'center' }}>
-				<div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', width: '100%' }}>
+				<div ref={pedaRef} style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', width: '100%' }}>
 					<PartImageRight imageUrl="/Images/packPeda.png">
 						<PartImageColorRight/>
 					</PartImageRight>
@@ -183,7 +208,7 @@ export default function Software() {
 				</div>
 			</div>
 			<div style={{display:'flex', flexDirection:'column', marginTop: '25vh', width: '100%', alignItems: 'center' }}>
-				<div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', width: '100%' }}>
+				<div ref={mesureRef} style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', width: '100%' }}>
 					<PartHeader>
 						<div style={{display:'flex', flexDirection: 'column', width: '70%'}} >
 							<h3>{text.packMes.title}</h3>
@@ -207,13 +232,13 @@ export default function Software() {
 					<h3>{text.more.title}</h3>
 					{ text.more.links.map(e =>
 						<div style={{width: '80%', marginTop: '3vh'}} >
-							<Link href={`/`} replace><p style={{textDecoration: "underline var(--dark)"}} >{e.toUpperCase()}</p></Link>
+							<Link href={`/`} replace><p style={{textDecoration: "underline var(--dark)", cursor:'pointer'}} >{e.toUpperCase()}</p></Link>
 						</div>
 					)}
 				</div>
 				<div style={{marginTop:'5vh', width:'100%', display: 'flex', flexDirection: 'column', alignItems:'center', justifyContent: 'center', paddingBottom: '25vh'}} >
 					<h3>{text.ask.title}</h3>
-					<p style={{...styles.headerText, width: '25vw', marginTop: 0, textAlign: 'center' }} >{text.ask.text}</p>
+					<p style={{...styles.headerText, width: '25vw', marginTop: 0, textAlign: 'center', fontSize: '1.5rem', marginBottom: '4vh' }} >{text.ask.text}</p>
 					<Button name={text.ask.labelButton} route="Contact"/>
 				</div>
 			</div>

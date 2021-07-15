@@ -89,6 +89,18 @@ const text : ILang = {
 				"{Software.packMes.li[3]}",
 			],
 		},
+		more: {
+			title: "{Software.more.title}",
+			links: ["{Software.more.links[0]}",
+				"{Software.more.links[1]}",
+				"{Software.more.links[2]}"
+			]
+		},
+		ask: {
+			title: "{Software.ask.title}",
+			text: "{Software.ask.text}",
+			labelButton: "{Software.ask.labelButton}"
+		},
 
 	}
 }

@@ -72,6 +72,14 @@ export default interface Lang {
 			liTitles: string[],
 			li: string[],
 		},
-
+		more: {
+			title: string,
+			links: string[]
+		},
+		ask: {
+			title: string,
+			text: string,
+			labelButton: string
+		},
 	}
 }

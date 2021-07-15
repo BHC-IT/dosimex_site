@@ -97,7 +97,7 @@ const text : ILang = {
 			title: "Des questions ?",
 			text: "Pour un devis, n’hésitez pas à nous contacter ici ou par téléphone au 06 89 70 90 35",
 			labelButton: "Nous contacter"
-		}
+		},
 
 	}
 }
