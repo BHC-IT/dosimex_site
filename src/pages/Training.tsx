@@ -2,45 +2,9 @@ import * as CSS from 'csstype';
 import SquareGrid from '../Components/SquareGrid'
 import Btn from '../Components/Button'
 import Image from 'next/image'
+import { useText } from '../Hooks/useText';
 
-const text = {
-	header: {
-		title: "Formations",
-		p: "Nous proposons des formations sur site de 2 à 3 jours. Ces formations s’appuient sur des travaux dirigés intégrant l’utilisation des outils Dosimex dans le cadre plus large de l’analyse des risques radiologiques appliqués à des cas concrets rencontrés dans le monde industriel et médical.",
-	},
-	section1: {
-		title: "Exemples de thématiques abordées, modulables selon les besoins :",
-		li1: "Calcul de protection autour de générateurs X médicaux et industriels",
-		li2: "Application NF C 15-160",
-		li3: "Gestion d’une source de Radium de forte activité",
-		li4: "Seringue au Technétium 99m et protection opérateur",
-		li5: "Contamination au Fluor 18",
-		li6: "Gammagraphie Co60, Ir192, Sr95, Cs137",
-		li7: "Les radionucléides préférés d'EDF",
-		li8: "Approche ALARA sur tuyauterie primaire",
-		li9: "Diffusion dans une chicane de blockhaus",
-		li10: "Radioprotection autours d'une piscine de stockage combustibles",
-		li11: "Protection biologique d'une source de Californium 252 (neutrons +gamma)",
-		li12: "Ionisations alimentaires",
-		li13: "Source Strontium-Yttrium 90 de forte activité",
-		li14: "Analyse radioprotection d'un colis de déchets produit de fission ( CSDV)",
-	},
-	section2: {
-		title: "Nous proposons en partenariat avec Safetechnologie d'autres formations sur les thématiques :",
-		li1: "Physique nucléaire et radiactivité",
-		li2: "Interaction rayonnements matière",
-		li3: "Seuil de décision (ISO 11929)",
-		li4: "Spéctrométrie gamma",
-		button: "Catalogue de formation"
-	},
-	questions: {
-		title: "Des questions ?",
-		p: "Pour un devis, contactez nous ici ou par téléphone au 06 89 70 90 35",
-		button: "Nous contacter",
-	},
-}
-
-const Header = () =>
+const Header = ({text} : {text : any}) =>
 	<div style={headerStyles.container}>
 		<div style={headerStyles.textContainer}>
 			<h1 style={headerStyles.title}>{text.header.title}</h1>
@@ -54,7 +18,7 @@ const Header = () =>
 
 const Separator = ({right} : {right ?: boolean}) =>	<div style={separatorStyles.container(right)}><div style={separatorStyles.line}/></div>
 
-const Exemples = () =>
+const Exemples = ({text} : {text : any}) =>
 	<div style={exemplesStyles.container}>
 		<h1 style={exemplesStyles.title}>{text.section1.title}</h1>
 		<div style={exemplesStyles.listContainer}>
@@ -79,7 +43,7 @@ const Exemples = () =>
 		</div>
 	</div>
 
-const Partnership = () =>
+const Partnership = ({text} : {text : any}) =>
 	<div style={partnershipStyles.container}>
 		<h1 style={partnershipStyles.title}>{text.section2.title}</h1>
 		<p style={partnershipStyles.text}>{text.section2.li1}</p>
@@ -89,25 +53,28 @@ const Partnership = () =>
 		<div style={{margin: "5vh auto 0 10%"}}><div style={partnershipStyles.btn}>{text.section2.button}</div></div>
 	</div>
 
-const Questions = () =>
+const Questions = ({text} : {text : any}) =>
 	<div style={questionsStyles.container}>
 		<h1 style={questionsStyles.title}>{text.questions.title}</h1>
 		<p style={questionsStyles.text}>{text.questions.p}</p>
 		<Btn name={text.questions.button} route={""}/>
 	</div>
 
-export default function Training() {
+const Training = () => {
+	const text = useText('Training');
 	return (
 		<>
-			<Header/>
+			<Header text={text}/>
 			<Separator right={false}/>
-			<Exemples/>
+			<Exemples text={text}/>
 			<Separator right={true}/>
-			<Partnership/>
-			<Questions/>
+			<Partnership text={text}/>
+			<Questions text={text}/>
 		</>
 	);
 }
+
+export default Training;
 
 const center = {
 	display: "flex",
