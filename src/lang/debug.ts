@@ -101,8 +101,38 @@ const text : ILang = {
 			text: "{Software.ask.text}",
 			labelButton: "{Software.ask.labelButton}"
 		},
-
-	}
+	},
+	About: {
+		header: {
+			title: "{About.header.title}",
+			p: "{About.header.p}"
+		},
+		gerald: {
+			p: [	"{About.gerald.p[0]}",
+				"{About.gerald.p[1]}",
+				"{About.gerald.p[2]}",
+				"{About.gerald.p[3]}",
+				"{About.gerald.p[4]}",
+			],
+			pBorder: [	"{About.gerald.pBorder[0]}",
+				"{About.gerald.pBorder[1]}",
+				"{About.gerald.pBorder[2]}",
+				"{About.gerald.pBorder[3]}",
+				"{About.gerald.pBorder[4]}",
+			],
+		},
+		alain: {
+			p: [	"{About.alain.p[0]}",
+				"{About.alain.p[1]}",
+				"{About.alain.p[2]}",
+				"{About.alain.p[3]}",
+				"{About.alain.p[4]}",
+				"{About.alain.p[5]}",
+				"{About.alain.p[6]}",
+			],
+		},
+		epilogue: "{About.epilogue}",
+	},
 }
 
 export default text;
