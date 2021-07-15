@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { useRouter } from 'next/router';
 
 import ILang from '../lang/interface';
@@ -16,4 +17,8 @@ export const useText = (page: string) : ILang => {
 		return text[route.locale][page];
 
 	return text[route.locale.slice(0,2)][page];
+}
+
+export const withText = (Component: React.ComponentType) => {
+	return (props) => <Component {...props}/>
 }

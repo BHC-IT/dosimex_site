@@ -88,20 +88,23 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 	try {
 		const res = await axios.get('http://localhost:3000/api/articles');
-		const paths = res.data.data.map((article: IArticle) => ({
-			params: { slug: article.slug },
-		}))
+		const paths = [];
+		res.data.data.forEach((article: IArticle) => {
+			paths.push({params: { slug: article.slug }, locale: 'en-US'});
+			paths.push({params: { slug: article.slug }, locale: 'fr'});
+			paths.push({params: { slug: article.slug }});
+		});
 
 		return {
 			paths,
-			fallback: false,
+			fallback: true,
 		};
 	} catch (e) {
 	}
 	const paths = null
 	return {
 		paths,
-		fallback: false,
+		fallback: true,
 	};
 }
 

@@ -10,24 +10,7 @@ interface IProps {
 }
 
 const Book = (props: IProps) => {
-
-	const url = `url(Images/${props.imageUrl})`;
-
-	return (
-		<div style={styles.flex}>
-			<div style={styles.divBook}>
-				<Link href={`${props.href}`} replace>
-					<div style={{...styleBook, backgroundImage: url}}></div>
-				</Link>
-				<p style={styles.author}>{props.author}</p>
-
-			</div>
-			<div style={styles.divText}>
-				<p style={{margin : 0}}>{props.text}</p>
-			</div>
-		</div>
-	);
-
+	...
 }
 
 export default Radium(Book);
