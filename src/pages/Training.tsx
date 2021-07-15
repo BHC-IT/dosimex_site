@@ -1,6 +1,7 @@
 import * as CSS from 'csstype';
 import SquareGrid from '../Components/SquareGrid'
 import Btn from '../Components/Button'
+import Image from 'next/image'
 
 const text = {
 	header: {
@@ -34,7 +35,7 @@ const text = {
 	},
 	questions: {
 		title: "Des questions ?",
-		p: "Pour un devis, n’hésitez pas à nous contacter ici ou par téléphone au 06 89 70 90 35",
+		p: "Pour un devis, contactez nous ici ou par téléphone au 06 89 70 90 35",
 		button: "Nous contacter",
 	},
 }
@@ -46,7 +47,7 @@ const Header = () =>
 			<p style={headerStyles.text}>{text.header.p}</p>
 		</div>
 		<div style={headerStyles.imgContainer}>
-			IMG
+			<Image src="/Images/formation.png" width={732*0.9} height={503*0.9} />
 		</div>
 		<SquareGrid nbLine={6} nbColumn={4} styles={headerStyles.squareGridStyles}/>
 	</div>
@@ -135,7 +136,7 @@ const headerStyles = {
 		...center,
 		height: "65%",
 		width: "35%",
-		backgroundColor: "grey",
+		backgroundColor: "transparent",
 		zIndex: "1",
 	},
 	title: {
