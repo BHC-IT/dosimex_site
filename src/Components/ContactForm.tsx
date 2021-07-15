@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as CSS from 'csstype';
 import Radium from 'radium';
 import Input, {IValidator} from './Input';
+import { useText } from '../Hooks/useText';
 
 interface IProps {
 }
@@ -28,7 +29,7 @@ export interface IStyles {
 }
 
 const text = {
-	title: "Contactez-nous ?",
+	title: "Contactez-nous",
 	label1: "Votre nom",
 	label2: "Email",
 	label3: "Sujet",

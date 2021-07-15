@@ -228,6 +228,122 @@ const text : ILang = {
 			},
 		],
 	},
+	Manuals: {
+		header: {
+			title: "Manuels et validations",
+			p: "Pour mieux vous permettre de juger des possibilités offertes avec Dosimex-GX, vous pouvez télécharger l’ensemble de la documentation associée à ce code :",
+			li: [	"Les manuels d’utilisation",
+				"Les dossiers de validation",
+				"Quelques rapports de stages de fin d'étude utilisant Dosimex",
+			],
+		},
+		manuals: [	"Manuels d'utilisation",
+				"Manuel dose gamma",
+				"Manuel générateur x",
+				"Manuel + Validation NF C15-160",
+				"Grandeurs pratiques en radiologie",
+		],
+		validations: [	"Dossiers de validation et références MCNP",
+				"Dossier de validation émission gamma",
+				"Dossier de validation générateur X",
+				"Référence géné X MCNP/CEA",
+				"Référence radionucléide MNCP/AREVA",
+				"Référence atténuation X",
+		],
+		internships: [	"Rapports de stages de fin d’étude vs Dosimex",
+				"Mémoire Ulysse",
+				"Mémoire Microshield vs Dosimex 1",
+				"Mémoire Microshield vs Dosimex 2",
+				"Mémoire Microshield vs Dosimex 3",
+		],
+	},
+	Product: {
+		header: {
+			title: "Clé USB Dosimex 3.0",
+			p: "La clé USB DOSIMEX 3.0 fonctionne comme un dongle. Il suffit de la connecter sur un PC pour voir apparaître automatiquement l’ensemble des dossiers. Les codes s'ouvrent et s’utilisent directement sur la clé.",
+			button: "Nous contacter",
+		},
+		buttonKnowMore: "En savoir plus",
+		title: "Fiche technique du produit",
+		descrip: "La clé USB DOSIMEX 3.0 fonctionne comme un dongle. Il suffit de la connecter sur un PC pour voir apparaître automatiquement l’ensemble des dossiers. Les codes s'ouvrent et s’utilisent directement sur la clé. Elle se subdivise en 2 partitions :",
+		partE: {
+			p: [	"Tous les codes et utilitaires (13) des packs opérationnel, pédagogique et mesures présentés sur ce site",
+				"La documentation associée : manuel d’emploi et dossier de validation de chaque code.",
+				"Des documents de cours (11).",
+				"Les annexes (19) de l’ouvrage « Calcul de doses générées par les rayonnements ionisants » (EDP Sciences 2016).",
+				"Un sommaire général (Sommaire général.pps) à la racine des dossiers permet de naviguer sur l’ensemble du pack Dosimex.",
+			],
+		},
+		partD: {
+			p: "Protégée en écriture, elle permet une restauration des fichiers si nécessaire.",
+		},
+		prerequisites: {
+			title: "Prérequis",
+			p: `Les codes sont écrits en VBA sous Excel. Le pack Dosimex fonctionne avec Windows XP à Windows 10 et Excel 2003 à 2019 en autorisant le fonctionnement des macros. Sur Mac il est nécessaire de créer une « machine virtuelle ».\n Suivant les mesures de sécurité mises en place dans l’entreprise, il est conseillé de demander à votre service informatique de « whitelister » Dosimex.`,
+		},
+		questions: {
+			title: "Des questions ? Une demande de devis ?",
+			p: "N’hésitez pas à nous contacter via le formulaire ci-dessous ou par téléphone au ",
+		}
+	},
+	Training: {
+		header: {
+			title: "Formations",
+			p: "Nous proposons des formations sur site de 2 à 3 jours. Ces formations s’appuient sur des travaux dirigés intégrant l’utilisation des outils Dosimex dans le cadre plus large de l’analyse des risques radiologiques appliqués à des cas concrets rencontrés dans le monde industriel et médical.",
+		},
+		section1: {
+			title: "Exemples de thématiques abordées, modulables selon les besoins :",
+			li: [	"Calcul de protection autour de générateurs X médicaux et industriels",
+				"Application NF C 15-160",
+				"Gestion d’une source de Radium de forte activité",
+				"Seringue au Technétium 99m et protection opérateur",
+				"Contamination au Fluor 18",
+				"Gammagraphie Co60, Ir192, Sr95, Cs137",
+				"Les radionucléides préférés d'EDF",
+				"Approche ALARA sur tuyauterie primaire",
+				"Diffusion dans une chicane de blockhaus",
+				"Radioprotection autours d'une piscine de stockage combustibles",
+				"Protection biologique d'une source de Californium 252 (neutrons +gamma)",
+				"Ionisations alimentaires",
+				"Source Strontium-Yttrium 90 de forte activité",
+				"Analyse radioprotection d'un colis de déchets produit de fission ( CSDV)",
+
+			],
+		},
+		section2: {
+			title: "Nous proposons en partenariat avec Safetechnologie d'autres formations sur les thématiques :",
+			li: [	"Physique nucléaire et radiactivité",
+				"Interaction rayonnements matière",
+				"Seuil de décision (ISO 11929)",
+				"Spéctrométrie gamma",
+			],
+			button: "Catalogue de formation"
+		},
+		questions: {
+			title: "Des questions ?",
+			p: "Pour un devis, n’hésitez pas à nous contacter ici ou par téléphone au 06 89 70 90 35",
+			button: "Nous contacter :",
+		},
+	},
+	Videos: {
+		header: {
+			title: "Toutes les vidéos",
+			p: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. At purus risus, dictum auctor massa quam scelerisque. Nibh lobortis feugiat orci donec mauris turpis sagittis malesuada nibh.",
+			button: "Notre chaîne youtube",
+		},
+		packOpe: {
+			title: "Vidéos du pack opérationel",
+			label: "pack opérationnel",
+		},
+		packPeda: {
+			title: "Vidéos du pack pédagogique",
+			label: "pack pédagogique",
+		},
+		packMes: {
+			title: "Vidéos du pack mesures",
+			label: "pack mesures",
+		},
+	},
 }
 
 export default text;

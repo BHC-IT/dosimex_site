@@ -133,6 +133,140 @@ const text : ILang = {
 		},
 		epilogue: "{About.epilogue}",
 	},
+	Books: {
+		header: {
+			title: "{Books.header.title}",
+			p: "{Books.header.p}"
+		},
+		books: ["{Books.books[0]}",
+			"{Books.books[1]}",
+			"{Books.books[2]}",
+			"{Books.books[3]}",
+			"{Books.books[4]}",
+			"{Books.books[5]}",
+			"{Books.books[6]}",
+			"{Books.books[7]}",
+			"{Books.books[8]}",
+			"{Books.books[9]}",
+			"{Books.books[10]}",
+		],
+	},
+	Manuals: {
+		header: {
+			title: "{Manuals.header.title}",
+			p: "{Manuals.header.p}",
+			li: [	"{Manuals.header.li[0]}",
+				"{Manuals.header.li[1]}",
+				"{Manuals.header.li[2]}",
+			],
+		},
+		manuals: [	"{Manuals.manuals[0]}",
+				"{Manuals.manuals[1]}",
+				"{Manuals.manuals[2]}",
+				"{Manuals.manuals[3]}",
+				"{Manuals.manuals[4]}",
+		],
+		validations: [	"{Manuals.validations[0]}",
+				"{Manuals.validations[1]}",
+				"{Manuals.validations[2]}",
+				"{Manuals.validations[3]}",
+				"{Manuals.validations[4]}",
+				"{Manuals.validations[5]}",
+		],
+		internships: [	"{Manuals.internships[0]}",
+				"{Manuals.internships[1]}",
+				"{Manuals.internships[2]}",
+				"{Manuals.internships[3]}",
+				"{Manuals.internships[4]}",
+		],
+	},
+	Product: {
+		header: {
+			title: "{Product.header.title}",
+			p: "{Product.header.p}",
+			button: "{Product.header.button}",
+		},
+		buttonKnowMore: "{Product.buttonKnowMore}",
+		title: "{Product.title}",
+		descrip: "{Product.descrip}",
+		partE: {
+			p: [	"{Product.partE.p[0]}",
+				"{Product.partE.p[1]}",
+				"{Product.partE.p[2]}",
+				"{Product.partE.p[3]}",
+				"{Product.partE.p[4]}",
+			],
+		},
+		partD: {
+			p: "{Product.partD.p}",
+		},
+		prerequisites: {
+			title: "{Product.prerequisites.title}",
+			p: "{Product.prerequisites.p}",
+		},
+		questions: {
+			title: "{Product.questions.title}",
+			p: "{Product.questions.p}",
+		}
+	},
+	Training: {
+		header: {
+			title: "{Training.header.title}",
+			p: "{Training.header.p}",
+		},
+		section1: {
+			title: "{Training.section1.title}",
+			li: [	"{Training.section1.li[0]}",
+				"{Training.section1.li[1]}",
+				"{Training.section1.li[2]}",
+				"{Training.section1.li[3]}",
+				"{Training.section1.li[4]}",
+				"{Training.section1.li[5]}",
+				"{Training.section1.li[6]}",
+				"{Training.section1.li[7]}",
+				"{Training.section1.li[8]}",
+				"{Training.section1.li[9]}",
+				"{Training.section1.li[10]}",
+				"{Training.section1.li[11]}",
+				"{Training.section1.li[12]}",
+				"{Training.section1.li[13]}",
+
+			],
+		},
+		section2: {
+			title: "{Training.section2.title}",
+			li: [	"{Training.section2.li[0]}",
+				"{Training.section2.li[1]}",
+				"{Training.section2.li[2]}",
+				"{Training.section2.li[3]}",
+			],
+			button: "{Training.section2.button}"
+		},
+		questions: {
+			title: "{Training.questions.title}",
+			p: "{Training.questions.p}",
+			button: "{Training.questions.button}",
+		},
+	},
+	Videos: {
+		header: {
+			title: "{Videos.header.title}",
+			p: "{Videos.header.p}",
+			button: "{Videos.header.button}",
+		},
+		packOpe: {
+			title: "{Videos.packOpe.title}",
+			label: "{Videos.packOpe.label}",
+		},
+		packPeda: {
+			title: "{Videos.packPeda.title}",
+			label: "{Videos.packPeda.label}",
+		},
+		packMes: {
+			title: "{Videos.packMes.title}",
+			label: "{Videos.packMes.label}",
+		},
+	},
 }
 
 export default text;

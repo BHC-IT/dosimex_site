@@ -3,43 +3,18 @@ import ContactForm from '../Components/ContactForm';
 import Image from 'next/image';
 import Link from 'next/link';
 import * as CSS from 'csstype';
+import { useText } from '../Hooks/useText';
 
 interface IStyles {
 	[key: string] : CSS.Properties
 }
 
-const text = {
-	header: {
-		title: "Clé USB Dosimex 3.0",
-		p: "La clé USB DOSIMEX 3.0 fonctionne comme un dongle. Il suffit de la connecter sur un PC pour voir apparaître automatiquement l’ensemble des dossiers. Les codes s'ouvrent et s’utilisent directement sur la clé.",
-		button: "Nous contacter",
-	},
-	buttonKnowMore: "En savoir plus",
-	title: "Fiche technique du produit",
-	descrip: "La clé USB DOSIMEX 3.0 fonctionne comme un dongle. Il suffit de la connecter sur un PC pour voir apparaître automatiquement l’ensemble des dossiers. Les codes s'ouvrent et s’utilisent directement sur la clé. Elle se subdivise en 2 partitions :",
-	partE: {
-		p1: "Tous les codes et utilitaires (13) des packs opérationnel, pédagogique et mesures présentés sur ce site",
-		p2: "La documentation associée : manuel d’emploi et dossier de validation de chaque code.",
-		p3: "Des documents de cours (11).",
-		p4: "Les annexes (19) de l’ouvrage « Calcul de doses générées par les rayonnements ionisants » (EDP Sciences 2016).",
-		p5: "Un sommaire général (Sommaire général.pps) à la racine des dossiers permet de naviguer sur l’ensemble du pack Dosimex.",
-	},
-	partD: {
-		p1: "Protégée en écriture, elle permet une restauration des fichiers si nécessaire.",
-	},
-	prerequisites: {
-		title: "Prérequis",
-		p: `Les codes sont écrits en VBA sous Excel. Le pack Dosimex fonctionne avec Windows XP à Windows 10 et Excel 2003 à 2019 en autorisant le fonctionnement des macros. Sur Mac il est nécessaire de créer une « machine virtuelle ».\n Suivant les mesures de sécurité mises en place dans l’entreprise, il est conseillé de demander à votre service informatique de « whitelister » Dosimex.`,
-	},
-	questions: {
-		title: "Des questions ? Une demande de devis ?",
-		p: "N’hésitez pas à nous contacter via le formulaire ci-dessous ou par téléphone au ",
-	}
-}
-
 const ratio = 0.7;
 
 export default function Product() {
+
+	const text = useText('Product');
+
 	return <div style={styles.global}>
 		<header style={styles.header}>
 			<div style={styles.headerImage}>
@@ -71,22 +46,22 @@ export default function Product() {
 			<h4>Partition E</h4>
 			<div style={styles.borderLeft}>
 				<div style={styles.flexP}>
-					<p>{text.partE.p1}</p>
+					<p>{text.partE.p[0]}</p>
 					<div style={styles.buttonKnowMore}><Link href="/Software" replace>{text.buttonKnowMore}</Link></div>
 
 				</div>
 				<div style={styles.flexP}>
-					<p>{text.partE.p2}</p>
+					<p>{text.partE.p[1]}</p>
 					<div style={styles.buttonKnowMore}><Link href="/Manuals" replace>{text.buttonKnowMore}</Link></div>
 
 				</div>
-				<p>{text.partE.p3}</p>
-				<p>{text.partE.p4}</p>
+				<p>{text.partE.p[2]}</p>
+				<p>{text.partE.p[3]}</p>
 			</div>
-			<p>{text.partE.p5}</p>
+			<p>{text.partE.p[4]}</p>
 			<h4>Partition D</h4>
 			<div style={styles.borderLeft}>
-				<p>{text.partD.p1}</p>
+				<p>{text.partD.p}</p>
 			</div>
 			<h4 style={styles.prerequisites}>{text.prerequisites.title}</h4>
 			<p>{text.prerequisites.p}</p>

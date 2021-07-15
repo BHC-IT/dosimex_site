@@ -87,7 +87,6 @@ export default function Books() {
 						return (
 							<Book author={books[i].author} text={books[i].extract} href={books[i].url} imageUrl={books[i].image}/>
 						)
-						i++;
 					})
 				}
 			</div>
