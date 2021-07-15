@@ -82,6 +82,26 @@ const text : ILang = {
 			p: "Pour un devis, contactez nous ici ou par téléphone au 06 89 70 90 35",
 			button: "Nous contacter",
 		},
+	},
+	Videos: {
+		header: {
+			title: "Toutes les vidéos",
+			p: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. At purus risus, dictum auctor massa quam scelerisque. Nibh lobortis feugiat orci donec mauris turpis sagittis malesuada nibh.",
+			button: "Notre chaîne youtube",
+		},
+		packTitle: "Vidéos du pack ",
+		packOpe: {
+			name: "opérationel",
+			label: "pack opérationnel",
+		},
+		packPeda: {
+			name: "pédagogique",
+			label: "pack pédagogique",
+		},
+		packMes: {
+			name: "mesures",
+			label: "pack mesures",
+		},
 	}
 }
 

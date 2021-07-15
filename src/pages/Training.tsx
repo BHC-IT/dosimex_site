@@ -126,7 +126,7 @@ const headerStyles = {
 			minHeight: "3vh",
 			minWidth: "3vh",
 			margin: "1.5rem 2.5rem",
-			backgroundColor: "yellow",
+			backgroundColor: "var(--flashTrans)",
 		},
 	}
 }
@@ -140,7 +140,7 @@ const separatorStyles = {
 		}
 	},
 	line: {
-		backgroundColor: "yellow",
+		backgroundColor: "var(--flashTrans)",
 		minHeight: "1vh",
 		minWidth: "25%",
 	},
@@ -179,7 +179,7 @@ const partnershipStyles = {
 		flexDirection: "column",
 		height: "65vh",
 		width: "100%",
-		backgroundColor: "lightgrey",
+		backgroundColor: "var(--grey-bg)",
 		marginTop: "10vh",
 	},
 	title: {

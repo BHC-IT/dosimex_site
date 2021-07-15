@@ -57,4 +57,5 @@ const squareStyle = {
 	minWidth: "10px",
 	backgroundColor: "yellow",
 	margin: "1rem",
+	// opacity: "0.5",
 }

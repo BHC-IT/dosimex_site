@@ -2,27 +2,7 @@ import * as CSS from 'csstype';
 import YouTube from 'react-youtube';
 import Btn from '../Components/Button'
 import SquareGrid from '../Components/SquareGrid'
-
-const text = {
-	header: {
-		title: "Toutes les vidéos",
-		p: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. At purus risus, dictum auctor massa quam scelerisque. Nibh lobortis feugiat orci donec mauris turpis sagittis malesuada nibh.",
-		button: "Notre chaîne youtube",
-	},
-	packTitle: "Vidéos du pack ",
-	packOpe: {
-		name: "opérationel",
-		label: "pack opérationnel",
-	},
-	packPeda: {
-		name: "pédagogique",
-		label: "pack pédagogique",
-	},
-	packMes: {
-		name: "mesures",
-		label: "pack mesures",
-	},
-}
+import { useText } from '../Hooks/useText';
 
 const opts_yt = {
 	height: '195',
@@ -69,7 +49,7 @@ const splitArrays = (nb : number, arr : any[]) => {
 	return retour;
 }
 
-const Header = () =>
+const Header = ({text} : {text : any}) =>
 	<div style={headerStyle.container}>
 		<h1 style={headerStyle.title}>{text.header.title}</h1>
 		<p style={headerStyle.text}>{text.header.p}</p>
@@ -93,32 +73,32 @@ const ItemVideo = ({color, label, id_yt} : {color : string, label : string, id_y
 		<YouTube videoId={id_yt} opts={opts_yt}/>
 	</div>
 
-const VideosLine = ({color, videoIds} : {color : string, videoIds : string[]}) =>
+const VideosLine = ({color, videoIds, text, label} : {color : string, videoIds : string[], text : any, label : string}) =>
 	<div style={videosLineStyle.container}>
-		{console.log("TEST :", videoIds)}
 		{videoIds.map((id) => {
-			return <ItemVideo color={color} label={"TEST"} id_yt={id}/>
+			return <ItemVideo color={color} label={label} id_yt={id}/>
 		})}
 	</div>
 
-const Pack = ({title, color, videoIds} : {title : string, color ?: string, videoIds : string[]}) =>
+const Pack = ({title, color, videoIds, text, label} : {title : string, color ?: string, videoIds : string[], text : any, label : string}) =>
 	<div style={packStyle.container}>
-		<div style={packStyle.titleContainer}><h1>{text.packTitle}</h1><h1 style={{color: color ? color : "yellow", marginLeft: "1rem"}}>{title}</h1></div>
+		<div style={packStyle.titleContainer}><h1>{text.packTitle}</h1><h1 style={{color: color ? color : "var(--flashTrans)", marginLeft: "1rem"}}>{title}</h1></div>
 		{splitArrays(4, videoIds).map((listVidLine) => {
-			return <VideosLine color={color ? color : "yellow"} videoIds={listVidLine}/>
+			return <VideosLine color={color ? color : "var(--flashTrans)"} videoIds={listVidLine} text={text} label={label}/>
 		})}
 	</div>
 
 export default function Videos() {
+	const text = useText('Videos');
 	return (
 		<div>
-			<Header/>
+			<Header text={text}/>
 			<Separator color={"red"}/>
-			<Pack title={text.packOpe.name} color={"red"} videoIds={listVideoYt.packOpe}/>
+			<Pack title={text.packOpe.name} color={"var(--main)"} videoIds={listVideoYt.packOpe} text={text} label={text.packOpe.label}/>
 			<Separator right={true}/>
-			<Pack title={text.packPeda.name} videoIds={listVideoYt.packPeda}/>
-			<Separator color={"orange"}/>
-			<Pack title={text.packMes.name} color={"orange"} videoIds={listVideoYt.packMes}/>
+			<Pack title={text.packPeda.name} videoIds={listVideoYt.packPeda} text={text} label={text.packPeda.label}/>
+			<Separator color={"var(--flash)"}/>
+			<Pack title={text.packMes.name} color={"var(--flash)"} videoIds={listVideoYt.packMes} text={text} label={text.packMes.label}/>
 		</div>
 	)
 }
@@ -161,7 +141,7 @@ const headerStyle = {
 			minHeight: "3vh",
 			minWidth: "3vh",
 			margin: "1.5rem 2rem",
-			backgroundColor: "yellow",
+			backgroundColor: "var(--flashTrans)",
 		},
 	},
 }
@@ -176,7 +156,7 @@ const separatorStyles = {
 	},
 	line: (color ?: string) => {
 		return {
-			backgroundColor: color ? color : "yellow",
+			backgroundColor: color ? color : "var(--flashTrans)",
 			minHeight: "1vh",
 			minWidth: "25%",
 		}

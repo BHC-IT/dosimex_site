@@ -81,4 +81,24 @@ export default interface Lang {
 			button: string,
 		},
 	},
+	Videos: {
+		header: {
+			title: string,
+			p: string,
+			button: string,
+		},
+		packTitle: string,
+		packOpe: {
+			name: string,
+			label: string,
+		},
+		packPeda: {
+			name: string,
+			label: string,
+		},
+		packMes: {
+			name: string,
+			label: string,
+		},
+	}
 }
