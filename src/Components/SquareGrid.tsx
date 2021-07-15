@@ -53,8 +53,8 @@ const lineContainer = {
 }
 
 const squareStyle = {
-	minHeight: "10px",
-	minWidth: "10px",
+	height: "10px",
+	width: "10px",
 	backgroundColor: "yellow",
 	margin: "1rem",
 	// opacity: "0.5",

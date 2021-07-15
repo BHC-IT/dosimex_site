@@ -140,7 +140,7 @@ const separatorStyles = {
 		}
 	},
 	line: {
-		backgroundColor: "var(--flashTrans)",
+		backgroundColor: "var(--flash)",
 		minHeight: "1vh",
 		minWidth: "25%",
 	},
