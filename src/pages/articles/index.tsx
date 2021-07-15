@@ -3,6 +3,8 @@ import IArticle from '../../interfaces/IArticle'
 import * as axios from 'axios';
 import Link from 'next/link';
 import * as CSS from 'csstype';
+import styled from 'styled-components';
+import useUser from '../../Hooks/useUser';
 
 const text = {
 	news: {
@@ -11,32 +13,52 @@ const text = {
 	}
 }
 
+const PartImage = styled.div`
+	width: 15vw;
+	height: 18vh;
+	flex-shrink: 0;
+	margin-right: 1.5vw;
+	background: url(${props => props.imageUrl});
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+`;
+
 interface IStyles {
 	button: CSS.Properties,
+	buttonEdit: CSS.Properties,
 	li: CSS.Properties,
 	title: CSS.Properties,
 	description: CSS.Properties,
 	header: CSS.Properties,
-	headerSubtitle: CSS.Properties,
-	image: CSS.Properties,
 }
 
+const renderButtonEdit = () => {
+		return (
+			<div style={{marginTop: "3vh", textAlign: "center"}}>
+				<Link href="/articles/edit/">
+					<button style={styles.buttonEdit}>Ajouter un nouvel article</button>
+				</Link>
+			</div>
+		)
+	}
 
 const Articles = (props: any) => {
+
+	const user = useUser();
 
 	return (
 		<div className="container" style={{marginBottom: "10vh"}}>
 			<div style={styles.header}>
 				<h2>{text.news.title}</h2>
-				<p style={styles.headerSubtitle}>{text.news.p}</p>
 			</div>
-			<ul>
+			{ user ? renderButtonEdit() : null}
+			<ul style={{padding: "10vh 10vw"}}>
 				{props.articles.map((e: IArticle) => {
-
 					return (
 						<li style={styles.li}>
 							<div style={{display: "flex", alignItems: "center"}}>
-								<div style={styles.image}></div>
+								<PartImage imageUrl={e.urlImage || "https://www.dosimex.fr/static/media/BackGroundHague2_compressed.477d1c3a.png"} />
 								<div>
 									<h3 style={styles.title}>{e.title}</h3>
 									<p style={styles.description}>{e.description}</p>
@@ -84,15 +106,24 @@ export const styles: IStyles =  {
 		borderRadius: "50px",
 		textTransform: "uppercase",
 	},
+	buttonEdit: {
+		padding: "8px 25px",
+		backgroundColor: "var(--main)",
+		borderRadius: "50px",
+		color: "white",
+		textTransform: "uppercase",
+		marginRight: "3vw",
+	},
 	li: {
-		marginBottom: "5vh",
+		marginBottom: "7vh",
 	},
 	title: {
-		fontSize: "3rem",
+		fontSize: "2.5rem",
 		fontFamily: "var(--lato)",
 		fontWeight: "bold",
 		marginBottom: "0",
 		color: "var(--main)",
+		textTransform: "uppercase",
 	},
 	description: {
 		marginBottom: "1vh",
@@ -102,16 +133,5 @@ export const styles: IStyles =  {
 		padding: "20vh auto",
 		marginTop: "15vh",
 		marginBottom: "15vh",
-	},
-	headerSubtitle: {
-		padding: "2vh 15vw",
-		color: "var(--grey)",
-		fontSize: "1.8rem",
-	},
-	image: {
-		content: "",
-		backgroundImage: `url(${e.urlImage})`,
-		width: "12vw",
-		height: "12vh",
 	},
 }

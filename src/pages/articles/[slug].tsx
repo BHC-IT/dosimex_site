@@ -6,7 +6,10 @@ import useUser from '../../Hooks/useUser'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import * as CSS from 'csstype';
-
+import MDEditor from '@uiw/react-md-editor';
+import '@uiw/react-md-editor/dist/markdown-editor.css'
+import '@uiw/react-markdown-preview/dist/markdown.css';
+import moment from 'moment';
 
 export interface IProps {
 	article: IArticle,
@@ -15,16 +18,20 @@ export interface IProps {
 interface IStyles {
 	button: CSS.Properties,
 	buttonEdit: CSS.Properties,
+	global: CSS.Properties,
+	title: CSS.Properties,
+	date: CSS.Properties,
 }
 
 const Article = (props : IProps) => {
 
 	const router = useRouter();
-	const user = useUser()
+	const user = useUser();
+	moment.locale('fr');
 
 	const renderButtonDeleteEdit = () => {
 		return (
-			<div style={{textAlign: "center"}}>
+			<div style={{textAlign: "center", marginTop: "5vh"}}>
 				<Link href={`/articles/edit/${props.article.slug}`}>
 					<button style={styles.buttonEdit}>Modifier</button>
 				</Link>
@@ -45,16 +52,13 @@ const Article = (props : IProps) => {
 	}
 
 	return (
-		<>
-			<ul>
-				<li>{props.article.title}</li>
-				<li>{props.article.updatedAt}</li>
-				<li>{props.article.description}</li>
-				<li>{props.article.markdown}</li>
-			</ul>
+		<div className="container" style={styles.global}>
+			<h2 style={styles.title}>{props.article.title}</h2>
+			<p style={styles.date}>{moment(props.article.updatedAt).format('ll')}</p>
+			<MDEditor.Markdown source={props.article.markdown} />
 
 			{ user ? renderButtonDeleteEdit() : null}
-		</>
+		</div>
 	)
 }
 
@@ -122,5 +126,21 @@ export const styles: IStyles =  {
 		color: "var(--main)",
 		borderRadius: "50px",
 		textTransform: "uppercase",
+	},
+	global: {
+		paddingTop: "12vh",
+		paddingBottom: "20vh",
+	},
+	title: {
+		color: "var(--main)",
+		fontSize: "4rem",
+		textTransform: "uppercase",
+		marginBottom: "0",
+	},
+	date: {
+		textTransform: "uppercase",
+		fontWeight: "bold",
+		marginBottom: "5vh",
+		marginTop: "0vh",
 	},
 }
