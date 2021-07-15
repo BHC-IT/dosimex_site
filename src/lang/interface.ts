@@ -47,5 +47,42 @@ export default interface Lang {
 			title: string,
 			button: string,
 		}
+	},
+	Software: {
+		header: {
+			title: string,
+			p: string,
+			li: string[],
+		},
+		button: {
+			label: string,
+		},
+		packOpe: {
+			title: string,
+			descrip: string,
+			liTitles: string[],
+			li: string[],
+		},
+		packPeda: {
+			title: string,
+			descrip: string,
+			liTitles: string[],
+			li: string[],
+		},
+		packMes: {
+			title: string,
+			descrip: string,
+			liTitles: string[],
+			li: string[],
+		},
+		more: {
+			title: string,
+			links: string[]
+		},
+		ask: {
+			title: string,
+			text: string,
+			labelButton: string
+		},
 	}
 }

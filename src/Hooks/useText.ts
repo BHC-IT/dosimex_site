@@ -8,7 +8,7 @@ import debug from '../lang/debug';
 
 const text : {[$:string]: ILang} = {fr, en, debug};
 
-export const useText = (page: string) => {
+export const useText = (page: string) : ILang => {
 	const route = useRouter();
 	console.log(route.locale.slice(0,2));
 
