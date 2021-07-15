@@ -29,7 +29,7 @@ export interface IStyles {
 }
 
 const text = {
-	items: ["Nos offres", "Formations", "Qui sommes-nous ?", "Nouveautés", "Contact"],
+	items: ["Nos offres", "Formations", "Qui sommes-nous ?", "Actualités", "Contact"],
 	button: "Acheter Dosimex",
 }
 

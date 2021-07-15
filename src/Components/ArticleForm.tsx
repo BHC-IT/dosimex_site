@@ -29,10 +29,10 @@ interface IStyles {
 const Article = (props: IProps) => {
 
 
-	const [title, setTitle] = React.useState<string | null>(null);
-	const [description, setDescription] = React.useState<string | null>(null);
-	const [markdown, setMarkdown] = React.useState<string | undefined>(undefined);
-	const [urlImage, setUrlImage] = React.useState<string | null>(null);
+	const [title, setTitle] = React.useState<string | undefined>(props.article?.title);
+	const [description, setDescription] = React.useState<string | undefined>(props.article?.description);
+	const [markdown, setMarkdown] = React.useState<string | undefined>(props.article?.markdown);
+	const [urlImage, setUrlImage] = React.useState<string | undefined>(props.article?.urlImage);
 
 	return (
 		<div>
@@ -40,32 +40,25 @@ const Article = (props: IProps) => {
 
 				<div style={styles.divInput}>
 					<Input
-							value={props.article?.title}
+							value={title}
 							type="text"
 							id="title"
 							label={text.label_title}
-							onChange={(value : string) => setTitle(value)}
+							onChange={setTitle}
 					/>
 					<Input
-							value={props.article?.description}
+							value={description}
 							type="text"
 							id="description"
 							label={text.label_description}
-							onChange={(value : string) => setDescription(value)}
+							onChange={setDescription}
 					/>
-					{/*<Input
-							value={props.article?.markdown}
-							type="text"
-							id="markdown"
-							label={text.label_markdown}
-							onChange={(value : string) => setMarkdown(value)}
-					/>*/}
 					<Input
-							value={props.article?.urlImage}
+							value={urlImage}
 							type="text"
 							id="urlImage"
 							label={text.label_urlImage}
-							onChange={(value : string) => setUrlImage(value)}
+							onChange={setUrlImage}
 					/>
 				</div>
 
@@ -74,7 +67,6 @@ const Article = (props: IProps) => {
 					value={markdown}
 					onChange={setMarkdown}
 				/>
-				<MDEditor.Markdown source={markdown} />
 				<div style={{textAlign: "center"}}>
 					<button style={styles.button} onClick={async () => {
 						if (props.method === 'POST') {

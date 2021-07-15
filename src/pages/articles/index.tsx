@@ -6,8 +6,8 @@ import * as CSS from 'csstype';
 
 const text = {
 	news: {
-		title: "Retrouvez les dernières nouveautés",
-		p: "Lorem ipsuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuum",
+		title: "Toutes les actualités Dosimex",
+		p: " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras viverra magna nunc, quis ultrices diam consectetur ut. Nullam blandit aliquam mauris, sed posuere tortor viverra at. Donec sagittis quis dui et viverra. Pellentesque interdum accumsan urna a posuere. Etiam efficitur leo sed ante ornare consequat. Duis euismod cursus congue",
 	}
 }
 
@@ -18,6 +18,7 @@ interface IStyles {
 	description: CSS.Properties,
 	header: CSS.Properties,
 	headerSubtitle: CSS.Properties,
+	image: CSS.Properties,
 }
 
 
@@ -34,13 +35,16 @@ const Articles = (props: any) => {
 
 					return (
 						<li style={styles.li}>
-							<ul>
-								<li><h3 style={styles.title}>{e.title}</h3></li>
-								<li style={styles.description}>{e.description}</li>
-							</ul>
-							<Link href={`/articles/${e.slug}`}>
-								<button style={styles.button}>Voir plus   →</button>
-							</Link>
+							<div style={{display: "flex", alignItems: "center"}}>
+								<div style={styles.image}></div>
+								<div>
+									<h3 style={styles.title}>{e.title}</h3>
+									<p style={styles.description}>{e.description}</p>
+									<Link href={`/articles/${e.slug}`}>
+										<button style={styles.button}>Voir plus   →</button>
+									</Link>
+								</div>
+							</div>
 						</li>
 					)}
 				)}
@@ -76,7 +80,7 @@ export const styles: IStyles =  {
 	button: {
 		textAlign: "center",
 		backgroundColor: "white",
-		color: "var(--main)",
+		color: "var(--flash)",
 		borderRadius: "50px",
 		textTransform: "uppercase",
 	},
@@ -87,8 +91,8 @@ export const styles: IStyles =  {
 		fontSize: "3rem",
 		fontFamily: "var(--lato)",
 		fontWeight: "bold",
-		color: "var(--flash)",
 		marginBottom: "0",
+		color: "var(--main)",
 	},
 	description: {
 		marginBottom: "1vh",
@@ -103,5 +107,11 @@ export const styles: IStyles =  {
 		padding: "2vh 15vw",
 		color: "var(--grey)",
 		fontSize: "1.8rem",
+	},
+	image: {
+		content: "",
+		backgroundImage: `url(${e.urlImage})`,
+		width: "12vw",
+		height: "12vh",
 	},
 }
