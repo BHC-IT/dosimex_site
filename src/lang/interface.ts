@@ -83,6 +83,60 @@ export default interface Lang {
 			title: string,
 			text: string,
 			labelButton: string
+	Training: {
+		header: {
+			title: string,
+			p: string,
+		},
+		section1: {
+			title: string,
+			li1: string,
+			li2: string,
+			li3: string,
+			li4: string,
+			li5: string,
+			li6: string,
+			li7: string,
+			li8: string,
+			li9: string,
+			li10: string,
+			li11: string,
+			li12: string,
+			li13: string,
+			li14: string,
+		},
+		section2: {
+			title: string,
+			li1: string,
+			li2: string,
+			li3: string,
+			li4: string,
+			button: string,
+		},
+		questions: {
+			title: string,
+			p: string,
+			button: string,
+		},
+	},
+	Videos: {
+		header: {
+			title: string,
+			p: string,
+			button: string,
+		},
+		packTitle: string,
+		packOpe: {
+			name: string,
+			label: string,
+		},
+		packPeda: {
+			name: string,
+			label: string,
+		},
+		packMes: {
+			name: string,
+			label: string,
 		},
 	}
 }
