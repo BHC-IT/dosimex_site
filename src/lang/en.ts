@@ -103,8 +103,6 @@ const text : ILang = {
 			labelButton: "Nous contacter"
 		},
 	},
-
-	},
 	About: {
 		header: {
 			title: "Notre équipe",

@@ -105,7 +105,7 @@ export default interface Lang {
 			title: string,
 			p: string,
 		},
-		books: string[],
+		books: {extract: string, author: string}[],
 	},
 	Manuals: {
 		header: {

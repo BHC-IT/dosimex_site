@@ -1,4 +1,5 @@
 import Radium from 'radium';
+import Link from 'next/link';
 
 interface IProps {
 	author: string,
@@ -52,12 +53,12 @@ export const styles = {
 	divText: {
 		paddingLeft: "5%",
 		display: "flex",
-		textAlign: "justify",
+		textAlign: "justify" as "justify",
 	},
 	author: {
 		fontFamily: "Lato",
-		fontWeight: "700",
+		fontWeight: 700,
 		fontSize: "2.2rem",
-		textTransform: "uppercase",
+		textTransform: "uppercase" as "uppercase",
 	},
 }

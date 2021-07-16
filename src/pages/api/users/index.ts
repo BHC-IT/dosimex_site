@@ -30,12 +30,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 			});
 			user.save()
 			.then(() => res.status(201).json({ message: 'Utilisateur créé !' }))
-			.catch(error => res.status(400).json({ error }));
+			.catch((error : Error) => res.status(400).json({ error }));
 		})
-		.catch(error => res.status(500).json({ error }));
+		.catch((error : Error) => res.status(500).json({ error }));
 	} else if (method === 'PATCH') {
 		try {
-			const decodedToken = verifyToken(req.headers.authorization.split(' ')[1])
+			const decodedToken = verifyToken(req?.headers?.authorization?.split(' ')[1]);
 			if (!decodedToken) {
 				throw new Error('Token not valid')
 			}
@@ -46,7 +46,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 		}
 	} else if (method === 'DELETE') {
 		try {
-			const decodedToken = verifyToken(req.headers.authorization.split(' ')[1])
+			const decodedToken = verifyToken(req?.headers?.authorization?.split(' ')[1]);
 			if (!decodedToken) {
 				throw new Error('Token not valid')
 			}

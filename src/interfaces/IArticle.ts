@@ -8,4 +8,5 @@ export default interface IArticle extends Document{
 	slug?: string,
 	urlImage?: string,
 	author: string | IUser,
+	updatedAt: Date,
 }

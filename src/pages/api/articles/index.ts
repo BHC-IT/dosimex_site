@@ -21,7 +21,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 		}
 	} else if (method === 'POST') {
 		try {
-			const decodedToken = verifyToken(req.headers.authorization.split(' ')[1])
+			const decodedToken = verifyToken(req?.headers?.authorization?.split(' ')[1]);
 			if (!decodedToken) {
 				throw new Error('Token not valid')
 			}

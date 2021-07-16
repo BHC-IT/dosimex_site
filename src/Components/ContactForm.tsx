@@ -10,7 +10,9 @@ interface WithRouterProps {
   router: NextRouter
 }
 
-interface IProps extends WithRouterProps {}
+interface IProps extends WithRouterProps {
+	text ?: any
+}
 
 interface IState {
 	name: string | null,

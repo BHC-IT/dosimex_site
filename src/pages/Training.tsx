@@ -85,7 +85,7 @@ const center = {
 const headerStyles = {
 	container: {
 		...center,
-		position: "relative",
+		position: "relative" as "relative",
 		height: "65vh",
 		width: "100%",
 		overflow: "hidden",
@@ -98,13 +98,13 @@ const headerStyles = {
 		width: "40%",
 		marginRight: "5rem",
 		// backgroundColor: "red",
-	},
+	} as CSS.Properties,
 	imgContainer: {
 		...center,
 		height: "65%",
 		width: "35%",
 		backgroundColor: "transparent",
-		zIndex: "1",
+		zIndex: 1,
 	},
 	title: {
 		alignSelf: "flex-start",
@@ -121,14 +121,14 @@ const headerStyles = {
 			position: "absolute",
 			right: "-1%",
 			top: "0",
-			zIndex: "0",
-		},
+			zIndex: 0,
+		} as CSS.Properties,
 		squareStyle: {
 			height: "19px",
 			width: "17px",
 			margin: "1.5rem 2.5rem",
 			backgroundColor: "var(--flashTrans)",
-		},
+		} as CSS.Properties,
 	}
 }
 
@@ -144,7 +144,7 @@ const separatorStyles = {
 		backgroundColor: "var(--flash)",
 		height: "0.4vh",
 		width: "25%",
-	},
+	} as CSS.Properties,
 }
 
 const exemplesStyles = {
@@ -156,23 +156,23 @@ const exemplesStyles = {
 		marginBottom: '15vh',
 		width: "100%",
 		// backgroundColor: "red",
-	},
+	} as CSS.Properties,
 	title: {
 		width: '60vw',
 		margin: "0 10%",
-	},
+	} as CSS.Properties,
 	listContainer: {
 		display: "flex",
 		justifyContent: "space-between",
 		marginTop:'2vh',
 		margin: "0 10%",
 		flexDirection: "row",
-	},
+	} as CSS.Properties,
 	columnListContainer: {
 		width: "48%",
 		color:'var(--grey)',
 		// backgroundColor: "yellow",
-	}
+	} as CSS.Properties,
 }
 
 const partnershipStyles = {
@@ -185,15 +185,15 @@ const partnershipStyles = {
 		marginTop: "10vh",
 		paddingTop: '7vh',
 		paddingBottom: '10vh',
-	},
+	} as CSS.Properties,
 	title: {
 		margin: "0 10% 5vh 10%",
-	},
+	} as CSS.Properties,
 	text: {
 		margin: "0 10%",
 		marginTop: '2vh',
-		fontWeight: '500',
-	},
+		fontWeight: 500,
+	} as CSS.Properties,
 	btn: {
 		padding: "8px 25px",
 		backgroundColor: "transparent",
@@ -203,23 +203,24 @@ const partnershipStyles = {
 		textTransform: "uppercase",
 		transition: "all 0.3s ease 0s",
 		cursor: 'pointer',
-		fontWeight: '700',
+		fontWeight: 700,
 		':hover': {
 			color: "white",
 			transform: "translateY(-4px)",
 			boxShadow: "0px 5px 5px rgba(0, 0, 0, 0.1)",
 		}
-	}
+	} as CSS.Properties,
 }
 
 const questionsStyles = {
+	title: {},
 	container: {
 		...center,
 		flexDirection: "column",
 		width: "100%",
 		marginTop: '10vh',
 		marginBottom: '25vh',
-	},
+	} as CSS.Properties,
 	text: {
 		color: 'var(--grey)',
 		width: '22vw',
@@ -227,5 +228,5 @@ const questionsStyles = {
 		textAlign: 'center',
 		fontSize: '1.5rem',
 		marginBottom: '4vh'
-	},
+	} as CSS.Properties,
 }
