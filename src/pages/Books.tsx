@@ -1,6 +1,5 @@
-import Book from '../Components/Book';
 import { useText } from '../Hooks/useText';
-
+import Book from '../Components/Book';
 
 export default function Books() {
 
@@ -97,11 +96,11 @@ export default function Books() {
 export const styles = {
 	global: {
 		color: "var(--dark)",
-		textAlign: "justify",
+		textAlign: "justify" as "justify",
 		lineHeight: "3.2rem",
 	},
 	header: {
-		textAlign: "center",
+		textAlign: "center" as "center",
 		padding: "20vh auto",
 		marginTop: "15vh",
 		marginBottom: "15vh",

@@ -2,7 +2,6 @@ import * as React from 'react';
 import * as CSS from 'csstype';
 import Radium from 'radium';
 import Input, {IValidator} from './Input';
-import { useText } from '../Hooks/useText';
 
 interface IProps {
 }
@@ -25,7 +24,7 @@ export interface IStyles {
 	input: CSS.Properties,
 	divInput: CSS.Properties,
 	divTextarea: CSS.Properties,
-	button: CSS.Properties,
+	button: any,
 }
 
 const text = {

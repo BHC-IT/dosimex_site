@@ -21,7 +21,9 @@ interface WithRouterProps {
   router: NextRouter
 }
 
-interface IProps extends WithRouterProps {}
+interface IProps extends WithRouterProps {
+	text?: any
+}
 
 
 export interface IStyles {

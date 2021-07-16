@@ -1,5 +1,3 @@
-import * as React from 'react';
-import Link from 'next/link';
 import Radium from 'radium';
 
 interface IProps {
@@ -9,9 +7,9 @@ interface IProps {
 	imageUrl: string,
 }
 
-const Book = (props: IProps) => {
-	...
-}
+const Book = (props: IProps) =>
+	<>
+	</>
 
 export default Radium(Book);
 

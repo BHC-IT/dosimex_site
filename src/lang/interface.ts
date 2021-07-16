@@ -1,4 +1,5 @@
 export default interface Lang {
+	[key: string]: any,
 	Home: {
 		header: {
 			title: string,

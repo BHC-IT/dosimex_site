@@ -139,7 +139,7 @@ export const styles: IStyles =  {
 	},
 	colTitle: {
 		fontFamily: "var(--lato)",
-		fontWeight: "700",
+		fontWeight: 700,
 		fontSize: "2.4rem",
 	},
 	divPhone: {

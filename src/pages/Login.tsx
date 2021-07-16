@@ -1,7 +1,7 @@
 import * as React from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
-import useUser from '../../Hooks/useUser';
+import useUser from '../Hooks/useUser';
 
 
 export default () => {

@@ -38,7 +38,7 @@ const OpinionHome = (props: IProps) => {
 
 export default Radium(OpinionHome);
 
-export const styles =  {
+export const styles : IStyles =  {
 	button: {
 		padding: "8px 25px",
 		border: "2px solid var(--main)",
@@ -58,12 +58,13 @@ export const styles =  {
 		marginRight: "auto",
 		marginTop: "7vh",
 		marginBottom: "2vh",
-	},
+	} as CSS.Properties,
 	global: {
 		backgroundColor: "var(--grey-bg)",
 		padding: "10vh 10vw",
 	},
 	icon: {
 		width: "1.2vw",
-	}
+	},
+	peopleInfo: {},
 }
