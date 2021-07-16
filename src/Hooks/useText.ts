@@ -17,3 +17,4 @@ export const useText = (page: string) : any => {
 		return text[route.locale.slice(0,2)]?.[page];
 	return null
 }
+

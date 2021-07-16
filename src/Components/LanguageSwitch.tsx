@@ -14,7 +14,7 @@ export interface IStyles {
 	flex: CSS.Properties,
 }
 
-function LanguageSwitch(props : IProps) {
+const LanguageSwitch = (props : IProps) => {
 
 	const isSelected = (lang: string) => props.language === lang ? styles.item : {...styles.item, color: "var(--grey)"};
 	console.log(props);

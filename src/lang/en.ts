@@ -3,7 +3,7 @@ import ILang from './interface';
 const text : ILang = {
 	Home: {
 		header: {
-			title: "The référence des outils de calculs pour la radioprotection ",
+			title: "La référence des outils de calculs pour la radioprotection ",
 			p: "Ensemble d'outils de calculs pratiques, simples d’emploi, validés, et répondant à de nombreuses situations rencontrées en radioprotection. Ils vous permettront d'améliorer votre niveau d'expertise.",
 			button: "Découvrir",
 			textImage: ["Dosimex GX Générateur X"],
@@ -324,7 +324,7 @@ const text : ILang = {
 		questions: {
 			title: "Des questions ?",
 			p: "Pour un devis, n’hésitez pas à nous contacter ici ou par téléphone au 06 89 70 90 35",
-			button: "Nous contacter :",
+			button: "Nous contacter",
 		},
 	},
 	Videos: {
@@ -346,6 +346,53 @@ const text : ILang = {
 			name: "mesures",
 			label: "pack mesures",
 		},
+	},
+	ContactForm: {
+		title: "Contactez-nous",
+		label: ["Votre nom",
+			"Email",
+			"Sujet",
+			"Message",
+		],
+		errorName: "Veuillez rentrer un nom",
+		errorEmail: [	"Veuillez rentrer un email",
+				"Veuillez rentrer un email valide"
+		],
+		errorMessage: "Veuillez rentrer un message",
+		wellSentMessage: "Votre message a bien été envoyé",
+		button: "Envoyer",
+	},
+	Footer: {
+		col1: {
+			p: [	"Copyright © 2021 Designed by BHC-IT",
+				"Tous droits réservés ",
+				"06 89 70 90 35",
+				"Retrouvez-nous sur nos réseaux"
+			],
+		},
+		col2: {
+			title: "Ressources",
+			p: [ 	"Archives vidéos",
+				"Manuels et validations",
+				"Lectures",
+			],
+		},
+		col3: {
+			title: "Entreprise",
+			p: [	"Qui sommes-nous ?",
+				"Mentions légales",
+				"Contact",
+			],
+		}
+	},
+	Navbar: {
+		items: ["Nos offres",
+			"Formations",
+			"Qui sommes-nous ?",
+			"Actualités",
+			"Contact"
+		],
+		button: "Acheter Dosimex",
 	}
 }
 

@@ -271,6 +271,53 @@ const text : ILang = {
 			label: "{Videos.packMes.label}",
 		},
 	},
+	ContactForm: {
+		title: "{ContactForm.title}",
+		label: ["{ContactForm.label[0]}",
+			"{ContactForm.label[1]}",
+			"{ContactForm.label[2]}",
+			"{ContactForm.label[3]}",
+		],
+		errorName: "{ContactForm.errorName}",
+		errorEmail: [	"{ContactForm.errorEmail[0]}",
+				"{ContactForm.errorEmail[1]}"
+		],
+		errorMessage: "{ContactForm.errorMessage}",
+		wellSentMessage: "{ContactForm.wellSentMessage}",
+		button: "{ContactForm.button}",
+	},
+	Footer: {
+		col1: {
+			p: [	"{Footer.col1.p[0]}",
+				"{Footer.col1.p[1]}",
+				"{Footer.col1.p[2]}",
+				"{Footer.col1.p[3]}"
+			],
+		},
+		col2: {
+			title: "{Footer.col2.title}",
+			p: [ 	"{Footer.col2.p[0]}",
+				"{Footer.col2.p[1]}",
+				"{Footer.col2.p[2]}",
+			],
+		},
+		col3: {
+			title: "{Footer.col3.title}",
+			p: [	"{Footer.col3.p[0]}",
+				"{Footer.col2.p[1]}",
+				"{Footer.col2.p[2]}",
+			],
+		}
+	},
+	Navbar: {
+		items: ["{Navbar.items[0]}",
+			"{Navbar.items[1]}",
+			"{Navbar.items[2]}",
+			"{Navbar.items[3]}",
+			"{Navbar.items[4]}"
+		],
+		button: "{Navbar.button}",
+	}
 }
 
 export default text;

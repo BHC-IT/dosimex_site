@@ -14,7 +14,6 @@ interface IState {
 
 interface IPage {
 	route: string,
-	name: string,
 }
 
 interface WithRouterProps {
@@ -32,19 +31,13 @@ export interface IStyles {
 	navbarButton: CSS.Properties,
 }
 
-const text = {
-	items: ["Nos offres", "Formations", "Qui sommes-nous ?", "Actualités", "Contact"],
-	button: "Acheter Dosimex",
-}
-
 const pages : IPage[] = [
-	{route: 'Software', name: text.items[0]},
-	{route: 'Training', name: text.items[1]},
-	{route: 'About', name: text.items[2]},
-	{route: 'articles', name: text.items[3]},
-	{route: 'Contact', name: text.items[4]},
+	{route: 'Software'},
+	{route: 'Training'},
+	{route: 'About'},
+	{route: 'articles'},
+	{route: 'Contact'},
 ]
-
 
 class Navbar extends React.Component<IProps, IState> {
 
@@ -61,10 +54,10 @@ class Navbar extends React.Component<IProps, IState> {
 		return (
 			<>
 			{
-				pages.map((page: IPage) =>
-					<li key={page.name} style={{paddingLeft: "1.7vw"}}>
+				pages.map((page: IPage, i: number) =>
+					<li key={this.props.text.items[i]} style={{paddingLeft: "1.7vw"}}>
 						<ItemNavbar
-							name={page.name}
+							name={this.props.text.items[i]}
 							route={page.route}
 						/>
 					</li>
@@ -93,7 +86,7 @@ class Navbar extends React.Component<IProps, IState> {
 					<LanguageSwitch route={this.props.router.pathname} language={this.props.router.locale}/>
 				</ul>
 				<Button
-					name={text.button}
+					name={this.props.text.button}
 					route="Product"
 				/>
 			</nav>
@@ -102,7 +95,7 @@ class Navbar extends React.Component<IProps, IState> {
 }
 
 
-export default withRouter(withText(Navbar, "navbar"));
+export default withRouter(withText(Navbar, "Navbar"));
 
 export const style: IStyles =  {
 	navbar: {

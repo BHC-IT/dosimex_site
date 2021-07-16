@@ -6,14 +6,7 @@ import Icon from '@mdi/react';
 import { mdiYoutube } from '@mdi/js';
 import { mdiLinkedin } from '@mdi/js';
 import { mdiPhone } from '@mdi/js';
-
-
-interface IProps {
-}
-
-interface IState {
-
-}
+import { useText } from '../Hooks/useText';
 
 export interface IStyles {
 	footer: CSS.Properties,
@@ -29,91 +22,63 @@ export interface IStyles {
 	linkRessource: CSS.Properties,
 }
 
-const text = {
-	col1: {
-		p1: "Copyright © 2021 Designed by BHC-IT",
-		p2: "Tous droits réservés ",
-		p3: "06 89 70 90 35",
-		p4: "Retrouvez-nous sur nos réseaux",
-	},
-	col2: {
-		title: "Ressources",
-		p1: "Archives vidéos",
-		p2: "Manuels et validations",
-		p3: "Lectures",
-	},
-	col3: {
-		title: "Entreprise",
-		p1: "Qui sommes-nous ?",
-		p2: "Mentions légales",
-		p3: "Contact",
-	}
-}
+const Footer = () => {
 
-class ContactForm extends React.Component<IProps, IState> {
+	const text = useText('Footer');
 
-	constructor(props : IProps) {
-		super(props);
-
-		this.state = {
-		}
-	}
-
-	render() {
-		const ratio = 0.27;
-		return (
-			<footer style={styles.footer}>
-				<div style={styles.col1}>
-					<Image
-						src="/Images/trefle.png"
-						alt="icône trèfle radioactivité"
-						width={`${154 * ratio}rem`}
-						height={`${154* ratio}rem`}
-					/>
-					<p>{text.col1.p1}</p>
-					<p>{text.col1.p2}</p>
-					<div style={styles.divPhone}>
-						<Icon path={mdiPhone} size={1.8} />
-						<p style={{marginLeft: "0.5vw"}}>{text.col1.p3}</p>
-					</div>
-					<div style={styles.divSocialMedia}>
-						<div style={styles.divIconSocial}>
-							<div style={styles.iconSocial}>
-								<Link href="https://www.youtube.com/channel/UCmijJyGaFfJte4xsTk90MVA/featured" replace>
-									<Icon path={mdiYoutube} size={2} />
-								</Link>
-							</div>
-							<div style={styles.iconSocial}>
-								<Link href="https://fr.linkedin.com/company/dosimex" replace>
-									<Icon path={mdiLinkedin} size={1.6} />
-								</Link>
-							</div>
+	const ratio = 0.27;
+	return (
+		<footer style={styles.footer}>
+			<div style={styles.col1}>
+				<Image
+					src="/Images/trefle.png"
+					alt="icône trèfle radioactivité"
+					width={`${154 * ratio}rem`}
+					height={`${154* ratio}rem`}
+				/>
+				<p>{text.col1.p[0]}</p>
+				<p>{text.col1.p[1]}</p>
+				<div style={styles.divPhone}>
+					<Icon path={mdiPhone} size={1.8} />
+					<p style={{marginLeft: "0.5vw"}}>{text.col1.p[2]}</p>
+				</div>
+				<div style={styles.divSocialMedia}>
+					<div style={styles.divIconSocial}>
+						<div style={styles.iconSocial}>
+							<Link href="https://www.youtube.com/channel/UCmijJyGaFfJte4xsTk90MVA/featured" replace>
+								<Icon path={mdiYoutube} size={2} />
+							</Link>
 						</div>
-						<div style={{width: "30%"}}>
-							<p style={styles.pSocialMedia}>{text.col1.p4}</p>
+						<div style={styles.iconSocial}>
+							<Link href="https://fr.linkedin.com/company/dosimex" replace>
+								<Icon path={mdiLinkedin} size={1.6} />
+							</Link>
 						</div>
 					</div>
-				</div>
-				<div style={styles.col2}>
-					<div style={styles.col}>
-						<p style={styles.colTitle}>{text.col2.title}</p>
-						<Link href="/Videos" replace><p style={styles.linkRessource}>{text.col2.p1}</p></Link>
-						<Link href="/Manuals" replace><p style={styles.linkRessource}>{text.col2.p2}</p></Link>
-						<Link href="/Books" replace><p style={styles.linkRessource}>{text.col2.p3}</p></Link>
-					</div>
-					<div style={styles.col}>
-						<p style={styles.colTitle}>{text.col3.title}</p>
-						<Link href="/About" replace><p style={styles.linkRessource}>{text.col3.p1}</p></Link>
-						<Link href="/" replace><p style={styles.linkRessource}>{text.col3.p2}</p></Link>
-						<Link href="/Contact" replace><p style={styles.linkRessource}>{text.col3.p3}</p></Link>
+					<div style={{width: "30%"}}>
+						<p style={styles.pSocialMedia}>{text.col1.p[3]}</p>
 					</div>
 				</div>
-			</footer>
-		);
-	}
+			</div>
+			<div style={styles.col2}>
+				<div style={styles.col}>
+					<p style={styles.colTitle}>{text.col2.title}</p>
+					<Link href="/Videos" replace><p style={styles.linkRessource}>{text.col2.p[0]}</p></Link>
+					<Link href="/Manuals" replace><p style={styles.linkRessource}>{text.col2.p[1]}</p></Link>
+					<Link href="/Books" replace><p style={styles.linkRessource}>{text.col2.p[2]}</p></Link>
+				</div>
+				<div style={styles.col}>
+					<p style={styles.colTitle}>{text.col3.title}</p>
+					<Link href="/About" replace><p style={styles.linkRessource}>{text.col3.p[0]}</p></Link>
+					<Link href="/" replace><p style={styles.linkRessource}>{text.col3.p[1]}</p></Link>
+					<Link href="/Contact" replace><p style={styles.linkRessource}>{text.col3.p[2]}</p></Link>
+				</div>
+			</div>
+		</footer>
+	);
 }
 
-export default ContactForm;
+export default Footer;
 
 export const styles: IStyles =  {
 	footer: {
