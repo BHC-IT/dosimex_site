@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { GetStaticPropsContext, GetStaticProps, GetStaticPaths } from 'next';
 import IArticle from '../../../interfaces/IArticle'
-import * as axios from 'axios';
+import axios from 'axios';
 import useUser from '../../../Hooks/useUser'
 import ArticleForm from '../../../Components/ArticleForm'
 

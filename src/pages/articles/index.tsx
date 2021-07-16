@@ -1,6 +1,6 @@
 import { GetStaticPropsContext, GetStaticProps } from 'next';
 import IArticle from '../../interfaces/IArticle'
-import * as axios from 'axios';
+import axios from 'axios';
 import Link from 'next/link';
 import * as CSS from 'csstype';
 import styled from 'styled-components';

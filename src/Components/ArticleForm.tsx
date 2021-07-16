@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as CSS from 'csstype';
 import Radium from 'radium';
 import IArticle from '../interfaces/IArticle';
-import * as axios from 'axios';
+import axios from 'axios';
 import Input from './Input';
 import MDEditor from '@uiw/react-md-editor';
 import '@uiw/react-md-editor/dist/markdown-editor.css'
