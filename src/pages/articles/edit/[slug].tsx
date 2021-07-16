@@ -35,7 +35,7 @@ export const getStaticProps: GetStaticProps = async (context : GetStaticPropsCon
 	}
 	return {
 		props: {
-			article: null,
+			article: undefined,
 		},
 		revalidate: 1,
 	}
@@ -44,24 +44,21 @@ export const getStaticProps: GetStaticProps = async (context : GetStaticPropsCon
 
 export const getStaticPaths: GetStaticPaths = async () => {
 
-	try {
-		const res = await axios.get('/api/articles');
-		const paths = res.data.data.map((article: IArticle) => ({
-			params: { slug: article.slug },
-		}))
+	const res = await axios.get('/api/articles');
+	const paths : {params: {slug: string}, locale ?: string}[] = [];
 
-		return {
-			paths,
-			fallback: false,
-		};
-	} catch (e) {
-	}
-	const paths = {}
+	res.data.data.forEach((article: IArticle) => {
+		paths.push({params: { slug: article.slug as string }, locale: 'en-US'});
+		paths.push({params: { slug: article.slug as string }, locale: 'fr'});
+		paths.push({params: { slug: article.slug as string }});
+	});
+
 	return {
 		paths,
-		fallback: false,
+		fallback: true,
 	};
 }
+
 
 
 export default Article;
