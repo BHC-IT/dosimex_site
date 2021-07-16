@@ -70,7 +70,7 @@ const Footer = () => {
 				<div style={styles.col}>
 					<p style={styles.colTitle}>{text.col3.title}</p>
 					<Link href="/About" replace><p style={styles.linkRessource}>{text.col3.p[0]}</p></Link>
-					<Link href="/" replace><p style={styles.linkRessource}>{text.col3.p[1]}</p></Link>
+					<a href="/Folders/Informations_légales.pdf"><p style={styles.linkRessource}>{text.col3.p[1]}</p></a>
 					<Link href="/Contact" replace><p style={styles.linkRessource}>{text.col3.p[2]}</p></Link>
 				</div>
 			</div>

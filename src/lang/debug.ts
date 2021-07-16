@@ -6,6 +6,7 @@ const text : ILang = {
 			title: "{Home.header.title}",
 			p: "{Home.header.p}",
 			button: "{Home.header.button}",
+			textImage: ["{Home.header.textImage}"],
 		},
 		partners: {
 			title: "{Home.partners.title}",
@@ -40,7 +41,9 @@ const text : ILang = {
 			button: "{Home.video.button}",
 		},
 		opinion: {
-
+			name: "{Home.opinion.name}",
+			job: "{Home.opinion.job}",
+			opinion: "{Home.opinion.opinione}",
 		},
 		callToAction: {
 			title: "{Home.callToAction.title}",
