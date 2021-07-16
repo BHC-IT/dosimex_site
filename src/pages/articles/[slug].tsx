@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { GetStaticPropsContext, GetStaticProps, GetStaticPaths } from 'next';
-import IArticle from '../../interfaces/IArticle'
 import axios from 'axios';
-import useUser from '../../Hooks/useUser'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import * as CSS from 'csstype';
@@ -10,6 +8,11 @@ import MDEditor from '@uiw/react-md-editor';
 import '@uiw/react-md-editor/dist/markdown-editor.css'
 import '@uiw/react-markdown-preview/dist/markdown.css';
 import moment from 'moment';
+
+import IArticle from '../../interfaces/IArticle'
+import useUser from '../../Hooks/useUser'
+import Article from '../../models/Article'
+import dbConnect from '../../utils/dbConnect';
 
 export interface IProps {
 	article?: IArticle,
@@ -23,7 +26,7 @@ interface IStyles {
 	date: CSS.Properties,
 }
 
-const Article = (props : IProps) => {
+const ArticleComp = (props : IProps) => {
 
 	const router = useRouter();
 	const user = useUser();
@@ -68,8 +71,10 @@ const Article = (props : IProps) => {
 export const getStaticProps: GetStaticProps = async (context : GetStaticPropsContext) => {
 
 	try {
-		const res = await axios.get('/api/articles');
-		const article = res.data.data.find((e : IArticle) => e.slug === context?.params?.slug);
+		await dbConnect();
+
+		const articles : IArticle[] = await Article.find({}).exec();
+		const article = articles.find((e : IArticle) => e.slug === context?.params?.slug);
 		return {
 			props: {
 				article,
@@ -89,10 +94,12 @@ export const getStaticProps: GetStaticProps = async (context : GetStaticPropsCon
 
 export const getStaticPaths: GetStaticPaths = async () => {
 
-	const res = await axios.get('/api/articles');
+	await dbConnect();
+
+	const articles : IArticle[] = await Article.find({}).exec();
 	const paths : {params: {slug: string}, locale ?: string}[] = [];
 
-	res.data.data.forEach((article: IArticle) => {
+	articles.forEach((article: IArticle) => {
 		paths.push({params: { slug: article.slug as string }, locale: 'en-US'});
 		paths.push({params: { slug: article.slug as string }, locale: 'fr'});
 		paths.push({params: { slug: article.slug as string }});
@@ -104,7 +111,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 	};
 }
 
-export default Article;
+export default ArticleComp;
 
 export const styles: IStyles =  {
 	buttonEdit: {
