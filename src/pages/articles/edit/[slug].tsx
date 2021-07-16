@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { GetStaticPropsContext, GetStaticProps, GetStaticPaths } from 'next';
 import IArticle from '../../../interfaces/IArticle'
-import * as axios from 'axios';
+import axios from 'axios';
 import useUser from '../../../Hooks/useUser'
 import ArticleForm from '../../../Components/ArticleForm'
 
@@ -23,7 +23,7 @@ const Article = (props : IProps) => {
 export const getStaticProps: GetStaticProps = async (context : GetStaticPropsContext) => {
 
 	try {
-		const res = await axios.get('http://localhost:3000/api/articles');
+		const res = await axios.get('/api/articles');
 		const article = res.data.data.find((e : IArticle) => e.slug === context?.params?.slug);
 		return {
 			props: {
@@ -45,7 +45,7 @@ export const getStaticProps: GetStaticProps = async (context : GetStaticPropsCon
 export const getStaticPaths: GetStaticPaths = async () => {
 
 	try {
-		const res = await axios.get('http://localhost:3000/api/articles');
+		const res = await axios.get('/api/articles');
 		const paths = res.data.data.map((article: IArticle) => ({
 			params: { slug: article.slug },
 		}))

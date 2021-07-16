@@ -1,6 +1,6 @@
 import { GetStaticPropsContext, GetStaticProps } from 'next';
 import IArticle from '../../interfaces/IArticle'
-import * as axios from 'axios';
+import axios from 'axios';
 import Link from 'next/link';
 import * as CSS from 'csstype';
 import styled from 'styled-components';
@@ -78,7 +78,7 @@ const Articles = (props: any) => {
 export const getStaticProps: GetStaticProps = async (context : GetStaticPropsContext) => {
 
 	try {
-		const res = await axios.get('http://localhost:3000/api/articles');
+		const res = await axios.get('/api/articles');
 
 		return {
 			props: {

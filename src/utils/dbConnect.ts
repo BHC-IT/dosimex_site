@@ -11,7 +11,7 @@ async function dbConnect() {
     return;
   }
 
-  const db = await mongoose.connect('mongodb://localhost:27017/dosimex', {
+  const db = await mongoose.connect(process.env.DB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,

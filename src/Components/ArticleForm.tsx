@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as CSS from 'csstype';
 import Radium from 'radium';
 import IArticle from '../interfaces/IArticle';
-import * as axios from 'axios';
+import axios from 'axios';
 import Input from './Input';
 import MDEditor from '@uiw/react-md-editor';
 import '@uiw/react-md-editor/dist/markdown-editor.css'
@@ -72,7 +72,7 @@ const Article = (props: IProps) => {
 						if (props.method === 'POST') {
 
 							try {
-								await axios.post('http://localhost:3000/api/articles', {
+								await axios.post('/api/articles', {
 									title: title,
 									description: description,
 									markdown: markdown,
@@ -83,7 +83,7 @@ const Article = (props: IProps) => {
 							}
 						} else if (props.method === 'PATCH') {
 							try {
-								await axios.patch(`http://localhost:3000/api/articles/${props.article?.slug}`, {
+								await axios.patch(`/api/articles/${props.article?.slug}`, {
 									title: title,
 									description: description,
 									markdown: markdown,

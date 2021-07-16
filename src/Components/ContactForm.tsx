@@ -2,10 +2,15 @@ import * as React from 'react';
 import * as CSS from 'csstype';
 import Radium from 'radium';
 import Input, {IValidator} from './Input';
-import { useText } from '../Hooks/useText';
+import { withRouter, NextRouter } from 'next/router';
 
-interface IProps {
+import { withText } from '../hoc/withText';
+
+interface WithRouterProps {
+  router: NextRouter
 }
+
+interface IProps extends WithRouterProps {}
 
 interface IState {
 	name: string | null,
@@ -78,34 +83,34 @@ class ContactForm extends React.Component<IProps, IState> {
 		console.log(this.state)
 		return (
 			<form style={styles.form} onSubmit={(e: React.FormEvent) => this.handleSubmit(e)}>
-				<h1>{text.title}</h1>
-				{this.state.wellSent ? <p>{text.wellSentMessage}</p> : null}
+				<h1>{this.props.text.title}</h1>
+				{this.state.wellSent ? <p>{this.props.text.wellSentMessage}</p> : null}
 				<div style={{display: "flex", flexWrap: "wrap", justifyContent: "space-between"}}>
 					<Input
 						value={this.state.name}
 						type="text"
 						id="name"
-						label={text.label[0]}
+						label={this.props.text.label[0]}
 						style={{divInput: {width: "45%"}}}
 						required
 						isValid={(isValid : boolean) => this.setState({nameValid: isValid})}
 						onChange={(value : string) => this.setState({name: value})}
 						validator={[
-							{ validationFunction:(value) => this.isInputValid(value), errorMessage: text.errorName },
+							{ validationFunction:(value) => this.isInputValid(value), errorMessage: this.props.text.errorName },
 						] as IValidator[]}
 					/>
 					<Input
 						value={this.state.email}
 						type="email"
 						id="email"
-						label={text.label[1]}
+						label={this.props.text.label[1]}
 						style={{divInput: {width: "45%"}}}
 						required
 						isValid={(isValid : boolean) => this.setState({emailValid: isValid})}
 						onChange={(value : string) => this.setState({email: value})}
 						validator={[
-							{ validationFunction:(value) => this.isInputValid(value), errorMessage: text.errorEmail[0] },
-							{ validationFunction:(value) => this.isEmailValid(value), errorMessage: text.errorEmail[1] },
+							{ validationFunction:(value) => this.isInputValid(value), errorMessage: this.props.text.errorEmail[0] },
+							{ validationFunction:(value) => this.isEmailValid(value), errorMessage: this.props.text.errorEmail[1] },
 						] as IValidator[]}
 					/>
 				</div>
@@ -113,28 +118,28 @@ class ContactForm extends React.Component<IProps, IState> {
 						value={this.state.subject}
 						type="text"
 						id="subject"
-						label={text.label[2]}
+						label={this.props.text.label[2]}
 						onChange={(value : string) => this.setState({subject: value})}
 				/>
 				<Input
 						value={this.state.message}
 						type="textarea"
 						id="message"
-						label={text.label[4]}
+						label={this.props.text.label[4]}
 						required
 						isValid={(isValid : boolean) => this.setState({messageValid: isValid})}
 						onChange={(value : string) => this.setState({message: value})}
 						validator={[
-							{ validationFunction:(value) => this.isInputValid(value), errorMessage: text.errorMessage },
+							{ validationFunction:(value) => this.isInputValid(value), errorMessage: this.props.text.errorMessage },
 						] as IValidator[]}
 				/>
-				<button style={styles.button} type="submit">{text.button}</button>
+				<button style={styles.button} type="submit">{this.props.text.button}</button>
 			</form>
 		);
 	}
 }
 
-export default Radium(ContactForm);
+export default Radium(withRouter(withText(ContactForm, "ContactForm")));
 
 export const styles: IStyles =  {
 	form: {
