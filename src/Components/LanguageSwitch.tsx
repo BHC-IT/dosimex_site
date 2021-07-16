@@ -17,6 +17,7 @@ export interface IStyles {
 function LanguageSwitch(props : IProps) {
 
 	const isSelected = (lang: string) => props.language === lang ? styles.item : {...styles.item, color: "var(--grey)"};
+	console.log(props);
 
 	return (
 		<li>
