@@ -7,6 +7,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { withRouter, NextRouter } from 'next/router';
 
+import { withText } from '../hoc/withText';
+
 interface IState {
 }
 
@@ -46,6 +48,8 @@ class Navbar extends React.Component<IProps, IState> {
 
 	constructor(props : IProps) {
 		super(props);
+
+		console.log(props);
 
 		this.state = {
 		}
@@ -96,7 +100,7 @@ class Navbar extends React.Component<IProps, IState> {
 }
 
 
-export default withRouter(Navbar);
+export default withRouter(withText(Navbar, "navbar"));
 
 export const style: IStyles =  {
 	navbar: {
