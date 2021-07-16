@@ -38,7 +38,7 @@ const Article = (props : IProps) => {
 				<button style={styles.button} onClick={async () => {
 
 						try {
-							await axios.delete(`http://localhost:3000/api/articles/${props.article.slug}`,
+							await axios.delete(`/api/articles/${props.article.slug}`,
 								{headers: {authorization : `Bearer ${user}`}});
 							router.push('/articles')
 						} catch (e) {
@@ -65,7 +65,7 @@ const Article = (props : IProps) => {
 export const getStaticProps: GetStaticProps = async (context : GetStaticPropsContext) => {
 
 	try {
-		const res = await axios.get('http://localhost:3000/api/articles');
+		const res = await axios.get('/api/articles');
 		const article = res.data.data.find((e : IArticle) => e.slug === context?.params?.slug);
 		return {
 			props: {
@@ -87,7 +87,7 @@ export const getStaticProps: GetStaticProps = async (context : GetStaticPropsCon
 export const getStaticPaths: GetStaticPaths = async () => {
 
 	try {
-		const res = await axios.get('http://localhost:3000/api/articles');
+		const res = await axios.get('/api/articles');
 		const paths = [];
 		res.data.data.forEach((article: IArticle) => {
 			paths.push({params: { slug: article.slug }, locale: 'en-US'});

@@ -78,7 +78,7 @@ const Articles = (props: any) => {
 export const getStaticProps: GetStaticProps = async (context : GetStaticPropsContext) => {
 
 	try {
-		const res = await axios.get('http://localhost:3000/api/articles');
+		const res = await axios.get('/api/articles');
 
 		return {
 			props: {
