@@ -17,3 +17,13 @@ export const useText = (page: string) : ILang => {
 
 	return text[route.locale.slice(0,2)][page];
 }
+
+export const withText = (page: string) : ILang => {
+	const route = useRouter();
+	console.log(route.locale.slice(0,2));
+
+	if (route.locale === 'debug')
+		return text[route.locale][page];
+
+	return text[route.locale.slice(0,2)][page];
+}
