@@ -28,20 +28,6 @@ export interface IStyles {
 	button: CSS.Properties,
 }
 
-const text = {
-	title: "Contactez-nous",
-	label1: "Votre nom",
-	label2: "Email",
-	label3: "Sujet",
-	label4: "Message",
-	errorName: "Veuillez rentrer un nom",
-	errorEmail1: "Veuillez rentrer un email",
-	errorEmail2: "Veuillez rentrer un email valide",
-	errorMessage: "Veuillez rentrer un message",
-	wellSentMessage: "Votre message a bien été envoyé",
-	button: "Envoyer",
-}
-
 const mailFormat: RegExp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 class ContactForm extends React.Component<IProps, IState> {
@@ -99,7 +85,7 @@ class ContactForm extends React.Component<IProps, IState> {
 						value={this.state.name}
 						type="text"
 						id="name"
-						label={text.label1}
+						label={text.label[0]}
 						style={{divInput: {width: "45%"}}}
 						required
 						isValid={(isValid : boolean) => this.setState({nameValid: isValid})}
@@ -112,14 +98,14 @@ class ContactForm extends React.Component<IProps, IState> {
 						value={this.state.email}
 						type="email"
 						id="email"
-						label={text.label2}
+						label={text.label[1]}
 						style={{divInput: {width: "45%"}}}
 						required
 						isValid={(isValid : boolean) => this.setState({emailValid: isValid})}
 						onChange={(value : string) => this.setState({email: value})}
 						validator={[
-							{ validationFunction:(value) => this.isInputValid(value), errorMessage: text.errorEmail1 },
-							{ validationFunction:(value) => this.isEmailValid(value), errorMessage: text.errorEmail2 },
+							{ validationFunction:(value) => this.isInputValid(value), errorMessage: text.errorEmail[0] },
+							{ validationFunction:(value) => this.isEmailValid(value), errorMessage: text.errorEmail[1] },
 						] as IValidator[]}
 					/>
 				</div>
@@ -127,14 +113,14 @@ class ContactForm extends React.Component<IProps, IState> {
 						value={this.state.subject}
 						type="text"
 						id="subject"
-						label={text.label3}
+						label={text.label[2]}
 						onChange={(value : string) => this.setState({subject: value})}
 				/>
 				<Input
 						value={this.state.message}
 						type="textarea"
 						id="message"
-						label={text.label4}
+						label={text.label[4]}
 						required
 						isValid={(isValid : boolean) => this.setState({messageValid: isValid})}
 						onChange={(value : string) => this.setState({message: value})}

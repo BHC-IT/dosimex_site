@@ -19,6 +19,6 @@ export const useText = (page: string) : ILang => {
 	return text[route.locale.slice(0,2)][page];
 }
 
-export const withText = (Component: React.ComponentType) => {
-	return (props) => <Component {...props}/>
-}
+// export const withText = (Component: React.ComponentType) => {
+// 	return (props) => <Component {...props}/>
+// }

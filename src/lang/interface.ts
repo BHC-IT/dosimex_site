@@ -82,7 +82,129 @@ export default interface Lang {
 		ask: {
 			title: string,
 			text: string,
-			labelButton: string
+			labelButton: string,
 		},
+	},
+	About: {
+		header: {
+			title: string,
+			p: string,
+		},
+		gerald: {
+			p: string[],
+			pBorder: string[],
+		},
+		alain: {
+			p: string[],
+		},
+		epilogue: string,
+	},
+	Books: {
+		header: {
+			title: string,
+			p: string,
+		},
+		books: string[],
+	},
+	Manuals: {
+		header: {
+			title: string,
+			p: string,
+			li: string[],
+		},
+		manuals: string[],
+		validations: string[],
+		internships: string[],
+	},
+	Product: {
+		header: {
+			title: string,
+			p: string,
+			button: string,
+		},
+		buttonKnowMore: string,
+		title: string,
+		descrip: string,
+		partE: {
+			p: string[],
+		},
+		partD: {
+			p: string,
+		},
+		prerequisites: {
+			title: string,
+			p: string,
+		},
+		questions: {
+			title: string,
+			p: string,
+		}
+	},
+	Training: {
+		header: {
+			title: string,
+			p: string,
+		},
+		section1: {
+			title: string,
+			li: string[],
+		},
+		section2: {
+			title: string,
+			li: string[],
+			button: string,
+		},
+		questions: {
+			title: string,
+			p: string,
+			button: string,
+		},
+	},
+	Videos: {
+		header: {
+			title: string,
+			p: string,
+			button: string,
+		},
+		packTitle: string,
+		packOpe: {
+			name: string,
+			label: string,
+		},
+		packPeda: {
+			name: string,
+			label: string,
+		},
+		packMes: {
+			name: string,
+			label: string,
+		},
+	},
+	ContactForm: {
+		title: string,
+		label: string[],
+		errorName: string,
+		errorEmail: string[],
+		errorMessage: string,
+		wellSentMessage: string,
+		button: string,
+	},
+	Footer: {
+		col1: {
+			p: string[],
+		},
+		col2: {
+			title: string,
+			p: string[],
+
+		},
+		col3: {
+			title: string,
+			p: string[],
+		}
+	},
+	Navbar: {
+		items: string[],
+		button: string,
 	}
 }

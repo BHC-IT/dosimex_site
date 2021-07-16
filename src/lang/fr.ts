@@ -92,7 +92,8 @@ const text : ILang = {
 		more: {
 			title: "Plus de ressources",
 			links: ["manuels d’utilisation de Dosimex-GX pour en découvrir toutes les possibilités",
-				"dossiers de validation complets Ou aux extraits validation source gamma et validation générateur X",
+				"dossiers de validation complets",
+				"Ou aux extraits validation source gamma et validation générateur X",
 				"Les nouveautés à découvrir dans Dosimex-GX 3.0"
 			]
 		},
@@ -101,7 +102,6 @@ const text : ILang = {
 			text: "Pour un devis, n’hésitez pas à nous contacter ici ou par téléphone au 06 89 70 90 35",
 			labelButton: "Nous contacter"
 		},
-
 	},
 	About: {
 		header: {
@@ -322,7 +322,7 @@ const text : ILang = {
 		questions: {
 			title: "Des questions ?",
 			p: "Pour un devis, n’hésitez pas à nous contacter ici ou par téléphone au 06 89 70 90 35",
-			button: "Nous contacter :",
+			button: "Nous contacter",
 		},
 	},
 	Videos: {
@@ -331,19 +331,67 @@ const text : ILang = {
 			p: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. At purus risus, dictum auctor massa quam scelerisque. Nibh lobortis feugiat orci donec mauris turpis sagittis malesuada nibh.",
 			button: "Notre chaîne youtube",
 		},
+		packTitle: "Vidéos du pack ",
 		packOpe: {
-			title: "Vidéos du pack opérationel",
+			name: "opérationel",
 			label: "pack opérationnel",
 		},
 		packPeda: {
-			title: "Vidéos du pack pédagogique",
+			name: "pédagogique",
 			label: "pack pédagogique",
 		},
 		packMes: {
-			title: "Vidéos du pack mesures",
+			name: "mesures",
 			label: "pack mesures",
 		},
 	},
+	ContactForm: {
+		title: "Contactez-nous",
+		label: ["Votre nom",
+			"Email",
+			"Sujet",
+			"Message",
+		],
+		errorName: "Veuillez rentrer un nom",
+		errorEmail: [	"Veuillez rentrer un email",
+				"Veuillez rentrer un email valide"
+		],
+		errorMessage: "Veuillez rentrer un message",
+		wellSentMessage: "Votre message a bien été envoyé",
+		button: "Envoyer",
+	},
+	Footer: {
+		col1: {
+			p: [	"Copyright © 2021 Designed by BHC-IT",
+				"Tous droits réservés ",
+				"06 89 70 90 35",
+				"Retrouvez-nous sur nos réseaux"
+			],
+		},
+		col2: {
+			title: "Ressources",
+			p: [ 	"Archives vidéos",
+				"Manuels et validations",
+				"Lectures",
+			],
+		},
+		col3: {
+			title: "Entreprise",
+			p: [	"Qui sommes-nous ?",
+				"Mentions légales",
+				"Contact",
+			],
+		}
+	},
+	Navbar: {
+		items: ["Nos offres",
+			"Formations",
+			"Qui sommes-nous ?",
+			"Actualités",
+			"Contact"
+		],
+		button: "Acheter Dosimex",
+	}
 }
 
 export default text;

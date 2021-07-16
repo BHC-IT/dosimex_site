@@ -10,5 +10,5 @@ module.exports = removeImports({
 	i18n: {
 		locales: ['en-US', 'fr', 'debug'],
 		defaultLocale: 'fr',
-	}
+	},
 });

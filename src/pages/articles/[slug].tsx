@@ -108,7 +108,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 	};
 }
 
-
 export default Article;
 
 export const styles: IStyles =  {
