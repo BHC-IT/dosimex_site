@@ -92,7 +92,8 @@ const text : ILang = {
 		more: {
 			title: "Plus de ressources",
 			links: ["manuels d’utilisation de Dosimex-GX pour en découvrir toutes les possibilités",
-				"dossiers de validation complets Ou aux extraits validation source gamma et validation générateur X",
+				"dossiers de validation complets",
+				"Ou aux extraits validation source gamma et validation générateur X",
 				"Les nouveautés à découvrir dans Dosimex-GX 3.0"
 			]
 		},
@@ -101,6 +102,8 @@ const text : ILang = {
 			text: "Pour un devis, n’hésitez pas à nous contacter ici ou par téléphone au 06 89 70 90 35",
 			labelButton: "Nous contacter"
 		},
+	},
+
 	},
 	About: {
 		header: {
@@ -330,19 +333,20 @@ const text : ILang = {
 			p: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. At purus risus, dictum auctor massa quam scelerisque. Nibh lobortis feugiat orci donec mauris turpis sagittis malesuada nibh.",
 			button: "Notre chaîne youtube",
 		},
+		packTitle: "Vidéos du pack ",
 		packOpe: {
-			title: "Vidéos du pack opérationel",
+			name: "opérationel",
 			label: "pack opérationnel",
 		},
 		packPeda: {
-			title: "Vidéos du pack pédagogique",
+			name: "pédagogique",
 			label: "pack pédagogique",
 		},
 		packMes: {
-			title: "Vidéos du pack mesures",
+			name: "mesures",
 			label: "pack mesures",
 		},
-	},
+	}
 }
 
 export default text;

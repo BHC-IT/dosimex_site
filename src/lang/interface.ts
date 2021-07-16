@@ -83,7 +83,47 @@ export default interface Lang {
 		ask: {
 			title: string,
 			text: string,
-			labelButton: string
+			labelButton: string,
 		},
-	}
+	},
+	Training: {
+		header: {
+			title: string,
+			p: string,
+		},
+		section1: {
+			title: string,
+			li: string[]
+		},
+		section2: {
+			title: string,
+			li: string[]
+			button: string,
+		},
+		questions: {
+			title: string,
+			p: string,
+			button: string,
+		},
+	},
+	Videos: {
+		header: {
+			title: string,
+			p: string,
+			button: string,
+		},
+		packTitle: string,
+		packOpe: {
+			name: string,
+			label: string,
+		},
+		packPeda: {
+			name: string,
+			label: string,
+		},
+		packMes: {
+			name: string,
+			label: string,
+		},
+	},
 }

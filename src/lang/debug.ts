@@ -257,16 +257,17 @@ const text : ILang = {
 			p: "{Videos.header.p}",
 			button: "{Videos.header.button}",
 		},
+		packTitle: "{Videos.packTitle}",
 		packOpe: {
-			title: "{Videos.packOpe.title}",
+			name: "{Videos.packOpe.name}",
 			label: "{Videos.packOpe.label}",
 		},
 		packPeda: {
-			title: "{Videos.packPeda.title}",
+			name: "{Videos.packPeda.name}",
 			label: "{Videos.packPeda.label}",
 		},
 		packMes: {
-			title: "{Videos.packMes.title}",
+			name: "{Videos.packMes.name}",
 			label: "{Videos.packMes.label}",
 		},
 	},

@@ -23,22 +23,22 @@ const Exemples = ({text} : {text : any}) =>
 		<h3 style={exemplesStyles.title}>{text.section1.title}</h3>
 		<div style={exemplesStyles.listContainer}>
 			<div style={exemplesStyles.columnListContainer}>
-				<p>{text.section1.li1}</p>
-				<p>{text.section1.li2}</p>
-				<p>{text.section1.li3}</p>
-				<p>{text.section1.li4}</p>
-				<p>{text.section1.li5}</p>
-				<p>{text.section1.li6}</p>
-				<p>{text.section1.li7}</p>
+				<p>{text.section1.li[0]}</p>
+				<p>{text.section1.li[1]}</p>
+				<p>{text.section1.li[2]}</p>
+				<p>{text.section1.li[3]}</p>
+				<p>{text.section1.li[4]}</p>
+				<p>{text.section1.li[5]}</p>
+				<p>{text.section1.li[6]}</p>
 			</div>
 			<div style={exemplesStyles.columnListContainer}>
-				<p>{text.section1.li8}</p>
-				<p>{text.section1.li9}</p>
-				<p>{text.section1.li10}</p>
-				<p>{text.section1.li11}</p>
-				<p>{text.section1.li12}</p>
-				<p>{text.section1.li13}</p>
-				<p>{text.section1.li14}</p>
+				<p>{text.section1.li[7]}</p>
+				<p>{text.section1.li[8]}</p>
+				<p>{text.section1.li[9]}</p>
+				<p>{text.section1.li[10]}</p>
+				<p>{text.section1.li[11]}</p>
+				<p>{text.section1.li[12]}</p>
+				<p>{text.section1.li[13]}</p>
 			</div>
 		</div>
 	</div>
@@ -46,10 +46,10 @@ const Exemples = ({text} : {text : any}) =>
 const Partnership = ({text} : {text : any}) =>
 	<div style={partnershipStyles.container}>
 		<h3 style={partnershipStyles.title}>{text.section2.title}</h3>
-		<p style={partnershipStyles.text}>{text.section2.li1}</p>
-		<p style={partnershipStyles.text}>{text.section2.li2}</p>
-		<p style={partnershipStyles.text}>{text.section2.li3}</p>
-		<p style={partnershipStyles.text}>{text.section2.li4}</p>
+		<p style={partnershipStyles.text}>{text.section2.li[0]}</p>
+		<p style={partnershipStyles.text}>{text.section2.li[1]}</p>
+		<p style={partnershipStyles.text}>{text.section2.li[2]}</p>
+		<p style={partnershipStyles.text}>{text.section2.li[3]}</p>
 		<div style={{margin: "5vh auto 0 10%"}}><div style={partnershipStyles.btn}>{text.section2.button}</div></div>
 	</div>
 
