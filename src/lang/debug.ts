@@ -96,7 +96,8 @@ const text : ILang = {
 			title: "{Software.more.title}",
 			links: ["{Software.more.links[0]}",
 				"{Software.more.links[1]}",
-				"{Software.more.links[2]}"
+				"{Software.more.links[2]}",
+				"{Software.more.links[3]}",
 			]
 		},
 		ask: {

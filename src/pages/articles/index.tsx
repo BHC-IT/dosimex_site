@@ -1,10 +1,12 @@
 import { GetStaticPropsContext, GetStaticProps } from 'next';
-import IArticle from '../../interfaces/IArticle'
-import axios from 'axios';
 import Link from 'next/link';
 import * as CSS from 'csstype';
 import styled from 'styled-components';
+
 import useUser from '../../Hooks/useUser';
+import IArticle from '../../interfaces/IArticle'
+import Article from '../../models/Article'
+import dbConnect from '../../utils/dbConnect';
 
 const text = {
 	news: {
@@ -78,11 +80,13 @@ const Articles = (props: any) => {
 export const getStaticProps: GetStaticProps = async (context : GetStaticPropsContext) => {
 
 	try {
-		const res = await axios.get('/api/articles');
+		await dbConnect();
+
+		const articles : IArticle[] = await Article.find({}).exec();
 
 		return {
 			props: {
-				articles: res.data.data,
+				articles: articles,
 			},
 			revalidate: 1,
 		}
