@@ -82,7 +82,25 @@ export const getStaticProps: GetStaticProps = async (context : GetStaticPropsCon
 	try {
 		await dbConnect();
 
-		const articles : IArticle[] = await Article.find({}).exec();
+		let articles : IArticle[] = await Article.find({}).exec();
+
+		articles = articles.map(e => {
+			const ret = {
+				title: e.title,
+				description: e.description ?? "",
+				markdown: e.markdown,
+				slug: e.slug,
+				urlImage: e.urlImage ?? "",
+				id: String(e.id),
+				author: String(e.author),
+				createdAt: Date(e.createdAt),
+				updatedAt: Date(e.updatedAt),
+			}
+
+			return ret;
+		});
+
+		console.log(articles);
 
 		return {
 			props: {
@@ -91,6 +109,7 @@ export const getStaticProps: GetStaticProps = async (context : GetStaticPropsCon
 			revalidate: 1,
 		}
 	} catch (e) {
+		console.log(e);
 	}
 	return {
 		props: {

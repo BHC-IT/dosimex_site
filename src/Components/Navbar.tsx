@@ -44,8 +44,6 @@ class Navbar extends React.Component<IProps, IState> {
 	constructor(props : IProps) {
 		super(props);
 
-		console.log(props);
-
 		this.state = {
 		}
 	}
@@ -72,7 +70,7 @@ class Navbar extends React.Component<IProps, IState> {
 		return (
 			<nav style={style.navbar}>
 				<ul style={style.navbarUl}>
-						<li style={{display: "flex", alignItems: "center", marginRight: "2vw"}}>
+						<li style={{display: "flex", alignItems: "center", marginRight: "2vw", cursor: "pointer"}}>
 							<Link href="/" replace>
 								<Image
 									src="/Images/logo_dosimex_new.png"
