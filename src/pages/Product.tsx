@@ -186,7 +186,7 @@ export const styles: IStyles = {
 		fontFamily: "var(--lato)",
 	},
 	contact: {
-		marginTop: '-10vh',
+		marginTop: '-5vh',
 		width: 'auto',
 		zIndex: 2,
 	}
