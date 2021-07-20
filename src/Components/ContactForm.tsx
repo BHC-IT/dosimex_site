@@ -85,7 +85,7 @@ class ContactForm extends React.Component<IProps, IState> {
 		console.log(this.state)
 		return (
 			<form style={styles.form} onSubmit={(e: React.FormEvent) => this.handleSubmit(e)}>
-				<h3>{this.props.text.title}</h3>
+				<h3 style={{marginBottom: "2vh"}}>{this.props.text.title}</h3>
 				{this.state.wellSent ? <p>{this.props.text.wellSentMessage}</p> : null}
 				<div style={{display: "flex", flexWrap: "wrap", justifyContent: "space-between"}}>
 					<Input
@@ -145,8 +145,11 @@ export default Radium(withRouter(withText(ContactForm, "ContactForm")));
 
 export const styles: IStyles =  {
 	form: {
-		padding: "3% 5%",
-		margin: "10% 25%",
+		padding: "2vh 4vw",
+		marginTop: "15vh",
+		marginBottom: "25vh",
+		marginRight: "20vw",
+		marginLeft: "20vw",
 		boxShadow: "0px 3px 7px 5px #F3F4FA",
 		borderRadius: "20px",
 		backgroundColor: 'white',
@@ -168,6 +171,8 @@ export const styles: IStyles =  {
 		flexDirection:'column',
 	},
 	button: {
+		display: "flex",
+		justifyContent: "center",
 		margin: "5% auto",
 		padding: "8px 25px",
 		backgroundColor: "var(--main)",

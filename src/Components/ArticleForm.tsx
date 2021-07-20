@@ -66,6 +66,7 @@ const Article = (props: IProps) => {
 				<MDEditor
 					value={markdown}
 					onChange={setMarkdown}
+					height={400}
 				/>
 				<div style={{textAlign: "center"}}>
 					<button style={styles.button} onClick={async () => {
