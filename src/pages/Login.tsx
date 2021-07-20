@@ -19,13 +19,14 @@ export default () => {
 	})
 
 	return (
-		<div style={{display: 'flex', flexDirection: 'column', width: '100%', height:'100%', justifyContent:'center', alignItems:'center'}} >
-			<div style={{display: 'flex', flexDirection: 'column', height:'50%', width: '50%', justifyContent:'space-evenly', alignItems:'center'}} >
+			<div style={{marginLeft: "auto", marginRight: "auto", display: 'flex', flexDirection: 'column', width: '50vw', alignItems: "center"}} >
+				<p>Nom d'utilisateur</p>
 				<input type='text' onChange={(e) => setUsername(e.target.value)} />
+				<p>Mot de passe</p>
 				<input type='password' onChange={(e) => setPassword(e.target.value)} />
-
-				<div>
-					<button onClick={async () => {
+				<div style={{textAlign: "center", padding: "5vh 5vw"}}>
+					<button style={{padding: "8px 25px", backgroundColor: "var(--main)", borderRadius: "50px", color: "white", textTransform: "uppercase",}}
+						onClick={async () => {
 						try {
 							const res = await axios.post('/api/login', {
 								username: username,
@@ -35,12 +36,11 @@ export default () => {
 						} catch (e) {
 						}
 					}} >
-						<p>Se connecter</p>
+						Se connecter
 					</button>
 				</div>
 
 			</div>
-		</div>
 	);
 
 }

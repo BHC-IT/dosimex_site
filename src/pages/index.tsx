@@ -101,7 +101,7 @@ export default function Home() {
 				<iframe
 					title='video'
 					style={{width:'25vw', height:'34vh'}}
-					src="https://www.youtube.com/embed/E5eWKTJaNxQ"
+					src="https://www.youtube.com/embed/wkuVxTBXc8g"
 					frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 					allowFullScreen>
 				</iframe>

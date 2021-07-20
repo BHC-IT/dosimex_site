@@ -70,27 +70,43 @@ const ArticleComp = (props : IProps) => {
 
 export const getStaticProps: GetStaticProps = async (context : GetStaticPropsContext) => {
 
-	try {
-		await dbConnect();
+    try {
+        await dbConnect();
 
-		const articles : IArticle[] = await Article.find({}).exec();
-		const article = articles.find((e : IArticle) => e.slug === context?.params?.slug);
-		return {
-			props: {
-				article,
-			},
-			revalidate: 1,
-		}
-	} catch (e) {
-	}
-	return {
-		props: {
-			article: undefined,
-		},
-		revalidate: 1,
-	}
+	let article = await Article.findOne({slug : context?.params?.slug}).exec();
 
+        article =
+            {
+                title: article?.title,
+                description: article?.description ?? "",
+                markdown: article?.markdown,
+                slug: article?.slug,
+                urlImage: article?.urlImage ?? "",
+                id: String(article?.id),
+                author: String(article?.author),
+                createdAt: Date(article?.createdAt),
+                updatedAt: Date(article?.updatedAt),
+            }
+
+        console.log(article);
+
+        return {
+            props: {
+                article,
+            },
+            revalidate: 1,
+        }
+    } catch (e) {
+        console.log(e);
+    }
+    return {
+        props: {
+            article: undefined,
+        },
+        revalidate: 1,
+    }
 }
+
 
 export const getStaticPaths: GetStaticPaths = async () => {
 

@@ -19,14 +19,14 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 		}
 
 		const user: IUser = await User.findOne({ username: req.body.username })
-		if (!user) return res.status(401).json({ error: 'Utilisateur non trouvé !' });
+		if (!user) return res.status(401).json({ error: 'User not found' });
 
 		const valid = await bcrypt.compare(req.body.password, user.password)
-		if (!valid) return res.status(401).json({ error: 'Mot de passe incorrect !' });
+		if (!valid) return res.status(401).json({ error: 'Wrong password' });
 		res.status(200).json({
 			token: jwt.sign(
 				{ userId: user._id },
-				'RANDOM_TOKEN_SECRET',
+				process.env.SECRET as string,
 				{ expiresIn: '24h' }
 			)
 		});

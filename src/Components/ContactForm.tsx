@@ -85,7 +85,7 @@ class ContactForm extends React.Component<IProps, IState> {
 		console.log(this.state)
 		return (
 			<form style={styles.form} onSubmit={(e: React.FormEvent) => this.handleSubmit(e)}>
-				<h1>{this.props.text.title}</h1>
+				<h3>{this.props.text.title}</h3>
 				{this.state.wellSent ? <p>{this.props.text.wellSentMessage}</p> : null}
 				<div style={{display: "flex", flexWrap: "wrap", justifyContent: "space-between"}}>
 					<Input
@@ -127,7 +127,7 @@ class ContactForm extends React.Component<IProps, IState> {
 						value={this.state.message}
 						type="textarea"
 						id="message"
-						label={this.props.text.label[4]}
+						label={this.props.text.label[3]}
 						required
 						isValid={(isValid : boolean) => this.setState({messageValid: isValid})}
 						onChange={(value : string) => this.setState({message: value})}
@@ -167,10 +167,9 @@ export const styles: IStyles =  {
 		flexDirection:'column',
 	},
 	button: {
-		padding: "1.6vh 1.6vw",
-		display: "block",
 		margin: "5% auto",
-		backgroundColor: "red",
+		padding: "8px 25px",
+		backgroundColor: "var(--main)",
 		borderRadius: "50px",
 		color: "white",
 		textTransform: "uppercase",

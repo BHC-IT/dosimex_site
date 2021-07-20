@@ -11,26 +11,25 @@ const opts_yt = {
 
 const listVideoYt = {
 	packOpe: [
-		"2g811Eo7K8U",
-		"2g811Eo7K8V",
-		"2g811Eo7K8W",
-		"2g811Eo7K8X",
-		"2g811Eo7K8Y",
-		"2g811Eo7K8Z",
-		"2g811Eo7K8A",
-		"2g811Eo7K8A",
+		"E5eWKTJaNxQ",
+		"wkuVxTBXc8g",
+		"ksOJEbihuvA",
+		"Ga4roi63sSM",
+		"4Cfya_rHa04",
+		"7emAJHES-fw",
+		"CnqQhyB6cEo",
+		"sj-FVjP87jA",
 	],
 	packPeda: [
-		"2g811Eo7K8A",
-		"2g811Eo7K8A",
-		"2g811Eo7K8A",
-		"2g811Eo7K8A",
+		"Ltk5x2dW_VI",
+		"vXT2h8GJ8Qk",
+		"cBQ5-CiqqT4",
+		"pYbgwudKniA",
 	],
 	packMes: [
-		"2g811Eo7K8A",
-		"2g811Eo7K8A",
-		"2g811Eo7K8A",
-		"2g811Eo7K8A",
+		"vSI75UZ_9UQ",
+		"aA4QUutuaJc",
+		"2Mq-TR8cG-o",
 	],
 }
 

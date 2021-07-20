@@ -29,7 +29,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 				email: req.body.email
 			});
 			user.save()
-			.then(() => res.status(201).json({ message: 'Utilisateur créé !' }))
+			.then(() => res.status(201).json({ message: 'New user created' }))
 			.catch((error : Error) => res.status(400).json({ error }));
 		})
 		.catch((error : Error) => res.status(500).json({ error }));
