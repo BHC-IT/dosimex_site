@@ -208,7 +208,7 @@ export const styles: IStyles =  {
 			backgroundColor: "var(--flash)",
 			width: "100vw",
 			height: "20vh",
-			paddingTop: '5vh',
+			paddingTop: '8vh',
 			marginBottom: '35vh',
 		},
 		card: {
