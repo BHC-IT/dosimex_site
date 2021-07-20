@@ -26,13 +26,13 @@ const LanguageSwitch = (props : IProps) => {
 					<Icon path={mdiTranslate} size={1.2}/>
 				</div>
 				<div>
-					<Link href={props.route} locale="fr">
+					<Link href={props.route} locale="fr" replace>
 						<p style={isSelected('fr')}>Fr</p>
 					</Link>
 				</div>
 				<p>|</p>
 				<div>
-					<Link href={props.route} locale="en-US">
+					<Link href={props.route} locale="en-US" replace>
 						<p style={isSelected('en-US')}>En</p>
 					</Link>
 				</div>

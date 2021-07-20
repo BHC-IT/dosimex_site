@@ -44,8 +44,6 @@ class Navbar extends React.Component<IProps, IState> {
 	constructor(props : IProps) {
 		super(props);
 
-		console.log(props);
-
 		this.state = {
 		}
 	}

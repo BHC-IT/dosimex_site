@@ -67,19 +67,20 @@ export default function Home() {
 			</section>
 
 			<section>
-				<div style={styles.numbers.background}></div>
-				<div style={styles.numbers.card}>
-					<div>
-						<h2 style={styles.numbers.number}>{text.numbers.number1}</h2>
-						<p style={styles.numbers.p}>{text.numbers.p1}</p>
-					</div>
-					<div>
-						<h2 style={styles.numbers.number}>{text.numbers.number2}</h2>
-						<p style={styles.numbers.p}>{text.numbers.p2}</p>
-					</div>
-					<div>
-						<h2 style={styles.numbers.number}>{text.numbers.number3}</h2>
-						<p style={styles.numbers.p}>{text.numbers.p3}</p>
+				<div style={styles.numbers.background}>
+					<div style={styles.numbers.card}>
+						<div>
+							<h2 style={styles.numbers.number}>{text.numbers.number1}</h2>
+							<p style={styles.numbers.p}>{text.numbers.p1}</p>
+						</div>
+						<div>
+							<h2 style={styles.numbers.number}>{text.numbers.number2}</h2>
+							<p style={styles.numbers.p}>{text.numbers.p2}</p>
+						</div>
+						<div>
+							<h2 style={styles.numbers.number}>{text.numbers.number3}</h2>
+							<p style={styles.numbers.p}>{text.numbers.p3}</p>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -206,7 +207,9 @@ export const styles: IStyles =  {
 			marginTop: "20vh",
 			backgroundColor: "var(--flash)",
 			width: "100vw",
-			height: "20vh"
+			height: "20vh",
+			paddingTop: '8vh',
+			marginBottom: '35vh',
 		},
 		card: {
 			display: "flex",
@@ -221,7 +224,8 @@ export const styles: IStyles =  {
 			zIndex: 100,
 			paddingBottom: "4vh",
 			paddingTop: "4vh",
-
+			zIndex: 2,
+			backgroundColor: 'white',
 		},
 		number: {
 			color: "var(--main)",
