@@ -62,7 +62,7 @@ const Article = (props: IProps) => {
 					/>
 				</div>
 
-				<p style={{textTransform: "uppercase"}}>{text.label_markdown}</p>
+				<p style={{textTransform: "uppercase", color: "var(--grey)", fontSize: "2rem"}}>{text.label_markdown}</p>
 				<MDEditor
 					value={markdown}
 					onChange={setMarkdown}
@@ -127,7 +127,6 @@ export const styles: IStyles =  {
 		display: "flex",
 		flexDirection: "column",
 		justifyContent: "space-between",
-		height: "30vh",
 		marginTop: "7vh",
 	}
 }

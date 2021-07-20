@@ -152,6 +152,8 @@ export const styles: IStyles =  {
 		marginLeft: "20vw",
 		boxShadow: "0px 3px 7px 5px #F3F4FA",
 		borderRadius: "20px",
+		backgroundColor: 'white',
+		textAlign: 'justify',
 	},
 	label: {
 		textTransform: "uppercase",

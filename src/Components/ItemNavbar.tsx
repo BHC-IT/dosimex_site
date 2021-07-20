@@ -20,7 +20,7 @@ const ItemNavbar = (props: IProps) => {
 	let style : CSS.Properties = router.pathname === `/${props.route}` ? {...styles.item, borderBottom: "2px solid red"} : styles.item;
 
 	return (
-		<Link href={`/${props.route}`} replace>
+		<Link href={`/${props.route}`}>
 			<p
 				style={style}
 			>

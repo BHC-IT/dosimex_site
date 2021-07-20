@@ -78,45 +78,44 @@ const Articles = (props: any) => {
 }
 
 export const getStaticProps: GetStaticProps = async (context : GetStaticPropsContext) => {
+	try {
+		await dbConnect();
 
-    try {
-        await dbConnect();
+		let articles : IArticle[] = await Article.find({}).exec();
 
-        let articles : IArticle[] = await Article.find({}).exec();
+		articles = articles.map(e => {
+			const ret = {
+				title: e.title,
+				description: e.description ?? "",
+				markdown: e.markdown,
+				slug: e.slug,
+				urlImage: e.urlImage ?? "",
+				id: String(e.id),
+				author: String(e.author),
+				createdAt: Date(e.createdAt),
+				updatedAt: Date(e.updatedAt),
+			}
 
-        articles = articles.map(e => {
-            const ret = {
-                title: e.title,
-                description: e.description ?? "",
-                markdown: e.markdown,
-                slug: e.slug,
-                urlImage: e.urlImage ?? "",
-                id: String(e.id),
-                author: String(e.author),
-                createdAt: Date(e.createdAt),
-                updatedAt: Date(e.updatedAt),
-            }
+			return ret;
+		});
 
-            return ret;
-        });
+		console.log(articles);
 
-        console.log(articles);
-
-        return {
-            props: {
-                articles: articles,
-            },
-            revalidate: 1,
-        }
-    } catch (e) {
-        console.log(e);
-    }
-    return {
-        props: {
-            articles: [],
-        },
-        revalidate: 1,
-    }
+		return {
+			props: {
+				articles: articles,
+			},
+			revalidate: 1,
+		}
+	} catch (e) {
+		console.log(e);
+	}
+	return {
+		props: {
+			articles: [],
+		},
+		revalidate: 1,
+	}
 }
 
 export default Articles;

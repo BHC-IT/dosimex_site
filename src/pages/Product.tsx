@@ -70,10 +70,10 @@ export default function Product() {
 		<section style={styles.questions}>
 			<p style={styles.questionsTitle}>{text.questions.title}</p>
 			<p style={{fontWeight : 600}}>{text.questions.p}<span style={{color: "var(--main)"}}>06 89 70 90 35</span></p>
+			<div style={styles.contact}>
+				<ContactForm />
+			</div>
 		</section>
-		<div style={styles.contact}>
-			<ContactForm />
-		</div>
 	</div>
 }
 
@@ -176,6 +176,8 @@ export const styles: IStyles = {
 		backgroundColor: "var(--flash)",
 		paddingTop: "10vh",
 		paddingBottom: "20vh",
+		marginBottom: '60vh',
+		height: '50vh',
 		marginTop: "7vh",
 	},
 	questionsTitle: {
@@ -184,5 +186,8 @@ export const styles: IStyles = {
 		fontFamily: "var(--lato)",
 	},
 	contact: {
+		marginTop: '-5vh',
+		width: 'auto',
+		zIndex: 2,
 	}
 }
