@@ -1,4 +1,5 @@
 export default interface Lang {
+	[key: string]: any,
 	Home: {
 		header: {
 			title: string,
@@ -147,11 +148,11 @@ export default interface Lang {
 		},
 		section1: {
 			title: string,
-			li: string[],
+			li: string[]
 		},
 		section2: {
 			title: string,
-			li: string[],
+			li: string[]
 			button: string,
 		},
 		questions: {

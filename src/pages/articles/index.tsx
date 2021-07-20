@@ -18,7 +18,7 @@ const PartImage = styled.div`
 	height: 18vh;
 	flex-shrink: 0;
 	margin-right: 1.5vw;
-	background: url(${props => props.imageUrl});
+	background: url(${(props: {imageUrl: string}) => props.imageUrl});
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;

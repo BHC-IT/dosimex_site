@@ -1,11 +1,10 @@
-import * as React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Radium from 'radium';
 import * as CSS from 'csstype';
 
 export interface IStyles {
-	button: CSS.Properties,
+	button: any,
 	subtitle: CSS.Properties,
 	card: CSS.Properties,
 	image: CSS.Properties,
@@ -58,7 +57,7 @@ export const styles =  {
 		backgroundColor: "var(--main)",
 		borderRadius: "50%",
 		color: "white",
-		textTransform: "uppercase",
+		textTransform: "uppercase" as "uppercase",
 		transition: "all 0.3s ease 0s",
 		':hover': {
 			color: "white",
@@ -69,7 +68,7 @@ export const styles =  {
 	card: {
 		borderRadius: "10px",
 		boxShadow: "0px 5px 5px rgba(0, 0, 0, 0.1)",
-		textAlign: "center",
+		textAlign: "center" as "center",
 		width: "28%",
 	},
 	subtitle: {

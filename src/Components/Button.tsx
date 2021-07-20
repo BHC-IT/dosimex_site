@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Link from 'next/link';
 import Radium from 'radium';
 import * as CSS from 'csstype';
@@ -26,7 +25,7 @@ export const styles =  {
 	backgroundColor: "var(--main)",
 	borderRadius: "50px",
 	color: "white",
-	textTransform: "uppercase",
+	textTransform: "uppercase" as "uppercase",
 	transition: "all 0.3s ease 0s",
 	':hover': {
 		transform: "translateY(-4px)",

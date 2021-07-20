@@ -22,7 +22,7 @@ interface IProps {
 }
 
 interface IStyles {
-	button: CSS.Properties,
+	button: any,
 	divInput: CSS.Properties,
 }
 

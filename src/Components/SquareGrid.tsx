@@ -49,7 +49,7 @@ const mainContainer = {
 
 const lineContainer = {
 	...center,
-	flexDirection: "row",
+	flexDirection: "row" as "row",
 }
 
 const squareStyle = {

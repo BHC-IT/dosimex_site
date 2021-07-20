@@ -1,7 +1,9 @@
 import jwt from 'jsonwebtoken';
 import IDecodedToken from '../interfaces/IDecodedToken'
 
-const verifyToken = (token: string): IDecodedToken | null => {
+const verifyToken = (token?: string): IDecodedToken | null => {
+	if (!token)
+		return null;
 	try {
 		return jwt.verify(token, 'RANDOM_TOKEN_SECRET') as IDecodedToken;
 	} catch {

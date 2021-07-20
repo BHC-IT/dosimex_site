@@ -64,7 +64,7 @@ const PartHeaderRight = styled.div`
 const PartImage = styled.div`
 	width: 14vw;
 	margin-left: 1.5vw;
-	background: url(${props => props.imageUrl});
+	background: url(${(props : {imageUrl: string}) => props.imageUrl});
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -74,7 +74,7 @@ const PartImage = styled.div`
 const PartImageRight = styled.div`
 	width: 14vw;
 	margin-right: 1.5vw;
-	background: url(${props => props.imageUrl});
+	background: url(${(props : {imageUrl: string}) => props.imageUrl});
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -122,9 +122,9 @@ export default function Software() {
 
 	const [dummy, setDummy] = React.useState<number>(0);
 
-	const opRef = React.useRef();
-	const pedaRef = React.useRef();
-	const mesureRef = React.useRef();
+	const opRef = React.useRef<HTMLDivElement>(null);
+	const pedaRef = React.useRef<HTMLDivElement>(null);
+	const mesureRef = React.useRef<HTMLDivElement>(null);
 
 	React.useEffect(() => {
 		if (window.location.hash === '#op') {
@@ -152,7 +152,7 @@ export default function Software() {
 						<h2 style={{padding: 0, margin: 0, lineHeight: 0.7}} >{text.header.title}</h2>
 						<p style={styles.headerText} >{text.header.p}</p>
 						<ul>
-							{text.header.li.map((e, i) =>
+							{text.header.li.map((e : string, i : number) =>
 								<LinkZone key={e} >
 									<FontAwesomeIcon icon={faLongArrowAltRight} size={"3x"} style={{color: "var(--main)"}} />
 									<LinkLabel onClick={() => setTimeout(() => setDummy(dummy+1), 100)} href={hashes[i]} >{e}</LinkLabel>
@@ -175,7 +175,7 @@ export default function Software() {
 						<PartImageColor/>
 					</PartImage>
 				</div>
-				{text.packOpe.liTitles.map((e, i) =>
+				{text.packOpe.liTitles.map((e : string, i : number) =>
 					<CodeSection key={e} style={{marginTop: i === 0 ? '5vh' : 0}} >
 						<LiTitle >{e}</LiTitle>
 						<LiLabel >{text.packOpe.li[i]}</LiLabel>
@@ -197,7 +197,7 @@ export default function Software() {
 						</div>
 					</PartHeaderRight>
 				</div>
-				{text.packPeda.liTitles.map((e, i) =>
+				{text.packPeda.liTitles.map((e : string, i : number) =>
 					<CodeSection key={e} style={{marginTop: i === 0 ? '5vh' : 0}} >
 						<LiTitle >{e}</LiTitle>
 						<LiLabel >{text.packPeda.li[i]}</LiLabel>
@@ -219,7 +219,7 @@ export default function Software() {
 						<PartImageColor/>
 					</PartImage>
 				</div>
-				{text.packMes.liTitles.map((e, i) =>
+				{text.packMes.liTitles.map((e : string, i : number) =>
 					<CodeSection key={e} style={{marginTop: i === 0 ? '5vh' : 0}} >
 						<LiTitle >{e}</LiTitle>
 						<LiLabel >{text.packMes.li[i]}</LiLabel>

@@ -6,7 +6,7 @@ const text : ILang = {
 			title: "{Home.header.title}",
 			p: "{Home.header.p}",
 			button: "{Home.header.button}",
-			textImage: ["{Home.header.textImage}"],
+			textImage: ["{Home.header.textImage[0]}"],
 		},
 		partners: {
 			title: "{Home.partners.title}",
@@ -43,7 +43,7 @@ const text : ILang = {
 		opinion: {
 			name: "{Home.opinion.name}",
 			job: "{Home.opinion.job}",
-			opinion: "{Home.opinion.opinione}",
+			opinion: "{Home.opinion.opinion}"
 		},
 		callToAction: {
 			title: "{Home.callToAction.title}",
@@ -141,17 +141,17 @@ const text : ILang = {
 			title: "{Books.header.title}",
 			p: "{Books.header.p}"
 		},
-		books: ["{Books.books[0]}",
-			"{Books.books[1]}",
-			"{Books.books[2]}",
-			"{Books.books[3]}",
-			"{Books.books[4]}",
-			"{Books.books[5]}",
-			"{Books.books[6]}",
-			"{Books.books[7]}",
-			"{Books.books[8]}",
-			"{Books.books[9]}",
-			"{Books.books[10]}",
+		books: [{extract: "{Books.books[0].extract}", author: "{Books.books[0].author}"},
+			{extract: "{Books.books[1].extract}", author: "{Books.books[1].author}"},
+			{extract: "{Books.books[2].extract}", author: "{Books.books[2].author}"},
+			{extract: "{Books.books[3].extract}", author: "{Books.books[3].author}"},
+			{extract: "{Books.books[4].extract}", author: "{Books.books[4].author}"},
+			{extract: "{Books.books[5].extract}", author: "{Books.books[5].author}"},
+			{extract: "{Books.books[6].extract}", author: "{Books.books[6].author}"},
+			{extract: "{Books.books[7].extract}", author: "{Books.books[7].author}"},
+			{extract: "{Books.books[8].extract}", author: "{Books.books[8].author}"},
+			{extract: "{Books.books[9].extract}", author: "{Books.books[9].author}"},
+			{extract: "{Books.books[10].extract}", author: "{Books.books[10].author}"},
 		],
 	},
 	Manuals: {
@@ -257,7 +257,7 @@ const text : ILang = {
 			p: "{Videos.header.p}",
 			button: "{Videos.header.button}",
 		},
-		packTitle: "{Videos.packTitle",
+		packTitle: "{Videos.packTitle}",
 		packOpe: {
 			name: "{Videos.packOpe.name}",
 			label: "{Videos.packOpe.label}",

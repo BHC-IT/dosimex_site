@@ -107,7 +107,7 @@ export const styles: IStyles = {
 		color: "var(--flash)",
 		fontSize: "4rem",
 		fontFamily: "var(--lato)",
-		fontWeight: "900",
+		fontWeight: 900,
 		marginLeft: "10vw",
 		marginBottom: "4vh",
 	},
@@ -172,7 +172,7 @@ export const styles: IStyles = {
 		color: "var(--main)",
 	},
 	questions: {
-		textAlign: "center",
+		textAlign: "center" as "center",
 		backgroundColor: "var(--flash)",
 		paddingTop: "10vh",
 		paddingBottom: "20vh",
@@ -180,7 +180,7 @@ export const styles: IStyles = {
 	},
 	questionsTitle: {
 		fontSize: "3.4rem",
-		fontWeight: "900",
+		fontWeight: 900,
 		fontFamily: "var(--lato)",
 	},
 	contact: {

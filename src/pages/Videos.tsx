@@ -80,7 +80,7 @@ const VideosLine = ({color, videoIds, text, label} : {color : string, videoIds :
 		})}
 	</div>
 
-const Pack = ({title, color, videoIds, text, label, right = false} : {title : string, color ?: string, videoIds : string[], text : any, label : string}) =>
+const Pack = ({title, color, videoIds, text, label, right = false} : {title : string, color ?: string, videoIds : string[], text : any, label : string, right?: boolean}) =>
 	<div style={packStyle.container}>
 		<div style={{...packStyle.titleContainer, justifyContent: !right ?  'flex-start' : 'flex-end'}}><h3>{text.packTitle}</h3><h3 style={{color: color ? color : "var(--flash)", marginLeft: "1rem"}}>{title}</h3></div>
 		{splitArrays(4, videoIds).map((listVidLine) => {
@@ -117,32 +117,32 @@ const headerStyle = {
 		// backgroundColor: "blue",
 		width: "100%",
 		flexDirection: "column",
-	},
+	} as CSS.Properties,
 	title: {
 		margin: "20vh 0 0 30vw",
-		zIndex: "1",
-	},
+		zIndex: 1,
+	} as CSS.Properties,
 	text: {
 		margin: "0 15% 0 30vw",
-		zIndex: "1",
+		zIndex: 1,
 		color:'var(--grey)',
-	},
+	} as CSS.Properties,
 	btn: {
-		zIndex: "1",
+		zIndex: 1,
 		margin: "3vh 0 20vh 30vw",
-	},
+	} as CSS.Properties,
 	squareGridStyles: {
 		containerStyle: {
 			position: "absolute",
 			left: "-1%",
-			zIndex: "0",
-		},
+			zIndex: 0,
+		} as CSS.Properties,
 		squareStyle: {
 			height: "19px",
 			width: "17px",
 			margin: "1.5rem 2.5rem",
 			backgroundColor: "var(--flashTrans)",
-		},
+		} as CSS.Properties,
 	}
 }
 
@@ -154,7 +154,7 @@ const separatorStyles = {
 			width: "100%",
 		}
 	},
-	line: (color ?: string) => {
+	line: (color ?: string) : CSS.Properties => {
 		return {
 			backgroundColor: color ? color : "var(--flash)",
 			minHeight: "1vh",
@@ -167,7 +167,7 @@ const packStyle = {
 	container: {
 		marginTop: "5vh",
 		marginBottom: "15vh",
-	},
+	} as CSS.Properties,
 	titleContainer: {
 		display: "flex",
 		flexDirection: "row",
@@ -175,7 +175,7 @@ const packStyle = {
 		marginRight: "10vw",
 		marginBottom: "5vh",
 		alignItems:'center',
-	},
+	} as CSS.Properties,
 }
 
 const videosLineStyle = {
@@ -185,7 +185,7 @@ const videosLineStyle = {
 		justifyContent:"flex-start",// "space-between",
 		// backgroundColor:"yellow",
 		margin: "0 0 2% 2%",
-	},
+	} as CSS.Properties,
 	itemContainer: {
 		...center,
 		alignItems: "flex-start",
@@ -193,8 +193,8 @@ const videosLineStyle = {
 		width: "23%",
 		marginRight: "4vw",
 		// backgroundColor:"blue",
-	},
-	itemLabel: (color : string) => {
+	} as CSS.Properties,
+	itemLabel: (color : string) : CSS.Properties => {
 		return {
 			backgroundColor: color,
 			borderRadius: "50px",

@@ -10,7 +10,9 @@ interface WithRouterProps {
   router: NextRouter
 }
 
-interface IProps extends WithRouterProps {}
+interface IProps extends WithRouterProps {
+	text ?: any
+}
 
 interface IState {
 	name: string | null,
@@ -30,7 +32,7 @@ export interface IStyles {
 	input: CSS.Properties,
 	divInput: CSS.Properties,
 	divTextarea: CSS.Properties,
-	button: CSS.Properties,
+	button: any,
 }
 
 const mailFormat: RegExp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/

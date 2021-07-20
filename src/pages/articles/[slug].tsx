@@ -12,7 +12,7 @@ import '@uiw/react-markdown-preview/dist/markdown.css';
 import moment from 'moment';
 
 export interface IProps {
-	article: IArticle,
+	article?: IArticle,
 }
 
 interface IStyles {
@@ -29,16 +29,19 @@ const Article = (props : IProps) => {
 	const user = useUser();
 	moment.locale('fr');
 
+	if (!props.article)
+		return null;
+
 	const renderButtonDeleteEdit = () => {
 		return (
 			<div style={{textAlign: "center", marginTop: "5vh"}}>
-				<Link href={`/articles/edit/${props.article.slug}`}>
+				<Link href={`/articles/edit/${props.article?.slug}`}>
 					<button style={styles.buttonEdit}>Modifier</button>
 				</Link>
 				<button style={styles.button} onClick={async () => {
 
 						try {
-							await axios.delete(`/api/articles/${props.article.slug}`,
+							await axios.delete(`/api/articles/${props.article?.slug}`,
 								{headers: {authorization : `Bearer ${user}`}});
 							router.push('/articles')
 						} catch (e) {
@@ -77,7 +80,7 @@ export const getStaticProps: GetStaticProps = async (context : GetStaticPropsCon
 	}
 	return {
 		props: {
-			article: null,
+			article: undefined,
 		},
 		revalidate: 1,
 	}
@@ -86,22 +89,15 @@ export const getStaticProps: GetStaticProps = async (context : GetStaticPropsCon
 
 export const getStaticPaths: GetStaticPaths = async () => {
 
-	try {
-		const res = await axios.get('/api/articles');
-		const paths = [];
-		res.data.data.forEach((article: IArticle) => {
-			paths.push({params: { slug: article.slug }, locale: 'en-US'});
-			paths.push({params: { slug: article.slug }, locale: 'fr'});
-			paths.push({params: { slug: article.slug }});
-		});
+	const res = await axios.get('/api/articles');
+	const paths : {params: {slug: string}, locale ?: string}[] = [];
 
-		return {
-			paths,
-			fallback: true,
-		};
-	} catch (e) {
-	}
-	const paths = null
+	res.data.data.forEach((article: IArticle) => {
+		paths.push({params: { slug: article.slug as string }, locale: 'en-US'});
+		paths.push({params: { slug: article.slug as string }, locale: 'fr'});
+		paths.push({params: { slug: article.slug as string }});
+	});
+
 	return {
 		paths,
 		fallback: true,

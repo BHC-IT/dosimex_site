@@ -171,7 +171,7 @@ export const styles: IStyles =  {
 			color: "var(--flash)",
 			fontSize: "4rem",
 			fontFamily: "var(--lato)",
-			fontWeight: "900",
+			fontWeight: 900,
 			marginLeft: "10vw",
 			marginBottom: "4vh",
 		},
@@ -257,5 +257,6 @@ export const styles: IStyles =  {
 			paddingBottom: "30vh",
 			paddingTop: "20vh",
 		}
-	}
+	},
+	opinion: {},
 }
