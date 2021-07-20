@@ -23,6 +23,7 @@ interface IProps {
 interface IStyles {
 	divInput?: CSS.Properties,
 	input?: CSS.Properties,
+	textarea?: CSS.Properties,
 	label?: CSS.Properties,
 	inputInvalid?: CSS.Properties,
 }
@@ -63,6 +64,7 @@ const Input = (props: IProps) => {
 	}
 
 	const styleInput = {...styles.input, ...props.style?.input};
+	const styleInputTextarea = {...styles.textarea, ...props.style?.textarea};
 	const styleInputInvalid = {...styleInput, ...styles.inputInvalid, ...props.style?.inputInvalid};
 
 	const isValid = erroredValidator.length === 0;
@@ -73,7 +75,7 @@ const Input = (props: IProps) => {
 			{props.type === "textarea" ?
 				<textarea
 					value={value ?? ''}
-					style={isValid ? styleInput : styleInputInvalid}
+					style={isValid ? styleInputTextarea : styleInputInvalid}
 					id={props.id}
 					placeholder={props.placeholder}
 					rows={props.areaSize?.[0] ?? 10}
@@ -108,15 +110,23 @@ export const styles: IStyles =  {
 	divInput: {
 		display:'flex',
 		flexDirection:'column',
+		padding: "1.5vh 0",
 	},
 	input: {
-		border: "1px solid #DAD8E0",
+		border: "1px solid var(--grey-bg)",
 		height: "4vh",
+		borderRadius: "5px",
+		resize: "none",
+	},
+	textarea: {
+		border: "1px solid var(--grey-bg)",
 		borderRadius: "5px",
 		resize: "none",
 	},
 	label: {
 		textTransform: "uppercase",
+		color: "var(--grey)",
+		fontSize: "2rem",
 	},
 	inputInvalid: {
 		border: "1px solid red",
