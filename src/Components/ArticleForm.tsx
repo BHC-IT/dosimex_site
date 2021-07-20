@@ -127,7 +127,6 @@ export const styles: IStyles =  {
 		display: "flex",
 		flexDirection: "column",
 		justifyContent: "space-between",
-		height: "20vh",
 		marginTop: "7vh",
 	}
 }
