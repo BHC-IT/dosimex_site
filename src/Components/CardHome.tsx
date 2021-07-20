@@ -30,8 +30,8 @@ const CardHome = (props: IProps) => {
 					<Image
 						src={props.icon}
 						alt="icône"
-						width={158}
-						height={158}
+						width={250}
+						height={250}
 					/>
 				</div>
 				<h4 style={{marginBottom: "0"}}>{props.title}</h4>
@@ -77,9 +77,9 @@ export const styles =  {
 		textAlign: "center" as "center",
 		width: "100%",
 		paddingBottom: '2vh',
-		height:'45vh',
+		height:'47vh',
 		cursor: 'pointer',
-		paddingTop: '1vh',
+		paddingTop: '5vh',
 	},
 	subtitle: {
 		color: "var(--grey)",
