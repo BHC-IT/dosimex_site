@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Radium from 'radium';
+import { useRouter } from 'next/router'
+import Tilt from 'react-parallax-tilt';
+
 import * as CSS from 'csstype';
 
 export interface IStyles {
@@ -18,23 +21,26 @@ interface IProps {
 }
 
 const CardHome = (props: IProps) => {
+	const router = useRouter();
 
 	return (
-		<div style={styles.card}>
-			<div style={styles.image}>
-				<Image
-					src={props.icon}
-					alt="icône"
-					width={158}
-					height={158}
-				/>
+		<Tilt tilteReverse scale={1.05} tiltMaxAngleX={10} tiltMaxAngleY={10} style={{width: '28%'}} >
+			<div style={styles.card} onClick={() => router.push(props.route)} >
+				<div style={styles.image}>
+					<Image
+						src={props.icon}
+						alt="icône"
+						width={158}
+						height={158}
+					/>
+				</div>
+				<h4 style={{marginBottom: "0"}}>{props.title}</h4>
+				<p style={styles.subtitle}>{props.content}</p>
+				<button style={styles.button}>
+					<Link href={`/${props.route}`}><span>→</span></Link>
+				</button>
 			</div>
-			<h4 style={{marginBottom: "0"}}>{props.title}</h4>
-			<p style={styles.subtitle}>{props.content}</p>
-			<button style={styles.button}>
-				<Link href={`/${props.route}`} replace><span>→</span></Link>
-			</button>
-		</div>
+		</Tilt>
 	);
 
 }
@@ -67,9 +73,13 @@ export const styles =  {
 	},
 	card: {
 		borderRadius: "10px",
-		boxShadow: "0px 5px 5px rgba(0, 0, 0, 0.1)",
+		boxShadow: "1px 2px 2px 2px rgba(0, 0, 0, 0.15)",
 		textAlign: "center" as "center",
-		width: "28%",
+		width: "100%",
+		paddingBottom: '2vh',
+		height:'45vh',
+		cursor: 'pointer',
+		paddingTop: '1vh',
 	},
 	subtitle: {
 		color: "var(--grey)",
