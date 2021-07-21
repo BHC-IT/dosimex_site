@@ -61,8 +61,8 @@ export default function Home() {
 				<p style={styles.offers.subtitle}>{text.offers.p}</p>
 				<div className="container" style={{display: "flex", justifyContent: "space-between"}}>
 					<CardHome icon="/Images/icon_excel.png" title={text.offers.card1.title} content={text.offers.card1.p} route="Software"/>
-					<CardHome icon="/Images/icon_book.png" title={text.offers.card2.title} content={text.offers.card2.p} route="Software"/>
-					<CardHome icon="/Images/icon_formation.png" title={text.offers.card3.title} content={text.offers.card3.p} route="Software"/>
+					<CardHome icon="/Images/icon_book.png" title={text.offers.card2.title} content={text.offers.card2.p} route="Manuals"/>
+					<CardHome icon="/Images/icon_formation.png" title={text.offers.card3.title} content={text.offers.card3.p} route="Training"/>
 				</div>
 			</section>
 

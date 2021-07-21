@@ -28,6 +28,7 @@ interface IProps extends WithRouterProps {
 export interface IStyles {
 	navbar: CSS.Properties,
 	navbarUl: CSS.Properties,
+	navbarLi: CSS.Properties,
 	navbarButton: CSS.Properties,
 }
 
@@ -70,7 +71,7 @@ class Navbar extends React.Component<IProps, IState> {
 		return (
 			<nav style={style.navbar}>
 				<ul style={style.navbarUl}>
-						<li style={{display: "flex", alignItems: "center", marginRight: "2vw", cursor: 'pointer'}}>
+						<li style={style.navbarLi}>
 							<Link href="/">
 								<Image
 									src="/Images/logo_dosimex_new.png"
@@ -107,6 +108,12 @@ export const style: IStyles =  {
 	navbarUl: {
 		display: "flex",
 		alignItems: "center",
+	},
+	navbarLi: {
+		display: "flex",
+		alignItems: "center",
+		marginRight: "2vw",
+		cursor: 'pointer',
 	},
 	navbarButton: {
 		float: "right",

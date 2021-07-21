@@ -176,7 +176,7 @@ export const styles: IStyles = {
 		backgroundColor: "var(--flash)",
 		paddingTop: "10vh",
 		paddingBottom: "20vh",
-		marginBottom: '60vh',
+		marginBottom: '80vh',
 		height: '50vh',
 		marginTop: "7vh",
 	},

@@ -17,15 +17,13 @@ const ItemNavbar = (props: IProps) => {
 
 	const router = useRouter();
 
-	let style : CSS.Properties = router.pathname === `/${props.route}` ? {...styles.item, borderBottom: "2px solid red"} : styles.item;
+	let style : CSS.Properties = router.pathname === `/${props.route}` ?
+					{...styles.item, borderBottom: "2px solid red"} :
+					styles.item;
 
 	return (
 		<Link href={`/${props.route}`}>
-			<p
-				style={style}
-			>
-				{props.name}
-			</p>
+			<p style={style}>{props.name}</p>
 		</Link>
 	);
 
