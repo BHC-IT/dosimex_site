@@ -334,7 +334,7 @@ const text : ILang = {
 		},
 		packTitle: "Vidéos du pack ",
 		packOpe: {
-			name: "opérationel",
+			name: "opérationnel",
 			label: "pack opérationnel",
 		},
 		packPeda: {
