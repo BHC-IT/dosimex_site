@@ -113,7 +113,7 @@ export default function Manuals() {
 				<ul style={{display: "flex", justifyContent: "space-around"}}>
 					{manuals.manuals.map((e : any, i: number) =>
 						<li style={{cursor: "pointer"}}>
-							<Link href={`/Folders/${e.pdf}`} replace>
+							<a href={`../Folders/${e.pdf}`} target="_blank" rel="noreferrer">
 								<div style={{textAlign: "center"}}>
 									<Image
 										src={`/Images/${e.img}`}
@@ -123,7 +123,7 @@ export default function Manuals() {
 									/>
 									<p style={{textTransform: "uppercase"}}>{e.text}</p>
 								</div>
-							</Link>
+							</a>
 						</li>
 					)}
 				</ul>
@@ -136,7 +136,7 @@ export default function Manuals() {
 				<ul style={{display: "flex", justifyContent: "space-around"}}>
 					{manuals.validations.map((e : any, i: number) =>
 						<li style={{cursor: "pointer"}}>
-							<Link href={`/Folders/${e.pdf}`} replace>
+							<a href={`../Folders/${e.pdf}`} target="_blank" rel="noreferrer">
 								<div style={{textAlign: "center"}}>
 									<Image
 										src={`/Images/${e.img}`}
@@ -146,7 +146,7 @@ export default function Manuals() {
 									/>
 									<p style={{textTransform: "uppercase"}}>{e.text}</p>
 								</div>
-							</Link>
+							</a>
 						</li>
 					)}
 				</ul>
@@ -159,7 +159,7 @@ export default function Manuals() {
 				<ul style={{display: "flex", justifyContent: "space-around", paddingBottom: "15vh"}}>
 					{manuals.internships.map((e : any, i: number) =>
 						<li style={{cursor: "pointer"}}>
-							<Link href={`/Folders/${e.pdf}`} replace>
+							<Link href={`../Folders/${e.pdf}`} target="_blank" rel="noreferrer">
 								<div style={{textAlign: "center"}}>
 									<Image
 										src={`/Images/${e.img}`}

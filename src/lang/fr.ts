@@ -93,8 +93,9 @@ const text : ILang = {
 			title: "Plus de ressources",
 			links: ["manuels d’utilisation de Dosimex-GX pour en découvrir toutes les possibilités",
 				"dossiers de validation complets",
-				"Ou aux extraits validation source gamma et validation générateur X",
-				"Les nouveautés à découvrir dans Dosimex-GX 3.0"
+				"extraits validation source gamma",
+				"validation générateur X",
+				"Les nouveautés à découvrir dans Dosimex-GX 3.0",
 			]
 		},
 		ask: {

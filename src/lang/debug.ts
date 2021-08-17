@@ -98,6 +98,7 @@ const text : ILang = {
 				"{Software.more.links[1]}",
 				"{Software.more.links[2]}",
 				"{Software.more.links[3]}",
+				"{Software.more.links[4]}",
 			]
 		},
 		ask: {

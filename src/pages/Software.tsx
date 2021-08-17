@@ -231,16 +231,19 @@ export default function Software() {
 				<div style={{marginTop:'20vh', backgroundColor:'var(--grey-bg)', width:'100%', display: 'flex', flexDirection: 'column', alignItems:'center', justifyContent: 'center', paddingTop:'3vh', paddingBottom:'6vh'}} >
 					<h3>{text.more.title}</h3>
 					<div style={{width: '80%', marginTop: '3vh'}} >
-						<Link href={`/`} replace><p style={{textDecoration: "underline var(--dark)", cursor:'pointer'}} >{(text.more.links[0]).toUpperCase()}</p></Link>
+						<Link href={`/Manuals/#manuals`} replace><p style={{textDecoration: "underline var(--dark)", cursor:'pointer'}} >{(text.more.links[0]).toUpperCase()}</p></Link>
 					</div>
-					<div style={{width: '80%', marginTop: '0.5vh', marginBottom: 0}} >
-						<Link href={`/`} replace><p style={{textDecoration: "underline var(--dark)", cursor:'pointer', marginBottom: 0}} >{(text.more.links[1]).toUpperCase()}</p></Link>
+					<div style={{width: '80%', marginTop: '0.2vh'}} >
+						<Link href={`/Manuals/#validations`} replace><p style={{textDecoration: "underline var(--dark)", cursor:'pointer'}} >{(text.more.links[1]).toUpperCase()}</p></Link>
 					</div>
-					<div style={{width: '80%', marginTop:0}} >
-						<Link href={`/`} replace><p style={{textDecoration: "underline var(--dark)", cursor:'pointer', marginTop: 0}} >{(text.more.links[2]).toUpperCase()}</p></Link>
+					<div style={{width: '80%', marginTop:'0.2vh'}} >
+						<a href={`../Folders/extrait_validation_gamma.pdf`} target="_blank" rel="noreferrer"><p style={{textDecoration: "underline var(--dark)", cursor:'pointer'}} >{(text.more.links[2]).toUpperCase()}</p></a>
 					</div>
-					<div style={{width: '80%', marginTop: '0.5vh'}} >
-						<Link href={`/`} replace><p style={{textDecoration: "underline var(--dark)", cursor:'pointer'}} >{(text.more.links[3]).toUpperCase()}</p></Link>
+					<div style={{width: '80%', marginTop:'0.2vh'}} >
+						<a href={`../Folders/extrait_validation_géné_X.pdf`} target="_blank" rel="noreferrer"><p style={{textDecoration: "underline var(--dark)", cursor:'pointer'}}>{(text.more.links[3]).toUpperCase()}</p></a>
+					</div>
+					<div style={{width: '80%', marginTop: '0.2vh'}} >
+						<a href={`../Folders/Modification_Dosimex GX_3.0.pdf`} target="_blank" rel="noreferrer"><p style={{textDecoration: "underline var(--dark)", cursor:'pointer'}} >{(text.more.links[4]).toUpperCase()}</p></a>
 					</div>
 				</div>
 				<div style={{marginTop:'5vh', width:'100%', display: 'flex', flexDirection: 'column', alignItems:'center', justifyContent: 'center', paddingBottom: '25vh'}} >
