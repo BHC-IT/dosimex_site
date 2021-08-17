@@ -73,7 +73,7 @@ export const getStaticProps: GetStaticProps = async (context : GetStaticPropsCon
     try {
         await dbConnect();
 
-	let article = await Article.findOne({slug : context?.params?.slug}).exec();
+		let article = await Article.findOne({slug : context?.params?.slug}).exec();
 
         article =
             {
@@ -88,8 +88,6 @@ export const getStaticProps: GetStaticProps = async (context : GetStaticPropsCon
                 updatedAt: Date(article?.updatedAt),
             }
 
-        console.log(article);
-
         return {
             props: {
                 article,
@@ -97,7 +95,6 @@ export const getStaticProps: GetStaticProps = async (context : GetStaticPropsCon
             revalidate: 1,
         }
     } catch (e) {
-        console.log(e);
     }
     return {
         props: {

@@ -2,39 +2,63 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import dbConnect from '../../utils/dbConnect';
 import User from '../../models/User';
 import IUser from '../../interfaces/IUser';
-import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import mongoose from 'mongoose';
+import { comparePassword } from '../../utils/bcrypt';
 
 const validIp = ['127.0.0.1'];
+
+const findUser = async (username: string) : Promise<[number, object]> => {
+	try {
+		const user : IUser = await User.findOne({username});
+		if (!user)
+			return [404, {error: 'User not found'}];
+		return [201, {success: true, data: user}];
+	} catch {
+		return [500, {success: false, message: 'Mongoose error'}];
+	}
+}
+
+const log = async (body: object, remoteAddress?: string, ipAddress?: string[] | string) : Promise<[number, object]> => {
+	const ip = ipAddress?.[0] || remoteAddress
+	if (!ip)
+		return [403, {error: 'IP address not provided'}];
+
+	if (!validIp.includes(ip))
+		return [403, {error: 'Wrong IP address'}];
+
+	const user = await findUser((body as any).username);
+	if (user[0] !== 201)
+		return user;
+
+	const valid = await comparePassword((body as any).password, (user[1] as any).data.password)
+	if (!valid)
+		return [403, { error: 'Wrong password' }];
+
+	return [200, {
+		token: jwt.sign(
+			{ userId: (user[1] as any).data._id },
+			process.env.SECRET as string,
+			{ expiresIn: '24h' }
+		)
+	}];
+}
+
+const methods : {[i:string]: (_1: object, _2?: string, _3?: string[] | string) => Promise<[number, object]>} = {
+	POST: log
+}
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
 
 	await dbConnect();
 
-	try {
-		const ip = req.headers['X-Client-IP']?.[0] || req.connection.remoteAddress as string
-		if (!validIp.includes(ip)) {
-			throw new Error('Connection not allowed')
-		}
+	const { method } = req;
 
-		const user: IUser = await User.findOne({ username: req.body.username })
-		if (!user) return res.status(401).json({ error: 'User not found' });
-
-		const valid = await bcrypt.compare(req.body.password, user.password)
-		if (!valid) return res.status(401).json({ error: 'Wrong password' });
-		res.status(200).json({
-			token: jwt.sign(
-				{ userId: user._id },
-				process.env.SECRET as string,
-				{ expiresIn: '24h' }
-			)
-		});
-	} catch (e) {
-		if (e instanceof mongoose.Error) {
-			res.status(500).json({error: 'Mongoose error'})
-		} else {
-			res.status(400).json({error: e.message})
+	if (method) {
+		if (!methods[method]) {
+			res.status(404).json({success: false});
 		}
+		const res_from_func = await methods[method](req.body, req.connection.remoteAddress, req.headers['X-Client-IP']);
+
+		res.status(res_from_func[0]).json(res_from_func[1]);
 	}
 }

@@ -99,8 +99,6 @@ export const getStaticProps: GetStaticProps = async (context : GetStaticPropsCon
 			return ret;
 		});
 
-		console.log(articles);
-
 		return {
 			props: {
 				articles: articles,
@@ -108,7 +106,6 @@ export const getStaticProps: GetStaticProps = async (context : GetStaticPropsCon
 			revalidate: 1,
 		}
 	} catch (e) {
-		console.log(e);
 	}
 	return {
 		props: {

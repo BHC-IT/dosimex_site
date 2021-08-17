@@ -92,7 +92,7 @@ export default function Videos() {
 	return (
 		<div style={{display: 'flex', flexDirection: 'column', overflowX: 'hidden'}} >
 			<Header text={text}/>
-			<Separator color={"red"}/>
+			<Separator color={"var(--main)"}/>
 			<Pack title={text.packOpe.name} color={"var(--main)"} videoIds={listVideoYt.packOpe} text={text} label={text.packOpe.label}/>
 			<Separator right={true}/>
 			<Pack right={true} title={text.packPeda.name} videoIds={listVideoYt.packPeda} text={text} label={text.packPeda.label}/>
