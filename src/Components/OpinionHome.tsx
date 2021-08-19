@@ -28,7 +28,8 @@ const OpinionHome = (props: IProps) => {
 			<a
 				style={styles.button}
 				href="https://www.dosimex.fr/static/media/extrait_retour_utilisateurs.73178914.pdf"
-				target="_blank">Tous les avis
+				target="_blank"
+				rel="noreferrer noopener">Tous les avis
 				<img style={styles.icon} src="/Images/icon_download.png" alt="icône télécharger" />
 			</a>
 		</div>

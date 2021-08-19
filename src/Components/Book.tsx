@@ -1,5 +1,4 @@
 import Radium from 'radium';
-import Link from 'next/link';
 
 interface IProps {
 	author: string,
@@ -15,9 +14,9 @@ const Book = (props: IProps) => {
 	return (
 		<div style={styles.flex}>
 			<div style={styles.divBook}>
-				<Link href={`${props.href}`} replace>
+				<a href={`${props.href}`} target="_blank" rel="noreferrer noopener">
 					<div style={{...styleBook, backgroundImage: url}}></div>
-				</Link>
+				</a>
 				<p style={styles.author}>{props.author}</p>
 
 			</div>
@@ -37,9 +36,6 @@ export const styleBook =  {
 	backgroundPosition: 'center',
 	backgroundRepeat: 'no-repeat',
 	backgroundSize: 'cover',
-	':hover': {
-		background: "linear-gradient(rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.2))",
-	}
 }
 
 export const styles = {
