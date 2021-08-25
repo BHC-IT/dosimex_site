@@ -29,18 +29,19 @@ export interface IStyles {
 
 const useIsMobile = (styles : Function) => {
 
-	React.useEffect(() => {}, [])
+	const [style, setStyle] = React.useState(styles(isMobile))
 
-	return styles(isMobile)
+	React.useEffect(() => {
+		setStyle(styles(isMobile))
+	}, [])
+
+	return style
 }
 
 const Footer = () => {
 
 	const text = useText('Footer');
-
 	const style = useIsMobile(styles);
-
-	alert(style.col1.width)
 
 	const ratio = 0.27;
 	return (
