@@ -1,6 +1,10 @@
 import * as React from 'react';
 import * as CSS from 'csstype';
 
+import {
+	isMobile
+} from "react-device-detect";
+
 export interface IValidator {
 	validationFunction: (arg0: string) => boolean,
 	errorMessage: string,
@@ -114,7 +118,7 @@ export const styles: IStyles =  {
 	},
 	input: {
 		border: "1px solid var(--grey-bg)",
-		height: "4vh",
+		height: isMobile ? "25px" : "4vh",
 		borderRadius: "5px",
 		resize: "none",
 	},

@@ -5,6 +5,10 @@ import Image from 'next/image';
 import * as CSS from 'csstype';
 import { useText } from '../Hooks/useText';
 
+import {
+	isMobile
+} from "react-device-detect";
+
 export interface IStyles {
 	header: {[idx: string]: CSS.Properties},
 	partners: {[idx: string]: CSS.Properties},
@@ -21,31 +25,35 @@ export default function Home() {
 
 	return (
 		<>
-			<header className="container" style={styles.header.header}>
+			<header className="container" style={isMobile ? styles.header.headerMobile : styles.header.header}>
 				<div style={styles.header.headerText}>
 					<h1>{text.header.title}</h1>
 					<p style={styles.header.headerSubtitle}>{text.header.p}</p>
 					<Button style={styles.header.button} name={text.header.button} route="Software"/>
 				</div>
-				<div style={styles.header.headerImage}>
-					<div style={styles.header.image}>
-						<Image
-							src="/Images/home_header_carousel.png"
-							alt="logiciel dosimex"
-							width={1006*0.7}
-							height={634*0.7}
-						/>
+				{ isMobile ?
+					null
+				:
+					<div style={styles.header.headerImage}>
+						<div style={styles.header.image}>
+							<Image
+								src="/Images/home_header_carousel.png"
+								alt="logiciel dosimex"
+								width={1006*0.7}
+								height={634*0.7}
+							/>
+						</div>
+						<div style={styles.header.motif}>
+							<Image
+								src="/Images/motif_rect.svg"
+								alt="motif abstrait filigrane"
+								width={343*1.3}
+								height={334*1.3}
+							/>
+						</div>
+						<p style={styles.header.legendImage}>{text.header.textImage[0]}</p>
 					</div>
-					<div style={styles.header.motif}>
-						<Image
-							src="/Images/motif_rect.svg"
-							alt="motif abstrait filigrane"
-							width={343*1.3}
-							height={334*1.3}
-						/>
-					</div>
-					<p style={styles.header.legendImage}>{text.header.textImage[0]}</p>
-				</div>
+				}
 			</header>
 
 			<section>
@@ -130,6 +138,9 @@ export const styles: IStyles =  {
 			marginBottom: "0",
 			height: "90vh",
 		},
+		headerMobile : {
+			textAlign: "center",
+		},
 		headerSubtitle: {
 			color: "var(--grey)",
 			fontSize: "1.8rem",
@@ -139,7 +150,7 @@ export const styles: IStyles =  {
 			width: "40%",
 		},
 		headerText: {
-			width: "45%",
+			width: isMobile ? "100%" : "45%",
 		},
 		motif: {
 			position: "relative",

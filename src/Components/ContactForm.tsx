@@ -6,6 +6,10 @@ import { withRouter, NextRouter } from 'next/router';
 
 import { withText } from '../hoc/withText';
 
+import {
+	isMobile
+} from "react-device-detect";
+
 interface WithRouterProps {
   router: NextRouter
 }
@@ -28,6 +32,7 @@ interface IState {
 
 export interface IStyles {
 	form: CSS.Properties,
+	divNameMail: CSS.Properties,
 	label: CSS.Properties,
 	input: CSS.Properties,
 	divInput: CSS.Properties,
@@ -82,18 +87,17 @@ class ContactForm extends React.Component<IProps, IState> {
 	isInputValid = (value: string) => value.trim() !== ''
 
 	render() {
-		console.log(this.state)
 		return (
 			<form style={styles.form} onSubmit={(e: React.FormEvent) => this.handleSubmit(e)}>
-				<h3 style={{marginBottom: "2vh"}}>{this.props.text.title}</h3>
+				<h3 style={{marginBottom: "2vh", fontSize: isMobile ? "3.5rem" : undefined}}>{this.props.text.title}</h3>
 				{this.state.wellSent ? <p>{this.props.text.wellSentMessage}</p> : null}
-				<div style={{display: "flex", flexWrap: "wrap", justifyContent: "space-between"}}>
+				<div style={styles.divNameMail}>
 					<Input
 						value={this.state.name}
 						type="text"
 						id="name"
 						label={this.props.text.label[0]}
-						style={{divInput: {width: "45%"}}}
+						style={{divInput: {width: isMobile ? "100%" : "45%"}}}
 						required
 						isValid={(isValid : boolean) => this.setState({nameValid: isValid})}
 						onChange={(value : string) => this.setState({name: value})}
@@ -106,7 +110,7 @@ class ContactForm extends React.Component<IProps, IState> {
 						type="email"
 						id="email"
 						label={this.props.text.label[1]}
-						style={{divInput: {width: "45%"}}}
+						style={{divInput: {width: isMobile ? "100%" : "45%"}}}
 						required
 						isValid={(isValid : boolean) => this.setState({emailValid: isValid})}
 						onChange={(value : string) => this.setState({email: value})}
@@ -148,12 +152,18 @@ export const styles: IStyles =  {
 		padding: "2vh 4vw",
 		marginTop: "15vh",
 		marginBottom: "25vh",
-		marginRight: "20vw",
-		marginLeft: "20vw",
+		marginRight: isMobile ? "10vw" : "20vw",
+		marginLeft: isMobile ? "10vw" : "20vw",
 		boxShadow: "0px 3px 7px 5px #F3F4FA",
 		borderRadius: "20px",
 		backgroundColor: 'white',
 		textAlign: 'justify',
+	},
+	divNameMail: {
+		display: "flex",
+		flexDirection: isMobile ? "column" : undefined,
+		flexWrap: "wrap",
+		justifyContent: "space-between",
 	},
 	label: {
 		textTransform: "uppercase",

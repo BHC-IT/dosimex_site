@@ -8,6 +8,10 @@ import { mdiLinkedin } from '@mdi/js';
 import { mdiPhone } from '@mdi/js';
 import { useText } from '../Hooks/useText';
 
+import {
+	isMobile
+} from "react-device-detect";
+
 export interface IStyles {
 	footer: CSS.Properties,
 	col1: CSS.Properties,
@@ -19,6 +23,7 @@ export interface IStyles {
 	divIconSocial: CSS.Properties,
 	iconSocial: CSS.Properties,
 	pSocialMedia: CSS.Properties,
+	textSocialMedia: CSS.Properties,
 	linkRessource: CSS.Properties,
 }
 
@@ -45,17 +50,17 @@ const Footer = () => {
 				<div style={styles.divSocialMedia}>
 					<div style={styles.divIconSocial}>
 						<div style={styles.iconSocial}>
-							<Link href="https://www.youtube.com/channel/UCmijJyGaFfJte4xsTk90MVA/featured" replace>
+							<a href="https://www.youtube.com/channel/UCmijJyGaFfJte4xsTk90MVA/featured" target="_blank" rel="noreferrer noopener">
 								<Icon path={mdiYoutube} size={2} />
-							</Link>
+							</a>
 						</div>
 						<div style={styles.iconSocial}>
-							<Link href="https://fr.linkedin.com/company/dosimex" replace>
+							<a href="https://fr.linkedin.com/company/dosimex" target="_blank" rel="noreferrer noopener">
 								<Icon path={mdiLinkedin} size={1.6} />
-							</Link>
+							</a>
 						</div>
 					</div>
-					<div style={{width: "30%"}}>
+					<div style={styles.textSocialMedia}>
 						<p style={styles.pSocialMedia}>{text.col1.p[3]}</p>
 					</div>
 				</div>
@@ -83,6 +88,7 @@ export default Footer;
 export const styles: IStyles =  {
 	footer: {
 		display: "flex",
+		flexDirection: isMobile ? "column" : undefined,
 		flexWrap: "wrap",
 		justifyContent: "center",
 		alignItems: "center",
@@ -91,16 +97,17 @@ export const styles: IStyles =  {
 		color: "var(--light)",
 	},
 	col1: {
-		width: "30%",
+		width: isMobile ? "80%" : "30%",
 	},
 	col2: {
-		width: "50%",
+		width: isMobile ? "80%" : "50%",
 		display: "flex",
 		flexWrap: "wrap",
+		flexDirection: isMobile ? "column" : undefined,
 		justifyContent: "center",
 	},
 	col: {
-		width: "40%",
+		width: isMobile ? "80%" : "40%",
 	},
 	colTitle: {
 		fontFamily: "var(--lato)",
@@ -122,6 +129,9 @@ export const styles: IStyles =  {
 	iconSocial: {
 		marginRight: "0.5vw",
 		cursor: "pointer",
+	},
+	textSocialMedia: {
+		width: isMobile ? "60%" : "30%",
 	},
 	pSocialMedia: {
 		margin: "0",
