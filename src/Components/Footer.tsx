@@ -40,8 +40,6 @@ const Footer = () => {
 
 	const style = useIsMobile(styles);
 
-	alert(style.col1.width)
-
 	const ratio = 0.27;
 	return (
 		<footer style={style.footer}>
@@ -50,7 +48,7 @@ const Footer = () => {
 					src="/Images/trefle.png"
 					alt="icône trèfle radioactivité"
 					width={`${154 * ratio}rem`}
-					height={`${154* ratio}rem`}
+					height={`${154 * ratio}rem`}
 				/>
 				<p>{text.col1.p[0]}</p>
 				<p>{text.col1.p[1]}</p>
