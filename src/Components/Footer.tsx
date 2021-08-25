@@ -27,23 +27,25 @@ export interface IStyles {
 	linkRessource: CSS.Properties,
 }
 
-const useIsMobile = () => {
+const useIsMobile = (styles : Function) => {
 
 	React.useEffect(() => {}, [])
 
-	return isMobile
+	return styles(isMobile)
 }
 
 const Footer = () => {
 
 	const text = useText('Footer');
 
-	const mobile = useIsMobile();
+	const style = useIsMobile(styles);
+
+	alert(style.col1.width)
 
 	const ratio = 0.27;
 	return (
-		<footer style={styles(mobile).footer}>
-			<div style={styles(mobile).col1}>
+		<footer style={style.footer}>
+			<div style={style.col1}>
 				<Image
 					src="/Images/trefle.png"
 					alt="icône trèfle radioactivité"
@@ -52,40 +54,40 @@ const Footer = () => {
 				/>
 				<p>{text.col1.p[0]}</p>
 				<p>{text.col1.p[1]}</p>
-				<div style={styles(mobile).divPhone}>
+				<div style={style.divPhone}>
 					<Icon path={mdiPhone} size={1.8} />
 					<p style={{marginLeft: "0.5vw"}}>{text.col1.p[2]}</p>
 				</div>
-				<div style={styles(mobile).divSocialMedia}>
-					<div style={styles(mobile).divIconSocial}>
-						<div style={styles(mobile).iconSocial}>
+				<div style={style.divSocialMedia}>
+					<div style={style.divIconSocial}>
+						<div style={style.iconSocial}>
 							<a href="https://www.youtube.com/channel/UCmijJyGaFfJte4xsTk90MVA/featured" target="_blank" rel="noreferrer noopener">
 								<Icon path={mdiYoutube} size={2} />
 							</a>
 						</div>
-						<div style={styles(mobile).iconSocial}>
+						<div style={style.iconSocial}>
 							<a href="https://fr.linkedin.com/company/dosimex" target="_blank" rel="noreferrer noopener">
 								<Icon path={mdiLinkedin} size={1.6} />
 							</a>
 						</div>
 					</div>
-					<div style={styles(mobile).textSocialMedia}>
-						<p style={styles(mobile).pSocialMedia}>{text.col1.p[3]}</p>
+					<div style={style.textSocialMedia}>
+						<p style={style.pSocialMedia}>{text.col1.p[3]}</p>
 					</div>
 				</div>
 			</div>
-			<div style={styles(mobile).col2}>
-				<div style={styles(mobile).col}>
-					<p style={styles(mobile).colTitle}>{text.col2.title}</p>
-					<Link href="/Videos" replace><p style={styles(mobile).linkRessource}>{text.col2.p[0]}</p></Link>
-					<Link href="/Manuals" replace><p style={styles(mobile).linkRessource}>{text.col2.p[1]}</p></Link>
-					<Link href="/Books" replace><p style={styles(mobile).linkRessource}>{text.col2.p[2]}</p></Link>
+			<div style={style.col2}>
+				<div style={style.col}>
+					<p style={style.colTitle}>{text.col2.title}</p>
+					<Link href="/Videos" replace><p style={style.linkRessource}>{text.col2.p[0]}</p></Link>
+					<Link href="/Manuals" replace><p style={style.linkRessource}>{text.col2.p[1]}</p></Link>
+					<Link href="/Books" replace><p style={style.linkRessource}>{text.col2.p[2]}</p></Link>
 				</div>
-				<div style={styles(mobile).col}>
-					<p style={styles(mobile).colTitle}>{text.col3.title}</p>
-					<Link href="/About" replace><p style={styles(mobile).linkRessource}>{text.col3.p[0]}</p></Link>
-					<a href="/Folders/Informations_légales.pdf" target="_blank" rel="noreferrer noopener"><p style={styles(mobile).linkRessource}>{text.col3.p[1]}</p></a>
-					<Link href="/Contact" replace><p style={styles(mobile).linkRessource}>{text.col3.p[2]}</p></Link>
+				<div style={style.col}>
+					<p style={style.colTitle}>{text.col3.title}</p>
+					<Link href="/About" replace><p style={style.linkRessource}>{text.col3.p[0]}</p></Link>
+					<a href="/Folders/Informations_légales.pdf" target="_blank" rel="noreferrer noopener"><p style={style.linkRessource}>{text.col3.p[1]}</p></a>
+					<Link href="/Contact" replace><p style={style.linkRessource}>{text.col3.p[2]}</p></Link>
 				</div>
 			</div>
 		</footer>
@@ -93,8 +95,6 @@ const Footer = () => {
 }
 
 export default Footer;
-
-console.log(isMobile);
 
 export const styles = (mobile: boolean): IStyles => ({
 	footer: {
