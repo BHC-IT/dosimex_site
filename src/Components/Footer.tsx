@@ -27,14 +27,23 @@ export interface IStyles {
 	linkRessource: CSS.Properties,
 }
 
+const useIsMobile = () => {
+
+	React.useEffect(() => {}, [])
+
+	return isMobile
+}
+
 const Footer = () => {
 
 	const text = useText('Footer');
 
+	const mobile = useIsMobile();
+
 	const ratio = 0.27;
 	return (
-		<footer style={styles.footer}>
-			<div style={styles.col1}>
+		<footer style={styles(mobile).footer}>
+			<div style={styles(mobile).col1}>
 				<Image
 					src="/Images/trefle.png"
 					alt="icône trèfle radioactivité"
@@ -43,40 +52,40 @@ const Footer = () => {
 				/>
 				<p>{text.col1.p[0]}</p>
 				<p>{text.col1.p[1]}</p>
-				<div style={styles.divPhone}>
+				<div style={styles(mobile).divPhone}>
 					<Icon path={mdiPhone} size={1.8} />
 					<p style={{marginLeft: "0.5vw"}}>{text.col1.p[2]}</p>
 				</div>
-				<div style={styles.divSocialMedia}>
-					<div style={styles.divIconSocial}>
-						<div style={styles.iconSocial}>
+				<div style={styles(mobile).divSocialMedia}>
+					<div style={styles(mobile).divIconSocial}>
+						<div style={styles(mobile).iconSocial}>
 							<a href="https://www.youtube.com/channel/UCmijJyGaFfJte4xsTk90MVA/featured" target="_blank" rel="noreferrer noopener">
 								<Icon path={mdiYoutube} size={2} />
 							</a>
 						</div>
-						<div style={styles.iconSocial}>
+						<div style={styles(mobile).iconSocial}>
 							<a href="https://fr.linkedin.com/company/dosimex" target="_blank" rel="noreferrer noopener">
 								<Icon path={mdiLinkedin} size={1.6} />
 							</a>
 						</div>
 					</div>
-					<div style={styles.textSocialMedia}>
-						<p style={styles.pSocialMedia}>{text.col1.p[3]}</p>
+					<div style={styles(mobile).textSocialMedia}>
+						<p style={styles(mobile).pSocialMedia}>{text.col1.p[3]}</p>
 					</div>
 				</div>
 			</div>
-			<div style={styles.col2}>
-				<div style={styles.col}>
-					<p style={styles.colTitle}>{text.col2.title}</p>
-					<Link href="/Videos" replace><p style={styles.linkRessource}>{text.col2.p[0]}</p></Link>
-					<Link href="/Manuals" replace><p style={styles.linkRessource}>{text.col2.p[1]}</p></Link>
-					<Link href="/Books" replace><p style={styles.linkRessource}>{text.col2.p[2]}</p></Link>
+			<div style={styles(mobile).col2}>
+				<div style={styles(mobile).col}>
+					<p style={styles(mobile).colTitle}>{text.col2.title}</p>
+					<Link href="/Videos" replace><p style={styles(mobile).linkRessource}>{text.col2.p[0]}</p></Link>
+					<Link href="/Manuals" replace><p style={styles(mobile).linkRessource}>{text.col2.p[1]}</p></Link>
+					<Link href="/Books" replace><p style={styles(mobile).linkRessource}>{text.col2.p[2]}</p></Link>
 				</div>
-				<div style={styles.col}>
-					<p style={styles.colTitle}>{text.col3.title}</p>
-					<Link href="/About" replace><p style={styles.linkRessource}>{text.col3.p[0]}</p></Link>
-					<a href="/Folders/Informations_légales.pdf" target="_blank" rel="noreferrer noopener"><p style={styles.linkRessource}>{text.col3.p[1]}</p></a>
-					<Link href="/Contact" replace><p style={styles.linkRessource}>{text.col3.p[2]}</p></Link>
+				<div style={styles(mobile).col}>
+					<p style={styles(mobile).colTitle}>{text.col3.title}</p>
+					<Link href="/About" replace><p style={styles(mobile).linkRessource}>{text.col3.p[0]}</p></Link>
+					<a href="/Folders/Informations_légales.pdf" target="_blank" rel="noreferrer noopener"><p style={styles(mobile).linkRessource}>{text.col3.p[1]}</p></a>
+					<Link href="/Contact" replace><p style={styles(mobile).linkRessource}>{text.col3.p[2]}</p></Link>
 				</div>
 			</div>
 		</footer>
@@ -85,10 +94,12 @@ const Footer = () => {
 
 export default Footer;
 
-export const styles: IStyles =  {
+console.log(isMobile);
+
+export const styles = (mobile: boolean): IStyles => ({
 	footer: {
 		display: "flex",
-		flexDirection: isMobile ? "column" : undefined,
+		flexDirection: mobile ? "column" : "row",
 		flexWrap: "wrap",
 		justifyContent: "center",
 		alignItems: "center",
@@ -97,17 +108,17 @@ export const styles: IStyles =  {
 		color: "var(--light)",
 	},
 	col1: {
-		width: isMobile ? "80%" : "30%",
+		width: mobile ? "80%" : "30%",
 	},
 	col2: {
-		width: isMobile ? "80%" : "50%",
+		width: mobile ? "80%" : "50%",
 		display: "flex",
 		flexWrap: "wrap",
-		flexDirection: isMobile ? "column" : undefined,
+		flexDirection: mobile ? "column" : undefined,
 		justifyContent: "center",
 	},
 	col: {
-		width: isMobile ? "80%" : "40%",
+		width: mobile ? "80%" : "40%",
 	},
 	colTitle: {
 		fontFamily: "var(--lato)",
@@ -131,7 +142,7 @@ export const styles: IStyles =  {
 		cursor: "pointer",
 	},
 	textSocialMedia: {
-		width: isMobile ? "60%" : "30%",
+		width: mobile ? "60%" : "30%",
 	},
 	pSocialMedia: {
 		margin: "0",
@@ -143,4 +154,4 @@ export const styles: IStyles =  {
 	linkRessource: {
 		cursor: "pointer",
 	}
-}
+})
