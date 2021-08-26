@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { withRouter, NextRouter } from 'next/router';
 
 import { withText } from '../hoc/withText';
+import { withIsMobile } from '../hoc/withIsMobile';
 
 interface IState {
 }
@@ -44,9 +45,6 @@ class Navbar extends React.Component<IProps, IState> {
 
 	constructor(props : IProps) {
 		super(props);
-
-		this.state = {
-		}
 	}
 
 	renderNav = () => {
@@ -68,10 +66,14 @@ class Navbar extends React.Component<IProps, IState> {
 
 	render() {
 		const ratio = 0.5;
+
+		if (this.props.style === null)
+			return null
+
 		return (
-			<nav style={style.navbar}>
-				<ul style={style.navbarUl}>
-						<li style={style.navbarLi}>
+			<nav style={this.props.style.navbar}>
+				<ul style={this.props.style.navbarUl}>
+						<li style={this.props.style.navbarLi}>
 							<Link href="/">
 								<Image
 									src="/Images/logo_dosimex_new.png"
@@ -93,17 +95,13 @@ class Navbar extends React.Component<IProps, IState> {
 	}
 }
 
-
-export default withRouter(withText(Navbar, "Navbar"));
-
-export const style: IStyles =  {
+export const styles = (mobile: boolean): IStyles => ({
 	navbar: {
-		display: "flex",
+		display: mobile ? "none" : "flex",
 		alignItems: "center",
 		justifyContent: "space-between",
 		padding: "0 10vw",
 		color: "var(--dark)",
-
 	},
 	navbarUl: {
 		display: "flex",
@@ -118,4 +116,6 @@ export const style: IStyles =  {
 	navbarButton: {
 		float: "right",
 	},
-}
+})
+
+export default withIsMobile(withRouter(withText(Navbar, "Navbar")), styles);

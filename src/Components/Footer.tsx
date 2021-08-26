@@ -7,10 +7,7 @@ import { mdiYoutube } from '@mdi/js';
 import { mdiLinkedin } from '@mdi/js';
 import { mdiPhone } from '@mdi/js';
 import { useText } from '../Hooks/useText';
-
-import {
-	isMobile
-} from "react-device-detect";
+import { useIsMobile } from '../Hooks/useIsMobile';
 
 export interface IStyles {
 	footer: CSS.Properties,
@@ -25,20 +22,6 @@ export interface IStyles {
 	pSocialMedia: CSS.Properties,
 	textSocialMedia: CSS.Properties,
 	linkRessource: CSS.Properties,
-}
-
-const useIsMobile = (styles : Function) => {
-
-	const [style, setStyle] = React.useState<IStyles | null>(styles(isMobile))
-
-	React.useEffect(() => {
-
-		setStyle(null)
-		setTimeout(() => setStyle(styles(true)), 10);
-
-	}, [])
-
-	return style
 }
 
 const Footer = () => {

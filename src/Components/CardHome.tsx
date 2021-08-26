@@ -1,12 +1,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Radium from 'radium';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
+import { useIsMobile } from '../Hooks/useIsMobile';
 import Tilt from 'react-parallax-tilt';
 
 import * as CSS from 'csstype';
 
 export interface IStyles {
+	global: CSS.Properties,
 	button: any,
 	subtitle: CSS.Properties,
 	card: CSS.Properties,
@@ -22,11 +24,15 @@ interface IProps {
 
 const CardHome = (props: IProps) => {
 	const router = useRouter();
+	const style = useIsMobile(styles);
+
+	if (style === null)
+		return null
 
 	return (
-		<Tilt tilteReverse scale={1.05} tiltMaxAngleX={10} tiltMaxAngleY={10} style={{width: '28%'}} >
-			<div style={styles.card} onClick={() => router.push(props.route)} >
-				<div style={styles.image}>
+		<Tilt tilteReverse scale={1.05} tiltMaxAngleX={10} tiltMaxAngleY={10} style={style.global} >
+			<div style={style.card} onClick={() => router.push(props.route)} >
+				<div style={style.image}>
 					<Image
 						src={props.icon}
 						alt="icône"
@@ -35,8 +41,8 @@ const CardHome = (props: IProps) => {
 					/>
 				</div>
 				<h4 style={{marginBottom: "0"}}>{props.title}</h4>
-				<p style={styles.subtitle}>{props.content}</p>
-				<button style={styles.button}>
+				<p style={style.subtitle}>{props.content}</p>
+				<button style={style.button}>
 					<Link href={`/${props.route}`}><span>→</span></Link>
 				</button>
 			</div>
@@ -47,7 +53,11 @@ const CardHome = (props: IProps) => {
 
 export default Radium(CardHome);
 
-export const styles =  {
+export const styles = (mobile: boolean): IStyles => ({
+	global: {
+		width: mobile ? "100%" : "28%",
+		marginBottom: mobile ? "5vh" : undefined,
+	},
 	button: {
 		width: "40px",
 		height: "40px",
@@ -77,14 +87,14 @@ export const styles =  {
 		textAlign: "center" as "center",
 		width: "100%",
 		paddingBottom: '2vh',
-		height:'47vh',
+		height: mobile ? undefined : '47vh',
 		cursor: 'pointer',
 		paddingTop: '5vh',
 	},
 	subtitle: {
 		color: "var(--grey)",
-		fontSize: "1.8rem",
-		marginBottom: "4vh",
+		fontSize: mobile ? "1.5rem" : "1.8rem",
+		marginBottom: mobile ? "2vh" : "4vh",
 		marginLeft: "2%",
 		marginRight: "2%",
 	},
@@ -94,4 +104,4 @@ export const styles =  {
 		marginLeft: "auto",
 		marginRight: "auto",
 	},
-}
+})

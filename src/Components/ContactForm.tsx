@@ -5,10 +5,7 @@ import Input, {IValidator} from './Input';
 import { withRouter, NextRouter } from 'next/router';
 
 import { withText } from '../hoc/withText';
-
-import {
-	isMobile
-} from "react-device-detect";
+import { withIsMobile } from '../hoc/withIsMobile';
 
 interface WithRouterProps {
   router: NextRouter
@@ -16,6 +13,7 @@ interface WithRouterProps {
 
 interface IProps extends WithRouterProps {
 	text ?: any
+	style ?: any
 }
 
 interface IState {
@@ -32,11 +30,9 @@ interface IState {
 
 export interface IStyles {
 	form: CSS.Properties,
+	title: CSS.Properties,
 	divNameMail: CSS.Properties,
-	label: CSS.Properties,
 	input: CSS.Properties,
-	divInput: CSS.Properties,
-	divTextarea: CSS.Properties,
 	button: any,
 }
 
@@ -87,17 +83,20 @@ class ContactForm extends React.Component<IProps, IState> {
 	isInputValid = (value: string) => value.trim() !== ''
 
 	render() {
+		if (this.props.style === null)
+			return null
+
 		return (
-			<form style={styles.form} onSubmit={(e: React.FormEvent) => this.handleSubmit(e)}>
-				<h3 style={{marginBottom: "2vh", fontSize: isMobile ? "3.5rem" : undefined}}>{this.props.text.title}</h3>
+			<form style={this.props.style.form} onSubmit={(e: React.FormEvent) => this.handleSubmit(e)}>
+				<h3 style={this.props.style.title}>{this.props.text.title}</h3>
 				{this.state.wellSent ? <p>{this.props.text.wellSentMessage}</p> : null}
-				<div style={styles.divNameMail}>
+				<div style={this.props.style.divNameMail}>
 					<Input
 						value={this.state.name}
 						type="text"
 						id="name"
 						label={this.props.text.label[0]}
-						style={{divInput: {width: isMobile ? "100%" : "45%"}}}
+						style={{divInput: this.props.style.input}}
 						required
 						isValid={(isValid : boolean) => this.setState({nameValid: isValid})}
 						onChange={(value : string) => this.setState({name: value})}
@@ -110,7 +109,7 @@ class ContactForm extends React.Component<IProps, IState> {
 						type="email"
 						id="email"
 						label={this.props.text.label[1]}
-						style={{divInput: {width: isMobile ? "100%" : "45%"}}}
+						style={{divInput: this.props.style.input}}
 						required
 						isValid={(isValid : boolean) => this.setState({emailValid: isValid})}
 						onChange={(value : string) => this.setState({email: value})}
@@ -139,47 +138,35 @@ class ContactForm extends React.Component<IProps, IState> {
 							{ validationFunction:(value) => this.isInputValid(value), errorMessage: this.props.text.errorMessage },
 						] as IValidator[]}
 				/>
-				<button style={styles.button} type="submit">{this.props.text.button}</button>
+				<button style={this.props.style.button} type="submit">{this.props.text.button}</button>
 			</form>
 		);
 	}
 }
 
-export default Radium(withRouter(withText(ContactForm, "ContactForm")));
-
-export const styles: IStyles =  {
+export const styles = (mobile: boolean): IStyles => ({
 	form: {
 		padding: "2vh 4vw",
 		marginTop: "15vh",
 		marginBottom: "25vh",
-		marginRight: isMobile ? "10vw" : "20vw",
-		marginLeft: isMobile ? "10vw" : "20vw",
+		marginRight: mobile ? "10vw" : "20vw",
+		marginLeft: mobile ? "10vw" : "20vw",
 		boxShadow: "0px 3px 7px 5px #F3F4FA",
 		borderRadius: "20px",
 		backgroundColor: 'white',
 		textAlign: 'justify',
 	},
+	title: {
+		marginBottom: "2vh", fontSize: mobile ? "3.5rem" : undefined,
+	},
 	divNameMail: {
 		display: "flex",
-		flexDirection: isMobile ? "column" : undefined,
+		flexDirection: mobile ? "column" : undefined,
 		flexWrap: "wrap",
 		justifyContent: "space-between",
 	},
-	label: {
-		textTransform: "uppercase",
-	},
 	input: {
-		border: "1px solid #DAD8E0",
-		borderRadius: "5px",
-	},
-	divInput: {
-		display:'flex',
-		flexDirection:'column',
-		width: "45%",
-	},
-	divTextarea: {
-		display:'flex',
-		flexDirection:'column',
+		width: mobile ? "100%" : "45%"
 	},
 	button: {
 		display: "flex",
@@ -197,4 +184,6 @@ export const styles: IStyles =  {
 			boxShadow: "0px 5px 5px rgba(0, 0, 0, 0.1)",
 		}
 	},
-}
+})
+
+export default Radium(withIsMobile(withRouter(withText(ContactForm, "ContactForm")), styles));

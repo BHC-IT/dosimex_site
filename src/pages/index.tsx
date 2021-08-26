@@ -4,9 +4,11 @@ import OpinionHome from '../Components/OpinionHome';
 import Image from 'next/image';
 import * as CSS from 'csstype';
 import { useText } from '../Hooks/useText';
+import { useIsMobile } from '../Hooks/useIsMobile';
 
 import {
-	isMobile
+	BrowserView,
+	MobileView,
 } from "react-device-detect";
 
 export interface IStyles {
@@ -14,7 +16,6 @@ export interface IStyles {
 	partners: {[idx: string]: CSS.Properties},
 	offers: {[idx: string]: CSS.Properties},
 	numbers: {[idx: string]: CSS.Properties},
-	opinion: {[idx: string]: CSS.Properties},
 	videos: {[idx: string]: CSS.Properties},
 	callToAction: {[idx: string]: CSS.Properties},
 }
@@ -22,52 +23,52 @@ export interface IStyles {
 export default function Home() {
 
 	const text = useText('Home');
+	const style = useIsMobile(styles);
+
+	if (style === null)
+		return null
 
 	return (
 		<>
-			<header className="container" style={isMobile ? styles.header.headerMobile : styles.header.header}>
-				<div style={styles.header.headerText}>
+			<header className="container" style={style.header.header}>
+				<div style={style.header.headerText}>
 					<h1>{text.header.title}</h1>
-					<p style={styles.header.headerSubtitle}>{text.header.p}</p>
-					<Button style={styles.header.button} name={text.header.button} route="Software"/>
+					<p style={style.header.headerSubtitle}>{text.header.p}</p>
+					<Button style={style.header.button} name={text.header.button} route="Software"/>
 				</div>
-				{ isMobile ?
-					null
-				:
-					<div style={styles.header.headerImage}>
-						<div style={styles.header.image}>
-							<Image
-								src="/Images/home_header_carousel.png"
-								alt="logiciel dosimex"
-								width={1006*0.7}
-								height={634*0.7}
-							/>
-						</div>
-						<div style={styles.header.motif}>
-							<Image
-								src="/Images/motif_rect.svg"
-								alt="motif abstrait filigrane"
-								width={343*1.3}
-								height={334*1.3}
-							/>
-						</div>
-						<p style={styles.header.legendImage}>{text.header.textImage[0]}</p>
+				<div style={style.header.headerImage}>
+					<div style={style.header.image}>
+						<Image
+							src="/Images/home_header_carousel.png"
+							alt="logiciel dosimex"
+							width={1006*0.7}
+							height={634*0.7}
+						/>
 					</div>
-				}
+					<div style={style.header.motif}>
+						<Image
+							src="/Images/motif_rect.svg"
+							alt="motif abstrait filigrane"
+							width={343*1.3}
+							height={334*1.3}
+						/>
+					</div>
+					<p style={style.header.legendImage}>{text.header.textImage[0]}</p>
+				</div>
 			</header>
 
 			<section>
-				<h3 style={styles.partners.title}>{text.partners.title}</h3>
-				<div className="container" style={styles.partners.banner}>
+				<h3 style={style.partners.title}>{text.partners.title}</h3>
+				<div className="container" style={style.partners.banner}>
 					<div>Map component Partners</div>
 					{/*<Carousel />*/}
 				</div>
 			</section>
 
-			<section style={styles.offers.global}>
-				<h2 style={styles.offers.title}>{text.offers.title}</h2>
-				<p style={styles.offers.subtitle}>{text.offers.p}</p>
-				<div className="container" style={{display: "flex", justifyContent: "space-between"}}>
+			<section style={style.offers.global}>
+				<h2 style={style.offers.title}>{text.offers.title}</h2>
+				<p style={style.offers.subtitle}>{text.offers.p}</p>
+				<div className="container" style={style.offers.divCardHome}>
 					<CardHome icon="/Images/icon_excel.png" title={text.offers.card1.title} content={text.offers.card1.p} route="Software"/>
 					<CardHome icon="/Images/icon_book.png" title={text.offers.card2.title} content={text.offers.card2.p} route="Manuals"/>
 					<CardHome icon="/Images/icon_formation.png" title={text.offers.card3.title} content={text.offers.card3.p} route="Training"/>
@@ -75,26 +76,26 @@ export default function Home() {
 			</section>
 
 			<section>
-				<div style={styles.numbers.background}>
-					<div style={styles.numbers.card}>
+				<div style={style.numbers.background}>
+					<div style={style.numbers.card}>
 						<div>
-							<h2 style={styles.numbers.number}>{text.numbers.number1}</h2>
-							<p style={styles.numbers.p}>{text.numbers.p1}</p>
+							<h2 style={style.numbers.number}>{text.numbers.number1}</h2>
+							<p style={style.numbers.p}>{text.numbers.p1}</p>
+						</div>
+						<div style={style.numbers.divNumber}>
+							<h2 style={style.numbers.number}>{text.numbers.number2}</h2>
+							<p style={style.numbers.p}>{text.numbers.p2}</p>
 						</div>
 						<div>
-							<h2 style={styles.numbers.number}>{text.numbers.number2}</h2>
-							<p style={styles.numbers.p}>{text.numbers.p2}</p>
-						</div>
-						<div>
-							<h2 style={styles.numbers.number}>{text.numbers.number3}</h2>
-							<p style={styles.numbers.p}>{text.numbers.p3}</p>
+							<h2 style={style.numbers.number}>{text.numbers.number3}</h2>
+							<p style={style.numbers.p}>{text.numbers.p3}</p>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			<section style={styles.videos.global}>
-				<div style={styles.videos.motif}>
+			<section style={style.videos.global}>
+				<div style={style.videos.motif}>
 					<Image
 						src="/Images/motif_rect.svg"
 						alt="motif abstrait filigrane"
@@ -102,25 +103,36 @@ export default function Home() {
 						height={334*1.3}
 					/>
 				</div>
-				<div style={styles.videos.text}>
+				<div style={style.videos.text}>
 					<h2 style={{marginTop: "0"}}>{text.videos.title}</h2>
-					<p style={styles.videos.p}>{text.videos.p}</p>
+					<p style={style.videos.p}>{text.videos.p}</p>
+					<MobileView>
+						<iframe
+							title='video'
+							style={style.videos.iframe}
+							src="https://www.youtube.com/embed/wkuVxTBXc8g"
+							frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+							allowFullScreen>
+						</iframe>
+					</MobileView>
 					<Button name={text.videos.button} route="Videos"/>
 				</div>
-				<iframe
-					title='video'
-					style={{width:'25vw', height:'34vh'}}
-					src="https://www.youtube.com/embed/wkuVxTBXc8g"
-					frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-					allowFullScreen>
-				</iframe>
+				<BrowserView>
+					<iframe
+						title='video'
+						style={style.videos.iframe}
+						src="https://www.youtube.com/embed/wkuVxTBXc8g"
+						frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+						allowFullScreen>
+					</iframe>
+				</BrowserView>
 			</section>
 
 			<section>
 				<OpinionHome text={text.opinion}/>
 			</section>
 
-			<div style={styles.callToAction.global}>
+			<div className="container" style={style.callToAction.global}>
 				<h2>{text.callToAction.title}</h2>
 				<Button name={text.callToAction.button} route="Product"/>
 			</div>
@@ -128,29 +140,30 @@ export default function Home() {
 	);
 }
 
-export const styles: IStyles =  {
+export const styles = (mobile: boolean): IStyles => ({
 	header: {
-		header: {
+		header: mobile ? {
+			textAlign: "center",
+		}
+			:
+				{
 			display: "flex",
 			alignItems: "center",
 			justifyContent: "space-between",
-			marginTop: "0",
-			marginBottom: "0",
 			height: "90vh",
-		},
-		headerMobile : {
-			textAlign: "center",
 		},
 		headerSubtitle: {
 			color: "var(--grey)",
-			fontSize: "1.8rem",
-			marginBottom: "4vh",
+			fontSize: mobile ? "1.6rem" : "1.8rem",
+			marginBottom: mobile ? "6vh" : "4vh",
+			marginTop: mobile ? "4vh" : undefined,
 		},
 		headerImage: {
+			display: mobile ? "none" : undefined,
 			width: "40%",
 		},
 		headerText: {
-			width: isMobile ? "100%" : "45%",
+			width: mobile ? "100%" : "45%",
 		},
 		motif: {
 			position: "relative",
@@ -207,22 +220,33 @@ export const styles: IStyles =  {
 		},
 		subtitle: {
 			color: "var(--grey)",
-			fontSize: "1.8rem",
+			fontSize: mobile ? "1.6rem" : "1.8rem",
 			marginBottom: "4vh",
 			textAlign: "center",
-			width: "50%",
+			width: mobile ? "80%" : "50%",
 		},
+		divCardHome: {
+			display: "flex",
+			justifyContent: "space-between",
+			flexDirection: mobile ? "column" : undefined,
+			width: mobile ? "100%" : undefined,
+		}
 	},
 	numbers: {
 		background: {
-			marginTop: "20vh",
+			marginTop: mobile ? "10vh" : "20vh",
 			backgroundColor: "var(--flash)",
 			width: "100vw",
-			height: "20vh",
-			paddingTop: '8vh',
-			marginBottom: '35vh',
+			height: mobile ? "23vh" : "20vh",
+			paddingTop: mobile ? '3vh' : '8vh',
+			marginBottom: mobile ? undefined : '35vh',
 		},
-		card: {
+		card: mobile ? {
+			display: "flex",
+			justifyContent: "space-around",
+		}
+		:
+				{
 			display: "flex",
 			alignContent: "center",
 			justifyContent: "space-around",
@@ -238,32 +262,47 @@ export const styles: IStyles =  {
 			zIndex: 2,
 			backgroundColor: 'white',
 		},
+		divNumber: {
+			width: mobile ? "35%" : undefined,
+		},
 		number: {
 			color: "var(--main)",
-			marginBottom: "0px",
+			marginBottom: "0",
 			lineHeight: "1",
+			fontSize: mobile ? "2.4rem" : undefined,
 		},
 		p: {
 			color: "var(--grey)",
-			fontSize: "1.8rem",
+			fontSize: mobile ? "1.35rem" : "1.8rem",
 		},
 	},
 	videos: {
+		motif:  {
+			display: mobile ? "none" : undefined,
+		},
 		global: {
 			display: "flex",
+			flexDirection: mobile ? "column" : undefined,
 			alignItems: "center",
-			marginTop: "20vh",
+			marginTop: mobile ? "15vh" : "20vh",
 			marginBottom: "20vh",
 		},
 		text: {
-			marginLeft: "6vw",
-			marginRight: "5vw",
-			width: "30%",
+			marginLeft: mobile ? undefined : "6vw",
+			marginRight: mobile ? undefined : "5vw",
+			width: mobile ? "80%" : "30%",
+			textAlign: mobile ? "center" : undefined,
 		},
 		p: {
 			color: "var(--grey)",
-			fontSize: "1.8rem",
+			fontSize: mobile ? "1.6rem" : "1.8rem",
 			marginBottom: "5vh",
+		},
+		iframe: {
+			width: mobile ? "70vw" : "25vw",
+			height: mobile ? "27vh" : "34vh",
+			marginBottom: mobile ? "6vh" : undefined,
+			marginTop: mobile ? "2vh" : undefined,
 		},
 	},
 	callToAction: {
@@ -273,5 +312,4 @@ export const styles: IStyles =  {
 			paddingTop: "20vh",
 		}
 	},
-	opinion: {},
-}
+})

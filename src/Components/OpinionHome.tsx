@@ -1,12 +1,13 @@
 import * as React from 'react';
 import Radium from 'radium';
 import * as CSS from 'csstype';
+import { useIsMobile } from '../Hooks/useIsMobile';
 
 export interface IStyles {
 	button: CSS.Properties,
 	global: CSS.Properties,
 	icon: CSS.Properties,
-	peopleInfo: CSS.Properties,
+	text: CSS.Properties,
 }
 
 interface IProps {
@@ -15,22 +16,27 @@ interface IProps {
 
 const OpinionHome = (props: IProps) => {
 
+	const style = useIsMobile(styles);
+
+	if (style === null)
+		return null
+
 	return (
-		<div style={styles.global}>
-			<div style={styles.peopleInfo}>
+		<div style={style.global}>
+			<div style={style.peopleInfo}>
 				<h5 style={{fontSize: "1.8rem", margin: "0"}}>{props.text.name}</h5>
 				<p style={{margin: "0"}}>{props.text.job}</p>
 			</div>
 			<div style={{margin: "4vh 0"}}>
 				<img src="/Images/icon_quote.png" alt="icône citation" />
-				<p style={{textAlign: "justify"}}>{props.text.opinion}</p>
+				<p style={style.text}>{props.text.opinion}</p>
 			</div>
 			<a
-				style={styles.button}
+				style={style.button}
 				href="https://www.dosimex.fr/static/media/extrait_retour_utilisateurs.73178914.pdf"
 				target="_blank"
 				rel="noreferrer noopener">Tous les avis
-				<img style={styles.icon} src="/Images/icon_download.png" alt="icône télécharger" />
+				<img style={style.icon} src="/Images/icon_download.png" alt="icône télécharger" />
 			</a>
 		</div>
 	);
@@ -39,7 +45,7 @@ const OpinionHome = (props: IProps) => {
 
 export default Radium(OpinionHome);
 
-export const styles : IStyles =  {
+export const styles = (mobile: boolean): IStyles => ({
 	button: {
 		padding: "8px 25px",
 		border: "2px solid var(--main)",
@@ -65,7 +71,10 @@ export const styles : IStyles =  {
 		padding: "10vh 10vw",
 	},
 	icon: {
-		width: "1.2vw",
+		width: mobile ? "4.7vw" : "1.2vw",
 	},
-	peopleInfo: {},
-}
+	text: {
+		textAlign: "justify",
+		fontSize: mobile ? "1.5rem" : undefined,
+	},
+})
