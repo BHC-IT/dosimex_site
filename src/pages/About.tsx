@@ -1,6 +1,13 @@
 import * as CSS from 'csstype';
 import Radium from 'radium';
+import { useIsMobile } from '../Hooks/useIsMobile';
 import { useText } from '../Hooks/useText';
+
+import {
+	BrowserView,
+	MobileView,
+	isMobile,
+} from "react-device-detect";
 
 export interface IStyles {
 	global: CSS.Properties,
@@ -16,28 +23,32 @@ export interface IStyles {
 }
 
 const About = () => {
+	const style = useIsMobile(styles);
 	const text = useText('About');
 
+	if (style === null)
+		return null
+
 	return (
-		<div className="container" style={styles.global}>
-			<div style={styles.header}>
+		<div className="container" style={style.global}>
+			<div style={style.header}>
 				<h2>{text.header.title}</h2>
-				<p style={styles.headerSubtitle}>{text.header.p}</p>
+				<p style={style.headerSubtitle}>{text.header.p}</p>
 			</div>
-			<div style={styles.section}>
-				<div style={styles.sectionFlex}>
-					<div style={styles.div}>
-						<div style={{...styles.circleImage, backgroundImage: "url('/Images/Gerald.png')"}}></div>
-						<h3 style={styles.name}>Gérald Lopez</h3>
+			<div style={style.section}>
+				<div style={style.sectionFlex}>
+					<div style={style.div}>
+						<div style={{...style.circleImage, backgroundImage: "url('/Images/Gerald.png')"}}></div>
+						<h3 style={style.name}>Gérald Lopez</h3>
 					</div>
-					<div style={styles.pFlex}>
+					<div style={style.pFlex}>
 						<p>{text.gerald.p[0]}</p>
 						<p>{text.gerald.p[1]}</p>
 						<p>{text.gerald.p[2]}</p>
 					</div>
 				</div>
 				<p>{text.gerald.p[3]}</p>
-				<div style={styles.pBorder}>
+				<div style={style.pBorder}>
 					<p>{text.gerald.pBorder[0]}</p>
 					<p>{text.gerald.pBorder[1]}</p>
 					<p>{text.gerald.pBorder[2]}</p>
@@ -46,17 +57,25 @@ const About = () => {
 				</div>
 				<p>{text.gerald.p[4]}</p>
 			</div>
-			<div style={styles.section}>
-				<div style={styles.sectionFlex}>
-					<div style={{marginRight: "5%"}}>
+			<div style={style.section}>
+				<div style={style.sectionFlex}>
+					<MobileView>
+						<div style={style.div}>
+							<div style={{...style.circleImage, backgroundImage: "url('/Images/Alain.png')"}}></div>
+							<h3 style={style.name}>Alain Vivier</h3>
+						</div>
+					</MobileView>
+					<div style={isMobile ? undefined : {marginRight: "5%"}}>
 						<p>{text.alain.p[0]}</p>
 						<p>{text.alain.p[1]}</p>
 						<p>{text.alain.p[2]}</p>
 					</div>
-					<div style={styles.div}>
-						<div style={{...styles.circleImage, backgroundImage: "url('/Images/Alain.png')"}}></div>
-						<h3 style={styles.name}>Alain Vivier</h3>
-					</div>
+					<BrowserView>
+						<div style={style.div}>
+							<div style={{...style.circleImage, backgroundImage: "url('/Images/Alain.png')"}}></div>
+							<h3 style={style.name}>Alain Vivier</h3>
+						</div>
+					</BrowserView>
 				</div>
 				<p style={{marginTop: "5vh"}}>{text.alain.p[3]}</p>
 				<p>{text.alain.p[4]}</p>
@@ -70,7 +89,7 @@ const About = () => {
 
 export default Radium(About);
 
-export const styles: IStyles =  {
+export const styles = (mobile: boolean): IStyles => ({
 	global: {
 		color: "var(--dark)",
 		textAlign: "justify",
@@ -80,20 +99,23 @@ export const styles: IStyles =  {
 		textAlign: "center",
 		padding: "20vh auto",
 		marginTop: "15vh",
-		marginBottom: "15vh",
+		marginBottom: mobile ? "10vh" : "15vh",
 	},
 	headerSubtitle: {
-		padding: "4vh 15vw",
+		padding: mobile ? "2vh 0" : "4vh 15vw",
 		color: "var(--grey)",
-		fontSize: "1.8rem",
+		fontSize: mobile ? "1.6rem" : "1.8rem",
 	},
 	div: {
 		height: "45vh",
-		width: "30vw",
+		width: mobile ? "100%" : "30vw",
+		display: mobile ? "flex" : undefined,
+		flexDirection: mobile ? "column" : undefined,
+		alignItems: mobile ? "center" : undefined,
 	},
 	circleImage: {
-		width: "370px",
-		height: "370px",
+		width: mobile ? "180px" : "370px",
+		height: mobile ? "180px" : "370px",
 		backgroundPosition: 'center',
 		backgroundRepeat: 'no-repeat',
 		backgroundSize: 'cover',
@@ -111,12 +133,13 @@ export const styles: IStyles =  {
 	},
 	sectionFlex: {
 		display: "flex",
+		flexDirection: mobile ? "column" : undefined,
 		alignItems: "center",
 		justifyContent: "space-between",
 		marginBottom: "2vh",
 	},
 	pFlex: {
-		padding: "5% 0 5% 5%",
+		padding: mobile ? undefined : "5% 0 5% 5%",
 	},
 	pBorder: {
 		paddingLeft: "3vw",
@@ -125,4 +148,4 @@ export const styles: IStyles =  {
 		marginBottom: "5vh",
 		borderLeft: "3px solid var(--flash)",
 	}
-}
+})
