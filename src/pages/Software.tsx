@@ -3,8 +3,6 @@ import Button from '../Components/Button';
 import CSS from 'csstype';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 
 import '@fortawesome/fontawesome-svg-core/styles.css';
@@ -13,6 +11,7 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 config.autoAddCss = false; /* eslint-disable import/first */
 
 import { useText } from '../Hooks/useText';
+import { useIsMobile } from '../Hooks/useIsMobile';
 
 const LinkZone = styled.li`
 	display: flex;
@@ -31,7 +30,7 @@ const LinkLabel = styled.a`
 
 	${LinkZone}:hover & {
 		cursor: pointer;
-		text-decoration: underline var(--main);
+		color: var(--main);
 	}
 `;
 
@@ -117,11 +116,10 @@ const LiLabel = styled.p`
 
 const hashes = ["#op", "#pedago", "#mesure"]
 
-export default function Software() {
+const Software = () => {
 	const text = useText('Software');
-
+	const style = useIsMobile(styles);
 	const [dummy, setDummy] = React.useState<number>(0);
-
 	const opRef = React.useRef<HTMLDivElement>(null);
 	const pedaRef = React.useRef<HTMLDivElement>(null);
 	const mesureRef = React.useRef<HTMLDivElement>(null);
@@ -141,21 +139,24 @@ export default function Software() {
 		}
 	}, [dummy]);
 
+	if (style === null)
+		return null
+
 	return (
-		<div style={styles.main} >
+		<div style={style.main} >
 			<div>
-				<div style={styles.container} >
-					<div style={{marginTop: 0}} >
+				<div style={style.container} >
+					<div style={style.divImage} >
 						<Image src="/Images/motif_rect.svg" width={343*0.9} height={334*0.9} />
 					</div>
-					<div style={styles.header} >
+					<div style={style.header} >
 						<h2 style={{padding: 0, margin: 0, lineHeight: 0.7}} >{text.header.title}</h2>
-						<p style={styles.headerText} >{text.header.p}</p>
+						<p style={style.headerText} >{text.header.p}</p>
 						<ul>
 							{text.header.li.map((e : string, i : number) =>
 								<LinkZone key={e} >
-									<FontAwesomeIcon icon={faLongArrowAltRight} size={"3x"} style={{color: "var(--main)"}} />
-									<LinkLabel onClick={() => setTimeout(() => setDummy(dummy+1), 100)} href={hashes[i]} >{e}</LinkLabel>
+									<p style={style.arrow}>→</p>
+									<LinkLabel onClick={() => setTimeout(() => setDummy(dummy+1), 100)} href={hashes[i]} style={style.headerLink}>{e}</LinkLabel>
 								</LinkZone>
 							)}
 						</ul>
@@ -166,9 +167,9 @@ export default function Software() {
 			<div style={{display:'flex', flexDirection:'column', marginTop: '25vh', width: '100%', alignItems: 'center' }}>
 				<div ref={opRef} style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', width: '100%' }}>
 					<PartHeader>
-						<div style={{display:'flex', flexDirection: 'column', width: '70%'}} >
+						<div style={style.partHeader} >
 							<h3>{text.packOpe.title}</h3>
-							<p style={{textAlign:'justify'}} >{text.packOpe.descrip}</p>
+							<p style={style.textPartHeader} >{text.packOpe.descrip}</p>
 						</div>
 					</PartHeader>
 					<PartImage imageUrl="/Images/packOpe.png">
@@ -248,7 +249,7 @@ export default function Software() {
 				</div>
 				<div style={{marginTop:'5vh', width:'100%', display: 'flex', flexDirection: 'column', alignItems:'center', justifyContent: 'center', paddingBottom: '25vh'}} >
 					<h3>{text.ask.title}</h3>
-					<p style={{...styles.headerText, width: '25vw', marginTop: 0, textAlign: 'center', fontSize: '1.5rem', marginBottom: '4vh' }} >{text.ask.text}</p>
+					<p style={{...style.headerText, width: '25vw', marginTop: 0, textAlign: 'center', fontSize: '1.5rem', marginBottom: '4vh' }} >{text.ask.text}</p>
 					<Button name={text.ask.labelButton} route="Contact"/>
 				</div>
 			</div>
@@ -256,7 +257,9 @@ export default function Software() {
 	);
 }
 
-const styles : {[$:string]: CSS.Properties} = {
+export default Software;
+
+export const styles = (mobile: boolean): {[$:string]: CSS.Properties} => ({
 	main: {
 		display: 'flex',
 		flexDirection: 'column',
@@ -272,21 +275,41 @@ const styles : {[$:string]: CSS.Properties} = {
 		paddingLeft:'3vw',
 		width: '100vw',
 	} as CSS.Properties,
+	divImage: {
+		display: mobile ? "none" : undefined,
+		marginTop: 0,
+	} as CSS.Properties,
 	header: {
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'flex-start',
 		alignItems: 'flex-start',
 		marginLeft: '8vw',
-		width: '45vw',
+		width: mobile ? '80%' : '45vw',
 	} as CSS.Properties,
 	headerText: {
 		color: 'var(--grey)',
 		textAlign: 'justify',
 		marginTop: '5vh',
+		fontSize: mobile ? '1.6rem' : undefined,
 	} as CSS.Properties,
 	headerLink: {
-		marginLeft: '0.5vw',
-		color: 'var(--dark)',
+		fontSize: mobile ? '2rem' : undefined,
 	} as CSS.Properties,
-}
+	arrow: {
+		color: "var(--main)",
+		fontSize: mobile ? "3rem" : "4rem",
+		marginTop: 0,
+		marginBottom: 0,
+	} as CSS.Properties,
+	partHeader: {
+		display:'flex',
+		flexDirection: 'column',
+		width: mobile ? '100%' : '70%',
+		height: mobile ? '40vh' : undefined,
+	} as CSS.Properties,
+	textPartHeader: {
+		textAlign:'justify',
+		fontSize: mobile ? '1.6rem' : undefined,
+	} as CSS.Properties,
+})

@@ -4,8 +4,6 @@ import * as CSS from 'csstype';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 
 import '@fortawesome/fontawesome-svg-core/styles.css';
@@ -30,7 +28,7 @@ const LinkLabel = styled.a`
 
 	${LinkZone}:hover & {
 		cursor: pointer;
-		text-decoration: underline var(--main);
+		color: var(--flash);
 	}
 `;
 
@@ -87,7 +85,7 @@ export default function Manuals() {
 	}
 
 	return (
-		<div styles={styles.main}>
+		<div style={styles.main}>
 			<div style={styles.container} >
 				<div style={{marginTop: 0}} >
 					<Image src="/Images/motif_rect.svg" width={343*0.9} height={334*0.9} />
@@ -98,7 +96,7 @@ export default function Manuals() {
 					<ul>
 						{text.header.li.map((e : string, i : number) =>
 							<LinkZone key={e} >
-								<FontAwesomeIcon icon={faLongArrowAltRight} size={"3x"} style={{color: "var(--flash)"}} />
+								<p style={styles.arrow}>→</p>
 								<LinkLabel onClick={() => setTimeout(() => setDummy(dummy+1), 100)} href={hashes[i]} >{e}</LinkLabel>
 							</LinkZone>
 						)}
@@ -221,5 +219,11 @@ export const styles: IStyles = {
 		borderLeft: "3px solid var(--main)",
 		paddingLeft: "2vw",
 		marginBottom: "10vh",
-	}
+	},
+	arrow: {
+		color: "var(--flash)",
+		fontSize: "4rem",
+		marginTop: 0,
+		marginBottom: 0,
+	} as CSS.Properties,
 }

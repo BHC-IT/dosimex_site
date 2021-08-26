@@ -1,9 +1,15 @@
+import CSS from 'csstype';
 import { useText } from '../Hooks/useText';
+import { useIsMobile } from '../Hooks/useIsMobile';
 import Book from '../Components/Book';
 
 export default function Books() {
 
+	const style = useIsMobile(styles);
 	const text = useText('Books');
+
+	if (style === null)
+		return null
 
 	const books = [
 		{
@@ -76,10 +82,10 @@ export default function Books() {
 
 	return (
 		<>
-			<div className="container" style={styles.global}>
-				<div style={styles.header}>
+			<div className="container" style={style.global}>
+				<div style={style.header}>
 					<h2>{text.header.title}</h2>
-					<p style={styles.headerSubtitle}>{text.header.p}</p>
+					<p style={style.headerSubtitle}>{text.header.p}</p>
 				</div>
 				{
 					books.map((e: any, i: number) => {
@@ -93,21 +99,20 @@ export default function Books() {
 	);
 }
 
-export const styles = {
+export const styles = (mobile: boolean): {[$:string]: CSS.Properties} => ({
 	global: {
 		color: "var(--dark)",
-		textAlign: "justify" as "justify",
 		lineHeight: "3.2rem",
 	},
 	header: {
 		textAlign: "center" as "center",
 		padding: "20vh auto",
 		marginTop: "15vh",
-		marginBottom: "15vh",
+		marginBottom: mobile ? "10vh" : "15vh",
 	},
 	headerSubtitle: {
-		padding: "4vh 15vw",
+		padding: mobile ? "2vh 0" : "4vh 15vw",
 		color: "var(--grey)",
-		fontSize: "1.8rem",
+		fontSize: mobile ? "1.6rem" : "1.8rem",
 	},
-}
+})

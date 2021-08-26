@@ -1,4 +1,6 @@
+import CSS from 'csstype';
 import Radium from 'radium';
+import { useIsMobile } from '../Hooks/useIsMobile';
 
 interface IProps {
 	author: string,
@@ -10,17 +12,22 @@ interface IProps {
 const Book = (props: IProps) => {
 
 	const url = `url(Images/${props.imageUrl})`;
+	const style = useIsMobile(styles);
+	const styleBook = useIsMobile(stylesBook);
+
+	if (style === null || styleBook === null)
+		return null
 
 	return (
-		<div style={styles.flex}>
-			<div style={styles.divBook}>
+		<div style={style.flex}>
+			<div style={style.divBook}>
 				<a href={`${props.href}`} target="_blank" rel="noreferrer noopener">
 					<div style={{...styleBook, backgroundImage: url}}></div>
 				</a>
-				<p style={styles.author}>{props.author}</p>
+				<p style={style.author}>{props.author}</p>
 
 			</div>
-			<div style={styles.divText}>
+			<div style={style.divText}>
 				<p style={{margin : 0}}>{props.text}</p>
 			</div>
 		</div>
@@ -29,32 +36,36 @@ const Book = (props: IProps) => {
 
 export default Radium(Book);
 
-export const styleBook =  {
-	width: "15vw",
+export const stylesBook = (mobile: boolean): CSS.Properties => ({
+	width: mobile ? "55vw" : "15vw",
 	height: "43vh",
 	cursor: "pointer",
 	backgroundPosition: 'center',
 	backgroundRepeat: 'no-repeat',
 	backgroundSize: 'cover',
-}
+})
 
-export const styles = {
+export const styles = (mobile: boolean): {[$:string]: CSS.Properties} => ({
 	flex: {
 		display: "flex",
+		flexDirection: mobile ? 'column' : undefined,
 		padding: "5vh 0",
 	},
 	divBook: {
-		width: "30%"
+		width: mobile ? "70%" : "30 %",
 	},
 	divText: {
-		paddingLeft: "5%",
+		paddingLeft: mobile ? 0 : "5%",
 		display: "flex",
 		textAlign: "justify" as "justify",
+		fontSize: mobile ? "1.6rem" : undefined,
+		height: mobile ? "80vh" : undefined,
+		overflowY: mobile ? "scroll" : undefined,
 	},
 	author: {
 		fontFamily: "Lato",
 		fontWeight: 700,
-		fontSize: "2.2rem",
+		fontSize: mobile ? "1.8rem" : "2.2rem",
 		textTransform: "uppercase" as "uppercase",
 	},
-}
+})
