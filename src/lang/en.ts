@@ -43,7 +43,8 @@ const text : ILang = {
 		opinion: {
 			name: "Jean-Lionel Trolet",
 			job: "EAMEA",
-			opinion: "I use DOSIMEX, which gives me total satisfaction, both by the quality of its results and its ease of use, in the training of personnel from the Ministry of the Armed Forces. It has, among other things, the strength of taking into account common situations faced by MinArm agents, both in the roles of medical PCRs (thanks to the X calculation module!) as well as those involved at all levels in the industrial field (from PNR to engineer). Finally, it is so easy to use that almost all the PCRs we train have adopted it in their units."
+			opinion: "I use DOSIMEX, which gives me total satisfaction, both by the quality of its results and its ease of use, in the training of personnel from the Ministry of the Armed Forces. It has, among other things, the strength of taking into account common situations faced by MinArm agents, both in the roles of medical PCRs (thanks to the X calculation module!) as well as those involved at all levels in the industrial field (from PNR to engineer). Finally, it is so easy to use that almost all the PCRs we train have adopted it in their units.",
+			btn: "More reviews",
 		},
 		callToAction: {
 			title: "Phrase call to action lorem ipsum magnalus rib te lesatre",

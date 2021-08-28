@@ -43,7 +43,8 @@ const text : ILang = {
 		opinion: {
 			name: "{Home.opinion.name}",
 			job: "{Home.opinion.job}",
-			opinion: "{Home.opinion.opinion}"
+			opinion: "{Home.opinion.opinion}",
+			btn: "{Home.opinion.btn}",
 		},
 		callToAction: {
 			title: "{Home.callToAction.title}",

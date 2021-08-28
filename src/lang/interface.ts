@@ -43,6 +43,7 @@ export default interface Lang {
 			name: string,
 			job: string,
 			opinion: string,
+			btn: string,
 		},
 		callToAction: {
 			title: string,

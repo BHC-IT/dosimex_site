@@ -6,9 +6,15 @@ import { useIsMobile } from '../Hooks/useIsMobile';
 import { useText } from '../Hooks/useText';
 import ILang from '../lang/interface';
 
-interface IStyles {
-	[key: string] : {[idx: string]: CSS.Properties},
+interface IMapOfStyle {
+	[i: string]: CSS.Properties
 }
+
+interface IMapOf<A> {
+	[i: string]: A
+}
+
+type IStyles = IMapOf<IMapOfStyle | IMapOf<IMapOfStyle>>
 
 interface IProps {
 	text: ILang,
@@ -22,24 +28,24 @@ const center =  {
 }
 
 const Header = ({text, style} : IProps) =>
-	<div style={style.headerStyles.container}>
-		<div style={style.headerStyles.textContainer}>
-			<h2 style={style.headerStyles.title}>{text.header.title}</h2>
-			<p style={style.headerStyles.text}>{text.header.p}</p>
+	<div style={style.container}>
+		<div style={style.textContainer}>
+			<h2 style={style.title}>{text.header.title}</h2>
+			<p style={style.text}>{text.header.p}</p>
 		</div>
-		<div style={style.headerStyles.imgContainer}>
+		<div style={style.imgContainer}>
 			<Image src="/Images/formation.png" width={732*0.9} height={503*0.9} />
 		</div>
-		<SquareGrid nbLine={6} nbColumn={4} styles={style.headerStyles.squareGridStyles}/>
+		<SquareGrid nbLine={6} nbColumn={4} styles={style.squareGridStyles}/>
 	</div>
 
-const Separator = ({right, style} : {right ?: boolean, style: any}) =>	<div style={style.separatorStyles.container(right)}><div style={style.separatorStyles.line}/></div>
+const Separator = ({right, style} : {right ?: boolean, style: any}) =>	<div style={style.container(right)}><div style={style.line}/></div>
 
 const Exemples = ({text, style} : IProps) =>
-	<div style={style.exemplesStyles.container}>
-		<h3 style={style.exemplesStyles.title}>{text.section1.title}</h3>
-		<div style={style.exemplesStyles.listContainer}>
-			<div style={style.exemplesStyles.columnListContainer}>
+	<div style={style.container}>
+		<h3 style={style.title}>{text.section1.title}</h3>
+		<div style={style.listContainer}>
+			<div style={style.columnListContainer}>
 				<p>{text.section1.li[0]}</p>
 				<p>{text.section1.li[1]}</p>
 				<p>{text.section1.li[2]}</p>
@@ -48,7 +54,7 @@ const Exemples = ({text, style} : IProps) =>
 				<p>{text.section1.li[5]}</p>
 				<p>{text.section1.li[6]}</p>
 			</div>
-			<div style={style.exemplesStyles.columnListContainer}>
+			<div style={style.columnListContainer}>
 				<p>{text.section1.li[7]}</p>
 				<p>{text.section1.li[8]}</p>
 				<p>{text.section1.li[9]}</p>
@@ -61,19 +67,27 @@ const Exemples = ({text, style} : IProps) =>
 	</div>
 
 const Partnership = ({text, style} : IProps) =>
-	<div style={style.partnershipStyles.container}>
-		<h3 style={style.partnershipStyles.title}>{text.section2.title}</h3>
-		<p style={style.partnershipStyles.text}>{text.section2.li[0]}</p>
-		<p style={style.partnershipStyles.text}>{text.section2.li[1]}</p>
-		<p style={style.partnershipStyles.text}>{text.section2.li[2]}</p>
-		<p style={style.partnershipStyles.text}>{text.section2.li[3]}</p>
-		<div style={{margin: "5vh auto 0 10%"}}><div style={style.partnershipStyles.btn}>{text.section2.button}</div></div>
+	<div style={style.container}>
+		<h3 style={style.title}>{text.section2.title}</h3>
+		<p style={style.text}>{text.section2.li[0]}</p>
+		<p style={style.text}>{text.section2.li[1]}</p>
+		<p style={style.text}>{text.section2.li[2]}</p>
+		<p style={style.text}>{text.section2.li[3]}</p>
+		<div style={{margin: "5vh auto 0 10%"}}>
+			<a
+				style={style.btn}
+				href="../Folders/le_catalogue_de_formation_safe_technologies_v2.2.pdf"
+				target="_blank"
+				rel="noreferrer noopener">{text.section2.button}
+				<img style={style.icon} src="/Images/icon_download.png" alt="icône télécharger" />
+			</a>
+		</div>
 	</div>
 
 const Questions = ({text, style} : IProps) =>
-	<div style={style.questionsStyles.container}>
-		<h3 style={style.questionsStyles.title}>{text.questions.title}</h3>
-		<p style={style.questionsStyles.text} >{text.questions.p}</p>
+	<div style={style.container}>
+		<h3 style={style.title}>{text.questions.title}</h3>
+		<p style={style.text} >{text.questions.p}</p>
 		<Btn name={text.questions.button} route="Contact"/>
 	</div>
 
@@ -86,12 +100,12 @@ const Training = () => {
 
 	return (
 		<div style={{display: 'flex', flexDirection: 'column', overflowX: 'hidden'}} >
-			<Header text={text} style={style}/>
-			<Separator right={false} style={style}/>
-			<Exemples text={text} style={style}/>
-			<Separator right={true} style={style}/>
-			<Partnership text={text} style={style}/>
-			<Questions text={text} style={style}/>
+			<Header text={text} style={style.headerStyles}/>
+			<Separator right={false} style={style.separatorStyles}/>
+			<Exemples text={text} style={style.exemplesStyles}/>
+			<Separator right={true} style={style.separatorStyles}/>
+			<Partnership text={text} style={style.partnershipStyles}/>
+			<Questions text={text} style={style.questionsStyles}/>
 		</div>
 	);
 }
@@ -227,7 +241,18 @@ export const styles = (mobile: boolean): IStyles => ({
 				color: "white",
 				transform: "translateY(-4px)",
 				boxShadow: "0px 5px 5px rgba(0, 0, 0, 0.1)",
-			}
+			},
+			display: "flex",
+			alignItems: "center",
+			justifyContent: "space-around",
+			width: mobile ? "75vw" : "18vw",
+			margin: mobile ? "0 5%" : undefined,
+			fontSize: mobile ? "1.4rem" : undefined,
+		},
+		icon: {
+			width: mobile ? "4.7vw" : "1.2vw",
+			minWidth: mobile ? undefined : "25px",
+			maxWidth: mobile ? "25px" : undefined,
 		},
 	},
 	questionsStyles: {
