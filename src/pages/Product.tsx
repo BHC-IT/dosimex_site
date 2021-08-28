@@ -3,21 +3,31 @@ import ContactForm from '../Components/ContactForm';
 import Image from 'next/image';
 import Link from 'next/link';
 import * as CSS from 'csstype';
+import { useIsMobile } from '../Hooks/useIsMobile';
 import { useText } from '../Hooks/useText';
+import { withOrientationChange } from 'react-device-detect'
 
 interface IStyles {
 	[key: string] : CSS.Properties
 }
 
+interface IProps {
+	isLandscape: boolean,
+}
+
 const ratio = 0.7;
 
-export default function Product() {
+function Product(props: IProps) {
 
 	const text = useText('Product');
+	const style = useIsMobile(styles);
 
-	return <div style={styles.global}>
-		<header style={styles.header}>
-			<div style={styles.headerImage}>
+	if (style === null)
+		return null
+
+	return <div style={style.global}>
+		<header style={style.header}>
+			<div style={style.headerImage}>
 				<Image
 					src="/Images/motif_rect.svg"
 					alt="motif abstrait filigrane"
@@ -25,34 +35,34 @@ export default function Product() {
 					height={334*1.3}
 				/>
 			</div>
-			<div style={styles.headerText}>
+			<div style={style.headerText}>
 				<h2>{text.header.title}</h2>
-				<p style={styles.headerP}>{text.header.p}</p>
+				<p style={style.headerP}>{text.header.p}</p>
 				<Button name={text.header.button} route="Contact"/>
 			</div>
 		</header>
 		<section>
-			<h3 style={styles.title}>{text.title}</h3>
-			<div style={styles.banner}>
-				<div style={styles.banner1}>
-					<p style={styles.bannerP}>{text.descrip}</p>
+			<h3 style={style.title}>{text.title}</h3>
+			<div style={style.banner}>
+				<div style={style.banner1}>
+					<p>{text.descrip}</p>
 				</div>
-				<div style={styles.banner2}>
-					<div style={styles.bannerImage}></div>
+				<div style={style.banner2}>
+					<div style={style.bannerImage}></div>
 				</div>
 			</div>
 		</section>
 		<section className="container">
 			<h4>Partition E</h4>
-			<div style={styles.borderLeft}>
-				<div style={styles.flexP}>
+			<div style={style.borderLeft}>
+				<div style={style.flexP}>
 					<p>{text.partE.p[0]}</p>
-					<div style={styles.buttonKnowMore}><Link href="/Software" replace>{text.buttonKnowMore}</Link></div>
+					<div style={style.buttonKnowMore}><Link href="/Software" replace>{text.buttonKnowMore}</Link></div>
 
 				</div>
-				<div style={styles.flexP}>
+				<div style={style.flexP}>
 					<p>{text.partE.p[1]}</p>
-					<div style={styles.buttonKnowMore}><Link href="/Manuals" replace>{text.buttonKnowMore}</Link></div>
+					<div style={style.buttonKnowMore}><Link href="/Manuals" replace>{text.buttonKnowMore}</Link></div>
 
 				</div>
 				<p>{text.partE.p[2]}</p>
@@ -60,24 +70,31 @@ export default function Product() {
 			</div>
 			<p>{text.partE.p[4]}</p>
 			<h4>Partition D</h4>
-			<div style={styles.borderLeft}>
+			<div style={style.borderLeft}>
 				<p>{text.partD.p}</p>
 			</div>
-			<h4 style={styles.prerequisites}>{text.prerequisites.title}</h4>
+			<h4 style={style.prerequisites}>{text.prerequisites.title}</h4>
 			<p>{text.prerequisites.p}</p>
 
 		</section>
-		<section style={styles.questions}>
-			<p style={styles.questionsTitle}>{text.questions.title}</p>
-			<p style={{fontWeight : 600}}>{text.questions.p}<span style={{color: "var(--main)"}}>06 89 70 90 35</span></p>
-			<div style={styles.contact}>
+		<section style={style.questions}>
+			<p style={style.questionsTitle}>{text.questions.title}</p>
+			<p style={style.questionsP}>{text.questions.p}<span style={{color: "var(--main)"}}>06 89 70 90 35</span></p>
+			<div style={style.contact}>
 				<ContactForm />
 			</div>
 		</section>
+		{props.isLandscape ?
+			<div style={style.spaceTopFooter}></div>
+		:
+			null
+		}
 	</div>
 }
 
-export const styles: IStyles = {
+export default withOrientationChange(Product);
+
+export const styles = (mobile: boolean): IStyles => ({
 	global: {
 		color: "var(--dark)",
 		textAlign: "justify",
@@ -91,39 +108,43 @@ export const styles: IStyles = {
 		height: "90vh",
 	},
 	headerImage: {
+		display: mobile ? "none" : undefined,
 		marginLeft: "15px",
 	},
 	headerText: {
-		paddingLeft: "8vw",
+		paddingLeft: mobile ? undefined : "8vw",
+		textAlign: mobile ? "center" : undefined,
 	},
 	headerP: {
 		marginTop: "5vh",
 		marginBottom: "3vh",
 		color: "var(--grey)",
-		fontSize: "1.8rem",
-		width: "85%",
+		fontSize: mobile ? "1.6rem" : "1.8rem",
+		width: mobile ? undefined : "85%",
+		padding: mobile ? "2vh 8vw 3vh 8vw" : undefined,
+		textAlign: mobile ? "justify" : undefined,
 	},
 	title: {
 		color: "var(--flash)",
-		fontSize: "4rem",
+		fontSize: mobile ? "3rem" : "4rem",
 		fontFamily: "var(--lato)",
 		fontWeight: 900,
-		marginLeft: "10vw",
+		marginLeft: mobile ? undefined : "10vw",
 		marginBottom: "4vh",
+		width: mobile ? "80%" : undefined,
+		padding: mobile ? "0 8vw" : undefined,
 	},
 	banner: {
 		display: "flex",
+		flexDirection: mobile ? "column-reverse" : undefined,
 		alignItems: "center",
-		height: "30vh",
+		height: mobile ? undefined : "30vh",
 		justifyContent: "space-between",
-	},
-	bannerP:  {
-
 	},
 	banner1: {
 		backgroundColor: "var(--main)",
 		height: "100%",
-		width: "66%",
+		width: mobile ? "100%" : "66%",
 		color: "var(--light)",
 		display: "flex",
 		alignItems: "center",
@@ -132,19 +153,20 @@ export const styles: IStyles = {
 	},
 	banner2: {
 		backgroundColor: "var(--main)",
-		height: "100%",
+		height: mobile ? undefined : "100%",
 		display: "flex",
 		alignItems: "center",
 	},
 	bannerImage: {
-		width: `${722 * ratio}px`,
-		height: `${405 * ratio}px`,
+		width: mobile ? '100vw': `${722 * ratio}px`,
+		height: mobile ? `${324 * ratio}px` : `${405 * ratio}px`,
 		backgroundImage: "url('/Images/usbkey.png')",
 		backgroundPosition: 'center',
 		backgroundRepeat: 'no-repeat',
-		backgroundSize: 'cover',
+		backgroundSize: 'contain',
 		position: "relative",
-		right: "45%",
+		right: mobile ? "5%" : "45%",
+		marginTop: mobile ? "6vh" : undefined,
 	},
 	borderLeft: {
 		borderLeft: "5px solid var(--main)",
@@ -157,7 +179,8 @@ export const styles: IStyles = {
 	},
 	flexP: {
 		display: "flex",
-		alignItems: "center",
+		flexDirection: mobile ? "column" : undefined,
+		alignItems: mobile ? undefined : "center",
 		marginTop: "0",
 		marginBottom: "0",
 	},
@@ -174,20 +197,35 @@ export const styles: IStyles = {
 	questions: {
 		textAlign: "center" as "center",
 		backgroundColor: "var(--flash)",
-		paddingTop: "10vh",
+		paddingTop: mobile ? "5vh" : "10vh",
 		paddingBottom: "20vh",
-		marginBottom: '80vh',
-		height: '50vh',
-		marginTop: "7vh",
+		marginBottom: mobile ? '90vh' : '80vh',
+		height: mobile ? '65vh' : '50vh',
+		marginTop: mobile ? undefined : "7vh",
 	},
 	questionsTitle: {
-		fontSize: "3.4rem",
+		fontSize: mobile ? "2rem" : "3.4rem",
 		fontWeight: 900,
 		fontFamily: "var(--lato)",
+		paddingRight: mobile ? "8vw" : undefined,
+		paddingLeft: mobile ? "8vw" : undefined,
+	},
+	questionsP: {
+		paddingRight: mobile ? "8vw" : undefined,
+		paddingLeft: mobile ? "8vw" : undefined,
+		fontWeight: 600,
 	},
 	contact: {
-		marginTop: '-5vh',
+		marginTop: mobile ? '-10vh' : '-5vh',
 		width: 'auto',
 		zIndex: 2,
+	},
+	spaceTopFooter: mobile ? {
+		content: "",
+		height: "40vh",
+		marginTop: "10vh",
+		marginBottom: "50vh",
 	}
-}
+	:
+	undefined,
+})
