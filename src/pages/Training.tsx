@@ -2,19 +2,27 @@ import * as CSS from 'csstype';
 import SquareGrid from '../Components/SquareGrid'
 import Btn from '../Components/Button'
 import Image from 'next/image'
+import { useIsMobile } from '../Hooks/useIsMobile';
 import { useText } from '../Hooks/useText';
 
-const Header = ({text} : {text : any}) =>
-	<div style={headerStyles.container}>
-		<div style={headerStyles.textContainer}>
-			<h2 style={headerStyles.title}>{text.header.title}</h2>
-			<p style={headerStyles.text}>{text.header.p}</p>
+interface IStyles {
+	[key: string] : {[idx: string]: CSS.Properties}
+}
+
+const Header = ({text} : {text : any}, style: any) => {
+
+	console.log(style)
+	return <div style={style.headerStyles.container}>
+		<div style={style.headerStyles.textContainer}>
+			<h2 style={style.headerStyles.title}>{text.header.title}</h2>
+			<p style={style.headerStyles.text}>{text.header.p}</p>
 		</div>
-		<div style={headerStyles.imgContainer}>
+		<div style={style.headerStyles.imgContainer}>
 			<Image src="/Images/formation.png" width={732*0.9} height={503*0.9} />
 		</div>
-		<SquareGrid nbLine={6} nbColumn={4} styles={headerStyles.squareGridStyles}/>
+		<SquareGrid nbLine={6} nbColumn={4} styles={style.headerStyles.squareGridStyles}/>
 	</div>
+}
 
 const Separator = ({right} : {right ?: boolean}) =>	<div style={separatorStyles.container(right)}><div style={separatorStyles.line}/></div>
 
@@ -62,9 +70,14 @@ const Questions = ({text} : {text : any}) =>
 
 const Training = () => {
 	const text = useText('Training');
+	const style = useIsMobile(styles);
+
+	if (style === null)
+		return null
+
 	return (
 		<div style={{display: 'flex', flexDirection: 'column', overflowX: 'hidden'}} >
-			<Header text={text}/>
+			<Header text={text} style={style}/>
 			<Separator right={false}/>
 			<Exemples text={text}/>
 			<Separator right={true}/>
@@ -75,6 +88,7 @@ const Training = () => {
 }
 
 export default Training;
+
 
 const center = {
 	display: "flex",
@@ -230,3 +244,12 @@ const questionsStyles = {
 		marginBottom: '4vh'
 	} as CSS.Properties,
 }
+
+export const styles = (mobile: boolean): IStyles => ({
+	center,
+	headerStyles,
+	separatorStyles,
+	exemplesStyles,
+	partnershipStyles,
+	questionsStyles
+})
