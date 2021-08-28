@@ -4,15 +4,25 @@ import Btn from '../Components/Button'
 import Image from 'next/image'
 import { useIsMobile } from '../Hooks/useIsMobile';
 import { useText } from '../Hooks/useText';
+import ILang from '../lang/interface';
 
 interface IStyles {
-	[key: string] : {[idx: string]: CSS.Properties}
+	[key: string] : {[idx: string]: CSS.Properties},
 }
 
-const Header = ({text} : {text : any}, style: any) => {
+interface IProps {
+	text: ILang,
+	style: IStyles,
+}
 
-	console.log(style)
-	return <div style={style.headerStyles.container}>
+const center =  {
+	display: "flex",
+	justifyContent: "center",
+	alignItems: "center",
+}
+
+const Header = ({text, style} : IProps) =>
+	<div style={style.headerStyles.container}>
 		<div style={style.headerStyles.textContainer}>
 			<h2 style={style.headerStyles.title}>{text.header.title}</h2>
 			<p style={style.headerStyles.text}>{text.header.p}</p>
@@ -22,15 +32,14 @@ const Header = ({text} : {text : any}, style: any) => {
 		</div>
 		<SquareGrid nbLine={6} nbColumn={4} styles={style.headerStyles.squareGridStyles}/>
 	</div>
-}
 
-const Separator = ({right} : {right ?: boolean}) =>	<div style={separatorStyles.container(right)}><div style={separatorStyles.line}/></div>
+const Separator = ({right, style} : {right ?: boolean, style: any}) =>	<div style={style.separatorStyles.container(right)}><div style={style.separatorStyles.line}/></div>
 
-const Exemples = ({text} : {text : any}) =>
-	<div style={exemplesStyles.container}>
-		<h3 style={exemplesStyles.title}>{text.section1.title}</h3>
-		<div style={exemplesStyles.listContainer}>
-			<div style={exemplesStyles.columnListContainer}>
+const Exemples = ({text, style} : IProps) =>
+	<div style={style.exemplesStyles.container}>
+		<h3 style={style.exemplesStyles.title}>{text.section1.title}</h3>
+		<div style={style.exemplesStyles.listContainer}>
+			<div style={style.exemplesStyles.columnListContainer}>
 				<p>{text.section1.li[0]}</p>
 				<p>{text.section1.li[1]}</p>
 				<p>{text.section1.li[2]}</p>
@@ -39,7 +48,7 @@ const Exemples = ({text} : {text : any}) =>
 				<p>{text.section1.li[5]}</p>
 				<p>{text.section1.li[6]}</p>
 			</div>
-			<div style={exemplesStyles.columnListContainer}>
+			<div style={style.exemplesStyles.columnListContainer}>
 				<p>{text.section1.li[7]}</p>
 				<p>{text.section1.li[8]}</p>
 				<p>{text.section1.li[9]}</p>
@@ -51,20 +60,20 @@ const Exemples = ({text} : {text : any}) =>
 		</div>
 	</div>
 
-const Partnership = ({text} : {text : any}) =>
-	<div style={partnershipStyles.container}>
-		<h3 style={partnershipStyles.title}>{text.section2.title}</h3>
-		<p style={partnershipStyles.text}>{text.section2.li[0]}</p>
-		<p style={partnershipStyles.text}>{text.section2.li[1]}</p>
-		<p style={partnershipStyles.text}>{text.section2.li[2]}</p>
-		<p style={partnershipStyles.text}>{text.section2.li[3]}</p>
-		<div style={{margin: "5vh auto 0 10%"}}><div style={partnershipStyles.btn}>{text.section2.button}</div></div>
+const Partnership = ({text, style} : IProps) =>
+	<div style={style.partnershipStyles.container}>
+		<h3 style={style.partnershipStyles.title}>{text.section2.title}</h3>
+		<p style={style.partnershipStyles.text}>{text.section2.li[0]}</p>
+		<p style={style.partnershipStyles.text}>{text.section2.li[1]}</p>
+		<p style={style.partnershipStyles.text}>{text.section2.li[2]}</p>
+		<p style={style.partnershipStyles.text}>{text.section2.li[3]}</p>
+		<div style={{margin: "5vh auto 0 10%"}}><div style={style.partnershipStyles.btn}>{text.section2.button}</div></div>
 	</div>
 
-const Questions = ({text} : {text : any}) =>
-	<div style={questionsStyles.container}>
-		<h3 style={questionsStyles.title}>{text.questions.title}</h3>
-		<p style={questionsStyles.text} >{text.questions.p}</p>
+const Questions = ({text, style} : IProps) =>
+	<div style={style.questionsStyles.container}>
+		<h3 style={style.questionsStyles.title}>{text.questions.title}</h3>
+		<p style={style.questionsStyles.text} >{text.questions.p}</p>
 		<Btn name={text.questions.button} route="Contact"/>
 	</div>
 
@@ -78,178 +87,164 @@ const Training = () => {
 	return (
 		<div style={{display: 'flex', flexDirection: 'column', overflowX: 'hidden'}} >
 			<Header text={text} style={style}/>
-			<Separator right={false}/>
-			<Exemples text={text}/>
-			<Separator right={true}/>
-			<Partnership text={text}/>
-			<Questions text={text}/>
+			<Separator right={false} style={style}/>
+			<Exemples text={text} style={style}/>
+			<Separator right={true} style={style}/>
+			<Partnership text={text} style={style}/>
+			<Questions text={text} style={style}/>
 		</div>
 	);
 }
 
 export default Training;
 
-
-const center = {
-	display: "flex",
-	justifyContent: "center",
-	alignItems: "center",
-}
-
-const headerStyles = {
-	container: {
-		...center,
-		position: "relative" as "relative",
-		height: "65vh",
-		width: "100%",
-		overflow: "hidden",
-	},
-	textContainer: {
-		...center,
-		justifyContent: "flex-start",
-		flexDirection: "column",
-		height: "65%",
-		width: "40%",
-		marginRight: "5rem",
-		// backgroundColor: "red",
-	} as CSS.Properties,
-	imgContainer: {
-		...center,
-		height: "65%",
-		width: "35%",
-		backgroundColor: "transparent",
-		zIndex: 1,
-	},
-	title: {
-		alignSelf: "flex-start",
-		margin: "auto 0 0 0",
-	},
-	text: {
-		margin: "0 0 auto 0",
-		fontSize: "2vh",
-		color: 'var(--grey)',
-		marginTop: '4vh',
-	},
-	squareGridStyles: {
-		containerStyle: {
-			position: "absolute",
-			right: "-1%",
-			top: "0",
-			zIndex: 0,
-		} as CSS.Properties,
-		squareStyle: {
-			height: "19px",
-			width: "17px",
-			margin: "1.5rem 2.5rem",
-			backgroundColor: "var(--flashTrans)",
-		} as CSS.Properties,
-	}
-}
-
-const separatorStyles = {
-	container: (right ?: boolean) : CSS.Properties => {
-		return {
-			display: "flex",
-			justifyContent: right ? "flex-end" : "flex-start",
-			width: "100%",
-		}
-	},
-	line: {
-		backgroundColor: "var(--flash)",
-		height: "0.4vh",
-		width: "25%",
-	} as CSS.Properties,
-}
-
-const exemplesStyles = {
-	container: {
-		display: "flex",
-		justifyContent: "center",
-		flexDirection: "column",
-		marginTop: '15vh',
-		marginBottom: '15vh',
-		width: "100%",
-		// backgroundColor: "red",
-	} as CSS.Properties,
-	title: {
-		width: '60vw',
-		margin: "0 10%",
-	} as CSS.Properties,
-	listContainer: {
-		display: "flex",
-		justifyContent: "space-between",
-		marginTop:'2vh',
-		margin: "0 10%",
-		flexDirection: "row",
-	} as CSS.Properties,
-	columnListContainer: {
-		width: "48%",
-		color:'var(--grey)',
-		// backgroundColor: "yellow",
-	} as CSS.Properties,
-}
-
-const partnershipStyles = {
-	container: {
-		display: "flex",
-		justifyContent: "center",
-		flexDirection: "column",
-		width: "100%",
-		backgroundColor: "var(--grey-bg)",
-		marginTop: "10vh",
-		paddingTop: '7vh',
-		paddingBottom: '10vh',
-	} as CSS.Properties,
-	title: {
-		margin: "0 10% 5vh 10%",
-	} as CSS.Properties,
-	text: {
-		margin: "0 10%",
-		marginTop: '2vh',
-		fontWeight: 500,
-	} as CSS.Properties,
-	btn: {
-		padding: "8px 25px",
-		backgroundColor: "transparent",
-		borderRadius: "50px",
-		border: "2px solid var(--main)",
-		color: "var(--main)",
-		textTransform: "uppercase",
-		transition: "all 0.3s ease 0s",
-		cursor: 'pointer',
-		fontWeight: 700,
-		':hover': {
-			color: "white",
-			transform: "translateY(-4px)",
-			boxShadow: "0px 5px 5px rgba(0, 0, 0, 0.1)",
-		}
-	} as CSS.Properties,
-}
-
-const questionsStyles = {
-	title: {},
-	container: {
-		...center,
-		flexDirection: "column",
-		width: "100%",
-		marginTop: '10vh',
-		marginBottom: '25vh',
-	} as CSS.Properties,
-	text: {
-		color: 'var(--grey)',
-		width: '22vw',
-		marginTop: 0,
-		textAlign: 'center',
-		fontSize: '1.5rem',
-		marginBottom: '4vh'
-	} as CSS.Properties,
-}
-
 export const styles = (mobile: boolean): IStyles => ({
-	center,
-	headerStyles,
-	separatorStyles,
-	exemplesStyles,
-	partnershipStyles,
-	questionsStyles
+	headerStyles: {
+		container: {
+			...center,
+			flexDirection: mobile ? "column" : undefined,
+			position: mobile ? undefined : "relative" as "relative",
+			height: mobile ? undefined : "65vh",
+			width: "100%",
+			overflow: "hidden",
+			marginTop: mobile ? "15vh" : undefined,
+			marginBottom: mobile ? "10vh" : undefined,
+		},
+		textContainer: {
+			...center,
+			justifyContent: mobile ? undefined : "flex-start",
+			flexDirection: "column",
+			height: mobile ? undefined : "65%",
+			width: mobile ? undefined : "40%",
+			marginRight: mobile ? "8vw" : "5rem",
+			marginLeft: mobile ? "8vw" : undefined,
+			marginBottom: mobile ? "8vh" : undefined,
+			textAlign: mobile ? "center" : undefined,
+		},
+		imgContainer: {
+			...center,
+			height: mobile ? "20vh" : "65%",
+			width: mobile ? "40vh" : "35%",
+			backgroundColor: "transparent",
+			zIndex: 1,
+		},
+		title: {
+			alignSelf: mobile ? "center" : "flex-start",
+			margin: "auto 0 0 0",
+		},
+		text: {
+			margin: "0 0 auto 0",
+			fontSize: mobile ? "1.6rem" : "1.8rem",
+			color: 'var(--grey)',
+			marginTop: '4vh',
+		},
+		squareGridStyles: {
+			containerStyle: {
+				position: "absolute",
+				right: "-1%",
+				top: "0",
+				zIndex: 0,
+				display: mobile ? "none" : undefined,
+			},
+			squareStyle: {
+				height: "19px",
+				width: "17px",
+				margin: "1.5rem 2.5rem",
+				backgroundColor: "var(--flashTrans)",
+			},
+		},
+	},
+	separatorStyles: {
+		container: (right ?: boolean) : CSS.Properties => {
+			return {
+				display: "flex",
+				justifyContent: right ? "flex-end" : "flex-start",
+				width: "100%",
+			}
+		},
+		line: {
+			backgroundColor: "var(--flash)",
+			height: "0.4vh",
+			width: mobile ? "40%" : "25%",
+		},
+	},
+	exemplesStyles: {
+		container: {
+			display: "flex",
+			justifyContent: "center",
+			flexDirection: "column",
+			marginTop: mobile ? '10vh' : '15vh',
+			marginBottom: '15vh',
+			width: "100%",
+		},
+		title: {
+			width: mobile ? '80%' : '60vw',
+			fontSize: mobile ? "2.5rem" : undefined,
+			margin: "0 10% 5vh 10%",
+		},
+		listContainer: {
+			display: "flex",
+			flexDirection: mobile ? "column" : "row",
+			justifyContent: "space-between",
+			margin: "0 10%",
+		},
+		columnListContainer: {
+			width: mobile ? "100%" : "48%",
+			color:'var(--grey)',
+		},
+	},
+	partnershipStyles: {
+		container: {
+			display: "flex",
+			justifyContent: "center",
+			flexDirection: "column",
+			width: "100%",
+			backgroundColor: "var(--grey-bg)",
+			marginTop: "10vh",
+			paddingTop: '7vh',
+			paddingBottom: '10vh',
+		},
+		title: {
+			margin: "0 10% 5vh 10%",
+			fontSize: mobile ? "2.5rem" : undefined,
+		},
+		text: {
+			margin: "0 10%",
+			marginTop: '2vh',
+			fontWeight: 500,
+		},
+		btn: {
+			padding: "8px 25px",
+			backgroundColor: "transparent",
+			borderRadius: "50px",
+			border: "2px solid var(--main)",
+			color: "var(--main)",
+			textTransform: "uppercase",
+			transition: "all 0.3s ease 0s",
+			cursor: 'pointer',
+			fontWeight: 700,
+			':hover': {
+				color: "white",
+				transform: "translateY(-4px)",
+				boxShadow: "0px 5px 5px rgba(0, 0, 0, 0.1)",
+			}
+		},
+	},
+	questionsStyles: {
+		container: {
+			...center,
+			flexDirection: "column",
+			width: "100%",
+			marginTop: '10vh',
+			marginBottom: '25vh',
+		},
+		text: {
+			color: 'var(--grey)',
+			width: mobile ? '60%' : '22vw',
+			marginTop: 0,
+			textAlign: 'center',
+			fontSize: '1.5rem',
+			marginBottom: mobile ? '7vh' : '4vh'
+		},
+	}
 })
