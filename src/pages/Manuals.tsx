@@ -184,12 +184,11 @@ export default function Manuals() {
 export const styles = (mobile: boolean): IStyles => ({
 	container: {
 		display: 'flex',
-		flexDirection: 'row',
 		alignItems: 'flex-start',
 		justifyContent: 'flex-start',
 		paddingLeft:'3vw',
-		paddingTop: '12vh',
 		paddingBottom: '12vh',
+		marginTop: "20vh",
 		width: '100vw',
 	},
 	header: {
@@ -208,7 +207,6 @@ export const styles = (mobile: boolean): IStyles => ({
 		padding: 0,
 		margin: 0,
 		lineHeight: mobile ? undefined : 0.7,
-		textAlign: mobile ? "center" : undefined,
 	},
 	headerText: {
 		color: 'var(--grey)',
