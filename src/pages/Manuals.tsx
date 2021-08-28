@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useIsMobile } from '../Hooks/useIsMobile';
 import { useText } from '../Hooks/useText';
 import * as CSS from 'csstype';
 import Image from 'next/image';
@@ -24,7 +25,7 @@ const LinkLabel = styled.a`
 	color: var(--dark);
 	font-family: var(--lato);
 	font-weight: 300;
-	font-size: 2.5rem;
+	font-size: 2.2rem;
 
 	${LinkZone}:hover & {
 		cursor: pointer;
@@ -40,6 +41,7 @@ interface IStyles {
 
 export default function Manuals() {
 	const text = useText('Manuals');
+	const style = useIsMobile(styles);
 
 	const [dummy, setDummy] = React.useState<number>(0);
 
@@ -84,19 +86,22 @@ export default function Manuals() {
 		],
 	}
 
+	if (style === null)
+		return null
+
 	return (
-		<div style={styles.main}>
-			<div style={styles.container} >
-				<div style={{marginTop: 0}} >
+		<div>
+			<div style={style.container} >
+				<div style={style.headerImage} >
 					<Image src="/Images/motif_rect.svg" width={343*0.9} height={334*0.9} />
 				</div>
-				<div style={styles.header} >
-					<h2 style={{padding: 0, margin: 0, lineHeight: 0.7}} >{text.header.title}</h2>
-					<p style={styles.headerText} >{text.header.p}</p>
+				<div style={style.header} >
+					<h2 style={style.headerTitle} >{text.header.title}</h2>
+					<p style={style.headerText} >{text.header.p}</p>
 					<ul>
 						{text.header.li.map((e : string, i : number) =>
 							<LinkZone key={e} >
-								<p style={styles.arrow}>→</p>
+								<p style={style.arrow}>→</p>
 								<LinkLabel onClick={() => setTimeout(() => setDummy(dummy+1), 100)} href={hashes[i]} >{e}</LinkLabel>
 							</LinkZone>
 						)}
@@ -104,11 +109,11 @@ export default function Manuals() {
 				</div>
 			</div>
 
-			<section ref={manualsRef} style={styles.section}>
-				<div style={styles.sectionTitle}>
+			<section className="container" ref={manualsRef} style={style.section}>
+				<div style={style.sectionTitle}>
 					<h3>{text.manuals[0]}</h3>
 				</div>
-				<ul style={{display: "flex", justifyContent: "space-around"}}>
+				<ul style={style.list}>
 					{manuals.manuals.map((e : any, i: number) =>
 						<li style={{cursor: "pointer"}}>
 							<a href={`../Folders/${e.pdf}`} target="_blank" rel="noreferrer noopener">
@@ -119,7 +124,7 @@ export default function Manuals() {
 										width={230}
 										height={324}
 									/>
-									<p style={{textTransform: "uppercase"}}>{e.text}</p>
+									<p style={style.label}>{e.text}</p>
 								</div>
 							</a>
 						</li>
@@ -127,11 +132,11 @@ export default function Manuals() {
 				</ul>
 			</section>
 
-			<section ref={validationsRef} style={styles.section}>
-				<div style={styles.sectionTitle}>
+			<section className="container" ref={validationsRef} style={style.section}>
+				<div style={style.sectionTitle}>
 					<h3>{text.validations[0]}</h3>
 				</div>
-				<ul style={{display: "flex", justifyContent: "space-around"}}>
+				<ul style={style.list}>
 					{manuals.validations.map((e : any, i: number) =>
 						<li style={{cursor: "pointer"}}>
 							<a href={`../Folders/${e.pdf}`} target="_blank" rel="noreferrer noopener">
@@ -142,7 +147,7 @@ export default function Manuals() {
 										width={230}
 										height={324}
 									/>
-									<p style={{textTransform: "uppercase"}}>{e.text}</p>
+									<p style={style.label}>{e.text}</p>
 								</div>
 							</a>
 						</li>
@@ -150,11 +155,11 @@ export default function Manuals() {
 				</ul>
 			</section>
 
-			<section ref={internshipsRef} style={styles.section}>
-				<div style={styles.sectionTitle}>
+			<section className="container" ref={internshipsRef} style={style.section}>
+				<div style={style.sectionTitle}>
 					<h3>{text.internships[0]}</h3>
 				</div>
-				<ul style={{display: "flex", justifyContent: "space-around", paddingBottom: "15vh"}}>
+				<ul style={style.list3}>
 					{manuals.internships.map((e : any, i: number) =>
 						<li style={{cursor: "pointer"}}>
 							<Link href={`../Folders/${e.pdf}`} target="_blank" rel="noreferrer noopener">
@@ -165,7 +170,7 @@ export default function Manuals() {
 										width={230}
 										height={324}
 									/>
-									<p style={{textTransform: "uppercase"}}>{e.text}</p>
+									<p style={style.label}>{e.text}</p>
 								</div>
 							</Link>
 						</li>
@@ -176,13 +181,7 @@ export default function Manuals() {
 	);
 }
 
-export const styles: IStyles = {
-	main: {
-		display: 'flex',
-		flexDirection: 'column',
-		alignItems: 'center',
-		overflowX: 'hidden',
-	},
+export const styles = (mobile: boolean): IStyles => ({
 	container: {
 		display: 'flex',
 		flexDirection: 'row',
@@ -199,7 +198,17 @@ export const styles: IStyles = {
 		justifyContent: 'flex-start',
 		alignItems: 'flex-start',
 		marginLeft: '8vw',
-		width: '45vw',
+		width: mobile ? "80%" : '45vw',
+	},
+	headerImage: {
+		marginTop: 0,
+		display: mobile ? "none" : undefined,
+	},
+	headerTitle: {
+		padding: 0,
+		margin: 0,
+		lineHeight: mobile ? undefined : 0.7,
+		textAlign: mobile ? "center" : undefined,
 	},
 	headerText: {
 		color: 'var(--grey)',
@@ -212,8 +221,6 @@ export const styles: IStyles = {
 	},
 	section: {
 		paddingBottom: "10vh",
-		paddingLeft: "10vw",
-		paddingRight: "10vw",
 	},
 	sectionTitle: {
 		borderLeft: "3px solid var(--main)",
@@ -225,5 +232,21 @@ export const styles: IStyles = {
 		fontSize: "4rem",
 		marginTop: 0,
 		marginBottom: 0,
-	} as CSS.Properties,
-}
+	},
+	list: {
+		display: "flex",
+		flexWrap: "wrap",
+		justifyContent: "space-around",
+	},
+	list3: {
+		display: "flex",
+		flexWrap: "wrap",
+		justifyContent: "space-around",
+		paddingBottom: "15vh",
+	},
+	label: {
+		textTransform: "uppercase" as "uppercase",
+		paddingLeft: "2%",
+		paddingRight: "2%",
+	},
+})

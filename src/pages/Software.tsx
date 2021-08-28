@@ -26,7 +26,7 @@ const LinkLabel = styled.a`
 	color: var(--dark);
 	font-family: var(--lato);
 	font-weight: 300;
-	font-size: 2.5rem;
+	font-size: 2.2rem;
 
 	${LinkZone}:hover & {
 		cursor: pointer;
