@@ -9,6 +9,7 @@ import { useIsMobile } from '../Hooks/useIsMobile';
 import {
 	BrowserView,
 	MobileView,
+	withOrientationChange,
 } from "react-device-detect";
 
 export interface IStyles {
@@ -20,7 +21,11 @@ export interface IStyles {
 	callToAction: {[idx: string]: CSS.Properties},
 }
 
-export default function Home() {
+interface IProps {
+	isLandscape: boolean,
+}
+
+function Home(props: IProps) {
 
 	const text = useText('Home');
 	const style = useIsMobile(styles);
@@ -68,15 +73,17 @@ export default function Home() {
 			<section style={style.offers.global}>
 				<h2 style={style.offers.title}>{text.offers.title}</h2>
 				<p style={style.offers.subtitle}>{text.offers.p}</p>
-				<div className="container" style={style.offers.divCardHome}>
-					<CardHome icon="/Images/icon_excel.png" title={text.offers.card1.title} content={text.offers.card1.p} route="Software"/>
-					<CardHome icon="/Images/icon_book.png" title={text.offers.card2.title} content={text.offers.card2.p} route="Manuals"/>
-					<CardHome icon="/Images/icon_formation.png" title={text.offers.card3.title} content={text.offers.card3.p} route="Training"/>
+				<div style={props.isLandscape ? {padding: "0 10vw"} : undefined}>
+					<div className="container" style={style.offers.divCardHome}>
+						<CardHome icon="/Images/icon_excel.png" title={text.offers.card1.title} content={text.offers.card1.p} route="Software"/>
+						<CardHome icon="/Images/icon_book.png" title={text.offers.card2.title} content={text.offers.card2.p} route="Manuals"/>
+						<CardHome icon="/Images/icon_formation.png" title={text.offers.card3.title} content={text.offers.card3.p} route="Training"/>
+					</div>
 				</div>
 			</section>
 
 			<section>
-				<div style={style.numbers.background}>
+				<div style={props.isLandscape ? {...style.numbers.background, height: "30vh"} : style.numbers.background}>
 					<div style={style.numbers.card}>
 						<div>
 							<h2 style={style.numbers.number}>{text.numbers.number1}</h2>
@@ -109,7 +116,7 @@ export default function Home() {
 					<MobileView>
 						<iframe
 							title='video'
-							style={style.videos.iframe}
+							style={props.isLandscape ? {...style.videos.iframe, width: "40vw", height: "50vh"} : style.videos.iframe}
 							src="https://www.youtube.com/embed/wkuVxTBXc8g"
 							frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 							allowFullScreen>
@@ -139,6 +146,8 @@ export default function Home() {
 		</>
 	);
 }
+
+export default withOrientationChange(Home);
 
 export const styles = (mobile: boolean): IStyles => ({
 	header: {
@@ -229,7 +238,8 @@ export const styles = (mobile: boolean): IStyles => ({
 			display: "flex",
 			justifyContent: "space-between",
 			flexDirection: mobile ? "column" : undefined,
-			width: mobile ? "100%" : undefined,
+			width: mobile ? "90%" : undefined,
+			margin: mobile ? "auto" : undefined,
 		}
 	},
 	numbers: {

@@ -71,7 +71,9 @@ export const styles = (mobile: boolean): IStyles => ({
 		padding: "10vh 10vw",
 	},
 	icon: {
-		width: mobile ? "4.7vw" : "1.2vw",
+			width: mobile ? "4.7vw" : "1.2vw",
+			minWidth: mobile ? undefined : "25px",
+			maxWidth: mobile ? "25px" : undefined,
 	},
 	text: {
 		textAlign: "justify",
