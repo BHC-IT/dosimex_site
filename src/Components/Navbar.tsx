@@ -99,9 +99,17 @@ class Navbar extends React.Component<IProps, IState> {
 						/>
 					</nav>
 				</BrowserView>
-					<div id="containerNav">
-						<SideBar pageWrapId={"page-wrap"} outerContainerId={"containerNav"}/>
+				<div id="containerNav">
+					<SideBar pageWrapId={"page-wrap"} outerContainerId={"containerNav"}/>
+					<div style={{textAlign: "center", paddingTop: "1.5vh", borderBottom: "1px solid var(--main)"}}>
+						<Image
+								src="/Images/logo_dosimex_new.png"
+								alt="logo dosimex"
+								width={`${212 * ratio}rem`}
+								height={`${44 * ratio}rem`}
+							/>
 					</div>
+				</div>
 			</>
 		);
 	}

@@ -51,7 +51,7 @@ const SideBar = (props) => {
 	return (
 		<Menu right {...props}>
 			<ul>
-				<li>
+				<li style={{cursor: "pointer"}}>
 					<Link href="/">
 						<Image
 							src="/Images/logo_dosimex_new.png"

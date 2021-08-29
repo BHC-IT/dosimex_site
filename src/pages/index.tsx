@@ -153,6 +153,7 @@ export const styles = (mobile: boolean): IStyles => ({
 	header: {
 		header: mobile ? {
 			textAlign: "center",
+			marginTop: "7vh",
 		}
 			:
 				{
@@ -203,7 +204,6 @@ export const styles = (mobile: boolean): IStyles => ({
 	partners: {
 		title: {
 			color: "var(--flash)",
-			fontSize: "4rem",
 			fontFamily: "var(--lato)",
 			fontWeight: 900,
 			marginLeft: "10vw",

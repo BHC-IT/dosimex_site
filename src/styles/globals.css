@@ -150,7 +150,8 @@ h5 {
   width: 36px;
   height: 30px;
   right: 36px;
-  top: 36px;
+  top: 56px;
+  background-color: rgba(255, 255, 255);
 }
 
 /* Color/shape of burger icon bars */
@@ -160,8 +161,8 @@ h5 {
 
 /* Position and sizing of clickable cross button */
 .bm-cross-button {
-  height: 24px;
-  width: 24px;
+  height: 35px;
+  width: 35px;
 }
 
 /* Color/shape of close button cross */
@@ -196,7 +197,7 @@ h5 {
 
 @media screen and (max-width: 640px) {
 	h1 {
-		font-size: 4rem;
+		font-size: 3.5rem;
 	}
 
 	h2 {
