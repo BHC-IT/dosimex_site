@@ -19,12 +19,12 @@ export default () => {
 	})
 
 	return (
-			<div style={{marginLeft: "auto", marginRight: "auto", display: 'flex', flexDirection: 'column', width: '50vw', alignItems: "center"}} >
+			<div style={{marginTop: "10vh", marginLeft: "auto", marginRight: "auto", display: 'flex', flexDirection: 'column', width: '80vw', alignItems: "center"}} >
 				<p>Nom d'utilisateur</p>
-				<input type='text' onChange={(e) => setUsername(e.target.value)} />
+				<input style={{height: "3vh", minHeight: "30px", width: "25vw", minWidth: "200px", maxWidth: "500px", borderRadius: "5px", border: "1px solid var(--grey)"}} type='text' onChange={(e) => setUsername(e.target.value)} />
 				<p>Mot de passe</p>
-				<input type='password' onChange={(e) => setPassword(e.target.value)} />
-				<div style={{textAlign: "center", padding: "5vh 5vw"}}>
+				<input style={{height: "3vh", minHeight: "30px", width: "25vw", minWidth: "200px", maxWidth: "500px", borderRadius: "5px", border: "1px solid var(--grey)"}} type='password' onChange={(e) => setPassword(e.target.value)} />
+				<div style={{textAlign: "center", padding: "5vh 5vw 20vh 5vw"}}>
 					<button style={{padding: "8px 25px", backgroundColor: "var(--main)", borderRadius: "50px", color: "white", textTransform: "uppercase",}}
 						onClick={async () => {
 						try {

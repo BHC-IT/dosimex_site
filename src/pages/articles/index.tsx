@@ -2,11 +2,14 @@ import { GetStaticPropsContext, GetStaticProps } from 'next';
 import Link from 'next/link';
 import * as CSS from 'csstype';
 import styled from 'styled-components';
+import { withOrientationChange } from 'react-device-detect';
 
+import { useIsMobile } from '../../Hooks/useIsMobile';
 import useUser from '../../Hooks/useUser';
 import IArticle from '../../interfaces/IArticle'
 import Article from '../../models/Article'
 import dbConnect from '../../utils/dbConnect';
+
 
 const text = {
 	news: {
@@ -16,8 +19,19 @@ const text = {
 }
 
 const PartImage = styled.div`
-	width: 15vw;
-	height: 18vh;
+	width: 20vw;
+	height: 25vh;
+	flex-shrink: 0;
+	margin-right: 1.5vw;
+	background: url(${(props: {imageUrl: string}) => props.imageUrl});
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+`;
+
+const PartImagePortrait = styled.div`
+	width: 50vw;
+	height: 22vh;
 	flex-shrink: 0;
 	margin-right: 1.5vw;
 	background: url(${(props: {imageUrl: string}) => props.imageUrl});
@@ -27,19 +41,14 @@ const PartImage = styled.div`
 `;
 
 interface IStyles {
-	button: CSS.Properties,
-	buttonEdit: CSS.Properties,
-	li: CSS.Properties,
-	title: CSS.Properties,
-	description: CSS.Properties,
-	header: CSS.Properties,
+	[key: string] : CSS.Properties
 }
 
-const renderButtonEdit = () => {
+const renderButtonEdit = (style: IStyles) => {
 		return (
 			<div style={{marginTop: "3vh", textAlign: "center"}}>
 				<Link href="/articles/edit/">
-					<button style={styles.buttonEdit}>Ajouter un nouvel article</button>
+					<button style={style.buttonEdit}>Ajouter un nouvel article</button>
 				</Link>
 			</div>
 		)
@@ -48,26 +57,32 @@ const renderButtonEdit = () => {
 const Articles = (props: any) => {
 
 	const user = useUser();
+	const style = useIsMobile(styles);
+
+	if (style === null)
+		return null
 
 	return (
 		<div className="container" style={{marginBottom: "10vh"}}>
-			<div style={styles.header}>
+			<div style={style.header}>
 				<h2>{text.news.title}</h2>
 			</div>
-			{ user ? renderButtonEdit() : null}
-			<ul style={{padding: "10vh 10vw"}}>
+			{ user ? renderButtonEdit(style) : null}
+			<ul style={style.ul}>
 				{props.articles.map((e: IArticle) => {
 					return (
-						<li style={styles.li}>
-							<div style={{display: "flex", alignItems: "center"}}>
+						<li style={style.li}>
+							{props.isPortrait ?
+								<PartImagePortrait imageUrl={e.urlImage || "https://www.dosimex.fr/static/media/BackGroundHague2_compressed.477d1c3a.png"} />
+							:
 								<PartImage imageUrl={e.urlImage || "https://www.dosimex.fr/static/media/BackGroundHague2_compressed.477d1c3a.png"} />
-								<div>
-									<h3 style={styles.title}>{e.title}</h3>
-									<p style={styles.description}>{e.description}</p>
-									<Link href={`/articles/${e.slug}`}>
-										<button style={styles.button}>Voir plus   →</button>
-									</Link>
-								</div>
+							}
+							<div style={style.divDescrip}>
+								<h3 style={style.title}>{e.title}</h3>
+								<p style={style.description}>{e.description}</p>
+								<Link href={`/articles/${e.slug}`}>
+									<button style={style.button}>Voir plus  →</button>
+								</Link>
 							</div>
 						</li>
 					)}
@@ -115,9 +130,9 @@ export const getStaticProps: GetStaticProps = async (context : GetStaticPropsCon
 	}
 }
 
-export default Articles;
+export default withOrientationChange(Articles);
 
-export const styles: IStyles =  {
+export const styles = (mobile: boolean): IStyles => ({
 	button: {
 		textAlign: "center",
 		backgroundColor: "white",
@@ -135,6 +150,9 @@ export const styles: IStyles =  {
 	},
 	li: {
 		marginBottom: "7vh",
+		display: "flex",
+		alignItems: mobile ? "flex-start" :"center",
+		flexDirection: mobile ? "column" : undefined,
 	},
 	title: {
 		fontSize: "2.5rem",
@@ -147,10 +165,18 @@ export const styles: IStyles =  {
 	description: {
 		marginBottom: "1vh",
 	},
+	divDescrip: mobile ? {
+		width: "90%",
+	}
+	:
+	undefined,
 	header: {
 		textAlign: "center",
 		padding: "20vh auto",
 		marginTop: "15vh",
 		marginBottom: "15vh",
 	},
-}
+	ul: {
+		padding: mobile ? "10vh 0" : "10vh 10vw",
+	}
+})
