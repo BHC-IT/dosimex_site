@@ -111,7 +111,7 @@ export const styles = (mobile: boolean): {[$:string]: CSS.Properties} => ({
 		marginBottom: mobile ? "10vh" : "15vh",
 	},
 	headerSubtitle: {
-		padding: mobile ? "2vh 0" : "4vh 15vw",
+		padding: mobile ? "2vh 0 10vh 0" : "4vh 15vw",
 		color: "var(--grey)",
 		fontSize: mobile ? "1.6rem" : "1.8rem",
 	},

@@ -5,7 +5,7 @@ import IUser from '../../interfaces/IUser';
 import jwt from 'jsonwebtoken';
 import { comparePassword } from '../../utils/bcrypt';
 
-const validIp = ['127.0.0.1'];
+const validIp = ['127.0.0.1', '192.168.1.14'];
 
 const findUser = async (username: string) : Promise<[number, object]> => {
 	try {

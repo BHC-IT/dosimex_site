@@ -1,12 +1,14 @@
 import CSS from 'csstype';
 import Radium from 'radium';
 import { useIsMobile } from '../Hooks/useIsMobile';
+import { withOrientationChange } from 'react-device-detect';
 
 interface IProps {
 	author: string,
 	text: string,
 	href: string,
 	imageUrl: string,
+	isLandscape: boolean,
 }
 
 const Book = (props: IProps) => {
@@ -22,7 +24,7 @@ const Book = (props: IProps) => {
 		<div style={style.flex}>
 			<div style={style.divBook}>
 				<a href={`${props.href}`} target="_blank" rel="noreferrer noopener">
-					<div style={{...styleBook, backgroundImage: url}}></div>
+					<div style={props.isLandscape ? {...styleBook, backgroundImage: url, height: "80vh", width: "30vw"} : {...styleBook, backgroundImage: url}}></div>
 				</a>
 				<p style={style.author}>{props.author}</p>
 
@@ -34,11 +36,11 @@ const Book = (props: IProps) => {
 	);
 }
 
-export default Radium(Book);
+export default withOrientationChange(Radium(Book));
 
 export const stylesBook = (mobile: boolean): CSS.Properties => ({
 	width: mobile ? "55vw" : "15vw",
-	height: "43vh",
+	height: "45vh",
 	cursor: "pointer",
 	backgroundPosition: 'center',
 	backgroundRepeat: 'no-repeat',

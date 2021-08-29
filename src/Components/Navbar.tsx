@@ -6,19 +6,24 @@ import LanguageSwitch from './LanguageSwitch';
 import Link from 'next/link';
 import Image from 'next/image';
 import { withRouter, NextRouter } from 'next/router';
-
 import { withText } from '../hoc/withText';
 import { withIsMobile } from '../hoc/withIsMobile';
-
-interface IState {
-}
+import { slide as Menu } from 'react-burger-menu';
+import SideBar from "./SideBar";
+import {
+	BrowserView,
+	MobileView,
+	withOrientationChange,
+	isTablet,
+	isMobile,
+} from "react-device-detect";
 
 interface IPage {
 	route: string,
 }
 
 interface WithRouterProps {
-  router: NextRouter
+	router: NextRouter
 }
 
 interface IProps extends WithRouterProps {
@@ -71,33 +76,40 @@ class Navbar extends React.Component<IProps, IState> {
 			return null
 
 		return (
-			<nav style={this.props.style.navbar}>
-				<ul style={this.props.style.navbarUl}>
-						<li style={this.props.style.navbarLi}>
-							<Link href="/">
-								<Image
-									src="/Images/logo_dosimex_new.png"
-									alt="logo dosimex"
-									width={`${212 * ratio}rem`}
-									height={`${44 * ratio}rem`}
-								/>
-							</Link>
-						</li>
-					<this.renderNav/>
-					<LanguageSwitch route={this.props.router.pathname} language={this.props.router.locale}/>
-				</ul>
-				<Button
-					name={this.props.text.button}
-					route="Product"
-				/>
-			</nav>
+			<>
+				<BrowserView className="divNone">
+					<nav style={this.props.style.navbar}>
+						<ul style={this.props.style.navbarUl}>
+								<li style={this.props.style.navbarLi}>
+									<Link href="/">
+										<Image
+											src="/Images/logo_dosimex_new.png"
+											alt="logo dosimex"
+											width={`${212 * ratio}rem`}
+											height={`${44 * ratio}rem`}
+										/>
+									</Link>
+								</li>
+							<this.renderNav/>
+							<LanguageSwitch route={this.props.router.pathname} language={this.props.router.locale}/>
+						</ul>
+						<Button
+							name={this.props.text.button}
+							route="Product"
+						/>
+					</nav>
+				</BrowserView>
+					<div id="containerNav">
+						<SideBar pageWrapId={"page-wrap"} outerContainerId={"containerNav"}/>
+					</div>
+			</>
 		);
 	}
 }
 
 export const styles = (mobile: boolean): IStyles => ({
 	navbar: {
-		display: mobile ? "none" : "flex",
+		display: "flex",
 		alignItems: "center",
 		justifyContent: "space-between",
 		padding: "0 10vw",

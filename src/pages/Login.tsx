@@ -13,7 +13,6 @@ export default () => {
 	const user = useUser();
 
 	React.useEffect(() => {
-		console.log(user)
 		if(user)
 			router.push('/')
 	})
