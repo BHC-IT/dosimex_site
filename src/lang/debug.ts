@@ -63,12 +63,13 @@ const text : ILang = {
 		packOpe: {
 			title: "{Software.packOpe.title}",
 			descrip: "{Software.packOpe.descrip}",
-			liTitles: ["{Software.packOpe.liTitle[0]}", "{Software.packOpe.liTitle[1]}", "{Software.packOpe.liTitle[2]}", "{Software.packOpe.liTitle[3]}"],
+			liTitles: ["{Software.packOpe.liTitle[0]}", "{Software.packOpe.liTitle[1]}", "{Software.packOpe.liTitle[2]}", "{Software.packOpe.liTitle[3]}", "{Software.packOpe.liTitle[4]}"],
 			li: [
 				"{Software.packOpe.li[0]}",
 				"{Software.packOpe.li[1]}",
 				"{Software.packOpe.li[2]}",
 				"{Software.packOpe.li[3]}",
+				"{Software.packOpe.li[4]}",
 			],
 		},
 		packPeda: {

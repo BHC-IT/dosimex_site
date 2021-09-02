@@ -7,7 +7,7 @@ import { useText } from '../Hooks/useText';
 import ILang from '../lang/interface';
 
 interface IMapOfStyle {
-	[i: string]: CSS.Properties
+	[i: string]: CSS.Properties | Function
 }
 
 interface IMapOf<A> {
@@ -117,11 +117,11 @@ const Header = ({text, style} : IHeaderProps) =>
 const Separator = ({right, color, style} : ISeparatorProps) =>	<div style={style.container(right)}><div style={style.line(color)}/></div>
 
 const LabelVideo = ({color, label, style} : ILabelVideoProps) =>
-	<div style={{...center, ...{position: "relative", marginBottom: "1rem"}, ...style.none}}>
+	<div style={{...center, ...{position: "relative", marginBottom: "1rem"}}}>
 		<div style={style.itemLabel(color)}>
-			<div style={{margin: "0", padding: "18px 60px"}}></div>
+			<p style={{margin: "0"}}>{label}</p>
 		</div>
-		<p style={{...style.none, ...{position: "absolute", color: color}}}>{label}</p>
+		<p style={{position: "absolute", color: color}}>{label}</p>
 	</div>
 
 const ItemVideo = ({color, label, id_yt, style} : IItemVideoProps) =>
@@ -130,7 +130,7 @@ const ItemVideo = ({color, label, id_yt, style} : IItemVideoProps) =>
 		<YouTube videoId={id_yt} opts={opts_yt}/>
 	</div>
 
-const VideosLine = ({color, videoIds, text, label, style} : IItemVideoProps) =>
+const VideosLine = ({color, videoIds, text, label, style} : IVideosLineProps) =>
 	<div style={style.container}>
 		{videoIds.map((id) => {
 			return <ItemVideo color={color} label={label} id_yt={id} style={style}/>
@@ -305,11 +305,9 @@ export const styles = (mobile: boolean): IStyles => ({
 				borderRadius: "50px",
 				padding: "0.5rem 2rem",
 				opacity: "0.1",
+				color: color,
 			}
 		},
-		none: {
-			display: mobile ? "none" : undefined,
-		}
 	},
 })
 

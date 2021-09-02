@@ -2,13 +2,9 @@ import * as React from 'react';
 import Button from '../Components/Button';
 import CSS from 'csstype';
 import Image from 'next/image';
+import ILang from '../lang/interface';
 import Link from 'next/link';
 import styled from 'styled-components';
-
-import '@fortawesome/fontawesome-svg-core/styles.css';
-import { config } from '@fortawesome/fontawesome-svg-core';
-
-config.autoAddCss = false; /* eslint-disable import/first */
 
 import { useText } from '../Hooks/useText';
 import { useIsMobile } from '../Hooks/useIsMobile';
@@ -18,8 +14,26 @@ import {
 	MobileView,
 } from "react-device-detect";
 
-interface IStyles {
-	[key: string] : CSS.Properties
+import { parseStringLink, handleLink, isLink } from '../utils/parseStringLink';
+
+interface IMapOfStyle {
+	[i: string]: CSS.Properties
+}
+
+interface IMapOf<A> {
+	[i: string]: A
+}
+
+type IStyles = IMapOf<CSS.Properties | IMapOfStyle>
+
+interface IProps {
+	text: ILang,
+	style: IStyles,
+}
+
+interface ILiLabelProps {
+	text: string,
+	style: IMapOfStyle,
 }
 
 const Questions = ({text, style} : IProps) =>
@@ -28,6 +42,19 @@ const Questions = ({text, style} : IProps) =>
 		<p style={style.text} >{text.ask.text}</p>
 		<Button name={text.ask.labelButton} route="Contact"/>
 	</div>
+
+const LiLabel = ({text, style} : ILiLabelProps) =>
+	<p style={style.global}>
+	{
+		parseStringLink(text).map(e => isLink(e) ?
+			<>
+				<a href={handleLink(e)[1]} target="_blank" rel="noreferrer noopener" style={style.link}>{handleLink(e)[0]}</a>
+			</>
+		:
+		<p style={{display: "inline"}}>{e}</p>
+		)
+	}
+	</p>;
 
 const LinkZone = styled.li`
 	display: flex;
@@ -126,9 +153,10 @@ const LiTitle = styled.h5`
 	width: 15vw;
 `;
 
-const LiLabel= styled.p`
-	margin-left: 1vw;
-`;
+// const LiLabel= styled.p`
+// 	margin-left: 1vw;
+// `;
+
 
 const hashes = ["#op", "#pedago", "#mesure"]
 
@@ -194,12 +222,9 @@ const Software = () => {
 					{text.packOpe.liTitles.map((e : string, i : number) =>
 						<CodeSection key={e} style={{marginTop: i === 0 ? '5vh' : 0}} >
 							<LiTitle >{e}</LiTitle>
-							<LiLabel >{text.packOpe.li[i]}</LiLabel>
+							<LiLabel text={text.packOpe.li[i]} style={style.liLabel}/>
 						</CodeSection>
 					)}
-					<div style={{marginTop: '5vh'}} >
-						<Button name={text.button.label} route="Videos"/>
-					</div>
 				</div>
 				<div style={{display:'flex', flexDirection:'column', marginTop: '25vh', width: '100%', alignItems: 'center' }}>
 					<div ref={pedaRef} style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', width: '100%' }}>
@@ -216,12 +241,9 @@ const Software = () => {
 					{text.packPeda.liTitles.map((e : string, i : number) =>
 						<CodeSection key={e} style={{marginTop: i === 0 ? '5vh' : 0}} >
 							<LiTitle >{e}</LiTitle>
-							<LiLabel >{text.packPeda.li[i]}</LiLabel>
+							<LiLabel text={text.packPeda.li[i]} style={style.liLabel}/>
 						</CodeSection>
 					)}
-					<div style={{marginTop: '5vh'}} >
-						<Button name={text.button.label} route="Videos"/>
-					</div>
 				</div>
 				<div style={{display:'flex', flexDirection:'column', marginTop: '25vh', width: '100%', alignItems: 'center' }}>
 					<div ref={mesureRef} style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', width: '100%' }}>
@@ -238,10 +260,10 @@ const Software = () => {
 					{text.packMes.liTitles.map((e : string, i : number) =>
 						<CodeSection key={e} style={{marginTop: i === 0 ? '5vh' : 0}} >
 							<LiTitle >{e}</LiTitle>
-							<LiLabel >{text.packMes.li[i]}</LiLabel>
+							<LiLabel text={text.packMes.li[i]} style={style.liLabel}/>
 						</CodeSection>
 					)}
-					<div style={{marginTop: '5vh'}} >
+					<div style={{marginTop: '8vh'}} >
 						<Button name={text.button.label} route="Videos"/>
 					</div>
 				</div>
@@ -256,12 +278,9 @@ const Software = () => {
 					{text.packOpe.liTitles.map((e : string, i : number) =>
 						<div key={e} style={{marginTop: i === 0 ? '5vh' : 0}} >
 							<p style={style.pLi}>{e}</p>
-							<p style={style.descripLi}>{text.packOpe.li[i]}</p>
+							<LiLabel text={text.packOpe.li[i]} style={style.liLabel}/>
 						</div>
 					)}
-					<div style={{margin: '8vh auto', textAlign: "center"}} >
-						<Button name={text.button.label} route="Videos"/>
-					</div>
 				</div>
 				<div style={style.divPack}>
 					<div ref={pedaRef} style={style.divPackHeader}>
@@ -271,12 +290,9 @@ const Software = () => {
 					{text.packPeda.liTitles.map((e : string, i : number) =>
 						<div key={e} style={{marginTop: i === 0 ? '5vh' : 0}} >
 							<p style={style.pLi}>{e}</p>
-							<p style={style.descripLi}>{text.packPeda.li[i]}</p>
+							<LiLabel text={text.packPeda.li[i]} style={style.liLabel}/>
 						</div>
 					)}
-					<div style={{margin: '8vh auto', textAlign: "center"}} >
-						<Button name={text.button.label} route="Videos"/>
-					</div>
 				</div>
 				<div style={style.divPack}>
 					<div ref={mesureRef} style={style.divPackHeader}>
@@ -286,7 +302,8 @@ const Software = () => {
 					{text.packMes.liTitles.map((e : string, i : number) =>
 						<div key={e} style={{marginTop: i === 0 ? '5vh' : 0}} >
 							<p style={style.pLi}>{e}</p>
-							<p style={style.descripLi}>{text.packMes.li[i]}</p>
+							{/*<p style={style.descripLi}>{text.packMes.li[i]}</p>*/}
+							<LiLabel text={text.packMes.li[i]} style={style.liLabel}/>
 						</div>
 					)}
 					<div style={{margin: '8vh auto', textAlign: "center"}} >
@@ -406,7 +423,14 @@ export const styles = (mobile: boolean): IStyles => ({
 	pLi: {
 		fontWeight: "bold",
 	},
-	descripLi: {
-		fontSize: "1.6rem",
-	},
+	liLabel: {
+		link: {
+			cursor: "pointer",
+			textDecoration: "underline",
+			display: "inline",
+		},
+		global: {
+			marginLeft: "1vw",
+		}
+	}
 })

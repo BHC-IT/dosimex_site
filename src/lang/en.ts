@@ -58,36 +58,37 @@ const text : ILang = {
 			li: ["Operational pack", "Educational pack", "Measurement pack"]
 		},
 		button: {
-			label: "Check out the videos",
+			label: "Check out all videos",
 		},
 		packOpe: {
 			title: "Operational pack",
 			descrip: "These calculation tools enable to estimate the radiological risks at their correct levels and to design the necessary protections",
-			liTitles: ["DOSIMEX-GX 3.0", "DOSIMEX-B 3.0", "DOSIMEX-N 3.0", "DOSIMEX-I 3.0"],
-			li: [	"Deterministic calculation code of dose rate for gamma emitters and X generators, with the option of a spreadsheet according to NF C15-160 /2018. With many options: sky effect, braking radiation, zoning, build-up",
-				"Deterministic calculation code of beta emitter dose rate and monoenergetic electrons. Taking into account volumetric sources (beaker, syringe) or surface sources (skin contamination)",
-				"Monte-Carlo calculation code of neutron emitter dose rate (Am/Be type) with biological protection (water, polyethylene, Boron, Cadmium etc..). Pedagogical module with neutron trajectory visualization",
-				"nternal exposure calculation code. Consideration of leakage kinetics, renewal, deposition on the ground. Atmospheric transfer calculations. Calculation of RAI/RAV/RCA mix"
+			liTitles: ["DOSIMEX-GX 3.0", "DOSIMEX-B 3.0", "DOSIMEX-N 3.0", "DOSIMEX-I 3.0", "DOSIMEX-MN 1.0"],
+			li: [	"deterministic calculation code of dose rate for [gamma emitters](https://www.youtube.com/watch?v=E5eWKTJaNxQ) and [X generators](https://www.youtube.com/watch?v=wkuVxTBXc8g), with the option of a spreadsheet according to NF C15-160 /2018. With many options: sky effect, braking radiation, zoning, build-up",
+				"[deterministic calculation code](https://www.youtube.com/watch?v=4Cfya_rHa04) of beta emitter dose rate and monoenergetic electrons. Taking into account volumetric sources (beaker, syringe) or surface sources (skin contamination)",
+				"[Monte-Carlo calculation code](https://www.youtube.com/watch?v=7emAJHES-fw) of neutron emitter dose rate (Am/Be type) with biological protection (water, polyethylene, Boron, Cadmium etc..). Pedagogical module with neutron trajectory visualization",
+				"[internal exposure calculation code](https://www.youtube.com/watch?v=4Cfya_rHa04). Consideration of leakage kinetics, renewal, deposition on the ground. Atmospheric transfer calculations. Calculation of RAI/RAV/RCA mix",
+				"[data management utility](https://www.youtube.com/watch?v=sj-FVjP87jA) to know the absorbed doses per unit of activity administered for ICRP 53, 80, 106 and 128 radiopharmaceuticals"
 			],
 		},
 		packPeda: {
 			title: "Educational pack",
 			descrip: "They provide a better understanding of the physics of radiation-matter interaction, which is the source of the generated doses, as well as of the protective capacities of the screens that can be used",
 			liTitles: ["Photon MRI 3.0", "MRI charged particles 3.0", "Serious Game 3.0", "ICRU 57 coefficients 3.0"],
-			li: [	"utility implementing the principles of photon-matter interactions in materials with various applications: calculation of kerma, dose, mean free path, Compton effect, visualization of trajectories (Monte-Carlo)",
-				"utility implementing the principles of charged particle-matter interactions in materials with various applications: path calculation, fluence-dose coefficient, application to beta spectra",
-				"utility with pedagogical vocation allowing to highlight the essential parameters of the radioprotection: distance, time, screen, activity, nature radionuclide",
-				"utility allowing to know the fluence-dose equivalent coefficients and normalized air kerma for electrons, photons and neutrons."
+			li: [	"[utility](https://www.youtube.com/watch?v=cBQ5-CiqqT4) implementing the principles of photon-matter interactions in materials with various applications: calculation of kerma, dose, mean free path, Compton effect, visualization of trajectories (Monte-Carlo)",
+				"[utility](https://www.youtube.com/watch?v=vXT2h8GJ8Qk) implementing the principles of charged particle-matter interactions in materials with various applications: path calculation, fluence-dose coefficient, application to beta spectra",
+				"[utility](https://www.youtube.com/watch?v=pYbgwudKniA) with pedagogical vocation allowing to highlight the essential parameters of the radioprotection: distance, time, screen, activity, nature radionuclide",
+				"[utility](https://www.youtube.com/watch?v=Ltk5x2dW_VI) allowing to know the fluence-dose equivalent coefficients and normalized air kerma for electrons, photons and neutrons."
 			],
 		},
 		packMes: {
 			title: "Measurement pack",
 			descrip: "Utilities related to the measurement of ionizing radiation",
 			liTitles: ["TAGE code (Total Absorption Gamma Efficiency)", "Co3 code", "Random variables composition", "Decision threshold calculation"],
-			li: [	"deterministic code calculating the total absorption yield in gamma spectrometry, with dead layer correction (characterization), coincidence correction and yield of sum peaks",
-				"code for calculating the Conversion Coefficient of Contaminameters allowing to calculate the yields (Bq/cm2/ cps) of various ictometers and to obtain the surface activities versus the nature of the probe and the isotopic spectrum measured.",
+			li: [	"[deterministic code](https://www.youtube.com/watch?v=vSI75UZ_9UQ) calculating the total absorption yield in gamma spectrometry, with dead layer correction (characterization), coincidence correction and yield of sum peaks",
+				"[code](https://www.youtube.com/watch?v=2Mq-TR8cG-o) for calculating the Conversion Coefficient of Contaminameters allowing to calculate the yields (Bq/cm2/ cps) of various ictometers and to obtain the surface activities versus the nature of the probe and the isotopic spectrum measured.",
 				"utility allowing to combine by Monte-Carlo method up to 5 variables of different types. This utility is accompanied by complete course documents on the subject of uncertainty calculations",
-				"utility to determine the decision threshold and the detection limit in nuclear measurement. This utility is accompanied by the course materials."
+				"[utility](https://www.youtube.com/watch?v=aA4QUutuaJc) to determine the decision threshold and the detection limit in nuclear measurement. This utility is accompanied by the course materials."
 			],
 		},
 		more: {
