@@ -13,45 +13,40 @@ const handleParenthesis = (array: string[]): string[][] => completeParenthesis(a
 export const parseStringLink = (str: string): string[] => handleParenthesis(separateLinksFromText(str)).flat().filter(x => x != '')
 
 
-export const parseStringLink2 = (str: string): string[] => {
-	let strArray = str.split('[');
-	let i = 0;
-	for (let i = 1; i < strArray.length; i++) {
-		strArray[i] = '[' + strArray[i];
-	}
-	let strArray2 = strArray.map(x => x.split(')'));
-	while (i < strArray2.length) {
-		if (strArray2[i].length > 1 ) {
-			for (let j = 0; j < strArray2[i].length - 1 ; j++) {
-				strArray2[i][j] = strArray2[i][j] + ')';
-			}
-		}
-		i++
-	}
-	return strArray2.flat().filter(x => x != '');
-}
-
 
 export const isLink = (str: string): boolean => str[0] === '[' && str[str.length - 1] === ')' && str.includes('](')
 
 export const handleLink = (str: string): [text: string, link: string] => {
-	let link = str.split(']');
+	let link = str.split(']')
 	return [link[0].replace(link[0], link[0].substring(1)),
 		link[1].replace(link[1], link[1].substring(1, link[1].length - 1))
 	]
 }
-// const truc = () =>
-// <>
-// {
-//   arr.map(e => {
-//     if (isLink(e)
-//       return handleLink(e)
-//     else
-//       return <p>{e}</p>
-//   })
-// }
-// </>
 
+// OTHER VERSION
+//
+// export const parseStringLink2 = (str: string): string[] => {
+// 	let strArray = str.split('[')
+// 	let i = 0
+// 	for (let i = 1; i < strArray.length; i++) {
+// 		strArray[i] = '[' + strArray[i]
+// 	}
+// 	let strArray2 = strArray.map(x => x.split(')'));
+// 	while (i < strArray2.length) {
+// 		if (strArray2[i].length > 1 ) {
+// 			for (let j = 0; j < strArray2[i].length - 1 ; j++) {
+// 				strArray2[i][j] = strArray2[i][j] + ')'
+// 			}
+// 		}
+// 		i++
+// 	}
+// 	return strArray2.flat().filter(x => x != '')
+// }
+
+
+
+// TEST
+//
 // "this is kind of a test to check if links (Markdown)[Markdown doc](https://www.google.com) are correctly parsed. arr[0] should be a normal test"
 // // =>
 // [

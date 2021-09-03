@@ -1,6 +1,7 @@
 import Button from '../Components/Button';
 import CardHome from '../Components/CardHome';
 import OpinionHome from '../Components/OpinionHome';
+import PartnersCarousel from '../Components/PartnersCarousel';
 import Image from 'next/image';
 import * as CSS from 'csstype';
 import { useText } from '../Hooks/useText';
@@ -64,9 +65,8 @@ function Home(props: IProps) {
 
 			<section>
 				<h3 style={style.partners.title}>{text.partners.title}</h3>
-				<div className="container" style={style.partners.banner}>
-					<div>Map component Partners</div>
-					{/*<Carousel />*/}
+				<div style={style.partners.banner}>
+					<PartnersCarousel />
 				</div>
 			</section>
 
@@ -211,8 +211,10 @@ export const styles = (mobile: boolean): IStyles => ({
 		},
 		banner: {
 			backgroundColor: "var(--main)",
-			height: "100%",
-			color: "var(--light)",
+			height: mobile ? "45vh" : "32vh",
+			paddingTop: "8vh",
+			paddingLeft: "5%",
+			paddingRight: "5%",
 		},
 	},
 	offers: {

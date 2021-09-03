@@ -1,10 +1,8 @@
 import React from "react";
-import * as CSS from 'csstype';
 import Button from './Button';
 import LanguageSwitch from './LanguageSwitch';
 import Link from 'next/link';
 import { slide as Menu } from "react-burger-menu";
-import { withText } from '../hoc/withText';
 import ItemNavbar from './ItemNavbar';
 import Image from 'next/image';
 import { useText } from '../Hooks/useText';
@@ -12,6 +10,10 @@ import { withRouter, NextRouter } from 'next/router';
 
 interface WithRouterProps {
 	router: NextRouter
+}
+
+interface IPage {
+	route: string,
 }
 
 interface IProps extends WithRouterProps {
@@ -45,7 +47,7 @@ const RenderNav = ({text} : any) => {
 
 const ratio = 0.5;
 
-const SideBar = (props) => {
+const SideBar = (props: IProps) => {
 	const text = useText('Navbar');
 
 	return (
@@ -72,4 +74,4 @@ const SideBar = (props) => {
 	);
 };
 
-export default withRouter(SideBar, "Navbar");
+export default withRouter(SideBar);

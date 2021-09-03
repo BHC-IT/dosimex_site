@@ -9,6 +9,7 @@ export default interface Lang {
 		},
 		partners: {
 			title: string,
+			li: string[],
 		},
 		offers: {
 			title: string,
