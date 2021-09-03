@@ -32,12 +32,12 @@ interface ICardProps {
 
 const responsive = {
 	desktop: {
-		breakpoint: { max: 3000, min: 1024 },
+		breakpoint: { max: 3000, min: 1200 },
 		items: 3,
 		slidesToSlide: 3 // optional, default to 1.
 	},
 	tablet: {
-		breakpoint: { max: 1024, min: 464 },
+		breakpoint: { max: 1200, min: 464 },
 		items: 2,
 		slidesToSlide: 2 // optional, default to 1.
 	},
@@ -104,13 +104,11 @@ const Card = ({text, style, link, url}: ICardProps) => {
 
 	const [over, setOver] = React.useState<boolean>(false);
 	return (
-		<div style={{display: "flex", justifyContent: "center", alignItems: "center", flexDirection: isMobile ? "column" : undefined}}>
-			<div style={style.wrapper} onMouseOver={() => setOver(true)} onMouseOut={() => setOver(false)}>
-				<a href={url} target="_blank" rel="noopener noreferrer">
-					<div style={{...style.img, backgroundImage: `url(Images/${link})`}}></div>
-				</a>
-			</div>
-			<p style={{...style.text, display: isMobile ? "block" : over ? "block" : "none"}}>{text}</p>
+		<div style={{display: "flex", justifyContent: "center", alignItems: isTablet ? "flex-start" : "center", flexDirection: isMobile ? "column" : undefined}} onMouseOut={() => setOver(false)}>
+			<a href={url} target="_blank" rel="noopener noreferrer" style={style.wrapper} onMouseOver={() => setOver(true)}>
+				<div style={{...style.img, backgroundImage: `url(Images/${link})`}}></div>
+			</a>
+			<p style={{...style.text, display: isMobile ? "block" : over ? "block" : "none"}} onMouseOver={() => setOver(true)}>{text}</p>
 		</div>
 	)
 }
@@ -171,7 +169,8 @@ export const styles = (mobile: boolean): IStyles => ({
 			backgroundSize: "contain",
 		},
 		text: {
-			color: "var(--light)",
+			cursor: "pointer",
+			color: mobile ? "var(--dark)" : "var(--grey)",
 			textAlign: "justify",
 			fontSize: "1.6rem",
 			marginLeft: "1vw",

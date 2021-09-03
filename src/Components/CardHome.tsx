@@ -57,6 +57,7 @@ export const styles = (mobile: boolean): IStyles => ({
 	global: {
 		width: mobile ? "100%" : "28%",
 		marginBottom: mobile ? "5vh" : undefined,
+		minWidth: mobile ? undefined : "250px",
 	},
 	button: {
 		width: "40px",
