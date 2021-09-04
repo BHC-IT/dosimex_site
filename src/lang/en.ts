@@ -6,7 +6,7 @@ const text : ILang = {
 			title: "The reference of calculation tools for radiation protection",
 			p: "A set of practical, easy-to-use, validated calculation tools that address many situations encountered in radiation protection. They will allow you to improve your level of expertise.",
 			button: "Discover",
-			textImage: ["Dosimex GX X Generator"],
+			textImage: ["Dosimex GX X-ray Generator"],
 		},
 		partners: {
 			title: "Partners",
@@ -56,7 +56,7 @@ const text : ILang = {
 		opinion: {
 			name: "Jean-Lionel Trolet",
 			job: "EAMEA",
-			opinion: "I use DOSIMEX, which gives me total satisfaction, both by the quality of its results and its ease of use, in the training of personnel from the Ministry of the Armed Forces. It has, among other things, the strength of taking into account common situations faced by MinArm agents, both in the roles of medical PCRs (thanks to the X calculation module!) as well as those involved at all levels in the industrial field (from PNR to engineer). Finally, it is so easy to use that almost all the PCRs we train have adopted it in their units.",
+			opinion: "I use DOSIMEX, which gives me total satisfaction, both by the quality of its results and its ease of use, in the training of personnel from the Ministry of the Armed Forces. It has, among other things, the strength of taking into account common situations faced by MinArm agents, both in the roles of medical PCRs (thanks to the X-ray calculation module!) as well as those involved at all levels in the industrial field (from PNR to engineer). Finally, it is so easy to use that almost all the PCRs we train have adopted it in their units.",
 			btn: "More reviews",
 		},
 		callToAction: {
@@ -77,7 +77,7 @@ const text : ILang = {
 			title: "Operational pack",
 			descrip: "These calculation tools enable to estimate the radiological risks at their correct levels and to design the necessary protections",
 			liTitles: ["DOSIMEX-GX 3.0", "DOSIMEX-B 3.0", "DOSIMEX-N 3.0", "DOSIMEX-I 3.0", "DOSIMEX-MN 1.0"],
-			li: [	"deterministic calculation code of dose rate for [gamma emitters](https://www.youtube.com/watch?v=E5eWKTJaNxQ) and [X generators](https://www.youtube.com/watch?v=wkuVxTBXc8g), with the option of a spreadsheet according to NF C15-160 /2018. With many options: sky effect, braking radiation, zoning, build-up",
+			li: [	"deterministic calculation code of dose rate for [gamma emitters](https://www.youtube.com/watch?v=E5eWKTJaNxQ) and [X-ray generators](https://www.youtube.com/watch?v=wkuVxTBXc8g), with the option of a spreadsheet according to NF C15-160 /2018. With many options: sky effect, braking radiation, zoning, build-up",
 				"[deterministic calculation code](https://www.youtube.com/watch?v=4Cfya_rHa04) of beta emitter dose rate and monoenergetic electrons. Taking into account volumetric sources (beaker, syringe) or surface sources (skin contamination)",
 				"[Monte-Carlo calculation code](https://www.youtube.com/watch?v=7emAJHES-fw) of neutron emitter dose rate (Am/Be type) with biological protection (water, polyethylene, Boron, Cadmium etc..). Pedagogical module with neutron trajectory visualization",
 				"[internal exposure calculation code](https://www.youtube.com/watch?v=4Cfya_rHa04). Consideration of leakage kinetics, renewal, deposition on the ground. Atmospheric transfer calculations. Calculation of RAI/RAV/RCA mix",
@@ -90,7 +90,7 @@ const text : ILang = {
 			liTitles: ["Photon MRI 3.0", "MRI charged particles 3.0", "Serious Game 3.0", "ICRU 57 coefficients 3.0"],
 			li: [	"[utility](https://www.youtube.com/watch?v=cBQ5-CiqqT4) implementing the principles of photon-matter interactions in materials with various applications: calculation of kerma, dose, mean free path, Compton effect, visualization of trajectories (Monte-Carlo)",
 				"[utility](https://www.youtube.com/watch?v=vXT2h8GJ8Qk) implementing the principles of charged particle-matter interactions in materials with various applications: path calculation, fluence-dose coefficient, application to beta spectra",
-				"[utility](https://www.youtube.com/watch?v=pYbgwudKniA) with pedagogical vocation allowing to highlight the essential parameters of the radioprotection: distance, time, screen, activity, nature radionuclide",
+				"[utility](https://www.youtube.com/watch?v=pYbgwudKniA) with pedagogical vocation allowing to highlight the essential parameters of the radioprotection: distance, time, screen, activity, radionuclide nature",
 				"[utility](https://www.youtube.com/watch?v=Ltk5x2dW_VI) allowing to know the fluence-dose equivalent coefficients and normalized air kerma for electrons, photons and neutrons."
 			],
 		},
@@ -100,7 +100,7 @@ const text : ILang = {
 			liTitles: ["TAGE code (Total Absorption Gamma Efficiency)", "Co3 code", "Random variables composition", "Decision threshold calculation"],
 			li: [	"[deterministic code](https://www.youtube.com/watch?v=vSI75UZ_9UQ) calculating the total absorption yield in gamma spectrometry, with dead layer correction (characterization), coincidence correction and yield of sum peaks",
 				"[code](https://www.youtube.com/watch?v=2Mq-TR8cG-o) for calculating the Conversion Coefficient of Contaminameters allowing to calculate the yields (Bq/cm2/ cps) of various ictometers and to obtain the surface activities versus the nature of the probe and the isotopic spectrum measured.",
-				"utility allowing to combine by Monte-Carlo method up to 5 variables of different types. This utility is accompanied by complete course documents on the subject of uncertainty calculations",
+				"utility allowing to combine up to 5 variables of different types by Monte-Carlo method. This utility is accompanied by complete course documents on the subject of uncertainty calculations",
 				"[utility](https://www.youtube.com/watch?v=aA4QUutuaJc) to determine the decision threshold and the detection limit in nuclear measurement. This utility is accompanied by the course materials."
 			],
 		},
@@ -109,7 +109,7 @@ const text : ILang = {
 			links: ["Dosimex-GX user manuals to discover all its possibilities",
 				"complete validation files",
 				"gamma source validation extracts",
-				"X generator validation",
+				"X-ray generator validation",
 				"What's new in Dosimex-GX 3.0"
 			]
 		},
@@ -125,9 +125,9 @@ const text : ILang = {
 			p: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. At purus risus, dictum auctor massa quam scelerisque. Nibh lobortis feugiat orci donec mauris turpis sagittis malesuada nibh."
 		},
 		gerald: {
-			p: [	"I began my career in 1997 in the French Navy as an electrical technician on weapons systems. After training as a radiation protection technician (RT), I joined the SPR at Ile Longue, with various missions focused on nuclear-powered ballistic missile submarines (SNLE): radiological assistance, reactor compartment mapping, radiological analyses in the medium activity laboratory, nuclear safety exercises...",
-				"In 2003, after training as a senior technician in radiation protection (TSR) at the INSTN, I joined the Ecole des Applications Militaire à l'Energie Atomique (EAMEA) where I taught radioactivity, radiation protection, dosimetry, and nuclear measurement. From that time on, to compensate for the obvious lack of tools, I started to create my own calculation tools in order to carry out simple and fast tutorials as part of my teaching",
-				"In 2010, I joined the SPR of the Cherbourg Arsenal in charge of the 2SNM (Marine Nuclear Monitoring System), a system linked to the National Measurement Network (RNM). This experience allowed me, among other things, to create the Dosimex-I code, particularly on the atmospheric transfer option.",
+			p: [	"I began my career in 1997 in the French Navy as an electrical technician on weapons systems. After training as a radiation protection technician (RT), I joined the RPD at Ile Longue, with various missions focused on nuclear-armed ballistic missile submarines (SNLE): radiological assistance, reactor compartment mapping, radiological analyses in the medium activity laboratory, nuclear safety exercises...",
+				"In 2003, after training as a senior technician in radiation protection (TRS) at the INSTN, I joined the Ecole des Applications Militaire à l'Energie Atomique (EAMEA) where I taught radioactivity, radiation protection, dosimetry, and nuclear measurement. From that time on, to compensate for the obvious lack of tools, I started to create my own calculation tools in order to carry out simple and fast tutorials as part of my teaching.",
+				"In 2010, I joined the RDP of the Cherbourg Arsenal in charge of the 2SNM (Marine Nuclear Monitoring System), a system linked to the National Measurement Network (NMN). This experience allowed me, among other things, to create the Dosimex-I code, particularly on the atmospheric transfer option.",
 				"Since 2013, after having published in collaboration with Alain Vivier, the book 'Calculation of dose generated by ionizing radiation', I joined the radiation protection department of the Orano site at La Hague where I was confronted with most of the site's radiation protection problems:",
 				"In most of the radiation protection problems I had to face, the Dosimex tools were very useful to analyze the radiological risk. Conversely, feedback has allowed me to enrich these codes.",
 			],
@@ -141,14 +141,14 @@ const text : ILang = {
 		alain: {
 			p: [	"After studying at the Ecole de l'Air (class of '80) and being assigned to a Mirage IV maintenance unit, I was designated to be a PCR for X-rays on canopies. Apart from the X-ray generator, I had neither a radiation meter nor any calculation tools at the time, so I had no idea of the radiological risk involved. This experience undoubtedly sowed the seeds for the future",
 				"In 1990, I joined the Ecole Atomique de Cherbourg to do an atomic engineering degree. I was lucky enough to be able to stay there as a teacher.",
-				"Responsible for teaching nuclear physics and a measurement laboratory, I began to understand the phenomena of radiation-matter interaction and realized that it should be possible to calculate, not just measure, a dose rate from a 1 GBq source of Cesium 137 placed at 1 m. My assistant, a TSR by training, answered me: 'yes, it is possible, it is called dosimetry'. I understood, through this anecdote, that this subject was not sufficiently taught in the training courses.",
+				"Responsible for teaching nuclear physics and a measurement laboratory, I began to understand the phenomena of radiation-matter interaction and realized that it should be possible to calculate, not just measure, a dose rate from a 1 GBq source of Cesium 137 placed at 1 m. My assistant, a TRS by training, answered me: 'yes, it is possible, it is called dosimetry'. I understood, through this anecdote, that this subject was not sufficiently taught in the training courses.",
 				"My first modeling experience involved the calculation of the stopping power of charged particles, using Bethe's formula (see Appendix E). I was then struck by the agreement between the theoretical prediction and the results of measurements with conversion electrons and thin copper targets. This cross validation between modeling and measurement, one reinforcing the other, was a revelation.",
-				"In 1998, I joined the CEA, first at the SPR in Cadarache at the AtPu (plutonium workshop), then in 2000, at the INSTN in Saclay. The first training course I created there was entitled 'dosimetry of ionizing radiation'.",
-				"During visits to the Ecole Atomique, I met Gérald Lopez. I quickly recognized his skills in modeling, his capacity for analysis associated with an extraordinary work capacity. At that time, he had already laid the foundations for what would become Dosimex-GX",
-				"In 2010, when EDP agreed to publish a book on dose calculations, it became clear to me that such a book should be accompanied by calculation utilities, and especially that Gérald Lopez was essential to the realization of this project. This is how Dosimex was born",
+				"In 1998, I joined the CEA, first at the RDP in Cadarache at the AtPu (plutonium workshop), then in 2000, at the INSTN in Saclay. The first training course I have created there was entitled 'dosimetry of ionizing radiation'.",
+				"During visits to the Ecole Atomique, I met Gérald Lopez. I quickly recognized his skills in modeling, his capacity for analysis associated with an extraordinary work capacity. At that time, he had already laid the foundations for what would become Dosimex-GX.",
+				"In 2010, when EDP agreed to publish a book on dose calculations, it became clear to me that such a book should be accompanied by calculation utilities, and especially that Gérald Lopez was essential to the realization of this project. This is how Dosimex was born.",
 			],
 		},
-		epilogue: "Epilogue: it is thanks to Dosimex that I was finally able to have, 25 years later, an idea of the radiological risk incurred with X-ray generators, a risk that is far from negligible",
+		epilogue: "Epilogue: it is thanks to Dosimex that I was finally able, 25 years later, to have an idea of the radiological risk incurred with X-ray generators, a risk that is far from negligible",
 	},
 	Books: {
 		header: {
@@ -159,13 +159,13 @@ const text : ILang = {
 			{
 				extract:`This book is intended for students studying for careers in the nuclear industry, nuclear medicine or research. Users of ionizing radiation, operators, technicians, engineers, radiation protection officers and occupational physicians will also find useful and up-to-date information. More broadly, anyone with an interest in science will have a comprehensive overview of the phenomena related to radioactivity and ionizing radiation. This book offers courses in nuclear physics, from the constituents of matter to the interactions between radiation and matter; courses in radiation protection, including dosimetry, detection, and means of protection against exposure to ionizing radiation; and updated regulations related to radiation protection. A complete overview of nuclear culture is provided, from the history to the use of radioactivity and ionizing radiation, including their biological effects, accidents and public exposure. \n
 				 For each chapter, application exercises and answers are provided. They allow the reader to understand the quantitative aspect of radiation protection, by studying contamination, personnel exposure and activity calculations. \n
-				Thus, each reader will find his or her account... A high school student will find clear and up-to-date information; a BTS or professional license student will have all the basics for his courses in the same book, with training exercises; an engineering school or master's student will have a complete overview of the entire spectrum of radiation protection and the associated calculation methods; a nuclear worker will have precise information on the topic that interests him; a PCR will have all the data and formulas necessary for his missions in a single book, and a course support for PCR training. `,
+				Thus, each reader could benefit from it... A high school student will find clear and up-to-date information; a BTS or professional license student will have all the basics for his courses in the same book, with training exercises; an engineering school or master's student will have a complete overview of the entire spectrum of radiation protection and the associated calculation methods; a nuclear worker will have precise information on the topic that interests him; a PCR will have all the data and formulas necessary for his missions in a single book, and a course support for PCR training. `,
 				author: 'Arnaud Boquet'
 			},
 			{
-				extract:`This book has two complementary objectives: first, to provide the reader with an understanding of the physical principles at work when a target is exposed to ionizing radiation: heavy ions, electrons, photons or neutrons, and second, to propose simple calculation tools to evaluate the absorbed doses for all of these various types of radiation.
+				extract:`This book has two complementary objectives: first, to provide the reader an understanding of the physical principles at work when a target is exposed to ionizing radiation: heavy ions, electrons, photons or neutrons, and second, to propose simple calculation tools to evaluate the absorbed doses for all of these various types of radiation.
 				Following this logic, the first parts are devoted to establish the physical models allowing to calculate the energy deposits according to the characteristics of the target and the radiation field. This purely physical approach applies to any type of irradiated medium, inert or living, resulting in a particular physical quantity: the absorbed dose.
-				The work then focuses on a particular target, the human being, and is interested in the radiometric quantities used in radiation protection, equivalent doses and effective doses, particular quantities translating the biological response of an individual exposed to ionizing radiation. By specifying the sources and the conditions of irradiation, it is then possible to establish the link between the activity of a radioactive source and the risk incurred by an individual exposed to this source, in external as well as internal irradiation. These same principles and models allow finally to evaluate the means of protection against these various radiations as well as the principles and the main methods used to measure these regulatory dosimetric quantities`,
+				The work then focuses on a particular target, the human being, and is interested in the radiometric quantities used in radiation protection, equivalent doses and effective doses, particular quantities translating the biological response of an individual exposed to ionizing radiation. By specifying the sources and the conditions of irradiation, it is then possible to establish the link between the activity of a radioactive source and the risk incurred by an individual exposed to this source, in external as well as internal irradiation. These same principles and models allow finally to evaluate the means of protection against these various radiations as well as the principles and the main methods used to measure these regulatory dosimetric quantities.`,
 				author: 'Alain Vivier and Gérald Lopez'
 			},
 			{
@@ -184,7 +184,7 @@ const text : ILang = {
 				extract:`The role of the competent person in radiation protection (PCR) has developed widely in recent years to occupy an essential function within establishments. Designated by the employer, the PCR must successfully complete a training course, the terms of which are defined by the order of December 6, 2013. This training, structured in two modules
 				- theoretical and applied
 				- is adapted to the importance of the radiological risk ("level" of training), to the nature of the activities concerned (sector) and possibly to the type of use of ionizing radiation sources (option).
-				This volume is intended for RCPs or future RCPs involved in medical sector facilities.
+				This volume is intended for PCRs or future PCRs involved in medical sector facilities.
 				It will cover the different types of sources used: sealed radioactive sources (brachytherapy), unsealed radioactive sources (nuclear medicine), as well as electrical devices emitting ionizing radiation: X-ray generators used in conventional and dental radiology, scanners, gas pedals in radiotherapy, etc.
 				It includes 9 chapters dealing with the following areas
 				regulatory and practical aspects of radiation protection in medical facilities
@@ -207,11 +207,11 @@ const text : ILang = {
 				author: 'Jean-Claude Moreau and Marc Ammerich'
 			},
 			{
-				extract: "It was time to retrace the history of nuclear physics. Bernard Fernandez takes you by the hand to guide you through the meanders of a complicated but fascinating science. Using ordinary French language, without scientific jargon or mathematical formulas, he addresses both the specialized readers, to whom he offers a historical perspective of their science, and the honest man, who wishes to be informed without having any particular scientific knowledge. In this lively account, well-known and lesser-known characters are mixed together, theories developed in enthusiasm and sometimes subsequently demolished, experimental protocols and detailed descriptions of instruments. One of the main ideas of the book is indeed that theory should never free itself from experimental reality",
+				extract: "It was time to retrace the history of nuclear physics. Bernard Fernandez takes you by the hand to guide you through the meanders of a complicated but fascinating science. Using ordinary French language, without scientific jargon or mathematical formulas, he addresses both the specialized readers, to whom he offers a historical perspective of their science, and the honest man, who wishes to be informed without having any particular scientific knowledge. In this lively account, well-known and lesser-known characters are mixed together, theories developed in enthusiasm and sometimes subsequently demolished, experimental protocols and detailed descriptions of instruments. One of the main ideas of the book is indeed that theory should never free itself from experimental reality.",
 				author: 'Bernard Fernandez'
 			},
 			{
-				extract: "Intended for a wide audience, Le monde subatomique describes the evolution of ideas about the interactions and constituents of matter, with their applications, from the discovery of the neutron to that of the Z° boson. It replaces the first volume, Approche élémentaire, of Luc Valentin's earlier work, Physique subatomique, a reference manual that is popular with teachers and students in France and abroad",
+				extract: "Intended for a wide audience, Le monde subatomique describes the evolution of ideas about the interactions and constituents of matter, with their applications, from the discovery of the neutron to that of the Z° boson. It replaces the first volume, Approche élémentaire, of Luc Valentin's earlier work, Physique subatomique, a reference manual that is popular with teachers and students in France and abroad.",
 				author: 'Luc Valentin'
 			},
 			{
@@ -232,14 +232,14 @@ const text : ILang = {
 			},
 			{
 				extract:`Radioactivity is everywhere, it surrounds us. Yet we have lived with it for several centuries without knowing it and it was only in 1896 that Henri Becquerel, Pierre and Marie Curie discovered it, giving us a glimpse of an unknown phenomenon capable of the worst as well as the best with various sources of radiation. \n
-				Today, radioactivity is still perceived by the general public as a dangerous phenomenon. In reality, it is only dangerous in certain cases and its surveillance is all the more essential. When and how to protect yourself from it? This is the role of a discipline called Radioprotection. \n
-				From the creation of the first Commission on Radiation Protection to the latest regulations, this book highlights all aspects of the work of protecting the environment and Man (detection equipment, measurements, screens, waste, etc.). \n
+				Today, radioactivity is still perceived by the general public as a dangerous phenomenon. In reality, it is only dangerous in certain cases and its surveillance is even more essential. When and how to protect yourself from it? This is the role of a discipline called Radioprotection. \n
+				From the creation of the first Commission on Radiation Protection to the latest regulations, this book highlights all aspects of the work of environment and human protection (detection equipment, measurements, screens, waste, etc.). \n
 				A presentation of natural and artificial sources also shows us the extent of applications or uses requiring limited exposure of workers, patients or any other person. \n
 				This book, without complex mathematical formulas, will allow all readers to better understand the role and the work of radiation protectionists and to no longer apprehend radioactivity !`,
 				author: 'Marc Ammerich'
 			},
 			{
-				extract: 'These books are adapted to students in master radiation protection, engineering school but also to students specialized in BTS or license radiation protection. Its aim is to teach how to master the different cases proposed. The problems cover all topics from radioactivity, physical dosimetry, external and internal exposures, biological effects, detection, to regulatory aspects.   These are nearly thirty years of teaching and designing exercises and problems that allow me to offer you this book',
+				extract: 'These books are adapted to students in master radiation protection, engineering school but also to students specialized in BTS or license radiation protection. Its aim is to teach how to master the different cases proposed. The problems cover all topics from radioactivity, physical dosimetry, external and internal exposures, biological effects, detection, to regulatory aspects. These are nearly thirty years of teaching and designing exercises and problems that allow me to offer you this book',
 				author: 'Marc Ammerich'
 			},
 		],
@@ -247,7 +247,7 @@ const text : ILang = {
 	Manuals: {
 		header: {
 			title: "Manuals et validations",
-			p: "To help you in judging the possibilities offered by Dosimex-GX, you can download all the documentation associated with this code:",
+			p: "To help you to evaluate the possibilities offered by Dosimex-GX, you can download all the documentation associated with this code:",
 			li: [	"User manuals",
 				"The validation files",
 				"Some end of study internships reports using Dosimex",
@@ -255,14 +255,14 @@ const text : ILang = {
 		},
 		manuals: [	"User manuals",
 				"Gamma dose manual",
-				"Generator x manual",
+				"Generator X-ray manual",
 				"Manual + Validation NF C15-160",
 				"Practical values in radiology",
 		],
 		validations: [	"Validation files and MCNP references",
 				"Gamma emission validation file",
-				"X generator validation file",
-				"X generator reference MCNP/CEA",
+				"X-ray generator validation file",
+				"X-ray generator reference MCNP/CEA",
 				"MNCP/AREVA radionuclide reference",
 				"X attenuation reference",
 		],
@@ -305,7 +305,7 @@ const text : ILang = {
 	Training: {
 		header: {
 			title: "Training",
-			p: "We offer on-site training courses of 2 to 3 days. These courses are based on tutorials integrating the use of Dosimex tools in the broader framework of radiological risk analysis applied to concrete cases encountered in the industrial and medical world",
+			p: "We offer on-site training courses from 2 to 3 days. These courses are based on tutorials integrating the use of Dosimex tools in the broader framework of radiological risk analysis applied to concrete cases encountered in the industrial and medical world.",
 		},
 		section1: {
 			title: "Examples of topics covered, which can be modified according to the needs:",
@@ -328,12 +328,12 @@ const text : ILang = {
 		},
 		section2: {
 			title: "In partnership with Safetechnologie, we offer other training courses on the following topics:",
-			li: [	"Nuclear physics and radiactivity",
+			li: [	"Nuclear physics and radioactivity",
 				"Interaction between radiation and matter",
 				"Decision threshold (ISO 11929)",
 				"Gamma spectrometry",
 			],
-			button: "Training catalog"
+			button: "Training catalogue"
 		},
 		questions: {
 			title: "Any questions ?",
@@ -347,7 +347,7 @@ const text : ILang = {
 			p: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. At purus risus, dictum auctor massa quam scelerisque. Nibh lobortis feugiat orci donec mauris turpis sagittis malesuada nibh.",
 			button: "Watch our YouTube channel",
 		},
-		packTitle: "Vidéos from the pack ",
+		packTitle: "Videos from the pack ",
 		packOpe: {
 			name: "operational",
 			label: "operational pack",

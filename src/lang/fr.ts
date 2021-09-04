@@ -159,7 +159,7 @@ const text : ILang = {
 			{
 				extract:`Cet ouvrage s’adresse aux étudiants se destinant à l’industrie du nucléaire, à la médecine nucléaire ou encore à la recherche. Les utilisateurs de rayonnements ionisants, opérateurs, techniciens, ingénieurs, personnes compétentes en radioprotection, médecins du travail, pourront également y trouver des informations utiles et actualisées. Plus largement, toute personne ayant un intérêt pour les sciences aura un point complet sur les phénomènes liés à la radioactivité et aux rayonnements ionisants. Cet ouvrage propose des cours de physique nucléaire, allant des constituants de la matière aux interactions entre rayonnement et matière ; des cours de radioprotection, incluant la dosimétrie, la détection, les moyens de protection contre l’exposition aux rayonnements ionisants ; la réglementation liée à la radioprotection mise à jour. Un point complet sur la culture nucléaire est fait, allant de l’historique à l’utilisation de la radioactivité et des rayonnements ionisants, en passant par leurs effets biologiques ou encore les accidents et l’exposition de la population. \n
 				 À chaque chapitre, des exercices d’application et des corrigés sont proposés. Ils permettent d’appréhender l’aspect quantitatif de la radioprotection, en étudiant la contamination, l’exposition du personnel ou encore des calculs d’activité. \n
-				Ainsi, chaque lecteur y trouvera son compte…un lycéen en baccalauréat y trouvera des informations claires et actuelles ; un étudiant en BTS ou licence professionnelle aura toutes les bases pour ses cours dans un même ouvrage, avec des exercices d’entraînement ; un étudiant en école d’ingénieur ou master aura un point complet sur l’ensemble du spectre de la radioprotection et des méthodes de calculs associées ; un intervenant en nucléaire aura des informations précises sur le thème qui l’intéresse ; une PCR aura dans un seul ouvrage toutes les données et les formules nécessaires à ses missions, et un support de cours pour le passage des formations PCR.`,
+				Ainsi, chaque lecteur y trouvera son compte… un lycéen en baccalauréat y trouvera des informations claires et actuelles ; un étudiant en BTS ou licence professionnelle aura toutes les bases pour ses cours dans un même ouvrage, avec des exercices d’entraînement ; un étudiant en école d’ingénieur ou master aura un point complet sur l’ensemble du spectre de la radioprotection et des méthodes de calculs associées ; un intervenant en nucléaire aura des informations précises sur le thème qui l’intéresse ; une PCR aura dans un seul ouvrage toutes les données et les formules nécessaires à ses missions, et un support de cours pour le passage des formations PCR.`,
 				author:'Arnaud Boquet'
 			},
 			{
@@ -239,7 +239,7 @@ const text : ILang = {
 				author:'Marc Ammerich'
 			},
 			{
-				extract:'Ces livres sont adaptés aux étudiants en master radioprotection, école d’ingénieur mais aussi aux étudiants spécialisés en BTS ou licence radioprotection. Son but est d’apprendre à savoir maîtriser les différents cas proposés. Les problèmes abordent tous les thèmes allant de la radioactivité en passant par la dosimétrie physique, les expositions externes et internes, les effets biologiques, la détection, jusqu’aux aspects réglementaires.   Ce sont près de trente ans d’enseignement et de conception d’exercices et de problèmes qui me permettent de vous proposer ce livre.',
+				extract:'Ces livres sont adaptés aux étudiants en master radioprotection, école d’ingénieur mais aussi aux étudiants spécialisés en BTS ou licence radioprotection. Son but est d’apprendre à savoir maîtriser les différents cas proposés. Les problèmes abordent tous les thèmes allant de la radioactivité en passant par la dosimétrie physique, les expositions externes et internes, les effets biologiques, la détection, jusqu’aux aspects réglementaires. Ce sont près de trente ans d’enseignement et de conception d’exercices et de problèmes qui me permettent de vous proposer ce livre.',
 				author:'Marc Ammerich'
 			},
 		],
@@ -328,7 +328,7 @@ const text : ILang = {
 		},
 		section2: {
 			title: "Nous proposons en partenariat avec Safetechnologie d'autres formations sur les thématiques :",
-			li: [	"Physique nucléaire et radiactivité",
+			li: [	"Physique nucléaire et radioactivité",
 				"Interaction rayonnements matière",
 				"Seuil de décision (ISO 11929)",
 				"Spéctrométrie gamma",

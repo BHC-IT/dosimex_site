@@ -28,6 +28,7 @@ interface ICardProps {
 	style: IMapOfStyle,
 	link: string,
 	url: string,
+	color?: string,
 }
 
 const responsive = {
@@ -100,7 +101,7 @@ const partners = [
 
 ]
 
-const Card = ({text, style, link, url}: ICardProps) => {
+const Card = ({text, style, link, url, color}: ICardProps) => {
 
 	const [over, setOver] = React.useState<boolean>(false);
 	return (
@@ -108,7 +109,7 @@ const Card = ({text, style, link, url}: ICardProps) => {
 			<a href={url} target="_blank" rel="noopener noreferrer" style={style.wrapper} onMouseOver={() => setOver(true)}>
 				<div style={{...style.img, backgroundImage: `url(Images/${link})`}}></div>
 			</a>
-			<p style={{...style.text, display: isMobile ? "block" : over ? "block" : "none"}} onMouseOver={() => setOver(true)}>{text}</p>
+			<p style={{...style.text, color: color ? color : isMobile ? "var(--dark)" : "var(--grey)", display: isMobile ? "block" : over ? "block" : "none"}} onMouseOver={() => setOver(true)}>{text}</p>
 		</div>
 	)
 }
@@ -146,7 +147,7 @@ const PartnersCarousel = () => {
 						<Card text={text.partners.li[i]} style={style.card} link={e.link} url={e.url} />
 				)
 			}
-			<Card text={text.partners.li[11]} style={style.card} link={last(partners).link} url={last(partners).url} />
+			<Card text={text.partners.li[11]} style={style.card} link={last(partners).link} url={last(partners).url} color="rgb(136, 49, 183)" />
 		</Carousel>
 	)
 }
@@ -170,7 +171,6 @@ export const styles = (mobile: boolean): IStyles => ({
 		},
 		text: {
 			cursor: "pointer",
-			color: mobile ? "var(--dark)" : "var(--grey)",
 			textAlign: "justify",
 			fontSize: "1.6rem",
 			marginLeft: "1vw",
