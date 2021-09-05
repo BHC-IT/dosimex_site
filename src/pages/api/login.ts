@@ -5,7 +5,7 @@ import IUser from '../../interfaces/IUser';
 import jwt from 'jsonwebtoken';
 import { comparePassword } from '../../utils/bcrypt';
 
-const validIp = ['127.0.0.1', '192.168.1.14'];
+//const validIp = ['127.0.0.1'];
 
 const findUser = async (username: string) : Promise<[number, object]> => {
 	try {
@@ -23,9 +23,9 @@ const log = async (body: object, remoteAddress?: string, ipAddress?: string[] | 
 	if (!ip)
 		return [403, {error: 'IP address not provided'}];
 
-	if (!validIp.includes(ip))
+/*	if (!validIp.includes(ip))
 		return [403, {error: 'Wrong IP address'}];
-
+*/
 	const user = await findUser((body as any).username);
 	if (user[0] !== 201)
 		return user;
