@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import useUser from '../Hooks/useUser';
 
 
-export default () => {
+const Login = () => {
 
 	const [username, setUsername] = React.useState<string | null>(null);
 	const [password, setPassword] = React.useState<string | null>(null);
@@ -43,3 +43,5 @@ export default () => {
 	);
 
 }
+
+export default Login
