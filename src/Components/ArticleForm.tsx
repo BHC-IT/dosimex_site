@@ -3,10 +3,12 @@ import * as CSS from 'csstype';
 import Radium from 'radium';
 import IArticle from '../interfaces/IArticle';
 import axios from 'axios';
-import Input from './Input';
+import Input, {IValidator} from './Input';
 import MDEditor from '@uiw/react-md-editor';
 import '@uiw/react-md-editor/dist/markdown-editor.css'
 import '@uiw/react-markdown-preview/dist/markdown.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const text = {
 	label_title: "Titre",
@@ -25,6 +27,10 @@ interface IStyles {
 	button: any,
 	divInput: CSS.Properties,
 }
+
+const isInputValid = (value: string) => value.trim() !== ''
+
+const wellSent = (message: string) => toast(message)
 
 const Article = (props: IProps) => {
 
@@ -45,6 +51,10 @@ const Article = (props: IProps) => {
 							id="title"
 							label={text.label_title}
 							onChange={setTitle}
+							required
+							validator={[
+							{ validationFunction:(value: string) => isInputValid(value), errorMessage: "Veuillez rentrer un titre" },
+							] as IValidator[]}
 					/>
 					<Input
 							value={description}
@@ -79,6 +89,7 @@ const Article = (props: IProps) => {
 									markdown: markdown,
 									urlImage: urlImage,
 								}, {headers: {authorization : `Bearer ${props.user}`}});
+								wellSent("Nouvel article ajouté !")
 							} catch (e) {
 								console.error(e.response)
 							}
@@ -90,6 +101,7 @@ const Article = (props: IProps) => {
 									markdown: markdown,
 									urlImage: urlImage,
 								},{headers: {authorization : `Bearer ${props.user}`}});
+								wellSent("Article modifié !")
 							} catch (e) {
 								console.error(e)
 							}

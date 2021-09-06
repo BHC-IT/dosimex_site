@@ -243,7 +243,7 @@ export const styles = (mobile: boolean): IStyles => ({
 		width: mobile ? "35vw" : "8vw",
 		textAlign: "center",
 		marginBottom: "5vh",
-		borderBottom: "1px solid rgb(0 121 193)"
+		borderBottom: "1px solid rgb(0, 121, 193)"
 	},
 	imagePrice: {
 		width: mobile ? '100vw': `${722 * ratio2}px`,
