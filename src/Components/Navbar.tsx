@@ -68,30 +68,32 @@ class Navbar extends React.Component<IProps> {
 
 		return (
 			<>
-				<BrowserView className="divNone">
-					<nav style={styles.navbar}>
-						<ul style={styles.navbarUl}>
-								<li style={styles.navbarLi}>
-									<Link href="/">
-										<Image
-											src="/Images/logo_dosimex_new.png"
-											alt="logo dosimex"
-											width={`${212 * ratio}rem`}
-											height={`${44 * ratio}rem`}
-										/>
-									</Link>
-								</li>
-							<this.renderNav/>
-							<LanguageSwitch route={this.props.router.pathname} language={this.props.router.locale}/>
-						</ul>
-						<Button
-							name={this.props.text.button}
-							route="Product"
-						/>
-					</nav>
-				</BrowserView>
+				<div className="divNone">
+					<BrowserView>
+						<nav style={styles.navbar}>
+							<ul style={styles.navbarUl}>
+									<li style={styles.navbarLi}>
+										<Link href="/">
+											<Image
+												src="/Images/logo_dosimex_new.png"
+												alt="logo dosimex"
+												width={`${212 * ratio}rem`}
+												height={`${44 * ratio}rem`}
+											/>
+										</Link>
+									</li>
+								<this.renderNav/>
+								<LanguageSwitch route={this.props.router.pathname} language={this.props.router.locale}/>
+							</ul>
+							<Button
+								name={this.props.text.button}
+								route="Product"
+							/>
+						</nav>
+					</BrowserView>
+				</div>
 				<div id="containerNav">
-					<SideBar pageWrapId={"page-wrap"} outerContainerId={"containerNav"}/>
+					<SideBar />
 					<div style={{textAlign: "center", paddingTop: "1.5vh", borderBottom: "1px solid var(--main)"}}>
 						<Image
 								src="/Images/logo_dosimex_new.png"

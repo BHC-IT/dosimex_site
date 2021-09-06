@@ -41,7 +41,7 @@ const PartImagePortrait = styled.div`
 `;
 
 interface IStyles {
-	[key: string] : CSS.Properties
+	[key: string] : CSS.Properties | undefined
 }
 
 const renderButtonEdit = (style: IStyles) => {
@@ -96,7 +96,7 @@ export const getStaticProps: GetStaticProps = async (context : GetStaticPropsCon
 	try {
 		await dbConnect();
 
-		let articles : IArticle[] = await Article.find({}).exec();
+		let articles = await Article.find({}).exec();
 
 		articles = articles.map(e => {
 			const ret = {
@@ -107,8 +107,8 @@ export const getStaticProps: GetStaticProps = async (context : GetStaticPropsCon
 				urlImage: e.urlImage ?? "",
 				id: String(e.id),
 				author: String(e.author),
-				createdAt: Date(e.createdAt),
-				updatedAt: Date(e.updatedAt),
+				createdAt: e.createdAt as Date,
+				updatedAt: e.updatedAt as Date,
 			}
 
 			return ret;

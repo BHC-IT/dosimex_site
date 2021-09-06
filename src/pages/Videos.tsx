@@ -16,6 +16,17 @@ interface IMapOf<A> {
 
 type IStyles = IMapOf<IMapOfStyle | IMapOf<IMapOfStyle>>
 
+interface IVideoStyle {
+	container: CSS.Properties,
+	itemContainer: CSS.Properties,
+	itemLabel: Function
+}
+
+interface ISeparatorStyle {
+	container: Function,
+	line: Function,
+}
+
 interface IHeaderProps {
 	text: ILang,
 	style: IStyles,
@@ -24,26 +35,26 @@ interface IHeaderProps {
 interface ISeparatorProps {
 	right ?: boolean,
 	color ?: string,
-	style: IStyles,
+	style: ISeparatorStyle,
 }
 
 interface ILabelVideoProps {
 	color : string,
 	label : string,
-	style: IStyles,
+	style: IVideoStyle,
 }
 interface IItemVideoProps {
 	color : string,
 	label : string,
 	id_yt : string,
-	style: IStyles,
+	style: IVideoStyle,
 }
 interface IVideosLineProps {
 	color : string,
 	videoIds : string[],
 	text : ILang,
 	label : string,
-	style: IStyles,
+	style: IVideoStyle,
 }
 interface IPackProps {
 	title : string,
@@ -53,7 +64,7 @@ interface IPackProps {
 	label : string,
 	right?: boolean
 	style: IStyles,
-	styleVideo: IStyles,
+	styleVideo: IVideoStyle,
 }
 
 const opts_yt = {
@@ -210,7 +221,7 @@ export default function Videos() {
 	)
 }
 
-export const styles = (mobile: boolean): IStyles => ({
+export const styles = (mobile: boolean) => ({
 	headerStyle: {
 		container: {
 			...center,
@@ -218,35 +229,35 @@ export const styles = (mobile: boolean): IStyles => ({
 			position: "relative",
 			width: "100%",
 			flexDirection: "column",
-		},
+		} as CSS.Properties,
 		title: {
 			margin: mobile ? "20vh 5% 5vh 5%" : "20vh 0 0 30vw",
 			zIndex: 1,
-		},
+		} as CSS.Properties,
 		text: {
 			margin: mobile ? "0 5% 5vh 5%" :"0 15% 0 30vw",
 			zIndex: 1,
 			color:'var(--grey)',
 			fontSize: mobile ? "1.6rem" : "1.8rem",
 			textAlign: mobile ? "center" : undefined,
-		},
+		} as CSS.Properties,
 		btn: {
 			zIndex: 1,
 			margin: mobile ? "0 5% 15vh 5%" :"3vh 0 20vh 30vw",
-		},
+		} as CSS.Properties,
 		squareGridStyles: {
 			containerStyle: {
 				display: mobile ? "none" : undefined,
 				position: "absolute",
 				left: "-1%",
 				zIndex: 0,
-			},
+			} as CSS.Properties,
 			squareStyle: {
 				height: "19px",
 				width: "17px",
 				margin: "1.5rem 2.5rem",
 				backgroundColor: "var(--flashTrans)",
-			},
+			} as CSS.Properties,
 		}
 	},
 	separatorStyle: {
@@ -269,7 +280,7 @@ export const styles = (mobile: boolean): IStyles => ({
 		container: {
 			marginTop: "5vh",
 			marginBottom: "15vh",
-		},
+		} as CSS.Properties,
 		titleContainer: {
 			display: "flex",
 			flexDirection: mobile ? "column" : "row",
@@ -277,11 +288,11 @@ export const styles = (mobile: boolean): IStyles => ({
 			marginRight: "10vw",
 			marginBottom: "3vh",
 			alignItems:'center',
-		},
+		} as CSS.Properties,
 		titleSpe: {
 			marginLeft: mobile ? 0 : "1rem",
 			marginTop: mobile ? 0 : undefined,
-		}
+		} as CSS.Properties,
 	},
 	videosLineStyle: {
 		container: {
@@ -290,7 +301,7 @@ export const styles = (mobile: boolean): IStyles => ({
 			width: "100%",
 			justifyContent:"flex-start",// "space-between",
 			margin: mobile ? undefined : "0 0 2% 2%",
-		},
+		} as CSS.Properties,
 		itemContainer: {
 			...center,
 			alignItems: mobile ? "center" : "flex-start",
@@ -298,7 +309,7 @@ export const styles = (mobile: boolean): IStyles => ({
 			width: mobile ? "50%" : "23%",
 			marginRight: mobile ? undefined : "4vw",
 			marginBottom: mobile ? "5vh" : undefined,
-		},
+		} as CSS.Properties,
 		itemLabel: (color : string) : CSS.Properties => {
 			return {
 				backgroundColor: color,

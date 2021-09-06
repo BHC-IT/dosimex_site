@@ -30,7 +30,7 @@ const CardHome = (props: IProps) => {
 		return null
 
 	return (
-		<Tilt tilteReverse scale={1.05} tiltMaxAngleX={10} tiltMaxAngleY={10} style={style.global} >
+		<Tilt tiltReverse scale={1.05} tiltMaxAngleX={10} tiltMaxAngleY={10} style={style.global} >
 			<div style={style.card} onClick={() => router.push(props.route)} >
 				<div style={style.image}>
 					<Image

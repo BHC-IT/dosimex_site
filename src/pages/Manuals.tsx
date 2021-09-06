@@ -3,7 +3,6 @@ import { useIsMobile } from '../Hooks/useIsMobile';
 import { useText } from '../Hooks/useText';
 import * as CSS from 'csstype';
 import Image from 'next/image';
-import Link from 'next/link';
 
 import styled from 'styled-components';
 
@@ -162,7 +161,7 @@ export default function Manuals() {
 				<ul style={style.list3}>
 					{manuals.internships.map((e : any, i: number) =>
 						<li style={{cursor: "pointer"}}>
-							<Link href={`../Folders/${e.pdf}`} target="_blank" rel="noreferrer noopener">
+							<a href={`../Folders/${e.pdf}`} target="_blank" rel="noreferrer noopener">
 								<div style={{textAlign: "center"}}>
 									<Image
 										src={`/Images/${e.img}`}
@@ -172,7 +171,7 @@ export default function Manuals() {
 									/>
 									<p style={style.label}>{e.text}</p>
 								</div>
-							</Link>
+							</a>
 						</li>
 					)}
 				</ul>

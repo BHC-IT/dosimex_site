@@ -84,8 +84,8 @@ export const getStaticProps: GetStaticProps = async (context : GetStaticPropsCon
                 urlImage: article?.urlImage ?? "",
                 id: String(article?.id),
                 author: String(article?.author),
-                createdAt: Date(article?.createdAt),
-                updatedAt: Date(article?.updatedAt),
+                createdAt: article?.createdAt as Date,
+                updatedAt: article?.updatedAt as Date,
             }
 
         return {

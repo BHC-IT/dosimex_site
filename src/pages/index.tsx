@@ -272,7 +272,6 @@ export const styles = (mobile: boolean): IStyles => ({
 			zIndex: 100,
 			paddingBottom: "4vh",
 			paddingTop: "4vh",
-			zIndex: 2,
 			backgroundColor: 'white',
 		},
 		divNumber: {

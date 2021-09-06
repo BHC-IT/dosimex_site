@@ -8,7 +8,7 @@ interface IProps {
 	text: string,
 	href: string,
 	imageUrl: string,
-	isLandscape: boolean,
+	isLandscape?: boolean,
 }
 
 const Book = (props: IProps) => {

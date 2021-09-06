@@ -3,7 +3,7 @@ import { useText } from '../Hooks/useText';
 import { useIsMobile } from '../Hooks/useIsMobile';
 import Book from '../Components/Book';
 
-export default function Books() {
+const Books = () => {
 
 	const style = useIsMobile(styles);
 	const text = useText('Books');
@@ -98,6 +98,8 @@ export default function Books() {
 		</>
 	);
 }
+
+export default Books;
 
 export const styles = (mobile: boolean): {[$:string]: CSS.Properties} => ({
 	global: {

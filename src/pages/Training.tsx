@@ -7,7 +7,7 @@ import { useText } from '../Hooks/useText';
 import ILang from '../lang/interface';
 
 interface IMapOfStyle {
-	[i: string]: CSS.Properties
+	[i: string]: CSS.Properties | Function
 }
 
 interface IMapOf<A> {
@@ -112,7 +112,7 @@ const Training = () => {
 
 export default Training;
 
-export const styles = (mobile: boolean): IStyles => ({
+export const styles = (mobile: boolean) => ({
 	headerStyles: {
 		container: {
 			...center,
@@ -123,7 +123,7 @@ export const styles = (mobile: boolean): IStyles => ({
 			overflow: "hidden",
 			marginTop: mobile ? "15vh" : undefined,
 			marginBottom: mobile ? "10vh" : undefined,
-		},
+		} as CSS.Properties,
 		textContainer: {
 			...center,
 			justifyContent: mobile ? undefined : "flex-start",
@@ -134,24 +134,24 @@ export const styles = (mobile: boolean): IStyles => ({
 			marginLeft: mobile ? "8vw" : undefined,
 			marginBottom: mobile ? "8vh" : undefined,
 			textAlign: mobile ? "center" : undefined,
-		},
+		} as CSS.Properties,
 		imgContainer: {
 			...center,
 			height: mobile ? "20vh" : "65%",
 			width: mobile ? "40vh" : "35%",
 			backgroundColor: "transparent",
 			zIndex: 1,
-		},
+		} as CSS.Properties,
 		title: {
 			alignSelf: mobile ? "center" : "flex-start",
 			margin: "auto 0 0 0",
-		},
+		} as CSS.Properties,
 		text: {
 			margin: "0 0 auto 0",
 			fontSize: mobile ? "1.6rem" : "1.8rem",
 			color: 'var(--grey)',
 			marginTop: '4vh',
-		},
+		} as CSS.Properties,
 		squareGridStyles: {
 			containerStyle: {
 				position: "absolute",
@@ -159,13 +159,13 @@ export const styles = (mobile: boolean): IStyles => ({
 				top: "0",
 				zIndex: 0,
 				display: mobile ? "none" : undefined,
-			},
+			} as CSS.Properties,
 			squareStyle: {
 				height: "19px",
 				width: "17px",
 				margin: "1.5rem 2.5rem",
 				backgroundColor: "var(--flashTrans)",
-			},
+			} as CSS.Properties,
 		},
 	},
 	separatorStyles: {
@@ -180,7 +180,7 @@ export const styles = (mobile: boolean): IStyles => ({
 			backgroundColor: "var(--flash)",
 			height: "0.4vh",
 			width: mobile ? "40%" : "25%",
-		},
+		} as CSS.Properties,
 	},
 	exemplesStyles: {
 		container: {
@@ -190,22 +190,22 @@ export const styles = (mobile: boolean): IStyles => ({
 			marginTop: mobile ? '10vh' : '15vh',
 			marginBottom: '15vh',
 			width: "100%",
-		},
+		} as CSS.Properties,
 		title: {
 			width: mobile ? '80%' : '60vw',
 			fontSize: mobile ? "2.5rem" : undefined,
 			margin: "0 10% 5vh 10%",
-		},
+		} as CSS.Properties,
 		listContainer: {
 			display: "flex",
 			flexDirection: mobile ? "column" : "row",
 			justifyContent: "space-between",
 			margin: "0 10%",
-		},
+		} as CSS.Properties,
 		columnListContainer: {
 			width: mobile ? "100%" : "48%",
 			color:'var(--grey)',
-		},
+		} as CSS.Properties,
 	},
 	partnershipStyles: {
 		container: {
@@ -217,16 +217,16 @@ export const styles = (mobile: boolean): IStyles => ({
 			marginTop: "10vh",
 			paddingTop: '7vh',
 			paddingBottom: '10vh',
-		},
+		} as CSS.Properties,
 		title: {
 			margin: "0 10% 5vh 10%",
 			fontSize: mobile ? "2.5rem" : undefined,
-		},
+		} as CSS.Properties,
 		text: {
 			margin: "0 10%",
 			marginTop: '2vh',
 			fontWeight: 500,
-		},
+		} as CSS.Properties,
 		btn: {
 			padding: "8px 25px",
 			backgroundColor: "transparent",
@@ -248,12 +248,12 @@ export const styles = (mobile: boolean): IStyles => ({
 			width: mobile ? "75vw" : "18vw",
 			margin: mobile ? "0 5%" : undefined,
 			fontSize: mobile ? "1.4rem" : undefined,
-		},
+		} as CSS.Properties,
 		icon: {
 			width: mobile ? "4.7vw" : "1.2vw",
 			minWidth: mobile ? undefined : "25px",
 			maxWidth: mobile ? "25px" : undefined,
-		},
+		} as CSS.Properties,
 	},
 	questionsStyles: {
 		container: {
@@ -262,7 +262,7 @@ export const styles = (mobile: boolean): IStyles => ({
 			width: "100%",
 			marginTop: '10vh',
 			marginBottom: '25vh',
-		},
+		} as CSS.Properties,
 		text: {
 			color: 'var(--grey)',
 			width: mobile ? '60%' : '22vw',
@@ -270,6 +270,6 @@ export const styles = (mobile: boolean): IStyles => ({
 			textAlign: 'center',
 			fontSize: '1.5rem',
 			marginBottom: mobile ? '7vh' : '4vh'
-		},
+		} as CSS.Properties,
 	}
 })
