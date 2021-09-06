@@ -224,6 +224,7 @@ const text : ILang = {
 			title: "{Product.prerequisites.title}",
 			p: "{Product.prerequisites.p}",
 		},
+		titlePrice: "{Product.titlePrice}",
 		questions: {
 			title: "{Product.questions.title}",
 			p: "{Product.questions.p}",

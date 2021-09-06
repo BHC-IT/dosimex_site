@@ -138,6 +138,7 @@ export default interface Lang {
 			title: string,
 			p: string,
 		},
+		titlePrice: string,
 		questions: {
 			title: string,
 			p: string,

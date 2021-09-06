@@ -210,7 +210,7 @@ export const styles = (mobile: boolean): IStyles => ({
 			marginBottom: "4vh",
 		},
 		banner: {
-			backgroundColor: "rgba(255,70,90,0.1)",
+			backgroundColor: "rgba(220,70,20,0.1)",
 			height: mobile ? "45vh" : "32vh",
 			minHeight: "250px",
 			paddingTop: "8vh",

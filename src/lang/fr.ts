@@ -276,8 +276,8 @@ const text : ILang = {
 	Product: {
 		header: {
 			title: "Clé USB Dosimex 3.0",
-			p: "La clé USB DOSIMEX 3.0 fonctionne comme un dongle. Il suffit de la connecter sur un PC pour voir apparaître automatiquement l’ensemble des dossiers. Les codes s'ouvrent et s’utilisent directement sur la clé.",
-			button: "Nous contacter",
+			p: "La clé USB DOSIMEX 3.0 fonctionne comme un dongle. Il suffit de la connecter sur un PC pour voir apparaître automatiquement l’ensemble des dossiers. Les codes s'ouvrent et s’utilisent directement sur la clé. Cliquez sur le bouton ci-dessous et achetez directement la clé pour 600€. Ou contactez-nous via la formulaire en bas de page pour un devis.",
+			button: "Acheter Dosimex",
 		},
 		buttonKnowMore: "En savoir plus",
 		title: "Fiche technique du produit",
@@ -297,6 +297,7 @@ const text : ILang = {
 			title: "Prérequis",
 			p: `Les codes sont écrits en VBA sous Excel. Le pack Dosimex fonctionne avec Windows XP à Windows 10 et Excel 2003 à 2019 en autorisant le fonctionnement des macros. Sur Mac il est nécessaire de créer une « machine virtuelle ».\n Suivant les mesures de sécurité mises en place dans l’entreprise, il est conseillé de demander à votre service informatique de « whitelister » Dosimex.`,
 		},
+		titlePrice: "Obtenir la clé USB Dosimex 3.0",
 		questions: {
 			title: "Des questions ? Une demande de devis ?",
 			p: "N’hésitez pas à nous contacter via le formulaire ci-dessous ou par téléphone au ",

@@ -156,7 +156,6 @@ export const styles = (mobile: boolean): IStyles => ({
 	card: {
 		wrapper: {
 			cursor: "pointer",
-			backgroundColor: "white",
 			height: mobile ? "17vh" : "15vh",
 			width: mobile ? "55vw" : "17vw",
 			padding: "10px",

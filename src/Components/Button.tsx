@@ -25,6 +25,7 @@ export const styles =  {
 	backgroundColor: "var(--main)",
 	borderRadius: "50px",
 	color: "white",
+	cursor: "pointer",
 	textTransform: "uppercase" as "uppercase",
 	transition: "all 0.3s ease 0s",
 	':hover': {

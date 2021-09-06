@@ -1,4 +1,4 @@
-import Button from '../Components/Button';
+import * as React from 'react';
 import ContactForm from '../Components/ContactForm';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,7 +8,7 @@ import { useText } from '../Hooks/useText';
 import { withOrientationChange } from 'react-device-detect'
 
 interface IStyles {
-	[key: string] : CSS.Properties
+	[key: string] : CSS.Properties | undefined,
 }
 
 interface IProps {
@@ -16,11 +16,23 @@ interface IProps {
 }
 
 const ratio = 0.7;
+const ratio2 = 0.55;
+
+const hashes = "#buy";
 
 function Product(props: IProps) {
 
 	const text = useText('Product');
 	const style = useIsMobile(styles);
+	const [dummy, setDummy] = React.useState<number>(0);
+	const buy = React.useRef<HTMLDivElement>(null);
+
+	React.useEffect(() => {
+		if (window.location.hash === '#buy') {
+			buy.current?.scrollIntoView({ behavior: 'smooth', block: 'center', inline:'center' });
+			buy.current?.focus();
+		}
+	}, [dummy]);
 
 	if (style === null)
 		return null
@@ -31,14 +43,16 @@ function Product(props: IProps) {
 				<Image
 					src="/Images/motif_rect.svg"
 					alt="motif abstrait filigrane"
-					width={343*1.3}
-					height={334*1.3}
+					width={343*1.7}
+					height={334*1.7}
 				/>
 			</div>
 			<div style={style.headerText}>
 				<h2>{text.header.title}</h2>
 				<p style={style.headerP}>{text.header.p}</p>
-				<Button name={text.header.button} route="Contact"/>
+				<a onClick={() => setTimeout(() => setDummy(dummy+1), 100)} href={hashes} style={style.button}>
+					{text.header.button}
+				</a>
 			</div>
 		</header>
 		<section>
@@ -76,6 +90,19 @@ function Product(props: IProps) {
 			<h4 style={style.prerequisites}>{text.prerequisites.title}</h4>
 			<p>{text.prerequisites.p}</p>
 
+		</section>
+		<section ref={buy}>
+			<h3 style={{...style.title, marginTop: "15vh"}}>{text.titlePrice}</h3>
+			<div style={style.divPrice}>
+				<div style={style.imagePrice}></div>
+				<p style={style.pPrice}>600€</p>
+				<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style={style.formPrice}>
+					<input type="hidden" name="cmd" value="_s-xclick"/>
+					<input type="hidden" name="hosted_button_id" value="5ZR8G5EHFRUH4"/>
+					<input style={style.paypal} type="image" src="/Images/PayPal-Logo.png" name="submit" alt="PayPal, le réflexe sécurité pour payer en ligne"/>
+					<img alt="" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" width="1" height="1"/>
+				</form>
+			</div>
 		</section>
 		<section style={style.questions}>
 			<p style={style.questionsTitle}>{text.questions.title}</p>
@@ -123,6 +150,14 @@ export const styles = (mobile: boolean): IStyles => ({
 		width: mobile ? undefined : "85%",
 		padding: mobile ? "2vh 8vw 3vh 8vw" : undefined,
 		textAlign: mobile ? "justify" : undefined,
+	},
+	button: {
+		padding: "12px 25px",
+		backgroundColor: "var(--main)",
+		borderRadius: "50px",
+		color: "white",
+		cursor: "pointer",
+		textTransform: "uppercase" as "uppercase",
 	},
 	title: {
 		color: "var(--flash)",
@@ -193,6 +228,45 @@ export const styles = (mobile: boolean): IStyles => ({
 	prerequisites: {
 		marginTop: "10vh",
 		color: "var(--main)",
+	},
+	divPrice: {
+		display: "flex",
+		flexDirection: "column",
+		alignItems: "center",
+		justifyContent: "center",
+		paddingTop: mobile ? undefined : "5vh",
+	},
+	pPrice: {
+		color: "var(--dark)",
+		fontWeight: "bold",
+		fontSize: mobile ? "2rem": "2.2rem",
+		width: mobile ? "35vw" : "8vw",
+		textAlign: "center",
+		marginBottom: "5vh",
+		borderBottom: "1px solid rgb(0 121 193)"
+	},
+	imagePrice: {
+		width: mobile ? '100vw': `${722 * ratio2}px`,
+		height: mobile ? `${324 * ratio}px` : `${405 * ratio2}px`,
+		backgroundImage: "url('/Images/usbkey.png')",
+		backgroundPosition: 'center',
+		backgroundRepeat: 'no-repeat',
+		backgroundSize: 'contain',
+		marginTop: mobile ? undefined : "5vh",
+		marginRight: mobile ? "10vw" : "2vw",
+	},
+	formPrice: {
+		marginBottom: mobile ? "17vh" : "12vh",
+		backgroundColor: "var(--flash)",
+		color: "rgb(0 69 124)",
+		display: "flex",
+		justifyContent: "center",
+		alignItems: "center",
+		width: mobile ? "50vw" : "10vw ",
+		borderRadius: "500px",
+	},
+	paypal: {
+		width: mobile ? "23vw" : "5.5vw",
 	},
 	questions: {
 		textAlign: "center" as "center",
