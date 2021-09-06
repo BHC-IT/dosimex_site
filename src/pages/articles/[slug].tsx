@@ -5,8 +5,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import * as CSS from 'csstype';
 import MDEditor from '@uiw/react-md-editor';
-import '@uiw/react-md-editor/dist/markdown-editor.css'
-import '@uiw/react-markdown-preview/dist/markdown.css';
 import moment from 'moment';
 
 import IArticle from '../../interfaces/IArticle'
