@@ -4,7 +4,14 @@ import axios from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import * as CSS from 'csstype';
-import MDEditor from '@uiw/react-md-editor';
+
+import dynamic from 'next/dynamic';
+
+const MDEditor = dynamic(
+  () => import("@uiw/react-md-editor").then((mod) => mod.default) as any,
+  { ssr: false }
+) as any;
+
 import "@uiw/react-md-editor/markdown-editor.css";
 import "@uiw/react-markdown-preview/markdown.css";
 import moment from 'moment';

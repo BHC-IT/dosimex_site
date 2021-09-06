@@ -1,10 +1,18 @@
+import dynamic from 'next/dynamic';
+
 import * as React from 'react';
 import * as CSS from 'csstype';
 import Radium from 'radium';
 import IArticle from '../interfaces/IArticle';
 import axios from 'axios';
 import Input, {IValidator} from './Input';
-import MDEditor from '@uiw/react-md-editor';
+
+const MDEditor = dynamic(
+  () => import("@uiw/react-md-editor").then((mod) => mod.default) as any,
+  { ssr: false }
+) as any;
+
+
 import "@uiw/react-md-editor/markdown-editor.css";
 import "@uiw/react-markdown-preview/markdown.css";
 // import { ToastContainer, toast } from 'react-toastify';
