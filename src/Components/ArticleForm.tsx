@@ -5,6 +5,8 @@ import IArticle from '../interfaces/IArticle';
 import axios from 'axios';
 import Input, {IValidator} from './Input';
 import MDEditor from '@uiw/react-md-editor';
+import "@uiw/react-md-editor/markdown-editor.css";
+import "@uiw/react-markdown-preview/markdown.css";
 // import { ToastContainer, toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 
@@ -89,7 +91,7 @@ const Article = (props: IProps) => {
 								}, {headers: {authorization : `Bearer ${props.user}`}});
 								// wellSent("Nouvel article ajouté !")
 							} catch (e) {
-								console.error(e.response)
+								console.error(e)
 							}
 						} else if (props.method === 'PATCH') {
 							try {

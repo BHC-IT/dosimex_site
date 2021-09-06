@@ -11,11 +11,7 @@ async function dbConnect() {
     return;
   }
 
-  const db = await mongoose.connect(process.env.DB_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-  })
+  const db = await mongoose.connect(process.env.DB_URL)
 
   connection.isConnected = db.connections[0].readyState;
 }

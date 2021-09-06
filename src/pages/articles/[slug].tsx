@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import * as CSS from 'csstype';
 import MDEditor from '@uiw/react-md-editor';
+import "@uiw/react-md-editor/markdown-editor.css";
+import "@uiw/react-markdown-preview/markdown.css";
 import moment from 'moment';
 
 import IArticle from '../../interfaces/IArticle'
@@ -46,7 +48,7 @@ const ArticleComp = (props : IProps) => {
 								{headers: {authorization : `Bearer ${user}`}});
 							router.push('/articles')
 						} catch (e) {
-							console.error(e.response)
+							console.error(e)
 						}
 				}} >
 				Supprimer

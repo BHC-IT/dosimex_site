@@ -3,13 +3,7 @@ import { useIsMobile } from '../Hooks/useIsMobile';
 import { useText } from '../Hooks/useText';
 import * as CSS from 'csstype';
 import Image from 'next/image';
-
 import styled from 'styled-components';
-
-import '@fortawesome/fontawesome-svg-core/styles.css';
-import { config } from '@fortawesome/fontawesome-svg-core';
-
-config.autoAddCss = false; /* eslint-disable import/first */
 
 const LinkZone = styled.li`
 	display: flex;
