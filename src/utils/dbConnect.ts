@@ -1,19 +1,15 @@
-interface IConnection {
-  isConnected?: number,
-}
+import mongoose from 'mongoose';
 
-const mongoose = require('mongoose');
+const connectDB = async () => {
+	console.log(mongoose.connections[0].readyState)
 
-const connection : IConnection = {}
+	if (mongoose.connections[0].readyState) {
+		return;
+	}
 
-async function dbConnect() {
-  if (connection.isConnected) {
-    return;
-  }
+	await mongoose.connect(process.env.DB_URL ?? "");
 
-  const db = await mongoose.connect(process.env.DB_URL)
+	setTimeout(() => mongoose.connection.close(), 5000)
+};
 
-  connection.isConnected = db.connections[0].readyState;
-}
-
-export default dbConnect;
+export default connectDB;
