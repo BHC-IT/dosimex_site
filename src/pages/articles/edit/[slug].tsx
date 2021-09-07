@@ -15,6 +15,9 @@ const ArticleComp = (props : IProps) => {
 
     const user = useUser()
 
+	if (!props.article || props.article === undefined)
+		return null;
+
 	return (
 		<>
 			<ArticleForm user={user} article={JSON.parse(props.article)} method='PATCH'/>
@@ -29,8 +32,6 @@ export const getStaticProps: GetStaticProps = async (context : GetStaticPropsCon
 
 		const articles : IArticle[] = await Article.find({}).exec();
 		const article = articles.find((e : IArticle) => e.slug === context?.params?.slug);
-
-		console.log(article)
 
 		return {
 			props: {

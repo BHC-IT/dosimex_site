@@ -59,6 +59,9 @@ const Articles = (props: any) => {
 	const user = useUser();
 	const style = useIsMobile(styles);
 
+	if (!props.articles || props.articles === undefined || props.articles === [])
+		return null;
+
 	if (style === null)
 		return null
 
@@ -105,12 +108,11 @@ export const getStaticProps: GetStaticProps = async (context : GetStaticPropsCon
 				markdown: e.markdown,
 				slug: e.slug,
 				urlImage: e.urlImage ?? "",
-				id: String(e.id),
-				author: String(e.author),
-				createdAt: e.createdAt as Date,
-				updatedAt: e.updatedAt as Date,
+				id: JSON.parse(JSON.stringify(e.id)),			//must find a better solution but seems to work like this
+				author: JSON.parse(JSON.stringify(e.author)),
+				createdAt: JSON.parse(JSON.stringify(e.createdAt)),
+				updatedAt: JSON.parse(JSON.stringify(e.updatedAt)),
 			}
-
 			return ret;
 		});
 

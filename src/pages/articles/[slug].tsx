@@ -39,7 +39,7 @@ const ArticleComp = (props : IProps) => {
 	const user = useUser();
 	moment.locale('fr');
 
-	if (!props.article)
+	if (!props.article || props.article === undefined)
 		return null;
 
 	const renderButtonDeleteEdit = () => {
@@ -77,38 +77,37 @@ const ArticleComp = (props : IProps) => {
 
 export const getStaticProps: GetStaticProps = async (context : GetStaticPropsContext) => {
 
-    try {
-        await dbConnect();
+	try {
+		await dbConnect();
 
 		let article = await Article.findOne({slug : context?.params?.slug}).exec();
 
-        article =
-            {
-                title: article?.title,
-                description: article?.description ?? "",
-                markdown: article?.markdown,
-                slug: article?.slug,
-                urlImage: article?.urlImage ?? "",
-                id: String(article?.id),
-                author: String(article?.author),
-                createdAt: article?.createdAt as Date,
-                updatedAt: article?.updatedAt as Date,
-            }
+		article = {
+				title: article?.title,
+				description: article?.description ?? "",
+				markdown: article?.markdown,
+				slug: article?.slug,
+				urlImage: article?.urlImage ?? "",
+				id: JSON.parse(JSON.stringify(article.id)),				//must find a better solution but seems to work like this
+				author: JSON.parse(JSON.stringify(article.author)),
+				createdAt: JSON.parse(JSON.stringify(article.createdAt)),
+				updatedAt: JSON.parse(JSON.stringify(article.updatedAt)),
+		}
 
-        return {
-            props: {
-                article,
-            },
-            revalidate: 1,
-        }
-    } catch (e) {
-    }
-    return {
-        props: {
-            article: undefined,
-        },
-        revalidate: 1,
-    }
+		return {
+			props: {
+				article,
+			},
+			revalidate: 1,
+		}
+	}catch (e) {
+	}
+	return {
+	props: {
+		article: undefined,
+	},
+	revalidate: 1,
+	}
 }
 
 
