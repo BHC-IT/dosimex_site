@@ -12,9 +12,6 @@ const MDEditor = dynamic(
   { ssr: false }
 ) as any;
 
-console.log("MDEditor", MDEditor);
-
-
 import "@uiw/react-md-editor/markdown-editor.css";
 import "@uiw/react-markdown-preview/markdown.css";
 // import { ToastContainer, toast } from 'react-toastify';

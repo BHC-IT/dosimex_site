@@ -5,6 +5,15 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import * as CSS from 'csstype';
 
+import dynamic from 'next/dynamic';
+
+const MDEditor = dynamic(
+  () => import("@uiw/react-md-editor").then((mod) => mod.default) as any,
+  { ssr: false }
+) as any;
+
+import "@uiw/react-md-editor/markdown-editor.css";
+import "@uiw/react-markdown-preview/markdown.css";
 import moment from 'moment';
 
 import IArticle from '../../interfaces/IArticle'
@@ -59,6 +68,7 @@ const ArticleComp = (props : IProps) => {
 		<div className="container" style={styles.global}>
 			<h2 style={styles.title}>{props.article.title}</h2>
 			<p style={styles.date}>{moment(props.article.updatedAt).format('ll')}</p>
+			<MDEditor value={props.article.markdown} />
 
 			{ user ? renderButtonDeleteEdit() : null}
 		</div>
