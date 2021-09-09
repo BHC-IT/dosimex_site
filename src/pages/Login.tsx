@@ -32,6 +32,7 @@ const Login = () => {
 								password: password,
 							});
 							localStorage.setItem('access_token', res.data.token);
+							router.push('/')
 						} catch (e) {
 						}
 					}} >

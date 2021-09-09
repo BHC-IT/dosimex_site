@@ -44,6 +44,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 		if (!methods[method]) {
 			res.status(404).json({success: false});
 		}
+
 		const res_from_func = await methods[method](req.body, req?.headers?.authorization?.split(' ')[1]);
 
 		res.status(res_from_func[0]).json(res_from_func[1]);

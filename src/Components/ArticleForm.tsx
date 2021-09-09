@@ -1,5 +1,6 @@
 import dynamic from 'next/dynamic';
 
+import { useRouter } from 'next/router';
 import * as React from 'react';
 import * as CSS from 'csstype';
 import Radium from 'radium';
@@ -41,7 +42,7 @@ const isInputValid = (value: string) => value.trim() !== ''
 
 const Article = (props: IProps) => {
 
-
+	const router = useRouter();
 	const [title, setTitle] = React.useState<string | undefined>(props.article?.title);
 	const [description, setDescription] = React.useState<string | undefined>(props.article?.description);
 	const [markdown, setMarkdown] = React.useState<string | undefined>(props.article?.markdown);
@@ -90,13 +91,14 @@ const Article = (props: IProps) => {
 						if (props.method === 'POST') {
 
 							try {
-								await axios.post('/api/articles', {
+								const res = await axios.post('/api/articles', {
 									title: title,
 									description: description,
 									markdown: markdown,
 									urlImage: urlImage,
 								}, {headers: {authorization : `Bearer ${props.user}`}});
 								// wellSent("Nouvel article ajouté !")
+								router.push(`/articles/${res.data.data.slug}`)
 							} catch (e) {
 								console.error(e)
 							}
@@ -109,6 +111,7 @@ const Article = (props: IProps) => {
 									urlImage: urlImage,
 								},{headers: {authorization : `Bearer ${props.user}`}});
 								// wellSent("Article modifié !")
+								router.push(`/articles/${props.article?.slug}`)
 							} catch (e) {
 								console.error(e)
 							}

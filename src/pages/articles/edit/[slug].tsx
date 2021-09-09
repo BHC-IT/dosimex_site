@@ -43,7 +43,7 @@ export const getStaticProps: GetStaticProps = async (context : GetStaticPropsCon
 	}
 	return {
 		props: {
-			article: undefined,
+			article: null,
 		},
 		revalidate: 1,
 	}
