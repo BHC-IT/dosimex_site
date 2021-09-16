@@ -1,6 +1,5 @@
 import * as CSS from 'csstype';
 import YouTube from 'react-youtube';
-import Btn from '../Components/Button'
 import SquareGrid from '../Components/SquareGrid'
 import { useIsMobile } from '../Hooks/useIsMobile';
 import { useText } from '../Hooks/useText';

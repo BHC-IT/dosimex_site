@@ -37,12 +37,12 @@ interface IProps {
 interface ILiLabelProps {
 	text: string,
 	style: IMapOfStyle,
-	textOver: string,
+	textOver?: string,
 }
 
 interface ILinkVideoProps {
 	link: string,
-	textOver: string,
+	textOver?: string,
 }
 
 const Questions = ({text, style} : IProps) =>
