@@ -9,54 +9,44 @@ interface IStyles {
 	[key: string]: CSS.Properties
 }
 
+interface ISlideProps {
+	name: string,
+	text: string,
+}
+
+interface ITextProps {
+	text: string[],
+}
+
 const images = [
-	<div style={{width: "25%", float: "left"}}>
-		<Image
-			src="/Images/ScreenCarousel1.png"
-			width={494*0.7}
-			height={278*0.7}
-		/>
-		{/*<img src="../../Images/ScreenCarousel1.png" style={{width: "25%", float: "left"}}/>*/}
-	</div>,
-
-	<div style={{width: "25%", float: "left"}}>
-		<Image
-			src="/Images/ScreenCarousel2.png"
-			width={494*0.7}
-			height={278*0.7}
-		/>
-		{/*<img src="../../Images/ScreenCarousel2.png" style={{width: "25%", float: "left"}}/>*/}
-	</div>,
-
-	<div style={{width: "25%", float: "left"}}>
-		<Image
-			src="/Images/ScreenCarousel3.png"
-			width={494*0.7}
-			height={278*0.7}
-		/>
-	</div>,
-
-	<div style={{width: "25%", float: "left"}}>
-		<Image
-			src="/Images/logo_dosi.png"
-			width={494*0.7}
-			height={278*0.7}
-		/>
-	</div>
-
+	"ScreenCarousel1.png",
+	"ScreenCarousel1.png",
+	"ScreenCarousel1.png",
+	"logo_dosi.png",
 ]
 
-const Slides = () => {
+const Slide = ({name, text}: ISlideProps) =>
+	<div style={{width: "25%", float: "left"}}>
+		<Image
+			src={`/Images/${name}`}
+			width={494*1.142}
+			height={278*1.142}
+		/>
+		<p style={{fontStyle: "italic", float: "right", marginTop: "7vh",padding: "0 10px", fontSize: "1.8rem", color: "var(--grey)"}}>{text}</p>
+	</div>
+
+
+const SlideWrapper = ({text}: ITextProps) => {
 	return (
 		<div style={{overflow: "hidden"}}>
 			<div style={{position: "relative", width: "400%", margin: 0, left: 0, animation: "8s slidy infinite" }}>
-				{images.map((e) => e)}
+				{images.map((e, i) => <Slide name={e} text={text[i]}/>)}
 			</div>
 		</div>
 	)
 }
 
-const HeroBannerCarousel = () => {
+const HeroBannerCarousel = ({text}: ITextProps) => {
 
 	const style = useIsMobile(styles);
 
@@ -71,7 +61,7 @@ const HeroBannerCarousel = () => {
 				height={634*0.7}
 			/>
 			<div style={{position: "absolute", left: "0.85%", top: "2.6%"}}>
-				<Slides />
+				<SlideWrapper text={text}/>
 			</div>
 		</div>
 	)

@@ -45,7 +45,7 @@ function Home(props: IProps) {
 				</div>
 				<div style={style.header.headerImage}>
 					<div style={style.header.image}>
-						<HeroBannerCarousel />
+						<HeroBannerCarousel text={text.header.textImage}/>
 					</div>
 					<div style={style.header.motif}>
 						<Image
@@ -55,7 +55,6 @@ function Home(props: IProps) {
 							height={334*1.3}
 						/>
 					</div>
-					<p style={style.header.legendImage}>{text.header.textImage[0]}</p>
 				</div>
 			</header>
 
