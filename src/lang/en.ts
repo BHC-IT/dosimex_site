@@ -73,6 +73,7 @@ const text : ILang = {
 		button: {
 			label: "Check out all videos",
 		},
+		linkVideo : "Watch the video on YouTube",
 		packOpe: {
 			title: "Operational pack",
 			descrip: "These calculation tools enable to estimate the radiological risks at their correct levels and to design the necessary protections",

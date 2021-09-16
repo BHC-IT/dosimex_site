@@ -73,6 +73,7 @@ const text : ILang = {
 		button: {
 			label: "{Software.button.label}",
 		},
+		linkVideo : "{Software.linkVideo}",
 		packOpe: {
 			title: "{Software.packOpe.title}",
 			descrip: "{Software.packOpe.descrip}",

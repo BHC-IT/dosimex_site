@@ -14,6 +14,7 @@ import { useIsMobile } from '../Hooks/useIsMobile';
 import {
 	BrowserView,
 	MobileView,
+	isMobile,
 } from "react-device-detect";
 
 import { parseStringLink, handleLink, isLink } from '../utils/parseStringLink';
@@ -36,6 +37,12 @@ interface IProps {
 interface ILiLabelProps {
 	text: string,
 	style: IMapOfStyle,
+	textOver: string,
+}
+
+interface ILinkVideoProps {
+	link: string,
+	textOver: string,
 }
 
 const Questions = ({text, style} : IProps) =>
@@ -45,23 +52,59 @@ const Questions = ({text, style} : IProps) =>
 		<Button name={text.ask.labelButton} route="Contact"/>
 	</div>
 
-const LiLabel = ({text, style} : ILiLabelProps) =>
+const LinkVideo = ({link, textOver} : ILinkVideoProps) => {
+	const [isVisible, setIsVisible] = React.useState<boolean>(false)
+	const [x, setX] = React.useState<number>(0)
+
+	return (
+		<>
+			<a
+				href={handleLink(link)[1]}
+				target="_blank"
+				rel="noreferrer noopener"
+				onMouseOver={(e) => {setIsVisible(true); setX(e.clientX)}}
+				onMouseLeave={() => setIsVisible(false)}
+			>
+				{handleLink(link)[0]}
+				<div style={{display: "inline", paddingLeft: "5px"}}>
+					<FontAwesomeIcon icon={faExternalLinkAlt} style={{width: "0.75vw"}}/>
+				</div>
+			</a>
+			{
+				isMobile ?
+					null
+				:
+					<p style={{
+							visibility: isVisible ? "visible" : "hidden",
+							margin: "0",
+							textAlign: "center",
+							backgroundColor: "rgb(230,230,230)",
+							color: "var(--grey)",
+							borderRadius: "50px",
+							position: "absolute",
+							left: x,
+							padding: "0 12px",
+
+					}}>
+						{textOver}
+					</p>
+			}
+		</>
+	)
+}
+
+const LiLabel = ({text, style, textOver} : ILiLabelProps) =>
 	<p style={style.global}>
 	{
 		parseStringLink(text).map(e => isLink(e) ?
 			<div style={style.link}>
-				<a href={handleLink(e)[1]} target="_blank" rel="noreferrer noopener">
-					{handleLink(e)[0]}
-					{/*<div style={{display: "inline", paddingLeft: "5px"}}>
-						<FontAwesomeIcon icon={faExternalLinkAlt} style={{width: "1vw"}}/>
-					</div>*/}
-				</a>
+				<LinkVideo link={e} textOver={textOver}/>
 			</div>
 		:
 		<p style={{display: "inline"}}>{e}</p>
 		)
 	}
-	</p>;
+	</p>
 
 const LinkZone = styled.li`
 	display: flex;
@@ -151,7 +194,7 @@ const PartImageColorRight = styled.div`
 const CodeSection = styled.li`
 	display: flex;
 	width: 75%;
-	justify-content: space-between;
+	justify-content: flex-start;
 	align-items: center;
 `;
 
@@ -238,7 +281,7 @@ const Software = () => {
 								</div>
 								<Image src="/Images/Flag_Uk.jpg" width={1024*ratioUk} height={683*ratioUk} />
 							</div>
-							<LiLabel text={text.packOpe.li[i]} style={style.liLabel}/>
+							<LiLabel text={text.packOpe.li[i]} style={style.liLabel} textOver={text.linkVideo}/>
 						</CodeSection>
 					)}
 				</div>
@@ -270,7 +313,7 @@ const Software = () => {
 										<Image src="/Images/Flag_France.png" width={2560*ratioFr} height={1707*ratioFr} />
 								}
 							</div>
-							<LiLabel text={text.packPeda.li[i]} style={style.liLabel}/>
+							<LiLabel text={text.packPeda.li[i]} style={style.liLabel} textOver={text.linkVideo}/>
 						</CodeSection>
 					)}
 				</div>
@@ -292,7 +335,7 @@ const Software = () => {
 								<LiTitle >{e}</LiTitle>
 								<Image src="/Images/Flag_France.png" width={2560*ratioFr} height={1707*ratioFr} />
 							</div>
-							<LiLabel text={text.packMes.li[i]} style={style.liLabel}/>
+							<LiLabel text={text.packMes.li[i]} style={style.liLabel} textOver={text.linkVideo}/>
 						</CodeSection>
 					)}
 					<div style={{marginTop: '8vh'}} >

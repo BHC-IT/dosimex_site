@@ -60,6 +60,7 @@ export default interface Lang {
 		button: {
 			label: string,
 		},
+		linkVideo: string,
 		packOpe: {
 			title: string,
 			descrip: string,

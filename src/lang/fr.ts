@@ -73,6 +73,7 @@ const text : ILang = {
 		button: {
 			label: "voir toutes les vidéos",
 		},
+		linkVideo : "Voir la vidéo sur YouTube",
 		packOpe: {
 			title: "Pack opérationnel",
 			descrip: "Ces outils de calculs permettent d’estimer à leurs justes hauteurs les risques radiologiques et de concevoir les protections nécessaires",
