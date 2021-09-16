@@ -6,7 +6,7 @@ const text : ILang = {
 			title: "La référence des outils de calculs pour la radioprotection ",
 			p: "Ensemble d'outils de calculs pratiques, simples d’emploi, validés, et répondant à de nombreuses situations rencontrées en radioprotection. Ils vous permettront d'améliorer votre niveau d'expertise.",
 			button: "Découvrir",
-			textImage: ["Dosimex GX Générateur X"],
+			textImage: ["Dosimex GX Générateur X", "Text screen 2", "Text screen 3", "Text screen 4"],
 		},
 		partners: {
 			title: "Nos partenaires",

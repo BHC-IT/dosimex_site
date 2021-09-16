@@ -15,6 +15,7 @@ export interface IStyles {
 	subtitle: CSS.Properties,
 	card: CSS.Properties,
 	image: CSS.Properties,
+	arrow: CSS.Properties,
 }
 
 interface IProps {
@@ -47,7 +48,7 @@ const CardHome = (props: IProps) => {
 				<button style={style.button}>
 					<Link href={`/${props.route}`}>
 						<div style={{display: "flex", alignItems: "center"}}>
-							<FontAwesomeIcon icon={faLongArrowAltRight} style={{width: "1.3vw"}}/>
+							<FontAwesomeIcon icon={faLongArrowAltRight} style={style.arrow}/>
 						</div>
 					</Link>
 				</button>
@@ -103,4 +104,7 @@ export const styles = (mobile: boolean): IStyles => ({
 		marginLeft: "auto",
 		marginRight: "auto",
 	},
+	arrow: {
+		width: mobile ? "5vw" : "1.3vw"
+	}
 })

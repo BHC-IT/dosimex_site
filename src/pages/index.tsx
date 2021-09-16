@@ -2,6 +2,7 @@ import Button from '../Components/Button';
 import CardHome from '../Components/CardHome';
 import OpinionHome from '../Components/OpinionHome';
 import PartnersCarousel from '../Components/PartnersCarousel';
+import HeroBannerCarousel from '../Components/HeroBannerCarousel';
 import Image from 'next/image';
 import * as CSS from 'csstype';
 import { useText } from '../Hooks/useText';
@@ -44,12 +45,7 @@ function Home(props: IProps) {
 				</div>
 				<div style={style.header.headerImage}>
 					<div style={style.header.image}>
-						<Image
-							src="/Images/home_header_carousel.png"
-							alt="logiciel dosimex"
-							width={1006*0.7}
-							height={634*0.7}
-						/>
+						<HeroBannerCarousel />
 					</div>
 					<div style={style.header.motif}>
 						<Image
@@ -172,7 +168,7 @@ export const styles = (mobile: boolean): IStyles => ({
 		},
 		headerImage: {
 			display: mobile ? "none" : undefined,
-			width: "40%",
+			width: "30vw",
 		},
 		headerText: {
 			width: mobile ? "100%" : "45%",

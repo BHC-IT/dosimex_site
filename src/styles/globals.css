@@ -11,8 +11,8 @@
 	--grey-bg: #DAD8E0;
 	--yellow-bg: #FFC03D;
 	--orange: #FC7449;
-	--lato:  'Lato', sans-serif;;
-	--nunito:  'Nunito', sans-serif;;
+	--lato: 'Lato', sans-serif;;
+	--nunito: 'Nunito', sans-serif;;
 }
 
 * {
@@ -114,82 +114,94 @@ h5 {
 /************************ Style SideBar ********************************/
 
 #containerNav {
-  font-family: var(--lato);
-  /* Give app full page to work with */
-  height: 12vh;
+	font-family: var(--lato);
+	/* Give app full page to work with */
+	height: 12vh;
 }
 
 #page-wrap {
-  text-align: center;
+	text-align: center;
 
-  /* Prevent sidebar from showing a scrollbar on page */
-  overflow: auto;
+	/* Prevent sidebar from showing a scrollbar on page */
+	overflow: auto;
 }
 
 /* Individual item */
 .bm-item {
-  display: inline-block;
+	display: inline-block;
 
-  /* Our sidebar item styling */
-  text-decoration: none;
-  margin-bottom: 10px;
-  color: var(--light);
-  transition: color 0.2s;
+	/* Our sidebar item styling */
+	text-decoration: none;
+	margin-bottom: 10px;
+	color: var(--light);
+	transition: color 0.2s;
 }
 
 /* Change color on hover */
 .bm-item:hover {
-  color: white;
+	color: white;
 }
 
 /* The rest copied directly from react-burger-menu docs */
 
 /* Position and sizing of burger button */
 .bm-burger-button {
-  position: fixed;
-  width: 36px;
-  height: 30px;
-  right: 36px;
-  top: 56px;
-  background-color: rgba(255, 255, 255);
+	position: fixed;
+	width: 36px;
+	height: 30px;
+	right: 36px;
+	top: 56px;
+	background-color: rgba(255, 255, 255);
 }
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: #373a47;
+	background: #373a47;
 }
 
 /* Position and sizing of clickable cross button */
 .bm-cross-button {
-  height: 35px;
-  width: 35px;
+	height: 35px;
+	width: 35px;
 }
 
 /* Color/shape of close button cross */
 .bm-cross {
-  background: #bdc3c7;
+	background: #bdc3c7;
 }
 
 /* General sidebar styles */
 .bm-menu {
-  background: #373a47;
-  padding: 2.5em 1.5em 0;
-  font-size: 1.15em;
+	background: #373a47;
+	padding: 2.5em 1.5em 0;
+	font-size: 1.15em;
 }
 
 /* Morph shape necessary with bubble or elastic */
 .bm-morph-shape {
-  fill: #373a47;
+	fill: #373a47;
 }
 
 /* Wrapper for item list */
 .bm-item-list {
-  color: var(--light);
+	color: var(--light);
 }
 
 /* Styling of overlay */
 .bm-overlay {
-  background: rgba(0, 0, 0, 0.3);
+	background: rgba(0, 0, 0, 0.3);
+}
+
+@keyframes slidy {
+	0% { left: 0%; }
+	20% { left: 0%; }
+	25% { left: -100%; }
+	45% { left: -100%; }
+	50% { left: -200%; }
+	70% { left: -200%; }
+	75% { left: -300%; }
+	95% { left: -300%; }
+	100% { left: -400%; }
 }
 
 /*******************************************************************/

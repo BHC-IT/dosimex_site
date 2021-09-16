@@ -6,7 +6,11 @@ const text : ILang = {
 			title: "{Home.header.title}",
 			p: "{Home.header.p}",
 			button: "{Home.header.button}",
-			textImage: ["{Home.header.textImage[0]}"],
+			textImage: [	"{Home.header.textImage[0]}",
+					"{Home.header.textImage[1]}",
+					"{Home.header.textImage[2]}",
+					"{Home.header.textImage[3]}",
+			],
 		},
 		partners: {
 			title: "{Home.partners.title}",

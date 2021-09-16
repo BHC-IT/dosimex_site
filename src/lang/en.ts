@@ -6,7 +6,7 @@ const text : ILang = {
 			title: "The reference of calculation tools for radiation protection",
 			p: "A set of practical, easy-to-use, validated calculation tools that address many situations encountered in radiation protection. They will allow you to improve your level of expertise.",
 			button: "Discover",
-			textImage: ["Dosimex GX X-ray Generator"],
+			textImage: ["Dosimex GX X-ray Generator", "Text screen 2", "Text screen 3", "Text screen 4"],
 		},
 		partners: {
 			title: "Partners",
