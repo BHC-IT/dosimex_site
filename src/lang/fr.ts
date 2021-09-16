@@ -111,6 +111,7 @@ const text : ILang = {
 				"extraits validation source gamma",
 				"validation générateur X",
 				"Les nouveautés à découvrir dans Dosimex-GX 3.0",
+				"notre sélection de lectures",
 			]
 		},
 		ask: {
@@ -122,7 +123,6 @@ const text : ILang = {
 	About: {
 		header: {
 			title: "Notre équipe",
-			p: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. At purus risus, dictum auctor massa quam scelerisque. Nibh lobortis feugiat orci donec mauris turpis sagittis malesuada nibh."
 		},
 		gerald: {
 			p: [	"J’ai commencé ma carrière, en 1997, dans la Marine Nationale en tant qu’électrotechnicien sur systèmes d’armement. Après une formation de technicien en radioprotection (TR), j’ai intégré le SPR de l’Ile Longue, avec diverses missions centrées sur les sous-marins nucléaires Lanceur d’engins (SNLE) : assistance radiologique, cartographies du compartiment réacteur, analyses radiologiques au laboratoire de moyenne activité, exercices de sécurité nucléaires…",
@@ -153,7 +153,6 @@ const text : ILang = {
 	Books: {
 		header: {
 			title: "Lectures",
-			p: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. At purus risus, dictum auctor massa quam scelerisque. Nibh lobortis feugiat orci donec mauris turpis sagittis malesuada nibh.",
 		},
 		books: [
 			{
@@ -276,14 +275,14 @@ const text : ILang = {
 	Product: {
 		header: {
 			title: "Clé USB Dosimex 3.0",
-			p: "La clé USB DOSIMEX 3.0 fonctionne comme un dongle. Il suffit de la connecter sur un PC pour voir apparaître automatiquement l’ensemble des dossiers. Les codes s'ouvrent et s’utilisent directement sur la clé. Cliquez sur le bouton ci-dessous et achetez directement la clé pour 600€. Ou contactez-nous via la formulaire en bas de page pour un devis.",
+			p: "La clé USB DOSIMEX 3.0 fonctionne comme un dongle. Il suffit de la connecter sur un PC pour voir apparaître automatiquement l’ensemble des dossiers. Les codes s'ouvrent et s’utilisent directement sur la clé. Cliquez sur le bouton ci-dessous et achetez directement la clé pour 600€ TTC (frais d'envoi inclus). Ou contactez-nous via la formulaire en bas de page pour un devis.",
 			button: "Acheter Dosimex",
 		},
 		buttonKnowMore: "En savoir plus",
 		title: "Fiche technique du produit",
 		descrip: "La clé USB DOSIMEX 3.0 fonctionne comme un dongle. Il suffit de la connecter sur un PC pour voir apparaître automatiquement l’ensemble des dossiers. Les codes s'ouvrent et s’utilisent directement sur la clé. Elle se subdivise en 2 partitions :",
 		partE: {
-			p: [	"Tous les codes et utilitaires (13) des packs opérationnel, pédagogique et mesures présentés sur ce site",
+			p: [	"Tous les codes et utilitaires (13) des packs opérationnel (5), pédagogique (4) et mesures (4) présentés sur ce site",
 				"La documentation associée : manuel d’emploi et dossier de validation de chaque code.",
 				"Des documents de cours (11).",
 				"Les annexes (19) de l’ouvrage « Calcul de doses générées par les rayonnements ionisants » (EDP Sciences 2016).",
@@ -298,6 +297,8 @@ const text : ILang = {
 			p: `Les codes sont écrits en VBA sous Excel. Le pack Dosimex fonctionne avec Windows XP à Windows 10 et Excel 2003 à 2019 en autorisant le fonctionnement des macros. Sur Mac il est nécessaire de créer une « machine virtuelle ».\n Suivant les mesures de sécurité mises en place dans l’entreprise, il est conseillé de demander à votre service informatique de « whitelister » Dosimex.`,
 		},
 		titlePrice: "Obtenir la clé USB Dosimex 3.0",
+		price: "600€ TTC",
+		priceShipment: "(frais d'envoi inclus)",
 		questions: {
 			title: "Des questions ? Une demande de devis ?",
 			p: "N’hésitez pas à nous contacter via le formulaire ci-dessous ou par téléphone au ",
@@ -310,29 +311,29 @@ const text : ILang = {
 		},
 		section1: {
 			title: "Exemples de thématiques abordées, modulables selon les besoins :",
-			li: [	"Calcul de protection autour de générateurs X médicaux et industriels",
-				"Application NF C 15-160",
-				"Gestion d’une source de Radium de forte activité",
-				"Seringue au Technétium 99m et protection opérateur",
-				"Contamination au Fluor 18",
-				"Gammagraphie Co60, Ir192, Sr95, Cs137",
-				"Les radionucléides préférés d'EDF",
-				"Approche ALARA sur tuyauterie primaire",
-				"Diffusion dans une chicane de blockhaus",
-				"Radioprotection autours d'une piscine de stockage combustibles",
-				"Protection biologique d'une source de Californium 252 (neutrons +gamma)",
-				"Ionisations alimentaires",
-				"Source Strontium-Yttrium 90 de forte activité",
-				"Analyse radioprotection d'un colis de déchets produit de fission ( CSDV)",
+			li: [	"• Calcul de protection autour de générateurs X médicaux et industriels",
+				"• Application NF C 15-160",
+				"• Gestion d’une source de Radium de forte activité",
+				"• Seringue au Technétium 99m et protection opérateur",
+				"• Contamination au Fluor 18",
+				"• Gammagraphie Co60, Ir192, Sr95, Cs137",
+				"• Les radionucléides préférés d'EDF",
+				"• Approche ALARA sur tuyauterie primaire",
+				"• Diffusion dans une chicane de blockhaus",
+				"• Radioprotection autours d'une piscine de stockage combustibles",
+				"• Protection biologique d'une source de Californium 252 (neutrons +gamma)",
+				"• Ionisations alimentaires",
+				"• Source Strontium-Yttrium 90 de forte activité",
+				"• Analyse radioprotection d'un colis de déchets produit de fission ( CSDV)",
 
 			],
 		},
 		section2: {
 			title: "Nous proposons en partenariat avec Safetechnologie d'autres formations sur les thématiques :",
-			li: [	"Physique nucléaire et radioactivité",
-				"Interaction rayonnements matière",
-				"Seuil de décision (ISO 11929)",
-				"Spéctrométrie gamma",
+			li: [	"• Physique nucléaire et radioactivité",
+				"• Interaction rayonnements matière",
+				"• Seuil de décision (ISO 11929)",
+				"• Spectrométrie gamma",
 			],
 			button: "Catalogue de formation"
 		},

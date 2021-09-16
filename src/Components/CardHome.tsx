@@ -4,6 +4,8 @@ import Radium from 'radium';
 import { useRouter } from 'next/router';
 import { useIsMobile } from '../Hooks/useIsMobile';
 import Tilt from 'react-parallax-tilt';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLongArrowAltRight} from '@fortawesome/free-solid-svg-icons'
 
 import * as CSS from 'csstype';
 
@@ -43,7 +45,11 @@ const CardHome = (props: IProps) => {
 				<h4 style={{marginBottom: "0"}}>{props.title}</h4>
 				<p style={style.subtitle}>{props.content}</p>
 				<button style={style.button}>
-					<Link href={`/${props.route}`}><span>→</span></Link>
+					<Link href={`/${props.route}`}>
+						<div style={{display: "flex", alignItems: "center"}}>
+							<FontAwesomeIcon icon={faLongArrowAltRight} style={{width: "1.3vw"}}/>
+						</div>
+					</Link>
 				</button>
 			</div>
 		</Tilt>
@@ -65,7 +71,6 @@ export const styles = (mobile: boolean): IStyles => ({
 		display: "flex",
 		alignItems: "center",
 		justifyContent: "center",
-		fontSize: "3rem",
 		padding: "20px",
 		marginLeft: "auto",
 		marginRight: "auto",
@@ -74,13 +79,6 @@ export const styles = (mobile: boolean): IStyles => ({
 		backgroundColor: "var(--main)",
 		borderRadius: "50%",
 		color: "white",
-		textTransform: "uppercase" as "uppercase",
-		transition: "all 0.3s ease 0s",
-		':hover': {
-			color: "white",
-			transform: "translateY(-2px)",
-			boxShadow: "0px 5px 5px rgba(0, 0, 0, 0.1)",
-		},
 	},
 	card: {
 		borderRadius: "10px",

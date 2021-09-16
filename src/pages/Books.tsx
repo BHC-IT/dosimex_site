@@ -84,8 +84,7 @@ const Books = () => {
 		<>
 			<div className="container" style={style.global}>
 				<div style={style.header}>
-					<h2>{text.header.title}</h2>
-					<p style={style.headerSubtitle}>{text.header.p}</p>
+					<h2 style={style.title}>{text.header.title}</h2>
 				</div>
 				{
 					books.map((e: any, i: number) => {
@@ -112,9 +111,7 @@ export const styles = (mobile: boolean): {[$:string]: CSS.Properties} => ({
 		marginTop: "15vh",
 		marginBottom: mobile ? "10vh" : "15vh",
 	},
-	headerSubtitle: {
-		padding: mobile ? "2vh 0 10vh 0" : "4vh 15vw",
-		color: "var(--grey)",
-		fontSize: mobile ? "1.6rem" : "1.8rem",
+	title: {
+		fontSize: "6rem",
 	},
 })

@@ -164,9 +164,11 @@ export const styles = (mobile: boolean): IStyles => ({
 		},
 		headerSubtitle: {
 			color: "var(--grey)",
-			fontSize: mobile ? "1.6rem" : "1.8rem",
+			fontSize: mobile ? "1.6rem" : "2rem",
 			marginBottom: mobile ? "6vh" : "4vh",
 			marginTop: mobile ? "4vh" : undefined,
+			textAlign: "justify",
+			fontWeight: "bold",
 		},
 		headerImage: {
 			display: mobile ? "none" : undefined,

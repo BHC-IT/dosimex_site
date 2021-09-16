@@ -5,6 +5,8 @@ import Image from 'next/image';
 import ILang from '../lang/interface';
 import Link from 'next/link';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faExternalLinkAlt} from '@fortawesome/free-solid-svg-icons'
 
 import { useText } from '../Hooks/useText';
 import { useIsMobile } from '../Hooks/useIsMobile';
@@ -47,9 +49,14 @@ const LiLabel = ({text, style} : ILiLabelProps) =>
 	<p style={style.global}>
 	{
 		parseStringLink(text).map(e => isLink(e) ?
-			<>
-				<a href={handleLink(e)[1]} target="_blank" rel="noreferrer noopener" style={style.link}>{handleLink(e)[0]}</a>
-			</>
+			<div style={style.link}>
+				<a href={handleLink(e)[1]} target="_blank" rel="noreferrer noopener">
+					{handleLink(e)[0]}
+					{/*<div style={{display: "inline", paddingLeft: "5px"}}>
+						<FontAwesomeIcon icon={faExternalLinkAlt} style={{width: "1vw"}}/>
+					</div>*/}
+				</a>
+			</div>
 		:
 		<p style={{display: "inline"}}>{e}</p>
 		)
@@ -151,6 +158,7 @@ const CodeSection = styled.li`
 const LiTitle = styled.h5`
 	flex-shrink: 0;
 	width: 15vw;
+	margin-bottom: 6px;
 `;
 
 // const LiLabel= styled.p`
@@ -159,6 +167,8 @@ const LiTitle = styled.h5`
 
 
 const hashes = ["#op", "#pedago", "#mesure"]
+const ratioFr: number = 0.012
+const ratioUk: number = 0.03
 
 const Software = () => {
 	const text = useText('Software');
@@ -221,7 +231,13 @@ const Software = () => {
 					</div>
 					{text.packOpe.liTitles.map((e : string, i : number) =>
 						<CodeSection key={e} style={{marginTop: i === 0 ? '5vh' : 0}} >
-							<LiTitle >{e}</LiTitle>
+							<div style={style.divFlag}>
+								<LiTitle >{e}</LiTitle>
+								<div style={{marginRight: "6px", display: "inline"}}>
+									<Image src="/Images/Flag_France.png" width={2560*ratioFr} height={1707*ratioFr} />
+								</div>
+								<Image src="/Images/Flag_Uk.jpg" width={1024*ratioUk} height={683*ratioUk} />
+							</div>
 							<LiLabel text={text.packOpe.li[i]} style={style.liLabel}/>
 						</CodeSection>
 					)}
@@ -240,7 +256,20 @@ const Software = () => {
 					</div>
 					{text.packPeda.liTitles.map((e : string, i : number) =>
 						<CodeSection key={e} style={{marginTop: i === 0 ? '5vh' : 0}} >
-							<LiTitle >{e}</LiTitle>
+							<div style={style.divFlag}>
+								<LiTitle >{e}</LiTitle>
+								{
+									i === 0 ?
+										<>
+											<div style={{marginRight: "6px", display: "inline"}}>
+												<Image src="/Images/Flag_France.png" width={2560*ratioFr} height={1707*ratioFr} />
+											</div>
+											<Image src="/Images/Flag_Uk.jpg" width={1024*ratioUk} height={683*ratioUk} />
+										</>
+									:
+										<Image src="/Images/Flag_France.png" width={2560*ratioFr} height={1707*ratioFr} />
+								}
+							</div>
 							<LiLabel text={text.packPeda.li[i]} style={style.liLabel}/>
 						</CodeSection>
 					)}
@@ -259,7 +288,10 @@ const Software = () => {
 					</div>
 					{text.packMes.liTitles.map((e : string, i : number) =>
 						<CodeSection key={e} style={{marginTop: i === 0 ? '5vh' : 0}} >
-							<LiTitle >{e}</LiTitle>
+							<div style={style.divFlag}>
+								<LiTitle >{e}</LiTitle>
+								<Image src="/Images/Flag_France.png" width={2560*ratioFr} height={1707*ratioFr} />
+							</div>
 							<LiLabel text={text.packMes.li[i]} style={style.liLabel}/>
 						</CodeSection>
 					)}
@@ -277,7 +309,13 @@ const Software = () => {
 					</div>
 					{text.packOpe.liTitles.map((e : string, i : number) =>
 						<div key={e} style={{marginTop: i === 0 ? '5vh' : 0}} >
-							<p style={style.pLi}>{e}</p>
+							<div style={style.divFlag}>
+								<p style={style.pLi}>{e}</p>
+								<div style={{marginRight: "6px", display: "inline"}}>
+									<Image src="/Images/Flag_France.png" width={2560*ratioFr} height={1707*ratioFr} />
+								</div>
+								<Image src="/Images/Flag_Uk.jpg" width={1024*ratioUk} height={683*ratioUk} />
+							</div>
 							<LiLabel text={text.packOpe.li[i]} style={style.liLabel}/>
 						</div>
 					)}
@@ -289,7 +327,20 @@ const Software = () => {
 					</div>
 					{text.packPeda.liTitles.map((e : string, i : number) =>
 						<div key={e} style={{marginTop: i === 0 ? '5vh' : 0}} >
-							<p style={style.pLi}>{e}</p>
+							<div style={style.divFlag}>
+								<p style={style.pLi}>{e}</p>
+								{
+									i === 0 ?
+										<>
+											<div style={{marginRight: "6px", display: "inline"}}>
+												<Image src="/Images/Flag_France.png" width={2560*ratioFr} height={1707*ratioFr} />
+											</div>
+											<Image src="/Images/Flag_Uk.jpg" width={1024*ratioUk} height={683*ratioUk} />
+										</>
+									:
+										<Image src="/Images/Flag_France.png" width={2560*ratioFr} height={1707*ratioFr} />
+								}
+							</div>
 							<LiLabel text={text.packPeda.li[i]} style={style.liLabel}/>
 						</div>
 					)}
@@ -301,8 +352,10 @@ const Software = () => {
 					</div>
 					{text.packMes.liTitles.map((e : string, i : number) =>
 						<div key={e} style={{marginTop: i === 0 ? '5vh' : 0}} >
-							<p style={style.pLi}>{e}</p>
-							{/*<p style={style.descripLi}>{text.packMes.li[i]}</p>*/}
+							<div style={style.divFlag}>
+								<p style={style.pLi}>{e}</p>
+								<Image src="/Images/Flag_France.png" width={2560*ratioFr} height={1707*ratioFr} />
+							</div>
 							<LiLabel text={text.packMes.li[i]} style={style.liLabel}/>
 						</div>
 					)}
@@ -328,6 +381,9 @@ const Software = () => {
 				</div>
 				<div style={{width: '80%', marginTop: '0.2vh'}} >
 					<a href={`../Folders/Modification_Dosimex GX_3.0.pdf`} target="_blank" rel="noreferrer"><p style={{textDecoration: "underline var(--dark)", cursor:'pointer'}} >{(text.more.links[4]).toUpperCase()}</p></a>
+				</div>
+				<div style={{width: '80%', marginTop: '0.2vh'}} >
+					<Link href={`/Books`} replace><p style={{textDecoration: "underline var(--dark)", cursor:'pointer'}} >{(text.more.links[5]).toUpperCase()}</p></Link>
 				</div>
 			</div>
 			<Questions text={text} style={style.questionsStyles}/>
@@ -371,11 +427,12 @@ export const styles = (mobile: boolean): IStyles => ({
 		textAlign: mobile ? "center" : undefined,
 	},
 	headerLink: {
-		fontSize: mobile ? '2rem' : undefined,
+		fontSize: mobile ? "2rem" : "2.4rem",
+		fontWeight: 400,
 	},
 	arrow: {
 		color: "var(--main)",
-		fontSize: mobile ? "3rem" : "4rem",
+		fontSize: mobile ? "3rem" : "4.5rem",
 		marginTop: 0,
 		marginBottom: 0,
 	},
@@ -428,9 +485,13 @@ export const styles = (mobile: boolean): IStyles => ({
 			cursor: "pointer",
 			textDecoration: "underline",
 			display: "inline",
+			color: "#007bff",
 		},
 		global: {
 			marginLeft: "1vw",
 		}
+	},
+	divFlag: {
+		marginBottom: "3vh"
 	}
 })

@@ -151,6 +151,7 @@ export const styles = (mobile: boolean) => ({
 			fontSize: mobile ? "1.6rem" : "1.8rem",
 			color: 'var(--grey)',
 			marginTop: '4vh',
+			textAlign: "justify",
 		} as CSS.Properties,
 		squareGridStyles: {
 			containerStyle: {
@@ -225,7 +226,7 @@ export const styles = (mobile: boolean) => ({
 		text: {
 			margin: "0 10%",
 			marginTop: '2vh',
-			fontWeight: 500,
+			fontSize: "2rem",
 		} as CSS.Properties,
 		btn: {
 			padding: "8px 25px",

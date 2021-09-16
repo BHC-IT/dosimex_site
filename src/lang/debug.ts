@@ -114,6 +114,7 @@ const text : ILang = {
 				"{Software.more.links[2]}",
 				"{Software.more.links[3]}",
 				"{Software.more.links[4]}",
+				"{Software.more.links[5]}",
 			]
 		},
 		ask: {
@@ -125,7 +126,6 @@ const text : ILang = {
 	About: {
 		header: {
 			title: "{About.header.title}",
-			p: "{About.header.p}"
 		},
 		gerald: {
 			p: [	"{About.gerald.p[0]}",
@@ -156,7 +156,6 @@ const text : ILang = {
 	Books: {
 		header: {
 			title: "{Books.header.title}",
-			p: "{Books.header.p}"
 		},
 		books: [{extract: "{Books.books[0].extract}", author: "{Books.books[0].author}"},
 			{extract: "{Books.books[1].extract}", author: "{Books.books[1].author}"},
@@ -225,6 +224,8 @@ const text : ILang = {
 			p: "{Product.prerequisites.p}",
 		},
 		titlePrice: "{Product.titlePrice}",
+		price: "{Product.price}",
+		priceShipment: "{Product.priceShipment}",
 		questions: {
 			title: "{Product.questions.title}",
 			p: "{Product.questions.p}",

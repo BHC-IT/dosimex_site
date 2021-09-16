@@ -95,7 +95,7 @@ export default function Manuals() {
 						{text.header.li.map((e : string, i : number) =>
 							<LinkZone key={e} >
 								<p style={style.arrow}>→</p>
-								<LinkLabel onClick={() => setTimeout(() => setDummy(dummy+1), 100)} href={hashes[i]} >{e}</LinkLabel>
+								<LinkLabel onClick={() => setTimeout(() => setDummy(dummy+1), 100)} href={hashes[i]} style={style.headerLink}>{e}</LinkLabel>
 							</LinkZone>
 						)}
 					</ul>
@@ -207,11 +207,12 @@ export const styles = (mobile: boolean): IStyles => ({
 		marginTop: '5vh',
 	},
 	headerLink: {
-		marginLeft: '0.5vw',
-		color: 'var(--dark)',
+		fontSize: mobile ? "2rem" : "2.4rem",
+		fontWeight: 400,
 	},
 	section: {
 		paddingBottom: "10vh",
+		marginTop: "5vh"
 	},
 	sectionTitle: {
 		borderLeft: "3px solid var(--main)",
@@ -220,7 +221,7 @@ export const styles = (mobile: boolean): IStyles => ({
 	},
 	arrow: {
 		color: "var(--flash)",
-		fontSize: "4rem",
+		fontSize: mobile ? "3rem" : "4.5rem",
 		marginTop: 0,
 		marginBottom: 0,
 	},

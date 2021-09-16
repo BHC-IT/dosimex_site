@@ -64,7 +64,7 @@ class Navbar extends React.Component<IProps> {
 	}
 
 	render() {
-		const ratio = 0.5;
+		const ratio = 0.7;
 
 		return (
 			<>

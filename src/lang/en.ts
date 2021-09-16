@@ -110,7 +110,8 @@ const text : ILang = {
 				"complete validation files",
 				"gamma source validation extracts",
 				"X-ray generator validation",
-				"What's new in Dosimex-GX 3.0"
+				"What's new in Dosimex-GX 3.0",
+				"Our reading selection",
 			]
 		},
 		ask: {
@@ -122,7 +123,6 @@ const text : ILang = {
 	About: {
 		header: {
 			title: "Our team",
-			p: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. At purus risus, dictum auctor massa quam scelerisque. Nibh lobortis feugiat orci donec mauris turpis sagittis malesuada nibh."
 		},
 		gerald: {
 			p: [	"I began my career in 1997 in the French Navy as an electrical technician on weapons systems. After training as a radiation protection technician (RT), I joined the RPD at Ile Longue, with various missions focused on nuclear-armed ballistic missile submarines (SNLE): radiological assistance, reactor compartment mapping, radiological analyses in the medium activity laboratory, nuclear safety exercises...",
@@ -153,7 +153,6 @@ const text : ILang = {
 	Books: {
 		header: {
 			title: "Readings",
-			p: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. At purus risus, dictum auctor massa quam scelerisque. Nibh lobortis feugiat orci donec mauris turpis sagittis malesuada nibh.",
 		},
 		books: [
 			{
@@ -276,14 +275,14 @@ const text : ILang = {
 	Product: {
 		header: {
 			title: "Dosimex 3.0 USB key",
-			p: "The DOSIMEX 3.0 USB stick works like a dongle. Just connect it to a PC and all the files automatically appear. The codes are opened and used directly on the key. Click on the button below and buy it for 600€. Or contact us via the form at the bottom of the page for a quotation.",
+			p: "The DOSIMEX 3.0 USB stick works like a dongle. Just connect it to a PC and all the files automatically appear. The codes are opened and used directly on the key. Click on the button below and buy it for 600€ VAT (shipment expenses included). Or contact us via the form at the bottom of the page for a quotation.",
 			button: "Get Dosimex",
 		},
 		buttonKnowMore: "Read more",
 		title: "Product data sheet",
 		descrip: "The DOSIMEX 3.0 USB stick works like a dongle. You just have to connect it to a PC to see all the files automatically appear. The codes are opened and used directly on the key. It is divided into 2 partitions:",
 		partE: {
-			p: [	"All the codes and utilities (13) of the operational, pedagogical and measurement packs presented on this site",
+			p: [	"All the codes and utilities (13) of the operational (5), pedagogical (4) and measurement (4) packs presented on this site",
 				"The associated documentation: user manual and validation file for each code",
 				"Course documents (11).",
 				"The appendices (19) of the book 'Calcul de doses générées par les rayonnements ionisants' (EDP Sciences 2016).",
@@ -298,6 +297,8 @@ const text : ILang = {
 			p: `The codes are written in VBA in Excel. The Dosimex pack works with Windows XP to Windows 10 and Excel 2003 to 2019 by authorizing the operation of macros. On Mac it is necessary to create a "virtual machine".\n Depending on the security measures in place in your company, it is advisable to ask your IT department to whitelist Dosimex.`,
 		},
 		titlePrice: "Get Dosimex 3.0 USB key",
+		price: "600€ VAT",
+		priceShipment: "(shipment expenses included)",
 		questions: {
 			title: "Any questions? A request for a quotation?",
 			p: "Feel free to contact us via the form below or by phone at ",
@@ -310,29 +311,29 @@ const text : ILang = {
 		},
 		section1: {
 			title: "Examples of topics covered, which can be modified according to the needs:",
-			li: [	"Calculation of protection around medical and industrial X-ray generators",
-				"Application NF C 15-160",
-				"Management of a high activity Radium source",
-				"Technetium 99m syringe and operator protection",
-				"Fluorine 18 contamination",
-				"Co60, Ir192, Sr95, Cs137 gamma radiography",
-				"EDF's preferred radionuclides",
-				"ALARA approach on primary piping",
-				"Diffusion in a blockhouse baffle",
-				"Radiation protection around a fuel storage pool",
-				"Biological protection of a Californium 252 source (neutrons + gamma)",
-				"Food ionizations",
-				"High activity Strontium-Yttrium 90 source",
-				"Radiation protection analysis of a fission product waste package (CSDV)",
+			li: [	"• Calculation of protection around medical and industrial X-ray generators",
+				"• Application NF C 15-160",
+				"• Management of a high activity Radium source",
+				"• Technetium 99m syringe and operator protection",
+				"• Fluorine 18 contamination",
+				"• Co60, Ir192, Sr95, Cs137 gamma radiography",
+				"• EDF's preferred radionuclides",
+				"• ALARA approach on primary piping",
+				"• Diffusion in a blockhouse baffle",
+				"• Radiation protection around a fuel storage pool",
+				"• Biological protection of a Californium 252 source (neutrons + gamma)",
+				"• Food ionizations",
+				"• High activity Strontium-Yttrium 90 source",
+				"• Radiation protection analysis of a fission product waste package (CSDV)",
 
 			],
 		},
 		section2: {
 			title: "In partnership with Safetechnologie, we offer other training courses on the following topics:",
-			li: [	"Nuclear physics and radioactivity",
-				"Interaction between radiation and matter",
-				"Decision threshold (ISO 11929)",
-				"Gamma spectrometry",
+			li: [	"• Nuclear physics and radioactivity",
+				"• Interaction between radiation and matter",
+				"• Decision threshold (ISO 11929)",
+				"• Gamma spectrometry",
 			],
 			button: "Training catalogue"
 		},

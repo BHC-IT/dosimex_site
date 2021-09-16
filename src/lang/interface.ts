@@ -91,7 +91,6 @@ export default interface Lang {
 	About: {
 		header: {
 			title: string,
-			p: string,
 		},
 		gerald: {
 			p: string[],
@@ -105,7 +104,6 @@ export default interface Lang {
 	Books: {
 		header: {
 			title: string,
-			p: string,
 		},
 		books: {extract: string, author: string}[],
 	},
@@ -139,6 +137,8 @@ export default interface Lang {
 			p: string,
 		},
 		titlePrice: string,
+		price: string,
+		priceShipment: string,
 		questions: {
 			title: string,
 			p: string,

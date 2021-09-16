@@ -16,7 +16,7 @@ interface IProps {
 }
 
 const ratio = 0.7;
-const ratio2 = 0.55;
+const ratio2 = 0.6;
 
 const hashes = "#buy";
 
@@ -95,7 +95,10 @@ function Product(props: IProps) {
 			<h3 style={{...style.title, marginTop: "15vh"}}>{text.titlePrice}</h3>
 			<div style={style.divPrice}>
 				<div style={style.imagePrice}></div>
-				<p style={style.pPrice}>600€</p>
+				<div style={style.pPriceDiv}>
+					<p style={style.pPrice}>{text.price}</p>
+					<p>{text.priceShipment}</p>
+				</div>
 				<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style={style.formPrice}>
 					<input type="hidden" name="cmd" value="_s-xclick"/>
 					<input type="hidden" name="hosted_button_id" value="5ZR8G5EHFRUH4"/>
@@ -236,14 +239,18 @@ export const styles = (mobile: boolean): IStyles => ({
 		justifyContent: "center",
 		paddingTop: mobile ? undefined : "5vh",
 	},
-	pPrice: {
+	pPriceDiv: {
 		color: "var(--dark)",
+		marginBottom: "5vh",
+		borderBottom: "1px solid rgb(0, 121, 193)",
+		width: mobile ? "75vw" : "15vw",
+		display: "flex",
+		alignItems: "center",
+		justifyContent: "space-around",
+	},
+	pPrice: {
 		fontWeight: "bold",
 		fontSize: mobile ? "2rem": "2.2rem",
-		width: mobile ? "35vw" : "8vw",
-		textAlign: "center",
-		marginBottom: "5vh",
-		borderBottom: "1px solid rgb(0, 121, 193)"
 	},
 	imagePrice: {
 		width: mobile ? '100vw': `${722 * ratio2}px`,

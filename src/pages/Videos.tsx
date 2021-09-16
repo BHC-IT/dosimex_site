@@ -121,7 +121,7 @@ const Header = ({text, style} : IHeaderProps) =>
 	<div style={style.container}>
 		<h2 style={style.title}>{text.header.title}</h2>
 		<p style={style.text}>{text.header.p}</p>
-		<div style={style.btn}><Btn name={text.header.button} route={""}/></div>
+		<div style={style.btn}><a href="https://www.youtube.com/channel/UCmijJyGaFfJte4xsTk90MVA" target="_blank" rel="noreferrer noopener">{text.header.button}</a></div>
 		<SquareGrid nbLine={6} nbColumn={6} styles={style.squareGridStyles}/>
 	</div>
 
@@ -244,6 +244,12 @@ export const styles = (mobile: boolean) => ({
 		btn: {
 			zIndex: 1,
 			margin: mobile ? "0 5% 15vh 5%" :"3vh 0 20vh 30vw",
+			padding: "8px 25px",
+			backgroundColor: "var(--main)",
+			borderRadius: "50px",
+			color: "white",
+			cursor: "pointer",
+			textTransform: "uppercase" as "uppercase",
 		} as CSS.Properties,
 		squareGridStyles: {
 			containerStyle: {

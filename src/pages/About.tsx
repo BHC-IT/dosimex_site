@@ -12,7 +12,7 @@ import {
 export interface IStyles {
 	global: CSS.Properties,
 	header: CSS.Properties,
-	headerSubtitle: CSS.Properties,
+	title: CSS.Properties,
 	div: CSS.Properties,
 	circleImage: CSS.Properties,
 	name: CSS.Properties,
@@ -32,8 +32,7 @@ const About = () => {
 	return (
 		<div className="container" style={style.global}>
 			<div style={style.header}>
-				<h2>{text.header.title}</h2>
-				<p style={style.headerSubtitle}>{text.header.p}</p>
+				<h2 style={style.title}>{text.header.title}</h2>
 			</div>
 			<div style={style.section}>
 				<div style={style.sectionFlex}>
@@ -101,10 +100,8 @@ export const styles = (mobile: boolean): IStyles => ({
 		marginTop: "15vh",
 		marginBottom: mobile ? "10vh" : "15vh",
 	},
-	headerSubtitle: {
-		padding: mobile ? "2vh 0" : "4vh 15vw",
-		color: "var(--grey)",
-		fontSize: mobile ? "1.6rem" : "1.8rem",
+	title: {
+		fontSize: "6rem",
 	},
 	div: {
 		height: mobile ? undefined : "45vh",
