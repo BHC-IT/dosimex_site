@@ -20,8 +20,8 @@ interface ITextProps {
 
 const images = [
 	"ScreenCarousel1.png",
-	"ScreenCarousel1.png",
-	"ScreenCarousel1.png",
+	"ScreenCarousel2.png",
+	"ScreenCarousel3.png",
 	"logo_dosi.png",
 ]
 

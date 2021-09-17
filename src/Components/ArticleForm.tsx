@@ -9,14 +9,14 @@ import axios from 'axios';
 import Input, {IValidator} from './Input';
 
 const MDEditor = dynamic(
-  () => import("@uiw/react-md-editor").then((mod) => mod.default) as any,
-  { ssr: false }
+	() => import("@uiw/react-md-editor").then((mod) => mod.default) as any,
+	{ ssr: false }
 ) as any;
 
 import "@uiw/react-md-editor/markdown-editor.css";
 import "@uiw/react-markdown-preview/markdown.css";
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const text = {
 	label_title: "Titre",
@@ -38,8 +38,6 @@ interface IStyles {
 
 const isInputValid = (value: string) => value.trim() !== ''
 
-// const wellSent = (message: string) => toast(message)
-
 const Article = (props: IProps) => {
 
 	const router = useRouter();
@@ -47,6 +45,7 @@ const Article = (props: IProps) => {
 	const [description, setDescription] = React.useState<string | undefined>(props.article?.description);
 	const [markdown, setMarkdown] = React.useState<string | undefined>(props.article?.markdown);
 	const [urlImage, setUrlImage] = React.useState<string | undefined>(props.article?.urlImage);
+	const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
 	return (
 		<div>
@@ -88,8 +87,9 @@ const Article = (props: IProps) => {
 				/>
 				<div style={{textAlign: "center"}}>
 					<button style={styles.button} onClick={async () => {
+						const toastLoad = toast.dark('Chargement en cours...')
+						setIsLoading(true)
 						if (props.method === 'POST') {
-
 							try {
 								const res = await axios.post('/api/articles', {
 									title: title,
@@ -97,10 +97,15 @@ const Article = (props: IProps) => {
 									markdown: markdown,
 									urlImage: urlImage,
 								}, {headers: {authorization : `Bearer ${props.user}`}});
-								// wellSent("Nouvel article ajouté !")
+								toast.dismiss(toastLoad)
+								toast.success('Nouvel article ajouté !')
 								router.push(`/articles/${res.data.data.slug}`)
 							} catch (e) {
+								toast.dismiss(toastLoad)
+								toast.error('Echec de l\'envoi du nouvel article')
 								console.error(e)
+							} finally {
+								setIsLoading(false)
 							}
 						} else if (props.method === 'PATCH') {
 							try {
@@ -110,11 +115,17 @@ const Article = (props: IProps) => {
 									markdown: markdown,
 									urlImage: urlImage,
 								},{headers: {authorization : `Bearer ${props.user}`}});
-								// wellSent("Article modifié !")
+								toast.dismiss(toastLoad)
+								toast.success('Article modifié avec succès !')
 								router.push(`/articles/${props.article?.slug}`)
 							} catch (e) {
+								toast.dismiss(toastLoad)
+								toast.error('Echec de l\'envoi du nouvel article')
 								console.error(e)
+							} finally {
+								setIsLoading(false)
 							}
+
 						}
 					}} >
 					Envoyer
@@ -122,6 +133,7 @@ const Article = (props: IProps) => {
 				</div>
 
 			</div>
+			<p style={{display: isLoading ? "block" : "none"}}>Spinner</p>
 		</div>
 	);
 

@@ -4,6 +4,8 @@ import Head from 'next/head'
 import Navbar from '../Components/Navbar'
 import Footer from '../Components/Footer'
 import useUser from '../Hooks/useUser'
+import { ToastContainer } from 'react-toastify'
+
 
 function MyApp({ Component, pageProps }: AppProps) {
 
@@ -19,6 +21,16 @@ function MyApp({ Component, pageProps }: AppProps) {
 		</Head>
 		<Navbar />
 		<Component {...pageProps} user={user}/>
+		<ToastContainer
+			position="bottom-center"
+			autoClose={5000}
+			hideProgressBar={false}
+			newestOnTop={false}
+			closeOnClick
+			rtl={false}
+			draggable
+			/>
+		<ToastContainer />
 		<Footer />
 	</>
 }
