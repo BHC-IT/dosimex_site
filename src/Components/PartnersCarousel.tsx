@@ -144,7 +144,7 @@ const PartnersCarousel = () => {
 				partners.map((e: any, i: number) => e === last(partners) ?
 						null
 					:
-						<Card text={text.partners.li[i]} style={style.card} link={e.link} url={e.url} />
+						<Card text={text.partners.li[i]} style={style.card} link={e.link} url={e.url} key={e.link} />
 				)
 			}
 			<Card text={text.partners.li[11]} style={style.card} link={last(partners).link} url={last(partners).url} color="rgb(136, 49, 183)" />

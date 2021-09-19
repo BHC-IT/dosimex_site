@@ -40,7 +40,7 @@ const SlideWrapper = ({text}: ITextProps) => {
 	return (
 		<div style={{overflow: "hidden"}}>
 			<div style={{position: "relative", width: "400%", margin: 0, left: 0, animation: "8s slidy infinite" }}>
-				{images.map((e, i) => <Slide name={e} text={text[i]}/>)}
+				{images.map((e, i) => <Slide name={e} text={text[i]} key={e} />)}
 			</div>
 		</div>
 	)

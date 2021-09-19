@@ -74,7 +74,7 @@ const Articles = (props: any) => {
 			<ul style={style.ul}>
 				{props.articles.map((e: IArticle) => {
 					return (
-						<li style={style.li}>
+						<li style={style.li} key={e.title} >
 							{props.isPortrait ?
 								<PartImagePortrait imageUrl={e.urlImage || "https://www.dosimex.fr/static/media/BackGroundHague2_compressed.477d1c3a.png"} />
 							:
