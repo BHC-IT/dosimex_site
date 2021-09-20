@@ -101,7 +101,7 @@ export const styles = (mobile: boolean): IStyles => ({
 		marginBottom: mobile ? "10vh" : "15vh",
 	},
 	title: {
-		fontSize: "6rem",
+		fontSize: mobile ? "4.5rem" : "6rem",
 	},
 	div: {
 		height: mobile ? undefined : "45vh",

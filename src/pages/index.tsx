@@ -135,7 +135,7 @@ function Home(props: IProps) {
 			</section>
 
 			<div className="container" style={style.callToAction.global}>
-				<h2 style={{fontSize: "4.2rem"}}>{text.callToAction.title}</h2>
+				<h2 style={style.callToAction.title}>{text.callToAction.title}</h2>
 				<Button name={text.callToAction.button} route="Product"/>
 			</div>
 		</>
@@ -247,13 +247,14 @@ export const styles = (mobile: boolean): IStyles => ({
 			marginTop: mobile ? "10vh" : "20vh",
 			backgroundColor: "var(--flash)",
 			width: "100vw",
-			height: mobile ? "23vh" : "20vh",
+			height: mobile ? "57vh" : "20vh",
 			paddingTop: mobile ? '3vh' : '8vh',
 			marginBottom: mobile ? undefined : '35vh',
 		},
 		card: mobile ? {
 			display: "flex",
-			justifyContent: "space-around",
+			flexDirection: "column",
+			paddingLeft: "15vw",
 		}
 		:
 				{
@@ -281,8 +282,8 @@ export const styles = (mobile: boolean): IStyles => ({
 			fontSize: mobile ? "2.4rem" : undefined,
 		},
 		p: {
-			color: "var(--grey)",
-			fontSize: mobile ? "1.35rem" : "1.8rem",
+			color: mobile ? "var(--dark)" : "var(--grey)",
+			fontSize: mobile ? "1.45rem" : "1.8rem",
 		},
 	},
 	videos: {
@@ -319,6 +320,9 @@ export const styles = (mobile: boolean): IStyles => ({
 			textAlign: "center",
 			paddingBottom: "30vh",
 			paddingTop: "20vh",
+		},
+		title: {
+			fontSize: mobile ? "3rem" :  "4.2rem",
 		}
 	},
 })

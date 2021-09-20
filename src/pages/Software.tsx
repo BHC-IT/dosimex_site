@@ -67,7 +67,7 @@ const LinkVideo = ({link, textOver} : ILinkVideoProps) => {
 			>
 				{handleLink(link)[0]}
 				<div style={{display: "inline", paddingLeft: "5px"}}>
-					<FontAwesomeIcon icon={faExternalLinkAlt} style={{width: "0.75vw"}}/>
+					<FontAwesomeIcon icon={faExternalLinkAlt} style={isMobile ? {width: "3vw" }: {width: "0.75vw"}}/>
 				</div>
 			</a>
 			{

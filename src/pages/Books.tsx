@@ -112,6 +112,6 @@ export const styles = (mobile: boolean): {[$:string]: CSS.Properties} => ({
 		marginBottom: mobile ? "10vh" : "15vh",
 	},
 	title: {
-		fontSize: "6rem",
+		fontSize: mobile ? "4.5rem" : "6rem",
 	},
 })

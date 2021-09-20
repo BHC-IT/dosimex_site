@@ -190,7 +190,8 @@ export const styles = (mobile: boolean): IStyles => ({
 		textAlign: 'justify',
 	},
 	title: {
-		marginBottom: "2vh", fontSize: mobile ? "3.5rem" : undefined,
+		fontSize: mobile ? "3rem" : undefined,
+		marginBottom: mobile ? "4vh" : "2vh",
 	},
 	divNameMail: {
 		display: "flex",
