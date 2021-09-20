@@ -6,6 +6,11 @@ export interface IUser {
 	password: string,
 }
 
+const remove = (setToken: Function) => {
+	localStorage.removeItem('access_token')
+	localStorage.removeItem('exp_token')
+	setToken(null)
+}
 
 const useUser = () => {
 
@@ -13,6 +18,13 @@ const useUser = () => {
 
 	useEffect(() => {
 		setToken(localStorage.getItem('access_token'))
+		const exp = Number(localStorage.getItem('exp_token'))
+		if (!exp)
+			return
+		if (exp < Date.now())
+			remove(setToken)
+		else
+			setTimeout(() => remove(setToken), exp - Date.now())
 	}, []);
 
 	return token;

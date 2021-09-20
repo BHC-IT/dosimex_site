@@ -29,8 +29,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 			closeOnClick
 			rtl={false}
 			draggable
-			/>
-		<ToastContainer />
+		/>
 		<Footer />
 	</>
 }

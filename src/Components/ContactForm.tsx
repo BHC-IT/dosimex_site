@@ -7,6 +7,20 @@ import { withRouter, NextRouter } from 'next/router';
 import { withText } from '../hoc/withText';
 import { withIsMobile } from '../hoc/withIsMobile';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import { css } from "@emotion/react";
+import ClipLoader from "react-spinners/ClipLoader";
+
+import emailjs from 'emailjs-com';
+
+const override = css`
+	display: block;
+	margin: 0 auto;
+	border-color: red;
+`;
+
 interface WithRouterProps {
   router: NextRouter
 }
@@ -24,7 +38,7 @@ interface IState {
 	message: string | null,
 	messageValid: boolean,
 	subject: string | null,
-	error: boolean,
+	isLoading: boolean,
 	wellSent: boolean,
 }
 
@@ -51,8 +65,8 @@ class ContactForm extends React.Component<IProps, IState> {
 			message: null,
 			messageValid: false,
 			subject: null,
-			error: true,
-			wellSent: false,
+			isLoading: false,
+			wellSent: false
 		}
 	}
 
@@ -68,13 +82,26 @@ class ContactForm extends React.Component<IProps, IState> {
 				message: null,
 				messageValid: false,
 				subject: null,
-				error: true,
-				wellSent: true,
 			});
 		}
 	}
 
 	sendEmail = () => {
+		const toastLoad = toast.dark(this.props.text.sending)
+		this.setState({isLoading: true})
+		emailjs
+			.send('smtp_server', 'template_9bIlFiWV', {text:this.state.message, name:this.state.name, email:this.state.email }, 'user_ARoYKQez1mORTLjrYuH9q')
+			.then(res => {
+				this.setState({wellSent: true})
+				toast.dismiss(toastLoad)
+				toast.success(this.props.text.messageSent)
+			})
+			.catch(e => {
+				console.error(e)
+				toast.dismiss(toastLoad)
+				toast.error(this.props.text.messageNotSent)
+			});
+		this.setState({isLoading:false})
 	}
 
 
@@ -89,7 +116,6 @@ class ContactForm extends React.Component<IProps, IState> {
 		return (
 			<form style={this.props.style.form} onSubmit={(e: React.FormEvent) => this.handleSubmit(e)}>
 				<h3 style={this.props.style.title}>{this.props.text.title}</h3>
-				{this.state.wellSent ? <p>{this.props.text.wellSentMessage}</p> : null}
 				<div style={this.props.style.divNameMail}>
 					<Input
 						value={this.state.name}
@@ -138,7 +164,14 @@ class ContactForm extends React.Component<IProps, IState> {
 							{ validationFunction:(value) => this.isInputValid(value), errorMessage: this.props.text.errorMessage },
 						] as IValidator[]}
 				/>
-				<button style={this.props.style.button} type="submit">{this.props.text.button}</button>
+				<button style={this.props.style.button} type="submit">
+					{
+						this.state.isLoading ?
+							<ClipLoader color="#fff" loading={this.state.isLoading} css={override} size={30} />
+						:
+							this.props.text.button
+					}
+				</button>
 			</form>
 		);
 	}

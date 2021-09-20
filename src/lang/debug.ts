@@ -307,8 +307,10 @@ const text : ILang = {
 				"{ContactForm.errorEmail[1]}"
 		],
 		errorMessage: "{ContactForm.errorMessage}",
-		wellSentMessage: "{ContactForm.wellSentMessage}",
 		button: "{ContactForm.button}",
+		sending: "{ContactForm.sending}",
+		messageSent: "{ContactForm.messageSent}",
+		messageNotSent: "{ContactForm.messageNotSent}",
 	},
 	Footer: {
 		col1: {

@@ -238,15 +238,14 @@ export const styles = (mobile: boolean): IStyles => ({
 		alignItems: "center",
 		justifyContent: "center",
 		paddingTop: mobile ? undefined : "5vh",
+		fontFamily: "var(--lato)"
 	},
 	pPriceDiv: {
 		color: "var(--dark)",
 		marginBottom: "5vh",
 		borderBottom: "1px solid rgb(0, 121, 193)",
 		width: mobile ? "75vw" : "15vw",
-		display: "flex",
-		alignItems: "center",
-		justifyContent: "space-around",
+		textAlign: "center"
 	},
 	pPrice: {
 		fontWeight: "bold",

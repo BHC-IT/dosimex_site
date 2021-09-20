@@ -15,8 +15,18 @@ const MDEditor = dynamic(
 
 import "@uiw/react-md-editor/markdown-editor.css";
 import "@uiw/react-markdown-preview/markdown.css";
+
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+import { css } from "@emotion/react";
+import ClipLoader from "react-spinners/ClipLoader";
+
+const override = css`
+	display: block;
+	margin: 0 auto;
+	border-color: red;
+`;
 
 const text = {
 	label_title: "Titre",
@@ -102,8 +112,10 @@ const Article = (props: IProps) => {
 								router.push(`/articles/${res.data.data.slug}`)
 							} catch (e) {
 								toast.dismiss(toastLoad)
-								toast.error('Echec de l\'envoi du nouvel article')
-								console.error(e)
+								if (axios.isAxiosError(e))
+									toast.error(`Echec de l\'envoi du nouvel article - ${e.response?.data.message}`);
+								else
+									toast.error('Echec de l\'envoi du nouvel article')
 							} finally {
 								setIsLoading(false)
 							}
@@ -120,20 +132,27 @@ const Article = (props: IProps) => {
 								router.push(`/articles/${props.article?.slug}`)
 							} catch (e) {
 								toast.dismiss(toastLoad)
-								toast.error('Echec de l\'envoi du nouvel article')
-								console.error(e)
+								if (axios.isAxiosError(e))
+									toast.error(`Echec de l\'envoi du nouvel article - ${e.response?.data.message}`);
+								else
+									toast.error('Echec de l\'envoi du nouvel article')
 							} finally {
 								setIsLoading(false)
 							}
 
 						}
 					}} >
-					Envoyer
+					{ isLoading ?
+							<ClipLoader color="#fff" loading={isLoading} css={override} size={30} />
+						:
+							<>
+								Envoyer
+							</>
+					}
 					</button>
 				</div>
 
 			</div>
-			<p style={{display: isLoading ? "block" : "none"}}>Spinner</p>
 		</div>
 	);
 

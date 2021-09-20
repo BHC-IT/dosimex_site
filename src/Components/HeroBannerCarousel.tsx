@@ -22,7 +22,7 @@ const images = [
 	"ScreenCarousel1.png",
 	"ScreenCarousel2.png",
 	"ScreenCarousel3.png",
-	"logo_dosi.png",
+	"ScreenCarousel3.png",
 ]
 
 const Slide = ({name, text}: ISlideProps) =>

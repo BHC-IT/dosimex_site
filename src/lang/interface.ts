@@ -191,8 +191,10 @@ export default interface Lang {
 		errorName: string,
 		errorEmail: string[],
 		errorMessage: string,
-		wellSentMessage: string,
 		button: string,
+		sending: string,
+		messageSent: string,
+		messageNotSent: string,
 	},
 	Footer: {
 		col1: {

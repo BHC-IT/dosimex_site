@@ -135,7 +135,7 @@ function Home(props: IProps) {
 			</section>
 
 			<div className="container" style={style.callToAction.global}>
-				<h2>{text.callToAction.title}</h2>
+				<h2 style={{fontSize: "4.2rem"}}>{text.callToAction.title}</h2>
 				<Button name={text.callToAction.button} route="Product"/>
 			</div>
 		</>

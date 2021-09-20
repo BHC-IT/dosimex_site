@@ -6,7 +6,7 @@ const text : ILang = {
 			title: "La référence des outils de calculs pour la radioprotection ",
 			p: "Ensemble d'outils de calculs pratiques, simples d’emploi, validés, et répondant à de nombreuses situations rencontrées en radioprotection. Ils vous permettront d'améliorer votre niveau d'expertise.",
 			button: "Découvrir",
-			textImage: ["Dosimex GX Générateur X", "Text screen 2", "Text screen 3", "Text screen 4"],
+			textImage: ["Clé Dosimex", "Dosimex-GX Radionucléide", "Dosimex-GX Générateur X", "Dosimex-N Monte-Carlo neutron"],
 		},
 		partners: {
 			title: "Nos partenaires",
@@ -26,7 +26,7 @@ const text : ILang = {
 		},
 		offers: {
 			title: "Ce que nous proposons",
-			p: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque integer dignissim sit pellentesque enim tortor quam tortor, odio. Tempor felis egestas blandit turpis. Id libero non amet augue elementum urna. Ornare.Pack logiciel",
+			p: "Un ensemble d‘outils (13) de calculs couvrant l’essentiel du champ en radioprotection: exposition externe gamma, bêta, neutron, exposition interne, transfert atmosphérique et plus encore. Vous trouverez sur le site des vidéos explicatives pour chaque outil ainsi que leurs dossiers de validation (pdf téléchargeable).",
 			card1: {
 				title: "Pack logiciel",
 				p: "Retrouvez tous les utilitaires Dosimex avec des vidéos spécifiques : pack opérationnel, pack pédagogique, pack mesure",
@@ -45,12 +45,12 @@ const text : ILang = {
 			p1: "d'expérience",
 			number2: "+1000",
 			p2: "radioprotectionnistes convaincus",
-			number3: "??",
-			p3: "???????????",
+			number3: "11",
+			p3: "journées d'accompagnement réalisées",
 		},
 		videos: {
 			title: "Retrouvez-nous sur Youtube",
-			p: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent blandit donec et cursus magna orci, hac convallis mi.",
+			p: "Nous vous y proposons d’autres vidéos consacrées à la physique nucléaire, à la radioactivité, à l’interaction rayonnement-matière, aux statistiques et à la métrologie…",
 			button: "Découvrir les autres vidéos",
 		},
 		opinion: {
@@ -60,14 +60,14 @@ const text : ILang = {
 			btn: "Tous les avis",
 		},
 		callToAction: {
-			title: "Phrase call to action lorem ipsum magnalus rib te lesatre",
+			title: "Vous pouvez acheter la clé Dosimex via Paypal ou nous demander un devis",
 			button: "Acheter Dosimex",
 		}
 	},
 	Software: {
 		header: {
 			title: "Nos offres",
-			p: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque magnis pulvinar risus adipiscing eu sit dui dui eget. Tincidunt congue lobortis vitae velit morbi fusce varius.",
+			p: "Les 13 utilitaires se répartissent suivant 3 thématiques: calculs opérationnels de radioprotection, outils pédagogiques permettant d’approfondir les aspects physiques et enfin des utilitaires concernant les aspects mesures.",
 			li: ["Pack opérationnel", "Pack pédagogique", "Pack mesures"]
 		},
 		button: {
@@ -285,7 +285,7 @@ const text : ILang = {
 		partE: {
 			p: [	"Tous les codes et utilitaires (13) des packs opérationnel (5), pédagogique (4) et mesures (4) présentés sur ce site",
 				"La documentation associée : manuel d’emploi et dossier de validation de chaque code.",
-				"Des documents de cours (11).",
+				"Des documents de cours (11) : physique nucélaire, mesure nucléaire, IRM particules chargées, IRM photon, IRM neutrons, grandeurs opérationnelles, seuil de décision : principes et application, statistiques : principes, incertitudes et test d'hypothèse.",
 				"Les annexes (19) de l’ouvrage « Calcul de doses générées par les rayonnements ionisants » (EDP Sciences 2016).",
 				"Un sommaire général (Sommaire général.pps) à la racine des dossiers permet de naviguer sur l’ensemble du pack Dosimex.",
 			],
@@ -308,33 +308,33 @@ const text : ILang = {
 	Training: {
 		header: {
 			title: "Formations",
-			p: "Nous proposons des formations sur site de 2 à 3 jours. Ces formations s’appuient sur des travaux dirigés intégrant l’utilisation des outils Dosimex dans le cadre plus large de l’analyse des risques radiologiques appliqués à des cas concrets rencontrés dans le monde industriel et médical.",
+			p: "Nous proposons des formations intra-entreprise sur site ou en visio pouvant aller de 1 à 3 jours pour la prise en main des outils Dosimex.\n Ces formations s’appuient sur des travaux dirigés intégrant l’utilisation des outils Dosimex dans le cadre plus large de l’analyse des risques radiologiques appliqués à des cas concrets rencontrés dans le monde industriel et médical.",
 		},
 		section1: {
 			title: "Exemples de thématiques abordées, modulables selon les besoins :",
-			li: [	"• Calcul de protection autour de générateurs X médicaux et industriels",
-				"• Application NF C 15-160",
-				"• Gestion d’une source de Radium de forte activité",
-				"• Seringue au Technétium 99m et protection opérateur",
-				"• Contamination au Fluor 18",
-				"• Gammagraphie Co60, Ir192, Sr95, Cs137",
-				"• Les radionucléides préférés d'EDF",
-				"• Approche ALARA sur tuyauterie primaire",
-				"• Diffusion dans une chicane de blockhaus",
-				"• Radioprotection autours d'une piscine de stockage combustibles",
-				"• Protection biologique d'une source de Californium 252 (neutrons +gamma)",
-				"• Ionisations alimentaires",
-				"• Source Strontium-Yttrium 90 de forte activité",
-				"• Analyse radioprotection d'un colis de déchets produit de fission ( CSDV)",
+			li: [	"◦ Calcul de protection autour de générateurs X médicaux et industriels",
+				"◦ Application NF C 15-160",
+				"◦ Gestion d’une source de Radium de forte activité",
+				"◦ Seringue au Technétium 99m et protection opérateur",
+				"◦ Contamination au Fluor 18",
+				"◦ Gammagraphie Co60, Ir192, Sr95, Cs137",
+				"◦ Les radionucléides préférés d'EDF",
+				"◦ Approche ALARA sur tuyauterie primaire",
+				"◦ Diffusion dans une chicane de blockhaus",
+				"◦ Radioprotection autours d'une piscine de stockage combustibles",
+				"◦ Protection biologique d'une source de Californium 252 (neutrons +gamma)",
+				"◦ Ionisations alimentaires",
+				"◦ Source Strontium-Yttrium 90 de forte activité",
+				"◦ Analyse radioprotection d'un colis de déchets produit de fission ( CSDV)",
 
 			],
 		},
 		section2: {
 			title: "Nous proposons en partenariat avec Safetechnologie d'autres formations sur les thématiques :",
-			li: [	"• Physique nucléaire et radioactivité",
-				"• Interaction rayonnements matière",
-				"• Seuil de décision (ISO 11929)",
-				"• Spectrométrie gamma",
+			li: [	"◦ Physique nucléaire et radioactivité",
+				"◦ Interaction rayonnements matière",
+				"◦ Seuil de décision (ISO 11929)",
+				"◦ Spectrométrie gamma",
 			],
 			button: "Catalogue de formation"
 		},
@@ -347,7 +347,7 @@ const text : ILang = {
 	Videos: {
 		header: {
 			title: "Toutes les vidéos",
-			p: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. At purus risus, dictum auctor massa quam scelerisque. Nibh lobortis feugiat orci donec mauris turpis sagittis malesuada nibh.",
+			p: "Vous trouverez ci-dessous l'ensemble des vidéos concernant les packs opérationnel, pédagogique et mesures. Nous proposons également sur notre chaine YouTube d'autres vidéos consacrées à la physique nucléaire, à la radioactivité, à l’interaction rayonnement-matière, aux statistiques et à la métrologie…",
 			button: "Notre chaîne youtube",
 		},
 		packTitle: "Vidéos du pack ",
@@ -376,8 +376,10 @@ const text : ILang = {
 				"Veuillez rentrer un email valide"
 		],
 		errorMessage: "Veuillez rentrer un message",
-		wellSentMessage: "Votre message a bien été envoyé",
 		button: "Envoyer",
+		sending: "Envoi en cours...",
+		messageSent: "Message envoyé !",
+		messageNotSent: "Echec de l'envoi du message",
 	},
 	Footer: {
 		col1: {

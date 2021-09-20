@@ -6,7 +6,7 @@ const text : ILang = {
 			title: "The reference of calculation tools for radiation protection",
 			p: "A set of practical, easy-to-use, validated calculation tools that address many situations encountered in radiation protection. They will allow you to improve your level of expertise.",
 			button: "Discover",
-			textImage: ["Dosimex GX X-ray Generator", "Text screen 2", "Text screen 3", "Text screen 4"],
+			textImage: ["Dosimex USB key", "Dosimex-GX Radionuclide", "Dosimex-GX X-ray Generator", "Dosimex-N Monte-Carlo neutron"],
 		},
 		partners: {
 			title: "Partners",
@@ -26,7 +26,7 @@ const text : ILang = {
 		},
 		offers: {
 			title: "What we offer",
-			p: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Scelerisque integer dignissim sit pellentesque enim tortor quam tortor, odio. Tempor felis egestas blandit turpis. Id libero non amet augue elementum urna. Ornare.Pack logiciel",
+			p: "A set of calculation tools (13) covering most of the field in radiation protection: external gamma, beta, neutron, internal exposure, atmospheric transfer and more. You will find on this site explanatory videos for each tool and their validation files (downloadable pdf).",
 			card1: {
 				title: "Software pack",
 				p: "Find all Dosimex utilities with specific videos: operational pack, educational pack, measurement pack",
@@ -45,12 +45,12 @@ const text : ILang = {
 			p1: " of experience",
 			number2: "+1000",
 			p2: "convinced radioprotectionists",
-			number3: "??",
-			p3: "???????????",
+			number3: "11",
+			p3: "days of support provided",
 		},
 		videos: {
 			title: "Join us on YouTube",
-			p: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent blandit donec et cursus magna orci, hac convallis mi.",
+			p: "We offer you other videos dedicated to nuclear physics, radioactivity, radiation-matter interaction, statistics and metrology...",
 			button: "Check out the other videos",
 		},
 		opinion: {
@@ -60,14 +60,14 @@ const text : ILang = {
 			btn: "More reviews",
 		},
 		callToAction: {
-			title: "Phrase call to action lorem ipsum magnalus rib te lesatre",
+			title: "You can buy Dosimex USB key via Paypal or ask us for a quote",
 			button: "Get Dosimex",
 		}
 	},
 	Software: {
 		header: {
 			title: "Offers",
-			p: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque magnis pulvinar risus adipiscing eu sit dui dui eget. Tincidunt congue lobortis vitae velit morbi fusce varius.",
+			p: "The 13 utilities are divided into 3 themes: operational calculations for radiation protection, pedagogical tools to deepen the physical aspects and finally utilities concerning the measurement aspects.",
 			li: ["Operational pack", "Educational pack", "Measurement pack"]
 		},
 		button: {
@@ -285,7 +285,7 @@ const text : ILang = {
 		partE: {
 			p: [	"All the codes and utilities (13) of the operational (5), pedagogical (4) and measurement (4) packs presented on this site",
 				"The associated documentation: user manual and validation file for each code",
-				"Course documents (11).",
+				"Course documents (11) : nuclear physics, nuclear measurement, charged particle MRI, photon MRI, neutron MRI, operational quantities, decision threshold: principles and application, statistics: principles, uncertainties and hypothesis testing.",
 				"The appendices (19) of the book 'Calcul de doses générées par les rayonnements ionisants' (EDP Sciences 2016).",
 				"A general summary (General summary.pps) at the root of the folders allows navigation through the entire Dosimex package.",
 			],
@@ -308,7 +308,7 @@ const text : ILang = {
 	Training: {
 		header: {
 			title: "Training",
-			p: "We offer on-site training courses from 2 to 3 days. These courses are based on tutorials integrating the use of Dosimex tools in the broader framework of radiological risk analysis applied to concrete cases encountered in the industrial and medical world.",
+			p: "We offer on-site or videoconference intra-company training courses from 1 to 3 days to learn how to use Dosimex tools.\n These trainings are based on tutorials integrating the use of Dosimex tools in the broader framework of radiological risk analysis applied to concrete cases encountered in the industrial and medical world.",
 		},
 		section1: {
 			title: "Examples of topics covered, which can be modified according to the needs:",
@@ -347,7 +347,7 @@ const text : ILang = {
 	Videos: {
 		header: {
 			title: "Videos",
-			p: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. At purus risus, dictum auctor massa quam scelerisque. Nibh lobortis feugiat orci donec mauris turpis sagittis malesuada nibh.",
+			p: "You will find below all the videos concerning the operational, educational and measurement packages. We also propose on our YouTube channel other videos dedicated to nuclear physics, radioactivity, radiation-matter interaction, statistics and metrology...",
 			button: "Watch our YouTube channel",
 		},
 		packTitle: "Videos from the pack ",
@@ -376,8 +376,10 @@ const text : ILang = {
 				"Please enter a valid email"
 		],
 		errorMessage: "Please enter a message",
-		wellSentMessage: "Your message has been sent",
 		button: "Send",
+		sending: "Sending...",
+		messageSent: "Message sent !",
+		messageNotSent: "Message not sent",
 	},
 	Footer: {
 		col1: {
