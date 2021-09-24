@@ -340,7 +340,8 @@ const text : ILang = {
 			"{Navbar.items[1]}",
 			"{Navbar.items[2]}",
 			"{Navbar.items[3]}",
-			"{Navbar.items[4]}"
+			"{Navbar.items[4]}",
+			"{Navbar.items[5]}",
 		],
 		button: "{Navbar.button}",
 	}

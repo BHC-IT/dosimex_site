@@ -372,17 +372,7 @@ const Software = () => {
 						<div key={e} style={{marginTop: i === 0 ? '5vh' : 0}} >
 							<div style={style.divFlag}>
 								<p style={style.pLi}>{e}</p>
-								{
-									i === 0 ?
-										<>
-											<div style={{marginRight: "6px", display: "inline"}}>
-												<Image src="/Images/Flag_France.png" width={2560*ratioFr} height={1707*ratioFr} />
-											</div>
-											<Image src="/Images/Flag_Uk.jpg" width={1024*ratioUk} height={683*ratioUk} />
-										</>
-									:
-										<Image src="/Images/Flag_France.png" width={2560*ratioFr} height={1707*ratioFr} />
-								}
+								<Image src="/Images/Flag_France.png" width={2560*ratioFr} height={1707*ratioFr} />
 							</div>
 							<LiLabel text={text.packPeda.li[i]} style={style.liLabel}/>
 						</div>
@@ -397,7 +387,17 @@ const Software = () => {
 						<div key={e} style={{marginTop: i === 0 ? '5vh' : 0}} >
 							<div style={style.divFlag}>
 								<p style={style.pLi}>{e}</p>
-								<Image src="/Images/Flag_France.png" width={2560*ratioFr} height={1707*ratioFr} />
+								{
+									i === 1 ?
+										<>
+											<div style={{marginRight: "6px", display: "inline"}}>
+												<Image src="/Images/Flag_France.png" width={2560*ratioFr} height={1707*ratioFr} />
+											</div>
+											<Image src="/Images/Flag_Uk.jpg" width={1024*ratioUk} height={683*ratioUk} />
+										</>
+									:
+										<Image src="/Images/Flag_France.png" width={2560*ratioFr} height={1707*ratioFr} />
+								}
 							</div>
 							<LiLabel text={text.packMes.li[i]} style={style.liLabel}/>
 						</div>
@@ -458,10 +458,11 @@ export const styles = (mobile: boolean): IStyles => ({
 		width: mobile ? '80%' : '45vw',
 	},
 	headerText: {
-		color: 'var(--grey)',
+		color: 'var(--dark)',
 		textAlign: 'justify',
 		marginTop: '5vh',
 		fontSize: mobile ? '1.6rem' : undefined,
+		fontWeight: 100,
 	},
 	headerTitle: {
 		padding: 0,
@@ -504,7 +505,7 @@ export const styles = (mobile: boolean): IStyles => ({
 			width: mobile ? '60%' : '22vw',
 			marginTop: 0,
 			textAlign: 'center',
-			fontSize: '1.5rem',
+			fontSize: '1.6rem',
 			marginBottom: mobile ? '7vh' : '4vh'
 		},
 	},

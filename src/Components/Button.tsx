@@ -11,9 +11,9 @@ interface IProps {
 const Button = (props: IProps) => {
 
 	return (
-		<button style={{...styles, ...props.style}}>
-			<Link href={`/${props.route}`} replace>{props.name}</Link>
-		</button>
+		<Link href={`/${props.route}`} replace>
+			<button style={{...styles, ...props.style}}>{props.name}</button>
+		</Link>
 	);
 
 }

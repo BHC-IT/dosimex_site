@@ -21,7 +21,7 @@ const ratioUk: number = 0.03
 
 const LanguageSwitch = (props : IProps) => {
 
-	const isSelected = (lang: string) => props.language === lang ? styles.item : {...styles.item, color: "var(--grey)", fontWeight: undefined};
+	const isSelected = (lang: string) => props.language === lang ? styles.item : {...styles.item, color: "rgb(150,150,150)", fontWeight: undefined};
 
 	return (
 		<li>
@@ -63,7 +63,7 @@ export const styles: IStyles =  {
 		display: "flex",
 		alignItems: "center",
 		justifyContent: "space-between",
-		fontWeight: 600,
+		fontWeight: 400,
 	},
 	icon: {
 		paddingLeft: "1.7vw",

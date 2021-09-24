@@ -26,18 +26,18 @@ const text : ILang = {
 		},
 		offers: {
 			title: "What we offer",
-			p: "A set of calculation tools (13) covering most of the field in radiation protection: external gamma, beta, neutron, internal exposure, atmospheric transfer and more. You will find on this site explanatory videos for each tool and their validation files (downloadable pdf).",
+			p: "A set of calculation tools (total of 13) covering most of the field in radiation protection: external gamma, beta, neutron, internal exposure, atmospheric transfer and more. You will find on this site explanatory videos for each tool and their validation files (downloadable pdf).",
 			card1: {
 				title: "Software pack",
 				p: "Find all Dosimex utilities with specific videos: operational pack, educational pack, measurement pack",
 			},
 			card2: {
-				title: "Manuals and validations",
-				p: "Access all documentation associated with Dosimex-GX",
+				title: "Documentation",
+				p: "Validated via MCNP, RayXpert, Microshield and Mercurad. Access all documentation associated with Dosimex-GX",
 			},
 			card3: {
 				title: "Formations",
-				p: "We guide you to take in hand these calculation tools by adapting us to your specific problems.",
+				p: "We guide you to take in hand these calculation tools by adapting us to your specific problems",
 			}
 		},
 		numbers: {
@@ -66,7 +66,7 @@ const text : ILang = {
 	},
 	Software: {
 		header: {
-			title: "Offers",
+			title: "Products",
 			p: "The 13 utilities are divided into 3 themes: operational calculations for radiation protection, pedagogical tools to deepen the physical aspects and finally utilities concerning the measurement aspects.",
 			li: ["Operational pack", "Educational pack", "Measurement pack"]
 		},
@@ -246,7 +246,7 @@ const text : ILang = {
 	},
 	Manuals: {
 		header: {
-			title: "Manuals et validations",
+			title: "Documentation",
 			p: "To help you to evaluate the possibilities offered by Dosimex-GX, you can download all the documentation associated with this code:",
 			li: [	"User manuals",
 				"The validation files",
@@ -405,8 +405,9 @@ const text : ILang = {
 		}
 	},
 	Navbar: {
-		items: ["Offers",
+		items: ["Products",
 			"Training",
+			"Documentation",
 			"About us",
 			"News",
 			"Contact"

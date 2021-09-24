@@ -8,6 +8,8 @@ import * as CSS from 'csstype';
 import { useText } from '../Hooks/useText';
 import { useIsMobile } from '../Hooks/useIsMobile';
 
+import YouTube from 'react-youtube';
+
 import {
 	BrowserView,
 	MobileView,
@@ -78,7 +80,7 @@ function Home(props: IProps) {
 			</section>
 
 			<section>
-				<div style={props.isLandscape ? {...style.numbers.background, height: "30vh"} : style.numbers.background}>
+				<div style={props.isLandscape ? {...style.numbers.background, height: "85vh"} : style.numbers.background}>
 					<div style={style.numbers.card}>
 						<div>
 							<h2 style={style.numbers.number}>{text.numbers.number1}</h2>
@@ -109,24 +111,16 @@ function Home(props: IProps) {
 					<h2 style={{marginTop: "0"}}>{text.videos.title}</h2>
 					<p style={style.videos.p}>{text.videos.p}</p>
 					<MobileView>
-						<iframe
-							title='video'
-							style={props.isLandscape ? {...style.videos.iframe, width: "40vw", height: "50vh"} : style.videos.iframe}
-							src="https://www.youtube.com/embed/wkuVxTBXc8g"
-							frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-							allowFullScreen>
-						</iframe>
+						<div style={props.isLandscape ? {...style.videos.iframe, width: "40vw", height: "50vh", marginRight: "auto", marginLeft: "auto"} : style.videos.iframe}>
+							<YouTube videoId="vPalFZk5io0" opts={{height: "170", width: "280"}}/>
+						</div>
 					</MobileView>
 					<Button name={text.videos.button} route="Videos"/>
 				</div>
 				<BrowserView>
-					<iframe
-						title='video'
-						style={style.videos.iframe}
-						src="https://www.youtube.com/embed/wkuVxTBXc8g"
-						frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-						allowFullScreen>
-					</iframe>
+					<div style={style.videos.iframe}>
+						<YouTube videoId="vPalFZk5io0" opts={{height: "320", width: "550"}}/>
+					</div>
 				</BrowserView>
 			</section>
 
@@ -158,12 +152,12 @@ export const styles = (mobile: boolean): IStyles => ({
 			height: "90vh",
 		},
 		headerSubtitle: {
-			color: "var(--grey)",
+			color: "var(--dark)",
 			fontSize: mobile ? "1.6rem" : "2rem",
 			marginBottom: mobile ? "6vh" : "4vh",
 			marginTop: mobile ? "4vh" : undefined,
 			textAlign: "justify",
-			fontWeight: "bold",
+			fontWeight: 100,
 		},
 		headerImage: {
 			display: mobile ? "none" : undefined,
@@ -231,7 +225,7 @@ export const styles = (mobile: boolean): IStyles => ({
 			color: "var(--grey)",
 			fontSize: mobile ? "1.6rem" : "1.8rem",
 			marginBottom: "4vh",
-			textAlign: "center",
+			textAlign: mobile ? "justify" : "center",
 			width: mobile ? "80%" : "50%",
 		},
 		divCardHome: {
@@ -301,7 +295,7 @@ export const styles = (mobile: boolean): IStyles => ({
 			marginLeft: mobile ? undefined : "6vw",
 			marginRight: mobile ? undefined : "5vw",
 			width: mobile ? "80%" : "30%",
-			textAlign: mobile ? "center" : undefined,
+			textAlign: mobile ? "justify" : undefined,
 		},
 		p: {
 			color: "var(--grey)",

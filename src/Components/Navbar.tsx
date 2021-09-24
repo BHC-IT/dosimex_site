@@ -35,6 +35,7 @@ export interface IStyles {
 const pages : IPage[] = [
 	{route: 'Software'},
 	{route: 'Training'},
+	{route: 'Manuals'},
 	{route: 'About'},
 	{route: 'articles'},
 	{route: 'Contact'},

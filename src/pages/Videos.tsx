@@ -236,9 +236,10 @@ export const styles = (mobile: boolean) => ({
 		text: {
 			margin: mobile ? "0 5% 5vh 5%" :"0 15% 0 30vw",
 			zIndex: 1,
-			color:'var(--grey)',
+			color:'var(--dark)',
 			fontSize: mobile ? "1.6rem" : "1.8rem",
-			textAlign: mobile ? "center" : undefined,
+			textAlign: mobile ? "justify" : undefined,
+			fontWeight: 100,
 		} as CSS.Properties,
 		btn: {
 			zIndex: 1,

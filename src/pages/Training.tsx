@@ -149,9 +149,10 @@ export const styles = (mobile: boolean) => ({
 		text: {
 			margin: "0 0 auto 0",
 			fontSize: mobile ? "1.6rem" : "1.8rem",
-			color: 'var(--grey)',
+			color: 'var(--dark)',
 			marginTop: '4vh',
 			textAlign: "justify",
+			fontWeight: 100,
 		} as CSS.Properties,
 		squareGridStyles: {
 			containerStyle: {
@@ -269,7 +270,7 @@ export const styles = (mobile: boolean) => ({
 			width: mobile ? '60%' : '22vw',
 			marginTop: 0,
 			textAlign: 'center',
-			fontSize: '1.5rem',
+			fontSize: '1.6rem',
 			marginBottom: mobile ? '7vh' : '4vh'
 		} as CSS.Properties,
 	}

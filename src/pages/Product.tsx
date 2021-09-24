@@ -99,10 +99,10 @@ function Product(props: IProps) {
 					<p style={style.pPrice}>{text.price}</p>
 					<p>{text.priceShipment}</p>
 				</div>
-				<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style={style.formPrice}>
+				<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style={props.isLandscape ? {...style.formPrice, width: "32vw", height: "15vh"} : style.formPrice}>
 					<input type="hidden" name="cmd" value="_s-xclick"/>
 					<input type="hidden" name="hosted_button_id" value="5ZR8G5EHFRUH4"/>
-					<input style={style.paypal} type="image" src="/Images/PayPal-Logo.png" name="submit" alt="PayPal, le réflexe sécurité pour payer en ligne"/>
+					<input style={props.isLandscape ? {...style.paypal, width: "15vw"} : style.paypal} type="image" src="/Images/PayPal-Logo.png" name="submit" alt="PayPal, le réflexe sécurité pour payer en ligne"/>
 					<img alt="" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" width="1" height="1"/>
 				</form>
 			</div>
@@ -148,11 +148,12 @@ export const styles = (mobile: boolean): IStyles => ({
 	headerP: {
 		marginTop: "5vh",
 		marginBottom: "3vh",
-		color: "var(--grey)",
+		color: "var(--dark)",
 		fontSize: mobile ? "1.6rem" : "1.8rem",
 		width: mobile ? undefined : "85%",
 		padding: mobile ? "2vh 8vw 3vh 8vw" : undefined,
 		textAlign: mobile ? "justify" : undefined,
+		fontWeight: 100,
 	},
 	button: {
 		padding: "12px 25px",
@@ -293,7 +294,7 @@ export const styles = (mobile: boolean): IStyles => ({
 	questionsP: {
 		paddingRight: mobile ? "8vw" : undefined,
 		paddingLeft: mobile ? "8vw" : undefined,
-		fontWeight: 600,
+		fontWeight: 400,
 	},
 	contact: {
 		marginTop: mobile ? '-10vh' : '-5vh',

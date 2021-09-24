@@ -26,18 +26,18 @@ const text : ILang = {
 		},
 		offers: {
 			title: "Ce que nous proposons",
-			p: "Un ensemble d‘outils (13) de calculs couvrant l’essentiel du champ en radioprotection: exposition externe gamma, bêta, neutron, exposition interne, transfert atmosphérique et plus encore. Vous trouverez sur le site des vidéos explicatives pour chaque outil ainsi que leurs dossiers de validation (pdf téléchargeable).",
+			p: "Un ensemble d‘outils de calculs (13 au total) couvrant l’essentiel du champ en radioprotection: exposition externe gamma, bêta, neutron, exposition interne, transfert atmosphérique et plus encore. Vous trouverez sur le site des vidéos explicatives pour chaque outil ainsi que leurs dossiers de validation (pdf téléchargeable).",
 			card1: {
 				title: "Pack logiciel",
 				p: "Retrouvez tous les utilitaires Dosimex avec des vidéos spécifiques : pack opérationnel, pack pédagogique, pack mesure",
 			},
 			card2: {
-				title: "Manuels et validations",
-				p: "Accéder à l’ensemble de la documentation associée à Dosimex-GX",
+				title: "Documentation",
+				p: "Validé via MCNP, RayXpert, Microshield et Mercurad. Accéder à l’ensemble de la documentation associée à Dosimex-GX",
 			},
 			card3: {
 				title: "Formations",
-				p: "Nous vous accompagnons pour prendre en mains ces outils de calculs en nous adaptant à vos problèmes specifiques.",
+				p: "Nous vous accompagnons pour prendre en mains ces outils de calculs en nous adaptant à vos problèmes specifiques",
 			}
 		},
 		numbers: {
@@ -66,7 +66,7 @@ const text : ILang = {
 	},
 	Software: {
 		header: {
-			title: "Nos offres",
+			title: "Nos produits",
 			p: "Les 13 utilitaires se répartissent suivant 3 thématiques: calculs opérationnels de radioprotection, outils pédagogiques permettant d’approfondir les aspects physiques et enfin des utilitaires concernant les aspects mesures.",
 			li: ["Pack opérationnel", "Pack pédagogique", "Pack mesures"]
 		},
@@ -246,7 +246,7 @@ const text : ILang = {
 	},
 	Manuals: {
 		header: {
-			title: "Manuels et validations",
+			title: "Documentation",
 			p: "Pour mieux vous permettre de juger des possibilités offertes avec Dosimex-GX, vous pouvez télécharger l’ensemble de la documentation associée à ce code :",
 			li: [	"Les manuels d’utilisation",
 				"Les dossiers de validation",
@@ -405,8 +405,9 @@ const text : ILang = {
 		}
 	},
 	Navbar: {
-		items: ["Nos offres",
+		items: ["Nos produits",
 			"Formations",
+			"Documentation",
 			"Qui sommes-nous ?",
 			"Actualités",
 			"Contact"

@@ -23,6 +23,7 @@ interface IProps extends WithRouterProps {
 const pages : IPage[] = [
 	{route: 'Software'},
 	{route: 'Training'},
+	{route: 'Manuals'},
 	{route: 'About'},
 	{route: 'articles'},
 	{route: 'Contact'},

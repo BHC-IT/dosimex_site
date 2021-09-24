@@ -76,9 +76,9 @@ const Articles = (props: any) => {
 					return (
 						<li style={style.li} key={e.title} >
 							{props.isPortrait ?
-								<PartImagePortrait imageUrl={e.urlImage || "https://www.dosimex.fr/static/media/BackGroundHague2_compressed.477d1c3a.png"} />
+								<PartImagePortrait imageUrl={e.urlImage || "/Images/BackGroundHague2_compressed.png"} />
 							:
-								<PartImage imageUrl={e.urlImage || "https://www.dosimex.fr/static/media/BackGroundHague2_compressed.477d1c3a.png"} />
+								<PartImage imageUrl={e.urlImage || "/Images/BackGroundHague2_compressed.png"} />
 							}
 							<div style={style.divDescrip}>
 								<h3 style={style.title}>{e.title}</h3>
