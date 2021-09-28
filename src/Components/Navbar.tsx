@@ -12,6 +12,15 @@ import {
 	BrowserView,
 } from "react-device-detect";
 
+const originalError = console.error;
+
+console.error = (...args) => {
+  if (/Warning.*Function components cannot be given refs/.test(args[0])) {
+    return;
+  }
+  originalError.call(console, ...args);
+};
+
 interface IPage {
 	route: string,
 }

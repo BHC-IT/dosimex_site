@@ -36,5 +36,6 @@ export const styles: IStyles =  {
 		textDecoration: "none",
 		color: "inherit",
 		cursor: "pointer",
+		fontSize: '0.9vw',
 	},
 }

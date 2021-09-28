@@ -51,7 +51,7 @@ const HeroBannerCarousel = ({text}: ITextProps) => {
 	const style = useIsMobile(styles);
 
 	if (style === null)
-		return null
+		return <></>
 
 	return (
 		<div style={{}}>
