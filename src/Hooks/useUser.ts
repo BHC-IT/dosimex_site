@@ -19,7 +19,7 @@ const useUser = () => {
 	useEffect(() => {
 		setToken(localStorage.getItem('access_token'))
 		const exp = Number(localStorage.getItem('exp_token'))
-		console.log(exp);
+
 		if (!exp) {
 			remove(setToken)
 			return;
