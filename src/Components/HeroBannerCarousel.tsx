@@ -29,8 +29,8 @@ const Slide = ({name, text}: ISlideProps) =>
 	<div style={{width: "25%", float: "left"}}>
 		<Image
 			src={`/Images/${name}`}
-			width={494*1.142}
-			height={278*1.142}
+			width={805.92*0.7}
+			height={453.53*0.7}
 		/>
 		<p style={{fontStyle: "italic", float: "right", marginTop: "7vh",padding: "0 10px", fontSize: "1.8rem", color: "var(--grey)"}}>{text}</p>
 	</div>
@@ -60,7 +60,7 @@ const HeroBannerCarousel = ({text}: ITextProps) => {
 				width={1006*0.7}
 				height={634*0.7}
 			/>
-			<div style={{position: "absolute", left: "0.85%", top: "2.6%"}}>
+			<div style={{position: "absolute", left: "0.3vw", top: "0.8vh"}}>
 				<SlideWrapper text={text}/>
 			</div>
 		</div>
