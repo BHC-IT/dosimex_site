@@ -11,7 +11,7 @@ export interface IStyles {
 }
 
 interface IProps {
-	text: any,
+	text: {[$:string]: string},
 }
 
 const OpinionHome = (props: IProps) => {

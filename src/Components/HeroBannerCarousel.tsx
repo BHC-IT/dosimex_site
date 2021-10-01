@@ -50,7 +50,7 @@ const SlideWrapper = ({text, vw}: ITextProps) => {
 	)
 }
 
-const HeroBannerCarousel = ({text}: ITextProps) => {
+const HeroBannerCarousel = ({text}: any) => {
 
 	const [vw, setvw] = React.useState<number>(1500);
 
@@ -72,7 +72,7 @@ const HeroBannerCarousel = ({text}: ITextProps) => {
 					layout={"fill"}
 				/>
 			</div>
-			<div style={{position: "absolute", left: `${0.5 * vw}px`, top: `${0.5 * vw}px`}}>
+			<div style={{position: "absolute", left: `${0.5 * vw}px`, top: `${0.7 * vw}px`}}>
 				<SlideWrapper text={text} vw={vw} />
 			</div>
 		</div>
