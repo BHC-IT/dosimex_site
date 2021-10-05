@@ -62,14 +62,14 @@ export default function Manuals() {
 
 	const manuals = {
 		manuals: [
-			{img: "manuel1.png", pdf: isEnglishVersion ? "Handbook1_Radionucléide.pdf" : "Manuel_1_Radionucléide_3.0.pdf", text: text.manuals[1]},
-			{img: "manuel2.png", pdf: isEnglishVersion ? "Handbook2_Xgenerator.pdf" : "Manuel_2_Géné_X_3.0.pdf", text: text.manuals[2]},
+			{img: isEnglishVersion ? "handbook1.png" : "manuel1.png", pdf: isEnglishVersion ? "Handbook1_Radionucléide.pdf" : "Manuel_1_Radionucléide_3.0.pdf", text: text.manuals[1]},
+			{img: isEnglishVersion ? "handbook2.png" : "manuel2.png", pdf: isEnglishVersion ? "Handbook2_Xgenerator.pdf" : "Manuel_2_Géné_X_3.0.pdf", text: text.manuals[2]},
 			{img: "manuel3.png", pdf: "Manuel_3_Application_15_160.pdf", text: text.manuals[3]},
 			{img: "manuel4.png", pdf: "Annexe_S_ radiologie.pdf", text: text.manuals[4]},
 		],
 		validations: [
-			{img: "Validation1.png", pdf: isEnglishVersion ? "Validation1_Radionuclide.pdf" : "Validation_1_Radionucléide_3.0.pdf", text: text.validations[1]},
-			{img: "Validation2.png", pdf: isEnglishVersion ? "Validation2_Xgenerator.pdf" : "Validation_2_Géné X_3.0.pdf", text: text.validations[2]},
+			{img: isEnglishVersion ? "validation1en.png" : "Validation1.png", pdf: isEnglishVersion ? "Validation1_Radionuclide.pdf" : "Validation_1_Radionucléide_3.0.pdf", text: text.validations[1]},
+			{img: isEnglishVersion ? "validation2en.png" : "Validation2.png", pdf: isEnglishVersion ? "Validation2_Xgenerator.pdf" : "Validation_2_Géné X_3.0.pdf", text: text.validations[2]},
 			{img: "Validation3.png", pdf: "CEA-R-6452.pdf", text: text.validations[3]},
 			{img: "Validation4.png", pdf: "NT_101682_42_0001_A-DOSIMEX.pdf", text: text.validations[4]},
 			{img: "Validation5.png", pdf: "Article_facteur_transmission_L_Bourgois.pdf", text: text.validations[5]},
