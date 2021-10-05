@@ -57,7 +57,7 @@ const SideBar = (props: IProps) => {
 				<li style={{cursor: "pointer"}}>
 					<Link href="/">
 						<Image
-							src="/Images/logo_dosimex_new.png"
+							src="/Images/logo_dosimex_new.webp"
 							alt="logo dosimex"
 							width={`${212 * ratio}rem`}
 							height={`${44 * ratio}rem`}

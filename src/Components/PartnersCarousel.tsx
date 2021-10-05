@@ -51,51 +51,51 @@ const responsive = {
 
 const partners = [
 	{
-		link: "logo_partenaires/alara.png",
+		link: "logo_partenaires/alara.webp",
 		url: "https://www.alara-expertise.fr",
 	},
 	{
-		link: "logo_partenaires/apave.png",
+		link: "logo_partenaires/apave.webp",
 		url: "https://apave.com",
 	},
 	{
-		link: "logo_partenaires/b2c.png",
+		link: "logo_partenaires/b2c.webp",
 		url: "https://www.b2c-loire.fr/",
 	},
 	{
-		link: "logo_partenaires/cls.png",
+		link: "logo_partenaires/cls.webp",
 		url: "http://cls.to",
 	},
 	{
-		link: "logo_partenaires/cossen.png",
+		link: "logo_partenaires/cossen.webp",
 		url: "https://www.linkedin.com/company/cossen",
 	},
 	{
-		link: "logo_partenaires/edp.png",
+		link: "logo_partenaires/edp.webp",
 		url: "https://www.edpsciences.org/fr/",
 	},
 	{
-		link: "logo_partenaires/lea.png",
+		link: "logo_partenaires/lea.webp",
 		url: "https://www.orano.group/fr/expertise-sur-tout-le-cycle/tour-des-implantations/laboratoire-etalons-activite/lea",
 	},
 	{
-		link: "logo_partenaires/logo-PCR-Long-title-CouleurHD.png",
+		link: "logo_partenaires/logo-PCR-Long-title-CouleurHD.webp",
 		url: "https://www.pcrstrategie.fr/",
 	},
 	{
-		link: "logo_partenaires/rpcirkus.png",
+		link: "logo_partenaires/rpcirkus.webp",
 		url: "https://rpcirkus.org",
 	},
 	{
-		link: "logo_partenaires/safe.png",
+		link: "logo_partenaires/safe.webp",
 		url: "http://safetechnologies.fr",
 	},
 	{
-		link: "logo_partenaires/trad.png",
+		link: "logo_partenaires/trad.webp",
 		url: "https://www.rayxpert.com/",
 	},
 	{
-		link: "test6_name_customcolor_backless_v2_light_dark.png",
+		link: "test6_name_customcolor_backless_v2_light_dark.webp",
 		url: "https://bhc-it.com",
 	},
 

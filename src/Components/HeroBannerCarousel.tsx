@@ -58,7 +58,6 @@ const HeroBannerCarousel = ({text}: any) => {
 		setvw(window.innerWidth / 100)
 	}, [])
 
-	console.log(vw);
 	const style = useIsMobile(styles);
 
 	if (style === null)

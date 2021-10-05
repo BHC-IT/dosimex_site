@@ -85,7 +85,7 @@ class Navbar extends React.Component<IProps> {
 									<li style={styles.navbarLi}>
 										<Link href="/">
 											<Image
-												src="/Images/logo_dosimex_new.png"
+												src="/Images/logo_dosimex_new.webp"
 												alt="logo dosimex"
 												width={`${212 * ratio}rem`}
 												height={`${44 * ratio}rem`}
@@ -106,7 +106,7 @@ class Navbar extends React.Component<IProps> {
 					<SideBar />
 					<div style={{textAlign: "center", paddingTop: "1.5vh", borderBottom: "1px solid var(--main)"}}>
 						<Image
-								src="/Images/logo_dosimex_new.png"
+								src="/Images/logo_dosimex_new.webp"
 								alt="logo dosimex"
 								width={`${212 * ratio}rem`}
 								height={`${44 * ratio}rem`}
