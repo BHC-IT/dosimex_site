@@ -4,7 +4,7 @@ const text : ILang = {
 	Home: {
 		header: {
 			title: "The reference of calculation tools for radiation protection",
-			p: "A set of practical, easy-to-use, validated calculation tools that address many situations encountered in radiation protection. They will allow you to improve your level of expertise.",
+			p: "A set of practical, easy-to-use, validated calculation tools that address many situations encountered in radiation protection. They will allow you to improve your expertise level.",
 			button: "Discover",
 			textImage: ["Dosimex USB key", "Dosimex-GX Radionuclide", "Dosimex-GX X-ray Generator", "Dosimex-N Monte-Carlo neutron"],
 		},
@@ -26,10 +26,10 @@ const text : ILang = {
 		},
 		offers: {
 			title: "What we offer",
-			p: "A set of calculation tools (total of 13) covering most of the field in radiation protection: external gamma, beta, neutron, internal exposure, atmospheric transfer and more. You will find on this site explanatory videos for each tool and their validation files (downloadable pdf).",
+			p: "A set of calculation tools (total of 13) covering most of the field in radiation protection: gamma, beta and neutron external exposure, internal exposure, atmospheric transfer and more. You will find on this site explanatory videos for each tool and their validation files (downloadable pdf).",
 			card1: {
 				title: "Software pack",
-				p: "Find all Dosimex utilities with specific videos: operational pack, educational pack, measurement pack",
+				p: "Find all Dosimex utilities with specific videos: operational pack, learning pack, measurement pack",
 			},
 			card2: {
 				title: "Documentation",
@@ -68,7 +68,7 @@ const text : ILang = {
 		header: {
 			title: "Products",
 			p: "The 13 utilities are divided into 3 themes: operational calculations for radiation protection, pedagogical tools to deepen the physical aspects and finally utilities concerning the measurement aspects.",
-			li: ["Operational pack", "Educational pack", "Measurement pack"]
+			li: ["Operational pack", "Learning pack", "Measurement pack"]
 		},
 		button: {
 			label: "Check out all videos",
@@ -77,20 +77,20 @@ const text : ILang = {
 		packOpe: {
 			title: "Operational pack",
 			descrip: "These calculation tools enable to estimate the radiological risks at their correct levels and to design the necessary protections",
-			liTitles: ["DOSIMEX-GX 3.0", "DOSIMEX-B 3.0", "DOSIMEX-N 3.0", "DOSIMEX-I 3.0", "DOSIMEX-MN 1.0"],
-			li: [	"deterministic calculation code of dose rate for [gamma emitters](https://www.youtube.com/watch?v=E5eWKTJaNxQ) and [X-ray generators](https://www.youtube.com/watch?v=wkuVxTBXc8g), with the option of a spreadsheet according to NF C15-160 /2018. With many options: sky effect, braking radiation, zoning, build-up",
+			liTitles: ["DOSIMEX-GX 3.1", "DOSIMEX-B 3.0", "DOSIMEX-N 3.0", "DOSIMEX-I 3.0", "DOSIMEX-MN 1.0"],
+			li: [	"deterministic calculation code of dose rate for [gamma emitters](https://www.youtube.com/watch?v=E5eWKTJaNxQ) (volumics sources, surface source...) and [X-ray generators](https://www.youtube.com/watch?v=wkuVxTBXc8g) (primary and scattered beam). With many options: skyshine, bremmstrhralung, zoning, build-up...",
 				"[deterministic calculation code](https://www.youtube.com/watch?v=4Cfya_rHa04) of beta emitter dose rate and monoenergetic electrons. Taking into account volumetric sources (beaker, syringe) or surface sources (skin contamination)",
 				"[Monte-Carlo calculation code](https://www.youtube.com/watch?v=7emAJHES-fw) of neutron emitter dose rate (Am/Be type) with biological protection (water, polyethylene, Boron, Cadmium etc..). Pedagogical module with neutron trajectory visualization",
-				"[internal exposure calculation code](https://www.youtube.com/watch?v=4Cfya_rHa04). Consideration of leakage kinetics, renewal, deposition on the ground. Atmospheric transfer calculations. Calculation of RAI/RAV/RCA mix",
+				"[internal exposure calculation code](https://www.youtube.com/watch?v=4Cfya_rHa04). Consideration of leakage kinetics, renewal, ground deposition. Atmospheric transfer calculations",
 				"[data management utility](https://www.youtube.com/watch?v=sj-FVjP87jA) to know the absorbed doses per unit of activity administered for ICRP 53, 80, 106 and 128 radiopharmaceuticals"
 			],
 		},
 		packPeda: {
-			title: "Educational pack",
+			title: "Learning pack",
 			descrip: "They provide a better understanding of the physics of radiation-matter interaction, which is the source of the generated doses, as well as of the protective capacities of the screens that can be used",
-			liTitles: ["Photon MRI 3.0", "MRI charged particles 3.0", "Serious Game 3.0", "ICRU 57 coefficients 3.0"],
-			li: [	"[utility](https://www.youtube.com/watch?v=cBQ5-CiqqT4) implementing the principles of photon-matter interactions in materials with various applications: calculation of kerma, dose, mean free path, Compton effect, visualization of trajectories (Monte-Carlo)",
-				"[utility](https://www.youtube.com/watch?v=vXT2h8GJ8Qk) implementing the principles of charged particle-matter interactions in materials with various applications: path calculation, fluence-dose coefficient, application to beta spectra",
+			liTitles: ["Photon Interaction 3.0", "Charged particles Interaction 3.0", "Serious Game 3.0", "ICRU 57 coefficients 3.0"],
+			li: [	"[utility](https://www.youtube.com/watch?v=cBQ5-CiqqT4) implementing the principles of photon-matter interactions in materials with various applications: kerma calculation, dose, mean free path, Compton effect, trajectories visualization (Monte-Carlo)",
+				"[utility](https://www.youtube.com/watch?v=vXT2h8GJ8Qk) implementing the principles of charged particle-matter interactions in materials with various applications: range calculation, fluence-dose coefficient, application to beta spectra",
 				"[utility](https://www.youtube.com/watch?v=pYbgwudKniA) with pedagogical vocation allowing to highlight the essential parameters of the radioprotection: distance, time, screen, activity, radionuclide nature",
 				"[utility](https://www.youtube.com/watch?v=Ltk5x2dW_VI) allowing to know the fluence-dose equivalent coefficients and normalized air kerma for electrons, photons and neutrons."
 			],
@@ -99,8 +99,8 @@ const text : ILang = {
 			title: "Measurement pack",
 			descrip: "Utilities related to the measurement of ionizing radiation",
 			liTitles: ["TAGE code (Total Absorption Gamma Efficiency)", "Co3 code", "Random variables composition", "Decision threshold calculation"],
-			li: [	"[deterministic code](https://www.youtube.com/watch?v=vSI75UZ_9UQ) calculating the total absorption yield in gamma spectrometry, with dead layer correction (characterization), coincidence correction and yield of sum peaks",
-				"[code](https://www.youtube.com/watch?v=2Mq-TR8cG-o) for calculating the Conversion Coefficient of Contaminameters allowing to calculate the yields (Bq/cm2/ cps) of various ictometers and to obtain the surface activities versus the nature of the probe and the isotopic spectrum measured.",
+			li: [	"[deterministic code](https://www.youtube.com/watch?v=vSI75UZ_9UQ) calculating the total absorption efficiency in gamma spectrometry, with dead layer correction (characterization), coincidence correction and efficiency of sum peaks",
+				"[code](https://www.youtube.com/watch?v=2Mq-TR8cG-o) for calculating the Conversion Coefficient of Contaminameters allowing to calculate the efficiency (Bq/cm2/ cps) of various ictometers and to obtain the surface activities versus the nature of the probe and the isotopic spectrum measured.",
 				"utility allowing to combine up to 5 variables of different types by Monte-Carlo method. This utility is accompanied by complete course documents on the subject of uncertainty calculations",
 				"[utility](https://www.youtube.com/watch?v=aA4QUutuaJc) to determine the decision threshold and the detection limit in nuclear measurement. This utility is accompanied by the course materials."
 			],
@@ -276,14 +276,14 @@ const text : ILang = {
 	Product: {
 		header: {
 			title: "Dosimex 3.0 USB key",
-			p: "The DOSIMEX 3.0 USB stick works like a dongle. Just connect it to a PC and all the files automatically appear. The codes are opened and used directly on the key. Click on the button below and buy it for 600€ VAT (shipment expenses included). Or contact us via the form at the bottom of the page for a quotation.",
+			p: "The DOSIMEX 3.0 USB stick works like a dongle. Just connect it to a PC and all the files automatically appear. The codes are opened and used directly on the key. Click on the button below and buy it for 700$ VAT (shipment expenses excluded). Or contact us via the form at the bottom of the page for a quotation.",
 			button: "Get Dosimex",
 		},
 		buttonKnowMore: "Read more",
 		title: "Product data sheet",
 		descrip: "The DOSIMEX 3.0 USB stick works like a dongle. You just have to connect it to a PC to see all the files automatically appear. The codes are opened and used directly on the key. It is divided into 2 partitions:",
 		partE: {
-			p: [	"All the codes and utilities (13) of the operational (5), pedagogical (4) and measurement (4) packs presented on this site",
+			p: [	"All the codes and utilities (13) of the operational (5), learning (4) and measurement (4) packs presented on this site",
 				"The associated documentation: user manual and validation file for each code",
 				"Course documents (11) : nuclear physics, nuclear measurement, charged particle MRI, photon MRI, neutron MRI, operational quantities, decision threshold: principles and application, statistics: principles, uncertainties and hypothesis testing.",
 				"The appendices (19) of the book 'Calcul de doses générées par les rayonnements ionisants' (EDP Sciences 2016).",
@@ -298,8 +298,8 @@ const text : ILang = {
 			p: `The codes are written in VBA in Excel. The Dosimex pack works with Windows XP to Windows 10 and Excel 2003 to 2019 by authorizing the operation of macros. On Mac it is necessary to create a "virtual machine".\n Depending on the security measures in place in your company, it is advisable to ask your IT department to whitelist Dosimex.`,
 		},
 		titlePrice: "Get Dosimex 3.0 USB key",
-		price: "600€ VAT",
-		priceShipment: "(shipment expenses included)",
+		price: "700$ VAT",
+		priceShipment: "(shipment expenses excluded)",
 		questions: {
 			title: "Any questions? A request for a quotation?",
 			p: "Feel free to contact us via the form below or by phone at ",
@@ -347,7 +347,7 @@ const text : ILang = {
 	Videos: {
 		header: {
 			title: "Videos",
-			p: "You will find below all the videos concerning the operational, educational and measurement packages. We also propose on our YouTube channel other videos dedicated to nuclear physics, radioactivity, radiation-matter interaction, statistics and metrology...",
+			p: "You will find below all the videos concerning the operational, learning and measurement packages. We also propose on our YouTube channel other videos dedicated to nuclear physics, radioactivity, radiation-matter interaction, statistics and metrology...",
 			button: "Watch our YouTube channel",
 		},
 		packTitle: "Videos from the pack ",
@@ -356,8 +356,8 @@ const text : ILang = {
 			label: "operational pack",
 		},
 		packPeda: {
-			name: "educational",
-			label: "educational pack",
+			name: "learning",
+			label: "learning pack",
 		},
 		packMes: {
 			name: "measurement",

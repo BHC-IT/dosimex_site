@@ -31,7 +31,7 @@ const About = () => {
 
 	return (
 		<>
-			<div className="parallax" style={{display: "flex", alignItems: "flex-end", justifyContent: "end", color: "var(--light)", fontStyle: "italic"}}>Cap de la Hague, Site ORANO</div>
+			<div className="parallax" style={{display: "flex", alignItems: "flex-end", justifyContent: "end", color: "var(--light)", fontStyle: "italic"}}><p style={{marginRight: "5vw"}}>Cap de la Hague, Site ORANO</p></div>
 			{ isMobile ?
 					null
 				:

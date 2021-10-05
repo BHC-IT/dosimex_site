@@ -77,7 +77,7 @@ const text : ILang = {
 		packOpe: {
 			title: "Pack opérationnel",
 			descrip: "Ces outils de calculs permettent d’estimer à leurs justes hauteurs les risques radiologiques et de concevoir les protections nécessaires",
-			liTitles: ["DOSIMEX-GX 3.0", "DOSIMEX-B 3.0", "DOSIMEX-N 3.0", "DOSIMEX-I 3.0", "DOSIMEX-MN 1.0"],
+			liTitles: ["DOSIMEX-GX 3.1", "DOSIMEX-B 3.0", "DOSIMEX-N 3.0", "DOSIMEX-I 3.0", "DOSIMEX-MN 1.0"],
 			li: [	"code de calcul déterministe de débit de dose émetteurs [gamma](https://www.youtube.com/watch?v=E5eWKTJaNxQ) et [générateur X](https://www.youtube.com/watch?v=wkuVxTBXc8g), avec option feuille de calcul [norme NF C15-160 /2018](https://www.youtube.com/watch?v=Ga4roi63sSM). Avec de nombreuses [options](https://www.youtube.com/watch?v=ksOJEbihuvA) : effet de ciel, rayonnement de freinage, zonage, build-up",
 				"[code de calcul déterministe](https://www.youtube.com/watch?v=4Cfya_rHa04) de débit de dose émetteur bêta et électrons monoénergétiques. Prise en compte sources volumiques (bécher, seringue) ou surfaciques (contamination peau)",
 				"[code de calcul Monte-Carlo](https://www.youtube.com/watch?v=7emAJHES-fw) de débit de dose émetteur neutron (type Am/Be) avec protection biologique (eau, polyéthylène, Bore, Cadmium etc..). Module pédagogique avec visualisation trajectoire neutron",
@@ -111,7 +111,7 @@ const text : ILang = {
 				"dossiers de validation complets",
 				"extraits validation source gamma",
 				"validation générateur X",
-				"Les nouveautés à découvrir dans Dosimex-GX 3.0",
+				"Les nouveautés à découvrir dans Dosimex-GX 3.1",
 				"notre sélection de lectures",
 			]
 		},

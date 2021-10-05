@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as CSS from 'csstype';
 import Link from 'next/link';
 import { useRouter } from "next/router";
-
+import { useIsMobile } from '../Hooks/useIsMobile';
 
 interface IProps {
 	name: string,
@@ -14,16 +14,20 @@ export interface IStyles {
 }
 
 const ItemNavbar = (props: IProps) => {
+	const style = useIsMobile(styles);
+
+	if (style === null)
+		return null
 
 	const router = useRouter();
 
-	let style : CSS.Properties = router.pathname === `/${props.route}` ?
-					{...styles.item, borderBottom: "2px solid red"} :
-					styles.item;
+	let styleItem : CSS.Properties = router.pathname === `/${props.route}` ?
+					{...style.item, borderBottom: "2px solid red"} :
+					style.item;
 
 	return (
 		<Link href={`/${props.route}`}>
-			<p style={style}>{props.name}</p>
+			<p style={styleItem}>{props.name}</p>
 		</Link>
 	);
 
@@ -31,11 +35,11 @@ const ItemNavbar = (props: IProps) => {
 
 export default ItemNavbar;
 
-export const styles: IStyles =  {
+export const styles = (mobile: boolean): IStyles => ({
 	item: {
 		textDecoration: "none",
 		color: "inherit",
 		cursor: "pointer",
-		fontSize: '0.9vw',
+		fontSize: mobile ? '1.65rem' : '0.9vw',
 	},
-}
+})

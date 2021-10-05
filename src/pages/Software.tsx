@@ -301,7 +301,17 @@ const Software = () => {
 						<CodeSection key={e} style={{marginTop: i === 0 ? '5vh' : 0}} >
 							<div style={style.divFlag}>
 								<LiTitle >{e}</LiTitle>
-								<Image src="/Images/Flag_Uk.jpg" width={1024*ratioUk} height={683*ratioUk} />
+								{
+									i === 0 ?
+										<>
+											<div style={{marginRight: "6px", display: "inline"}}>
+												<Image src="/Images/Flag_France.png" width={2560*ratioFr} height={1707*ratioFr} />
+											</div>
+											<Image src="/Images/Flag_Uk.jpg" width={1024*ratioUk} height={683*ratioUk} />
+										</>
+									:
+										<Image src="/Images/Flag_France.png" width={2560*ratioFr} height={1707*ratioFr} />
+								}
 							</div>
 							<LiLabel text={text.packPeda.li[i]} style={style.liLabel} textOver={text.linkVideo}/>
 						</CodeSection>
@@ -372,7 +382,17 @@ const Software = () => {
 						<div key={e} style={{marginTop: i === 0 ? '5vh' : 0}} >
 							<div style={style.divFlag}>
 								<p style={style.pLi}>{e}</p>
-								<Image src="/Images/Flag_France.png" width={2560*ratioFr} height={1707*ratioFr} />
+								{
+									i === 0 ?
+										<>
+											<div style={{marginRight: "6px", display: "inline"}}>
+												<Image src="/Images/Flag_France.png" width={2560*ratioFr} height={1707*ratioFr} />
+											</div>
+											<Image src="/Images/Flag_Uk.jpg" width={1024*ratioUk} height={683*ratioUk} />
+										</>
+									:
+										<Image src="/Images/Flag_France.png" width={2560*ratioFr} height={1707*ratioFr} />
+								}
 							</div>
 							<LiLabel text={text.packPeda.li[i]} style={style.liLabel}/>
 						</div>

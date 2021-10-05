@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useIsMobile } from '../Hooks/useIsMobile';
 import { useText } from '../Hooks/useText';
+import { useRouter } from 'next/router'
 import * as CSS from 'csstype';
 import Image from 'next/image';
 import styled from 'styled-components';
@@ -35,6 +36,8 @@ interface IStyles {
 export default function Manuals() {
 	const text = useText('Manuals');
 	const style = useIsMobile(styles);
+	const route = useRouter();
+	const isEnglishVersion = route.locale === "en-US";
 
 	const [dummy, setDummy] = React.useState<number>(0);
 
@@ -59,14 +62,14 @@ export default function Manuals() {
 
 	const manuals = {
 		manuals: [
-			{img: "manuel1.png", pdf: "Manuel_1_Radionucléide_3.0.pdf", text: text.manuals[1]},
-			{img: "manuel2.png", pdf: "Manuel_2_Géné_X_3.0.pdf", text: text.manuals[2]},
+			{img: "manuel1.png", pdf: isEnglishVersion ? "Handbook1_Radionucléide.pdf" : "Manuel_1_Radionucléide_3.0.pdf", text: text.manuals[1]},
+			{img: "manuel2.png", pdf: isEnglishVersion ? "Handbook2_Xgenerator.pdf" : "Manuel_2_Géné_X_3.0.pdf", text: text.manuals[2]},
 			{img: "manuel3.png", pdf: "Manuel_3_Application_15_160.pdf", text: text.manuals[3]},
 			{img: "manuel4.png", pdf: "Annexe_S_ radiologie.pdf", text: text.manuals[4]},
 		],
 		validations: [
-			{img: "Validation1.png", pdf: "Validation_1_Radionucléide_3.0.pdf", text: text.validations[1]},
-			{img: "Validation2.png", pdf: "Validation_2_Géné_X_3.0.pdf", text: text.validations[2]},
+			{img: "Validation1.png", pdf: isEnglishVersion ? "Validation1_Radionuclide.pdf" : "Validation_1_Radionucléide_3.0.pdf", text: text.validations[1]},
+			{img: "Validation2.png", pdf: isEnglishVersion ? "Validation2_Xgenerator.pdf" : "Validation_2_Géné X_3.0.pdf", text: text.validations[2]},
 			{img: "Validation3.png", pdf: "CEA-R-6452.pdf", text: text.validations[3]},
 			{img: "Validation4.png", pdf: "NT_101682_42_0001_A-DOSIMEX.pdf", text: text.validations[4]},
 			{img: "Validation5.png", pdf: "Article_facteur_transmission_L_Bourgois.pdf", text: text.validations[5]},
