@@ -243,7 +243,7 @@ const Software = () => {
 		<div>
 			<div style={style.container} >
 				<div style={style.divImage} >
-					<Image src="/Images/motif_rect.svg" width={343*0.9} height={334*0.9} />
+					<Image quality={40} loading="lazy" src="/Images/motif_rect.svg" width={343*0.9} height={334*0.9} />
 				</div>
 				<div style={style.header} >
 					<h2 style={style.headerTitle} >{text.header.title}</h2>
@@ -277,9 +277,9 @@ const Software = () => {
 							<div style={style.divFlag}>
 								<LiTitle >{e}</LiTitle>
 								<div style={{marginRight: "6px", display: "inline"}}>
-									<Image src="/Images/Flag_France.webp" width={2560*ratioFr} height={1707*ratioFr} />
+									<Image quality={40} loading="lazy" src="/Images/Flag_France.webp" width={2560*ratioFr} height={1707*ratioFr} />
 								</div>
-								<Image src="/Images/Flag_Uk.webp" width={1024*ratioUk} height={683*ratioUk} />
+								<Image quality={40} loading="lazy" src="/Images/Flag_Uk.webp" width={1024*ratioUk} height={683*ratioUk} />
 							</div>
 							<LiLabel text={text.packOpe.li[i]} style={style.liLabel} textOver={text.linkVideo}/>
 						</CodeSection>
@@ -305,12 +305,12 @@ const Software = () => {
 									i === 0 ?
 										<>
 											<div style={{marginRight: "6px", display: "inline"}}>
-												<Image src="/Images/Flag_France.webp" width={2560*ratioFr} height={1707*ratioFr} />
+												<Image quality={40} loading="lazy" src="/Images/Flag_France.webp" width={2560*ratioFr} height={1707*ratioFr} />
 											</div>
-											<Image src="/Images/Flag_Uk.webp" width={1024*ratioUk} height={683*ratioUk} />
+											<Image quality={40} loading="lazy" src="/Images/Flag_Uk.webp" width={1024*ratioUk} height={683*ratioUk} />
 										</>
 									:
-										<Image src="/Images/Flag_France.webp" width={2560*ratioFr} height={1707*ratioFr} />
+										<Image quality={40} loading="lazy" src="/Images/Flag_France.webp" width={2560*ratioFr} height={1707*ratioFr} />
 								}
 							</div>
 							<LiLabel text={text.packPeda.li[i]} style={style.liLabel} textOver={text.linkVideo}/>
@@ -337,12 +337,12 @@ const Software = () => {
 									i === 1 ?
 										<>
 											<div style={{marginRight: "6px", display: "inline"}}>
-												<Image src="/Images/Flag_France.webp" width={2560*ratioFr} height={1707*ratioFr} />
+												<Image quality={40} loading="lazy" src="/Images/Flag_France.webp" width={2560*ratioFr} height={1707*ratioFr} />
 											</div>
-											<Image src="/Images/Flag_Uk.webp" width={1024*ratioUk} height={683*ratioUk} />
+											<Image quality={40} loading="lazy" src="/Images/Flag_Uk.webp" width={1024*ratioUk} height={683*ratioUk} />
 										</>
 									:
-										<Image src="/Images/Flag_France.webp" width={2560*ratioFr} height={1707*ratioFr} />
+										<Image quality={40} loading="lazy" src="/Images/Flag_France.webp" width={2560*ratioFr} height={1707*ratioFr} />
 								}
 							</div>
 							<LiLabel text={text.packMes.li[i]} style={style.liLabel} textOver={text.linkVideo}/>
@@ -365,9 +365,9 @@ const Software = () => {
 							<div style={style.divFlag}>
 								<p style={style.pLi}>{e}</p>
 								<div style={{marginRight: "6px", display: "inline"}}>
-									<Image src="/Images/Flag_France.webp" width={2560*ratioFr} height={1707*ratioFr} />
+									<Image quality={40} loading="lazy" src="/Images/Flag_France.webp" width={2560*ratioFr} height={1707*ratioFr} />
 								</div>
-								<Image src="/Images/Flag_Uk.webp" width={1024*ratioUk} height={683*ratioUk} />
+								<Image quality={40} loading="lazy" src="/Images/Flag_Uk.webp" width={1024*ratioUk} height={683*ratioUk} />
 							</div>
 							<LiLabel text={text.packOpe.li[i]} style={style.liLabel}/>
 						</div>
@@ -386,12 +386,12 @@ const Software = () => {
 									i === 0 ?
 										<>
 											<div style={{marginRight: "6px", display: "inline"}}>
-												<Image src="/Images/Flag_France.webp" width={2560*ratioFr} height={1707*ratioFr} />
+												<Image quality={40} loading="lazy" src="/Images/Flag_France.webp" width={2560*ratioFr} height={1707*ratioFr} />
 											</div>
-											<Image src="/Images/Flag_Uk.webp" width={1024*ratioUk} height={683*ratioUk} />
+											<Image quality={40} loading="lazy" src="/Images/Flag_Uk.webp" width={1024*ratioUk} height={683*ratioUk} />
 										</>
 									:
-										<Image src="/Images/Flag_France.webp" width={2560*ratioFr} height={1707*ratioFr} />
+										<Image quality={40} loading="lazy" src="/Images/Flag_France.webp" width={2560*ratioFr} height={1707*ratioFr} />
 								}
 							</div>
 							<LiLabel text={text.packPeda.li[i]} style={style.liLabel}/>
@@ -411,12 +411,12 @@ const Software = () => {
 									i === 1 ?
 										<>
 											<div style={{marginRight: "6px", display: "inline"}}>
-												<Image src="/Images/Flag_France.webp" width={2560*ratioFr} height={1707*ratioFr} />
+												<Image quality={40} loading="lazy" src="/Images/Flag_France.webp" width={2560*ratioFr} height={1707*ratioFr} />
 											</div>
-											<Image src="/Images/Flag_Uk.webp" width={1024*ratioUk} height={683*ratioUk} />
+											<Image quality={40} loading="lazy" src="/Images/Flag_Uk.webp" width={1024*ratioUk} height={683*ratioUk} />
 										</>
 									:
-										<Image src="/Images/Flag_France.webp" width={2560*ratioFr} height={1707*ratioFr} />
+										<Image quality={40} loading="lazy" src="/Images/Flag_France.webp" width={2560*ratioFr} height={1707*ratioFr} />
 								}
 							</div>
 							<LiLabel text={text.packMes.li[i]} style={style.liLabel}/>

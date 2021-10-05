@@ -61,6 +61,8 @@ const SideBar = (props: IProps) => {
 							alt="logo dosimex"
 							width={`${212 * ratio}rem`}
 							height={`${44 * ratio}rem`}
+							loading="lazy"
+							quality={40}
 						/>
 					</Link>
 				</li>

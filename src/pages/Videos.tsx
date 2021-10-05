@@ -1,4 +1,5 @@
 import * as CSS from 'csstype';
+import { useState, useEffect } from 'react';
 import YouTube from 'react-youtube';
 import SquareGrid from '../Components/SquareGrid'
 import { useIsMobile } from '../Hooks/useIsMobile';
@@ -47,6 +48,7 @@ interface IItemVideoProps {
 	label : string,
 	id_yt : string,
 	style: IVideoStyle,
+	isMounting: boolean,
 }
 interface IVideosLineProps {
 	color : string,
@@ -54,6 +56,7 @@ interface IVideosLineProps {
 	text : ILang,
 	label : string,
 	style: IVideoStyle,
+	isMounting: boolean,
 }
 interface IPackProps {
 	title : string,
@@ -64,6 +67,7 @@ interface IPackProps {
 	right?: boolean
 	style: IStyles,
 	styleVideo: IVideoStyle,
+	isMounting: boolean,
 }
 
 const opts_yt = {
@@ -134,20 +138,24 @@ const LabelVideo = ({color, label, style} : ILabelVideoProps) =>
 		<p style={{position: "absolute", color: color}}>{label}</p>
 	</div>
 
-const ItemVideo = ({color, label, id_yt, style} : IItemVideoProps) =>
+const ItemVideo = ({color, label, id_yt, style, isMounting} : IItemVideoProps) =>
 	<div style={style.itemContainer}>
 		<LabelVideo color={color} label={label} style={style}/>
-		<YouTube videoId={id_yt} opts={opts_yt}/>
+		{ isMounting ?
+				null
+			:
+				<YouTube videoId={id_yt} opts={opts_yt}/>
+		}
 	</div>
 
-const VideosLine = ({color, videoIds, text, label, style} : IVideosLineProps) =>
+const VideosLine = ({color, videoIds, text, label, style, isMounting} : IVideosLineProps) =>
 	<div style={style.container}>
 		{videoIds.map((id) => {
-			return <ItemVideo color={color} label={label} id_yt={id} style={style}/>
+			return <ItemVideo color={color} label={label} id_yt={id} style={style} isMounting={isMounting}/>
 		})}
 	</div>
 
-const Pack = ({title, color, videoIds, text, label, right = false, style, styleVideo} : IPackProps) =>
+const Pack = ({title, color, videoIds, text, label, right = false, style, styleVideo, isMounting} : IPackProps) =>
 	<div style={style.container}>
 		<div style={{...style.titleContainer, justifyContent: !right ?  'flex-start' : 'flex-end'}}>
 			<h3>{text.packTitle}</h3>
@@ -160,6 +168,7 @@ const Pack = ({title, color, videoIds, text, label, right = false, style, styleV
 					text={text}
 					label={label}
 					style={styleVideo}
+					isMounting={isMounting}
 			/>
 		})}
 	</div>
@@ -167,6 +176,12 @@ const Pack = ({title, color, videoIds, text, label, right = false, style, styleV
 export default function Videos() {
 	const text = useText('Videos');
 	const style = useIsMobile(styles);
+
+	const [isMounting, setIsMounting] = useState<boolean>(true);
+
+	useEffect(() => {
+		setIsMounting(false)
+	}, [])
 
 	if (style === null)
 		return null
@@ -189,6 +204,7 @@ export default function Videos() {
 				label={text.packOpe.label}
 				style={style.packStyle}
 				styleVideo={style.videosLineStyle}
+				isMounting={isMounting}
 			/>
 			<Separator
 				right={true}
@@ -202,6 +218,7 @@ export default function Videos() {
 				label={text.packPeda.label}
 				style={style.packStyle}
 				styleVideo={style.videosLineStyle}
+				isMounting={isMounting}
 			/>
 			<Separator
 				color={"var(--orange)"}
@@ -215,6 +232,7 @@ export default function Videos() {
 				label={text.packMes.label}
 				style={style.packStyle}
 				styleVideo={style.videosLineStyle}
+				isMounting={isMounting}
 			/>
 		</div>
 	)
