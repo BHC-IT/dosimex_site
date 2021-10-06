@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import Button from '../Components/Button';
 import CardHome from '../Components/CardHome';
 import OpinionHome from '../Components/OpinionHome';
@@ -34,11 +33,6 @@ function Home(props: IProps) {
 
 	const text = useText('Home');
 	const style = useIsMobile(styles);
-	const [isMounting, setIsMounting] = useState<boolean>(true);
-
-	useEffect(() => {
-		setIsMounting(false)
-	}, [])
 
 	if (style === null)
 		return null
@@ -125,11 +119,7 @@ function Home(props: IProps) {
 				</div>
 				<BrowserView>
 					<div style={style.videos.iframe}>
-						{ isMounting ?
-								null
-							:
-								<YouTube videoId="vPalFZk5io0" opts={{height: "320", width: "550"}}/>
-						}
+						<YouTube videoId="vPalFZk5io0" opts={{height: "320", width: "550"}}/>
 					</div>
 				</BrowserView>
 			</section>
