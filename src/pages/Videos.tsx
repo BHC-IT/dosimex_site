@@ -180,7 +180,7 @@ export default function Videos() {
 	const [isMounting, setIsMounting] = useState<boolean>(true);
 
 	useEffect(() => {
-		setIsMounting(false)
+		setTimeout(() => setIsMounting(false), 10)
 	}, [])
 
 	if (style === null)
