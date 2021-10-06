@@ -276,7 +276,7 @@ const text : ILang = {
 	Product: {
 		header: {
 			title: "Dosimex 3.0 USB key",
-			p: "The DOSIMEX 3.0 USB stick works like a dongle. Just connect it to a PC and all the files automatically appear. The codes are opened and used directly on the key. Click on the button below and buy it for 700$ VAT (shipment expenses excluded). Or contact us via the form at the bottom of the page for a quotation.",
+			p: "The DOSIMEX 3.0 USB stick works like a dongle. Just connect it to a PC and all the files automatically appear. The codes are opened and used directly on the key. Click on the button below and buy it for 600€ VAT (shipment expenses excluded). Or contact us via the form at the bottom of the page for a quotation.",
 			button: "Get Dosimex",
 		},
 		buttonKnowMore: "Read more",
@@ -298,7 +298,7 @@ const text : ILang = {
 			p: `The codes are written in VBA in Excel. The Dosimex pack works with Windows XP to Windows 10 and Excel 2003 to 2019 by authorizing the operation of macros. On Mac it is necessary to create a "virtual machine".\n Depending on the security measures in place in your company, it is advisable to ask your IT department to whitelist Dosimex.`,
 		},
 		titlePrice: "Get Dosimex 3.0 USB key",
-		price: "700$ VAT",
+		price: "600€ VAT",
 		priceShipment: "(shipment expenses excluded)",
 		questions: {
 			title: "Any questions? A request for a quotation?",
