@@ -1,5 +1,4 @@
 import * as CSS from 'csstype';
-import { useState, useEffect } from 'react';
 import YouTube from 'react-youtube';
 import SquareGrid from '../Components/SquareGrid'
 import { useIsMobile } from '../Hooks/useIsMobile';
