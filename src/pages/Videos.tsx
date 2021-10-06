@@ -1,5 +1,6 @@
 import * as CSS from 'csstype';
-import YouTube from 'react-youtube';
+import dynamic from 'next/dynamic';
+const YouTube = dynamic(() => import('react-youtube'));
 import SquareGrid from '../Components/SquareGrid'
 import { useIsMobile } from '../Hooks/useIsMobile';
 import { useText } from '../Hooks/useText';

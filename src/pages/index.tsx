@@ -4,11 +4,12 @@ import OpinionHome from '../Components/OpinionHome';
 import PartnersCarousel from '../Components/PartnersCarousel';
 import HeroBannerCarousel from '../Components/HeroBannerCarousel';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import * as CSS from 'csstype';
 import { useText } from '../Hooks/useText';
 import { useIsMobile } from '../Hooks/useIsMobile';
 
-import YouTube from 'react-youtube';
+const YouTube = dynamic(() => import('react-youtube'));
 
 import {
 	BrowserView,
