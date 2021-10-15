@@ -99,12 +99,12 @@ function Product(props: IProps) {
 					<p style={style.pPrice}>{text.price}</p>
 					<p>{text.priceShipment}</p>
 				</div>
-				<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style={props.isLandscape ? {...style.formPrice, width: "32vw", height: "15vh"} : style.formPrice}>
+				{/*<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style={props.isLandscape ? {...style.formPrice, width: "32vw", height: "15vh"} : style.formPrice}>
 					<input type="hidden" name="cmd" value="_s-xclick"/>
 					<input type="hidden" name="hosted_button_id" value="5ZR8G5EHFRUH4"/>
 					<input style={props.isLandscape ? {...style.paypal, width: "15vw"} : style.paypal} type="image" src="/Images/PayPal-Logo.png" name="submit" alt="PayPal, le réflexe sécurité pour payer en ligne"/>
 					<img alt="" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" width="1" height="1"/>
-				</form>
+				</form>*/}
 			</div>
 		</section>
 		<section style={style.questions}>
