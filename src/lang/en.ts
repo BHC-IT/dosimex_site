@@ -283,13 +283,11 @@ const text : ILang = {
 		title: "Product data sheet",
 		descrip: "The DOSIMEX 3.0 USB stick works like a dongle. You just have to connect it to a PC to see all the files automatically appear. The codes are opened and used directly on the key. It is divided into 2 partitions:",
 		partE: {
-			p: [	"All the codes and utilities (13) of the operational (5), learning (4) and measurement (4) packs presented on this site",
+			p: [	"All the codes and utilities (7) of the operational (5), learning (1) and measurement (1) packs presented on this site",
 				"The associated documentation: user manual and validation file for each code",
-				"Course documents (11) : nuclear physics, nuclear measurement, charged particle MRI, photon MRI, neutron MRI, operational quantities, decision threshold: principles and application, statistics: principles, uncertainties and hypothesis testing.",
-				"The appendices (19) of the book 'Calcul de doses générées par les rayonnements ionisants' (EDP Sciences 2016).",
-				"A general summary (General summary.pps) at the root of the folders allows navigation through the entire Dosimex package.",
 			],
 		},
+		between:  "A general summary (General summary.pps) at the root of the folders allows navigation through the entire Dosimex package.",
 		partD: {
 			p: "Write-protected, it allows file restoration if necessary",
 		},
@@ -301,7 +299,7 @@ const text : ILang = {
 		price: "600€ VAT",
 		priceShipment: "(shipment expenses excluded)",
 		questions: {
-			title: "Any questions? A request for a quotation?",
+			title: "A request for a quotation? Any questions?",
 			p: "Feel free to contact us via the form below or by phone at ",
 		}
 	},

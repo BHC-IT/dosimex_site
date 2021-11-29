@@ -29,7 +29,7 @@ function Product(props: IProps) {
 
 	React.useEffect(() => {
 		if (window.location.hash === '#buy') {
-			buy.current?.scrollIntoView({ behavior: 'smooth', block: 'center', inline:'center' });
+			buy.current?.scrollIntoView({ behavior: 'smooth', block: 'start', inline:'center' });
 			buy.current?.focus();
 		}
 	}, [dummy]);
@@ -79,10 +79,10 @@ function Product(props: IProps) {
 					<div style={style.buttonKnowMore}><Link href="/Manuals" replace>{text.buttonKnowMore}</Link></div>
 
 				</div>
-				<p>{text.partE.p[2]}</p>
-				<p>{text.partE.p[3]}</p>
+				{text.partE.p[2] ? <p>{text.partE.p[2]}</p> : null}
+				{text.partE.p[3] ? <p>{text.partE.p[3]}</p> : null}
 			</div>
-			<p>{text.partE.p[4]}</p>
+			<p>{text.between}</p>
 			<h4>Partition D</h4>
 			<div style={style.borderLeft}>
 				<p>{text.partD.p}</p>
@@ -91,23 +91,25 @@ function Product(props: IProps) {
 			<p>{text.prerequisites.p}</p>
 
 		</section>
-		<section ref={buy}>
-			<h3 style={{...style.title, marginTop: "15vh"}}>{text.titlePrice}</h3>
-			<div style={style.divPrice}>
-				<div style={style.imagePrice}></div>
-				<div style={style.pPriceDiv}>
-					<p style={style.pPrice}>{text.price}</p>
-					<p>{text.priceShipment}</p>
+		{/*
+			<section ref={buy}>
+				<h3 style={{...style.title, marginTop: "15vh"}}>{text.titlePrice}</h3>
+				<div style={style.divPrice}>
+					<div style={style.imagePrice}></div>
+					<div style={style.pPriceDiv}>
+						<p style={style.pPrice}>{text.price}</p>
+						<p>{text.priceShipment}</p>
+					</div>
+					{<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style={props.isLandscape ? {...style.formPrice, width: "32vw", height: "15vh"} : style.formPrice}>
+						<input type="hidden" name="cmd" value="_s-xclick"/>
+						<input type="hidden" name="hosted_button_id" value="5ZR8G5EHFRUH4"/>
+						<input style={props.isLandscape ? {...style.paypal, width: "15vw"} : style.paypal} type="image" src="/Images/PayPal-Logo.png" name="submit" alt="PayPal, le réflexe sécurité pour payer en ligne"/>
+						<img alt="" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" width="1" height="1"/>
+					</form>}
 				</div>
-				{/*<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style={props.isLandscape ? {...style.formPrice, width: "32vw", height: "15vh"} : style.formPrice}>
-					<input type="hidden" name="cmd" value="_s-xclick"/>
-					<input type="hidden" name="hosted_button_id" value="5ZR8G5EHFRUH4"/>
-					<input style={props.isLandscape ? {...style.paypal, width: "15vw"} : style.paypal} type="image" src="/Images/PayPal-Logo.png" name="submit" alt="PayPal, le réflexe sécurité pour payer en ligne"/>
-					<img alt="" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" width="1" height="1"/>
-				</form>*/}
-			</div>
-		</section>
-		<section style={style.questions}>
+			</section>
+		*/}
+		<section style={style.questions} ref={buy}>
 			<p style={style.questionsTitle}>{text.questions.title}</p>
 			<p style={style.questionsP}>{text.questions.p}<span style={{color: "var(--main)"}}>06 89 70 90 35</span></p>
 			<div style={style.contact}>

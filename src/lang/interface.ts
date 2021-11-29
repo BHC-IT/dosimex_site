@@ -130,6 +130,7 @@ export default interface Lang {
 		partE: {
 			p: string[],
 		},
+		between: string,
 		partD: {
 			p: string,
 		},

@@ -276,8 +276,8 @@ const text : ILang = {
 	Product: {
 		header: {
 			title: "Clé USB Dosimex 3.0",
-			p: "La clé USB DOSIMEX 3.0 fonctionne comme un dongle. Il suffit de la connecter sur un PC pour voir apparaître automatiquement l’ensemble des dossiers. Les codes s'ouvrent et s’utilisent directement sur la clé. Cliquez sur le bouton ci-dessous et achetez directement la clé pour 600€ TTC (frais d'envoi inclus). Ou contactez-nous via la formulaire en bas de page pour un devis.",
-			button: "Acheter Dosimex",
+			p: "La clé USB DOSIMEX 3.0 fonctionne comme un dongle. Il suffit de la connecter sur un PC pour voir apparaître automatiquement l’ensemble des dossiers. Les codes s'ouvrent et s’utilisent directement sur la clé. L'ensemble des utilitaires de calculs est vendu pour 600€ TTC. Contactez-nous via la formulaire en bas de page pour un devis.",
+			button: "Commander Dosimex",
 		},
 		buttonKnowMore: "En savoir plus",
 		title: "Fiche technique du produit",
@@ -285,11 +285,11 @@ const text : ILang = {
 		partE: {
 			p: [	"Tous les codes et utilitaires (13) des packs opérationnel (5), pédagogique (4) et mesures (4) présentés sur ce site",
 				"La documentation associée : manuel d’emploi et dossier de validation de chaque code.",
-				"Des documents de cours (11) : physique nucélaire, mesure nucléaire, IRM particules chargées, IRM photon, IRM neutrons, grandeurs opérationnelles, seuil de décision : principes et application, statistiques : principes, incertitudes et test d'hypothèse.",
+				"Des documents de cours (11) : physique nucléaire, mesure nucléaire, IRM particules chargées, IRM photon, IRM neutrons, grandeurs opérationnelles, seuil de décision : principes et application, statistiques : principes, incertitudes et test d'hypothèse.",
 				"Les annexes (19) de l’ouvrage « Calcul de doses générées par les rayonnements ionisants » (EDP Sciences 2016).",
-				"Un sommaire général (Sommaire général.pps) à la racine des dossiers permet de naviguer sur l’ensemble du pack Dosimex.",
 			],
 		},
+		between: "Un sommaire général (Sommaire général.pps) à la racine des dossiers permet de naviguer sur l’ensemble du pack Dosimex.",
 		partD: {
 			p: "Protégée en écriture, elle permet une restauration des fichiers si nécessaire.",
 		},
@@ -301,7 +301,7 @@ const text : ILang = {
 		price: "600€ TTC",
 		priceShipment: "(frais d'envoi inclus)",
 		questions: {
-			title: "Des questions ? Une demande de devis ?",
+			title: "Une demande de devis ? Des questions ?",
 			p: "N’hésitez pas à nous contacter via le formulaire ci-dessous ou par téléphone au ",
 		}
 	},
