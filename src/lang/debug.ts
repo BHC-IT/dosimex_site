@@ -221,6 +221,7 @@ const text : ILang = {
 				"{Product.partE.p[4]}",
 			],
 		},
+		between: "{Product.between}",
 		partD: {
 			p: "{Product.partD.p}",
 		},
