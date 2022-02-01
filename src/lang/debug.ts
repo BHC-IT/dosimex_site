@@ -228,6 +228,7 @@ const text : ILang = {
 		prerequisites: {
 			title: "{Product.prerequisites.title}",
 			p: "{Product.prerequisites.p}",
+			italic: "{Product.prerequisites.italic}"
 		},
 		titlePrice: "{Product.titlePrice}",
 		price: "{Product.price}",

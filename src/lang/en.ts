@@ -294,6 +294,7 @@ const text : ILang = {
 		prerequisites: {
 			title: "Prerequisites",
 			p: `The codes are written in VBA in Excel. The Dosimex pack works with Windows XP to Windows 10 and Excel 2003 to 2019 by authorizing the operation of macros. On Mac it is necessary to create a "virtual machine".\n Depending on the security measures in place in your company, it is advisable to ask your IT department to whitelist Dosimex.`,
+			italic: "",
 		},
 		titlePrice: "Get Dosimex 3.0 USB key",
 		price: "600€ VAT",

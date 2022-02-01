@@ -137,6 +137,7 @@ export default interface Lang {
 		prerequisites: {
 			title: string,
 			p: string,
+			italic: string,
 		},
 		titlePrice: string,
 		price: string,
