@@ -20,7 +20,7 @@ interface IMapOf<A> {
 	[i: string]: A
 }
 
-type IStyles = IMapOf<CSS.Properties | IMapOfStyle>
+type IStyles = IMapOf<IMapOfStyle | IMapOf<IMapOfStyle>>
 
 
 interface ICardProps {

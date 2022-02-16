@@ -49,6 +49,9 @@ export default interface Lang {
 		callToAction: {
 			title: string,
 			button: string,
+		},
+		videoLink: {
+			pres: string,
 		}
 	},
 	Software: {

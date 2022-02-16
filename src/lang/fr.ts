@@ -3,7 +3,7 @@ import ILang from './interface';
 const text : ILang = {
 	Home: {
 		header: {
-			title: "Des outils de calculs de radioprotection pour tous",
+			title: "Des outils de calculs radioprotection pour tous",
 			p: "Ensemble d'outils de calculs pratiques, simples d’emploi, validés, et répondant à de nombreuses situations rencontrées en radioprotection. Ils vous permettront d'améliorer votre niveau d'expertise.",
 			button: "Découvrir",
 			textImage: ["Clé Dosimex", "Dosimex-GX Radionucléide", "Dosimex-GX Générateur X", "Dosimex-N Monte-Carlo neutron"],
@@ -60,8 +60,11 @@ const text : ILang = {
 			btn: "Tous les avis",
 		},
 		callToAction: {
-			title: "Vous pouvez acheter la clé Dosimex via Paypal ou nous demander un devis",
+			title: "Vous pouvez acheter la clé Dosimex en nous demandant un devis",
 			button: "Acheter Dosimex",
+		},
+		videoLink: {
+			pres: "Wrpd_sX0f_M ",
 		}
 	},
 	Software: {

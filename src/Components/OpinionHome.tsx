@@ -8,6 +8,7 @@ export interface IStyles {
 	global: CSS.Properties,
 	icon: CSS.Properties,
 	text: CSS.Properties,
+	peopleInfo?: CSS.Properties,
 }
 
 interface IProps {

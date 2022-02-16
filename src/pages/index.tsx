@@ -113,14 +113,14 @@ function Home(props: IProps) {
 					<p style={style.videos.p}>{text.videos.p}</p>
 					<MobileView>
 						<div style={props.isLandscape ? {...style.videos.iframe, width: "40vw", height: "50vh", marginRight: "auto", marginLeft: "auto"} : style.videos.iframe}>
-							<YouTube videoId="vPalFZk5io0" opts={{height: "170", width: "280"}}/>
+							<YouTube videoId={text.videoLink.pres} opts={{height: "170", width: "280"}}/>
 						</div>
 					</MobileView>
 					<Button name={text.videos.button} route="Videos"/>
 				</div>
 				<BrowserView>
 					<div style={style.videos.iframe}>
-						<YouTube videoId="vPalFZk5io0" opts={{height: "320", width: "550"}}/>
+						<YouTube videoId={text.videoLink.pres} opts={{height: "320", width: "550"}}/>
 					</div>
 				</BrowserView>
 			</section>

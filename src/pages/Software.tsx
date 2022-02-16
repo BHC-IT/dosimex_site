@@ -97,7 +97,7 @@ const LiLabel = ({text, style, textOver} : ILiLabelProps) =>
 	<p style={style.global}>
 	{
 		parseStringLink(text).map(e => isLink(e) ?
-			<div style={style.link}>
+			<div style={style.link} key={e} >
 				<LinkVideo link={e} textOver={textOver}/>
 			</div>
 		:
@@ -281,7 +281,7 @@ const Software = () => {
 								</div>
 								<Image quality={40} loading="lazy" src="/Images/Flag_Uk.webp" width={1024*ratioUk} height={683*ratioUk} />
 							</div>
-							<LiLabel text={text.packOpe.li[i]} style={style.liLabel} textOver={text.linkVideo}/>
+							<LiLabel text={text.packOpe.li[i]} style={style.liLabel as IMapOfStyle} textOver={text.linkVideo}/>
 						</CodeSection>
 					)}
 				</div>
@@ -313,7 +313,7 @@ const Software = () => {
 										<Image quality={40} loading="lazy" src="/Images/Flag_France.webp" width={2560*ratioFr} height={1707*ratioFr} />
 								}
 							</div>
-							<LiLabel text={text.packPeda.li[i]} style={style.liLabel} textOver={text.linkVideo}/>
+							<LiLabel text={text.packPeda.li[i]} style={style.liLabel as IMapOfStyle} textOver={text.linkVideo}/>
 						</CodeSection>
 					)}
 				</div>
@@ -345,7 +345,7 @@ const Software = () => {
 										<Image quality={40} loading="lazy" src="/Images/Flag_France.webp" width={2560*ratioFr} height={1707*ratioFr} />
 								}
 							</div>
-							<LiLabel text={text.packMes.li[i]} style={style.liLabel} textOver={text.linkVideo}/>
+							<LiLabel text={text.packMes.li[i]} style={style.liLabel as IMapOfStyle} textOver={text.linkVideo}/>
 						</CodeSection>
 					)}
 					<div style={{marginTop: '8vh'}} >
@@ -369,7 +369,7 @@ const Software = () => {
 								</div>
 								<Image quality={40} loading="lazy" src="/Images/Flag_Uk.webp" width={1024*ratioUk} height={683*ratioUk} />
 							</div>
-							<LiLabel text={text.packOpe.li[i]} style={style.liLabel}/>
+							<LiLabel text={text.packOpe.li[i]} style={style.liLabel as IMapOfStyle}/>
 						</div>
 					)}
 				</div>
@@ -394,7 +394,7 @@ const Software = () => {
 										<Image quality={40} loading="lazy" src="/Images/Flag_France.webp" width={2560*ratioFr} height={1707*ratioFr} />
 								}
 							</div>
-							<LiLabel text={text.packPeda.li[i]} style={style.liLabel}/>
+							<LiLabel text={text.packPeda.li[i]} style={style.liLabel as IMapOfStyle}/>
 						</div>
 					)}
 				</div>
@@ -419,7 +419,7 @@ const Software = () => {
 										<Image quality={40} loading="lazy" src="/Images/Flag_France.webp" width={2560*ratioFr} height={1707*ratioFr} />
 								}
 							</div>
-							<LiLabel text={text.packMes.li[i]} style={style.liLabel}/>
+							<LiLabel text={text.packMes.li[i]} style={style.liLabel as IMapOfStyle}/>
 						</div>
 					)}
 					<div style={{margin: '8vh auto', textAlign: "center"}} >
@@ -449,7 +449,7 @@ const Software = () => {
 					<Link href={`/Books`} replace><p style={{textDecoration: "underline var(--dark)", cursor:'pointer', fontFamily: "var(--lato)"}} >{(text.more.links[5]).toUpperCase()}</p></Link>
 				</div>
 			</div>
-			<Questions text={text} style={style.questionsStyles}/>
+			<Questions text={text} style={style.questionsStyles as IMapOfStyle}/>
 		</div>
 	);
 }

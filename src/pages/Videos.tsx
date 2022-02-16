@@ -1,18 +1,17 @@
 import * as CSS from 'csstype';
 import dynamic from 'next/dynamic';
 const YouTube = dynamic(() => import('react-youtube'));
-import SquareGrid from '../Components/SquareGrid'
+import SquareGrid, {IStyles as SquareStyle} from '../Components/SquareGrid'
 import { useIsMobile } from '../Hooks/useIsMobile';
 import { useText } from '../Hooks/useText';
 import ILang from '../lang/interface';
 
-interface IMapOfStyle {
-	[i: string]: CSS.Properties | Function
-}
 
 interface IMapOf<A> {
 	[i: string]: A
 }
+
+type IMapOfStyle = IMapOf<CSS.Properties | Function>
 
 type IStyles = IMapOf<IMapOfStyle | IMapOf<IMapOfStyle>>
 
@@ -29,7 +28,7 @@ interface ISeparatorStyle {
 
 interface IHeaderProps {
 	text: ILang,
-	style: IStyles,
+	style: IMapOfStyle,
 }
 
 interface ISeparatorProps {
@@ -63,7 +62,7 @@ interface IPackProps {
 	text : ILang,
 	label : string,
 	right?: boolean
-	style: IStyles,
+	style: IMapOf<CSS.Properties>,
 	styleVideo: IVideoStyle,
 }
 
@@ -118,11 +117,11 @@ const splitArrays = (nb : number, arr : any[]) => {
 }
 
 const Header = ({text, style} : IHeaderProps) =>
-	<div style={style.container}>
-		<h2 style={style.title}>{text.header.title}</h2>
-		<p style={style.text}>{text.header.p}</p>
-		<div style={style.btn}><a href="https://www.youtube.com/channel/UCmijJyGaFfJte4xsTk90MVA" target="_blank" rel="noreferrer noopener">{text.header.button}</a></div>
-		<SquareGrid nbLine={6} nbColumn={6} styles={style.squareGridStyles}/>
+	<div style={style.container as CSS.Properties}>
+		<h2 style={style.title as CSS.Properties}>{text.header.title}</h2>
+		<p style={style.text as CSS.Properties}>{text.header.p}</p>
+		<div style={style.btn as CSS.Properties}><a href="https://www.youtube.com/channel/UCmijJyGaFfJte4xsTk90MVA" target="_blank" rel="noreferrer noopener">{text.header.button}</a></div>
+		<SquareGrid nbLine={6} nbColumn={6} styles={style.squareGridStyles as SquareStyle}/>
 	</div>
 
 const Separator = ({right, color, style} : ISeparatorProps) =>	<div style={style.container(right)}><div style={style.line(color)}/></div>
@@ -180,7 +179,7 @@ export default function Videos() {
 			/>
 			<Separator
 				color={"var(--main)"}
-				style={style.separatorStyle}
+				style={style.separatorStyle as unknown as ISeparatorStyle}
 			/>
 			<Pack
 				title={text.packOpe.name}
@@ -188,12 +187,12 @@ export default function Videos() {
 				videoIds={listVideoYt.packOpe}
 				text={text}
 				label={text.packOpe.label}
-				style={style.packStyle}
-				styleVideo={style.videosLineStyle}
+				style={style.packStyle as IMapOf<CSS.Properties>}
+				styleVideo={style.videosLineStyle as unknown as IVideoStyle}
 			/>
 			<Separator
 				right={true}
-				style={style.separatorStyle}
+				style={style.separatorStyle as unknown as ISeparatorStyle}
 			/>
 			<Pack
 				right={true}
@@ -201,12 +200,12 @@ export default function Videos() {
 				videoIds={listVideoYt.packPeda}
 				text={text}
 				label={text.packPeda.label}
-				style={style.packStyle}
-				styleVideo={style.videosLineStyle}
+				style={style.packStyle as IMapOf<CSS.Properties>}
+				styleVideo={style.videosLineStyle as unknown as IVideoStyle}
 			/>
 			<Separator
 				color={"var(--orange)"}
-				style={style.separatorStyle}
+				style={style.separatorStyle as unknown as ISeparatorStyle}
 			/>
 			<Pack
 				title={text.packMes.name}
@@ -214,14 +213,14 @@ export default function Videos() {
 				videoIds={listVideoYt.packMes}
 				text={text}
 				label={text.packMes.label}
-				style={style.packStyle}
-				styleVideo={style.videosLineStyle}
+				style={style.packStyle as IMapOf<CSS.Properties>}
+				styleVideo={style.videosLineStyle as unknown as IVideoStyle}
 			/>
 		</div>
 	)
 }
 
-export const styles = (mobile: boolean) => ({
+export const styles = (mobile: boolean): IStyles => ({
 	headerStyle: {
 		container: {
 			...center,
@@ -266,7 +265,7 @@ export const styles = (mobile: boolean) => ({
 				backgroundColor: "var(--flashTrans)",
 			} as CSS.Properties,
 		}
-	},
+	} as IMapOf<CSS.Properties | IMapOfStyle> ,
 	separatorStyle: {
 		container: (right ?: boolean) : CSS.Properties => {
 			return {

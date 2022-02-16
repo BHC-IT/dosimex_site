@@ -60,8 +60,11 @@ const text : ILang = {
 			btn: "More reviews",
 		},
 		callToAction: {
-			title: "You can buy Dosimex USB key via Paypal or ask us for a quote",
+			title: "You can buy Dosimex USB key by asking us for a quote",
 			button: "Get Dosimex",
+		},
+		videoLink: {
+			pres: "Wrpd_sX0f_M ",
 		}
 	},
 	Software: {
@@ -78,7 +81,7 @@ const text : ILang = {
 			title: "Operational pack",
 			descrip: "These calculation tools enable to estimate the radiological risks at their correct levels and to design the necessary protections",
 			liTitles: ["DOSIMEX-GX 3.1", "DOSIMEX-B 3.0", "DOSIMEX-N 3.0", "DOSIMEX-I 3.0", "DOSIMEX-MN 1.0"],
-			li: [	"deterministic calculation code of dose rate for [gamma emitters](https://www.youtube.com/watch?v=E5eWKTJaNxQ) (volumics sources, surface source...) and [X-ray generators](https://www.youtube.com/watch?v=wkuVxTBXc8g) (primary and scattered beam). With many options: skyshine, bremmstrhralung, zoning, build-up...",
+			li: [	"deterministic calculation code of dose rate for [gamma emitters](https://www.youtube.com/watch?v=oiYwIvxnxHU ) (volumics sources, surface source...) and [X-ray generators](https://www.youtube.com/watch?v=xriiq6v47oE ) (primary and scattered beam). With many options: skyshine, bremmstrhralung, zoning, build-up...",
 				"[deterministic calculation code](https://www.youtube.com/watch?v=4Cfya_rHa04) of beta emitter dose rate and monoenergetic electrons. Taking into account volumetric sources (beaker, syringe) or surface sources (skin contamination)",
 				"[Monte-Carlo calculation code](https://www.youtube.com/watch?v=7emAJHES-fw) of neutron emitter dose rate (Am/Be type) with biological protection (water, polyethylene, Boron, Cadmium etc..). Pedagogical module with neutron trajectory visualization",
 				"[internal exposure calculation code](https://www.youtube.com/watch?v=4Cfya_rHa04). Consideration of leakage kinetics, renewal, ground deposition. Atmospheric transfer calculations",

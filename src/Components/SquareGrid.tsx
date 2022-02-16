@@ -1,6 +1,6 @@
 import * as CSS from 'csstype';
 
-interface IStyles {
+export interface IStyles {
 	containerStyle ?: CSS.Properties,
 	squareStyle ?: CSS.Properties,
 }

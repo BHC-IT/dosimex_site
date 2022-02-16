@@ -66,6 +66,9 @@ const text : ILang = {
 		callToAction: {
 			title: "{Home.callToAction.title}",
 			button: "{Home.callToAction.button}",
+		},
+		videoLink: {
+			pres: "vPalFZk5io0",
 		}
 	},
 	Software: {

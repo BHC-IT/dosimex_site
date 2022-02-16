@@ -2,9 +2,12 @@ import * as CSS from 'csstype';
 import SquareGrid from '../Components/SquareGrid'
 import Btn from '../Components/Button'
 import Image from 'next/image'
-import { useIsMobile } from '../Hooks/useIsMobile';
+import dynamic from 'next/dynamic';
+import { useIsMobile, useMobile } from '../Hooks/useIsMobile';
 import { useText } from '../Hooks/useText';
 import ILang from '../lang/interface';
+
+const YouTube = dynamic(() => import('react-youtube'));
 
 interface IMapOfStyle {
 	[i: string]: CSS.Properties | Function
@@ -34,7 +37,7 @@ const Header = ({text, style} : IProps) =>
 			<p style={style.text}>{text.header.p}</p>
 		</div>
 		<div style={style.imgContainer}>
-			<Image src="/Images/formation.png" width={732*0.9} height={503*0.9} />
+			<YouTube videoId={"l0bIZ201gLo"} opts={{height: "320", width: "550"}}/>
 		</div>
 		<SquareGrid nbLine={6} nbColumn={4} styles={style.squareGridStyles}/>
 	</div>
@@ -66,8 +69,15 @@ const Exemples = ({text, style} : IProps) =>
 		</div>
 	</div>
 
-const Partnership = ({text, style} : IProps) =>
-	<div style={style.container}>
+const Partnership = ({text, style} : IProps) => {
+
+	const mobile = useMobile();
+
+	if (mobile === null)
+		return null;
+
+	if (mobile === true)
+		return <div style={style.container}>
 		<h3 style={style.title}>{text.section2.title}</h3>
 		<p style={style.text}>{text.section2.li[0]}</p>
 		<p style={style.text}>{text.section2.li[1]}</p>
@@ -83,6 +93,33 @@ const Partnership = ({text, style} : IProps) =>
 			</a>
 		</div>
 	</div>
+
+	return <div style={{...style.container }}>
+		<h3 style={style.title}>{text.section2.title}</h3>
+		<div style={{ display:'flex', flexDirection: "row" }} >
+			<div style={{ width: "50%" }} >
+				<p style={style.text}>{text.section2.li[0]}</p>
+				<p style={style.text}>{text.section2.li[1]}</p>
+				<p style={style.text}>{text.section2.li[2]}</p>
+				<p style={style.text}>{text.section2.li[3]}</p>
+				<div style={{margin: "5vh auto 0 10%"}}>
+					<a
+						style={style.btn}
+						href="../Folders/le_catalogue_de_formation_safe_technologies_v2.2.pdf"
+						target="_blank"
+						rel="noreferrer noopener">{text.section2.button}
+						<img style={style.icon} src="/Images/icon_download.png" alt="icône télécharger" />
+					</a>
+				</div>
+			</div>
+			<div style={{ display: "flex", width: "50%" }} >
+				<div style={style.imgContainer}>
+					<Image src="/Images/formation.png" width={732*0.9} height={503*0.9} />
+				</div>
+			</div>
+		</div>
+	</div>
+}
 
 const Questions = ({text, style} : IProps) =>
 	<div style={style.container}>
@@ -100,12 +137,12 @@ const Training = () => {
 
 	return (
 		<div style={{display: 'flex', flexDirection: 'column', overflowX: 'hidden'}} >
-			<Header text={text} style={style.headerStyles}/>
-			<Separator right={false} style={style.separatorStyles}/>
-			<Exemples text={text} style={style.exemplesStyles}/>
-			<Separator right={true} style={style.separatorStyles}/>
-			<Partnership text={text} style={style.partnershipStyles}/>
-			<Questions text={text} style={style.questionsStyles}/>
+			<Header text={text} style={style.headerStyles as unknown as IStyles}/>
+			<Separator right={false} style={style.separatorStyles as unknown as IStyles}/>
+			<Exemples text={text} style={style.exemplesStyles as unknown as IStyles}/>
+			<Separator right={true} style={style.separatorStyles as unknown as IStyles}/>
+			<Partnership text={text} style={style.partnershipStyles as unknown as IStyles}/>
+			<Questions text={text} style={style.questionsStyles as unknown as IStyles}/>
 		</div>
 	);
 }
@@ -137,6 +174,7 @@ export const styles = (mobile: boolean) => ({
 		} as CSS.Properties,
 		imgContainer: {
 			...center,
+			display: mobile ? "none" : "flex",
 			height: mobile ? "20vh" : "65%",
 			width: mobile ? "40vh" : "35%",
 			backgroundColor: "transparent",
