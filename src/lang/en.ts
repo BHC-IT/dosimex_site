@@ -64,7 +64,7 @@ const text : ILang = {
 			button: "Get Dosimex",
 		},
 		videoLink: {
-			pres: "Wrpd_sX0f_M ",
+			pres: "Wrpd_sX0f_M",
 		}
 	},
 	Software: {
