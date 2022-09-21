@@ -4,6 +4,7 @@ export default interface Lang {
 		header: {
 			title: string,
 			p: string,
+			promo: string,
 			button: string,
 			textImage: string[],
 		},

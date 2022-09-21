@@ -5,6 +5,7 @@ const text : ILang = {
 		header: {
 			title: "Radiation protection calculation tools for everyone",
 			p: "A set of practical, easy-to-use, validated calculation tools that address many situations encountered in radiation protection. They will allow you to improve your expertise level.",
+			promo: "All our calculation tools are now available in English.",
 			button: "Discover",
 			textImage: ["Dosimex USB key", "Dosimex-GX Radionuclide", "Dosimex-GX X-ray Generator", "Dosimex-N Monte-Carlo neutron"],
 		},

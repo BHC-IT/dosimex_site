@@ -38,12 +38,17 @@ function Home(props: IProps) {
 	if (style === null)
 		return null
 
+	const ratioUk: number = 0.05
 	return (
 		<>
 			<header className="container" style={style.header.header}>
 				<div style={style.header.headerText}>
 					<h1>{text.header.title}</h1>
 					<p style={style.header.headerSubtitle}>{text.header.p}</p>
+					<div style={{display: 'flex', flexDirection: 'row', justifyContent: 'start', alignItems: 'center', flex: 0, paddingBottom: '5vh'}} >
+						<Image quality={40} loading="lazy" src="/Images/Flag_Uk.webp" width={1024*ratioUk} height={683*ratioUk} />
+						<p style={{...style.header.headerPromo, paddingLeft: '1vw'}}>{text.header.promo}</p>
+					</div>
 					<Button style={style.header.button} name={text.header.button} route="Software"/>
 				</div>
 				<div style={style.header.headerImage}>
@@ -157,6 +162,12 @@ export const styles = (mobile: boolean): IStyles => ({
 			fontSize: mobile ? "1.6rem" : "2rem",
 			marginBottom: mobile ? "6vh" : "4vh",
 			marginTop: mobile ? "4vh" : undefined,
+			textAlign: "justify",
+			fontWeight: 100,
+		},
+		headerPromo: {
+			color: "var(--dark)",
+			fontSize: mobile ? "1.6rem" : "2rem",
 			textAlign: "justify",
 			fontWeight: 100,
 		},

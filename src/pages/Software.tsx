@@ -301,17 +301,10 @@ const Software = () => {
 						<CodeSection key={e} style={{marginTop: i === 0 ? '5vh' : 0}} >
 							<div style={style.divFlag}>
 								<LiTitle >{e}</LiTitle>
-								{
-									i === 0 ?
-										<>
-											<div style={{marginRight: "6px", display: "inline"}}>
-												<Image quality={40} loading="lazy" src="/Images/Flag_France.webp" width={2560*ratioFr} height={1707*ratioFr} />
-											</div>
-											<Image quality={40} loading="lazy" src="/Images/Flag_Uk.webp" width={1024*ratioUk} height={683*ratioUk} />
-										</>
-									:
+									<div style={{marginRight: "6px", display: "inline"}}>
 										<Image quality={40} loading="lazy" src="/Images/Flag_France.webp" width={2560*ratioFr} height={1707*ratioFr} />
-								}
+									</div>
+									<Image quality={40} loading="lazy" src="/Images/Flag_Uk.webp" width={1024*ratioUk} height={683*ratioUk} />
 							</div>
 							<LiLabel text={text.packPeda.li[i]} style={style.liLabel as IMapOfStyle} textOver={text.linkVideo}/>
 						</CodeSection>
@@ -333,17 +326,10 @@ const Software = () => {
 						<CodeSection key={e} style={{marginTop: i === 0 ? '5vh' : 0}} >
 							<div style={style.divFlag}>
 								<LiTitle >{e}</LiTitle>
-								{
-									i === 1 ?
-										<>
-											<div style={{marginRight: "6px", display: "inline"}}>
-												<Image quality={40} loading="lazy" src="/Images/Flag_France.webp" width={2560*ratioFr} height={1707*ratioFr} />
-											</div>
-											<Image quality={40} loading="lazy" src="/Images/Flag_Uk.webp" width={1024*ratioUk} height={683*ratioUk} />
-										</>
-									:
+									<div style={{marginRight: "6px", display: "inline"}}>
 										<Image quality={40} loading="lazy" src="/Images/Flag_France.webp" width={2560*ratioFr} height={1707*ratioFr} />
-								}
+									</div>
+									<Image quality={40} loading="lazy" src="/Images/Flag_Uk.webp" width={1024*ratioUk} height={683*ratioUk} />
 							</div>
 							<LiLabel text={text.packMes.li[i]} style={style.liLabel as IMapOfStyle} textOver={text.linkVideo}/>
 						</CodeSection>

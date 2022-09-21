@@ -5,6 +5,7 @@ const text : ILang = {
 		header: {
 			title: "Des outils de calculs radioprotection pour tous",
 			p: "Ensemble d'outils de calculs pratiques, simples d’emploi, validés, et répondant à de nombreuses situations rencontrées en radioprotection. Ils vous permettront d'améliorer votre niveau d'expertise.",
+			promo: "Tous nos outils de calcul existent désormais en version anglaise.",
 			button: "Découvrir",
 			textImage: ["Clé Dosimex", "Dosimex-GX Radionucléide", "Dosimex-GX Générateur X", "Dosimex-N Monte-Carlo neutron"],
 		},
