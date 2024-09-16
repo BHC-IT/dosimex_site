@@ -1,8 +1,8 @@
-import ContactForm from '../Components/ContactForm'
-import Image from 'next/image'
+// import ContactForm from '../Components/ContactForm'
+// import Image from 'next/image'
 import * as CSS from 'csstype'
 
-import { isMobile } from 'react-device-detect'
+// import { isMobile } from 'react-device-detect'
 import { useText } from '../Hooks/useText'
 import { useIsMobile } from '../Hooks/useIsMobile'
 
