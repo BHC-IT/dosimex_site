@@ -263,8 +263,7 @@ const text: ILang = {
 		priceShipment: '{Product.priceShipment}',
 		questions: {
 			title: '{Product.questions.title}',
-			p1: '{Product.questions.p1}',
-			p2: '{Product.questions.p2}',
+			p: '{Product.questions.p}',
 		},
 	},
 	Training: {

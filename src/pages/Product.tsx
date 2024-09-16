@@ -1,5 +1,5 @@
 import * as React from 'react'
-// import ContactForm from '../Components/ContactForm'
+import ContactForm from '../Components/ContactForm'
 // import Image from 'next/image'
 import Link from 'next/link'
 import * as CSS from 'csstype'
@@ -125,19 +125,12 @@ function Product(props: IProps) {
 			>
 				<p style={style.questionsTitle}>{text.questions.title}</p>
 				<p style={style.questionsP}>
-					{text.questions.p1}
-					<a
-						href='mailto:alain.vivier@dosimex.fr'
-						style={{ color: 'var(--main)' }}
-					>
-						alain.vivier@dosimex.fr
-					</a>
-					{text.questions.p2}
+					{text.questions.p}
 					<span style={{ color: 'var(--main)' }}>06 89 70 90 35</span>
 				</p>
-				{/* <div style={style.contact}>
+				<div style={style.contact}>
 					<ContactForm />
-				</div> */}
+				</div>
 			</section>
 			{props.isLandscape ? <div style={style.spaceTopFooter}></div> : null}
 		</div>
