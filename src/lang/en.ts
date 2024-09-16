@@ -348,7 +348,8 @@ const text: ILang = {
 		priceShipment: '(shipment expenses excluded)',
 		questions: {
 			title: 'A request for a quotation? Any questions?',
-			p: 'Feel free to contact us via the form below or by phone at ',
+			p1: 'Feel free to contact us via ',
+			p2: ' or by phone at ',
 		},
 	},
 	Training: {

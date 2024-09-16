@@ -350,7 +350,8 @@ const text: ILang = {
 		priceShipment: "(frais d'envoi inclus)",
 		questions: {
 			title: 'Une demande de devis ? Des questions ?',
-			p: 'N’hésitez pas à nous contacter via le formulaire ci-dessous ou par téléphone au ',
+			p1: 'N’hésitez pas à nous contacter via ',
+			p2: ' ci-dessous ou par téléphone au ',
 		},
 	},
 	Training: {

@@ -148,7 +148,8 @@ export default interface Lang {
 		priceShipment: string,
 		questions: {
 			title: string,
-			p: string,
+			p1: string,
+			p2: string,
 		}
 	},
 	Training: {
