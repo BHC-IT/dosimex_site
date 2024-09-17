@@ -320,7 +320,7 @@ const text: ILang = {
 	Product: {
 		header: {
 			title: 'Pack dosimex 3.2',
-			p: "Ensemble des codes et utilitaires (voir onglets « nos produits ») obtenu par téléchargement et utilisable avec un n° de licence  monoposte, sans limitation de temps. L'ensemble des utilitaires de calculs est vendu pour 600€ TTC. Contactez-nous via la formulaire en bas de page pour un devis.",
+			p: "Ensemble des codes et utilitaires (voir onglets « nos produits ») obtenu par téléchargement et utilisable avec un n° de licence  monoposte, sans limitation de temps. L'ensemble des utilitaires de calculs est vendu pour 600€ TTC. Contactez-nous via le formulaire en bas de page pour un devis.",
 			button: 'Commander Dosimex',
 		},
 		buttonKnowMore: 'En savoir plus',
@@ -415,7 +415,7 @@ const text: ILang = {
 	},
 	ContactForm: {
 		title: 'Contactez-nous',
-		label: ['Votre nom', 'Email', 'Sujet', 'Message'],
+		label: ['Nom', 'Email', 'Sujet', 'Message'],
 		errorName: 'Veuillez rentrer un nom',
 		errorEmail: ['Veuillez rentrer un email', 'Veuillez rentrer un email valide'],
 		errorMessage: 'Veuillez rentrer un message',
