@@ -1,28 +1,26 @@
-import * as React from 'react'
+import { useState, useEffect } from 'react'
 
 import { isMobile, isTablet } from 'react-device-detect'
 
-export const useIsMobile = <T>(styles: (m: boolean) => T): T | null => {
-	// @ts-ignore - React hooks compatibility with React 18
-	const [style, setStyle] = React.useState<T | null>(styles(isMobile))
+const TIMEOUT_DELAY = 10
 
-	// @ts-ignore - React hooks compatibility with React 18
-	React.useEffect(() => {
+export const useIsMobile = <T>(styles: (m: boolean) => T): T | null => {
+	const [style, setStyle] = useState(styles(isMobile) as T | null)
+
+	useEffect(() => {
 		setStyle(null)
-		const timeoutId = setTimeout(() => setStyle(styles(isMobile)), 10)
+		const timeoutId = setTimeout(() => setStyle(styles(isMobile)), TIMEOUT_DELAY)
 		return () => clearTimeout(timeoutId)
-	}, [])
+	}, [styles])
 
 	return style
 }
 
 export const useMobile = (): boolean | null => {
-	// @ts-ignore - React hooks compatibility with React 18
-	const [mobile, setMobile] = React.useState<boolean | null>(null)
+	const [mobile, setMobile] = useState(null as boolean | null)
 
-	// @ts-ignore - React hooks compatibility with React 18
-	React.useEffect(() => {
-		const timeoutId = setTimeout(() => setMobile(isMobile), 10)
+	useEffect(() => {
+		const timeoutId = setTimeout(() => setMobile(isMobile), TIMEOUT_DELAY)
 		return () => clearTimeout(timeoutId)
 	}, [])
 
@@ -30,12 +28,10 @@ export const useMobile = (): boolean | null => {
 }
 
 export const useTablet = (): boolean | null => {
-	// @ts-ignore - React hooks compatibility with React 18
-	const [tablet, setTablet] = React.useState<boolean | null>(null)
+	const [tablet, setTablet] = useState(null as boolean | null)
 
-	// @ts-ignore - React hooks compatibility with React 18
-	React.useEffect(() => {
-		const timeoutId = setTimeout(() => setTablet(isTablet), 10)
+	useEffect(() => {
+		const timeoutId = setTimeout(() => setTablet(isTablet), TIMEOUT_DELAY)
 		return () => clearTimeout(timeoutId)
 	}, [])
 

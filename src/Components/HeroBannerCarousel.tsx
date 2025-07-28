@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useState, useEffect } from 'react'
 import * as CSS from 'csstype'
 import Image from 'next/image'
 
@@ -62,7 +62,6 @@ const SlideWrapper = ({ text, vw }: ITextProps) => {
 				}}
 			>
 				{images.map((e, i) => {
-					// @ts-ignore - Component works despite type issues
 					return (
 						<Slide
 							key={i}
@@ -78,11 +77,9 @@ const SlideWrapper = ({ text, vw }: ITextProps) => {
 }
 
 const HeroBannerCarousel = ({ text }: any) => {
-	// @ts-ignore - React hooks working despite type issues
-	const [vw, setvw] = React.useState<number>(1500)
+	const [vw, setvw] = useState(1500)
 
-	// @ts-ignore - React hooks working despite type issues
-	React.useEffect(() => {
+	useEffect(() => {
 		setvw(window.innerWidth / 100)
 	}, [])
 
@@ -101,7 +98,6 @@ const HeroBannerCarousel = ({ text }: any) => {
 				/>
 			</div>
 			<div style={{ position: 'absolute', left: `${0.5 * vw}px`, top: `${0.7 * vw}px` }}>
-				{/* @ts-ignore - Component works despite type issues */}
 				<SlideWrapper
 					text={text}
 					vw={vw}

@@ -60,36 +60,41 @@ const SideBar = (props: IProps) => {
 	const text = useText('Navbar')
 	const router = useRouter()
 
-	return (
-		// @ts-ignore - Menu component props compatibility
-		<Menu
-			right
-			{...props}
-		>
-			<ul>
-				<li style={{ cursor: 'pointer' }}>
-					<Link href='/'>
-						<Image
-							src='/Images/logo_dosimex_new.webp'
-							alt='logo dosimex'
-							width={212 * ratio}
-							height={44 * ratio}
-							loading='lazy'
-							quality={40}
-						/>
-					</Link>
-				</li>
-				<RenderNav text={text} />
-				<LanguageSwitch
-					route={router.pathname}
-					language={router.locale}
-				/>
-			</ul>
-			<Button
-				name={text.button}
-				route='Product'
-			/>
-		</Menu>
+	return React.createElement(
+		Menu as any,
+		{
+			right: true,
+			...props,
+		},
+		React.createElement(
+			'ul',
+			null,
+			React.createElement(
+				'li',
+				{ style: { cursor: 'pointer' } },
+				React.createElement(
+					Link,
+					{ href: '/' },
+					React.createElement(Image, {
+						src: '/Images/logo_dosimex_new.webp',
+						alt: 'logo dosimex',
+						width: 212 * ratio,
+						height: 44 * ratio,
+						loading: 'lazy',
+						quality: 40,
+					})
+				)
+			),
+			React.createElement(RenderNav, { text }),
+			React.createElement(LanguageSwitch, {
+				route: router.pathname,
+				language: router.locale,
+			})
+		),
+		React.createElement(Button, {
+			name: text.button,
+			route: 'Product',
+		})
 	)
 }
 

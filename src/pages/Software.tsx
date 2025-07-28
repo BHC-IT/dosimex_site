@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import Button from '../Components/Button'
 import CSS from 'csstype'
 import Image from 'next/image'
@@ -53,10 +53,8 @@ const Questions = ({ text, style }: IProps) => (
 )
 
 const LinkVideo = ({ link, textOver }: ILinkVideoProps) => {
-	// @ts-ignore - React hooks compatibility with React 18
-	const [isVisible, setIsVisible] = React.useState<boolean>(false)
-	// @ts-ignore - React hooks compatibility with React 18
-	const [x, setX] = React.useState<number>(0)
+	const [isVisible, setIsVisible] = useState(false)
+	const [x, setX] = useState(0)
 
 	return (
 		<>
@@ -64,7 +62,7 @@ const LinkVideo = ({ link, textOver }: ILinkVideoProps) => {
 				href={handleLink(link)[1]}
 				target='_blank'
 				rel='noreferrer noopener'
-				onMouseOver={e => {
+				onMouseOver={(e) => {
 					setIsVisible(true)
 					setX(e.clientX)
 				}}
@@ -101,7 +99,7 @@ const LinkVideo = ({ link, textOver }: ILinkVideoProps) => {
 
 const LiLabel = ({ text, style, textOver }: ILiLabelProps) => (
 	<p style={style.global}>
-		{parseStringLink(text).map(e =>
+		{parseStringLink(text).map((e) =>
 			isLink(e) ? (
 				<div
 					style={style.link}
@@ -114,7 +112,7 @@ const LiLabel = ({ text, style, textOver }: ILiLabelProps) => (
 				</div>
 			) : (
 				<p style={{ display: 'inline' }}>{e}</p>
-			),
+			)
 		)}
 	</p>
 )
@@ -173,7 +171,7 @@ interface PartImageProps {
 const PartImage = styled.div<PartImageProps>`
 	width: 14vw;
 	margin-left: 1.5vw;
-	background: url(${props => props.imageUrl});
+	background: url(${(props) => props.imageUrl});
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -183,7 +181,7 @@ const PartImage = styled.div<PartImageProps>`
 const PartImageRight = styled.div<PartImageProps>`
 	width: 14vw;
 	margin-right: 1.5vw;
-	background: url(${props => props.imageUrl});
+	background: url(${(props) => props.imageUrl});
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -232,17 +230,12 @@ const ratioUk: number = 0.03
 const Software = () => {
 	const text = useText('Software')
 	const style = useIsMobile(styles)
-	// @ts-ignore - React hooks compatibility with React 18
-	const [dummy, setDummy] = React.useState<number>(0)
-	// @ts-ignore - React hooks compatibility with React 18
-	const opRef = React.useRef<HTMLDivElement>(null)
-	// @ts-ignore - React hooks compatibility with React 18
-	const pedaRef = React.useRef<HTMLDivElement>(null)
-	// @ts-ignore - React hooks compatibility with React 18
-	const mesureRef = React.useRef<HTMLDivElement>(null)
+	const [dummy, setDummy] = useState(0)
+	const opRef = useRef(null as HTMLDivElement | null)
+	const pedaRef = useRef(null as HTMLDivElement | null)
+	const mesureRef = useRef(null as HTMLDivElement | null)
 
-	// @ts-ignore - React hooks compatibility with React 18
-	React.useEffect(() => {
+	useEffect(() => {
 		if (window.location.hash === '#op') {
 			opRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'center' })
 			opRef.current?.focus()

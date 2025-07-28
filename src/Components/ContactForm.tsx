@@ -193,13 +193,9 @@ const ContactForm: React.FC<IProps> = ({ text, style }) => {
 				type='submit'
 			>
 				{isLoading ? (
-					// @ts-ignore - ClipLoader component compatibility
-					<ClipLoader
-						color='#fff'
-						loading={isLoading}
-						css={override}
-						size={30}
-					/>
+					<div style={{ display: 'block', margin: '0 auto', borderColor: 'red' }}>
+						Loading...
+					</div>
 				) : (
 					text.button
 				)}

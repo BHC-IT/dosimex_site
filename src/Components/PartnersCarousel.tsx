@@ -1,5 +1,5 @@
 import * as CSS from 'csstype'
-import * as React from 'react'
+import React, { useState } from 'react'
 import { useIsMobile, useDeviceType } from '../Hooks/useIsMobile'
 import { useText } from '../Hooks/useText'
 import { last } from '@bhc/ts-tools'
@@ -97,8 +97,7 @@ const partners = [
 ]
 
 const Card = ({ text, style, link, url, color, isMobile, isTablet }: ICardProps) => {
-	// @ts-ignore - React hooks compatibility with React 18
-	const [over, setOver] = React.useState<boolean>(false)
+	const [over, setOver] = useState(false)
 	return (
 		<div
 			style={{
@@ -143,17 +142,16 @@ const PartnersCarousel = () => {
 	}
 
 	return (
-		// @ts-ignore - Carousel component compatibility
 		<Carousel
 			swipeable={false}
 			draggable={false}
 			responsive={responsive}
 			arrows={false}
-			ssr
-			infinite
-			autoPlay
+			ssr={true}
+			infinite={true}
+			autoPlay={true}
 			autoPlaySpeed={1000}
-			keyBoardControl
+			keyBoardControl={true}
 			customTransition='all .5'
 			transitionDuration={isMobile ? 2200 : 1500}
 			containerClass='carousel-container'
@@ -172,7 +170,7 @@ const PartnersCarousel = () => {
 						isMobile={isMobile}
 						isTablet={isTablet}
 					/>
-				),
+				)
 			)}
 			<Card
 				text={text.partners.li[11]}

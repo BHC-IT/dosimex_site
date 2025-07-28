@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { useIsMobile } from '../Hooks/useIsMobile'
 import { useText } from '../Hooks/useText'
 import { useRouter } from 'next/router'
@@ -39,18 +39,13 @@ export default function Manuals() {
 	const route = useRouter()
 	const isEnglishVersion = route.locale === 'en-US'
 
-	// @ts-ignore - React hooks compatibility with React 18
-	const [dummy, setDummy] = React.useState<number>(0)
+	const [dummy, setDummy] = useState(0)
 
-	// @ts-ignore - React hooks compatibility with React 18
-	const manualsRef = React.useRef<HTMLDivElement>(null)
-	// @ts-ignore - React hooks compatibility with React 18
-	const validationsRef = React.useRef<HTMLDivElement>(null)
-	// @ts-ignore - React hooks compatibility with React 18
-	const internshipsRef = React.useRef<HTMLDivElement>(null)
+	const manualsRef = useRef(null as HTMLDivElement | null)
+	const validationsRef = useRef(null as HTMLDivElement | null)
+	const internshipsRef = useRef(null as HTMLDivElement | null)
 
-	// @ts-ignore - React hooks compatibility with React 18
-	React.useEffect(() => {
+	useEffect(() => {
 		if (window.location.hash === '#manuals') {
 			manualsRef.current?.scrollIntoView({
 				behavior: 'smooth',
