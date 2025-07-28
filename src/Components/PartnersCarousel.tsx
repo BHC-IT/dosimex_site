@@ -120,8 +120,8 @@ const Card = ({ text, style, link, url, color, isMobile, isTablet }: ICardProps)
 			<p
 				style={{
 					...style.text,
-					color: color ? color : isMobile ? 'var(--dark)' : 'var(--grey)',
-					display: isMobile ? 'block' : over ? 'block' : 'none',
+					color: color || (isMobile ? 'var(--dark)' : 'var(--grey)'),
+					display: isMobile || over ? 'block' : 'none',
 				}}
 				onMouseOver={() => setOver(true)}
 			>
@@ -141,37 +141,47 @@ const PartnersCarousel = () => {
 		return null
 	}
 
+	let deviceType = 'desktop'
+	if (isMobile) {
+		deviceType = 'mobile'
+	} else if (isTablet) {
+		deviceType = 'tablet'
+	}
+
 	return (
 		<Carousel
 			swipeable={false}
 			draggable={false}
 			responsive={responsive}
 			arrows={false}
-			ssr={true}
-			infinite={true}
-			autoPlay={true}
+			ssr={false}
+			infinite={false}
+			autoPlay={false}
 			autoPlaySpeed={1000}
-			keyBoardControl={true}
+			keyBoardControl={false}
 			customTransition='all .5'
 			transitionDuration={isMobile ? 2200 : 1500}
 			containerClass='carousel-container'
-			deviceType={isMobile ? 'mobile' : isTablet ? 'tablet' : 'desktop'}
+			deviceType={deviceType}
 			removeArrowOnDeviceType={['tablet', 'mobile']}
 			itemClass='carousel-item-padding-40-px'
 		>
-			{partners.map((e: any, i: number) =>
-				e === last(partners) ? null : (
+			{partners.map((e: unknown, i: number) => {
+				if (e === last(partners)) return null
+
+				const partner = e as { link: string; url: string }
+				return (
 					<Card
 						text={text.partners.li[i]}
 						style={style.card}
-						link={e.link}
-						url={e.url}
-						key={e.link}
+						link={partner.link}
+						url={partner.url}
+						key={partner.link}
 						isMobile={isMobile}
 						isTablet={isTablet}
 					/>
 				)
-			)}
+			})}
 			<Card
 				text={text.partners.li[11]}
 				style={style.card}

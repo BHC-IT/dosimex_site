@@ -1,12 +1,11 @@
 import * as React from 'react'
 import { useIsMobile } from '../Hooks/useIsMobile'
 
-export const withIsMobile =
-	<Props extends object, T>(
-		Component: React.ComponentType<Props>,
-		style: (m: boolean) => T,
-	): React.FC<Props> =>
-	(props: Props) => {
+export const withIsMobile = <Props extends object, T>(
+	Component: React.ComponentType<Props>,
+	style: (m: boolean) => T
+): React.FC<Props> => {
+	const WithIsMobileComponent = (props: Props) => {
 		const styleMobile = useIsMobile(style)
 
 		// Don't render until device detection is complete to prevent hydration mismatch
@@ -21,3 +20,7 @@ export const withIsMobile =
 			/>
 		)
 	}
+
+	WithIsMobileComponent.displayName = `withIsMobile(${Component.displayName || Component.name})`
+	return WithIsMobileComponent
+}

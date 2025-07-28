@@ -33,10 +33,10 @@ declare module 'react' {
 	export const createElement: any
 
 	// Type aliases
-	export type ComponentType<P = {}> = any
-	export type FC<P = {}> = any
-	export type ComponentPropsWithoutRef<T> = any
-	export type FormEvent<T = Element> = any
+	export type ComponentType<_P = {}> = any
+	export type FC<_P = {}> = any
+	export type ComponentPropsWithoutRef<_T> = any
+	export type FormEvent<_T = Element> = any
 } // Fix for Next.js Image component
 declare module 'next/image' {
 	import { ComponentType } from 'react'

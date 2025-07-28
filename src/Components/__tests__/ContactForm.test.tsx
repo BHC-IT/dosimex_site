@@ -77,7 +77,7 @@ describe('ContactForm Component', () => {
 			<ContactForm
 				text={mockText}
 				style={mockStyle}
-			/>
+			/>,
 		)
 
 		expect(screen.getByText('Contact Us')).toBeInTheDocument()
@@ -89,7 +89,7 @@ describe('ContactForm Component', () => {
 			<ContactForm
 				text={mockText}
 				style={null}
-			/>
+			/>,
 		)
 
 		expect(container.firstChild).toBeNull()
@@ -100,7 +100,7 @@ describe('ContactForm Component', () => {
 			<ContactForm
 				text={mockText}
 				style={mockStyle}
-			/>
+			/>,
 		)
 
 		const form = document.querySelector('form')
@@ -130,7 +130,7 @@ describe('ContactForm Component', () => {
 			<ContactForm
 				text={mockText}
 				style={mockStyle}
-			/>
+			/>,
 		)
 
 		// Component should still render without crashing
@@ -146,7 +146,7 @@ describe('ContactForm Component', () => {
 			<ContactForm
 				text={mockText}
 				style={incompleteStyle}
-			/>
+			/>,
 		)
 
 		expect(container).toBeInTheDocument()

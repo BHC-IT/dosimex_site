@@ -30,8 +30,8 @@ interface IStyles {
 	inputInvalid?: CSS.Properties
 }
 
-const runValidator = (validator: IValidator[], value: string) =>
-	validator.filter((elem, i) => !elem.validationFunction(value))
+const runValidator = (validator: IValidator[], value: string): IValidator[] =>
+	validator.filter((elem) => !elem.validationFunction(value))
 
 const Input = (props: IProps) => {
 	const isMobile = useMobile()

@@ -52,17 +52,15 @@ vi.mock('react-burger-menu', () => ({
 
 // Mock components
 vi.mock('../Button', () => ({
-	default: ({ name, route }: any) => <button data-testid='sidebar-button'>{name}</button>,
+	default: ({ name }: any) => <button data-testid='sidebar-button'>{name}</button>,
 }))
 
 vi.mock('../LanguageSwitch', () => ({
-	default: ({ route, language }: any) => (
-		<div data-testid='sidebar-language-switch'>{language}</div>
-	),
+	default: ({ language }: any) => <div data-testid='sidebar-language-switch'>{language}</div>,
 }))
 
 vi.mock('../ItemNavbar', () => ({
-	default: ({ name, route }: any) => <div data-testid='nav-item'>{name}</div>,
+	default: ({ name }: any) => <div data-testid='nav-item'>{name}</div>,
 }))
 
 const mockRouter = {

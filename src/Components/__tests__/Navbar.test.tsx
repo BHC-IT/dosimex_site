@@ -39,15 +39,17 @@ vi.mock('../../hoc/withText', () => ({
 
 // Mock components
 vi.mock('../ItemNavbar', () => ({
-	default: ({ name, route }: any) => <div data-testid='nav-item'>{name}</div>,
+	default: ({ name }: { name: string }) => <div data-testid='nav-item'>{name}</div>,
 }))
 
 vi.mock('../Button', () => ({
-	default: ({ name, route }: any) => <button data-testid='nav-button'>{name}</button>,
+	default: ({ name }: { name: string }) => <button data-testid='nav-button'>{name}</button>,
 }))
 
 vi.mock('../LanguageSwitch', () => ({
-	default: ({ route, language }: any) => <div data-testid='language-switch'>{language}</div>,
+	default: ({ language }: { language: string }) => (
+		<div data-testid='language-switch'>{language}</div>
+	),
 }))
 
 vi.mock('../SideBar', () => ({
@@ -149,7 +151,6 @@ describe('Navbar Component', () => {
 		// Should have two logos (one in main nav, one in mobile)
 		expect(logos.length).toBeGreaterThan(0)
 
-		const ratio = 0.7
 		logos.forEach((logo) => {
 			// Check that width and height attributes are set
 			expect(logo).toHaveAttribute('width')

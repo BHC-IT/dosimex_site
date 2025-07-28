@@ -4,12 +4,10 @@ import { useIsMobile } from '../Hooks/useIsMobile'
 import Book from '../Components/Book'
 
 const Books = () => {
-
 	const style = useIsMobile(styles)
 	const text = useText('Books')
 
-	if (style === null)
-		return null
+	if (style === null) return null
 
 	const books = [
 		{
@@ -81,24 +79,32 @@ const Books = () => {
 	]
 
 	return (
-		<div className="container" style={style.global}>
-				<div style={style.header}>
-					<h2 style={style.title}>{text.header.title}</h2>
-				</div>
-				{
-					books.map((e: any, i: number) => {
-						return (
-							<Book author={books[i].author} text={books[i].extract} href={books[i].url} imageUrl={books[i].image}/>
-						)
-					})
-				}
+		<div
+			className='container'
+			style={style.global}
+		>
+			<div style={style.header}>
+				<h2 style={style.title}>{text.header.title}</h2>
 			</div>
+			{books.map((e: unknown, i: number) => {
+				const book = e as { author: string; extract: string; url: string; image: string }
+				return (
+					<Book
+						key={i}
+						author={book.author}
+						text={book.extract}
+						href={book.url}
+						imageUrl={book.image}
+					/>
+				)
+			})}
+		</div>
 	)
 }
 
 export default Books
 
-export const styles = (mobile: boolean): {[$:string]: CSS.Properties} => ({
+export const styles = (mobile: boolean): { [$: string]: CSS.Properties } => ({
 	global: {
 		color: 'var(--dark)',
 		lineHeight: '3.2rem',

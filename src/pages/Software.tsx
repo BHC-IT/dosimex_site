@@ -99,7 +99,7 @@ const LinkVideo = ({ link, textOver }: ILinkVideoProps) => {
 
 const LiLabel = ({ text, style, textOver }: ILiLabelProps) => (
 	<p style={style.global}>
-		{parseStringLink(text).map((e) =>
+		{parseStringLink(text).map((e, index) =>
 			isLink(e) ? (
 				<div
 					style={style.link}
@@ -111,7 +111,12 @@ const LiLabel = ({ text, style, textOver }: ILiLabelProps) => (
 					/>
 				</div>
 			) : (
-				<p style={{ display: 'inline' }}>{e}</p>
+				<p
+					key={index}
+					style={{ display: 'inline' }}
+				>
+					{e}
+				</p>
 			)
 		)}
 	</p>

@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import * as CSS from 'csstype'
 import Radium from 'radium'
 import Input, { IValidator } from './Input'
-import { useRouter } from 'next/router'
 
 import { withText } from '../hoc/withText'
 import { withIsMobile } from '../hoc/withIsMobile'
@@ -10,44 +9,11 @@ import { withIsMobile } from '../hoc/withIsMobile'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-import { css } from '@emotion/react'
-import ClipLoader from 'react-spinners/ClipLoader'
-
 import emailjs from '@emailjs/browser'
 
-const override = css`
-	display: block;
-	margin: 0 auto;
-	border-color: red;
-`
-
 interface IProps {
-	text?: any
-	style?: any
-}
-
-interface IState {
-	name: string | null
-	nameValid: boolean
-	email: string | null
-	emailValid: boolean
-	message: string | null
-	messageValid: boolean
-	subject: string | null
-	isLoading: boolean
-	wellSent: boolean
-}
-
-interface IState {
-	name: string | null
-	nameValid: boolean
-	email: string | null
-	emailValid: boolean
-	message: string | null
-	messageValid: boolean
-	subject: string | null
-	isLoading: boolean
-	wellSent: boolean
+	text?: Record<string, string>
+	style?: Record<string, unknown>
 }
 
 export interface IStyles {
@@ -62,23 +28,18 @@ const mailFormat: RegExp =
 	/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 const ContactForm: React.FC<IProps> = ({ text, style }) => {
-	const [name, setName] = useState(null)
+	const [name, setName] = useState(null as string | null)
 	const [nameValid, setNameValid] = useState(false)
-	const [email, setEmail] = useState(null)
-	const [emailValid, setEmailValid] = useState(false)
-	const [message, setMessage] = useState(null)
-	const [messageValid, setMessageValid] = useState(false)
-	const [subject, setSubject] = useState(null)
+	const [email, setEmail] = useState(null as string | null)
+	const [message, setMessage] = useState(null as string | null)
+	const [subject, setSubject] = useState(null as string | null)
 	const [isLoading, setIsLoading] = useState(false)
-	const [wellSent, setWellSent] = useState(false)
 
-	const router = useRouter()
+	const isEmailValid = (value: string): boolean => mailFormat.test(value)
+	const isInputValid = (value: string): boolean => value.trim() !== ''
 
-	const isEmailValid = (value: string) => mailFormat.test(value)
-	const isInputValid = (value: string) => value.trim() !== ''
-
-	const sendEmail = () => {
-		const toastLoad = toast.dark(text.sending)
+	const sendEmail = (): void => {
+		const toastLoad = toast.dark(text?.sending)
 		setIsLoading(true)
 		emailjs
 			.send(
@@ -87,15 +48,13 @@ const ContactForm: React.FC<IProps> = ({ text, style }) => {
 				{ text: message, name: name, email: email },
 				'user_ARoYKQez1mORTLjrYuH9q'
 			)
-			.then((res) => {
-				setWellSent(true)
+			.then(() => {
 				toast.dismiss(toastLoad)
-				toast.success(text.messageSent)
+				toast.success(text?.messageSent)
 			})
-			.catch((e) => {
-				console.error(e)
+			.catch(() => {
 				toast.dismiss(toastLoad)
-				toast.error(text.messageNotSent)
+				toast.error(text?.messageNotSent)
 			})
 		setIsLoading(false)
 	}
@@ -107,9 +66,7 @@ const ContactForm: React.FC<IProps> = ({ text, style }) => {
 			setName(null)
 			setNameValid(false)
 			setEmail(null)
-			setEmailValid(false)
 			setMessage(null)
-			setMessageValid(false)
 			setSubject(null)
 		}
 	}
@@ -148,7 +105,7 @@ const ContactForm: React.FC<IProps> = ({ text, style }) => {
 					label={text.label[1]}
 					style={{ divInput: style.input }}
 					required
-					isValid={(isValid: boolean) => setEmailValid(isValid)}
+					isValid={(_: boolean) => {}}
 					onChange={(value: string) => setEmail(value)}
 					validator={
 						[
@@ -177,7 +134,7 @@ const ContactForm: React.FC<IProps> = ({ text, style }) => {
 				id='message'
 				label={text.label[3]}
 				required
-				isValid={(isValid: boolean) => setMessageValid(isValid)}
+				isValid={(_: boolean) => {}}
 				onChange={(value: string) => setMessage(value)}
 				validator={
 					[

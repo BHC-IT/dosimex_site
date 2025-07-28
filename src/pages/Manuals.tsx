@@ -174,25 +174,28 @@ export default function Manuals() {
 					<h3>{text.manuals[0]}</h3>
 				</div>
 				<ul style={style.list}>
-					{manuals.manuals.map((e: any, i: number) => (
-						<li style={{ cursor: 'pointer' }}>
-							<a
-								href={`../Folders/${e.pdf}`}
-								target='_blank'
-								rel='noreferrer noopener'
-							>
+					{manuals.manuals.map((e: unknown, i: number) => {
+						const manual = e as { pdf: string; img: string; text: string }
+						return (
+							<li key={i} style={{ cursor: 'pointer' }}>
+								<a
+									href={`../Folders/${manual.pdf}`}
+									target='_blank'
+									rel='noreferrer noopener'
+								>
 								<div style={{ textAlign: 'center' }}>
 									<Image
-										src={`/Images/${e.img}`}
+										src={`/Images/${manual.img}`}
 										alt='couverture manuel'
 										width={230}
 										height={324}
 									/>
-									<p style={style.label}>{e.text}</p>
+									<p style={style.label}>{manual.text}</p>
 								</div>
 							</a>
 						</li>
-					))}
+						)
+					})}
 				</ul>
 			</section>
 
@@ -205,21 +208,23 @@ export default function Manuals() {
 					<h3>{text.validations[0]}</h3>
 				</div>
 				<ul style={style.list}>
-					{manuals.validations.map((e: any, i: number) => (
-						<li style={{ cursor: 'pointer' }}>
-							<a
-								href={`../Folders/${e.pdf}`}
-								target='_blank'
-								rel='noreferrer noopener'
-							>
+					{manuals.validations.map((e: unknown, i: number) => {
+						const validation = e as { pdf: string; img: string; text: string }
+						return (
+							<li key={i} style={{ cursor: 'pointer' }}>
+								<a
+									href={`../Folders/${validation.pdf}`}
+									target='_blank'
+									rel='noreferrer noopener'
+								>
 								<div style={{ textAlign: 'center' }}>
 									<Image
-										src={`/Images/${e.img}`}
+										src={`/Images/${validation.img}`}
 										alt='couverture manuel'
 										width={230}
 										height={324}
 									/>
-									<p style={style.label}>{e.text}</p>
+									<p style={style.label}>{validation.text}</p>
 								</div>
 							</a>
 						</li>
@@ -236,21 +241,23 @@ export default function Manuals() {
 					<h3>{text.internships[0]}</h3>
 				</div>
 				<ul style={style.list3}>
-					{manuals.internships.map((e: any, i: number) => (
-						<li style={{ cursor: 'pointer' }}>
-							<a
-								href={`../Folders/${e.pdf}`}
-								target='_blank'
-								rel='noreferrer noopener'
+					{manuals.internships.map((e: unknown, i: number) => {
+						const internship = e as { pdf: string; img: string; text: string }
+						return (
+							<li key={i} style={{ cursor: 'pointer' }}>
+								<a
+									href={`../Folders/${internship.pdf}`}
+									target='_blank'
+									rel='noreferrer noopener'
 							>
 								<div style={{ textAlign: 'center' }}>
 									<Image
-										src={`/Images/${e.img}`}
+										src={`/Images/${internship.img}`}
 										alt='couverture manuel'
 										width={230}
 										height={324}
 									/>
-									<p style={style.label}>{e.text}</p>
+									<p style={style.label}>{internship.text}</p>
 								</div>
 							</a>
 						</li>

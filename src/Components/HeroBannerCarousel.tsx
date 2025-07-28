@@ -85,7 +85,7 @@ const HeroBannerCarousel = ({ text }: any) => {
 
 	const style = useIsMobile(styles)
 
-	if (style === null) return <></>
+	if (style === null) return null
 
 	return (
 		<div style={{}}>
@@ -109,4 +109,4 @@ const HeroBannerCarousel = ({ text }: any) => {
 
 export default HeroBannerCarousel
 
-export const styles = (mobile: boolean): IStyles => ({})
+export const styles = (): IStyles => ({})

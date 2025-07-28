@@ -82,19 +82,19 @@ const SideBar = (props: IProps) => {
 						height: 44 * ratio,
 						loading: 'lazy',
 						quality: 40,
-					})
-				)
+					}),
+				),
 			),
 			React.createElement(RenderNav, { text }),
 			React.createElement(LanguageSwitch, {
 				route: router.pathname,
 				language: router.locale,
-			})
+			}),
 		),
 		React.createElement(Button, {
 			name: text.button,
 			route: 'Product',
-		})
+		}),
 	)
 }
 
