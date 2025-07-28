@@ -86,7 +86,7 @@ class Navbar extends React.Component<IProps> {
 											alt='logo dosimex'
 											width={212 * ratio}
 											height={44 * ratio}
-											loading='lazy'
+											priority
 											quality={40}
 										/>
 									</Link>
@@ -118,7 +118,7 @@ class Navbar extends React.Component<IProps> {
 							alt='logo dosimex'
 							width={212 * ratio}
 							height={44 * ratio}
-							loading='lazy'
+							priority
 							quality={40}
 						/>
 					</div>

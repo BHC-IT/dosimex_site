@@ -33,7 +33,6 @@ const Slide = ({ name, text, vw }: ISlideProps) => (
 			alt={`Banner image ${name}`}
 			width={29 * vw}
 			height={16.32 * vw}
-			layout={'fixed'}
 		/>
 		<p
 			style={{
@@ -64,9 +63,9 @@ const SlideWrapper = ({ text, vw }: ITextProps) => {
 			>
 				{images.map((e, i) => (
 					<Slide
+						key={i}
 						name={e}
 						text={text[i]}
-						key={e}
 						vw={vw}
 					/>
 				))}
@@ -88,10 +87,11 @@ const HeroBannerCarousel = ({ text }: any) => {
 
 	return (
 		<div style={{}}>
-			<div style={{ width: `${30 * vw}px`, height: `${19 * vw}px` }}>
+			<div style={{ width: `${30 * vw}px`, height: `${19 * vw}px`, position: 'relative' }}>
 				<Image
 					src='/Images/MockupCarousel.png'
-					layout={'fill'}
+					width={30 * vw}
+					height={19 * vw}
 					alt='DOSIMEX software mockup carousel'
 				/>
 			</div>
