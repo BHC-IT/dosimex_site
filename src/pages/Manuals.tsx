@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { useIsMobile } from '../Hooks/useIsMobile';
-import { useText } from '../Hooks/useText';
+import * as React from 'react'
+import { useIsMobile } from '../Hooks/useIsMobile'
+import { useText } from '../Hooks/useText'
 import { useRouter } from 'next/router'
-import * as CSS from 'csstype';
-import Image from 'next/image';
-import styled from 'styled-components';
+import * as CSS from 'csstype'
+import Image from 'next/image'
+import styled from 'styled-components'
 
 const LinkZone = styled.li`
 	display: flex;
@@ -12,7 +12,7 @@ const LinkZone = styled.li`
 	justify-content: flex-start;
 	margin-top: 1vh;
 	cursor: pointer;
-`;
+`
 
 const LinkLabel = styled.a`
 	margin-left: 1.5vw;
@@ -25,98 +25,166 @@ const LinkLabel = styled.a`
 		cursor: pointer;
 		color: var(--flash);
 	}
-`;
+`
 
-const hashes = ["#manuals", "#validations", "#internships"];
+const hashes = ['#manuals', '#validations', '#internships']
 
 interface IStyles {
-	[key: string] : CSS.Properties
+	[key: string]: CSS.Properties
 }
 
 export default function Manuals() {
-	const text = useText('Manuals');
-	const style = useIsMobile(styles);
-	const route = useRouter();
-	const isEnglishVersion = route.locale === "en-US";
+	const text = useText('Manuals')
+	const style = useIsMobile(styles)
+	const route = useRouter()
+	const isEnglishVersion = route.locale === 'en-US'
 
-	const [dummy, setDummy] = React.useState<number>(0);
+	const [dummy, setDummy] = React.useState<number>(0)
 
-	const manualsRef = React.useRef<HTMLDivElement>(null);
-	const validationsRef = React.useRef<HTMLDivElement>(null);
-	const internshipsRef = React.useRef<HTMLDivElement>(null);
+	const manualsRef = React.useRef<HTMLDivElement>(null)
+	const validationsRef = React.useRef<HTMLDivElement>(null)
+	const internshipsRef = React.useRef<HTMLDivElement>(null)
 
 	React.useEffect(() => {
 		if (window.location.hash === '#manuals') {
-			manualsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start', inline:'center' });
-			manualsRef.current?.focus();
+			manualsRef.current?.scrollIntoView({
+				behavior: 'smooth',
+				block: 'start',
+				inline: 'center',
+			})
+			manualsRef.current?.focus()
 		}
 		if (window.location.hash === '#validations') {
-			validationsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start', inline:'center' });
-			validationsRef.current?.focus();
+			validationsRef.current?.scrollIntoView({
+				behavior: 'smooth',
+				block: 'start',
+				inline: 'center',
+			})
+			validationsRef.current?.focus()
 		}
 		if (window.location.hash === '#internships') {
-			internshipsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start', inline:'center' });
-			internshipsRef.current?.focus();
+			internshipsRef.current?.scrollIntoView({
+				behavior: 'smooth',
+				block: 'start',
+				inline: 'center',
+			})
+			internshipsRef.current?.focus()
 		}
-	}, [dummy]);
+	}, [dummy])
 
 	const manuals = {
 		manuals: [
-			{img: isEnglishVersion ? "handbook1.png" : "manuel1.png", pdf: isEnglishVersion ? "Handbook1_Radionucléide.pdf" : "Manuel_1_Radionucléide_3.0.pdf", text: text.manuals[1]},
-			{img: isEnglishVersion ? "handbook2.png" : "manuel2.png", pdf: isEnglishVersion ? "Handbook2_Xgenerator.pdf" : "Manuel_2_Géné_X_3.0.pdf", text: text.manuals[2]},
-			{img: "manuel3.png", pdf: "Manuel_3_Application_15_160.pdf", text: text.manuals[3]},
-			{img: "manuel4.png", pdf: "Annexe_S_ radiologie.pdf", text: text.manuals[4]},
+			{
+				img: isEnglishVersion ? 'handbook1.png' : 'manuel1.png',
+				pdf: isEnglishVersion
+					? 'Handbook1_Radionucléide.pdf'
+					: 'Manuel_1_Radionucléide_3.0.pdf',
+				text: text.manuals[1],
+			},
+			{
+				img: isEnglishVersion ? 'handbook2.png' : 'manuel2.png',
+				pdf: isEnglishVersion ? 'Handbook2_Xgenerator.pdf' : 'Manuel_2_Géné_X_3.0.pdf',
+				text: text.manuals[2],
+			},
+			{ img: 'manuel3.png', pdf: 'Manuel_3_Application_15_160.pdf', text: text.manuals[3] },
+			{ img: 'manuel4.png', pdf: 'Annexe_S_ radiologie.pdf', text: text.manuals[4] },
 		],
 		validations: [
-			{img: isEnglishVersion ? "validation1en.png" : "Validation1.png", pdf: isEnglishVersion ? "Validation1_Radionuclide.pdf" : "Validation_1_Radionucléide_3.0.pdf", text: text.validations[1]},
-			{img: isEnglishVersion ? "validation2en.png" : "Validation2.png", pdf: isEnglishVersion ? "Validation2_Xgenerator.pdf" : "Validation_2_Géné X_3.0.pdf", text: text.validations[2]},
-			{img: "Validation3.png", pdf: "CEA-R-6452.pdf", text: text.validations[3]},
-			{img: "Validation4.png", pdf: "NT_101682_42_0001_A-DOSIMEX.pdf", text: text.validations[4]},
-			{img: "Validation5.png", pdf: "Article_facteur_transmission_L_Bourgois.pdf", text: text.validations[5]},
+			{
+				img: isEnglishVersion ? 'validation1en.png' : 'Validation1.png',
+				pdf: isEnglishVersion
+					? 'Validation1_Radionuclide.pdf'
+					: 'Validation_1_Radionucléide_3.0.pdf',
+				text: text.validations[1],
+			},
+			{
+				img: isEnglishVersion ? 'validation2en.png' : 'Validation2.png',
+				pdf: isEnglishVersion
+					? 'Validation2_Xgenerator.pdf'
+					: 'Validation_2_Géné X_3.0.pdf',
+				text: text.validations[2],
+			},
+			{ img: 'Validation3.png', pdf: 'CEA-R-6452.pdf', text: text.validations[3] },
+			{
+				img: 'Validation4.png',
+				pdf: 'NT_101682_42_0001_A-DOSIMEX.pdf',
+				text: text.validations[4],
+			},
+			{
+				img: 'Validation5.png',
+				pdf: 'Article_facteur_transmission_L_Bourgois.pdf',
+				text: text.validations[5],
+			},
 		],
 		internships: [
-			{img: "Rapport1.png", pdf: "Rapport_ULYSSE_reactor_dismantling.pdf", text: text.internships[1]},
-			{img: "Rapport2.png", pdf: "Rapport_mémoire_AREVA.pdf", text: text.internships[2]},
-			{img: "Rapport3.png", pdf: "Rapport_mémoire_SPR_Cadarache.pdf", text: text.internships[3]},
-			{img: "Rapport4.png", pdf: "Rapport_CJ_AREVA_2016.pdf", text: text.internships[4]},
+			{
+				img: 'Rapport1.png',
+				pdf: 'Rapport_ULYSSE_reactor_dismantling.pdf',
+				text: text.internships[1],
+			},
+			{ img: 'Rapport2.png', pdf: 'Rapport_mémoire_AREVA.pdf', text: text.internships[2] },
+			{
+				img: 'Rapport3.png',
+				pdf: 'Rapport_mémoire_SPR_Cadarache.pdf',
+				text: text.internships[3],
+			},
+			{ img: 'Rapport4.png', pdf: 'Rapport_CJ_AREVA_2016.pdf', text: text.internships[4] },
 		],
 	}
 
-	if (style === null)
-		return null
+	if (style === null) return null
 
 	return (
 		<div>
-			<div style={style.container} >
-				<div style={style.headerImage} >
-					<Image src="/Images/motif_rect.svg" width={343*0.9} height={334*0.9} />
+			<div style={style.container}>
+				<div style={style.headerImage}>
+					<Image
+						src='/Images/motif_rect.svg'
+						alt='Decorative pattern'
+						width={343 * 0.9}
+						height={334 * 0.9}
+					/>
 				</div>
-				<div style={style.header} >
-					<h2 style={style.headerTitle} >{text.header.title}</h2>
-					<p style={style.headerText} >{text.header.p}</p>
+				<div style={style.header}>
+					<h2 style={style.headerTitle}>{text.header.title}</h2>
+					<p style={style.headerText}>{text.header.p}</p>
 					<ul>
-						{text.header.li.map((e : string, i : number) =>
-							<LinkZone key={e} >
+						{text.header.li.map((e: string, i: number) => (
+							<LinkZone key={e}>
 								<p style={style.arrow}>→</p>
-								<LinkLabel onClick={() => setTimeout(() => setDummy(dummy+1), 100)} href={hashes[i]} style={style.headerLink}>{e}</LinkLabel>
+								<LinkLabel
+									onClick={() => setTimeout(() => setDummy(dummy + 1), 100)}
+									href={hashes[i]}
+									style={style.headerLink}
+								>
+									{e}
+								</LinkLabel>
 							</LinkZone>
-						)}
+						))}
 					</ul>
 				</div>
 			</div>
 
-			<section className="container" ref={manualsRef} style={style.section}>
+			<section
+				className='container'
+				ref={manualsRef}
+				style={style.section}
+			>
 				<div style={style.sectionTitle}>
 					<h3>{text.manuals[0]}</h3>
 				</div>
 				<ul style={style.list}>
-					{manuals.manuals.map((e : any, i: number) =>
-						<li style={{cursor: "pointer"}}>
-							<a href={`../Folders/${e.pdf}`} target="_blank" rel="noreferrer noopener">
-								<div style={{textAlign: "center"}}>
+					{manuals.manuals.map((e: any, i: number) => (
+						<li style={{ cursor: 'pointer' }}>
+							<a
+								href={`../Folders/${e.pdf}`}
+								target='_blank'
+								rel='noreferrer noopener'
+							>
+								<div style={{ textAlign: 'center' }}>
 									<Image
 										src={`/Images/${e.img}`}
-										alt="couverture manuel"
+										alt='couverture manuel'
 										width={230}
 										height={324}
 									/>
@@ -124,22 +192,30 @@ export default function Manuals() {
 								</div>
 							</a>
 						</li>
-					)}
+					))}
 				</ul>
 			</section>
 
-			<section className="container" ref={validationsRef} style={style.section}>
+			<section
+				className='container'
+				ref={validationsRef}
+				style={style.section}
+			>
 				<div style={style.sectionTitle}>
 					<h3>{text.validations[0]}</h3>
 				</div>
 				<ul style={style.list}>
-					{manuals.validations.map((e : any, i: number) =>
-						<li style={{cursor: "pointer"}}>
-							<a href={`../Folders/${e.pdf}`} target="_blank" rel="noreferrer noopener">
-								<div style={{textAlign: "center"}}>
+					{manuals.validations.map((e: any, i: number) => (
+						<li style={{ cursor: 'pointer' }}>
+							<a
+								href={`../Folders/${e.pdf}`}
+								target='_blank'
+								rel='noreferrer noopener'
+							>
+								<div style={{ textAlign: 'center' }}>
 									<Image
 										src={`/Images/${e.img}`}
-										alt="couverture manuel"
+										alt='couverture manuel'
 										width={230}
 										height={324}
 									/>
@@ -147,22 +223,30 @@ export default function Manuals() {
 								</div>
 							</a>
 						</li>
-					)}
+					))}
 				</ul>
 			</section>
 
-			<section className="container" ref={internshipsRef} style={style.section}>
+			<section
+				className='container'
+				ref={internshipsRef}
+				style={style.section}
+			>
 				<div style={style.sectionTitle}>
 					<h3>{text.internships[0]}</h3>
 				</div>
 				<ul style={style.list3}>
-					{manuals.internships.map((e : any, i: number) =>
-						<li style={{cursor: "pointer"}}>
-							<a href={`../Folders/${e.pdf}`} target="_blank" rel="noreferrer noopener">
-								<div style={{textAlign: "center"}}>
+					{manuals.internships.map((e: any, i: number) => (
+						<li style={{ cursor: 'pointer' }}>
+							<a
+								href={`../Folders/${e.pdf}`}
+								target='_blank'
+								rel='noreferrer noopener'
+							>
+								<div style={{ textAlign: 'center' }}>
 									<Image
 										src={`/Images/${e.img}`}
-										alt="couverture manuel"
+										alt='couverture manuel'
 										width={230}
 										height={324}
 									/>
@@ -170,11 +254,11 @@ export default function Manuals() {
 								</div>
 							</a>
 						</li>
-					)}
+					))}
 				</ul>
 			</section>
 		</div>
-	);
+	)
 }
 
 export const styles = (mobile: boolean): IStyles => ({
@@ -182,9 +266,9 @@ export const styles = (mobile: boolean): IStyles => ({
 		display: 'flex',
 		alignItems: 'flex-start',
 		justifyContent: 'flex-start',
-		paddingLeft:'3vw',
+		paddingLeft: '3vw',
 		paddingBottom: '12vh',
-		marginTop: "20vh",
+		marginTop: '20vh',
 		width: '100vw',
 	},
 	header: {
@@ -193,11 +277,11 @@ export const styles = (mobile: boolean): IStyles => ({
 		justifyContent: 'flex-start',
 		alignItems: 'flex-start',
 		marginLeft: '8vw',
-		width: mobile ? "80%" : '45vw',
+		width: mobile ? '80%' : '45vw',
 	},
 	headerImage: {
 		marginTop: 0,
-		display: mobile ? "none" : undefined,
+		display: mobile ? 'none' : undefined,
 	},
 	headerTitle: {
 		padding: 0,
@@ -211,38 +295,38 @@ export const styles = (mobile: boolean): IStyles => ({
 		fontWeight: 100,
 	},
 	headerLink: {
-		fontSize: mobile ? "2rem" : "2.4rem",
+		fontSize: mobile ? '2rem' : '2.4rem',
 		fontWeight: 400,
 	},
 	section: {
-		paddingBottom: "10vh",
-		marginTop: "5vh"
+		paddingBottom: '10vh',
+		marginTop: '5vh',
 	},
 	sectionTitle: {
-		borderLeft: "3px solid var(--main)",
-		paddingLeft: "2vw",
-		marginBottom: "10vh",
+		borderLeft: '3px solid var(--main)',
+		paddingLeft: '2vw',
+		marginBottom: '10vh',
 	},
 	arrow: {
-		color: "var(--flash)",
-		fontSize: mobile ? "3rem" : "4.5rem",
+		color: 'var(--flash)',
+		fontSize: mobile ? '3rem' : '4.5rem',
 		marginTop: 0,
 		marginBottom: 0,
 	},
 	list: {
-		display: "flex",
-		flexWrap: "wrap",
-		justifyContent: "space-around",
+		display: 'flex',
+		flexWrap: 'wrap',
+		justifyContent: 'space-around',
 	},
 	list3: {
-		display: "flex",
-		flexWrap: "wrap",
-		justifyContent: "space-around",
-		paddingBottom: "15vh",
+		display: 'flex',
+		flexWrap: 'wrap',
+		justifyContent: 'space-around',
+		paddingBottom: '15vh',
 	},
 	label: {
-		textTransform: "uppercase" as "uppercase",
-		paddingLeft: "2%",
-		paddingRight: "2%",
+		textTransform: 'uppercase' as 'uppercase',
+		paddingLeft: '2%',
+		paddingRight: '2%',
 	},
 })

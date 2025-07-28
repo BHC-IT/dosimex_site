@@ -1,13 +1,30 @@
-import mongoose from 'mongoose';
+import mongoose from 'mongoose'
 
 const connectDB = async () => {
-	if (mongoose.connections[0].readyState) {
-		return;
+	// Skip database connection during build time
+	if (process.env.NODE_ENV === 'production' && !process.env.DB_URL && !process.env.MONGODB_URI) {
+		console.warn('No database URL provided. Skipping database connection during build.')
+		return
 	}
 
-	await mongoose.connect(process.env.DB_URL ?? "");
+	if (mongoose.connections[0].readyState) {
+		return
+	}
 
-	setTimeout(() => mongoose.connection.close(), 5000)
-};
+	const dbUrl =
+		process.env.DB_URL || process.env.MONGODB_URI || 'mongodb://localhost:27017/dosimex'
 
-export default connectDB;
+	if (!dbUrl || dbUrl === '') {
+		console.warn('No database URL provided. Skipping database connection.')
+		return
+	}
+
+	try {
+		await mongoose.connect(dbUrl)
+		setTimeout(() => mongoose.connection.close(), 5000)
+	} catch (error) {
+		console.warn('Database connection failed:', error)
+	}
+}
+
+export default connectDB

@@ -268,6 +268,7 @@ const Software = () => {
 						quality={40}
 						loading='lazy'
 						src='/Images/motif_rect.svg'
+						alt='Decorative pattern'
 						width={343 * 0.9}
 						height={334 * 0.9}
 					/>
@@ -333,6 +334,7 @@ const Software = () => {
 										quality={40}
 										loading='lazy'
 										src='/Images/Flag_France.webp'
+										alt='French flag'
 										width={2560 * ratioFr}
 										height={1707 * ratioFr}
 									/>
@@ -341,6 +343,8 @@ const Software = () => {
 									quality={40}
 									loading='lazy'
 									src='/Images/Flag_Uk.webp'
+									alt='UK flag'
+									alt='UK flag'
 									width={1024 * ratioUk}
 									height={683 * ratioUk}
 								/>
@@ -393,6 +397,7 @@ const Software = () => {
 										quality={40}
 										loading='lazy'
 										src='/Images/Flag_France.webp'
+										alt='French flag'
 										width={2560 * ratioFr}
 										height={1707 * ratioFr}
 									/>
@@ -401,6 +406,8 @@ const Software = () => {
 									quality={40}
 									loading='lazy'
 									src='/Images/Flag_Uk.webp'
+									alt='UK flag'
+									alt='UK flag'
 									width={1024 * ratioUk}
 									height={683 * ratioUk}
 								/>
@@ -453,6 +460,7 @@ const Software = () => {
 										quality={40}
 										loading='lazy'
 										src='/Images/Flag_France.webp'
+										alt='French flag'
 										width={2560 * ratioFr}
 										height={1707 * ratioFr}
 									/>
@@ -461,6 +469,8 @@ const Software = () => {
 									quality={40}
 									loading='lazy'
 									src='/Images/Flag_Uk.webp'
+									alt='UK flag'
+									alt='UK flag'
 									width={1024 * ratioUk}
 									height={683 * ratioUk}
 								/>
@@ -502,6 +512,7 @@ const Software = () => {
 										quality={40}
 										loading='lazy'
 										src='/Images/Flag_France.webp'
+										alt='French flag'
 										width={2560 * ratioFr}
 										height={1707 * ratioFr}
 									/>
@@ -510,6 +521,8 @@ const Software = () => {
 									quality={40}
 									loading='lazy'
 									src='/Images/Flag_Uk.webp'
+									alt='UK flag'
+									alt='UK flag'
 									width={1024 * ratioUk}
 									height={683 * ratioUk}
 								/>
@@ -543,6 +556,7 @@ const Software = () => {
 												quality={40}
 												loading='lazy'
 												src='/Images/Flag_France.webp'
+												alt='French flag'
 												width={2560 * ratioFr}
 												height={1707 * ratioFr}
 											/>
@@ -551,6 +565,8 @@ const Software = () => {
 											quality={40}
 											loading='lazy'
 											src='/Images/Flag_Uk.webp'
+											alt='UK flag'
+											alt='UK flag'
 											width={1024 * ratioUk}
 											height={683 * ratioUk}
 										/>
@@ -560,6 +576,7 @@ const Software = () => {
 										quality={40}
 										loading='lazy'
 										src='/Images/Flag_France.webp'
+										alt='French flag'
 										width={2560 * ratioFr}
 										height={1707 * ratioFr}
 									/>
@@ -594,6 +611,7 @@ const Software = () => {
 												quality={40}
 												loading='lazy'
 												src='/Images/Flag_France.webp'
+												alt='French flag'
 												width={2560 * ratioFr}
 												height={1707 * ratioFr}
 											/>
@@ -602,6 +620,8 @@ const Software = () => {
 											quality={40}
 											loading='lazy'
 											src='/Images/Flag_Uk.webp'
+											alt='UK flag'
+											alt='UK flag'
 											width={1024 * ratioUk}
 											height={683 * ratioUk}
 										/>
@@ -611,6 +631,7 @@ const Software = () => {
 										quality={40}
 										loading='lazy'
 										src='/Images/Flag_France.webp'
+										alt='French flag'
 										width={2560 * ratioFr}
 										height={1707 * ratioFr}
 									/>

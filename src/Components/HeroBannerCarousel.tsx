@@ -30,6 +30,7 @@ const Slide = ({ name, text, vw }: ISlideProps) => (
 	<div style={{ width: '25%', float: 'left' }}>
 		<Image
 			src={`/Images/${name}`}
+			alt={`Banner image ${name}`}
 			width={29 * vw}
 			height={16.32 * vw}
 			layout={'fixed'}
@@ -91,6 +92,7 @@ const HeroBannerCarousel = ({ text }: any) => {
 				<Image
 					src='/Images/MockupCarousel.png'
 					layout={'fill'}
+					alt='DOSIMEX software mockup carousel'
 				/>
 			</div>
 			<div style={{ position: 'absolute', left: `${0.5 * vw}px`, top: `${0.7 * vw}px` }}>
