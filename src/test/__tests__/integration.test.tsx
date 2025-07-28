@@ -21,7 +21,7 @@ describe('Component Integration Tests', () => {
 						name='Submit'
 						route='submit'
 					/>
-				</div>
+				</div>,
 			)
 
 			// Test that both components render
@@ -60,7 +60,7 @@ describe('Component Integration Tests', () => {
 						name='Submit'
 						route='submit'
 					/>
-				</div>
+				</div>,
 			)
 
 			const emailInput = screen.getByLabelText('Email')
@@ -105,7 +105,7 @@ describe('Component Integration Tests', () => {
 						name='Danger'
 						route='danger'
 					/>
-				</div>
+				</div>,
 			)
 
 			expect(screen.getByRole('button', { name: 'Primary' })).toBeInTheDocument()
@@ -134,7 +134,7 @@ describe('Component Integration Tests', () => {
 						name='Send Message'
 						route='contact'
 					/>
-				</form>
+				</form>,
 			)
 
 			expect(screen.getByLabelText('Name')).toBeInTheDocument()
@@ -164,7 +164,7 @@ describe('Component Integration Tests', () => {
 						name='Continue'
 						route='next'
 					/>
-				</div>
+				</div>,
 			)
 
 			const input = screen.getByLabelText('Full Name')

@@ -61,7 +61,7 @@ const About = () => {
 									...style.circleImage,
 									backgroundImage: "url('/Images/Gerald.png')",
 								}}
-							></div>
+							 />
 							<h3 style={style.name}>Gérald Lopez</h3>
 						</div>
 						<div style={style.pFlex}>
@@ -89,7 +89,7 @@ const About = () => {
 										...style.circleImage,
 										backgroundImage: "url('/Images/Alain.png')",
 									}}
-								></div>
+								 />
 								<h3 style={style.name}>Alain Vivier</h3>
 							</div>
 						</MobileView>
@@ -105,7 +105,7 @@ const About = () => {
 										...style.circleImage,
 										backgroundImage: "url('/Images/Alain.png')",
 									}}
-								></div>
+								 />
 								<h3 style={style.name}>Alain Vivier</h3>
 							</div>
 						</BrowserView>

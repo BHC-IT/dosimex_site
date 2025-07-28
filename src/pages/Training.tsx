@@ -185,7 +185,7 @@ const Training = () => {
 				style={style.exemplesStyles as unknown as IStyles}
 			/>
 			<Separator
-				right={true}
+				right
 				style={style.separatorStyles as unknown as IStyles}
 			/>
 			<Partnership

@@ -64,7 +64,7 @@ const LinkVideo = ({ link, textOver }: ILinkVideoProps) => {
 				href={handleLink(link)[1]}
 				target='_blank'
 				rel='noreferrer noopener'
-				onMouseOver={(e) => {
+				onMouseOver={e => {
 					setIsVisible(true)
 					setX(e.clientX)
 				}}
@@ -101,7 +101,7 @@ const LinkVideo = ({ link, textOver }: ILinkVideoProps) => {
 
 const LiLabel = ({ text, style, textOver }: ILiLabelProps) => (
 	<p style={style.global}>
-		{parseStringLink(text).map((e) =>
+		{parseStringLink(text).map(e =>
 			isLink(e) ? (
 				<div
 					style={style.link}
@@ -114,7 +114,7 @@ const LiLabel = ({ text, style, textOver }: ILiLabelProps) => (
 				</div>
 			) : (
 				<p style={{ display: 'inline' }}>{e}</p>
-			)
+			),
 		)}
 	</p>
 )
@@ -173,7 +173,7 @@ interface PartImageProps {
 const PartImage = styled.div<PartImageProps>`
 	width: 14vw;
 	margin-left: 1.5vw;
-	background: url(${(props) => props.imageUrl});
+	background: url(${props => props.imageUrl});
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -183,7 +183,7 @@ const PartImage = styled.div<PartImageProps>`
 const PartImageRight = styled.div<PartImageProps>`
 	width: 14vw;
 	margin-right: 1.5vw;
-	background: url(${(props) => props.imageUrl});
+	background: url(${props => props.imageUrl});
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -669,7 +669,7 @@ const Software = () => {
 				<h3>{text.more.title}</h3>
 				<div style={{ width: '80%', marginTop: '3vh' }}>
 					<Link
-						href={`/Manuals/#manuals`}
+						href={'/Manuals/#manuals'}
 						replace
 					>
 						<p
@@ -685,7 +685,7 @@ const Software = () => {
 				</div>
 				<div style={{ width: '80%', marginTop: '0.2vh' }}>
 					<Link
-						href={`/Manuals/#validations`}
+						href={'/Manuals/#validations'}
 						replace
 					>
 						<p
@@ -701,7 +701,7 @@ const Software = () => {
 				</div>
 				<div style={{ width: '80%', marginTop: '0.2vh' }}>
 					<a
-						href={`../Folders/extrait_validation_gamma.pdf`}
+						href={'../Folders/extrait_validation_gamma.pdf'}
 						target='_blank'
 						rel='noreferrer'
 					>
@@ -712,7 +712,7 @@ const Software = () => {
 				</div>
 				<div style={{ width: '80%', marginTop: '0.2vh' }}>
 					<a
-						href={`../Folders/extrait_validation_géné_X.pdf`}
+						href={'../Folders/extrait_validation_géné_X.pdf'}
 						target='_blank'
 						rel='noreferrer'
 					>
@@ -723,7 +723,7 @@ const Software = () => {
 				</div>
 				<div style={{ width: '80%', marginTop: '0.2vh' }}>
 					<a
-						href={`../Folders/Modification_Dosimex GX_3.0.pdf`}
+						href={'../Folders/Modification_Dosimex GX_3.0.pdf'}
 						target='_blank'
 						rel='noreferrer'
 					>
@@ -734,7 +734,7 @@ const Software = () => {
 				</div>
 				<div style={{ width: '80%', marginTop: '0.2vh' }}>
 					<Link
-						href={`/Books`}
+						href={'/Books'}
 						replace
 					>
 						<p

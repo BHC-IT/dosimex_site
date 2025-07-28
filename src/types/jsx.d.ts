@@ -153,7 +153,7 @@ declare module 'next/link' {
 
 // Fix for Next.js modules
 declare module 'next/router' {
-	import { ComponentType, ReactNode } from 'react'
+	import { ComponentType } from 'react'
 
 	export interface NextRouter {
 		route: string

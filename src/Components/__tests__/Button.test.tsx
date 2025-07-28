@@ -14,7 +14,7 @@ describe('Button Component', () => {
 			<Button
 				name='Test Button'
 				route='test-route'
-			/>
+			/>,
 		)
 
 		const button = screen.getByRole('button', { name: 'Test Button' })
@@ -27,7 +27,7 @@ describe('Button Component', () => {
 			<Button
 				name='Basic Button'
 				route='test'
-			/>
+			/>,
 		)
 
 		const button = screen.getByRole('button')
@@ -40,7 +40,7 @@ describe('Button Component', () => {
 			<Button
 				name='Link Button'
 				route='about'
-			/>
+			/>,
 		)
 
 		const anchor = container.querySelector('a')
@@ -53,7 +53,7 @@ describe('Button Component', () => {
 			<Button
 				name='Empty Route'
 				route=''
-			/>
+			/>,
 		)
 
 		const anchor = container.querySelector('a')
@@ -65,7 +65,7 @@ describe('Button Component', () => {
 			<Button
 				name='Accessible Button'
 				route='test'
-			/>
+			/>,
 		)
 
 		expect(screen.getByText('Accessible Button')).toBeInTheDocument()

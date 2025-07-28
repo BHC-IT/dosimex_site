@@ -8,7 +8,6 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { withText } from '../hoc/withText'
 import SideBar from './SideBar'
-import { useMobile } from '../Hooks/useIsMobile'
 
 const originalError = console.error
 

@@ -5,8 +5,7 @@ import { isMobile } from 'react-device-detect'
 
 export default function Contact() {
 	return (
-		<>
-			<div>
+		<div>
 				<div style={{ position: 'absolute', top: '10vh' }}>
 					{isMobile ? null : (
 						<Image
@@ -21,6 +20,5 @@ export default function Contact() {
 					<ContactForm />
 				</div>
 			</div>
-		</>
 	)
 }

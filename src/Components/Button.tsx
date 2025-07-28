@@ -12,7 +12,7 @@ const Button = (props: IProps) => {
 	return (
 		<Link
 			href={`/${props.route}`}
-			replace={true}
+			replace
 		>
 			<button style={{ ...styles, ...props.style }}>{props.name}</button>
 		</Link>

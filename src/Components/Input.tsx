@@ -38,7 +38,7 @@ const Input = (props: IProps) => {
 
 	// @ts-ignore - React hooks compatibility with React 18
 	const [value, setValue] = React.useState<string | null | undefined>(
-		props.value === undefined ? null : props.value
+		props.value === undefined ? null : props.value,
 	)
 	// @ts-ignore - React hooks compatibility with React 18
 	const [erroredValidator, setErroredValidator] = React.useState<IValidator[]>([])
@@ -96,7 +96,7 @@ const Input = (props: IProps) => {
 					placeholder={props.placeholder}
 					rows={props.areaSize?.[0] ?? 10}
 					cols={props.areaSize?.[1] ?? 20}
-					onChange={(e) => handleChange(e.target.value)}
+					onChange={e => handleChange(e.target.value)}
 					onBlur={handleBlur}
 					required={props.required}
 				/>
@@ -107,7 +107,7 @@ const Input = (props: IProps) => {
 					id={props.id}
 					style={isValid ? styleInput : styleInputInvalid}
 					placeholder={props.placeholder}
-					onChange={(e) => handleChange(e.target.value)}
+					onChange={e => handleChange(e.target.value)}
 					onBlur={handleBlur}
 					required={props.required}
 				/>

@@ -23,11 +23,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 				autoClose={5000}
 				hideProgressBar={false}
 				newestOnTop={false}
-				closeOnClick={true}
+				closeOnClick
 				rtl={false}
-				pauseOnFocusLoss={true}
-				draggable={true}
-				pauseOnHover={true}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
 				theme='light'
 			/>
 			<Footer />

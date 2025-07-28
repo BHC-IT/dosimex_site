@@ -116,7 +116,7 @@ const Card = ({ text, style, link, url, color, isMobile, isTablet }: ICardProps)
 				style={style.wrapper}
 				onMouseOver={() => setOver(true)}
 			>
-				<div style={{ ...style.img, backgroundImage: `url(Images/${link})` }}></div>
+				<div style={{ ...style.img, backgroundImage: `url(Images/${link})` }} />
 			</a>
 			<p
 				style={{
@@ -149,11 +149,11 @@ const PartnersCarousel = () => {
 			draggable={false}
 			responsive={responsive}
 			arrows={false}
-			ssr={true}
-			infinite={true}
-			autoPlay={true}
+			ssr
+			infinite
+			autoPlay
 			autoPlaySpeed={1000}
-			keyBoardControl={true}
+			keyBoardControl
 			customTransition='all .5'
 			transitionDuration={isMobile ? 2200 : 1500}
 			containerClass='carousel-container'
@@ -172,7 +172,7 @@ const PartnersCarousel = () => {
 						isMobile={isMobile}
 						isTablet={isTablet}
 					/>
-				)
+				),
 			)}
 			<Card
 				text={text.partners.li[11]}

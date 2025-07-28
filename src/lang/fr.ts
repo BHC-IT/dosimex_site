@@ -342,7 +342,7 @@ const text: ILang = {
 		},
 		prerequisites: {
 			title: 'Prérequis',
-			p: `Les codes sont écrits en VBA sous Excel. Le pack Dosimex fonctionne avec Windows XP à Windows 10 et Excel 2003 à 2019 en autorisant le fonctionnement des macros. Sur Mac il est nécessaire de créer une « machine virtuelle ».\n Suivant les mesures de sécurité mises en place dans l’entreprise, il est conseillé de demander à votre service informatique de « whitelister » Dosimex.`,
+			p: 'Les codes sont écrits en VBA sous Excel. Le pack Dosimex fonctionne avec Windows XP à Windows 10 et Excel 2003 à 2019 en autorisant le fonctionnement des macros. Sur Mac il est nécessaire de créer une « machine virtuelle ».\n Suivant les mesures de sécurité mises en place dans l’entreprise, il est conseillé de demander à votre service informatique de « whitelister » Dosimex.',
 			italic: "Les fichiers de Dosimex sont cryptés. Aucun autre fichier excel ne doit etre ouvert pendant l'utilisation de Dosimex",
 		},
 		titlePrice: 'Obtenir la clé USB Dosimex 3.0',

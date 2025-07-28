@@ -9,7 +9,7 @@ describe('Input Component', () => {
 			<Input
 				label='Test Label'
 				id='test-input'
-			/>
+			/>,
 		)
 
 		expect(screen.getByLabelText('Test Label')).toBeInTheDocument()
@@ -22,7 +22,7 @@ describe('Input Component', () => {
 				label='Test Textarea'
 				type='textarea'
 				id='test-textarea'
-			/>
+			/>,
 		)
 
 		const textarea = screen.getByRole('textbox')
@@ -35,7 +35,7 @@ describe('Input Component', () => {
 				label='Test Input'
 				type='email'
 				id='test-email'
-			/>
+			/>,
 		)
 
 		const input = screen.getByRole('textbox')
@@ -49,7 +49,7 @@ describe('Input Component', () => {
 				label='Test'
 				value='initial value'
 				id='test-value'
-			/>
+			/>,
 		)
 
 		const input = screen.getByDisplayValue('initial value')
@@ -65,7 +65,7 @@ describe('Input Component', () => {
 				label='Test'
 				onChange={onChangeMock}
 				id='test-change'
-			/>
+			/>,
 		)
 
 		const input = screen.getByRole('textbox')
@@ -81,7 +81,7 @@ describe('Input Component', () => {
 				label='Test'
 				placeholder='Enter text here'
 				id='test-placeholder'
-			/>
+			/>,
 		)
 
 		expect(screen.getByPlaceholderText('Enter text here')).toBeInTheDocument()
@@ -93,7 +93,7 @@ describe('Input Component', () => {
 				label='Test'
 				required
 				id='test-required'
-			/>
+			/>,
 		)
 
 		const input = screen.getByRole('textbox')
@@ -107,7 +107,7 @@ describe('Input Component', () => {
 				type='textarea'
 				areaSize={[5, 30]}
 				id='test-dimensions'
-			/>
+			/>,
 		)
 
 		const textarea = screen.getByRole('textbox')
@@ -136,7 +136,7 @@ describe('Input Validation', () => {
 				validator={[emailValidator]}
 				isValid={isValidMock}
 				id='test-validation'
-			/>
+			/>,
 		)
 
 		const input = screen.getByRole('textbox')
@@ -161,7 +161,7 @@ describe('Input Validation', () => {
 				validator={[emailValidator]}
 				isValid={isValidMock}
 				id='test-valid'
-			/>
+			/>,
 		)
 
 		const input = screen.getByRole('textbox')
@@ -183,7 +183,7 @@ describe('Input Validation', () => {
 				label='Test'
 				validator={[emailValidator, lengthValidator]}
 				id='test-multiple'
-			/>
+			/>,
 		)
 
 		const input = screen.getByRole('textbox')
@@ -204,7 +204,7 @@ describe('Input Validation', () => {
 				label='Test'
 				validator={[emailValidator]}
 				id='test-empty'
-			/>
+			/>,
 		)
 
 		const input = screen.getByRole('textbox')
@@ -266,7 +266,7 @@ describe('Input Styles', () => {
 				label='Test'
 				style={customStyles}
 				id='test-styles'
-			/>
+			/>,
 		)
 
 		const input = screen.getByRole('textbox')

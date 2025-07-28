@@ -64,7 +64,7 @@ function Product(props: IProps) {
 						<p>{text.descrip}</p>
 					</div>
 					<div style={style.banner2}>
-						<div style={style.bannerImage}></div>
+						<div style={style.bannerImage} />
 					</div>
 				</div>
 			</section>
@@ -135,7 +135,7 @@ function Product(props: IProps) {
 					<ContactForm />
 				</div>
 			</section>
-			{props.isLandscape ? <div style={style.spaceTopFooter}></div> : null}
+			{props.isLandscape ? <div style={style.spaceTopFooter} /> : null}
 		</div>
 	)
 }
