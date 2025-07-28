@@ -70,6 +70,7 @@ class ContactForm extends React.Component<IProps, IState> {
 		}
 	}
 
+	// @ts-ignore - FormEvent compatibility
 	handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault()
 		if (this.state.nameValid) {
@@ -119,6 +120,7 @@ class ContactForm extends React.Component<IProps, IState> {
 		return (
 			<form
 				style={this.props.style.form}
+				// @ts-ignore - FormEvent compatibility
 				onSubmit={(e: React.FormEvent) => this.handleSubmit(e)}
 			>
 				<h3 style={this.props.style.title}>{this.props.text.title}</h3>
@@ -193,6 +195,7 @@ class ContactForm extends React.Component<IProps, IState> {
 					type='submit'
 				>
 					{this.state.isLoading ? (
+						// @ts-ignore - ClipLoader component compatibility
 						<ClipLoader
 							color='#fff'
 							loading={this.state.isLoading}

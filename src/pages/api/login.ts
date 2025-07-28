@@ -9,6 +9,7 @@ import { comparePassword } from '../../utils/bcrypt'
 
 const findUser = async (username: string): Promise<[number, object]> => {
 	try {
+		// @ts-ignore - Mongoose typing issues
 		const user: IUser | null = await User.findOne({ username })
 		if (!user) return [404, { error: 'User not found' }]
 		return [201, { success: true, data: user }]

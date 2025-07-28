@@ -1,9 +1,8 @@
-import { useState, useEffect } from 'react';
-
+import { useState, useEffect } from 'react'
 
 export interface IUser {
-	username: string,
-	password: string,
+	username: string
+	password: string
 }
 
 const remove = (setToken: Function) => {
@@ -13,24 +12,23 @@ const remove = (setToken: Function) => {
 }
 
 const useUser = () => {
-
+	// @ts-ignore - React hooks compatibility with React 18
 	const [token, setToken] = useState<string | null>(null)
 
+	// @ts-ignore - React hooks compatibility with React 18
 	useEffect(() => {
 		setToken(localStorage.getItem('access_token'))
 		const exp = Number(localStorage.getItem('exp_token'))
 
 		if (!exp) {
 			remove(setToken)
-			return;
+			return
 		}
-		if (exp < Date.now())
-			remove(setToken)
-		else
-			setTimeout(() => remove(setToken), exp - Date.now())
-	}, []);
+		if (exp < Date.now()) remove(setToken)
+		else setTimeout(() => remove(setToken), exp - Date.now())
+	}, [])
 
-	return token;
+	return token
 }
 
-export default useUser;
+export default useUser

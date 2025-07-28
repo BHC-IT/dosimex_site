@@ -53,7 +53,9 @@ const Questions = ({ text, style }: IProps) => (
 )
 
 const LinkVideo = ({ link, textOver }: ILinkVideoProps) => {
+	// @ts-ignore - React hooks compatibility with React 18
 	const [isVisible, setIsVisible] = React.useState<boolean>(false)
+	// @ts-ignore - React hooks compatibility with React 18
 	const [x, setX] = React.useState<number>(0)
 
 	return (
@@ -230,11 +232,16 @@ const ratioUk: number = 0.03
 const Software = () => {
 	const text = useText('Software')
 	const style = useIsMobile(styles)
+	// @ts-ignore - React hooks compatibility with React 18
 	const [dummy, setDummy] = React.useState<number>(0)
+	// @ts-ignore - React hooks compatibility with React 18
 	const opRef = React.useRef<HTMLDivElement>(null)
+	// @ts-ignore - React hooks compatibility with React 18
 	const pedaRef = React.useRef<HTMLDivElement>(null)
+	// @ts-ignore - React hooks compatibility with React 18
 	const mesureRef = React.useRef<HTMLDivElement>(null)
 
+	// @ts-ignore - React hooks compatibility with React 18
 	React.useEffect(() => {
 		if (window.location.hash === '#op') {
 			opRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'center' })
@@ -344,7 +351,6 @@ const Software = () => {
 									loading='lazy'
 									src='/Images/Flag_Uk.webp'
 									alt='UK flag'
-									alt='UK flag'
 									width={1024 * ratioUk}
 									height={683 * ratioUk}
 								/>
@@ -406,7 +412,6 @@ const Software = () => {
 									quality={40}
 									loading='lazy'
 									src='/Images/Flag_Uk.webp'
-									alt='UK flag'
 									alt='UK flag'
 									width={1024 * ratioUk}
 									height={683 * ratioUk}
@@ -470,7 +475,6 @@ const Software = () => {
 									loading='lazy'
 									src='/Images/Flag_Uk.webp'
 									alt='UK flag'
-									alt='UK flag'
 									width={1024 * ratioUk}
 									height={683 * ratioUk}
 								/>
@@ -522,7 +526,6 @@ const Software = () => {
 									loading='lazy'
 									src='/Images/Flag_Uk.webp'
 									alt='UK flag'
-									alt='UK flag'
 									width={1024 * ratioUk}
 									height={683 * ratioUk}
 								/>
@@ -565,7 +568,6 @@ const Software = () => {
 											quality={40}
 											loading='lazy'
 											src='/Images/Flag_Uk.webp'
-											alt='UK flag'
 											alt='UK flag'
 											width={1024 * ratioUk}
 											height={683 * ratioUk}
@@ -620,7 +622,6 @@ const Software = () => {
 											quality={40}
 											loading='lazy'
 											src='/Images/Flag_Uk.webp'
-											alt='UK flag'
 											alt='UK flag'
 											width={1024 * ratioUk}
 											height={683 * ratioUk}

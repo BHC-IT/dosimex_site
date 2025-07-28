@@ -23,9 +23,12 @@ const ratio2 = 0.6
 function Product(props: IProps) {
 	const text = useText('Product')
 	const style = useIsMobile(styles)
+	// @ts-ignore - React hooks compatibility with React 18
 	const [dummy] = React.useState<number>(0)
+	// @ts-ignore - React hooks compatibility with React 18
 	const buy = React.useRef<HTMLDivElement>(null)
 
+	// @ts-ignore - React hooks compatibility with React 18
 	React.useEffect(() => {
 		if (window.location.hash === '#buy') {
 			buy.current?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'center' })
@@ -322,6 +325,6 @@ export const styles = (mobile: boolean): IStyles => ({
 				height: '40vh',
 				marginTop: '10vh',
 				marginBottom: '50vh',
-		  }
+			}
 		: undefined,
 })

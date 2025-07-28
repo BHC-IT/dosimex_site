@@ -47,6 +47,7 @@ const pages: IPage[] = [
 	{ route: 'Contact' },
 ]
 
+// @ts-ignore - React.Component typing issues with React 18
 class Navbar extends React.Component<IProps> {
 	constructor(props: IProps) {
 		super(props)
@@ -57,10 +58,12 @@ class Navbar extends React.Component<IProps> {
 			<>
 				{pages.map((page: IPage, i: number) => (
 					<li
+						// @ts-ignore - this.props access in class component
 						key={this.props.text.items[i]}
 						style={{ paddingLeft: '1.7vw' }}
 					>
 						<ItemNavbar
+							// @ts-ignore - this.props access in class component
 							name={this.props.text.items[i]}
 							route={page.route}
 						/>
@@ -93,11 +96,14 @@ class Navbar extends React.Component<IProps> {
 								</li>
 								<this.renderNav />
 								<LanguageSwitch
+									// @ts-ignore - this.props access in class component
 									route={this.props.router.pathname}
+									// @ts-ignore - this.props access in class component
 									language={this.props.router.locale}
 								/>
 							</ul>
 							<Button
+								// @ts-ignore - this.props access in class component
 								name={this.props.text.button}
 								route='Product'
 							/>

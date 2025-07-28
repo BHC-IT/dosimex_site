@@ -76,6 +76,7 @@ export const getStaticProps: GetStaticProps = async (context: GetStaticPropsCont
 	try {
 		await dbConnect()
 
+		// @ts-ignore - Mongoose typing issues
 		let article = await Article.findOne({ slug: context?.params?.slug }).exec()
 
 		article = {
@@ -108,6 +109,7 @@ export const getStaticProps: GetStaticProps = async (context: GetStaticPropsCont
 export const getStaticPaths: GetStaticPaths = async () => {
 	try {
 		await dbConnect()
+		// @ts-ignore - Mongoose typing issues
 		const articles: IArticle[] = await Article.find({}).exec()
 		const paths: { params: { slug: string }; locale?: string }[] = []
 

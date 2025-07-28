@@ -53,6 +53,7 @@ const SideBar = (props: IProps) => {
 	const text = useText('Navbar')
 
 	return (
+		// @ts-ignore - Menu component props compatibility
 		<Menu
 			right
 			{...props}

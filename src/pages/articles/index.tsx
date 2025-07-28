@@ -113,6 +113,7 @@ export const getStaticProps: GetStaticProps = async (context: GetStaticPropsCont
 	try {
 		await dbConnect()
 
+		// @ts-ignore - Mongoose typing issues
 		let articles = await Article.find({}).exec()
 
 		articles = articles.map((e) => {

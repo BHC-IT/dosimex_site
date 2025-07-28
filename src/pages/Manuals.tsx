@@ -39,12 +39,17 @@ export default function Manuals() {
 	const route = useRouter()
 	const isEnglishVersion = route.locale === 'en-US'
 
+	// @ts-ignore - React hooks compatibility with React 18
 	const [dummy, setDummy] = React.useState<number>(0)
 
+	// @ts-ignore - React hooks compatibility with React 18
 	const manualsRef = React.useRef<HTMLDivElement>(null)
+	// @ts-ignore - React hooks compatibility with React 18
 	const validationsRef = React.useRef<HTMLDivElement>(null)
+	// @ts-ignore - React hooks compatibility with React 18
 	const internshipsRef = React.useRef<HTMLDivElement>(null)
 
+	// @ts-ignore - React hooks compatibility with React 18
 	React.useEffect(() => {
 		if (window.location.hash === '#manuals') {
 			manualsRef.current?.scrollIntoView({

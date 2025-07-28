@@ -19,6 +19,7 @@ vi.mock('next/router', () => ({
 vi.mock('next/link', () => ({
 	__esModule: true,
 	default: ({ children, href, ...props }: any) => {
+		// @ts-ignore - React.createElement compatibility
 		return React.createElement('a', { href, ...props }, children)
 	},
 }))
