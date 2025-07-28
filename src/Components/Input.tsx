@@ -49,12 +49,9 @@ const Input = (props: IProps) => {
 		setValue(props.value)
 	}, [props.value])
 
-	// Don't render until device detection is complete
-	if (isMobile === null) {
-		return null
-	}
-
-	const styles = getStyles(isMobile)
+	// Use fallback for SSR/test environments where device detection isn't available
+	const isMobileResolved = isMobile ?? false
+	const styles = getStyles(isMobileResolved)
 
 	const handleBlur = () => {
 		if (props.validator === undefined) return
