@@ -1,11 +1,11 @@
-import * as React from 'react'
+import React, { useState, useEffect } from 'react'
 import * as CSS from 'csstype'
 import ItemNavbar from './ItemNavbar'
 import Button from './Button'
 import LanguageSwitch from './LanguageSwitch'
 import Link from 'next/link'
 import Image from 'next/image'
-import { withRouter, NextRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import { withText } from '../hoc/withText'
 import SideBar from './SideBar'
 import { useMobile } from '../Hooks/useIsMobile'
@@ -23,11 +23,7 @@ interface IPage {
 	route: string
 }
 
-interface WithRouterProps {
-	router: NextRouter
-}
-
-interface IProps extends WithRouterProps {
+interface IProps {
 	text?: any
 }
 
@@ -46,28 +42,24 @@ const pages: IPage[] = [
 	{ route: 'Contact' },
 ]
 
-// @ts-ignore - React.Component typing issues with React 18
-class Navbar extends React.Component<IProps> {
-	// @ts-ignore - React state compatibility
-	state = { isClient: false }
+const Navbar: React.FC<IProps> = ({ text }) => {
+	const [isClient, setIsClient] = useState(false)
+	const router = useRouter()
 
-	// @ts-ignore - React lifecycle compatibility
-	componentDidMount() {
-		this.setState({ isClient: true })
-	}
+	useEffect(() => {
+		setIsClient(true)
+	}, [])
 
-	renderNav = () => {
+	const renderNav = () => {
 		return (
 			<>
 				{pages.map((page: IPage, i: number) => (
 					<li
-						// @ts-ignore - this.props access in class component
-						key={this.props.text.items[i]}
+						key={text.items[i]}
 						style={{ paddingLeft: '1.7vw' }}
 					>
 						<ItemNavbar
-							// @ts-ignore - this.props access in class component
-							name={this.props.text.items[i]}
+							name={text.items[i]}
 							route={page.route}
 						/>
 					</li>
@@ -76,69 +68,63 @@ class Navbar extends React.Component<IProps> {
 		)
 	}
 
-	render() {
-		// Prevent hydration mismatch by not rendering until client-side mount
-		// @ts-ignore - state access
-		if (!this.state.isClient) {
-			return null
-		}
-
-		const ratio = 0.7
-
-		return (
-			<>
-				<div className='divNone'>
-					<nav style={styles.navbar}>
-						<ul style={styles.navbarUl}>
-							<li style={styles.navbarLi}>
-								<Link href='/'>
-									<Image
-										src='/Images/logo_dosimex_new.webp'
-										alt='logo dosimex'
-										width={212 * ratio}
-										height={44 * ratio}
-										priority
-										quality={40}
-									/>
-								</Link>
-							</li>
-							<this.renderNav />
-							<LanguageSwitch
-								// @ts-ignore - this.props access in class component
-								route={this.props.router.pathname}
-								// @ts-ignore - this.props access in class component
-								language={this.props.router.locale}
-							/>
-						</ul>
-						<Button
-							// @ts-ignore - this.props access in class component
-							name={this.props.text.button}
-							route='Product'
-						/>
-					</nav>
-				</div>
-				<div id='containerNav'>
-					<SideBar />
-					<div
-						style={{
-							textAlign: 'center',
-							paddingTop: '1.5vh',
-							borderBottom: '1px solid var(--main)',
-						}}
-					>
-						<Image
-							src='/Images/logo_dosimex_new.webp'
-							alt='logo dosimex'
-							width={212 * ratio}
-							height={44 * ratio}
-							priority
-							quality={40}
-						/>
-					</div>
-				</div>
-			</>
-		)
+	// Prevent hydration mismatch by not rendering until client-side mount
+	if (!isClient) {
+		return null
 	}
+
+	const ratio = 0.7
+
+	return (
+		<>
+			<div className='divNone'>
+				<nav style={styles.navbar}>
+					<ul style={styles.navbarUl}>
+						<li style={styles.navbarLi}>
+							<Link href='/'>
+								<Image
+									src='/Images/logo_dosimex_new.webp'
+									alt='logo dosimex'
+									width={212 * ratio}
+									height={44 * ratio}
+									priority
+									quality={40}
+								/>
+							</Link>
+						</li>
+						{renderNav()}
+						<LanguageSwitch
+							route={router.pathname}
+							language={router.locale}
+						/>
+					</ul>
+					<Button
+						name={text.button}
+						route='Product'
+					/>
+				</nav>
+			</div>
+			<div id='containerNav'>
+				<SideBar />
+				<div
+					style={{
+						textAlign: 'center',
+						paddingTop: '1.5vh',
+						borderBottom: '1px solid var(--main)',
+					}}
+				>
+					<Image
+						src='/Images/logo_dosimex_new.webp'
+						alt='logo dosimex'
+						width={212 * ratio}
+						height={44 * ratio}
+						priority
+						quality={40}
+					/>
+				</div>
+			</div>
+		</>
+	)
 }
 
 export const styles: IStyles = {
@@ -164,4 +150,4 @@ export const styles: IStyles = {
 	},
 }
 
-export default withRouter(withText(Navbar, 'Navbar'))
+export default withText(Navbar, 'Navbar')

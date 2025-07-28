@@ -6,17 +6,13 @@ import { slide as Menu } from 'react-burger-menu'
 import ItemNavbar from './ItemNavbar'
 import Image from 'next/image'
 import { useText } from '../Hooks/useText'
-import { withRouter, NextRouter } from 'next/router'
-
-interface WithRouterProps {
-	router: NextRouter
-}
+import { useRouter } from 'next/router'
 
 interface IPage {
 	route: string
 }
 
-interface IProps extends WithRouterProps {
+interface IProps {
 	text?: any
 }
 
@@ -50,6 +46,7 @@ const ratio = 0.5
 
 const SideBar = (props: IProps) => {
 	const text = useText('Navbar')
+	const router = useRouter()
 
 	return (
 		// @ts-ignore - Menu component props compatibility
@@ -72,8 +69,8 @@ const SideBar = (props: IProps) => {
 				</li>
 				<RenderNav text={text} />
 				<LanguageSwitch
-					route={props.router.pathname}
-					language={props.router.locale}
+					route={router.pathname}
+					language={router.locale}
 				/>
 			</ul>
 			<Button
@@ -84,4 +81,4 @@ const SideBar = (props: IProps) => {
 	)
 }
 
-export default withRouter(SideBar)
+export default SideBar

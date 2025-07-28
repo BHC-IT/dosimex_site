@@ -1,8 +1,8 @@
-import * as React from 'react'
+import React, { useState } from 'react'
 import * as CSS from 'csstype'
 import Radium from 'radium'
 import Input, { IValidator } from './Input'
-import { withRouter, NextRouter } from 'next/router'
+import { useRouter } from 'next/router'
 
 import { withText } from '../hoc/withText'
 import { withIsMobile } from '../hoc/withIsMobile'
@@ -21,13 +21,21 @@ const override = css`
 	border-color: red;
 `
 
-interface WithRouterProps {
-	router: NextRouter
-}
-
-interface IProps extends WithRouterProps {
+interface IProps {
 	text?: any
 	style?: any
+}
+
+interface IState {
+	name: string | null
+	nameValid: boolean
+	email: string | null
+	emailValid: boolean
+	message: string | null
+	messageValid: boolean
+	subject: string | null
+	isLoading: boolean
+	wellSent: boolean
 }
 
 interface IState {
@@ -53,162 +61,151 @@ export interface IStyles {
 const mailFormat: RegExp =
 	/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
-class ContactForm extends React.Component<IProps, IState> {
-	constructor(props: IProps) {
-		super(props)
+const ContactForm: React.FC<IProps> = ({ text, style }) => {
+	const [name, setName] = useState(null)
+	const [nameValid, setNameValid] = useState(false)
+	const [email, setEmail] = useState(null)
+	const [emailValid, setEmailValid] = useState(false)
+	const [message, setMessage] = useState(null)
+	const [messageValid, setMessageValid] = useState(false)
+	const [subject, setSubject] = useState(null)
+	const [isLoading, setIsLoading] = useState(false)
+	const [wellSent, setWellSent] = useState(false)
 
-		this.state = {
-			name: null,
-			nameValid: false,
-			email: null,
-			emailValid: false,
-			message: null,
-			messageValid: false,
-			subject: null,
-			isLoading: false,
-			wellSent: false,
-		}
-	}
+	const router = useRouter()
 
-	// @ts-ignore - FormEvent compatibility
-	handleSubmit = (e: React.FormEvent) => {
-		e.preventDefault()
-		if (this.state.nameValid) {
-			this.sendEmail()
-			this.setState({
-				name: null,
-				nameValid: false,
-				email: null,
-				emailValid: false,
-				message: null,
-				messageValid: false,
-				subject: null,
-			})
-		}
-	}
+	const isEmailValid = (value: string) => mailFormat.test(value)
+	const isInputValid = (value: string) => value.trim() !== ''
 
-	sendEmail = () => {
-		const toastLoad = toast.dark(this.props.text.sending)
-		this.setState({ isLoading: true })
+	const sendEmail = () => {
+		const toastLoad = toast.dark(text.sending)
+		setIsLoading(true)
 		emailjs
 			.send(
 				'service_wekm5vt',
 				'template_9bIlFiWV',
-				{ text: this.state.message, name: this.state.name, email: this.state.email },
+				{ text: message, name: name, email: email },
 				'user_ARoYKQez1mORTLjrYuH9q'
 			)
 			.then((res) => {
-				this.setState({ wellSent: true })
+				setWellSent(true)
 				toast.dismiss(toastLoad)
-				toast.success(this.props.text.messageSent)
+				toast.success(text.messageSent)
 			})
 			.catch((e) => {
 				console.error(e)
 				toast.dismiss(toastLoad)
-				toast.error(this.props.text.messageNotSent)
+				toast.error(text.messageNotSent)
 			})
-		this.setState({ isLoading: false })
+		setIsLoading(false)
 	}
 
-	isEmailValid = (value: string) => mailFormat.test(value)
+	const handleSubmit = (e: React.FormEvent) => {
+		e.preventDefault()
+		if (nameValid) {
+			sendEmail()
+			setName(null)
+			setNameValid(false)
+			setEmail(null)
+			setEmailValid(false)
+			setMessage(null)
+			setMessageValid(false)
+			setSubject(null)
+		}
+	}
 
-	isInputValid = (value: string) => value.trim() !== ''
+	if (style === null) return null
 
-	render() {
-		if (this.props.style === null) return null
-
-		return (
-			<form
-				style={this.props.style.form}
-				// @ts-ignore - FormEvent compatibility
-				onSubmit={(e: React.FormEvent) => this.handleSubmit(e)}
-			>
-				<h3 style={this.props.style.title}>{this.props.text.title}</h3>
-				<div style={this.props.style.divNameMail}>
-					<Input
-						value={this.state.name}
-						type='text'
-						id='name'
-						label={this.props.text.label[0]}
-						style={{ divInput: this.props.style.input }}
-						required
-						isValid={(isValid: boolean) => this.setState({ nameValid: isValid })}
-						onChange={(value: string) => this.setState({ name: value })}
-						validator={
-							[
-								{
-									validationFunction: (value) => this.isInputValid(value),
-									errorMessage: this.props.text.errorName,
-								},
-							] as IValidator[]
-						}
-					/>
-					<Input
-						value={this.state.email}
-						type='email'
-						id='email'
-						label={this.props.text.label[1]}
-						style={{ divInput: this.props.style.input }}
-						required
-						isValid={(isValid: boolean) => this.setState({ emailValid: isValid })}
-						onChange={(value: string) => this.setState({ email: value })}
-						validator={
-							[
-								{
-									validationFunction: (value) => this.isInputValid(value),
-									errorMessage: this.props.text.errorEmail[0],
-								},
-								{
-									validationFunction: (value) => this.isEmailValid(value),
-									errorMessage: this.props.text.errorEmail[1],
-								},
-							] as IValidator[]
-						}
-					/>
-				</div>
+	return (
+		<form
+			style={style.form}
+			onSubmit={handleSubmit}
+		>
+			<h3 style={style.title}>{text.title}</h3>
+			<div style={style.divNameMail}>
 				<Input
-					value={this.state.subject}
+					value={name}
 					type='text'
-					id='subject'
-					label={this.props.text.label[2]}
-					onChange={(value: string) => this.setState({ subject: value })}
-				/>
-				<Input
-					value={this.state.message}
-					type='textarea'
-					id='message'
-					label={this.props.text.label[3]}
+					id='name'
+					label={text.label[0]}
+					style={{ divInput: style.input }}
 					required
-					isValid={(isValid: boolean) => this.setState({ messageValid: isValid })}
-					onChange={(value: string) => this.setState({ message: value })}
+					isValid={(isValid: boolean) => setNameValid(isValid)}
+					onChange={(value: string) => setName(value)}
 					validator={
 						[
 							{
-								validationFunction: (value) => this.isInputValid(value),
-								errorMessage: this.props.text.errorMessage,
+								validationFunction: (value) => isInputValid(value),
+								errorMessage: text.errorName,
 							},
 						] as IValidator[]
 					}
 				/>
-				<button
-					style={this.props.style.button}
-					type='submit'
-				>
-					{this.state.isLoading ? (
-						// @ts-ignore - ClipLoader component compatibility
-						<ClipLoader
-							color='#fff'
-							loading={this.state.isLoading}
-							css={override}
-							size={30}
-						/>
-					) : (
-						this.props.text.button
-					)}
-				</button>
-			</form>
-		)
-	}
+				<Input
+					value={email}
+					type='email'
+					id='email'
+					label={text.label[1]}
+					style={{ divInput: style.input }}
+					required
+					isValid={(isValid: boolean) => setEmailValid(isValid)}
+					onChange={(value: string) => setEmail(value)}
+					validator={
+						[
+							{
+								validationFunction: (value) => isInputValid(value),
+								errorMessage: text.errorEmail[0],
+							},
+							{
+								validationFunction: (value) => isEmailValid(value),
+								errorMessage: text.errorEmail[1],
+							},
+						] as IValidator[]
+					}
+				/>
+			</div>
+			<Input
+				value={subject}
+				type='text'
+				id='subject'
+				label={text.label[2]}
+				onChange={(value: string) => setSubject(value)}
+			/>
+			<Input
+				value={message}
+				type='textarea'
+				id='message'
+				label={text.label[3]}
+				required
+				isValid={(isValid: boolean) => setMessageValid(isValid)}
+				onChange={(value: string) => setMessage(value)}
+				validator={
+					[
+						{
+							validationFunction: (value) => isInputValid(value),
+							errorMessage: text.errorMessage,
+						},
+					] as IValidator[]
+				}
+			/>
+			<button
+				style={style.button}
+				type='submit'
+			>
+				{isLoading ? (
+					// @ts-ignore - ClipLoader component compatibility
+					<ClipLoader
+						color='#fff'
+						loading={isLoading}
+						css={override}
+						size={30}
+					/>
+				) : (
+					text.button
+				)}
+			</button>
+		</form>
+	)
 }
 
 export const styles = (mobile: boolean): IStyles => ({
@@ -254,4 +251,4 @@ export const styles = (mobile: boolean): IStyles => ({
 	},
 })
 
-export default Radium(withIsMobile(withRouter(withText(ContactForm, 'ContactForm')), styles))
+export default Radium(withIsMobile(withText(ContactForm, 'ContactForm'), styles))
