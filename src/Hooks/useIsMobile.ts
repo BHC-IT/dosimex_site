@@ -9,7 +9,8 @@ export const useIsMobile = <T>(styles: (m: boolean) => T): T | null => {
 	// @ts-ignore - React hooks compatibility with React 18
 	React.useEffect(() => {
 		setStyle(null)
-		setTimeout(() => setStyle(styles(isMobile)), 10)
+		const timeoutId = setTimeout(() => setStyle(styles(isMobile)), 10)
+		return () => clearTimeout(timeoutId)
 	}, [])
 
 	return style
@@ -21,7 +22,8 @@ export const useMobile = (): boolean | null => {
 
 	// @ts-ignore - React hooks compatibility with React 18
 	React.useEffect(() => {
-		setTimeout(() => setMobile(isMobile), 10)
+		const timeoutId = setTimeout(() => setMobile(isMobile), 10)
+		return () => clearTimeout(timeoutId)
 	}, [])
 
 	return mobile
@@ -33,7 +35,8 @@ export const useTablet = (): boolean | null => {
 
 	// @ts-ignore - React hooks compatibility with React 18
 	React.useEffect(() => {
-		setTimeout(() => setTablet(isTablet), 10)
+		const timeoutId = setTimeout(() => setTablet(isTablet), 10)
+		return () => clearTimeout(timeoutId)
 	}, [])
 
 	return tablet
