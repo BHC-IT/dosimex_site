@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import Input, { styles, IValidator } from '../Input'
+import Input, { getStyles, IValidator } from '../Input'
 
 describe('Input Component', () => {
 	it('should render input with label', () => {
@@ -217,7 +217,9 @@ describe('Input Validation', () => {
 })
 
 describe('Input Styles', () => {
-	it('should have correct default styles', () => {
+	it('should have correct default styles for desktop', () => {
+		const styles = getStyles(false) // false = desktop
+
 		expect(styles.divInput).toEqual({
 			display: 'flex',
 			flexDirection: 'column',
@@ -232,6 +234,24 @@ describe('Input Styles', () => {
 
 		expect(styles.inputInvalid).toEqual({
 			border: '1px solid red',
+		})
+
+		expect(styles.input).toEqual({
+			border: '1px solid var(--grey-bg)',
+			height: '4vh', // desktop height
+			borderRadius: '5px',
+			resize: 'none',
+		})
+	})
+
+	it('should have correct default styles for mobile', () => {
+		const styles = getStyles(true) // true = mobile
+
+		expect(styles.input).toEqual({
+			border: '1px solid var(--grey-bg)',
+			height: '25px', // mobile height
+			borderRadius: '5px',
+			resize: 'none',
 		})
 	})
 
