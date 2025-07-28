@@ -13,7 +13,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import { css } from '@emotion/react'
 import ClipLoader from 'react-spinners/ClipLoader'
 
-import emailjs from 'emailjs-com'
+import emailjs from '@emailjs/browser'
 
 const override = css`
 	display: block;
