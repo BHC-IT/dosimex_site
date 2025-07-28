@@ -25,19 +25,31 @@ const pages: IPage[] = [
 ]
 
 const RenderNav = ({ text }: any) => {
+	// Only render navigation items if text.items exists and has content
+	if (!text?.items || text.items.length === 0) {
+		return null
+	}
+
 	return (
 		<>
-			{pages.map((page: IPage, i: number) => (
-				<li
-					className='menu-item'
-					key={text.items[i]}
-				>
-					<ItemNavbar
-						name={text.items[i]}
-						route={page.route}
-					/>
-				</li>
-			))}
+			{pages.map((page: IPage, i: number) => {
+				// Only render if the text item exists
+				if (!text.items[i]) {
+					return null
+				}
+
+				return (
+					<li
+						className='menu-item'
+						key={text.items[i]}
+					>
+						<ItemNavbar
+							name={text.items[i]}
+							route={page.route}
+						/>
+					</li>
+				)
+			})}
 		</>
 	)
 }
