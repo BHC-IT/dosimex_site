@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as CSS from 'csstype'
 
-import { isMobile } from 'react-device-detect'
+import { useMobile } from '../Hooks/useIsMobile'
 
 export interface IValidator {
 	validationFunction: (arg0: string) => boolean
@@ -34,6 +34,8 @@ const runValidator = (validator: IValidator[], value: string) =>
 	validator.filter((elem, i) => !elem.validationFunction(value))
 
 const Input = (props: IProps) => {
+	const isMobile = useMobile()
+
 	// @ts-ignore - React hooks compatibility with React 18
 	const [value, setValue] = React.useState<string | null | undefined>(
 		props.value === undefined ? null : props.value
@@ -46,6 +48,13 @@ const Input = (props: IProps) => {
 		if (props.value === value) return
 		setValue(props.value)
 	}, [props.value])
+
+	// Don't render until device detection is complete
+	if (isMobile === null) {
+		return null
+	}
+
+	const styles = getStyles(isMobile)
 
 	const handleBlur = () => {
 		if (props.validator === undefined) return
@@ -115,7 +124,7 @@ const Input = (props: IProps) => {
 
 export default Input
 
-export const styles: IStyles = {
+export const getStyles = (isMobile: boolean): IStyles => ({
 	divInput: {
 		display: 'flex',
 		flexDirection: 'column',
@@ -140,4 +149,4 @@ export const styles: IStyles = {
 	inputInvalid: {
 		border: '1px solid red',
 	},
-}
+})

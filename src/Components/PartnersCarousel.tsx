@@ -1,13 +1,11 @@
 import * as CSS from 'csstype'
 import * as React from 'react'
-import { useIsMobile } from '../Hooks/useIsMobile'
+import { useIsMobile, useDeviceType } from '../Hooks/useIsMobile'
 import { useText } from '../Hooks/useText'
 import { last } from '@bhc/ts-tools'
 import Carousel from 'react-multi-carousel'
 import Radium from 'radium'
 import 'react-multi-carousel/lib/styles.css'
-
-import { isMobile, isTablet } from 'react-device-detect'
 
 interface IMapOfStyle {
 	[i: string]: CSS.Properties
@@ -25,6 +23,8 @@ interface ICardProps {
 	link: string
 	url: string
 	color?: string
+	isMobile: boolean
+	isTablet: boolean
 }
 
 const responsive = {
@@ -96,7 +96,7 @@ const partners = [
 	},
 ]
 
-const Card = ({ text, style, link, url, color }: ICardProps) => {
+const Card = ({ text, style, link, url, color, isMobile, isTablet }: ICardProps) => {
 	// @ts-ignore - React hooks compatibility with React 18
 	const [over, setOver] = React.useState<boolean>(false)
 	return (
@@ -135,8 +135,12 @@ const Card = ({ text, style, link, url, color }: ICardProps) => {
 const PartnersCarousel = () => {
 	const text = useText('Home')
 	const style = useIsMobile(styles)
+	const { isMobile, isTablet } = useDeviceType()
 
-	if (style === null) return null
+	// Wait for device detection to prevent hydration mismatch
+	if (style === null || isMobile === null || isTablet === null) {
+		return null
+	}
 
 	return (
 		// @ts-ignore - Carousel component compatibility
@@ -165,6 +169,8 @@ const PartnersCarousel = () => {
 						link={e.link}
 						url={e.url}
 						key={e.link}
+						isMobile={isMobile}
+						isTablet={isTablet}
 					/>
 				)
 			)}
@@ -174,6 +180,8 @@ const PartnersCarousel = () => {
 				link={last(partners).link}
 				url={last(partners).url}
 				color='rgb(136, 49, 183)'
+				isMobile={isMobile}
+				isTablet={isTablet}
 			/>
 		</Carousel>
 	)

@@ -8,7 +8,7 @@ import Image from 'next/image'
 import { withRouter, NextRouter } from 'next/router'
 import { withText } from '../hoc/withText'
 import SideBar from './SideBar'
-import { BrowserView } from 'react-device-detect'
+import { useMobile } from '../Hooks/useIsMobile'
 
 const originalError = console.error
 
@@ -49,8 +49,12 @@ const pages: IPage[] = [
 
 // @ts-ignore - React.Component typing issues with React 18
 class Navbar extends React.Component<IProps> {
-	constructor(props: IProps) {
-		super(props)
+	// @ts-ignore - React state compatibility
+	state = { isClient: false }
+
+	// @ts-ignore - React lifecycle compatibility
+	componentDidMount() {
+		this.setState({ isClient: true })
 	}
 
 	renderNav = () => {
@@ -74,41 +78,45 @@ class Navbar extends React.Component<IProps> {
 	}
 
 	render() {
+		// Prevent hydration mismatch by not rendering until client-side mount
+		// @ts-ignore - state access
+		if (!this.state.isClient) {
+			return null
+		}
+
 		const ratio = 0.7
 
 		return (
 			<>
 				<div className='divNone'>
-					<BrowserView>
-						<nav style={styles.navbar}>
-							<ul style={styles.navbarUl}>
-								<li style={styles.navbarLi}>
-									<Link href='/'>
-										<Image
-											src='/Images/logo_dosimex_new.webp'
-											alt='logo dosimex'
-											width={212 * ratio}
-											height={44 * ratio}
-											priority
-											quality={40}
-										/>
-									</Link>
-								</li>
-								<this.renderNav />
-								<LanguageSwitch
-									// @ts-ignore - this.props access in class component
-									route={this.props.router.pathname}
-									// @ts-ignore - this.props access in class component
-									language={this.props.router.locale}
-								/>
-							</ul>
-							<Button
+					<nav style={styles.navbar}>
+						<ul style={styles.navbarUl}>
+							<li style={styles.navbarLi}>
+								<Link href='/'>
+									<Image
+										src='/Images/logo_dosimex_new.webp'
+										alt='logo dosimex'
+										width={212 * ratio}
+										height={44 * ratio}
+										priority
+										quality={40}
+									/>
+								</Link>
+							</li>
+							<this.renderNav />
+							<LanguageSwitch
 								// @ts-ignore - this.props access in class component
-								name={this.props.text.button}
-								route='Product'
+								route={this.props.router.pathname}
+								// @ts-ignore - this.props access in class component
+								language={this.props.router.locale}
 							/>
-						</nav>
-					</BrowserView>
+						</ul>
+						<Button
+							// @ts-ignore - this.props access in class component
+							name={this.props.text.button}
+							route='Product'
+						/>
+					</nav>
 				</div>
 				<div id='containerNav'>
 					<SideBar />

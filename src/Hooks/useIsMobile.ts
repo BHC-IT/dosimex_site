@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { isMobile } from 'react-device-detect'
+import { isMobile, isTablet } from 'react-device-detect'
 
 export const useIsMobile = <T>(styles: (m: boolean) => T): T | null => {
 	// @ts-ignore - React hooks compatibility with React 18
@@ -25,4 +25,23 @@ export const useMobile = (): boolean | null => {
 	}, [])
 
 	return mobile
+}
+
+export const useTablet = (): boolean | null => {
+	// @ts-ignore - React hooks compatibility with React 18
+	const [tablet, setTablet] = React.useState<boolean | null>(null)
+
+	// @ts-ignore - React hooks compatibility with React 18
+	React.useEffect(() => {
+		setTimeout(() => setTablet(isTablet), 10)
+	}, [])
+
+	return tablet
+}
+
+export const useDeviceType = (): { isMobile: boolean | null; isTablet: boolean | null } => {
+	const mobile = useMobile()
+	const tablet = useTablet()
+
+	return { isMobile: mobile, isTablet: tablet }
 }
