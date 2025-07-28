@@ -2,9 +2,9 @@ name: Node.js CI Tests
 
 on:
     push:
-        branches: [master, main]
+        branches: ['**']
     pull_request:
-        branches: [master, dev, main]
+        branches: ['**']
 
 jobs:
     test:
@@ -16,12 +16,12 @@ jobs:
 
         steps:
             - uses: actions/checkout@v4
-            
+
             - name: Install pnpm
               uses: pnpm/action-setup@v2
               with:
                   version: latest
-                  
+
             - name: Use Node.js ${{ matrix.node-version }}
               uses: actions/setup-node@v4
               with:
@@ -45,4 +45,4 @@ jobs:
                   CI: true
 
             - name: Build project
-              run: pnpm run build --if-present
+              run: pnpm run build

@@ -114,7 +114,10 @@ const Input = (props: IProps) => {
 			)}
 			{!isValid
 				? erroredValidator.map((e, index) => (
-						<p key={index} style={{ color: 'red' }}>
+						<p
+							key={index}
+							style={{ color: 'red' }}
+						>
 							{e.errorMessage}
 						</p>
 					))
