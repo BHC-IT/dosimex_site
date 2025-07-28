@@ -441,7 +441,7 @@ const text: ILang = {
 		},
 	},
 	Navbar: {
-		items: ['Products', 'Training', 'Documentation', 'About us', 'News', 'Contact'],
+		items: ['Products', 'Training', 'Documentation', 'About us', 'Contact'],
 		button: 'Get Dosimex',
 	},
 }

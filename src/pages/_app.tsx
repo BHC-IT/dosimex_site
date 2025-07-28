@@ -3,11 +3,9 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import Navbar from '../Components/Navbar'
 import Footer from '../Components/Footer'
-import useUser from '../Hooks/useUser'
 import { ToastContainer } from 'react-toastify'
 
 function MyApp({ Component, pageProps }: AppProps) {
-	const user = useUser()
 
 	return (
 		<>
@@ -19,10 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 				<title>Dosimex</title>
 			</Head>
 			<Navbar />
-			<Component
-				{...pageProps}
-				user={user}
-			/>
+			<Component {...pageProps} />
 			<ToastContainer
 				position='bottom-center'
 				autoClose={5000}

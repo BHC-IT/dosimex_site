@@ -43,7 +43,6 @@ const pages: IPage[] = [
 	{ route: 'Training' },
 	{ route: 'Manuals' },
 	{ route: 'About' },
-	{ route: 'articles' },
 	{ route: 'Contact' },
 ]
 

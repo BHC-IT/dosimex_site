@@ -448,7 +448,6 @@ const text: ILang = {
 			'Formations',
 			'Documentation',
 			'Qui sommes-nous ?',
-			'Actualités',
 			'Contact',
 		],
 		button: 'Acheter Dosimex',
