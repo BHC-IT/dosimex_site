@@ -95,7 +95,7 @@ const NameEmailRow: React.FC<INameEmailRowProps> = ({
 				validator={
 					[
 						{
-							validationFunction: (value) => isInputValid(value),
+							validationFunction: value => isInputValid(value),
 							errorMessage: text.errorName,
 						},
 					] as IValidator[]
@@ -112,11 +112,11 @@ const NameEmailRow: React.FC<INameEmailRowProps> = ({
 				validator={
 					[
 						{
-							validationFunction: (value) => isInputValid(value),
+							validationFunction: value => isInputValid(value),
 							errorMessage: text.errorEmail[0],
 						},
 						{
-							validationFunction: (value) => isEmailValid(value),
+							validationFunction: value => isEmailValid(value),
 							errorMessage: text.errorEmail[1],
 						},
 					] as IValidator[]
@@ -209,7 +209,7 @@ const SingleInputs: React.FC<ISingleInputsProps> = ({
 			validator={
 				[
 					{
-						validationFunction: (value) => isInputValid(value),
+						validationFunction: value => isInputValid(value),
 						errorMessage: text.errorMessage,
 					},
 				] as IValidator[]
@@ -268,7 +268,7 @@ const useContactForm = (text: Record<string, string> | undefined) => {
 					address,
 					subject,
 				},
-				'user_ARoYKQez1mORTLjrYuH9q'
+				'user_ARoYKQez1mORTLjrYuH9q',
 			)
 			.then(() => {
 				toast.dismiss(toastLoad)
