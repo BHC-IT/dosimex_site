@@ -4,33 +4,45 @@ import { useIsMobile } from '../Hooks/useIsMobile'
 import { withOrientationChange } from 'react-device-detect'
 
 interface IProps {
-	author: string,
-	text: string,
-	href: string,
-	imageUrl: string,
-	isLandscape?: boolean,
+	author: string
+	text: string
+	href: string
+	imageUrl: string
+	isLandscape?: boolean
 }
 
 const Book = (props: IProps) => {
-
-	const url = `url(Images/${props.imageUrl})`
+	const url = `url(/Images/${props.imageUrl})`
 	const style = useIsMobile(styles)
 	const styleBook = useIsMobile(stylesBook)
 
-	if (style === null || styleBook === null)
-		return null
+	if (style === null || styleBook === null) return null
 
 	return (
 		<div style={style.flex}>
 			<div style={style.divBook}>
-				<a href={`${props.href}`} target="_blank" rel="noreferrer noopener">
-					<div style={props.isLandscape ? { ...styleBook, backgroundImage: url, height: '80vh', width: '30vw' } : { ...styleBook, backgroundImage: url }} />
+				<a
+					href={`${props.href}`}
+					target='_blank'
+					rel='noreferrer noopener'
+				>
+					<div
+						style={
+							props.isLandscape
+								? {
+										...styleBook,
+										backgroundImage: url,
+										height: '80vh',
+										width: '30vw',
+									}
+								: { ...styleBook, backgroundImage: url }
+						}
+					/>
 				</a>
 				<p style={style.author}>{props.author}</p>
-
 			</div>
 			<div style={style.divText}>
-				<p style={{ margin : 0 }}>{props.text}</p>
+				<p style={{ margin: 0 }}>{props.text}</p>
 			</div>
 		</div>
 	)
@@ -47,7 +59,7 @@ export const stylesBook = (mobile: boolean): CSS.Properties => ({
 	backgroundSize: 'cover',
 })
 
-export const styles = (mobile: boolean): {[$:string]: CSS.Properties} => ({
+export const styles = (mobile: boolean): { [$: string]: CSS.Properties } => ({
 	flex: {
 		display: 'flex',
 		flexDirection: mobile ? 'column' : undefined,

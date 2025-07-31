@@ -123,11 +123,6 @@ export default interface Lang {
 		internships: string[]
 	}
 	Product: {
-		header: {
-			title: string
-			p: string
-			button: string
-		}
 		buttonKnowMore: string
 		title: string
 		descrip: string
@@ -144,8 +139,6 @@ export default interface Lang {
 			italic: string
 		}
 		titlePrice: string
-		price: string
-		priceShipment: string
 		questions: {
 			title: string
 			p: string

@@ -232,11 +232,6 @@ const text: ILang = {
 		],
 	},
 	Product: {
-		header: {
-			title: '{Product.header.title}',
-			p: '{Product.header.p}',
-			button: '{Product.header.button}',
-		},
 		buttonKnowMore: '{Product.buttonKnowMore}',
 		title: '{Product.title}',
 		descrip: '{Product.descrip}',
@@ -259,8 +254,6 @@ const text: ILang = {
 			italic: '{Product.prerequisites.italic}',
 		},
 		titlePrice: '{Product.titlePrice}',
-		price: '{Product.price}',
-		priceShipment: '{Product.priceShipment}',
 		questions: {
 			title: '{Product.questions.title}',
 			p: '{Product.questions.p}',

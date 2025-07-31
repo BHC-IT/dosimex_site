@@ -111,7 +111,7 @@ const Card = ({ text, style, link, url, color, isMobile, isTablet }: ICardProps)
 				rel='noopener noreferrer'
 				style={style.wrapper}
 			>
-				<div style={{ ...style.img, backgroundImage: `url(Images/${link})` }} />
+				<div style={{ ...style.img, backgroundImage: `url(/Images/${link})` }} />
 			</a>
 			<p
 				style={{

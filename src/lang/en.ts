@@ -5,10 +5,10 @@ const text: ILang = {
 		header: {
 			title: 'Radiation protection calculation tools for everyone',
 			p: 'A set of practical, easy-to-use, validated calculation tools that address many situations encountered in radiation protection. They will allow you to improve your expertise level.',
-			promo: 'All our calculation tools are now available in English.',
+			promo: 'All our calculation tools are available in English and French.',
 			button: 'Discover',
 			textImage: [
-				'Dosimex USB key',
+				'Dosimex License',
 				'Dosimex-GX Radionuclide',
 				'Dosimex-GX X-ray Generator',
 				'Dosimex-N Monte-Carlo neutron',
@@ -48,7 +48,7 @@ const text: ILang = {
 			},
 		},
 		numbers: {
-			number1: '30 years',
+			number1: '+30 years',
 			p1: ' of experience',
 			number2: '+1000',
 			p2: 'convinced radioprotectionists',
@@ -68,7 +68,7 @@ const text: ILang = {
 			btn: 'More reviews',
 		},
 		callToAction: {
-			title: 'You can buy Dosimex USB key by asking us for a quote',
+			title: 'Get your Dosimex license today by requesting a quote',
 			button: 'Get Dosimex',
 		},
 		videoLink: {
@@ -318,15 +318,10 @@ const text: ILang = {
 		],
 	},
 	Product: {
-		header: {
-			title: 'Dosimex 3.0 USB key',
-			p: 'The DOSIMEX 3.0 USB stick works like a dongle. Just connect it to a PC and all the files automatically appear. The codes are opened and used directly on the key. Click on the button below and buy it for 600€ VAT (shipment expenses excluded). Or contact us via the form at the bottom of the page for a quotation.',
-			button: 'Get Dosimex',
-		},
 		buttonKnowMore: 'Read more',
 		title: 'Product data sheet',
 		descrip:
-			'The DOSIMEX 3.0 USB stick works like a dongle. You just have to connect it to a PC to see all the files automatically appear. The codes are opened and used directly on the key. It is divided into 2 partitions:',
+			'The DOSIMEX 3.2 software package is delivered as a downloadable license. Once you request a license, we provide you with a secure download link and password that activates the software on a single PC. The package includes:',
 		partE: {
 			p: [
 				'All the codes and utilities (15) of the operational (5), learning (1) and measurement (1) packs presented on this site',
@@ -340,12 +335,10 @@ const text: ILang = {
 		},
 		prerequisites: {
 			title: 'Prerequisites',
-			p: 'The codes are written in VBA in Excel. The Dosimex pack works with Windows XP to Windows 10 and Excel 2003 to 2019 by authorizing the operation of macros. On Mac it is necessary to create a "virtual machine".\n Depending on the security measures in place in your company, it is advisable to ask your IT department to whitelist Dosimex.',
+			p: 'The codes are written in VBA in Excel. The Dosimex package works with Windows XP to Windows 11 and Excel 2003 to 2019 by authorizing the operation of macros. On Mac it is necessary to create a "virtual machine".\n Depending on the security measures in place in your company, it is advisable to ask your IT department to whitelist Dosimex.',
 			italic: '',
 		},
-		titlePrice: 'Get Dosimex 3.0 USB key',
-		price: '600€ VAT',
-		priceShipment: '(shipment expenses excluded)',
+		titlePrice: 'Get Dosimex 3.2 License',
 		questions: {
 			title: 'A request for a quotation? Any questions?',
 			p: 'Feel free to contact us via the form below or by phone at ',
@@ -425,7 +418,7 @@ const text: ILang = {
 	Footer: {
 		col1: {
 			p: [
-				'Copyright © 2021 Designed by BHC-IT',
+				'Copyright © 2025 Designed by Dosimex',
 				'All rights reserved ',
 				'06 89 70 90 35',
 				'Follow us on social media',

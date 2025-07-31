@@ -8,7 +8,7 @@ const text: ILang = {
 			promo: 'Tous nos outils de calcul existent désormais en version anglaise.',
 			button: 'Découvrir',
 			textImage: [
-				'Clé Dosimex',
+				'Licence Dosimex',
 				'Dosimex-GX Radionucléide',
 				'Dosimex-GX Générateur X',
 				'Dosimex-N Monte-Carlo neutron',
@@ -44,11 +44,11 @@ const text: ILang = {
 			},
 			card3: {
 				title: 'Formations',
-				p: 'Nous vous accompagnons pour prendre en mains ces outils de calculs en nous adaptant à vos problèmes specifiques',
+				p: 'Nous vous accompagnons pour prendre en mains ces outils de calculs en nous adaptant à vos problèmes spécifiques',
 			},
 		},
 		numbers: {
-			number1: '30 ans',
+			number1: '+30 ans',
 			p1: "d'expérience",
 			number2: '+1000',
 			p2: 'radioprotectionnistes convaincus',
@@ -68,8 +68,8 @@ const text: ILang = {
 			btn: 'Tous les avis',
 		},
 		callToAction: {
-			title: 'Vous pouvez acheter la clé Dosimex en nous demandant un devis',
-			button: 'Acheter Dosimex',
+			title: "Obtenez votre licence Dosimex dès aujourd'hui en demandant un devis",
+			button: 'Obtenir Dosimex',
 		},
 		videoLink: {
 			pres: 'Wrpd_sX0f_M',
@@ -318,15 +318,10 @@ const text: ILang = {
 		],
 	},
 	Product: {
-		header: {
-			title: 'Pack dosimex 3.2',
-			p: "Ensemble des codes et utilitaires (voir onglets « nos produits ») obtenu par téléchargement et utilisable avec un n° de licence  monoposte, sans limitation de temps. L'ensemble des utilitaires de calculs est vendu pour 600€ TTC. Contactez-nous via le formulaire en bas de page pour un devis.",
-			button: 'Commander Dosimex',
-		},
 		buttonKnowMore: 'En savoir plus',
 		title: 'Fiche technique du produit',
 		descrip:
-			"La clé USB DOSIMEX 3.0 fonctionne comme un dongle. Il suffit de la connecter sur un PC pour voir apparaître automatiquement l’ensemble des dossiers. Les codes s'ouvrent et s’utilisent directement sur la clé. Elle se subdivise en 2 partitions :",
+			"Le logiciel DOSIMEX 3.2 est fourni sous forme de licence téléchargeable. Dès votre demande de licence, nous vous fournissons un lien de téléchargement sécurisé et un mot de passe permettant d'activer le logiciel sur un seul PC. Le pack comprend :",
 		partE: {
 			p: [
 				'Tous les codes et utilitaires (15) des packs opérationnel (5), pédagogique (4) et mesures (4) présentés sur ce site',
@@ -345,9 +340,7 @@ const text: ILang = {
 			p: 'Les codes sont écrits en VBA sous Excel. Le pack Dosimex fonctionne avec Windows XP à Windows 10 et Excel 2003 à 2019 en autorisant le fonctionnement des macros. Sur Mac il est nécessaire de créer une « machine virtuelle ».\n Suivant les mesures de sécurité mises en place dans l’entreprise, il est conseillé de demander à votre service informatique de « whitelister » Dosimex.',
 			italic: "Les fichiers de Dosimex sont cryptés. Aucun autre fichier excel ne doit etre ouvert pendant l'utilisation de Dosimex",
 		},
-		titlePrice: 'Obtenir la clé USB Dosimex 3.0',
-		price: '600€ TTC',
-		priceShipment: "(frais d'envoi inclus)",
+		titlePrice: 'Obtenir la licence Dosimex 3.2',
 		questions: {
 			title: 'Une demande de devis ? Des questions ?',
 			p: 'N’hésitez pas à nous contacter via le formulaire ci-dessous ou par téléphone au ',
@@ -427,7 +420,7 @@ const text: ILang = {
 	Footer: {
 		col1: {
 			p: [
-				'Copyright © 2021 Designed by BHC-IT',
+				'Copyright © 2025 Designed by Dosimex',
 				'Tous droits réservés ',
 				'06 89 70 90 35',
 				'Retrouvez-nous sur nos réseaux',
@@ -443,14 +436,8 @@ const text: ILang = {
 		},
 	},
 	Navbar: {
-		items: [
-			'Nos produits',
-			'Formations',
-			'Documentation',
-			'Qui sommes-nous ?',
-			'Contact',
-		],
-		button: 'Acheter Dosimex',
+		items: ['Nos produits', 'Formations', 'Documentation', 'Qui sommes-nous ?', 'Contact'],
+		button: 'Obtenir Dosimex',
 	},
 }
 
