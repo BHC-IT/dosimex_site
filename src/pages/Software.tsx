@@ -62,7 +62,7 @@ const LinkVideo = ({ link, textOver }: ILinkVideoProps) => {
 				href={handleLink(link)[1]}
 				target='_blank'
 				rel='noreferrer noopener'
-				onMouseOver={(e) => {
+				onMouseOver={e => {
 					setIsVisible(true)
 					setX(e.clientX)
 				}}
@@ -117,7 +117,7 @@ const LiLabel = ({ text, style, textOver }: ILiLabelProps) => (
 				>
 					{e}
 				</p>
-			)
+			),
 		)}
 	</p>
 )
@@ -176,7 +176,7 @@ interface PartImageProps {
 const PartImage = styled.div<PartImageProps>`
 	width: 14vw;
 	margin-left: 1.5vw;
-	background: url(${(props) => props.imageUrl});
+	background: url(${props => props.imageUrl});
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -186,7 +186,7 @@ const PartImage = styled.div<PartImageProps>`
 const PartImageRight = styled.div<PartImageProps>`
 	width: 14vw;
 	margin-right: 1.5vw;
-	background: url(${(props) => props.imageUrl});
+	background: url(${props => props.imageUrl});
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;

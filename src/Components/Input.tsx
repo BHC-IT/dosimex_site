@@ -31,7 +31,7 @@ interface IStyles {
 }
 
 const runValidator = (validator: IValidator[], value: string): IValidator[] =>
-	validator.filter((elem) => !elem.validationFunction(value))
+	validator.filter(elem => !elem.validationFunction(value))
 
 const Input = (props: IProps) => {
 	const isMobile = useMobile()
@@ -91,7 +91,7 @@ const Input = (props: IProps) => {
 					placeholder={props.placeholder}
 					rows={props.areaSize?.[0] ?? 10}
 					cols={props.areaSize?.[1] ?? 20}
-					onChange={(e) => handleChange(e.target.value)}
+					onChange={e => handleChange(e.target.value)}
 					onBlur={handleBlur}
 					required={props.required}
 				/>
@@ -102,7 +102,7 @@ const Input = (props: IProps) => {
 					id={props.id}
 					style={isValid ? styleInput : styleInputInvalid}
 					placeholder={props.placeholder}
-					onChange={(e) => handleChange(e.target.value)}
+					onChange={e => handleChange(e.target.value)}
 					onBlur={handleBlur}
 					required={props.required}
 				/>

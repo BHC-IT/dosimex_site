@@ -2,7 +2,6 @@ import * as CSS from 'csstype'
 import React, { useState } from 'react'
 import { useIsMobile, useDeviceType } from '../Hooks/useIsMobile'
 import { useText } from '../Hooks/useText'
-import { last } from '@bhc/ts-tools'
 import Carousel from 'react-multi-carousel'
 import Radium from 'radium'
 import 'react-multi-carousel/lib/styles.css'
@@ -149,9 +148,9 @@ const PartnersCarousel = () => {
 			draggable={false}
 			responsive={responsive}
 			arrows={false}
-			ssr={true}
-			infinite={true}
-			autoPlay={true}
+			ssr
+			infinite
+			autoPlay
 			autoPlaySpeed={1000}
 			keyBoardControl={false}
 			customTransition='all .5'

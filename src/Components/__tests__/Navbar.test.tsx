@@ -73,7 +73,7 @@ describe('Navbar Component', () => {
 		// Mock client-side rendering
 		Object.defineProperty(window, 'matchMedia', {
 			writable: true,
-			value: vi.fn().mockImplementation((query) => ({
+			value: vi.fn().mockImplementation(query => ({
 				matches: false,
 				media: query,
 				onchange: null,
@@ -151,7 +151,7 @@ describe('Navbar Component', () => {
 		// Should have two logos (one in main nav, one in mobile)
 		expect(logos.length).toBeGreaterThan(0)
 
-		logos.forEach((logo) => {
+		logos.forEach(logo => {
 			// Check that width and height attributes are set
 			expect(logo).toHaveAttribute('width')
 			expect(logo).toHaveAttribute('height')

@@ -3,7 +3,7 @@ import { useIsMobile } from '../Hooks/useIsMobile'
 
 export const withIsMobile = <Props extends object, T>(
 	Component: React.ComponentType<Props>,
-	style: (m: boolean) => T
+	style: (m: boolean) => T,
 ): React.FC<Props> => {
 	const WithIsMobileComponent = (props: Props) => {
 		const styleMobile = useIsMobile(style)

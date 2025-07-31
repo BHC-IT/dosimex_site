@@ -93,7 +93,7 @@ const listVideoYt = {
 const splitArrays = (nb: number, arr: any[]) => {
 	const retour: any[][] = []
 	let tmp: any[] = []
-	arr.map((id) => {
+	arr.map(id => {
 		tmp.push(id)
 		if (tmp.length === 4) {
 			retour.push(tmp)

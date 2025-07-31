@@ -5,7 +5,7 @@ import { text } from '../Hooks/useText'
 
 export const withText = <Props extends object>(
 	Component: React.ComponentType<Props>,
-	page: string
+	page: string,
 ): React.FC<Props> => {
 	const WithTextComponent = (props: Props) => {
 		const route = useRouter()

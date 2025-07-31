@@ -46,7 +46,7 @@ const ContactForm: React.FC<IProps> = ({ text, style }) => {
 				'service_wekm5vt',
 				'template_9bIlFiWV',
 				{ text: message, name: name, email: email },
-				'user_ARoYKQez1mORTLjrYuH9q'
+				'user_ARoYKQez1mORTLjrYuH9q',
 			)
 			.then(() => {
 				toast.dismiss(toastLoad)
@@ -92,7 +92,7 @@ const ContactForm: React.FC<IProps> = ({ text, style }) => {
 					validator={
 						[
 							{
-								validationFunction: (value) => isInputValid(value),
+								validationFunction: value => isInputValid(value),
 								errorMessage: text.errorName,
 							},
 						] as IValidator[]
@@ -110,11 +110,11 @@ const ContactForm: React.FC<IProps> = ({ text, style }) => {
 					validator={
 						[
 							{
-								validationFunction: (value) => isInputValid(value),
+								validationFunction: value => isInputValid(value),
 								errorMessage: text.errorEmail[0],
 							},
 							{
-								validationFunction: (value) => isEmailValid(value),
+								validationFunction: value => isEmailValid(value),
 								errorMessage: text.errorEmail[1],
 							},
 						] as IValidator[]
@@ -139,7 +139,7 @@ const ContactForm: React.FC<IProps> = ({ text, style }) => {
 				validator={
 					[
 						{
-							validationFunction: (value) => isInputValid(value),
+							validationFunction: value => isInputValid(value),
 							errorMessage: text.errorMessage,
 						},
 					] as IValidator[]
