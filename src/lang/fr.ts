@@ -408,9 +408,10 @@ const text: ILang = {
 	},
 	ContactForm: {
 		title: 'Contactez-nous',
-		label: ['Nom', 'Email', 'Sujet', 'Message'],
+		label: ['Nom', 'Email', 'Téléphone', 'Entreprise', 'Adresse', 'Sujet', 'Message'],
 		errorName: 'Veuillez rentrer un nom',
 		errorEmail: ['Veuillez rentrer un email', 'Veuillez rentrer un email valide'],
+		errorPhone: 'Veuillez rentrer un numéro de téléphone valide',
 		errorMessage: 'Veuillez rentrer un message',
 		button: 'Envoyer',
 		sending: 'Envoi en cours...',

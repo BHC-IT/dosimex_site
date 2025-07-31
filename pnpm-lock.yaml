@@ -77,6 +77,9 @@ importers:
       react-parallax-tilt:
         specifier: ^1.7.304
         version: 1.7.304(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-phone-number-input:
+        specifier: ^3.4.12
+        version: 3.4.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-spinners:
         specifier: ^0.11.0
         version: 0.11.0(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -2054,6 +2057,17 @@ packages:
   inline-style-prefixer@4.0.2:
     resolution: {integrity: sha512-N8nVhwfYga9MiV9jWlwfdj1UDIaZlBFu4cJSJkIr7tZX7sHpHhGR5su1qdpW+7KPL8ISTvCIkcaFi/JdBknvPg==}
 
+  input-format@0.3.14:
+    resolution: {integrity: sha512-gHMrgrbCgmT4uK5Um5eVDUohuV9lcs95ZUUN9Px2Y0VIfjTzT2wF8Q3Z4fwLFm7c5Z2OXCm53FHoovj6SlOKdg==}
+    peerDependencies:
+      react: '>=18.1.0'
+      react-dom: '>=18.1.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+
   install@0.13.0:
     resolution: {integrity: sha512-zDml/jzr2PKU9I8J/xyZBQn8rPCAY//UOYNmR01XwNwyfhEWObo2SWfSl1+0tm1u6PhxLwDnfsT/6jB7OUxqFA==}
     engines: {node: '>= 0.10'}
@@ -2283,6 +2297,9 @@ packages:
   levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
+
+  libphonenumber-js@1.12.10:
+    resolution: {integrity: sha512-E91vHJD61jekHHR/RF/E83T/CMoaLXT7cwYA75T4gim4FZjnM6hbJjVIGg7chqlSqRsSvQ3izGmOjHy1SQzcGQ==}
 
   lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
@@ -2701,6 +2718,12 @@ packages:
     peerDependencies:
       react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
+  react-phone-number-input@3.4.12:
+    resolution: {integrity: sha512-Raob77KdtLGm49iC6nuOX9qy6Mg16idkgC7Y1mHmvG2WBYoauHpzxYNlfmFskQKeiztrJIwPhPzBhjFwjenNCA==}
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
 
   react-popper@2.3.0:
     resolution: {integrity: sha512-e1hj8lL3uM+sgSR4Lxzn5h1GxBlpa4CQz0XLF8kx4MDrDRWY0Ena4c97PUeSX9i5W3UAfDP0z0FXCTQkoXUl3Q==}
@@ -5396,6 +5419,13 @@ snapshots:
       bowser: 1.9.4
       css-in-js-utils: 2.0.1
 
+  input-format@0.3.14(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      prop-types: 15.8.1
+    optionalDependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
   install@0.13.0: {}
 
   internal-slot@1.1.0:
@@ -5647,6 +5677,8 @@ snapshots:
     dependencies:
       prelude-ls: 1.2.1
       type-check: 0.4.0
+
+  libphonenumber-js@1.12.10: {}
 
   lines-and-columns@1.2.4: {}
 
@@ -5994,6 +6026,16 @@ snapshots:
 
   react-parallax-tilt@1.7.304(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
+  react-phone-number-input@3.4.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      classnames: 2.5.1
+      country-flag-icons: 1.5.19
+      input-format: 0.3.14(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      libphonenumber-js: 1.12.10
+      prop-types: 15.8.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 

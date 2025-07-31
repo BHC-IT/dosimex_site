@@ -263,3 +263,40 @@ h5 {
 		font-size: 55%;
 	}
 }
+
+/* Custom PhoneInput styles to match form inputs */
+.phone-input-custom .PhoneInputInput {
+	border: 1px solid var(--grey-bg);
+	height: 4vh;
+	border-radius: 5px;
+	resize: none;
+	padding: 0 12px;
+	font-size: 1.6rem;
+	font-family: var(--nunito);
+}
+
+/* Error state for phone input */
+.phone-input-error .PhoneInputInput {
+	border: 1px solid red;
+}
+
+@media screen and (max-width: 768px) {
+	.phone-input-custom .PhoneInputInput {
+		height: 25px;
+	}
+}
+
+.phone-input-custom .PhoneInputCountrySelect {
+	border: 1px solid var(--grey-bg);
+	border-radius: 5px;
+	margin-right: 8px;
+	padding: 4px;
+}
+
+.phone-input-error .PhoneInputCountrySelect {
+	border: 1px solid red;
+}
+
+.phone-input-custom .PhoneInputCountryIcon {
+	border-radius: 2px;
+}

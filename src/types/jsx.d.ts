@@ -1,6 +1,11 @@
 /// <reference types="react" />
 /// <reference types="react-dom" />
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+import { ComponentType, ReactNode } from 'react'
+
 // Simple JSX compatibility fix for React 18
 declare global {
 	namespace JSX {
@@ -13,7 +18,7 @@ declare global {
 // Temporarily disable strict JSX checking
 declare module 'react' {
 	// Allow any function to be used as a JSX component
-	interface FunctionComponent<P = {}> {
+	interface FunctionComponent<P = Record<string, unknown>> {
 		(props: P, context?: any): any
 	}
 
@@ -33,14 +38,12 @@ declare module 'react' {
 	export const createElement: any
 
 	// Type aliases
-	export type ComponentType<_P = {}> = any
-	export type FC<_P = {}> = any
+	export type ComponentType<_P = Record<string, unknown>> = any
+	export type FC<_P = Record<string, unknown>> = any
 	export type ComponentPropsWithoutRef<_T> = any
 	export type FormEvent<_T = Element> = any
 } // Fix for Next.js Image component
 declare module 'next/image' {
-	import { ComponentType } from 'react'
-
 	interface ImageProps {
 		src: string
 		alt: string
@@ -81,8 +84,6 @@ declare module 'next/image' {
 
 // Fix for react-device-detect
 declare module 'react-device-detect' {
-	import { ComponentType, ReactNode } from 'react'
-
 	export const isMobile: boolean
 	export const isTablet: boolean
 	export const isDesktop: boolean
@@ -98,8 +99,6 @@ declare module 'react-device-detect' {
 
 // Fix for FontAwesome
 declare module '@fortawesome/react-fontawesome' {
-	import { ComponentType } from 'react'
-
 	interface FontAwesomeIconProps {
 		icon: any
 		size?: string
@@ -114,8 +113,6 @@ declare module '@fortawesome/react-fontawesome' {
 
 // Fix for react-parallax-tilt
 declare module 'react-parallax-tilt' {
-	import { ComponentType, ReactNode } from 'react'
-
 	interface TiltProps {
 		children?: ReactNode
 		tiltReverse?: boolean
@@ -133,8 +130,6 @@ declare module 'react-parallax-tilt' {
 
 // Fix for Next.js Link
 declare module 'next/link' {
-	import { ComponentType, ReactNode } from 'react'
-
 	interface LinkProps {
 		href: string
 		children?: ReactNode
@@ -153,8 +148,6 @@ declare module 'next/link' {
 
 // Fix for Next.js modules
 declare module 'next/router' {
-	import { ComponentType } from 'react'
-
 	export interface NextRouter {
 		route: string
 		pathname: string
@@ -187,7 +180,6 @@ declare module 'next/router' {
 }
 
 declare module 'next/app' {
-	import { ComponentType } from 'react'
 	export interface AppProps {
 		Component: ComponentType<any>
 		pageProps: any
@@ -195,7 +187,6 @@ declare module 'next/app' {
 }
 
 declare module 'next/head' {
-	import { ComponentType, ReactNode } from 'react'
 	interface HeadProps {
 		children?: ReactNode
 	}
@@ -204,8 +195,6 @@ declare module 'next/head' {
 }
 
 declare module 'next/document' {
-	import { ComponentType, ReactNode } from 'react'
-
 	interface DocumentProps {
 		children?: ReactNode
 	}
@@ -221,8 +210,6 @@ declare module 'next/document' {
 
 // Fix for react-youtube
 declare module 'react-youtube' {
-	import { ComponentType } from 'react'
-
 	interface YouTubeProps {
 		videoId: string
 		opts?: {
@@ -239,8 +226,6 @@ declare module 'react-youtube' {
 
 // Fix for react-spinners
 declare module 'react-spinners' {
-	import { ComponentType } from 'react'
-
 	interface LoaderProps {
 		color?: string
 		loading?: boolean
@@ -254,8 +239,6 @@ declare module 'react-spinners' {
 
 // Fix for react-multi-carousel
 declare module 'react-multi-carousel' {
-	import { ComponentType, ReactNode } from 'react'
-
 	interface CarouselProps {
 		swipeable?: boolean
 		draggable?: boolean

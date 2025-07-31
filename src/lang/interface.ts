@@ -189,6 +189,7 @@ export default interface Lang {
 		label: string[]
 		errorName: string
 		errorEmail: string[]
+		errorPhone: string
 		errorMessage: string
 		button: string
 		sending: string
