@@ -90,10 +90,6 @@ const partners = [
 		link: 'logo_partenaires/trad.webp',
 		url: 'https://www.rayxpert.com/',
 	},
-	{
-		link: 'test6_name_customcolor_backless_v2_light_dark.webp',
-		url: 'https://bhc-it.com',
-	},
 ]
 
 const Card = ({ text, style, link, url, color, isMobile, isTablet }: ICardProps) => {
@@ -107,13 +103,13 @@ const Card = ({ text, style, link, url, color, isMobile, isTablet }: ICardProps)
 				flexDirection: isMobile ? 'column' : undefined,
 			}}
 			onMouseOut={() => setOver(false)}
+			onMouseOver={() => setOver(true)}
 		>
 			<a
 				href={url}
 				target='_blank'
 				rel='noopener noreferrer'
 				style={style.wrapper}
-				onMouseOver={() => setOver(true)}
 			>
 				<div style={{ ...style.img, backgroundImage: `url(Images/${link})` }} />
 			</a>
@@ -123,7 +119,6 @@ const Card = ({ text, style, link, url, color, isMobile, isTablet }: ICardProps)
 					color: color || (isMobile ? 'var(--dark)' : 'var(--grey)'),
 					display: isMobile || over ? 'block' : 'none',
 				}}
-				onMouseOver={() => setOver(true)}
 			>
 				{text}
 			</p>
@@ -154,9 +149,9 @@ const PartnersCarousel = () => {
 			draggable={false}
 			responsive={responsive}
 			arrows={false}
-			ssr={false}
-			infinite={false}
-			autoPlay={false}
+			ssr={true}
+			infinite={true}
+			autoPlay={true}
 			autoPlaySpeed={1000}
 			keyBoardControl={false}
 			customTransition='all .5'
@@ -167,8 +162,6 @@ const PartnersCarousel = () => {
 			itemClass='carousel-item-padding-40-px'
 		>
 			{partners.map((e: unknown, i: number) => {
-				if (e === last(partners)) return null
-
 				const partner = e as { link: string; url: string }
 				return (
 					<Card
@@ -182,15 +175,6 @@ const PartnersCarousel = () => {
 					/>
 				)
 			})}
-			<Card
-				text={text.partners.li[11]}
-				style={style.card}
-				link={last(partners).link}
-				url={last(partners).url}
-				color='rgb(136, 49, 183)'
-				isMobile={isMobile}
-				isTablet={isTablet}
-			/>
 		</Carousel>
 	)
 }
