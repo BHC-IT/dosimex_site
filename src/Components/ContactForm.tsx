@@ -80,6 +80,10 @@ const NameEmailRow: React.FC<INameEmailRowProps> = ({
 	setEmail,
 }) => {
 	const isEmailValid = (value: string): boolean => mailFormat.test(value)
+	const labels = Array.isArray(text.label) ? text.label : []
+	const errorEmailArray = Array.isArray(text.errorEmail)
+		? text.errorEmail
+		: [text.errorEmail || '']
 
 	return (
 		<div style={style.divNameMail ?? defaultStyles.divNameMail}>
@@ -87,7 +91,7 @@ const NameEmailRow: React.FC<INameEmailRowProps> = ({
 				value={name}
 				type='text'
 				id='name'
-				label={text.label[0]}
+				label={labels[0] ?? 'Name'}
 				style={{ divInput: style.input ?? defaultStyles.input }}
 				required
 				isValid={(isValid: boolean) => setNameValid(isValid)}
@@ -95,8 +99,8 @@ const NameEmailRow: React.FC<INameEmailRowProps> = ({
 				validator={
 					[
 						{
-							validationFunction: value => isInputValid(value),
-							errorMessage: text.errorName,
+							validationFunction: (value) => isInputValid(value),
+							errorMessage: text.errorName ?? 'Name is required',
 						},
 					] as IValidator[]
 				}
@@ -105,19 +109,19 @@ const NameEmailRow: React.FC<INameEmailRowProps> = ({
 				value={email}
 				type='email'
 				id='email'
-				label={text.label[1]}
+				label={labels[1] ?? 'Email'}
 				style={{ divInput: style.input ?? defaultStyles.input }}
 				required
 				onChange={(value: string) => setEmail(value)}
 				validator={
 					[
 						{
-							validationFunction: value => isInputValid(value),
-							errorMessage: text.errorEmail[0],
+							validationFunction: (value) => isInputValid(value),
+							errorMessage: errorEmailArray[0] ?? 'Email is required',
 						},
 						{
-							validationFunction: value => isEmailValid(value),
-							errorMessage: text.errorEmail[1],
+							validationFunction: (value) => isEmailValid(value),
+							errorMessage: errorEmailArray[1] ?? 'Invalid email format',
 						},
 					] as IValidator[]
 				}
@@ -134,46 +138,50 @@ const PhoneEnterpriseRow: React.FC<IPhoneEnterpriseRowProps> = ({
 	enterprise,
 	handlePhoneChange,
 	setEnterprise,
-}) => (
-	<div style={style.divNameMail ?? defaultStyles.divNameMail}>
-		<div style={style.phoneInput ?? defaultStyles.phoneInput}>
-			<label
-				htmlFor='phone'
-				style={{
-					textTransform: 'uppercase',
-					color: 'var(--grey)',
-					fontSize: '2rem',
-					display: 'block',
-				}}
-			>
-				{text.label[2]}
-			</label>
-			<PhoneInput
-				id='phone'
-				value={phone}
-				onChange={handlePhoneChange}
-				defaultCountry='FR'
-				style={{
-					width: '100%',
-				}}
-				className={`phone-input-custom ${phoneError ? 'phone-input-error' : ''}`}
+}) => {
+	const labels = Array.isArray(text.label) ? text.label : []
+
+	return (
+		<div style={style.divNameMail ?? defaultStyles.divNameMail}>
+			<div style={style.phoneInput ?? defaultStyles.phoneInput}>
+				<label
+					htmlFor='phone'
+					style={{
+						textTransform: 'uppercase',
+						color: 'var(--grey)',
+						fontSize: '2rem',
+						display: 'block',
+					}}
+				>
+					{labels[2] ?? 'Phone'}
+				</label>
+				<PhoneInput
+					id='phone'
+					value={phone}
+					onChange={handlePhoneChange}
+					defaultCountry='FR'
+					style={{
+						width: '100%',
+					}}
+					className={`phone-input-custom ${phoneError ? 'phone-input-error' : ''}`}
+				/>
+				{phoneError && (
+					<p style={{ color: 'red', margin: '4px 0 0 0', fontSize: '1.4rem' }}>
+						{phoneError}
+					</p>
+				)}
+			</div>
+			<Input
+				value={enterprise}
+				type='text'
+				id='enterprise'
+				label={labels[3] ?? 'Enterprise'}
+				style={{ divInput: style.input ?? defaultStyles.input }}
+				onChange={(value: string) => setEnterprise(value)}
 			/>
-			{phoneError && (
-				<p style={{ color: 'red', margin: '4px 0 0 0', fontSize: '1.4rem' }}>
-					{phoneError}
-				</p>
-			)}
 		</div>
-		<Input
-			value={enterprise}
-			type='text'
-			id='enterprise'
-			label={text.label[3]}
-			style={{ divInput: style.input ?? defaultStyles.input }}
-			onChange={(value: string) => setEnterprise(value)}
-		/>
-	</div>
-)
+	)
+}
 
 const SingleInputs: React.FC<ISingleInputsProps> = ({
 	text,
@@ -183,40 +191,44 @@ const SingleInputs: React.FC<ISingleInputsProps> = ({
 	setAddress,
 	setSubject,
 	setMessage,
-}) => (
-	<>
-		<Input
-			value={address}
-			type='text'
-			id='address'
-			label={text.label[4]}
-			onChange={(value: string) => setAddress(value)}
-		/>
-		<Input
-			value={subject}
-			type='text'
-			id='subject'
-			label={text.label[5]}
-			onChange={(value: string) => setSubject(value)}
-		/>
-		<Input
-			value={message}
-			type='textarea'
-			id='message'
-			label={text.label[6]}
-			required
-			onChange={(value: string) => setMessage(value)}
-			validator={
-				[
-					{
-						validationFunction: value => isInputValid(value),
-						errorMessage: text.errorMessage,
-					},
-				] as IValidator[]
-			}
-		/>
-	</>
-)
+}) => {
+	const labels = Array.isArray(text.label) ? text.label : []
+
+	return (
+		<>
+			<Input
+				value={address}
+				type='text'
+				id='address'
+				label={labels[4] ?? 'Address'}
+				onChange={(value: string) => setAddress(value)}
+			/>
+			<Input
+				value={subject}
+				type='text'
+				id='subject'
+				label={labels[5] ?? 'Subject'}
+				onChange={(value: string) => setSubject(value)}
+			/>
+			<Input
+				value={message}
+				type='textarea'
+				id='message'
+				label={labels[6] ?? 'Message'}
+				required
+				onChange={(value: string) => setMessage(value)}
+				validator={
+					[
+						{
+							validationFunction: (value) => isInputValid(value),
+							errorMessage: text.errorMessage ?? 'Message is required',
+						},
+					] as IValidator[]
+				}
+			/>
+		</>
+	)
+}
 
 const SubmitButton: React.FC<ISubmitButtonProps> = ({ style, text, isLoading }) => (
 	<button
@@ -224,9 +236,11 @@ const SubmitButton: React.FC<ISubmitButtonProps> = ({ style, text, isLoading }) 
 		type='submit'
 	>
 		{isLoading ? (
-			<div style={{ display: 'block', margin: '0 auto', borderColor: 'red' }}>Loading...</div>
+			<div style={{ display: 'block', margin: '0 auto', borderColor: 'red' }}>
+				{text.sending ?? 'Loading...'}
+			</div>
 		) : (
-			text.button
+			(text.button ?? 'Submit')
 		)}
 	</button>
 )
@@ -247,7 +261,7 @@ const useContactForm = (text: Record<string, string | string[]> | undefined) => 
 		setPhone(value)
 		if (value && !isPossiblePhoneNumber(value)) {
 			setPhoneError(
-				Array.isArray(text?.errorPhone) ? text.errorPhone[0] : (text?.errorPhone ?? ''),
+				Array.isArray(text?.errorPhone) ? text.errorPhone[0] : (text?.errorPhone ?? '')
 			)
 		} else {
 			setPhoneError(null)
@@ -270,7 +284,7 @@ const useContactForm = (text: Record<string, string | string[]> | undefined) => 
 					address,
 					subject,
 				},
-				'user_ARoYKQez1mORTLjrYuH9q',
+				'user_ARoYKQez1mORTLjrYuH9q'
 			)
 			.then(() => {
 				toast.dismiss(toastLoad)
@@ -305,7 +319,7 @@ const useContactForm = (text: Record<string, string | string[]> | undefined) => 
 			resetForm()
 		} else if (!isPhoneValid) {
 			setPhoneError(
-				Array.isArray(text?.errorPhone) ? text.errorPhone[0] : (text?.errorPhone ?? ''),
+				Array.isArray(text?.errorPhone) ? text.errorPhone[0] : (text?.errorPhone ?? '')
 			)
 		}
 	}
