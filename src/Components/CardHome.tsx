@@ -1,13 +1,13 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import Radium from 'radium'
-import { useRouter } from 'next/router'
-import { useIsMobile } from '../Hooks/useIsMobile'
-import Tilt from 'react-parallax-tilt'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import * as CSS from 'csstype'
+import Image from 'next/image'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import Radium from 'radium'
+import Tilt from 'react-parallax-tilt'
+
+import { useIsMobile } from '../Hooks/useIsMobile'
 
 export interface IStyles {
 	global: CSS.Properties
@@ -41,7 +41,9 @@ const CardHome = (props: IProps) => {
 		>
 			<div
 				style={style.card}
-				onClick={() => router.push(props.route)}
+				onClick={() => {
+					void router.push(props.route)
+				}}
 			>
 				<div style={style.image}>
 					<Image

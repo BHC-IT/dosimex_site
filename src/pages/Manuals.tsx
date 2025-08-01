@@ -1,10 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { useIsMobile } from '../Hooks/useIsMobile'
-import { useText } from '../Hooks/useText'
-import { useRouter } from 'next/router'
 import * as CSS from 'csstype'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
+import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
+
+import { useIsMobile } from '../Hooks/useIsMobile'
+import { useText } from '../Hooks/useText'
 
 const LinkZone = styled.li`
 	display: flex;

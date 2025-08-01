@@ -1,8 +1,9 @@
 import * as CSS from 'csstype'
-import SquareGrid from '../Components/SquareGrid'
-import Btn from '../Components/Button'
-import Image from 'next/image'
 import dynamic from 'next/dynamic'
+import Image from 'next/image'
+
+import Btn from '../Components/Button'
+import SquareGrid from '../Components/SquareGrid'
 import { useIsMobile, useMobile } from '../Hooks/useIsMobile'
 import { useText } from '../Hooks/useText'
 import ILang from '../lang/interface'
@@ -38,7 +39,7 @@ const Header = ({ text, style }: IProps) => (
 		</div>
 		<div style={style.imgContainer}>
 			<YouTube
-				videoId={'l0bIZ201gLo'}
+				videoId="l0bIZ201gLo"
 				opts={{ height: '320', width: '550' }}
 			/>
 		</div>

@@ -1,7 +1,8 @@
 import CSS from 'csstype'
-import { useText } from '../Hooks/useText'
-import { useIsMobile } from '../Hooks/useIsMobile'
+
 import Book from '../Components/Book'
+import { useIsMobile } from '../Hooks/useIsMobile'
+import { useText } from '../Hooks/useText'
 
 const Books = () => {
 	const style = useIsMobile(styles)

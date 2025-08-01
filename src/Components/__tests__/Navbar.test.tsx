@@ -1,6 +1,6 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { useRouter } from 'next/router'
+import { describe, it, expect, vi, beforeEach } from 'vitest'
 
 import Navbar from '../Navbar'
 

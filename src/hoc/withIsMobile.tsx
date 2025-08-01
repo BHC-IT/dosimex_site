@@ -1,4 +1,5 @@
 import * as React from 'react'
+
 import { useIsMobile } from '../Hooks/useIsMobile'
 
 export const withIsMobile = <Props extends object, T>(
@@ -21,6 +22,6 @@ export const withIsMobile = <Props extends object, T>(
 		)
 	}
 
-	WithIsMobileComponent.displayName = `withIsMobile(${Component.displayName || Component.name})`
+	WithIsMobileComponent.displayName = `withIsMobile(${Component.displayName ?? Component.name})`
 	return WithIsMobileComponent
 }

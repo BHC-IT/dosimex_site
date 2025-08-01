@@ -1,6 +1,7 @@
-import * as React from 'react'
-import Radium from 'radium'
 import * as CSS from 'csstype'
+import Radium from 'radium'
+import * as React from 'react'
+
 import { useIsMobile } from '../Hooks/useIsMobile'
 
 export interface IStyles {

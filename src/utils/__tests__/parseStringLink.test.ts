@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest'
+
 import { parseStringLink, isLink, handleLink } from '../parseStringLink'
 
 describe('parseStringLink', () => {

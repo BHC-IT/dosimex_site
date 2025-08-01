@@ -1,10 +1,9 @@
 import { useRouter } from 'next/router'
 
-import ILang from '../lang/interface'
-
-import fr from '../lang/fr'
-import en from '../lang/en'
 import debug from '../lang/debug'
+import en from '../lang/en'
+import fr from '../lang/fr'
+import ILang from '../lang/interface'
 
 export const text : {[$:string]: ILang} = { fr, en, debug }
 

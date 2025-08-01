@@ -1,7 +1,8 @@
 import CSS from 'csstype'
 import Radium from 'radium'
-import { useIsMobile } from '../Hooks/useIsMobile'
 import { withOrientationChange } from 'react-device-detect'
+
+import { useIsMobile } from '../Hooks/useIsMobile'
 
 interface IProps {
 	author: string

@@ -1,10 +1,12 @@
 import * as CSS from 'csstype'
 import dynamic from 'next/dynamic'
-const YouTube = dynamic(() => import('react-youtube'))
+
 import SquareGrid, { IStyles as SquareStyle } from '../Components/SquareGrid'
 import { useIsMobile } from '../Hooks/useIsMobile'
 import { useText } from '../Hooks/useText'
 import ILang from '../lang/interface'
+
+const YouTube = dynamic(() => import('react-youtube'))
 
 interface IMapOf<A> {
 	[i: string]: A
@@ -185,13 +187,13 @@ const Pack = ({
 			style={{ ...style.titleContainer, justifyContent: !right ? 'flex-start' : 'flex-end' }}
 		>
 			<h3>{text.packTitle}</h3>
-			<h3 style={{ ...style.titleSpe, color: color ? color : 'var(--flash)' }}>{title}</h3>
+			<h3 style={{ ...style.titleSpe, color: color ?? 'var(--flash)' }}>{title}</h3>
 		</div>
 		{splitArrays(4, videoIds).map((listVidLine, index) => {
 			return (
 				<VideosLine
 					key={index}
-					color={color ? color : 'var(--flash)'}
+					color={color ?? 'var(--flash)'}
 					videoIds={listVidLine}
 					label={label}
 					style={styleVideo}
@@ -214,12 +216,12 @@ export default function Videos() {
 				style={style.headerStyle}
 			/>
 			<Separator
-				color={'var(--main)'}
+				color='var(--main)'
 				style={style.separatorStyle as unknown as ISeparatorStyle}
 			/>
 			<Pack
 				title={text.packOpe.name}
-				color={'var(--main)'}
+				color='var(--main)'
 				videoIds={listVideoYt.packOpe}
 				text={text}
 				label={text.packOpe.label}
@@ -240,12 +242,12 @@ export default function Videos() {
 				styleVideo={style.videosLineStyle as unknown as IVideoStyle}
 			/>
 			<Separator
-				color={'var(--orange)'}
+				color='var(--orange)'
 				style={style.separatorStyle as unknown as ISeparatorStyle}
 			/>
 			<Pack
 				title={text.packMes.name}
-				color={'var(--orange)'}
+				color='var(--orange)'
 				videoIds={listVideoYt.packMes}
 				text={text}
 				label={text.packMes.label}
@@ -312,7 +314,7 @@ export const styles = (mobile: boolean): IStyles => ({
 		},
 		line: (color?: string): CSS.Properties => {
 			return {
-				backgroundColor: color ? color : 'var(--flash)',
+				backgroundColor: color ?? 'var(--flash)',
 				height: '0.4vh',
 				minWidth: mobile ? '40%' : '25%',
 			}

@@ -1,6 +1,6 @@
+import * as CSS from 'csstype'
 import Link from 'next/link'
 import Radium from 'radium'
-import * as CSS from 'csstype'
 
 interface IProps {
 	name: string

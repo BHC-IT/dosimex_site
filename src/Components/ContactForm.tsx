@@ -1,21 +1,21 @@
-import React, { useState } from 'react'
+import emailjs from '@emailjs/browser'
 import * as CSS from 'csstype'
 import Radium from 'radium'
-import Input, { IValidator } from './Input'
+import React, { useState } from 'react'
 import PhoneInput, { isPossiblePhoneNumber } from 'react-phone-number-input'
-import 'react-phone-number-input/style.css'
-
-import { withText } from '../hoc/withText'
-import { withIsMobile } from '../hoc/withIsMobile'
-
 import { toast } from 'react-toastify'
+
+import { withIsMobile } from '../hoc/withIsMobile'
+import { withText } from '../hoc/withText'
+
+import Input, { IValidator } from './Input'
+
+import 'react-phone-number-input/style.css'
 import 'react-toastify/dist/ReactToastify.css'
 
-import emailjs from '@emailjs/browser'
-
 interface IProps {
-	text?: Record<string, string>
-	style?: Record<string, unknown>
+	text?: Record<string, string | string[]>
+	style?: Partial<IStyles>
 }
 
 export interface IStyles {
@@ -30,8 +30,8 @@ export interface IStyles {
 }
 
 interface INameEmailRowProps {
-	text: Record<string, string>
-	style: Record<string, unknown>
+	text: Record<string, string | string[]>
+	style: Partial<IStyles>
 	name: string | null
 	email: string | null
 	setNameValid: (valid: boolean) => void
@@ -40,8 +40,8 @@ interface INameEmailRowProps {
 }
 
 interface IPhoneEnterpriseRowProps {
-	text: Record<string, string>
-	style: Record<string, unknown>
+	text: Record<string, string | string[]>
+	style: Partial<IStyles>
 	phone: string | undefined
 	phoneError: string | null
 	enterprise: string | null
@@ -50,7 +50,7 @@ interface IPhoneEnterpriseRowProps {
 }
 
 interface ISingleInputsProps {
-	text: Record<string, string>
+	text: Record<string, string | string[]>
 	address: string | null
 	subject: string | null
 	message: string | null
@@ -60,12 +60,12 @@ interface ISingleInputsProps {
 }
 
 interface ISubmitButtonProps {
-	style: Record<string, unknown>
-	text: Record<string, string>
+	style: Partial<IStyles>
+	text: Record<string, string | string[]>
 	isLoading: boolean
 }
 
-const mailFormat: RegExp =
+const mailFormat =
 	/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 const isInputValid = (value: string): boolean => value.trim() !== ''
@@ -82,13 +82,13 @@ const NameEmailRow: React.FC<INameEmailRowProps> = ({
 	const isEmailValid = (value: string): boolean => mailFormat.test(value)
 
 	return (
-		<div style={style.divNameMail}>
+		<div style={style.divNameMail ?? defaultStyles.divNameMail}>
 			<Input
 				value={name}
 				type='text'
 				id='name'
 				label={text.label[0]}
-				style={{ divInput: style.input }}
+				style={{ divInput: style.input ?? defaultStyles.input }}
 				required
 				isValid={(isValid: boolean) => setNameValid(isValid)}
 				onChange={(value: string) => setName(value)}
@@ -106,7 +106,7 @@ const NameEmailRow: React.FC<INameEmailRowProps> = ({
 				type='email'
 				id='email'
 				label={text.label[1]}
-				style={{ divInput: style.input }}
+				style={{ divInput: style.input ?? defaultStyles.input }}
 				required
 				onChange={(value: string) => setEmail(value)}
 				validator={
@@ -135,8 +135,8 @@ const PhoneEnterpriseRow: React.FC<IPhoneEnterpriseRowProps> = ({
 	handlePhoneChange,
 	setEnterprise,
 }) => (
-	<div style={style.divNameMail}>
-		<div style={style.phoneInput}>
+	<div style={style.divNameMail ?? defaultStyles.divNameMail}>
+		<div style={style.phoneInput ?? defaultStyles.phoneInput}>
 			<label
 				htmlFor='phone'
 				style={{
@@ -169,7 +169,7 @@ const PhoneEnterpriseRow: React.FC<IPhoneEnterpriseRowProps> = ({
 			type='text'
 			id='enterprise'
 			label={text.label[3]}
-			style={{ divInput: style.input }}
+			style={{ divInput: style.input ?? defaultStyles.input }}
 			onChange={(value: string) => setEnterprise(value)}
 		/>
 	</div>
@@ -220,7 +220,7 @@ const SingleInputs: React.FC<ISingleInputsProps> = ({
 
 const SubmitButton: React.FC<ISubmitButtonProps> = ({ style, text, isLoading }) => (
 	<button
-		style={style.button}
+		style={style.button ?? defaultStyles.button}
 		type='submit'
 	>
 		{isLoading ? (
@@ -231,7 +231,7 @@ const SubmitButton: React.FC<ISubmitButtonProps> = ({ style, text, isLoading }) 
 	</button>
 )
 
-const useContactForm = (text: Record<string, string> | undefined) => {
+const useContactForm = (text: Record<string, string | string[]> | undefined) => {
 	const [name, setName] = useState(null as string | null)
 	const [nameValid, setNameValid] = useState(false)
 	const [email, setEmail] = useState(null as string | null)
@@ -246,7 +246,9 @@ const useContactForm = (text: Record<string, string> | undefined) => {
 	const handlePhoneChange = (value: string | undefined) => {
 		setPhone(value)
 		if (value && !isPossiblePhoneNumber(value)) {
-			setPhoneError(text?.errorPhone || '')
+			setPhoneError(
+				Array.isArray(text?.errorPhone) ? text.errorPhone[0] : (text?.errorPhone ?? ''),
+			)
 		} else {
 			setPhoneError(null)
 		}
@@ -302,7 +304,9 @@ const useContactForm = (text: Record<string, string> | undefined) => {
 			sendEmail()
 			resetForm()
 		} else if (!isPhoneValid) {
-			setPhoneError(text?.errorPhone || '')
+			setPhoneError(
+				Array.isArray(text?.errorPhone) ? text.errorPhone[0] : (text?.errorPhone ?? ''),
+			)
 		}
 	}
 
@@ -336,13 +340,13 @@ const ContactForm: React.FC<IProps> = ({ text, style }) => {
 
 	return (
 		<form
-			style={style?.form}
+			style={style?.form ?? defaultStyles.form}
 			onSubmit={formData.handleSubmit}
 		>
-			<h3 style={style?.title}>{text?.title}</h3>
+			<h3 style={style?.title ?? defaultStyles.title}>{text?.title}</h3>
 			<NameEmailRow
-				text={text || {}}
-				style={style || {}}
+				text={text ?? {}}
+				style={style ?? defaultStyles}
 				name={formData.name}
 				email={formData.email}
 				setNameValid={formData.setNameValid}
@@ -350,8 +354,8 @@ const ContactForm: React.FC<IProps> = ({ text, style }) => {
 				setEmail={formData.setEmail}
 			/>
 			<PhoneEnterpriseRow
-				text={text || {}}
-				style={style || {}}
+				text={text ?? {}}
+				style={style ?? defaultStyles}
 				phone={formData.phone}
 				phoneError={formData.phoneError}
 				enterprise={formData.enterprise}
@@ -359,7 +363,7 @@ const ContactForm: React.FC<IProps> = ({ text, style }) => {
 				setEnterprise={formData.setEnterprise}
 			/>
 			<SingleInputs
-				text={text || {}}
+				text={text ?? {}}
 				address={formData.address}
 				subject={formData.subject}
 				message={formData.message}
@@ -368,8 +372,8 @@ const ContactForm: React.FC<IProps> = ({ text, style }) => {
 				setMessage={formData.setMessage}
 			/>
 			<SubmitButton
-				style={style || {}}
-				text={text || {}}
+				style={style ?? defaultStyles}
+				text={text ?? {}}
 				isLoading={formData.isLoading}
 			/>
 		</form>
@@ -424,5 +428,7 @@ export const styles = (mobile: boolean): IStyles => ({
 		},
 	},
 })
+
+const defaultStyles: IStyles = styles(false)
 
 export default Radium(withIsMobile(withText(ContactForm, 'ContactForm'), styles))

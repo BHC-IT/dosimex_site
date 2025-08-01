@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest'
+
 import { text } from '../useText'
 
 // Just test the text object and basic functionality, skip the complex hook testing for now

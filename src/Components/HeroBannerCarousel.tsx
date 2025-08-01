@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
 import * as CSS from 'csstype'
 import Image from 'next/image'
+import React, { useState, useEffect } from 'react'
 
 import { useIsMobile } from '../Hooks/useIsMobile'
 

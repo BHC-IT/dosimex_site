@@ -1,11 +1,13 @@
-import React, { useState, useRef, useEffect } from 'react'
-import ContactForm from '../Components/ContactForm'
-// import Image from 'next/image'
-import Link from 'next/link'
 import * as CSS from 'csstype'
+import Link from 'next/link'
+import React, { useState, useRef, useEffect } from 'react'
+import { withOrientationChange } from 'react-device-detect'
+
+import ContactForm from '../Components/ContactForm'
 import { useIsMobile } from '../Hooks/useIsMobile'
 import { useText } from '../Hooks/useText'
-import { withOrientationChange } from 'react-device-detect'
+
+// import Image from 'next/image'
 
 interface IStyles {
 	[key: string]: CSS.Properties | undefined

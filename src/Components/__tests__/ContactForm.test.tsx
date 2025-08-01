@@ -1,6 +1,6 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
 import { useRouter } from 'next/router'
+import { describe, it, expect, vi, beforeEach } from 'vitest'
 
 import ContactForm from '../ContactForm'
 
@@ -88,14 +88,14 @@ describe('ContactForm Component', () => {
 		const { container } = render(
 			<ContactForm
 				text={mockText}
-				style={null}
+				style={undefined}
 			/>,
 		)
 
 		expect(container.firstChild).toBeNull()
 	})
 
-	it('submits form when name is valid', async () => {
+	it('submits form when name is valid', () => {
 		render(
 			<ContactForm
 				text={mockText}

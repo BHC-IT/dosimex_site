@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react'
-
 import { isMobile, isTablet } from 'react-device-detect'
 
 const TIMEOUT_DELAY = 10
 
 export const useIsMobile = <T>(styles: (m: boolean) => T): T | null => {
-	const [style, setStyle] = useState(styles(isMobile) as T | null)
+	const [style, setStyle] = useState<T | null>(styles(isMobile))
 
 	useEffect(() => {
 		setStyle(null)

@@ -1,9 +1,10 @@
 import * as CSS from 'csstype'
+import Radium from 'radium'
 import React, { useState } from 'react'
+import Carousel from 'react-multi-carousel'
+
 import { useIsMobile, useDeviceType } from '../Hooks/useIsMobile'
 import { useText } from '../Hooks/useText'
-import Carousel from 'react-multi-carousel'
-import Radium from 'radium'
 import 'react-multi-carousel/lib/styles.css'
 
 interface IMapOfStyle {
@@ -115,7 +116,7 @@ const Card = ({ text, style, link, url, color, isMobile, isTablet }: ICardProps)
 			<p
 				style={{
 					...style.text,
-					color: color || (isMobile ? 'var(--dark)' : 'var(--grey)'),
+					color: color ?? (isMobile ? 'var(--dark)' : 'var(--grey)'),
 					display: isMobile || over ? 'block' : 'none',
 				}}
 			>

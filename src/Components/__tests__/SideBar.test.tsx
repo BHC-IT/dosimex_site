@@ -1,8 +1,8 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { useRouter } from 'next/router'
-import { useText } from '../../Hooks/useText'
+import { describe, it, expect, vi, beforeEach } from 'vitest'
 
+import { useText } from '../../Hooks/useText'
 import SideBar from '../SideBar'
 
 // Mock Next.js router

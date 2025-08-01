@@ -1,10 +1,10 @@
 import * as CSS from 'csstype'
+import Image from 'next/image'
 import Radium from 'radium'
+import { BrowserView, MobileView, isMobile } from 'react-device-detect'
+
 import { useIsMobile } from '../Hooks/useIsMobile'
 import { useText } from '../Hooks/useText'
-import Image from 'next/image'
-
-import { BrowserView, MobileView, isMobile } from 'react-device-detect'
 
 export interface IStyles {
 	global: CSS.Properties

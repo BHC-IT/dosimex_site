@@ -1,8 +1,8 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import * as CSS from 'csstype'
-import Icon from '@mdi/react'
 import { mdiTranslate } from '@mdi/js'
+import Icon from '@mdi/react'
+import * as CSS from 'csstype'
+import Image from 'next/image'
+import Link from 'next/link'
 
 interface IProps {
 	route: string
@@ -16,8 +16,8 @@ export interface IStyles {
 	flag: CSS.Properties
 }
 
-const ratioFr: number = 0.012
-const ratioUk: number = 0.03
+const ratioFr = 0.012
+const ratioUk = 0.03
 
 const LanguageSwitch = (props: IProps) => {
 	const isSelected = (lang: string) =>

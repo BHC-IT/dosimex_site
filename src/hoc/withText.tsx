@@ -1,6 +1,6 @@
+import { useRouter } from 'next/router'
 import * as React from 'react'
 
-import { useRouter } from 'next/router'
 import { text } from '../Hooks/useText'
 
 export const withText = <Props extends object>(
@@ -21,6 +21,6 @@ export const withText = <Props extends object>(
 		)
 	}
 
-	WithTextComponent.displayName = `withText(${Component.displayName || Component.name})`
+	WithTextComponent.displayName = `withText(${Component.displayName ?? Component.name})`
 	return WithTextComponent
 }

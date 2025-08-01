@@ -1,11 +1,12 @@
-import * as React from 'react'
+import { mdiYoutube, mdiLinkedin, mdiPhone } from '@mdi/js'
+import Icon from '@mdi/react'
 import * as CSS from 'csstype'
 import Image from 'next/image'
 import Link from 'next/link'
-import Icon from '@mdi/react'
-import { mdiYoutube, mdiLinkedin, mdiPhone } from '@mdi/js'
-import { useText } from '../Hooks/useText'
+import * as React from 'react'
+
 import { useIsMobile } from '../Hooks/useIsMobile'
+import { useText } from '../Hooks/useText'
 
 export interface IStyles {
 	footer: CSS.Properties

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
 import * as CSS from 'csstype'
+import React, { useState, useEffect } from 'react'
 
 import { useMobile } from '../Hooks/useIsMobile'
 
@@ -41,7 +41,7 @@ const Input = (props: IProps) => {
 
 	useEffect(() => {
 		if (props.value === value) return
-		setValue(props.value)
+		setValue(props.value ?? null)
 	}, [props.value])
 
 	// Use fallback for SSR/test environments where device detection isn't available
@@ -60,9 +60,9 @@ const Input = (props: IProps) => {
 		props.isValid?.(valid)
 	}
 
-	const handleChange = (value: string) => {
-		setValue(value)
-		props.onChange?.(value)
+	const handleChange = (newValue: string) => {
+		setValue(newValue)
+		props.onChange?.(newValue)
 	}
 
 	const styleInput = { ...styles.input, ...props.style?.input }

@@ -1,12 +1,14 @@
-import React from 'react'
-import Button from './Button'
-import LanguageSwitch from './LanguageSwitch'
-import Link from 'next/link'
-import { slide as Menu } from 'react-burger-menu'
-import ItemNavbar from './ItemNavbar'
 import Image from 'next/image'
-import { useText } from '../Hooks/useText'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
+import React from 'react'
+import { slide as Menu } from 'react-burger-menu'
+
+import { useText } from '../Hooks/useText'
+
+import Button from './Button'
+import ItemNavbar from './ItemNavbar'
+import LanguageSwitch from './LanguageSwitch'
 
 interface IPage {
 	route: string

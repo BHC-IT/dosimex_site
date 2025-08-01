@@ -1,18 +1,16 @@
-import React, { useState, useRef, useEffect } from 'react'
-import Button from '../Components/Button'
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import CSS from 'csstype'
 import Image from 'next/image'
-import ILang from '../lang/interface'
 import Link from 'next/link'
-import styled from 'styled-components'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
-
-import { useText } from '../Hooks/useText'
-import { useIsMobile } from '../Hooks/useIsMobile'
-
+import React, { useState, useRef, useEffect } from 'react'
 import { BrowserView, MobileView, isMobile } from 'react-device-detect'
+import styled from 'styled-components'
 
+import Button from '../Components/Button'
+import { useIsMobile } from '../Hooks/useIsMobile'
+import { useText } from '../Hooks/useText'
+import ILang from '../lang/interface'
 import { parseStringLink, handleLink, isLink } from '../utils/parseStringLink'
 
 interface IMapOfStyle {
@@ -229,8 +227,8 @@ const LiTitle = styled.h5`
 // `;
 
 const hashes = ['#op', '#pedago', '#mesure']
-const ratioFr: number = 0.012
-const ratioUk: number = 0.03
+const ratioFr = 0.012
+const ratioUk = 0.03
 
 const Software = () => {
 	const text = useText('Software')
@@ -667,7 +665,7 @@ const Software = () => {
 				<h3>{text.more.title}</h3>
 				<div style={{ width: '80%', marginTop: '3vh' }}>
 					<Link
-						href={'/Manuals/#manuals'}
+						href="/Manuals/#manuals"
 						replace
 					>
 						<p
@@ -683,7 +681,7 @@ const Software = () => {
 				</div>
 				<div style={{ width: '80%', marginTop: '0.2vh' }}>
 					<Link
-						href={'/Manuals/#validations'}
+						href="/Manuals/#validations"
 						replace
 					>
 						<p
@@ -699,7 +697,7 @@ const Software = () => {
 				</div>
 				<div style={{ width: '80%', marginTop: '0.2vh' }}>
 					<a
-						href={'../Folders/extrait_validation_gamma.pdf'}
+						href="../Folders/extrait_validation_gamma.pdf"
 						target='_blank'
 						rel='noreferrer'
 					>
@@ -710,7 +708,7 @@ const Software = () => {
 				</div>
 				<div style={{ width: '80%', marginTop: '0.2vh' }}>
 					<a
-						href={'../Folders/extrait_validation_géné_X.pdf'}
+						href="../Folders/extrait_validation_géné_X.pdf"
 						target='_blank'
 						rel='noreferrer'
 					>
@@ -721,7 +719,7 @@ const Software = () => {
 				</div>
 				<div style={{ width: '80%', marginTop: '0.2vh' }}>
 					<a
-						href={'../Folders/Modification_Dosimex GX_3.0.pdf'}
+						href="../Folders/Modification_Dosimex GX_3.0.pdf"
 						target='_blank'
 						rel='noreferrer'
 					>
@@ -732,7 +730,7 @@ const Software = () => {
 				</div>
 				<div style={{ width: '80%', marginTop: '0.2vh' }}>
 					<Link
-						href={'/Books'}
+						href="/Books"
 						replace
 					>
 						<p

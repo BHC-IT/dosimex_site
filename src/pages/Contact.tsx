@@ -1,7 +1,7 @@
-import ContactForm from '../Components/ContactForm'
 import Image from 'next/image'
-
 import { isMobile } from 'react-device-detect'
+
+import ContactForm from '../Components/ContactForm'
 
 export default function Contact() {
 	return (

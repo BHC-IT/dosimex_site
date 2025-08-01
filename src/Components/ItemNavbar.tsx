@@ -1,7 +1,8 @@
-import * as React from 'react'
 import * as CSS from 'csstype'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import * as React from 'react'
+
 import { useIsMobile } from '../Hooks/useIsMobile'
 
 interface IProps {

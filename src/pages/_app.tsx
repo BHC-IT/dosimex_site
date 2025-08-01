@@ -1,9 +1,10 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import Navbar from '../Components/Navbar'
-import Footer from '../Components/Footer'
 import { ToastContainer } from 'react-toastify'
+
+import Footer from '../Components/Footer'
+import Navbar from '../Components/Navbar'
 
 function MyApp({ Component, pageProps }: AppProps) {
 

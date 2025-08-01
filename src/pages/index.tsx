@@ -1,17 +1,17 @@
+import * as CSS from 'csstype'
+import dynamic from 'next/dynamic'
+import Image from 'next/image'
+import { BrowserView, MobileView, withOrientationChange } from 'react-device-detect'
+
 import Button from '../Components/Button'
 import CardHome from '../Components/CardHome'
+import HeroBannerCarousel from '../Components/HeroBannerCarousel'
 import OpinionHome from '../Components/OpinionHome'
 import PartnersCarousel from '../Components/PartnersCarousel'
-import HeroBannerCarousel from '../Components/HeroBannerCarousel'
-import Image from 'next/image'
-import dynamic from 'next/dynamic'
-import * as CSS from 'csstype'
-import { useText } from '../Hooks/useText'
 import { useIsMobile } from '../Hooks/useIsMobile'
+import { useText } from '../Hooks/useText'
 
 const YouTube = dynamic(() => import('react-youtube'))
-
-import { BrowserView, MobileView, withOrientationChange } from 'react-device-detect'
 
 export interface IStyles {
 	header: { [idx: string]: CSS.Properties }
@@ -32,7 +32,7 @@ function Home(props: IProps) {
 
 	if (style === null) return null
 
-	const ratioUk: number = 0.05
+	const ratioUk = 0.05
 	return (
 		<>
 			<header
