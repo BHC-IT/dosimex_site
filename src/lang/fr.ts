@@ -5,12 +5,12 @@ const text: ILang = {
 		header: {
 			title: 'Des outils de calculs radioprotection pour tous',
 			p: "Ensemble d'outils de calculs pratiques, simples d’emploi, validés, et répondant à de nombreuses situations rencontrées en radioprotection. Ils vous permettront d'améliorer votre niveau d'expertise.",
-			promo: 'Tous nos outils de calcul existent désormais en version anglaise.',
+			promo: 'La plupart de nos outils de calcul existent désormais en version anglaise.',
 			button: 'Découvrir',
 			textImage: [
-				'Licence Dosimex',
-				'Dosimex-GX Radionucléide',
+				'Dosimex-B Émission beta',
 				'Dosimex-GX Générateur X',
+				'Dosimex-GX Radionucléide',
 				'Dosimex-N Monte-Carlo neutron',
 			],
 		},
@@ -24,18 +24,16 @@ const text: ILang = {
 				'Nous sommes fiers de les aider dans leurs missions',
 				'Notre éditeur historique pour l’ouvrage « calcul de doses générées par les rayonnements ionisants »',
 				'Utilisent Dosimex à gogo dans leurs calculs',
-				'',
 				'Parmi les premiers à nous soutenir. Et ils continuent. Merci',
 				'Notre partenaire de longue date  pour les formations en spectrométrie gamma et autres',
 				'Ils nous ont fait l’honneur d’apprécier nos codes. Et nous recommandons chaudement le code RayXpert',
-				"Le créateur de notre site. Et d'autres projets en cours !",
 			],
 		},
 		offers: {
 			title: 'Ce que nous proposons',
-			p: 'Un ensemble d‘outils de calculs (13 au total) couvrant l’essentiel du champ en radioprotection: exposition externe gamma, bêta, neutron, exposition interne, transfert atmosphérique et plus encore. Vous trouverez sur le site des vidéos explicatives pour chaque outil ainsi que leurs dossiers de validation (pdf téléchargeable).',
+			p: 'Un ensemble d‘outils de calculs (17 au total) couvrant l’essentiel du champ en radioprotection: exposition externe gamma, bêta, neutron, exposition interne, transfert atmosphérique et plus encore. Vous trouverez sur le site des vidéos explicatives pour chaque outil ainsi que leurs dossiers de validation (pdf téléchargeable).',
 			card1: {
-				title: 'Pack logiciel',
+				title: 'Packs logiciel',
 				p: 'Retrouvez tous les utilitaires Dosimex avec des vidéos spécifiques : pack opérationnel, pack pédagogique, pack mesure',
 			},
 			card2: {
@@ -52,7 +50,7 @@ const text: ILang = {
 			p1: "d'expérience",
 			number2: '+1000',
 			p2: 'radioprotectionnistes convaincus',
-			number3: '11',
+			number3: '35',
 			p3: "journées d'accompagnement réalisées",
 		},
 		videos: {
@@ -72,13 +70,13 @@ const text: ILang = {
 			button: 'Obtenir Dosimex',
 		},
 		videoLink: {
-			pres: 'Wrpd_sX0f_M',
+			pres: 'q9QXG78ciXY',
 		},
 	},
 	Software: {
 		header: {
-			title: 'Nos produits',
-			p: 'Les 13 utilitaires se répartissent suivant 3 thématiques: calculs opérationnels de radioprotection, outils pédagogiques permettant d’approfondir les aspects physiques et enfin des utilitaires concernant les aspects mesures.',
+			title: 'Notre produit',
+			p: 'Les 17 utilitaires se répartissent suivant 3 thématiques: calculs opérationnels de radioprotection, outils pédagogiques permettant d’approfondir les aspects physiques et enfin des utilitaires concernant les aspects mesures.',
 			li: ['Pack opérationnel', 'Pack pédagogique', 'Pack mesures'],
 		},
 		button: {
@@ -95,6 +93,7 @@ const text: ILang = {
 				'DOSIMEX-N 3.2',
 				'DOSIMEX-I 3.2',
 				'DOSIMEX-MN 3.2',
+				'DOSIMEX-GAMMAGRAPHIE',
 			],
 			li: [
 				'code de calcul déterministe de débit de dose émetteurs [gamma](https://www.youtube.com/watch?v=E5eWKTJaNxQ) et [générateur X](https://www.youtube.com/watch?v=wkuVxTBXc8g), avec option feuille de calcul [norme NF C15-160 /2018](https://www.youtube.com/watch?v=Ga4roi63sSM). Avec de nombreuses [options](https://www.youtube.com/watch?v=ksOJEbihuvA) : effet de ciel, rayonnement de freinage, zonage, build-up',
@@ -102,6 +101,7 @@ const text: ILang = {
 				'[code de calcul Monte-Carlo](https://www.youtube.com/watch?v=7emAJHES-fw) de débit de dose émetteur neutron (type Am/Be) avec protection biologique (eau, polyéthylène, Bore, Cadmium etc..). Module pédagogique avec visualisation trajectoire neutron',
 				'[code de calcul expositions interne](https://www.youtube.com/watch?v=4Cfya_rHa04). Prise en compte cinétique fuite, renouvellement, dépôt au sol. Calculs de transfert atmosphérique. Calcul mélanges RAI/RAV/RCA',
 				'[utilitaire de gestion de données](https://www.youtube.com/watch?v=sj-FVjP87jA) permettant de connaitre les doses absorbées par unité d’activité administrée pour les radiopharmaceutiques CIPR 53, 80, 106 et 128',
+				'[outil dédié au calcul de zonage en gammagraphie](https://youtu.be/oJYfQDhBP68) pour 4 sources : Se 75, Cs 137, Co 60 et Ir 192. Calculs isodoses et zonage opérationnel. Ecran plomb, béton, acier, air',
 			],
 		},
 		packPeda: {
@@ -113,12 +113,16 @@ const text: ILang = {
 				'IRM particules chargées 3.2',
 				'Serious Game 3.2',
 				'Coefficients ICRU 57 3.2',
+				'Compteur nucléaire',
+				'Décroissance radioactive',
 			],
 			li: [
-				'[utilitaire](https://www.youtube.com/watch?v=cBQ5-CiqqT4) mettant en œuvre les principes d’interactions photon –matières dans les matériaux avec diverses applications : calcul de kerma, de dose, de libre parcours moyen, effet Compton, visualisation de trajectoires (Monte-Carlo).',
-				'[utilitaire](https://www.youtube.com/watch?v=vXT2h8GJ8Qk) mettant en œuvre les principes d’interactions particules chargées–matières dans les matériaux avec diverses applications : calcul de parcours, de coefficient fluence-dose, application aux spectres bêta.',
+				'[utilitaire](https://www.youtube.com/watch?v=cBQ5-CiqqT4) mettant en œuvre les principes d’interactions photon –matières dans les matériaux avec diverses applications : calcul de kerma, de dose, de libre parcours moyen, effet Compton, visualisation de trajectoires (Monte-Carlo)',
+				'[utilitaire](https://www.youtube.com/watch?v=vXT2h8GJ8Qk) mettant en œuvre les principes d’interactions particules chargées–matières dans les matériaux avec diverses applications : calcul de parcours, de coefficient fluence-dose, application aux spectres bêta',
 				'[utilitaire](https://www.youtube.com/watch?v=pYbgwudKniA) à vocation pédagogique permettant de mettre en évidence les paramètres essentiels de la radioprotection : distance, temps, écran, activité, nature radionucléide',
-				'[utilitaire](https://www.youtube.com/watch?v=Ltk5x2dW_VI) permettant de connaitre les coefficients fluence-équivalents de dose et kerma air normalisés pour les électrons, les photons et les neutrons.',
+				'[utilitaire](https://www.youtube.com/watch?v=Ltk5x2dW_VI) permettant de connaitre les coefficients fluence-équivalents de dose et kerma air normalisés pour les électrons, les photons et les neutrons',
+				'[simulateur de compteur nucléaire](https://youtu.be/oJYfQDhBP68) permettant de retrouver de façon réaliste les aspects statistiques, le concept de rendement, d’incertitudes et de seuil de décision',
+				'[outil de simulation permettant de comprendre les aspects probabilistes de la désintégration nucléaire](https://youtu.be/v8RMSH0qryE): durée de vie, période, fluctuation, loi de décroissance…',
 			],
 		},
 		packMes: {
@@ -129,12 +133,14 @@ const text: ILang = {
 				'Code Co3',
 				'Composition de variables aléatoires',
 				'Calcul de seuil de décision',
+				'Droite étalonnage',
 			],
 			li: [
-				'[code déterministe](https://www.youtube.com/watch?v=vSI75UZ_9UQ) calculant le rendement d’absorption totale en spectrométrie gamma, avec correction de couches mortes (caractérisation), correction de coïncidence et rendement de pics sommes.',
-				'[code de calcul](https://www.youtube.com/watch?v=2Mq-TR8cG-o) de Coefficient de Conversion Contaminamètres permettant de calculer les rendements(Bq/cm2/ cps) de divers ictomètres et d’obtenir les activités surfaciques versus la nature de la sonde et le spectre isotopique mesuré.',
+				'[code déterministe](https://www.youtube.com/watch?v=vSI75UZ_9UQ) calculant le rendement d’absorption totale en spectrométrie gamma, avec correction de couches mortes (caractérisation), correction de coïncidence et rendement de pics sommes',
+				'[code de calcul](https://www.youtube.com/watch?v=2Mq-TR8cG-o) de Coefficient de Conversion Contaminamètres permettant de calculer les rendements(Bq/cm2/ cps) de divers ictomètres et d’obtenir les activités surfaciques versus la nature de la sonde et le spectre isotopique mesuré',
 				'utilitaire permettant de combiner par méthode Monte-Carlo jusqu’à 5 variables de types différents . Cet utilitaire est accompagné des documents de cours complets sur le sujet des calculs d’incertitudes',
-				'[utilitaire](https://www.youtube.com/watch?v=aA4QUutuaJc) permettant de déterminer le seuil de décision et la limite de détection en mesure nucléaire. Cet utilitaire est accompagné des documents de cours.',
+				'[utilitaire](https://www.youtube.com/watch?v=aA4QUutuaJc) permettant de déterminer le seuil de décision et la limite de détection en mesure nucléaire. Cet utilitaire est accompagné des documents de cours',
+				'outil permettant de construire une droite d’étalonnage en tenant compte des incertitudes sur les étalons. Avec un ensemble de tests: analyse de variance, test de non régression… Avec projection inverse bayesienne, calcul seuil de décision et limite de détection',
 			],
 		},
 		more: {
@@ -371,7 +377,7 @@ const text: ILang = {
 			],
 		},
 		section2: {
-			title: "Nous proposons en partenariat avec Safetechnologie d'autres formations sur les thématiques :",
+			title: "Nous proposons en partenariat avec Veolia Nuclear Solutions d'autres formations sur les thématiques :",
 			li: [
 				'◦ Physique nucléaire et radioactivité',
 				'◦ Interaction rayonnements matière',
@@ -437,7 +443,7 @@ const text: ILang = {
 		},
 	},
 	Navbar: {
-		items: ['Nos produits', 'Formations', 'Documentation', 'Qui sommes-nous ?', 'Contact'],
+		items: ['Notre produit', 'Formations', 'Documentation', 'Qui sommes-nous ?', 'Contact'],
 		button: 'Obtenir Dosimex',
 	},
 }

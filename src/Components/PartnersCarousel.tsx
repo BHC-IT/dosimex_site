@@ -75,16 +75,12 @@ const partners = [
 		url: 'https://www.orano.group/fr/expertise-sur-tout-le-cycle/tour-des-implantations/laboratoire-etalons-activite/lea',
 	},
 	{
-		link: 'logo_partenaires/logo-PCR-Long-title-CouleurHD.webp',
-		url: 'https://www.pcrstrategie.fr/',
-	},
-	{
 		link: 'logo_partenaires/rpcirkus.webp',
 		url: 'https://rpcirkus.org',
 	},
 	{
-		link: 'logo_partenaires/safe.webp',
-		url: 'http://safetechnologies.fr',
+		link: 'logo_partenaires/veolia.webp',
+		url: 'https://www.nuclearsolutions.veolia.com',
 	},
 	{
 		link: 'logo_partenaires/trad.webp',

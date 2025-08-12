@@ -39,7 +39,7 @@ const Header = ({ text, style }: IProps) => (
 		</div>
 		<div style={style.imgContainer}>
 			<YouTube
-				videoId="l0bIZ201gLo"
+				videoId='l0bIZ201gLo'
 				opts={{ height: '320', width: '550' }}
 			/>
 		</div>
@@ -99,7 +99,7 @@ const Partnership = ({ text, style }: IProps) => {
 				<div style={{ margin: '5vh auto 0 10%' }}>
 					<a
 						style={style.btn}
-						href='../Folders/le_catalogue_de_formation_safe_technologies_v2.2.pdf'
+						href='../Folders/catalogue_formation_VNS_v7.pdf'
 						target='_blank'
 						rel='noreferrer noopener'
 					>
@@ -126,7 +126,7 @@ const Partnership = ({ text, style }: IProps) => {
 					<div style={{ margin: '5vh auto 0 10%' }}>
 						<a
 							style={style.btn}
-							href='../Folders/le_catalogue_de_formation_safe_technologies_v2.2.pdf'
+							href='../Folders/catalogue_formation_VNS_v7.pdf'
 							target='_blank'
 							rel='noreferrer noopener'
 						>
