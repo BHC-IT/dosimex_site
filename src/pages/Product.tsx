@@ -51,7 +51,7 @@ function Product(props: IProps) {
 				</div>
 			</section>
 			<section className='container'>
-				<h4>Partition E</h4>
+				<h4>{text.partE.title}</h4>
 				<div style={style.borderLeft}>
 					<div style={style.flexP}>
 						<p>{text.partE.p[0]}</p>
@@ -79,10 +79,6 @@ function Product(props: IProps) {
 					{text.partE.p[3] ? <p>{text.partE.p[3]}</p> : null}
 				</div>
 				<p>{text.between}</p>
-				<h4>Partition D</h4>
-				<div style={style.borderLeft}>
-					<p>{text.partD.p}</p>
-				</div>
 				<h4 style={style.prerequisites}>{text.prerequisites.title}</h4>
 				<p>{text.prerequisites.p}</p>
 			</section>
@@ -264,6 +260,6 @@ export const styles = (mobile: boolean): IStyles => ({
 				height: '40vh',
 				marginTop: '10vh',
 				marginBottom: '50vh',
-			}
+		  }
 		: undefined,
 })

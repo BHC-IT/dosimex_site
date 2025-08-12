@@ -99,7 +99,7 @@ const text: ILang = {
 				'code de calcul déterministe de débit de dose émetteurs [gamma](https://www.youtube.com/watch?v=E5eWKTJaNxQ) et [générateur X](https://www.youtube.com/watch?v=wkuVxTBXc8g), avec option feuille de calcul [norme NF C15-160 /2018](https://www.youtube.com/watch?v=Ga4roi63sSM). Avec de nombreuses [options](https://www.youtube.com/watch?v=ksOJEbihuvA) : effet de ciel, rayonnement de freinage, zonage, build-up',
 				'[code de calcul déterministe](https://www.youtube.com/watch?v=4Cfya_rHa04) de débit de dose émetteur bêta et électrons monoénergétiques. Prise en compte sources volumiques (bécher, seringue) ou surfaciques (contamination peau)',
 				'[code de calcul Monte-Carlo](https://www.youtube.com/watch?v=7emAJHES-fw) de débit de dose émetteur neutron (type Am/Be) avec protection biologique (eau, polyéthylène, Bore, Cadmium etc..). Module pédagogique avec visualisation trajectoire neutron',
-				'[code de calcul expositions interne](https://www.youtube.com/watch?v=4Cfya_rHa04). Prise en compte cinétique fuite, renouvellement, dépôt au sol. Calculs de transfert atmosphérique. Calcul mélanges RAI/RAV/RCA',
+				'[code de calcul expositions interne](https://www.youtube.com/watch?v=4Cfya_rHa04). Conforme à l’arrêté du 16/11/23. Prise en compte cinétique fuite, renouvellement, dépôt au sol. Calculs de transfert atmosphérique. Calcul mélanges RAI/RAV/RCA',
 				'[utilitaire de gestion de données](https://www.youtube.com/watch?v=sj-FVjP87jA) permettant de connaitre les doses absorbées par unité d’activité administrée pour les radiopharmaceutiques CIPR 53, 80, 106 et 128',
 				'[outil dédié au calcul de zonage en gammagraphie](https://youtu.be/oJYfQDhBP68) pour 4 sources : Se 75, Cs 137, Co 60 et Ir 192. Calculs isodoses et zonage opérationnel. Ecran plomb, béton, acier, air',
 			],
@@ -327,23 +327,21 @@ const text: ILang = {
 		buttonKnowMore: 'En savoir plus',
 		title: 'Fiche technique du produit',
 		descrip:
-			"Le logiciel DOSIMEX 3.2 est fourni sous forme de licence téléchargeable. Dès votre demande de licence, nous vous fournissons un lien de téléchargement sécurisé et un mot de passe permettant d'activer le logiciel sur un seul PC. Le pack comprend :",
+			"Le pack DOSIMEX 3.2 est fourni sous forme de licence téléchargeable. Dès votre demande de licence, nous vous fournissons un lien de téléchargement sécurisé et un mot de passe permettant d'activer le logiciel sur un seul PC.",
 		partE: {
+			title: 'Contenu du pack',
 			p: [
-				'Tous les codes et utilitaires (15) des packs opérationnel (5), pédagogique (4) et mesures (4) présentés sur ce site',
+				'Tous les codes et utilitaires (17) des packs opérationnel (6), pédagogique (6) et mesures (5) présentés sur ce site',
 				'La documentation associée : manuel d’emploi et dossier de validation de chaque code.',
 				"Des documents de cours (11) : physique nucléaire, mesure nucléaire, IRM particules chargées, IRM photon, IRM neutrons, grandeurs opérationnelles, seuil de décision : principes et application, statistiques : principes, incertitudes et test d'hypothèse.",
 				'Les annexes (19) de l’ouvrage « Calcul de doses générées par les rayonnements ionisants » (EDP Sciences 2016).',
 			],
 		},
 		between:
-			'Un sommaire général (Sommaire général.pps) à la racine des dossiers permet de naviguer sur l’ensemble du pack Dosimex.',
-		partD: {
-			p: 'Protégée en écriture, elle permet une restauration des fichiers si nécessaire.',
-		},
+			'Un sommaire général (SOMMAIRE_GENERAL.pps) à la racine des dossiers permet de naviguer sur l’ensemble du pack Dosimex.',
 		prerequisites: {
 			title: 'Prérequis',
-			p: 'Les codes sont écrits en VBA sous Excel. Le pack Dosimex fonctionne avec Windows XP à Windows 10 et Excel 2003 à 2019 en autorisant le fonctionnement des macros. Sur Mac il est nécessaire de créer une « machine virtuelle ».\n Suivant les mesures de sécurité mises en place dans l’entreprise, il est conseillé de demander à votre service informatique de « whitelister » Dosimex.',
+			p: 'Les codes sont écrits en VBA sous Excel. Le pack Dosimex fonctionne avec Windows XP à Windows 10 et Excel 2003 à 2024 en autorisant le fonctionnement des macros. Sur Mac il est nécessaire de créer une « machine virtuelle ».\n Suivant les mesures de sécurité mises en place dans l’entreprise, il est conseillé de demander à votre service informatique de « whitelister » Dosimex.',
 			italic: "Les fichiers de Dosimex sont cryptés. Aucun autre fichier excel ne doit etre ouvert pendant l'utilisation de Dosimex",
 		},
 		titlePrice: 'Obtenir la licence Dosimex 3.2',

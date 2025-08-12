@@ -99,7 +99,7 @@ const text: ILang = {
 				'deterministic calculation code of dose rate for [gamma emitters](https://www.youtube.com/watch?v=oiYwIvxnxHU ) (volumics sources, surface source...) and [X-ray generators](https://www.youtube.com/watch?v=xriiq6v47oE ) (primary and scattered beam). With many options: skyshine, bremmstrhralung, zoning, build-up...',
 				'[deterministic calculation code](https://www.youtube.com/watch?v=4Cfya_rHa04) of beta emitter dose rate and monoenergetic electrons. Taking into account volumetric sources (beaker, syringe) or surface sources (skin contamination)',
 				'[Monte-Carlo calculation code](https://www.youtube.com/watch?v=7emAJHES-fw) of neutron emitter dose rate (Am/Be type) with biological protection (water, polyethylene, Boron, Cadmium etc..). Pedagogical module with neutron trajectory visualization',
-				'[internal exposure calculation code](https://www.youtube.com/watch?v=4Cfya_rHa04). Consideration of leakage kinetics, renewal, ground deposition. Atmospheric transfer calculations',
+				'[internal exposure calculation code](https://www.youtube.com/watch?v=4Cfya_rHa04). In accordance with the decree of November 16, 2023. Consideration of leakage kinetics, renewal, ground deposition. Atmospheric transfer calculations',
 				'[data management utility](https://www.youtube.com/watch?v=sj-FVjP87jA) to know the absorbed doses per unit of activity administered for ICRP 53, 80, 106 and 128 radiopharmaceuticals',
 				'[tool dedicated to the calculation of zoning in gammagraphy](https://youtu.be/oJYfQDhBP68) for 4 sources: Se 75, Cs 137, Co 60 and Ir 192. Isodose and operational zoning calculations. Lead, concrete, steel, air shield',
 			],
@@ -327,21 +327,19 @@ const text: ILang = {
 		buttonKnowMore: 'Read more',
 		title: 'Product data sheet',
 		descrip:
-			'The DOSIMEX 3.2 software package is delivered as a downloadable license. Once you request a license, we provide you with a secure download link and password that activates the software on a single PC. The package includes:',
+			'The DOSIMEX 3.2 software package is delivered as a downloadable license. Once you request a license, we provide you with a secure download link and password that activates the software on a single PC.',
 		partE: {
+			title: 'Pack content',
 			p: [
-				'All the codes and utilities (15) of the operational (5), learning (1) and measurement (1) packs presented on this site',
+				'All the codes and utilities (17) of the operational (6), learning (6) and measurement (5) packs presented on this site',
 				'The associated documentation: user manual and validation file for each code',
 			],
 		},
 		between:
-			'A general summary (General summary.pps) at the root of the folders allows navigation through the entire Dosimex package.',
-		partD: {
-			p: 'Write-protected, it allows file restoration if necessary',
-		},
+			'A general summary (SOMMAIRE_GENERAL.pps) at the root of the folders allows navigation through the entire Dosimex package.',
 		prerequisites: {
 			title: 'Prerequisites',
-			p: 'The codes are written in VBA in Excel. The Dosimex package works with Windows XP to Windows 11 and Excel 2003 to 2019 by authorizing the operation of macros. On Mac it is necessary to create a "virtual machine".\n Depending on the security measures in place in your company, it is advisable to ask your IT department to whitelist Dosimex.',
+			p: 'The codes are written in VBA in Excel. The Dosimex package works with Windows XP to Windows 11 and Excel 2003 to 2024 by authorizing the operation of macros. On Mac it is necessary to create a "virtual machine".\n Depending on the security measures in place in your company, it is advisable to ask your IT department to whitelist Dosimex.',
 			italic: '',
 		},
 		titlePrice: 'Get Dosimex 3.2 License',

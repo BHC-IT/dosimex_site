@@ -127,12 +127,10 @@ export default interface Lang {
 		title: string
 		descrip: string
 		partE: {
+			title: string
 			p: string[]
 		}
 		between: string
-		partD: {
-			p: string
-		}
 		prerequisites: {
 			title: string
 			p: string

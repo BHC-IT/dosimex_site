@@ -236,6 +236,7 @@ const text: ILang = {
 		title: '{Product.title}',
 		descrip: '{Product.descrip}',
 		partE: {
+			title: '{Product.partE.title}',
 			p: [
 				'{Product.partE.p[0]}',
 				'{Product.partE.p[1]}',
@@ -245,9 +246,6 @@ const text: ILang = {
 			],
 		},
 		between: '{Product.between}',
-		partD: {
-			p: '{Product.partD.p}',
-		},
 		prerequisites: {
 			title: '{Product.prerequisites.title}',
 			p: '{Product.prerequisites.p}',
