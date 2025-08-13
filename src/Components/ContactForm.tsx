@@ -99,7 +99,7 @@ const NameEmailRow: React.FC<INameEmailRowProps> = ({
 				validator={
 					[
 						{
-							validationFunction: (value) => isInputValid(value),
+							validationFunction: value => isInputValid(value),
 							errorMessage: text.errorName ?? 'Name is required',
 						},
 					] as IValidator[]
@@ -116,11 +116,11 @@ const NameEmailRow: React.FC<INameEmailRowProps> = ({
 				validator={
 					[
 						{
-							validationFunction: (value) => isInputValid(value),
+							validationFunction: value => isInputValid(value),
 							errorMessage: errorEmailArray[0] ?? 'Email is required',
 						},
 						{
-							validationFunction: (value) => isEmailValid(value),
+							validationFunction: value => isEmailValid(value),
 							errorMessage: errorEmailArray[1] ?? 'Invalid email format',
 						},
 					] as IValidator[]
@@ -220,7 +220,7 @@ const SingleInputs: React.FC<ISingleInputsProps> = ({
 				validator={
 					[
 						{
-							validationFunction: (value) => isInputValid(value),
+							validationFunction: value => isInputValid(value),
 							errorMessage: text.errorMessage ?? 'Message is required',
 						},
 					] as IValidator[]
@@ -261,7 +261,7 @@ const useContactForm = (text: Record<string, string | string[]> | undefined) => 
 		setPhone(value)
 		if (value && !isPossiblePhoneNumber(value)) {
 			setPhoneError(
-				Array.isArray(text?.errorPhone) ? text.errorPhone[0] : (text?.errorPhone ?? '')
+				Array.isArray(text?.errorPhone) ? text.errorPhone[0] : (text?.errorPhone ?? ''),
 			)
 		} else {
 			setPhoneError(null)
@@ -284,7 +284,7 @@ const useContactForm = (text: Record<string, string | string[]> | undefined) => 
 					address,
 					subject,
 				},
-				'user_ARoYKQez1mORTLjrYuH9q'
+				'user_ARoYKQez1mORTLjrYuH9q',
 			)
 			.then(() => {
 				toast.dismiss(toastLoad)
@@ -319,7 +319,7 @@ const useContactForm = (text: Record<string, string | string[]> | undefined) => 
 			resetForm()
 		} else if (!isPhoneValid) {
 			setPhoneError(
-				Array.isArray(text?.errorPhone) ? text.errorPhone[0] : (text?.errorPhone ?? '')
+				Array.isArray(text?.errorPhone) ? text.errorPhone[0] : (text?.errorPhone ?? ''),
 			)
 		}
 	}

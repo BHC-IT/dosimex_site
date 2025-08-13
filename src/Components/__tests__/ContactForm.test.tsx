@@ -78,7 +78,7 @@ describe('ContactForm Component', () => {
 			<ContactForm
 				text={mockText}
 				style={mockStyle}
-			/>
+			/>,
 		)
 
 		expect(screen.getByText('Contact Us')).toBeInTheDocument()
@@ -95,7 +95,7 @@ describe('ContactForm Component', () => {
 			<ContactForm
 				text={mockText}
 				style={undefined}
-			/>
+			/>,
 		)
 
 		// Should render the form with default styles, not return null
@@ -108,7 +108,7 @@ describe('ContactForm Component', () => {
 			<ContactForm
 				text={mockText}
 				style={null as any}
-			/>
+			/>,
 		)
 		expect(container.firstChild).toBeNull()
 	})
@@ -138,7 +138,7 @@ describe('ContactForm Component', () => {
 			<ContactForm
 				text={mockText}
 				style={mockStyle}
-			/>
+			/>,
 		)
 
 		const emailInput = screen.getByLabelText(/email/i)
@@ -159,7 +159,7 @@ describe('ContactForm Component', () => {
 			<ContactForm
 				text={mockText}
 				style={mockStyle}
-			/>
+			/>,
 		)
 
 		const nameInput = screen.getByLabelText(/name/i)
@@ -180,7 +180,7 @@ describe('ContactForm Component', () => {
 			<ContactForm
 				text={mockText}
 				style={mockStyle}
-			/>
+			/>,
 		)
 
 		// Phone input should be present (form is rendered without explicit role)
@@ -197,7 +197,7 @@ describe('ContactForm Component', () => {
 			<ContactForm
 				text={mockText}
 				style={mockStyle}
-			/>
+			/>,
 		)
 
 		const nameInput = screen.getByLabelText(/name/i)
@@ -225,7 +225,7 @@ describe('ContactForm Component', () => {
 			<ContactForm
 				text={mockText}
 				style={mockStyle}
-			/>
+			/>,
 		)
 
 		const submitButton = screen.getByRole('button', { name: /send message/i })
@@ -242,7 +242,7 @@ describe('ContactForm Component', () => {
 			<ContactForm
 				text={undefined}
 				style={mockStyle}
-			/>
+			/>,
 		)
 
 		// Component should still render without crashing
@@ -272,7 +272,7 @@ describe('ContactForm Component', () => {
 			<ContactForm
 				text={mockText}
 				style={incompleteStyle}
-			/>
+			/>,
 		)
 
 		expect(container).toBeInTheDocument()
@@ -284,7 +284,7 @@ describe('ContactForm Component', () => {
 			<ContactForm
 				text={mockText}
 				style={mockStyle}
-			/>
+			/>,
 		)
 
 		const submitButton = screen.getByRole('button', { name: /send message/i })
