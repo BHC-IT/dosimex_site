@@ -76,7 +76,7 @@ const text: ILang = {
 	Software: {
 		header: {
 			title: 'Notre produit',
-			p: 'Les 17 utilitaires se répartissent suivant 3 thématiques: calculs opérationnels de radioprotection, outils pédagogiques permettant d’approfondir les aspects physiques et enfin des utilitaires concernant les aspects mesures.',
+			p: 'Le pack DOSIMEX est votre solution numérique de référence pour tous les calculs en radioprotection. Il regroupe 17 utilitaires : des codes précis et fiables pour les calculs opérationnels, des modules pédagogiques clairs, riches et interactifs, et des utilitaires concernant les aspects mesures. Conçu pour être rapide, fiable et facile à utiliser, DOSIMEX devient un outil indispensable pour gagner du temps, travailler en toute sécurité et obtenir des résultats précis.',
 			li: ['Pack opérationnel', 'Pack pédagogique', 'Pack mesures'],
 		},
 		button: {
@@ -327,7 +327,7 @@ const text: ILang = {
 		buttonKnowMore: 'En savoir plus',
 		title: 'Fiche technique du produit',
 		descrip:
-			"Le pack DOSIMEX 3.2 est fourni sous forme de licence téléchargeable. Dès votre demande de licence, nous vous fournissons un lien de téléchargement sécurisé et un mot de passe permettant d'activer le logiciel sur un seul PC.",
+			'Le pack DOSIMEX 3.2 regroupe tous nos outils professionnels de calcul en radioprotection dans une solution unique et prête à l’emploi. Distribué en version numérique, il est livré avec une licence individuelle mono-poste. Après votre commande, vous recevez immédiatement par e-mail un lien de téléchargement ainsi que votre clé de licence. Installation immédiate, protection optimale, résultats fiables — commencez vos calculs sans attendre.',
 		partE: {
 			title: 'Contenu du pack',
 			p: [
@@ -341,7 +341,7 @@ const text: ILang = {
 			'Un sommaire général (SOMMAIRE_GENERAL.pps) à la racine des dossiers permet de naviguer sur l’ensemble du pack Dosimex.',
 		prerequisites: {
 			title: 'Prérequis',
-			p: 'Les codes sont écrits en VBA sous Excel. Le pack Dosimex fonctionne avec Windows XP à Windows 10 et Excel 2003 à 2024 en autorisant le fonctionnement des macros. Sur Mac il est nécessaire de créer une « machine virtuelle ».\n Suivant les mesures de sécurité mises en place dans l’entreprise, il est conseillé de demander à votre service informatique de « whitelister » Dosimex.',
+			p: 'Les codes sont écrits en VBA sous Excel. Le pack Dosimex fonctionne avec Windows XP à Windows 11 et Excel 2003 à 2024 en autorisant le fonctionnement des macros. Sur Mac il est nécessaire de créer une « machine virtuelle ».\n Suivant les mesures de sécurité mises en place dans l’entreprise, il est conseillé de demander à votre service informatique de « whitelister » Dosimex.',
 			italic: "Les fichiers de Dosimex sont cryptés. Aucun autre fichier excel ne doit etre ouvert pendant l'utilisation de Dosimex",
 		},
 		titlePrice: 'Obtenir la licence Dosimex 3.2',

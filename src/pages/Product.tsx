@@ -42,12 +42,7 @@ function Product(props: IProps) {
 			<section>
 				<h3 style={style.title}>{text.title}</h3>
 				<div style={style.banner}>
-					<div style={style.banner1}>
-						<p>{text.descrip}</p>
-					</div>
-					<div style={style.banner2}>
-						<div style={style.bannerImage} />
-					</div>
+					<p>{text.descrip}</p>
 				</div>
 			</section>
 			<section className='container'>
@@ -130,35 +125,13 @@ export const styles = (mobile: boolean): IStyles => ({
 		display: 'flex',
 		flexDirection: mobile ? 'column-reverse' : undefined,
 		alignItems: 'center',
+		marginRight: mobile ? undefined : '25vw',
 		height: mobile ? undefined : '30vh',
 		justifyContent: 'space-between',
-	},
-	banner1: {
 		backgroundColor: 'var(--main)',
-		height: '100%',
-		width: mobile ? '100%' : '66%',
 		color: 'var(--light)',
-		display: 'flex',
-		alignItems: 'center',
 		paddingLeft: '10vw',
 		paddingRight: '10vw',
-	},
-	banner2: {
-		backgroundColor: 'var(--main)',
-		height: mobile ? undefined : '100%',
-		display: 'flex',
-		alignItems: 'center',
-	},
-	bannerImage: {
-		width: mobile ? '100vw' : `${722 * ratio}px`,
-		height: mobile ? `${324 * ratio}px` : `${405 * ratio}px`,
-		backgroundImage: "url('/Images/usbkey.png')",
-		backgroundPosition: 'center',
-		backgroundRepeat: 'no-repeat',
-		backgroundSize: 'contain',
-		position: 'relative',
-		right: mobile ? '5%' : '45%',
-		marginTop: mobile ? '6vh' : undefined,
 	},
 	borderLeft: {
 		borderLeft: '5px solid var(--main)',

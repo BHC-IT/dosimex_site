@@ -76,7 +76,7 @@ const text: ILang = {
 	Software: {
 		header: {
 			title: 'Product',
-			p: 'The 17 utilities are divided into 3 themes: operational calculations for radiation protection, pedagogical tools to deepen the physical aspects and finally utilities concerning the measurement aspects.',
+			p: 'The DOSIMEX pack is your reference digital solution for all radiation protection calculations. It includes 17 utilities: precise and reliable codes for operational calculations, clear, rich, and interactive educational modules, and tools covering measurement aspects. Designed to be fast, reliable, and easy to use, DOSIMEX becomes an indispensable tool for saving time, working safely, and achieving accurate results.',
 			li: ['Operational pack', 'Learning pack', 'Measurement pack'],
 		},
 		button: {
@@ -327,7 +327,7 @@ const text: ILang = {
 		buttonKnowMore: 'Read more',
 		title: 'Product data sheet',
 		descrip:
-			'The DOSIMEX 3.2 software package is delivered as a downloadable license. Once you request a license, we provide you with a secure download link and password that activates the software on a single PC.',
+			'The DOSIMEX 3.2 pack brings together all our professional radiation protection calculation tools in a single, ready-to-use solution. Delivered as a digital version, it comes with a single-user license. Once your order is confirmed, you will immediately receive by e-mail: a secure download link and your license key. Instant installation, optimal protection, reliable results — start your calculations right away.',
 		partE: {
 			title: 'Pack content',
 			p: [
