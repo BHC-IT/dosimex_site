@@ -1,16 +1,16 @@
-import emailjs from '@emailjs/browser'
 import * as CSS from 'csstype'
 import Radium from 'radium'
-import React, { useState } from 'react'
-import PhoneInput, { isPossiblePhoneNumber } from 'react-phone-number-input'
-import { toast } from 'react-toastify'
+import React from 'react'
 
 import { withIsMobile } from '../hoc/withIsMobile'
 import { withText } from '../hoc/withText'
+import { useContactFormValidation } from '../Hooks/useContactFormValidation'
 
-import Input, { IValidator } from './Input'
+import NameEmailRow from './ContactForm/NameEmailRow'
+import PhoneEnterpriseRow from './ContactForm/PhoneEnterpriseRow'
+import SingleInputs from './ContactForm/SingleInputs'
+import SubmitButton from './ContactForm/SubmitButton'
 
-import 'react-phone-number-input/style.css'
 import 'react-toastify/dist/ReactToastify.css'
 
 interface IProps {
@@ -29,326 +29,8 @@ export interface IStyles {
 	}
 }
 
-interface INameEmailRowProps {
-	text: Record<string, string | string[]>
-	style: Partial<IStyles>
-	name: string | null
-	email: string | null
-	setNameValid: (valid: boolean) => void
-	setName: (value: string) => void
-	setEmail: (value: string) => void
-}
-
-interface IPhoneEnterpriseRowProps {
-	text: Record<string, string | string[]>
-	style: Partial<IStyles>
-	phone: string | undefined
-	phoneError: string | null
-	enterprise: string | null
-	handlePhoneChange: (value: string | undefined) => void
-	setEnterprise: (value: string) => void
-}
-
-interface ISingleInputsProps {
-	text: Record<string, string | string[]>
-	address: string | null
-	subject: string | null
-	message: string | null
-	setAddress: (value: string) => void
-	setSubject: (value: string) => void
-	setMessage: (value: string) => void
-}
-
-interface ISubmitButtonProps {
-	style: Partial<IStyles>
-	text: Record<string, string | string[]>
-	isLoading: boolean
-}
-
-const mailFormat =
-	/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-
-const isInputValid = (value: string): boolean => value.trim() !== ''
-
-const NameEmailRow: React.FC<INameEmailRowProps> = ({
-	text,
-	style,
-	name,
-	email,
-	setNameValid,
-	setName,
-	setEmail,
-}) => {
-	const isEmailValid = (value: string): boolean => mailFormat.test(value)
-	const labels = Array.isArray(text.label) ? text.label : []
-	const errorEmailArray = Array.isArray(text.errorEmail)
-		? text.errorEmail
-		: [text.errorEmail || '']
-
-	return (
-		<div style={style.divNameMail ?? defaultStyles.divNameMail}>
-			<Input
-				value={name}
-				type='text'
-				id='name'
-				label={labels[0] ?? 'Name'}
-				style={{ divInput: style.input ?? defaultStyles.input }}
-				required
-				isValid={(isValid: boolean) => setNameValid(isValid)}
-				onChange={(value: string) => setName(value)}
-				validator={
-					[
-						{
-							validationFunction: value => isInputValid(value),
-							errorMessage: text.errorName ?? 'Name is required',
-						},
-					] as IValidator[]
-				}
-			/>
-			<Input
-				value={email}
-				type='email'
-				id='email'
-				label={labels[1] ?? 'Email'}
-				style={{ divInput: style.input ?? defaultStyles.input }}
-				required
-				onChange={(value: string) => setEmail(value)}
-				validator={
-					[
-						{
-							validationFunction: value => isInputValid(value),
-							errorMessage: errorEmailArray[0] ?? 'Email is required',
-						},
-						{
-							validationFunction: value => isEmailValid(value),
-							errorMessage: errorEmailArray[1] ?? 'Invalid email format',
-						},
-					] as IValidator[]
-				}
-			/>
-		</div>
-	)
-}
-
-const PhoneEnterpriseRow: React.FC<IPhoneEnterpriseRowProps> = ({
-	text,
-	style,
-	phone,
-	phoneError,
-	enterprise,
-	handlePhoneChange,
-	setEnterprise,
-}) => {
-	const labels = Array.isArray(text.label) ? text.label : []
-
-	return (
-		<div style={style.divNameMail ?? defaultStyles.divNameMail}>
-			<div style={style.phoneInput ?? defaultStyles.phoneInput}>
-				<label
-					htmlFor='phone'
-					style={{
-						textTransform: 'uppercase',
-						color: 'var(--grey)',
-						fontSize: '2rem',
-						display: 'block',
-					}}
-				>
-					{labels[2] ?? 'Phone'}
-				</label>
-				<PhoneInput
-					id='phone'
-					value={phone}
-					onChange={handlePhoneChange}
-					defaultCountry='FR'
-					style={{
-						width: '100%',
-					}}
-					className={`phone-input-custom ${phoneError ? 'phone-input-error' : ''}`}
-				/>
-				{phoneError && (
-					<p style={{ color: 'red', margin: '4px 0 0 0', fontSize: '1.4rem' }}>
-						{phoneError}
-					</p>
-				)}
-			</div>
-			<Input
-				value={enterprise}
-				type='text'
-				id='enterprise'
-				label={labels[3] ?? 'Enterprise'}
-				style={{ divInput: style.input ?? defaultStyles.input }}
-				onChange={(value: string) => setEnterprise(value)}
-			/>
-		</div>
-	)
-}
-
-const SingleInputs: React.FC<ISingleInputsProps> = ({
-	text,
-	address,
-	subject,
-	message,
-	setAddress,
-	setSubject,
-	setMessage,
-}) => {
-	const labels = Array.isArray(text.label) ? text.label : []
-
-	return (
-		<>
-			<Input
-				value={address}
-				type='text'
-				id='address'
-				label={labels[4] ?? 'Address'}
-				onChange={(value: string) => setAddress(value)}
-			/>
-			<Input
-				value={subject}
-				type='text'
-				id='subject'
-				label={labels[5] ?? 'Subject'}
-				onChange={(value: string) => setSubject(value)}
-			/>
-			<Input
-				value={message}
-				type='textarea'
-				id='message'
-				label={labels[6] ?? 'Message'}
-				required
-				onChange={(value: string) => setMessage(value)}
-				validator={
-					[
-						{
-							validationFunction: value => isInputValid(value),
-							errorMessage: text.errorMessage ?? 'Message is required',
-						},
-					] as IValidator[]
-				}
-			/>
-		</>
-	)
-}
-
-const SubmitButton: React.FC<ISubmitButtonProps> = ({ style, text, isLoading }) => (
-	<button
-		style={style.button ?? defaultStyles.button}
-		type='submit'
-	>
-		{isLoading ? (
-			<div style={{ display: 'block', margin: '0 auto', borderColor: 'red' }}>
-				{text.sending ?? 'Loading...'}
-			</div>
-		) : (
-			(text.button ?? 'Submit')
-		)}
-	</button>
-)
-
-const useContactForm = (text: Record<string, string | string[]> | undefined) => {
-	const [name, setName] = useState(null as string | null)
-	const [nameValid, setNameValid] = useState(false)
-	const [email, setEmail] = useState(null as string | null)
-	const [phone, setPhone] = useState(undefined as string | undefined)
-	const [phoneError, setPhoneError] = useState(null as string | null)
-	const [enterprise, setEnterprise] = useState(null as string | null)
-	const [address, setAddress] = useState(null as string | null)
-	const [message, setMessage] = useState(null as string | null)
-	const [subject, setSubject] = useState(null as string | null)
-	const [isLoading, setIsLoading] = useState(false)
-
-	const handlePhoneChange = (value: string | undefined) => {
-		setPhone(value)
-		if (value && !isPossiblePhoneNumber(value)) {
-			setPhoneError(
-				Array.isArray(text?.errorPhone) ? text.errorPhone[0] : (text?.errorPhone ?? ''),
-			)
-		} else {
-			setPhoneError(null)
-		}
-	}
-
-	const sendEmail = (): void => {
-		const toastLoad = toast.dark(text?.sending)
-		setIsLoading(true)
-		emailjs
-			.send(
-				process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? '',
-				process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? '',
-				{
-					text: message,
-					name,
-					email,
-					phone,
-					enterprise,
-					address,
-					subject,
-				},
-				process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? '',
-			)
-			.then(() => {
-				toast.dismiss(toastLoad)
-				toast.success(text?.messageSent)
-			})
-			.catch(() => {
-				toast.dismiss(toastLoad)
-				toast.error(text?.messageNotSent)
-			})
-		setIsLoading(false)
-	}
-
-	const resetForm = () => {
-		setName(null)
-		setNameValid(false)
-		setEmail(null)
-		setPhone(undefined)
-		setPhoneError(null)
-		setEnterprise(null)
-		setAddress(null)
-		setMessage(null)
-		setSubject(null)
-	}
-
-	const handleSubmit = (e: React.FormEvent) => {
-		e.preventDefault()
-		// Check if phone is provided and valid, or if it's empty (optional)
-		const isPhoneValid = !phone || (phone && isPossiblePhoneNumber(phone))
-
-		if (nameValid && isPhoneValid) {
-			sendEmail()
-			resetForm()
-		} else if (!isPhoneValid) {
-			setPhoneError(
-				Array.isArray(text?.errorPhone) ? text.errorPhone[0] : (text?.errorPhone ?? ''),
-			)
-		}
-	}
-
-	return {
-		name,
-		setName,
-		nameValid,
-		setNameValid,
-		email,
-		setEmail,
-		phone,
-		phoneError,
-		enterprise,
-		setEnterprise,
-		address,
-		setAddress,
-		message,
-		setMessage,
-		subject,
-		setSubject,
-		isLoading,
-		handlePhoneChange,
-		handleSubmit,
-	}
-}
-
 const ContactForm: React.FC<IProps> = ({ text, style }) => {
-	const formData = useContactForm(text)
+	const formData = useContactFormValidation(text)
 
 	if (style === null) return null
 
@@ -361,29 +43,16 @@ const ContactForm: React.FC<IProps> = ({ text, style }) => {
 			<NameEmailRow
 				text={text ?? {}}
 				style={style ?? defaultStyles}
-				name={formData.name}
-				email={formData.email}
-				setNameValid={formData.setNameValid}
-				setName={formData.setName}
-				setEmail={formData.setEmail}
+				formData={formData}
 			/>
 			<PhoneEnterpriseRow
 				text={text ?? {}}
 				style={style ?? defaultStyles}
-				phone={formData.phone}
-				phoneError={formData.phoneError}
-				enterprise={formData.enterprise}
-				handlePhoneChange={formData.handlePhoneChange}
-				setEnterprise={formData.setEnterprise}
+				formData={formData}
 			/>
 			<SingleInputs
 				text={text ?? {}}
-				address={formData.address}
-				subject={formData.subject}
-				message={formData.message}
-				setAddress={formData.setAddress}
-				setSubject={formData.setSubject}
-				setMessage={formData.setMessage}
+				formData={formData}
 			/>
 			<SubmitButton
 				style={style ?? defaultStyles}
