@@ -103,7 +103,21 @@ This plan is organized by priority and confidence level. Each task is designed t
 - [ ] Ensure responsive behavior is maintained
 - [ ] Update components one by one to avoid breaking changes
 
-#### Task 3.3: Optimize CSS Performance
+#### Task 3.3: Convert CSS-in-JS to Tailwind CSS
+**Priority: HIGH | Confidence: HIGH**
+- [ ] Install and configure Tailwind CSS with Next.js 13
+- [ ] Set up Tailwind config to match existing CSS custom properties (--main, --dark, --light, --grey, --flash)
+- [ ] Convert component-by-component CSS-in-JS objects to Tailwind classes
+- [ ] Replace responsive logic (`mobile ? 'class1' : 'class2'`) with Tailwind responsive prefixes (sm:, md:, lg:)
+- [ ] Convert hover effects from React state to Tailwind hover: utilities
+- [ ] Update all components systematically: About.tsx, Book.tsx, CardHome.tsx, and remaining components
+- [ ] Test each component individually to ensure visual consistency is maintained
+- [ ] Run full test suite after each component conversion to catch any breakage
+- [ ] Remove unused CSS-in-JS style objects and imports after conversion
+- [ ] Verify bundle size improvements and performance gains
+- [ ] Update any remaining inline styles to use Tailwind utilities where appropriate
+
+#### Task 3.4: Optimize CSS Performance
 **Priority: MEDIUM | Confidence: MEDIUM**
 - [ ] Replace CSS left animations with transform
 - [ ] Optimize keyframe animations in globals.css
