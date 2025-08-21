@@ -3,11 +3,7 @@ import { describe, it, expect, vi } from 'vitest'
 
 import Button, { styles } from '../Button'
 
-// Mock Radium since it might cause issues in testing
-vi.mock('radium', () => ({
-	__esModule: true,
-	default: (component: any) => component,
-}))
+// Radium has been removed from the Button component
 
 describe('Button Component', () => {
 	it('should render with correct text and route', () => {
@@ -74,8 +70,8 @@ describe('Button Component', () => {
 })
 
 describe('Button styles', () => {
-	it('should have correct default style object', () => {
-		expect(styles).toEqual({
+	it('should have correct default style structure', () => {
+		expect(styles.base).toEqual({
 			padding: '8px 25px',
 			backgroundColor: 'var(--main)',
 			borderRadius: '50px',
@@ -83,16 +79,13 @@ describe('Button styles', () => {
 			cursor: 'pointer',
 			textTransform: 'uppercase',
 			transition: 'all 0.3s ease 0s',
-			':hover': {
-				transform: 'translateY(-4px)',
-				boxShadow: '0px 5px 5px rgba(0, 0, 0, 0.1)',
-			},
+			border: 'none',
 		})
 	})
 
 	it('should have hover styles defined', () => {
-		expect(styles[':hover']).toBeDefined()
-		expect(styles[':hover'].transform).toBe('translateY(-4px)')
-		expect(styles[':hover'].boxShadow).toBe('0px 5px 5px rgba(0, 0, 0, 0.1)')
+		expect(styles.hover).toBeDefined()
+		expect(styles.hover.transform).toBe('translateY(-4px)')
+		expect(styles.hover.boxShadow).toBe('0px 5px 5px rgba(0, 0, 0, 0.1)')
 	})
 })

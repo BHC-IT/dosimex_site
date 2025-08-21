@@ -1,11 +1,13 @@
 import * as CSS from 'csstype'
-import Radium from 'radium'
 import * as React from 'react'
 
 import { useIsMobile } from '../Hooks/useIsMobile'
 
 export interface IStyles {
-	button: CSS.Properties,
+	button: {
+		base: CSS.Properties,
+		hover: CSS.Properties,
+	},
 	global: CSS.Properties,
 	icon: CSS.Properties,
 	text: CSS.Properties,
@@ -17,11 +19,16 @@ interface IProps {
 }
 
 const OpinionHome = (props: IProps) => {
-
+	const [isHovered, setIsHovered] = React.useState(false)
 	const style = useIsMobile(styles)
 
 	if (style === null)
 		return null
+
+	const buttonStyle = {
+		...style.button.base,
+		...(isHovered ? style.button.hover : {}),
+	}
 
 	return (
 		<div style={style.global}>
@@ -34,10 +41,14 @@ const OpinionHome = (props: IProps) => {
 				<p style={style.text}>{props.text.opinion}</p>
 			</div>
 			<a
-				style={style.button}
+				style={buttonStyle}
 				href="../Folders/extrait_retour_utilisateurs.pdf"
 				target="_blank"
-				rel="noreferrer noopener">{props.text.btn}
+				rel="noreferrer noopener"
+				onMouseEnter={() => setIsHovered(true)}
+				onMouseLeave={() => setIsHovered(false)}
+			>
+				{props.text.btn}
 				<img style={style.icon} src="/Images/icon_download.png" alt="icône télécharger" />
 			</a>
 		</div>
@@ -45,29 +56,32 @@ const OpinionHome = (props: IProps) => {
 
 }
 
-export default Radium(OpinionHome)
+export default OpinionHome
 
 export const styles = (mobile: boolean): IStyles => ({
 	button: {
-		padding: '8px 25px',
-		border: '2px solid var(--main)',
-		borderRadius: '50px',
-		color: 'var(--main)',
-		textTransform: 'uppercase',
-		transition: 'all 0.3s ease 0s',
-		':hover': {
+		base: {
+			padding: '8px 25px',
+			border: '2px solid var(--main)',
+			borderRadius: '50px',
+			color: 'var(--main)',
+			textTransform: 'uppercase',
+			transition: 'all 0.3s ease 0s',
+			display: 'flex',
+			alignItems: 'center',
+			justifyContent: 'space-around',
+			width: '220px',
+			marginLeft: 'auto',
+			marginRight: 'auto',
+			marginTop: '7vh',
+			marginBottom: '2vh',
+			textDecoration: 'none',
+		},
+		hover: {
 			transform: 'translateY(-4px)',
 			boxShadow: '0px 5px 5px rgba(0, 0, 0, 0.1)',
 		},
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'space-around',
-		width: '220px',
-		marginLeft: 'auto',
-		marginRight: 'auto',
-		marginTop: '7vh',
-		marginBottom: '2vh',
-	} as CSS.Properties,
+	},
 	global: {
 		backgroundColor: 'var(--grey-bg)',
 		padding: '10vh 10vw',

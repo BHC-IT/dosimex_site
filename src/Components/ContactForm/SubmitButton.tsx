@@ -1,18 +1,16 @@
 import * as CSS from 'csstype'
-import React from 'react'
+import React, { useState } from 'react'
 
 interface ISubmitButtonProps {
 	style: Partial<{
-		button: CSS.Properties & {
-			':hover'?: CSS.Properties
-		}
+		button: CSS.Properties
 	}>
 	text: Record<string, string | string[]>
 	isLoading: boolean
 }
 
 const defaultStyles = {
-	button: {
+	base: {
 		backgroundColor: 'var(--main)',
 		color: 'white',
 		border: 'none',
@@ -23,27 +21,39 @@ const defaultStyles = {
 		cursor: 'pointer',
 		transition: 'all 0.3s ease',
 		minWidth: '150px',
-		':hover': {
-			backgroundColor: 'var(--dark)',
-			transform: 'translateY(-2px)',
-		},
+	},
+	hover: {
+		backgroundColor: 'var(--dark)',
+		transform: 'translateY(-2px)',
 	},
 }
 
-const SubmitButton: React.FC<ISubmitButtonProps> = ({ style, text, isLoading }) => (
-	<button
-		style={style.button ?? defaultStyles.button}
-		type="submit"
-		disabled={isLoading}
-	>
-		{isLoading ? (
-			<div style={{ display: 'block', margin: '0 auto' }}>
-				{text.sending ?? 'Loading...'}
-			</div>
-		) : (
-			(text.button ?? 'Submit')
-		)}
-	</button>
-)
+const SubmitButton: React.FC<ISubmitButtonProps> = ({ style, text, isLoading }) => {
+	const [isHovered, setIsHovered] = useState(false)
+
+	const buttonStyle = {
+		...defaultStyles.base,
+		...(isHovered && !isLoading ? defaultStyles.hover : {}),
+		...style.button,
+	}
+
+	return (
+		<button
+			style={buttonStyle}
+			type="submit"
+			disabled={isLoading}
+			onMouseEnter={() => setIsHovered(true)}
+			onMouseLeave={() => setIsHovered(false)}
+		>
+			{isLoading ? (
+				<div style={{ display: 'block', margin: '0 auto' }}>
+					{text.sending ?? 'Loading...'}
+				</div>
+			) : (
+				(text.button ?? 'Submit')
+			)}
+		</button>
+	)
+}
 
 export default SubmitButton

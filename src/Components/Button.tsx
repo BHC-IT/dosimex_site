@@ -1,6 +1,6 @@
 import * as CSS from 'csstype'
 import Link from 'next/link'
-import Radium from 'radium'
+import React, { useState } from 'react'
 
 interface IProps {
 	name: string
@@ -9,27 +9,41 @@ interface IProps {
 }
 
 const Button = (props: IProps) => {
+	const [isHovered, setIsHovered] = useState(false)
+
+	const buttonStyle = {
+		...styles.base,
+		...(isHovered ? styles.hover : {}),
+		...props.style,
+	}
+
 	return (
-		<Link
-			href={`/${props.route}`}
-			replace
-		>
-			<button style={{ ...styles, ...props.style }}>{props.name}</button>
+		<Link href={`/${props.route}`} replace>
+			<button
+				style={buttonStyle}
+				onMouseEnter={() => setIsHovered(true)}
+				onMouseLeave={() => setIsHovered(false)}
+			>
+				{props.name}
+			</button>
 		</Link>
 	)
 }
 
-export default Radium(Button)
+export default Button
 
 export const styles = {
-	padding: '8px 25px',
-	backgroundColor: 'var(--main)',
-	borderRadius: '50px',
-	color: 'white',
-	cursor: 'pointer',
-	textTransform: 'uppercase' as 'uppercase',
-	transition: 'all 0.3s ease 0s',
-	':hover': {
+	base: {
+		padding: '8px 25px',
+		backgroundColor: 'var(--main)',
+		borderRadius: '50px',
+		color: 'white',
+		cursor: 'pointer',
+		textTransform: 'uppercase' as 'uppercase',
+		transition: 'all 0.3s ease 0s',
+		border: 'none',
+	},
+	hover: {
 		transform: 'translateY(-4px)',
 		boxShadow: '0px 5px 5px rgba(0, 0, 0, 0.1)',
 	},

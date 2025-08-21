@@ -4,7 +4,6 @@ import * as CSS from 'csstype'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import Radium from 'radium'
 import Tilt from 'react-parallax-tilt'
 
 import { useIsMobile } from '../Hooks/useIsMobile'
@@ -78,7 +77,7 @@ const CardHome = (props: IProps) => {
 	)
 }
 
-export default Radium(CardHome)
+export default CardHome
 
 export const styles = (mobile: boolean): IStyles => ({
 	global: {

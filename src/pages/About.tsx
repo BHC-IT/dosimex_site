@@ -1,6 +1,5 @@
 import * as CSS from 'csstype'
 import Image from 'next/image'
-import Radium from 'radium'
 
 import { useIsMobile, useMobile } from '../Hooks/useIsMobile'
 import { useText } from '../Hooks/useText'
@@ -123,7 +122,7 @@ const About = () => {
 	)
 }
 
-export default Radium(About)
+export default About
 
 export const styles = (mobile: boolean): IStyles => ({
 	global: {

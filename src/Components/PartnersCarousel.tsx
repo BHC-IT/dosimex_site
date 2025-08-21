@@ -1,5 +1,4 @@
 import * as CSS from 'csstype'
-import Radium from 'radium'
 import React, { useState } from 'react'
 import Carousel from 'react-multi-carousel'
 
@@ -200,4 +199,4 @@ export const styles = (mobile: boolean): IStyles => ({
 	},
 })
 
-export default Radium(PartnersCarousel)
+export default PartnersCarousel

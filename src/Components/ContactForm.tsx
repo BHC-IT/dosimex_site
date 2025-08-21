@@ -1,5 +1,4 @@
 import * as CSS from 'csstype'
-import Radium from 'radium'
 import React from 'react'
 
 import { useIsMobile } from '../Hooks/useIsMobile'
@@ -23,9 +22,7 @@ export interface IStyles {
 	divNameMail: CSS.Properties
 	input: CSS.Properties
 	phoneInput: CSS.Properties
-	button: CSS.Properties & {
-		':hover'?: CSS.Properties
-	}
+	button: CSS.Properties
 }
 
 const ContactForm: React.FC<IProps> = () => {
@@ -106,14 +103,10 @@ export const styles = (mobile: boolean): IStyles => ({
 		color: 'white',
 		textTransform: 'uppercase',
 		transition: 'all 0.3s ease 0s',
-		':hover': {
-			color: 'white',
-			transform: 'translateY(-4px)',
-			boxShadow: '0px 5px 5px rgba(0, 0, 0, 0.1)',
-		},
+		border: 'none',
 	},
 })
 
 const defaultStyles: IStyles = styles(false)
 
-export default Radium(ContactForm)
+export default ContactForm

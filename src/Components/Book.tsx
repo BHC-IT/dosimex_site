@@ -1,5 +1,4 @@
 import CSS from 'csstype'
-import Radium from 'radium'
 import { withOrientationChange } from 'react-device-detect'
 
 import { useIsMobile } from '../Hooks/useIsMobile'
@@ -49,7 +48,7 @@ const Book = (props: IProps) => {
 	)
 }
 
-export default withOrientationChange(Radium(Book))
+export default withOrientationChange(Book)
 
 export const stylesBook = (mobile: boolean): CSS.Properties => ({
 	width: mobile ? '55vw' : '15vw',
