@@ -4,22 +4,33 @@ import React, { useState, useEffect } from 'react'
 import { useMobile } from '../Hooks/useIsMobile'
 
 export interface IValidator {
-	validationFunction: (arg0: string) => boolean
+	validationFunction: (value: string) => boolean
 	errorMessage: string
 }
 
-interface IProps {
+export interface IProps {
+	/** The controlled value of the input. If provided, component becomes controlled */
 	value?: string | null
-	type?: string
+	/** Input type - 'text', 'email', 'password', 'textarea', etc. */
+	type?: 'text' | 'email' | 'password' | 'number' | 'tel' | 'url' | 'textarea'
+	/** HTML id attribute for the input element */
 	id?: string
+	/** Label text for the input */
 	label: string
+	/** Placeholder text for the input */
 	placeholder?: string
+	/** Custom styles to override default styling */
 	style?: IStyles
+	/** Whether the input is required */
 	required?: boolean
-	areaSize?: [number, number]
-	isValid?: (arg0: boolean) => void
-	onChange?: (arg1: string) => void
-	validator?: IValidator[]
+	/** Size for textarea as [rows, cols]. Only applies when type='textarea' */
+	areaSize?: readonly [number, number]
+	/** Callback fired when validation status changes */
+	isValid?: (isValid: boolean) => void
+	/** Callback fired when input value changes */
+	onChange?: (value: string) => void
+	/** Array of validation functions to run on blur */
+	validator?: readonly IValidator[]
 }
 
 interface IStyles {
@@ -30,22 +41,37 @@ interface IStyles {
 	inputInvalid?: CSS.Properties
 }
 
-const runValidator = (validator: IValidator[], value: string): IValidator[] =>
-	validator.filter(elem => !elem.validationFunction(value))
+// Constants for better maintainability
+const DEFAULT_TEXTAREA_ROWS = 10
+const DEFAULT_TEXTAREA_COLS = 20
 
-const shouldSkipValidation = (value: string | null): boolean =>
-	!value || value === ''
+const runValidator = (validators: readonly IValidator[], value: string): IValidator[] =>
+	validators.filter(validator => !validator.validationFunction(value))
 
-const getInputElement = (
-	props: IProps,
-	value: string,
-	styleInputTextarea: CSS.Properties,
-	styleInputInvalid: CSS.Properties,
-	styleInput: CSS.Properties,
-	isValid: boolean,
-	handleChange: (newValue: string) => void,
-	handleBlur: () => void,
-) => {
+const shouldSkipValidation = (value: string): boolean =>
+	!value || value.trim() === ''
+
+interface IInputElementProps {
+	props: IProps
+	value: string
+	styleInputTextarea: CSS.Properties
+	styleInputInvalid: CSS.Properties
+	styleInput: CSS.Properties
+	isValid: boolean
+	handleChange: (newValue: string) => void
+	handleBlur: () => void
+}
+
+const getInputElement = ({
+	props,
+	value,
+	styleInputTextarea,
+	styleInputInvalid,
+	styleInput,
+	isValid,
+	handleChange,
+	handleBlur,
+}: IInputElementProps): JSX.Element => {
 	if (props.type === 'textarea') {
 		return (
 			<textarea
@@ -53,8 +79,8 @@ const getInputElement = (
 				style={isValid ? styleInputTextarea : styleInputInvalid}
 				id={props.id}
 				placeholder={props.placeholder}
-				rows={props.areaSize?.[0] ?? 10}
-				cols={props.areaSize?.[1] ?? 20}
+				rows={props.areaSize?.[0] ?? DEFAULT_TEXTAREA_ROWS}
+				cols={props.areaSize?.[1] ?? DEFAULT_TEXTAREA_COLS}
 				onChange={e => handleChange(e.target.value)}
 				onBlur={handleBlur}
 				required={props.required}
@@ -76,27 +102,45 @@ const getInputElement = (
 	)
 }
 
-const Input = (props: IProps) => {
+const Input: React.FC<IProps> = props => {
 	const isMobile = useMobile()
 
-	const [value, setValue] = useState(props.value === undefined ? '' : props.value)
-	const [erroredValidator, setErroredValidator] = useState([] as IValidator[])
+	// Determine if this is a controlled component
+	const isControlled = props.value !== undefined
 
+	// Initialize state based on controlled/uncontrolled pattern
+	const [internalValue, setInternalValue] = useState(() => {
+		if (isControlled) {
+			return props.value ?? ''
+		}
+		return ''
+	})
+
+	const [erroredValidator, setErroredValidator] = useState<IValidator[]>([])
+
+	// For controlled components, sync internal state when prop changes
 	useEffect(() => {
-		if (props.value === value) return
-		setValue(props.value ?? '')
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [props.value]) // 'value' intentionally omitted to prevent infinite re-renders when internal state changes
+		if (isControlled && props.value !== internalValue) {
+			setInternalValue(props.value ?? '')
+		}
+	}, [props.value, isControlled, internalValue])
+
+	// Get the current value (controlled vs uncontrolled)
+	const currentValue = isControlled ? (props.value ?? '') : internalValue
 
 	// Use the mobile detection result directly
 	const styles = getStyles(isMobile)
 
 	const handleBlur = () => {
-		if (props.validator === undefined) return
+		if (!props.validator || props.validator.length === 0) return
 
-		if (shouldSkipValidation(value)) return setErroredValidator([])
+		if (shouldSkipValidation(currentValue)) {
+			setErroredValidator([])
+			props.isValid?.(true)
+			return
+		}
 
-		const errored = runValidator(props.validator, value as string)
+		const errored = runValidator(props.validator, currentValue)
 		const valid = errored.length === 0
 
 		setErroredValidator(errored)
@@ -104,7 +148,12 @@ const Input = (props: IProps) => {
 	}
 
 	const handleChange = (newValue: string) => {
-		setValue(newValue)
+		// For uncontrolled components, update internal state
+		if (!isControlled) {
+			setInternalValue(newValue)
+		}
+
+		// Always call onChange callback if provided
 		props.onChange?.(newValue)
 	}
 
@@ -126,26 +175,32 @@ const Input = (props: IProps) => {
 			>
 				{props.label}
 			</label>
-			{getInputElement(
+			{getInputElement({
 				props,
-				value ?? '',
+				value: currentValue,
 				styleInputTextarea,
 				styleInputInvalid,
 				styleInput,
 				isValid,
 				handleChange,
 				handleBlur,
-			)}
-			{!isValid
-				? erroredValidator.map((e, index) => (
+			})}
+			{!isValid && erroredValidator.length > 0 && (
+				<div role="alert" aria-live="polite">
+					{erroredValidator.map((validator, index) => (
 						<p
-							key={index}
-							style={{ color: 'red' }}
+							key={`${props.id ?? 'input'}-error-${index}`}
+							style={{
+								color: 'red',
+								fontSize: '1.4rem',
+								margin: '0.5rem 0 0 0',
+							}}
 						>
-							{e.errorMessage}
+							{validator.errorMessage}
 						</p>
-					))
-				: null}
+					))}
+				</div>
+			)}
 		</div>
 	)
 }
