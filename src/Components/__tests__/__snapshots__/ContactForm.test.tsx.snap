@@ -1401,16 +1401,18 @@ exports[`ContactForm Component > should match snapshot with default props 1`] = 
 
 exports[`ContactForm Component > should match snapshot with minimal props 1`] = `
 <form
-  style="padding: 2vh 4vw; margin: 15vh 20vw 25vh 20vw; box-shadow: 0px 3px 7px 5px #F3F4FA; border-radius: 20px; background-color: white; text-align: justify;"
+  style="padding: 20px;"
 >
   <h3
-    style="margin-bottom: 2vh;"
-  />
+    style="font-size: 24px;"
+  >
+    Contact Us
+  </h3>
   <div
-    style="display: flex; flex-wrap: wrap; justify-content: space-between;"
+    style="display: flex;"
   >
     <div
-      style="display: flex; flex-direction: column; padding: 1.5vh 0px; width: 45%;"
+      style="display: flex; flex-direction: column; padding: 1.5vh 0px; width: 100%;"
     >
       <label
         for="name"
@@ -1427,7 +1429,7 @@ exports[`ContactForm Component > should match snapshot with minimal props 1`] = 
       />
     </div>
     <div
-      style="display: flex; flex-direction: column; padding: 1.5vh 0px; width: 45%;"
+      style="display: flex; flex-direction: column; padding: 1.5vh 0px; width: 100%;"
     >
       <label
         for="email"
@@ -1445,10 +1447,10 @@ exports[`ContactForm Component > should match snapshot with minimal props 1`] = 
     </div>
   </div>
   <div
-    style="display: flex; flex-wrap: wrap; justify-content: space-between;"
+    style="display: flex;"
   >
     <div
-      style="width: 45%; display: flex; flex-direction: column; padding: 1.5vh 0px;"
+      style="width: 100%;"
     >
       <label
         for="phone"
@@ -2722,7 +2724,7 @@ exports[`ContactForm Component > should match snapshot with minimal props 1`] = 
       </div>
     </div>
     <div
-      style="display: flex; flex-direction: column; padding: 1.5vh 0px; width: 45%;"
+      style="display: flex; flex-direction: column; padding: 1.5vh 0px; width: 100%;"
     >
       <label
         for="enterprise"
@@ -2788,10 +2790,10 @@ exports[`ContactForm Component > should match snapshot with minimal props 1`] = 
     />
   </div>
   <button
-    style="display: flex; justify-content: center; margin: 5% auto; padding: 8px 25px; background-color: var(--main); border-radius: 50px; color: white; text-transform: uppercase; transition: all 0.3s ease 0s;"
+    style="background-color: blue; color: white;"
     type="submit"
   >
-    Submit
+    Send Message
   </button>
 </form>
 `;

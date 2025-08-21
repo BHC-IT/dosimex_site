@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 
 import Navbar from '../Navbar'
+import { useText } from '../../Hooks/useText'
 
 // Mock Next.js router
 vi.mock('next/router', () => ({
@@ -34,9 +35,9 @@ vi.mock('next/link', () => ({
 	),
 }))
 
-// Mock withText HOC
-vi.mock('../../hoc/withText', () => ({
-	withText: (component: any) => component,
+// Mock useText hook
+vi.mock('../../Hooks/useText', () => ({
+	useText: vi.fn(),
 }))
 
 // Mock components
@@ -72,6 +73,7 @@ const mockText = {
 describe('Navbar Component', () => {
 	beforeEach(() => {
 		vi.mocked(useRouter).mockReturnValue(mockRouter as any)
+		vi.mocked(useText).mockReturnValue(mockText)
 		// Mock client-side rendering
 		Object.defineProperty(window, 'matchMedia', {
 			writable: true,
@@ -89,7 +91,7 @@ describe('Navbar Component', () => {
 	})
 
 	it('renders navbar with logo', () => {
-		render(<Navbar text={mockText} />)
+		render(<Navbar />)
 
 		const logos = screen.getAllByAltText('logo dosimex')
 		expect(logos.length).toBeGreaterThan(0)
@@ -99,7 +101,7 @@ describe('Navbar Component', () => {
 	})
 
 	it('renders all navigation items', () => {
-		render(<Navbar text={mockText} />)
+		render(<Navbar />)
 
 		const navItems = screen.getAllByTestId('nav-item')
 		expect(navItems).toHaveLength(5)
@@ -112,7 +114,7 @@ describe('Navbar Component', () => {
 	})
 
 	it('renders navigation button', () => {
-		render(<Navbar text={mockText} />)
+		render(<Navbar />)
 
 		const button = screen.getByTestId('nav-button')
 		expect(button).toBeInTheDocument()
@@ -120,7 +122,7 @@ describe('Navbar Component', () => {
 	})
 
 	it('renders language switch component', () => {
-		render(<Navbar text={mockText} />)
+		render(<Navbar />)
 
 		const languageSwitch = screen.getByTestId('language-switch')
 		expect(languageSwitch).toBeInTheDocument()
@@ -128,7 +130,7 @@ describe('Navbar Component', () => {
 	})
 
 	it('renders sidebar component', () => {
-		render(<Navbar text={mockText} />)
+		render(<Navbar />)
 
 		const sidebar = screen.getByTestId('sidebar')
 		expect(sidebar).toBeInTheDocument()
@@ -142,12 +144,13 @@ describe('Navbar Component', () => {
 			button: 'Get Started',
 		}
 
-		const { container } = render(<Navbar text={minimalText} />)
+		vi.mocked(useText).mockReturnValue(minimalText)
+		const { container } = render(<Navbar />)
 		expect(container).toBeInTheDocument()
 	})
 
 	it('renders logo with correct dimensions', () => {
-		render(<Navbar text={mockText} />)
+		render(<Navbar />)
 
 		const logos = screen.getAllByAltText('logo dosimex')
 		// Should have two logos (one in main nav, one in mobile)

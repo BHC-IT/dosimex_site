@@ -77,6 +77,15 @@ This plan is organized by priority and confidence level. Each task is designed t
 - [x] Maintain existing functionality
 - [x] Update tests accordingly
 
+#### Task 2.4: Replace HOCs with Custom Hooks
+**Priority: HIGH | Confidence: HIGH**
+- [x] Convert components using `withText` HOC to use `useText` hook directly
+- [x] Convert components using `withIsMobile` HOC to use `useIsMobile` hook directly
+- [x] Remove deprecated HOC files (`withText.tsx`, `withIsMobile.tsx`)
+- [x] Update all component exports and imports accordingly
+- [x] Ensure all tests pass and functionality is preserved
+- [x] Verify performance improvements from removing HOC wrapper functions
+
 ### Phase 3: Styling System Consolidation (5-7 days)
 
 #### Task 3.1: Remove Radium Dependency

@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useState, useEffect } from 'react'
 
-import { withText } from '../hoc/withText'
+import { useText } from '../Hooks/useText'
 
 import Button from './Button'
 import ItemNavbar from './ItemNavbar'
@@ -16,10 +16,7 @@ interface IPage {
 }
 
 interface IProps {
-	text?: {
-		items: string[]
-		button: string
-	} | null
+	// No props needed since we'll use the hook directly
 }
 
 export interface IStyles {
@@ -40,7 +37,8 @@ const pages: IPage[] = [
 	{ route: 'Contact' },
 ]
 
-const Navbar: React.FC<IProps> = ({ text }) => {
+const Navbar: React.FC<IProps> = () => {
+	const text = useText('Navbar') as { items: string[]; button: string } | null
 	const [isClient, setIsClient] = useState(false)
 	const router = useRouter()
 
@@ -150,4 +148,4 @@ export const styles: IStyles = {
 	},
 }
 
-export default withText(Navbar, 'Navbar')
+export default Navbar

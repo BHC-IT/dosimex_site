@@ -2,8 +2,8 @@ import * as CSS from 'csstype'
 import Radium from 'radium'
 import React from 'react'
 
-import { withIsMobile } from '../hoc/withIsMobile'
-import { withText } from '../hoc/withText'
+import { useIsMobile } from '../Hooks/useIsMobile'
+import { useText } from '../Hooks/useText'
 import { useContactFormValidation } from '../Hooks/useContactFormValidation'
 
 import NameEmailRow from './ContactForm/NameEmailRow'
@@ -14,8 +14,7 @@ import SubmitButton from './ContactForm/SubmitButton'
 import 'react-toastify/dist/ReactToastify.css'
 
 interface IProps {
-	text?: Record<string, string | string[]>
-	style?: Partial<IStyles>
+	// No props needed since we'll use hooks directly
 }
 
 export interface IStyles {
@@ -29,9 +28,12 @@ export interface IStyles {
 	}
 }
 
-const ContactForm: React.FC<IProps> = ({ text, style }) => {
-	const formData = useContactFormValidation(text)
+const ContactForm: React.FC<IProps> = () => {
+	const text = useText('ContactForm') as Record<string, string | string[]> | null
+	const style = useIsMobile(styles)
+	const formData = useContactFormValidation(text ?? undefined)
 
+	// Don't render until device detection is complete to prevent hydration mismatch
 	if (style === null) return null
 
 	return (
@@ -114,4 +116,4 @@ export const styles = (mobile: boolean): IStyles => ({
 
 const defaultStyles: IStyles = styles(false)
 
-export default Radium(withIsMobile(withText(ContactForm, 'ContactForm'), styles))
+export default Radium(ContactForm)

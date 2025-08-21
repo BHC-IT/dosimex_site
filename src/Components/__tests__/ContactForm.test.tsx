@@ -3,6 +3,8 @@ import { useRouter } from 'next/router'
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 
 import ContactForm from '../ContactForm'
+import { useText } from '../../Hooks/useText'
+import { useIsMobile, useMobile } from '../../Hooks/useIsMobile'
 
 // Mock Next.js router
 vi.mock('next/router', () => ({
@@ -26,14 +28,17 @@ vi.mock('react-toastify', () => ({
 	},
 }))
 
-// Mock withText HOC
-vi.mock('../../hoc/withText', () => ({
-	withText: (component: any) => component,
+// Mock useText hook
+vi.mock('../../Hooks/useText', () => ({
+	useText: vi.fn(),
 }))
 
-// Mock withIsMobile HOC
-vi.mock('../../hoc/withIsMobile', () => ({
-	withIsMobile: (component: any) => component,
+// Mock useIsMobile hook and other exports from the module
+vi.mock('../../Hooks/useIsMobile', () => ({
+	useIsMobile: vi.fn(),
+	useMobile: vi.fn(),
+	useTablet: vi.fn(),
+	useDeviceType: vi.fn(),
 }))
 
 // Mock Radium
@@ -71,15 +76,13 @@ const mockStyle: Partial<any> = {
 describe('ContactForm Component', () => {
 	beforeEach(() => {
 		vi.mocked(useRouter).mockReturnValue(mockRouter as any)
+		vi.mocked(useText).mockReturnValue(mockText)
+		vi.mocked(useIsMobile).mockReturnValue(mockStyle)
+		vi.mocked(useMobile).mockReturnValue(false)
 	})
 
 	it('renders contact form with all fields', () => {
-		render(
-			<ContactForm
-				text={mockText}
-				style={mockStyle}
-			/>,
-		)
+		render(<ContactForm />)
 
 		expect(screen.getByText('Contact Us')).toBeInTheDocument()
 		expect(screen.getByRole('button', { name: 'Send Message' })).toBeInTheDocument()
@@ -91,12 +94,7 @@ describe('ContactForm Component', () => {
 	})
 
 	it('renders with default styles when style is undefined', () => {
-		const { container } = render(
-			<ContactForm
-				text={mockText}
-				style={undefined}
-			/>,
-		)
+		const { container } = render(<ContactForm />)
 
 		// Should render the form with default styles, not return null
 		expect(container.firstChild).not.toBeNull()
@@ -104,17 +102,14 @@ describe('ContactForm Component', () => {
 	})
 
 	it('returns null when style is explicitly null', () => {
-		const { container } = render(
-			<ContactForm
-				text={mockText}
-				style={null as any}
-			/>,
-		)
+		vi.mocked(useIsMobile).mockReturnValue(null)
+		const { container } = render(<ContactForm />)
 		expect(container.firstChild).toBeNull()
 	})
 
 	it('renders with missing text prop', () => {
-		const { container } = render(<ContactForm style={mockStyle} />)
+		vi.mocked(useText).mockReturnValue(null)
+		const { container } = render(<ContactForm />)
 		expect(container).toBeInTheDocument()
 		// Component should handle undefined text gracefully by using fallback labels
 		expect(container.firstChild).not.toBeNull()
@@ -135,10 +130,7 @@ describe('ContactForm Component', () => {
 
 	it('validates email input correctly', () => {
 		render(
-			<ContactForm
-				text={mockText}
-				style={mockStyle}
-			/>,
+			<ContactForm />,
 		)
 
 		const emailInput = screen.getByLabelText(/email/i)
@@ -156,10 +148,7 @@ describe('ContactForm Component', () => {
 
 	it('validates required name input', () => {
 		render(
-			<ContactForm
-				text={mockText}
-				style={mockStyle}
-			/>,
+			<ContactForm />,
 		)
 
 		const nameInput = screen.getByLabelText(/name/i)
@@ -177,10 +166,7 @@ describe('ContactForm Component', () => {
 
 	it('handles phone number input', () => {
 		render(
-			<ContactForm
-				text={mockText}
-				style={mockStyle}
-			/>,
+			<ContactForm />,
 		)
 
 		// Phone input should be present (form is rendered without explicit role)
@@ -194,10 +180,7 @@ describe('ContactForm Component', () => {
 
 	it('submits form with valid data', () => {
 		render(
-			<ContactForm
-				text={mockText}
-				style={mockStyle}
-			/>,
+			<ContactForm />,
 		)
 
 		const nameInput = screen.getByLabelText(/name/i)
@@ -222,10 +205,7 @@ describe('ContactForm Component', () => {
 
 	it('prevents submission with invalid data', () => {
 		render(
-			<ContactForm
-				text={mockText}
-				style={mockStyle}
-			/>,
+			<ContactForm />,
 		)
 
 		const submitButton = screen.getByRole('button', { name: /send message/i })
@@ -238,12 +218,8 @@ describe('ContactForm Component', () => {
 	})
 
 	it('handles missing text prop gracefully', () => {
-		const { container } = render(
-			<ContactForm
-				text={undefined}
-				style={mockStyle}
-			/>,
-		)
+		vi.mocked(useText).mockReturnValue(null)
+		const { container } = render(<ContactForm />)
 
 		// Component should still render without crashing
 		expect(container).toBeInTheDocument()
@@ -267,13 +243,8 @@ describe('ContactForm Component', () => {
 		const incompleteStyle = {
 			form: { padding: '20px' },
 		}
-
-		const { container } = render(
-			<ContactForm
-				text={mockText}
-				style={incompleteStyle}
-			/>,
-		)
+		vi.mocked(useIsMobile).mockReturnValue(incompleteStyle)
+		const { container } = render(<ContactForm />)
 
 		expect(container).toBeInTheDocument()
 		expect(container.firstChild).not.toBeNull()
@@ -281,10 +252,7 @@ describe('ContactForm Component', () => {
 
 	it('displays loading state correctly', () => {
 		render(
-			<ContactForm
-				text={mockText}
-				style={mockStyle}
-			/>,
+			<ContactForm />,
 		)
 
 		const submitButton = screen.getByRole('button', { name: /send message/i })
@@ -296,21 +264,16 @@ describe('ContactForm Component', () => {
 
 	it('should match snapshot with default props', () => {
 		const { container } = render(
-			<ContactForm
-				text={mockText}
-				style={mockStyle}
-			/>,
+			<ContactForm />,
 		)
 		expect(container.firstChild).toMatchSnapshot()
 	})
 
 	it('should match snapshot with minimal props', () => {
-		const { container } = render(
-			<ContactForm
-				text={undefined}
-				style={undefined}
-			/>,
-		)
-		expect(container.firstChild).toMatchSnapshot()
+		vi.mocked(useText).mockReturnValue(null)
+		vi.mocked(useIsMobile).mockReturnValue(null)
+		const { container } = render(<ContactForm />)
+		// When useIsMobile returns null, component returns null (SSR protection)
+		expect(container.firstChild).toBeNull()
 	})
 })
