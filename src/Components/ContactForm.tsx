@@ -1,9 +1,9 @@
 import * as CSS from 'csstype'
 import React from 'react'
 
+import { useContactFormValidation } from '../Hooks/useContactFormValidation'
 import { useIsMobile } from '../Hooks/useIsMobile'
 import { useText } from '../Hooks/useText'
-import { useContactFormValidation } from '../Hooks/useContactFormValidation'
 
 import NameEmailRow from './ContactForm/NameEmailRow'
 import PhoneEnterpriseRow from './ContactForm/PhoneEnterpriseRow'

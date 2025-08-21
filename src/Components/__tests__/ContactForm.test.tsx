@@ -2,9 +2,9 @@ import { render, screen, fireEvent } from '@testing-library/react'
 import { useRouter } from 'next/router'
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 
-import ContactForm from '../ContactForm'
-import { useText } from '../../Hooks/useText'
 import { useIsMobile, useMobile } from '../../Hooks/useIsMobile'
+import { useText } from '../../Hooks/useText'
+import ContactForm from '../ContactForm'
 
 // Mock Next.js router
 vi.mock('next/router', () => ({

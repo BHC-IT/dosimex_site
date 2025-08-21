@@ -2,7 +2,7 @@ import { render } from '@testing-library/react'
 import { useRouter } from 'next/router'
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 
-import MyApp from '../_app'
+import MyApp from '../pages/_app'
 
 // Mock Next.js router
 vi.mock('next/router', () => ({
@@ -10,11 +10,11 @@ vi.mock('next/router', () => ({
 }))
 
 // Mock components to avoid complex dependencies
-vi.mock('../../Components/Footer', () => ({
+vi.mock('../Components/Footer', () => ({
 	default: () => <footer data-testid="footer">Footer</footer>,
 }))
 
-vi.mock('../../Components/Navbar', () => ({
+vi.mock('../Components/Navbar', () => ({
 	default: () => <nav data-testid="navbar">Navbar</nav>,
 }))
 

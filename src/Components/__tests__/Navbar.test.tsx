@@ -2,8 +2,8 @@ import { render, screen } from '@testing-library/react'
 import { useRouter } from 'next/router'
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 
-import Navbar from '../Navbar'
 import { useText } from '../../Hooks/useText'
+import Navbar from '../Navbar'
 
 // Mock Next.js router
 vi.mock('next/router', () => ({

@@ -14,4 +14,13 @@ module.exports = removeImports({
 		locales: ['en-US', 'fr', 'debug'],
 		defaultLocale: 'fr',
 	},
+	pageExtensions: ['tsx', 'ts', 'jsx', 'js'],
+	webpack: (config) => {
+		// Exclude test files from build
+		config.module.rules.push({
+			test: /\.(test|spec)\.(js|jsx|ts|tsx)$/,
+			loader: 'ignore-loader'
+		})
+		return config
+	},
 })

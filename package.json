@@ -71,6 +71,7 @@
 		"eslint-plugin-react": "^7.37.5",
 		"eslint-plugin-react-hooks": "^5.2.0",
 		"eslint-plugin-unused-imports": "^4.1.4",
+		"ignore-loader": "^0.1.2",
 		"jsdom": "^26.1.0",
 		"typescript": "5.8.3",
 		"vitest": "^3.2.4"
