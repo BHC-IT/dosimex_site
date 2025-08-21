@@ -14,49 +14,51 @@ interface IPage {
 	route: string
 }
 
-interface IProps {
-	text?: {
-		items: string[]
-		button: string
-	}
+interface INavbarText {
+	items: string[]
+	button: string
 }
 
-const pages: IPage[] = [
+interface IProps {
+	text?: INavbarText
+}
+
+interface IRenderNavProps {
+	text?: INavbarText | null
+}
+
+// Type-safe route definitions
+const pages: readonly IPage[] = [
 	{ route: 'Software' },
 	{ route: 'Training' },
 	{ route: 'Manuals' },
 	{ route: 'About' },
 	{ route: 'Contact' },
-]
+] as const
 
-interface IRenderNavProps {
-	text?: {
-		items: string[]
-		button: string
-	} | null
-}
-
-const RenderNav = ({ text }: IRenderNavProps) => {
-	// Only render navigation items if text.items exists and has content
+const RenderNav = ({ text }: IRenderNavProps): JSX.Element | null => {
+	// Early return if no navigation items are available
 	if (!text?.items || text.items.length === 0) {
 		return null
 	}
 
 	return (
 		<>
-			{pages.map((page: IPage, i: number) => {
-				// Only render if the text item exists
-				if (!text.items[i]) {
+			{pages.map((page: IPage, index: number) => {
+				const navigationText = text.items[index]
+
+				// Skip rendering if no text is available for this navigation item
+				if (!navigationText) {
 					return null
 				}
 
 				return (
 					<li
-						className='menu-item'
-						key={text.items[i]}
+						className="menu-item"
+						key={`nav-${page.route}-${index}`}
 					>
 						<ItemNavbar
-							name={text.items[i]}
+							name={navigationText}
 							route={page.route}
 						/>
 					</li>
@@ -66,47 +68,44 @@ const RenderNav = ({ text }: IRenderNavProps) => {
 	)
 }
 
-const ratio = 0.5
+// Constants for better maintainability
+const LOGO_WIDTH = 212
+const LOGO_HEIGHT = 44
+const LOGO_RATIO = 0.5
 
-const SideBar = (props: IProps) => {
-	const text = useText('Navbar')
+const SideBar: React.FC<IProps> = props => {
+	const text = useText('Navbar') as INavbarText | null
 	const router = useRouter()
 
-	return React.createElement(
-		Menu as React.ComponentType<Record<string, unknown>>,
-		{
-			right: true,
-			...props,
-		},
-		React.createElement(
-			'ul',
-			null,
-			React.createElement(
-				'li',
-				{ style: { cursor: 'pointer' } },
-				React.createElement(
-					Link,
-					{ href: '/' },
-					React.createElement(Image, {
-						src: '/Images/logo_dosimex_new.webp',
-						alt: 'logo dosimex',
-						width: 212 * ratio,
-						height: 44 * ratio,
-						loading: 'lazy',
-						quality: 40,
-					}),
-				),
-			),
-			React.createElement(RenderNav, { text }),
-			React.createElement(LanguageSwitch, {
-				route: router.pathname,
-				language: router.locale,
-			}),
-		),
-		React.createElement(Button, {
-			name: text.button,
-			route: 'Product',
-		}),
+	// Cast Menu component to avoid TypeScript issues with third-party components
+	const MenuComponent = Menu as React.ComponentType<Record<string, unknown>>
+
+	return (
+		<MenuComponent right {...props}>
+			<ul>
+				<li style={{ cursor: 'pointer' }}>
+					<Link href="/">
+						<Image
+							src="/Images/logo_dosimex_new.webp"
+							alt="Dosimex Logo"
+							width={LOGO_WIDTH * LOGO_RATIO}
+							height={LOGO_HEIGHT * LOGO_RATIO}
+							loading="lazy"
+							quality={40}
+						/>
+					</Link>
+				</li>
+				<RenderNav text={text} />
+				<LanguageSwitch
+					route={router.pathname}
+					language={router.locale}
+				/>
+			</ul>
+			<Button
+				name={text?.button ?? 'Contact'}
+				route="Product"
+			/>
+		</MenuComponent>
 	)
 }
 

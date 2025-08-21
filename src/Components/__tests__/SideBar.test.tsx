@@ -93,7 +93,7 @@ describe('SideBar Component', () => {
 	it('renders logo with correct properties', () => {
 		render(<SideBar />)
 
-		const logo = screen.getByAltText('logo dosimex')
+		const logo = screen.getByAltText('Dosimex Logo')
 		expect(logo).toBeInTheDocument()
 		expect(logo).toHaveAttribute('src', '/Images/logo_dosimex_new.webp')
 	})
@@ -140,7 +140,7 @@ describe('SideBar Component', () => {
 	it('renders logo inside a link to home page', () => {
 		render(<SideBar />)
 
-		const logo = screen.getByAltText('logo dosimex')
+		const logo = screen.getByAltText('Dosimex Logo')
 		const link = logo.closest('a')
 		expect(link).toHaveAttribute('href', '/')
 	})
@@ -172,7 +172,7 @@ describe('SideBar Component', () => {
 	it('uses correct logo dimensions with ratio', () => {
 		render(<SideBar />)
 
-		const logo = screen.getByAltText('logo dosimex')
+		const logo = screen.getByAltText('Dosimex Logo')
 
 		// Expected dimensions: 212 * 0.5 = 106, 44 * 0.5 = 22
 		expect(logo).toHaveAttribute('width', '106')

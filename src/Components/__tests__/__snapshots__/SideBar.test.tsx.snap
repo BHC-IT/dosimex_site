@@ -1,86 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`SideBar Component > should match snapshot with additional props 1`] = `
-<div
-  customprop="test"
-  data-testid="burger-menu"
->
-  <ul>
-    <li
-      style="cursor: pointer;"
-    >
-      <a
-        href="/"
-      >
-        <img
-          alt="logo dosimex"
-          height="22"
-          loading="lazy"
-          quality="40"
-          src="/Images/logo_dosimex_new.webp"
-          width="106"
-        />
-      </a>
-    </li>
-    <li
-      class="menu-item"
-    >
-      <div
-        data-testid="nav-item"
-      >
-        Software
-      </div>
-    </li>
-    <li
-      class="menu-item"
-    >
-      <div
-        data-testid="nav-item"
-      >
-        Training
-      </div>
-    </li>
-    <li
-      class="menu-item"
-    >
-      <div
-        data-testid="nav-item"
-      >
-        Manuals
-      </div>
-    </li>
-    <li
-      class="menu-item"
-    >
-      <div
-        data-testid="nav-item"
-      >
-        About
-      </div>
-    </li>
-    <li
-      class="menu-item"
-    >
-      <div
-        data-testid="nav-item"
-      >
-        Contact
-      </div>
-    </li>
-    <div
-      data-testid="sidebar-language-switch"
-    >
-      en
-    </div>
-  </ul>
-  <button
-    data-testid="sidebar-button"
-  >
-    Get Started
-  </button>
-</div>
-`;
-
 exports[`SideBar Component > should match snapshot with default props 1`] = `
 <div
   data-testid="burger-menu"
@@ -93,7 +12,7 @@ exports[`SideBar Component > should match snapshot with default props 1`] = `
         href="/"
       >
         <img
-          alt="logo dosimex"
+          alt="Dosimex Logo"
           height="22"
           loading="lazy"
           quality="40"
@@ -174,7 +93,7 @@ exports[`SideBar Component > should match snapshot with text prop 1`] = `
         href="/"
       >
         <img
-          alt="logo dosimex"
+          alt="Dosimex Logo"
           height="22"
           loading="lazy"
           quality="40"
