@@ -1,0 +1,113 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`HeroBannerCarousel Component > should match snapshot with text 1`] = `
+<div>
+  <div
+    style="width: 307.2px; height: 194.56px; position: relative;"
+  >
+    <img
+      alt="DOSIMEX software mockup carousel"
+      data-nimg="1"
+      decoding="async"
+      height="194.56"
+      loading="lazy"
+      src="/_next/image?url=%2FImages%2FMockupCarousel.png&w=640&q=75"
+      srcset="/_next/image?url=%2FImages%2FMockupCarousel.png&w=384&q=75 1x, /_next/image?url=%2FImages%2FMockupCarousel.png&w=640&q=75 2x"
+      style="color: transparent;"
+      width="307.2"
+    />
+  </div>
+  <div
+    style="position: absolute; left: 5.12px; top: 7.167999999999999px;"
+  >
+    <div
+      style="overflow: hidden;"
+    >
+      <div
+        style="position: relative; width: 400%; margin: 0px; left: 0px; animation: 10s slidy infinite;"
+      >
+        <div
+          style="width: 25%; float: left;"
+        >
+          <img
+            alt="Banner image ScreenCarousel1.png"
+            data-nimg="1"
+            decoding="async"
+            height="167.1168"
+            loading="lazy"
+            src="/_next/image?url=%2FImages%2FScreenCarousel1.png&w=640&q=75"
+            srcset="/_next/image?url=%2FImages%2FScreenCarousel1.png&w=384&q=75 1x, /_next/image?url=%2FImages%2FScreenCarousel1.png&w=640&q=75 2x"
+            style="color: transparent;"
+            width="296.96"
+          />
+          <p
+            style="font-style: italic; float: right; margin-top: 7vh; padding: 0px 10px; font-size: 1.8rem; color: var(--grey);"
+          >
+            Text 1
+          </p>
+        </div>
+        <div
+          style="width: 25%; float: left;"
+        >
+          <img
+            alt="Banner image ScreenCarousel2.png"
+            data-nimg="1"
+            decoding="async"
+            height="167.1168"
+            loading="lazy"
+            src="/_next/image?url=%2FImages%2FScreenCarousel2.png&w=640&q=75"
+            srcset="/_next/image?url=%2FImages%2FScreenCarousel2.png&w=384&q=75 1x, /_next/image?url=%2FImages%2FScreenCarousel2.png&w=640&q=75 2x"
+            style="color: transparent;"
+            width="296.96"
+          />
+          <p
+            style="font-style: italic; float: right; margin-top: 7vh; padding: 0px 10px; font-size: 1.8rem; color: var(--grey);"
+          >
+            Text 2
+          </p>
+        </div>
+        <div
+          style="width: 25%; float: left;"
+        >
+          <img
+            alt="Banner image ScreenCarousel3.png"
+            data-nimg="1"
+            decoding="async"
+            height="167.1168"
+            loading="lazy"
+            src="/_next/image?url=%2FImages%2FScreenCarousel3.png&w=640&q=75"
+            srcset="/_next/image?url=%2FImages%2FScreenCarousel3.png&w=384&q=75 1x, /_next/image?url=%2FImages%2FScreenCarousel3.png&w=640&q=75 2x"
+            style="color: transparent;"
+            width="296.96"
+          />
+          <p
+            style="font-style: italic; float: right; margin-top: 7vh; padding: 0px 10px; font-size: 1.8rem; color: var(--grey);"
+          >
+            Text 3
+          </p>
+        </div>
+        <div
+          style="width: 25%; float: left;"
+        >
+          <img
+            alt="Banner image ScreenCarousel4.png"
+            data-nimg="1"
+            decoding="async"
+            height="167.1168"
+            loading="lazy"
+            src="/_next/image?url=%2FImages%2FScreenCarousel4.png&w=640&q=75"
+            srcset="/_next/image?url=%2FImages%2FScreenCarousel4.png&w=384&q=75 1x, /_next/image?url=%2FImages%2FScreenCarousel4.png&w=640&q=75 2x"
+            style="color: transparent;"
+            width="296.96"
+          />
+          <p
+            style="font-style: italic; float: right; margin-top: 7vh; padding: 0px 10px; font-size: 1.8rem; color: var(--grey);"
+          >
+            Text 4
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -190,4 +190,18 @@ describe('SideBar Component', () => {
 		const button = screen.getByTestId('sidebar-button')
 		expect(button).toHaveTextContent('Get Started') // From mocked useText
 	})
+
+	it('should match snapshot with default props', () => {
+		const { container } = render(<SideBar />)
+		expect(container.firstChild).toMatchSnapshot()
+	})
+
+	it('should match snapshot with text prop', () => {
+		const testMockText = {
+			items: ['Item 1', 'Item 2'],
+			button: 'Test Button',
+		}
+		const { container } = render(<SideBar text={testMockText} />)
+		expect(container.firstChild).toMatchSnapshot()
+	})
 })

@@ -273,8 +273,8 @@ const useContactForm = (text: Record<string, string | string[]> | undefined) => 
 		setIsLoading(true)
 		emailjs
 			.send(
-				'service_wekm5vt',
-				'template_9bIlFiWV',
+				process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? '',
+				process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ?? '',
 				{
 					text: message,
 					name,
@@ -284,7 +284,7 @@ const useContactForm = (text: Record<string, string | string[]> | undefined) => 
 					address,
 					subject,
 				},
-				'user_ARoYKQez1mORTLjrYuH9q',
+				process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? '',
 			)
 			.then(() => {
 				toast.dismiss(toastLoad)

@@ -15,7 +15,7 @@ interface ISlideProps {
 }
 
 interface ITextProps {
-	text: string[]
+	text?: string[]
 	vw: number
 }
 
@@ -66,7 +66,7 @@ const SlideWrapper = ({ text, vw }: ITextProps) => {
 						<Slide
 							key={i}
 							name={e}
-							text={text[i]}
+							text={text?.[i] ?? `Image ${i + 1}`}
 							vw={vw}
 						/>
 					)
@@ -76,7 +76,11 @@ const SlideWrapper = ({ text, vw }: ITextProps) => {
 	)
 }
 
-const HeroBannerCarousel = ({ text }: any) => {
+interface IHeroBannerCarouselProps {
+	text?: string[]
+}
+
+const HeroBannerCarousel: React.FC<IHeroBannerCarouselProps> = ({ text }) => {
 	const [vw, setvw] = useState(1500)
 
 	useEffect(() => {

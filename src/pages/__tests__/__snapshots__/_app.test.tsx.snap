@@ -1,0 +1,26 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`MyApp Component > should match snapshot 1`] = `
+<div>
+  <nav
+    data-testid="navbar"
+  >
+    Navbar
+  </nav>
+  <div
+    data-testid="page-content"
+  >
+    Page Content
+  </div>
+  <div
+    data-testid="toast-container"
+  >
+    ToastContainer
+  </div>
+  <footer
+    data-testid="footer"
+  >
+    Footer
+  </footer>
+</div>
+`;

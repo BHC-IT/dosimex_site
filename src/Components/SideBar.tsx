@@ -15,7 +15,10 @@ interface IPage {
 }
 
 interface IProps {
-	text?: any
+	text?: {
+		items: string[]
+		button: string
+	}
 }
 
 const pages: IPage[] = [
@@ -26,7 +29,14 @@ const pages: IPage[] = [
 	{ route: 'Contact' },
 ]
 
-const RenderNav = ({ text }: any) => {
+interface IRenderNavProps {
+	text?: {
+		items: string[]
+		button: string
+	} | null
+}
+
+const RenderNav = ({ text }: IRenderNavProps) => {
 	// Only render navigation items if text.items exists and has content
 	if (!text?.items || text.items.length === 0) {
 		return null
@@ -63,7 +73,7 @@ const SideBar = (props: IProps) => {
 	const router = useRouter()
 
 	return React.createElement(
-		Menu as any,
+		Menu as React.ComponentType<Record<string, unknown>>,
 		{
 			right: true,
 			...props,

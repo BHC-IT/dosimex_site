@@ -1,0 +1,38 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ErrorBoundary Component > should match snapshot with error state 1`] = `
+<div
+  style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 50vh; padding: 2rem; background-color: var(--light); color: var(--dark); text-align: center;"
+>
+  <h1
+    style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--main); font-family: var(--lato);"
+  >
+    Oups, quelque chose s'est mal passé
+  </h1>
+  <p
+    style="font-size: 1.6rem; margin-bottom: 2rem; max-width: 600px; line-height: 1.6;"
+  >
+    Une erreur inattendue s'est produite. Nous nous excusons pour la gêne occasionnée.
+    <br />
+    Veuillez essayer de recharger la page ou de revenir plus tard.
+  </p>
+  <div>
+    <button
+      style="padding: 12px 24px; background-color: var(--main); color: white; border-radius: 50px; font-size: 1.4rem; cursor: pointer; transition: all 0.3s ease;"
+    >
+      Réessayer
+    </button>
+    <button
+      style="padding: 12px 24px; background-color: var(--grey); color: white; border-radius: 50px; font-size: 1.4rem; cursor: pointer; transition: all 0.3s ease; margin-left: 1rem;"
+    >
+      Recharger la page
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ErrorBoundary Component > should match snapshot with normal state 1`] = `
+<div>
+  Normal content
+</div>
+`;

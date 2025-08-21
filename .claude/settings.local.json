@@ -11,7 +11,11 @@
       "Bash(npx eslint:*)",
       "Bash(pnpm build:*)",
       "Bash(pnpm check-types:*)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(pnpm run test:*)",
+      "Bash(pnpm run lint:*)",
+      "Bash(pnpm run:*)",
+      "Bash(git grep:*)"
     ],
     "deny": []
   }

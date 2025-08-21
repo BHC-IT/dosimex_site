@@ -296,6 +296,21 @@ export default [
 		},
 	},
 
+	// Snapshot files configuration (Jest snapshots use CommonJS)
+	{
+		files: ['**/__snapshots__/**/*.snap', '**/*.snap'],
+		languageOptions: {
+			sourceType: 'commonjs',
+			globals: {
+				exports: 'writable',
+				module: 'readonly',
+			},
+		},
+		rules: {
+			'no-undef': 'off', // Allow exports in snapshot files
+		},
+	},
+
 	// JavaScript files configuration
 	{
 		files: ['*.js', '*.jsx'],

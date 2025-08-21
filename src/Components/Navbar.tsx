@@ -50,7 +50,7 @@ const Navbar: React.FC<IProps> = ({ text }) => {
 
 	const renderNav = () => {
 		if (!text?.items) return null
-		
+
 		return (
 			<>
 				{pages.map((page: IPage, i: number) => (
@@ -99,7 +99,7 @@ const Navbar: React.FC<IProps> = ({ text }) => {
 						/>
 					</ul>
 					<Button
-						name={text?.button || 'Contact'}
+						name={text?.button ?? 'Contact'}
 						route='Product'
 					/>
 				</nav>

@@ -1,5 +1,5 @@
 export default interface Lang {
-	[key: string]: any
+	[key: string]: any // Keep this for backwards compatibility, but specific types are defined below
 	Home: {
 		header: {
 			title: string

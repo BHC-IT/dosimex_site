@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { ToastContainer } from 'react-toastify'
 
+import ErrorBoundary from '../Components/ErrorBoundary'
 import Footer from '../Components/Footer'
 import Navbar from '../Components/Navbar'
 
@@ -17,21 +18,23 @@ function MyApp({ Component, pageProps }: AppProps) {
 				/>
 				<title>Dosimex</title>
 			</Head>
-			<Navbar />
-			<Component {...pageProps} />
-			<ToastContainer
-				position='bottom-center'
-				autoClose={5000}
-				hideProgressBar={false}
-				newestOnTop={false}
-				closeOnClick
-				rtl={false}
-				pauseOnFocusLoss
-				draggable
-				pauseOnHover
-				theme='light'
-			/>
-			<Footer />
+			<ErrorBoundary>
+				<Navbar />
+				<Component {...pageProps} />
+				<ToastContainer
+					position='bottom-center'
+					autoClose={5000}
+					hideProgressBar={false}
+					newestOnTop={false}
+					closeOnClick
+					rtl={false}
+					pauseOnFocusLoss
+					draggable
+					pauseOnHover
+					theme='light'
+				/>
+				<Footer />
+			</ErrorBoundary>
 		</>
 	)
 }

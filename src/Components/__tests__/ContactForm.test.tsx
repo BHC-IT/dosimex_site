@@ -293,4 +293,24 @@ describe('ContactForm Component', () => {
 		// The button text should be "Send Message" initially
 		expect(submitButton).toHaveTextContent('Send Message')
 	})
+
+	it('should match snapshot with default props', () => {
+		const { container } = render(
+			<ContactForm
+				text={mockText}
+				style={mockStyle}
+			/>,
+		)
+		expect(container.firstChild).toMatchSnapshot()
+	})
+
+	it('should match snapshot with minimal props', () => {
+		const { container } = render(
+			<ContactForm
+				text={undefined}
+				style={undefined}
+			/>,
+		)
+		expect(container.firstChild).toMatchSnapshot()
+	})
 })
