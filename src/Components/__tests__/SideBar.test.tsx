@@ -40,9 +40,10 @@ vi.mock('next/link', () => ({
 
 // Mock react-burger-menu
 vi.mock('react-burger-menu', () => ({
-	slide: ({ children, ...props }: any) => (
+	slide: ({ children, isOpen, ...props }: any) => (
 		<div
 			data-testid='burger-menu'
+			data-is-open={isOpen}
 			{...props}
 		>
 			{children}

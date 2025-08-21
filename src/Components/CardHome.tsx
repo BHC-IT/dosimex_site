@@ -11,7 +11,7 @@ import { useIsMobile } from '../Hooks/useIsMobile'
 
 export interface IStyles {
 	global: CSS.Properties
-	button: any
+	button: CSS.Properties
 	subtitle: CSS.Properties
 	card: CSS.Properties
 	image: CSS.Properties
@@ -40,9 +40,17 @@ const CardHome = (props: IProps) => {
 			style={style.global}
 		>
 			<div
+				role="button"
+				tabIndex={0}
 				style={style.card}
 				onClick={() => {
 					void router.push(props.route)
+				}}
+				onKeyDown={e => {
+					if (e.key === 'Enter' || e.key === ' ') {
+						e.preventDefault()
+						void router.push(props.route)
+					}
 				}}
 			>
 				<div style={style.image}>

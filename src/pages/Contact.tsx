@@ -1,9 +1,11 @@
 import Image from 'next/image'
-import { isMobile } from 'react-device-detect'
 
 import ContactForm from '../Components/ContactForm'
+import { useMobile } from '../Hooks/useIsMobile'
 
 export default function Contact() {
+	const isMobile = useMobile()
+
 	return (
 		<div>
 				<div style={{ position: 'absolute', top: '10vh' }}>

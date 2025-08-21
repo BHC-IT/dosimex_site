@@ -11,10 +11,12 @@ vi.mock('next/router', () => ({
 
 // Mock Next.js Image
 vi.mock('next/image', () => ({
-	default: ({ src, alt, ...props }: any) => (
+	default: ({ src, alt, width, height, ...props }: any) => (
 		<img
 			src={src}
 			alt={alt}
+			width={width}
+			height={height}
 			{...props}
 		/>
 	),

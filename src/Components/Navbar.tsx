@@ -11,21 +11,15 @@ import ItemNavbar from './ItemNavbar'
 import LanguageSwitch from './LanguageSwitch'
 import SideBar from './SideBar'
 
-const originalError = console.error
-
-console.error = (...args) => {
-	if (/Warning.*Function components cannot be given refs/.test(args[0])) {
-		return
-	}
-	originalError.call(console, ...args)
-}
-
 interface IPage {
 	route: string
 }
 
 interface IProps {
-	text?: any
+	text?: {
+		items: string[]
+		button: string
+	} | null
 }
 
 export interface IStyles {
@@ -34,6 +28,9 @@ export interface IStyles {
 	navbarLi: CSS.Properties
 	navbarButton: CSS.Properties
 }
+
+const LOGO_WIDTH = 212
+const LOGO_HEIGHT = 44
 
 const pages: IPage[] = [
 	{ route: 'Software' },
@@ -52,6 +49,8 @@ const Navbar: React.FC<IProps> = ({ text }) => {
 	}, [])
 
 	const renderNav = () => {
+		if (!text?.items) return null
+		
 		return (
 			<>
 				{pages.map((page: IPage, i: number) => (
@@ -86,8 +85,8 @@ const Navbar: React.FC<IProps> = ({ text }) => {
 								<Image
 									src='/Images/logo_dosimex_new.webp'
 									alt='logo dosimex'
-									width={212 * ratio}
-									height={44 * ratio}
+									width={LOGO_WIDTH * ratio}
+									height={LOGO_HEIGHT * ratio}
 									priority
 									quality={40}
 								/>
@@ -100,7 +99,7 @@ const Navbar: React.FC<IProps> = ({ text }) => {
 						/>
 					</ul>
 					<Button
-						name={text.button}
+						name={text?.button || 'Contact'}
 						route='Product'
 					/>
 				</nav>
@@ -117,8 +116,8 @@ const Navbar: React.FC<IProps> = ({ text }) => {
 					<Image
 						src='/Images/logo_dosimex_new.webp'
 						alt='logo dosimex'
-						width={212 * ratio}
-						height={44 * ratio}
+						width={LOGO_WIDTH * ratio}
+						height={LOGO_HEIGHT * ratio}
 						priority
 						quality={40}
 					/>

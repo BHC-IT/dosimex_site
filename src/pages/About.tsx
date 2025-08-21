@@ -1,9 +1,8 @@
 import * as CSS from 'csstype'
 import Image from 'next/image'
 import Radium from 'radium'
-import { BrowserView, MobileView, isMobile } from 'react-device-detect'
 
-import { useIsMobile } from '../Hooks/useIsMobile'
+import { useIsMobile, useMobile } from '../Hooks/useIsMobile'
 import { useText } from '../Hooks/useText'
 
 export interface IStyles {
@@ -20,6 +19,7 @@ export interface IStyles {
 
 const About = () => {
 	const style = useIsMobile(styles)
+	const isMobile = useMobile()
 	const text = useText('About')
 
 	if (style === null) return null
@@ -82,7 +82,7 @@ const About = () => {
 				</div>
 				<div style={style.section}>
 					<div style={style.sectionFlex}>
-						<MobileView>
+						{isMobile && (
 							<div style={style.div}>
 								<div
 									style={{
@@ -92,13 +92,13 @@ const About = () => {
 								 />
 								<h3 style={style.name}>Alain Vivier</h3>
 							</div>
-						</MobileView>
+						)}
 						<div style={isMobile ? undefined : { marginRight: '5%' }}>
 							<p>{text.alain.p[0]}</p>
 							<p>{text.alain.p[1]}</p>
 							<p>{text.alain.p[2]}</p>
 						</div>
-						<BrowserView>
+						{!isMobile && (
 							<div style={style.div}>
 								<div
 									style={{
@@ -108,7 +108,7 @@ const About = () => {
 								 />
 								<h3 style={style.name}>Alain Vivier</h3>
 							</div>
-						</BrowserView>
+						)}
 					</div>
 					<p style={{ marginTop: '5vh' }}>{text.alain.p[3]}</p>
 					<p>{text.alain.p[4]}</p>

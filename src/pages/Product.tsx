@@ -13,16 +13,12 @@ interface IStyles {
 	[key: string]: CSS.Properties | undefined
 }
 
-interface IProps {
-	isLandscape: boolean
-}
-
 const ratio = 0.7
 const ratio2 = 0.6
 
 // const hashes = '#buy'
 
-function Product(props: IProps) {
+function Product() {
 	const text = useText('Product')
 	const style = useIsMobile(styles)
 	const [dummy] = useState(0)

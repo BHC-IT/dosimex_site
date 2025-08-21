@@ -1,15 +1,54 @@
-import { fixupPluginRules } from '@eslint/compat'
 import js from '@eslint/js'
 import typescript from '@typescript-eslint/eslint-plugin'
 import typescriptParser from '@typescript-eslint/parser'
-import importPlugin from 'eslint-plugin-import'
-import jsxA11y from 'eslint-plugin-jsx-a11y'
 import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
+import jsxA11y from 'eslint-plugin-jsx-a11y'
+import importPlugin from 'eslint-plugin-import'
 import unusedImports from 'eslint-plugin-unused-imports'
+import { fixupPluginRules } from '@eslint/compat'
 
-/** @type {import('eslint').Linter.FlatConfig[]} */
+/** @type {import('eslint').Linter.Config[]} */
 export default [
+	// Global ignores
+	{
+		ignores: [
+			// Dependencies
+			'node_modules/**',
+			'.pnpm-store/**',
+			// Production builds
+			'.next/**',
+			'build/**',
+			'dist/**',
+			'out/**',
+			// Testing coverage
+			'coverage/**',
+			// Environment variables
+			'.env',
+			'.env.local',
+			'.env.development.local',
+			'.env.test.local',
+			'.env.production.local',
+			// IDE/Editor files
+			'.vscode/**',
+			'.idea/**',
+			// OS generated files
+			'.DS_Store',
+			'Thumbs.db',
+			// Configuration files
+			'*.config.js',
+			'*.config.ts',
+			'next.config.js',
+			'vitest.config.ts',
+			// Generated files
+			'*.d.ts',
+			// Public assets
+			'public/**',
+			// Legacy files
+			'*.min.js',
+			'*.bundle.js',
+		],
+	},
 	// Base JavaScript configuration
 	{
 		...js.configs.recommended,
@@ -49,15 +88,12 @@ export default [
 			'@typescript-eslint': typescript,
 		},
 		rules: {
-			...typescript.configs.recommended.rules,
-			...typescript.configs['recommended-requiring-type-checking'].rules,
 			// TypeScript specific rules (medium+ strictness)
 			'@typescript-eslint/no-unused-vars': 'error',
 			'@typescript-eslint/no-explicit-any': 'warn',
 			'@typescript-eslint/explicit-function-return-type': 'off',
 			'@typescript-eslint/explicit-module-boundary-types': 'off',
 			'@typescript-eslint/no-non-null-assertion': 'warn',
-			'@typescript-eslint/prefer-const': 'error',
 			'@typescript-eslint/no-var-requires': 'error',
 			'@typescript-eslint/no-empty-function': 'warn',
 			'@typescript-eslint/no-inferrable-types': 'error',
@@ -80,6 +116,8 @@ export default [
 					minimumDescriptionLength: 10,
 				},
 			],
+			// Use base rule instead of TypeScript version for prefer-const
+			'prefer-const': 'error',
 		},
 	},
 
@@ -103,8 +141,6 @@ export default [
 			},
 		},
 		rules: {
-			...react.configs.recommended.rules,
-			...reactHooks.configs.recommended.rules,
 			// React specific rules (medium+ strictness)
 			'react/react-in-jsx-scope': 'off', // Not needed in React 17+
 			'react/prop-types': 'off', // Using TypeScript instead
@@ -149,8 +185,6 @@ export default [
 			},
 		},
 		rules: {
-			...jsxA11y.configs.recommended.rules,
-
 			// Import/Export rules (medium+ strictness)
 			'import/order': [
 				'error',
@@ -198,11 +232,11 @@ export default [
 			'arrow-parens': ['error', 'as-needed'],
 
 			// Code quality rules (medium+ strictness)
-			complexity: ['warn', 15],
-			'max-depth': ['warn', 4],
-			'max-lines': ['warn', 500],
-			'max-lines-per-function': ['warn', 100],
-			'max-params': ['warn', 5],
+			complexity: ['warn', { max: 15 }],
+			'max-depth': ['warn', { max: 4 }],
+			'max-lines': ['warn', { max: 500 }],
+			'max-lines-per-function': ['warn', { max: 100 }],
+			'max-params': ['warn', { max: 5 }],
 			'no-magic-numbers': [
 				'warn',
 				{

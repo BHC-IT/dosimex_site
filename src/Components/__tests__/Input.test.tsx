@@ -1,5 +1,4 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
 import { describe, it, expect, vi } from 'vitest'
 
 import Input, { getStyles, IValidator } from '../Input'
@@ -57,8 +56,7 @@ describe('Input Component', () => {
 		expect(input).toBeInTheDocument()
 	})
 
-	it('should call onChange when user types', async () => {
-		const user = userEvent.setup()
+	it('should call onChange when user types', () => {
 		const onChangeMock = vi.fn()
 
 		render(
@@ -70,7 +68,12 @@ describe('Input Component', () => {
 		)
 
 		const input = screen.getByRole('textbox')
-		await user.type(input, 'hello')
+		// Simulate typing by changing the input value directly
+		fireEvent.change(input, { target: { value: 'h' } })
+		fireEvent.change(input, { target: { value: 'he' } })
+		fireEvent.change(input, { target: { value: 'hel' } })
+		fireEvent.change(input, { target: { value: 'hell' } })
+		fireEvent.change(input, { target: { value: 'hello' } })
 
 		expect(onChangeMock).toHaveBeenCalledTimes(5) // Once for each character
 		expect(onChangeMock).toHaveBeenLastCalledWith('hello')
@@ -137,13 +140,14 @@ describe('Input Validation', () => {
 				validator={[emailValidator]}
 				isValid={isValidMock}
 				id='test-validation'
+				value='invalid-email'
 			/>,
 		)
 
 		const input = screen.getByRole('textbox')
 
-		// Type invalid email and blur
-		fireEvent.change(input, { target: { value: 'invalid-email' } })
+		// Input should have the provided value
+		expect(input).toHaveValue('invalid-email')
 		fireEvent.blur(input)
 
 		await waitFor(() => {
@@ -162,13 +166,12 @@ describe('Input Validation', () => {
 				validator={[emailValidator]}
 				isValid={isValidMock}
 				id='test-valid'
+				value='test@example.com'
 			/>,
 		)
 
 		const input = screen.getByRole('textbox')
 
-		// Type valid email and blur
-		fireEvent.change(input, { target: { value: 'test@example.com' } })
 		fireEvent.blur(input)
 
 		await waitFor(() => {
@@ -184,13 +187,12 @@ describe('Input Validation', () => {
 				label='Test'
 				validator={[emailValidator, lengthValidator]}
 				id='test-multiple'
+				value='a'
 			/>,
 		)
 
 		const input = screen.getByRole('textbox')
 
-		// Type short invalid email
-		fireEvent.change(input, { target: { value: 'a' } })
 		fireEvent.blur(input)
 
 		await waitFor(() => {

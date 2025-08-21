@@ -10,6 +10,7 @@ describe('Component Integration Tests', () => {
 	describe('Form-like interactions', () => {
 		it('should handle button and input interaction', async () => {
 			const user = userEvent.setup()
+			const onChangeMock = vi.fn()
 
 			render(
 				<div>
@@ -17,6 +18,7 @@ describe('Component Integration Tests', () => {
 						label='Email'
 						id='email-input'
 						placeholder='Enter your email'
+						onChange={onChangeMock}
 					/>
 					<Button
 						name='Submit'
@@ -33,6 +35,8 @@ describe('Component Integration Tests', () => {
 			const emailInput = screen.getByLabelText('Email')
 			await user.type(emailInput, 'test@example.com')
 
+			// Debug: check if onChange was called at all
+			expect(onChangeMock).toHaveBeenCalled()
 			expect(emailInput).toHaveValue('test@example.com')
 
 			// Check that button is still clickable
