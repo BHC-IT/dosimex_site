@@ -90,7 +90,6 @@ function Product(props: IProps) {
 					<ContactForm />
 				</div>
 			</section>
-			{props.isLandscape ? <div style={style.spaceTopFooter} /> : null}
 		</div>
 	)
 }
@@ -227,12 +226,4 @@ export const styles = (mobile: boolean): IStyles => ({
 		width: 'auto',
 		zIndex: 2,
 	},
-	spaceTopFooter: mobile
-		? {
-				content: '',
-				height: '40vh',
-				marginTop: '10vh',
-				marginBottom: '50vh',
-		  }
-		: undefined,
 })
