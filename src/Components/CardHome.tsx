@@ -15,6 +15,8 @@ export interface IStyles {
 	card: CSS.Properties
 	image: CSS.Properties
 	arrow: CSS.Properties
+	titleHeading: CSS.Properties
+	arrowContainer: CSS.Properties
 }
 
 interface IProps {
@@ -60,11 +62,11 @@ const CardHome = (props: IProps) => {
 						height={80}
 					/>
 				</div>
-				<h4 style={{ marginBottom: '0' }}>{props.title}</h4>
+				<h4 style={style.titleHeading}>{props.title}</h4>
 				<p style={style.subtitle}>{props.content}</p>
 				<button style={style.button}>
 					<Link href={`/${props.route}`}>
-						<div style={{ display: 'flex', alignItems: 'center' }}>
+						<div style={style.arrowContainer}>
 							<FontAwesomeIcon
 								icon={faLongArrowAltRight}
 								style={style.arrow}
@@ -125,5 +127,12 @@ export const styles = (mobile: boolean): IStyles => ({
 	},
 	arrow: {
 		width: mobile ? '5vw' : '1.3vw',
+	},
+	titleHeading: {
+		marginBottom: '0',
+	},
+	arrowContainer: {
+		display: 'flex',
+		alignItems: 'center',
 	},
 })

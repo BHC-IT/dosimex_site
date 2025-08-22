@@ -14,6 +14,7 @@ export interface IStyles {
 	icon: CSS.Properties
 	flex: CSS.Properties
 	flag: CSS.Properties
+	languageText: CSS.Properties
 }
 
 const ratioFr = 0.012
@@ -49,7 +50,7 @@ const LanguageSwitch = (props: IProps) => {
 									height={1707 * ratioFr}
 								/>
 							</div>
-							<p style={{ marginRight: '7px' }}>Fr</p>
+							<p style={styles.languageText}>Fr</p>
 						</div>
 					</Link>
 				</div>
@@ -100,5 +101,8 @@ export const styles: IStyles = {
 	},
 	flag: {
 		marginRight: '5px',
+	},
+	languageText: {
+		marginRight: '7px',
 	},
 }

@@ -15,6 +15,7 @@ export interface IStyles {
 	col: CSS.Properties
 	colTitle: CSS.Properties
 	divPhone: CSS.Properties
+	phoneText: CSS.Properties
 	divSocialMedia: CSS.Properties
 	divIconSocial: CSS.Properties
 	iconSocial: CSS.Properties
@@ -47,7 +48,7 @@ const Footer = () => {
 						path={mdiPhone}
 						size={1.8}
 					/>
-					<p style={{ marginLeft: '0.5vw' }}>{text.col1.p[2]}</p>
+					<p style={style.phoneText}>{text.col1.p[2]}</p>
 				</div>
 				<div style={style.divSocialMedia}>
 					<div style={style.divIconSocial}>
@@ -164,6 +165,9 @@ export const styles = (mobile: boolean): IStyles => ({
 	divPhone: {
 		display: 'flex',
 		alignItems: 'center',
+	},
+	phoneText: {
+		marginLeft: '0.5vw',
 	},
 	divSocialMedia: {
 		display: 'flex',

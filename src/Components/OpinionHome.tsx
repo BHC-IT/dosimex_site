@@ -12,6 +12,9 @@ export interface IStyles {
 	icon: CSS.Properties,
 	text: CSS.Properties,
 	peopleInfo?: CSS.Properties,
+	nameHeading: CSS.Properties,
+	jobText: CSS.Properties,
+	quoteContainer: CSS.Properties,
 }
 
 interface IProps {
@@ -33,10 +36,10 @@ const OpinionHome = (props: IProps) => {
 	return (
 		<div style={style.global}>
 			<div style={style.peopleInfo}>
-				<h5 style={{ fontSize: '1.8rem', margin: '0' }}>{props.text.name}</h5>
-				<p style={{ margin: '0' }}>{props.text.job}</p>
+				<h5 style={style.nameHeading}>{props.text.name}</h5>
+				<p style={style.jobText}>{props.text.job}</p>
 			</div>
-			<div style={{ margin: '4vh 0' }}>
+			<div style={style.quoteContainer}>
 				<img src="/Images/icon_quote.png" alt="icône citation" />
 				<p style={style.text}>{props.text.opinion}</p>
 			</div>
@@ -94,5 +97,15 @@ export const styles = (mobile: boolean): IStyles => ({
 	text: {
 		textAlign: 'justify',
 		fontSize: mobile ? '1.5rem' : undefined,
+	},
+	nameHeading: {
+		fontSize: '1.8rem',
+		margin: '0',
+	},
+	jobText: {
+		margin: '0',
+	},
+	quoteContainer: {
+		margin: '4vh 0',
 	},
 })

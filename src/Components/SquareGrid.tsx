@@ -11,12 +11,15 @@ interface Iprops {
 	nbColumn?: number
 }
 
-const square = (squareStyleReceived: CSS.Properties, key: number) => (
-	<div
-		key={key}
-		style={{ ...squareStyle, ...squareStyleReceived }}
-	/>
-)
+const square = (squareStyleReceived: CSS.Properties, key: number) => {
+	const combinedSquareStyle = { ...squareStyle, ...squareStyleReceived }
+	return (
+		<div
+			key={key}
+			style={combinedSquareStyle}
+		/>
+	)
+}
 
 const line = (nbColumns: number, squareStyle: CSS.Properties, key: number) => {
 	const squares = []
@@ -41,11 +44,14 @@ const lines = (nbLines: number, nbColumns: number, squareStyle: CSS.Properties) 
 	return <div>{rows}</div>
 }
 
-const Grid = (props: Iprops) => (
-	<div style={{ ...mainContainer, ...props?.styles?.containerStyle }}>
-		{lines(props?.nbLine ?? 6, props?.nbColumn ?? 4, props?.styles?.squareStyle ?? {})}
-	</div>
-)
+const Grid = (props: Iprops) => {
+	const combinedContainerStyle = { ...mainContainer, ...props?.styles?.containerStyle }
+	return (
+		<div style={combinedContainerStyle}>
+			{lines(props?.nbLine ?? 6, props?.nbColumn ?? 4, props?.styles?.squareStyle ?? {})}
+		</div>
+	)
+}
 
 export default Grid
 

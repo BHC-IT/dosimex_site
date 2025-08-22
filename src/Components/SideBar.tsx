@@ -1,3 +1,4 @@
+import * as CSS from 'csstype'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -21,6 +22,12 @@ interface INavbarText {
 
 interface IProps {
 	text?: INavbarText
+}
+
+const styles: { [key: string]: CSS.Properties } = {
+	logoListItem: {
+		cursor: 'pointer',
+	},
 }
 
 interface IRenderNavProps {
@@ -83,7 +90,7 @@ const SideBar: React.FC<IProps> = props => {
 	return (
 		<MenuComponent right {...props}>
 			<ul>
-				<li style={{ cursor: 'pointer' }}>
+				<li style={styles.logoListItem}>
 					<Link href="/">
 						<Image
 							src="/Images/logo_dosimex_new.webp"

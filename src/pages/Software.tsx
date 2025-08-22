@@ -21,7 +21,7 @@ interface IMapOf<A> {
 	[i: string]: A
 }
 
-type IStyles = IMapOf<CSS.Properties | IMapOfStyle>
+type IStyles = { [key: string]: any }
 
 interface IProps {
 	text: ILang
@@ -32,11 +32,13 @@ interface ILiLabelProps {
 	text: string
 	style: IMapOfStyle
 	textOver?: string
+	mainStyle: IStyles
 }
 
 interface ILinkVideoProps {
 	link: string
 	textOver?: string
+	mainStyle: IStyles
 }
 
 const Questions = ({ text, style }: IProps) => (
@@ -50,7 +52,7 @@ const Questions = ({ text, style }: IProps) => (
 	</div>
 )
 
-const LinkVideo = ({ link, textOver }: ILinkVideoProps) => {
+const LinkVideo = ({ link, textOver, mainStyle }: ILinkVideoProps) => {
 	const [isVisible, setIsVisible] = useState(false)
 	const [x, setX] = useState(0)
 
@@ -67,27 +69,15 @@ const LinkVideo = ({ link, textOver }: ILinkVideoProps) => {
 				onMouseLeave={() => setIsVisible(false)}
 			>
 				{handleLink(link)[0]}
-				<div style={{ display: 'inline', paddingLeft: '5px' }}>
+				<div style={mainStyle.inlineIcon}>
 					<FontAwesomeIcon
 						icon={faExternalLinkAlt}
-						style={isMobile ? { width: '3vw' } : { width: '0.75vw' }}
+						style={isMobile ? mainStyle.iconSizeMobile : mainStyle.iconSizeDesktop}
 					/>
 				</div>
 			</a>
 			{isMobile ? null : (
-				<p
-					style={{
-						visibility: isVisible ? 'visible' : 'hidden',
-						margin: '0',
-						textAlign: 'center',
-						backgroundColor: 'rgb(230,230,230)',
-						color: 'var(--grey)',
-						borderRadius: '50px',
-						position: 'absolute',
-						left: x,
-						padding: '0 12px',
-					}}
-				>
+				<p style={mainStyle.tooltipStyle(isVisible, x)}>
 					{textOver}
 				</p>
 			)}
@@ -95,7 +85,7 @@ const LinkVideo = ({ link, textOver }: ILinkVideoProps) => {
 	)
 }
 
-const LiLabel = ({ text, style, textOver }: ILiLabelProps) => (
+const LiLabel = ({ text, style, textOver, mainStyle }: ILiLabelProps) => (
 	<p style={style.global}>
 		{parseStringLink(text).map((e, index) =>
 			isLink(e) ? (
@@ -106,12 +96,13 @@ const LiLabel = ({ text, style, textOver }: ILiLabelProps) => (
 					<LinkVideo
 						link={e}
 						textOver={textOver}
+						mainStyle={mainStyle}
 					/>
 				</div>
 			) : (
 				<p
 					key={index}
-					style={{ display: 'inline' }}
+					style={mainStyle.inlineDisplay}
 				>
 					{e}
 				</p>
@@ -355,6 +346,7 @@ const Software = () => {
 								text={text.packOpe.li[i]}
 								style={style.liLabel as IMapOfStyle}
 								textOver={text.linkVideo}
+								mainStyle={style}
 							/>
 						</CodeSection>
 					))}
@@ -417,6 +409,7 @@ const Software = () => {
 								text={text.packPeda.li[i]}
 								style={style.liLabel as IMapOfStyle}
 								textOver={text.linkVideo}
+								mainStyle={style}
 							/>
 						</CodeSection>
 					))}
@@ -479,10 +472,11 @@ const Software = () => {
 								text={text.packMes.li[i]}
 								style={style.liLabel as IMapOfStyle}
 								textOver={text.linkVideo}
+								mainStyle={style}
 							/>
 						</CodeSection>
 					))}
-					<div style={{ marginTop: '8vh' }}>
+					<div style={style.videoButtonMargin}>
 						<Button
 							name={text.button.label}
 							route='Videos'
@@ -529,6 +523,7 @@ const Software = () => {
 							<LiLabel
 								text={text.packOpe.li[i]}
 								style={style.liLabel as IMapOfStyle}
+								mainStyle={style}
 							/>
 						</div>
 					))}
@@ -583,6 +578,7 @@ const Software = () => {
 							<LiLabel
 								text={text.packPeda.li[i]}
 								style={style.liLabel as IMapOfStyle}
+								mainStyle={style}
 							/>
 						</div>
 					))}
@@ -637,10 +633,11 @@ const Software = () => {
 							<LiLabel
 								text={text.packMes.li[i]}
 								style={style.liLabel as IMapOfStyle}
+								mainStyle={style}
 							/>
 						</div>
 					))}
-					<div style={{ margin: '8vh auto', textAlign: 'center' }}>
+					<div style={style.mobileButtonContainer}>
 						<Button
 							name={text.button.label}
 							route='Videos'
@@ -747,7 +744,7 @@ const Software = () => {
 			</div>
 			<Questions
 				text={text}
-				style={style.questionsStyles as IMapOfStyle}
+				style={style.questionsStyles}
 			/>
 		</div>
 	)
@@ -856,5 +853,98 @@ export const styles = (mobile: boolean): IStyles => ({
 	},
 	divFlag: {
 		marginBottom: '3vh',
+	},
+	inlineIcon: {
+		display: 'inline',
+		paddingLeft: '5px',
+	},
+	iconSizeMobile: {
+		width: '3vw',
+	},
+	iconSizeDesktop: {
+		width: '0.75vw',
+	},
+	tooltipStyle: (isVisible: boolean, x: number): CSS.Properties => ({
+		visibility: isVisible ? 'visible' : 'hidden',
+		margin: '0',
+		textAlign: 'center',
+		backgroundColor: 'rgb(230,230,230)',
+		color: 'var(--grey)',
+		borderRadius: '50px',
+		position: 'absolute',
+		left: `${x}px`,
+		padding: '0 12px',
+	}),
+	inlineDisplay: {
+		display: 'inline',
+	},
+	sectionContainer: {
+		display: 'flex',
+		flexDirection: 'column',
+		marginTop: '25vh',
+		width: '100%',
+		alignItems: 'center',
+	},
+	sectionRowStart: {
+		display: 'flex',
+		flexDirection: 'row',
+		justifyContent: 'flex-start',
+		width: '100%',
+	},
+	sectionRowEnd: {
+		display: 'flex',
+		flexDirection: 'row',
+		justifyContent: 'flex-end',
+		width: '100%',
+	},
+	sectionMobileConditional: (i: number): CSS.Properties => ({
+		marginTop: i === 0 ? '5vh' : 0,
+	}),
+	flagSpacing: {
+		marginRight: '6px',
+		display: 'inline',
+	},
+	partColumn: {
+		display: 'flex',
+		flexDirection: 'column',
+		width: '70%',
+	},
+	textJustify: {
+		textAlign: 'justify',
+	},
+	videoButtonMargin: {
+		marginTop: '8vh',
+	},
+	moreSection: {
+		marginTop: '20vh',
+		backgroundColor: 'var(--grey-bg)',
+		width: '100%',
+		display: 'flex',
+		flexDirection: 'column',
+		alignItems: 'center',
+		justifyContent: 'center',
+		paddingTop: '3vh',
+		paddingBottom: '6vh',
+	},
+	linkContainerFirst: {
+		width: '80%',
+		marginTop: '3vh',
+	},
+	linkContainer: {
+		width: '80%',
+		marginTop: '0.2vh',
+	},
+	linkText: {
+		textDecoration: 'underline var(--dark)',
+		cursor: 'pointer',
+		fontFamily: 'var(--lato)',
+	},
+	simpleLinkText: {
+		textDecoration: 'underline var(--dark)',
+		cursor: 'pointer',
+	},
+	mobileButtonContainer: {
+		margin: '8vh auto',
+		textAlign: 'center',
 	},
 })

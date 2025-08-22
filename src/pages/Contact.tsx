@@ -1,3 +1,4 @@
+import * as CSS from 'csstype'
 import Image from 'next/image'
 
 import ContactForm from '../Components/ContactForm'
@@ -8,7 +9,7 @@ export default function Contact() {
 
 	return (
 		<div>
-				<div style={{ position: 'absolute', top: '10vh' }}>
+				<div style={styles.backgroundContainer}>
 					{isMobile ? null : (
 						<Image
 							src='/Images/motif_trefle.svg'
@@ -18,9 +19,19 @@ export default function Contact() {
 						/>
 					)}
 				</div>
-				<div style={{ position: 'relative' }}>
+				<div style={styles.formContainer}>
 					<ContactForm />
 				</div>
 			</div>
 	)
+}
+
+const styles: { [key: string]: CSS.Properties } = {
+	backgroundContainer: {
+		position: 'absolute',
+		top: '10vh',
+	},
+	formContainer: {
+		position: 'relative',
+	},
 }

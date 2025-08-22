@@ -14,7 +14,7 @@ interface IMapOf<A> {
 
 type IMapOfStyle = IMapOf<CSS.Properties | Function>
 
-type IStyles = IMapOf<IMapOfStyle | IMapOf<IMapOfStyle>>
+type IStyles = { [key: string]: any }
 
 interface IVideoStyle {
 	container: CSS.Properties
@@ -42,18 +42,21 @@ interface ILabelVideoProps {
 	color: string
 	label: string
 	style: IVideoStyle
+	mainStyle: IStyles
 }
 interface IItemVideoProps {
 	color: string
 	label: string
 	id_yt: string
 	style: IVideoStyle
+	mainStyle: IStyles
 }
 interface IVideosLineProps {
 	color: string
 	videoIds: string[]
 	label: string
 	style: IVideoStyle
+	mainStyle: IStyles
 }
 interface IPackProps {
 	title: string
@@ -64,6 +67,7 @@ interface IPackProps {
 	right?: boolean
 	style: IMapOf<CSS.Properties>
 	styleVideo: IVideoStyle
+	mainStyle: IStyles
 }
 
 const opts_yt = {
@@ -133,21 +137,22 @@ const Separator = ({ right, color, style }: ISeparatorProps) => (
 	</div>
 )
 
-const LabelVideo = ({ color, label, style }: ILabelVideoProps) => (
-	<div style={{ ...center, ...{ position: 'relative', marginBottom: '1rem' } }}>
+const LabelVideo = ({ color, label, style, mainStyle }: ILabelVideoProps) => (
+	<div style={mainStyle.labelVideoContainer}>
 		<div style={style.itemLabel(color)}>
-			<p style={{ margin: '0' }}>{label}</p>
+			<p style={mainStyle.labelVideoText}>{label}</p>
 		</div>
-		<p style={{ position: 'absolute', color: color }}>{label}</p>
+		<p style={mainStyle.labelVideoAbsolute(color)}>{label}</p>
 	</div>
 )
 
-const ItemVideo = ({ color, label, id_yt, style }: IItemVideoProps) => (
+const ItemVideo = ({ color, label, id_yt, style, mainStyle }: IItemVideoProps) => (
 	<div style={style.itemContainer}>
 		<LabelVideo
 			color={color}
 			label={label}
 			style={style}
+			mainStyle={mainStyle}
 		/>
 		<YouTube
 			videoId={id_yt}
@@ -156,7 +161,7 @@ const ItemVideo = ({ color, label, id_yt, style }: IItemVideoProps) => (
 	</div>
 )
 
-const VideosLine = ({ color, videoIds, label, style }: IVideosLineProps) => (
+const VideosLine = ({ color, videoIds, label, style, mainStyle }: IVideosLineProps) => (
 	<div style={style.container}>
 		{videoIds.map((id, index) => {
 			return (
@@ -166,6 +171,7 @@ const VideosLine = ({ color, videoIds, label, style }: IVideosLineProps) => (
 					label={label}
 					id_yt={id}
 					style={style}
+					mainStyle={mainStyle}
 				/>
 			)
 		})}
@@ -181,13 +187,12 @@ const Pack = ({
 	right = false,
 	style,
 	styleVideo,
+	mainStyle,
 }: IPackProps) => (
 	<div style={style.container}>
-		<div
-			style={{ ...style.titleContainer, justifyContent: !right ? 'flex-start' : 'flex-end' }}
-		>
+		<div style={mainStyle.titleContainerDynamic(style.titleContainer, right)}>
 			<h3>{text.packTitle}</h3>
-			<h3 style={{ ...style.titleSpe, color: color ?? 'var(--flash)' }}>{title}</h3>
+			<h3 style={mainStyle.titleSpecialDynamic(style.titleSpe, color)}>{title}</h3>
 		</div>
 		{splitArrays(4, videoIds).map((listVidLine, index) => {
 			return (
@@ -197,6 +202,7 @@ const Pack = ({
 					videoIds={listVidLine}
 					label={label}
 					style={styleVideo}
+					mainStyle={mainStyle}
 				/>
 			)
 		})}
@@ -210,7 +216,7 @@ export default function Videos() {
 	if (style === null) return null
 
 	return (
-		<div style={{ display: 'flex', flexDirection: 'column', overflowX: 'hidden' }}>
+		<div style={style.mainContainer}>
 			<Header
 				text={text}
 				style={style.headerStyle}
@@ -227,6 +233,7 @@ export default function Videos() {
 				label={text.packOpe.label}
 				style={style.packStyle as IMapOf<CSS.Properties>}
 				styleVideo={style.videosLineStyle as unknown as IVideoStyle}
+				mainStyle={style}
 			/>
 			<Separator
 				right
@@ -240,6 +247,7 @@ export default function Videos() {
 				label={text.packPeda.label}
 				style={style.packStyle as IMapOf<CSS.Properties>}
 				styleVideo={style.videosLineStyle as unknown as IVideoStyle}
+				mainStyle={style}
 			/>
 			<Separator
 				color='var(--orange)'
@@ -253,6 +261,7 @@ export default function Videos() {
 				label={text.packMes.label}
 				style={style.packStyle as IMapOf<CSS.Properties>}
 				styleVideo={style.videosLineStyle as unknown as IVideoStyle}
+				mainStyle={style}
 			/>
 		</div>
 	)
@@ -364,4 +373,29 @@ export const styles = (mobile: boolean): IStyles => ({
 			}
 		},
 	},
+	mainContainer: {
+		display: 'flex',
+		flexDirection: 'column',
+		overflowX: 'hidden',
+	} as CSS.Properties,
+	labelVideoContainer: {
+		...center,
+		position: 'relative',
+		marginBottom: '1rem',
+	},
+	labelVideoText: {
+		margin: '0',
+	},
+	labelVideoAbsolute: (color: string): CSS.Properties => ({
+		position: 'absolute',
+		color: color,
+	}),
+	titleContainerDynamic: (titleContainer: CSS.Properties, right?: boolean): CSS.Properties => ({
+		...titleContainer,
+		justifyContent: !right ? 'flex-start' : 'flex-end',
+	}),
+	titleSpecialDynamic: (titleSpe: CSS.Properties, color?: string): CSS.Properties => ({
+		...titleSpe,
+		color: color ?? 'var(--flash)',
+	}),
 })

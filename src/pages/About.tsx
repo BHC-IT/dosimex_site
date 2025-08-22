@@ -14,6 +14,14 @@ export interface IStyles {
 	sectionFlex: CSS.Properties
 	pFlex: CSS.Properties
 	pBorder: CSS.Properties
+	parallaxContainer: CSS.Properties
+	parallaxText: CSS.Properties
+	motifPosition: CSS.Properties
+	geraldBackground: CSS.Properties
+	alainBackground: CSS.Properties
+	desktopMarginRight: CSS.Properties
+	alainParagraphMargin: CSS.Properties
+	epilogue: CSS.Properties
 }
 
 const About = () => {
@@ -27,18 +35,12 @@ const About = () => {
 		<>
 			<div
 				className='parallax'
-				style={{
-					display: 'flex',
-					alignItems: 'flex-end',
-					justifyContent: 'end',
-					color: 'var(--light)',
-					fontStyle: 'italic',
-				}}
+				style={style.parallaxContainer}
 			>
-				<p style={{ marginRight: '5vw' }}>Cap de la Hague, Site ORANO</p>
+				<p style={style.parallaxText}>Cap de la Hague, Site ORANO</p>
 			</div>
 			{isMobile ? null : (
-				<div style={{ position: 'absolute', top: 320, left: 100 }}>
+				<div style={style.motifPosition}>
 					<Image
 						src='/Images/motif_rect.svg'
 						alt='Decorative pattern'
@@ -55,12 +57,7 @@ const About = () => {
 				<div style={style.section}>
 					<div style={style.sectionFlex}>
 						<div style={style.div}>
-							<div
-								style={{
-									...style.circleImage,
-									backgroundImage: "url('/Images/Gerald.png')",
-								}}
-							 />
+							<div style={{ ...style.circleImage, ...style.geraldBackground }} />
 							<h3 style={style.name}>Gérald Lopez</h3>
 						</div>
 						<div style={style.pFlex}>
@@ -83,37 +80,27 @@ const About = () => {
 					<div style={style.sectionFlex}>
 						{isMobile && (
 							<div style={style.div}>
-								<div
-									style={{
-										...style.circleImage,
-										backgroundImage: "url('/Images/Alain.png')",
-									}}
-								 />
+								<div style={{ ...style.circleImage, ...style.alainBackground }} />
 								<h3 style={style.name}>Alain Vivier</h3>
 							</div>
 						)}
-						<div style={isMobile ? undefined : { marginRight: '5%' }}>
+						<div style={isMobile ? undefined : style.desktopMarginRight}>
 							<p>{text.alain.p[0]}</p>
 							<p>{text.alain.p[1]}</p>
 							<p>{text.alain.p[2]}</p>
 						</div>
 						{!isMobile && (
 							<div style={style.div}>
-								<div
-									style={{
-										...style.circleImage,
-										backgroundImage: "url('/Images/Alain.png')",
-									}}
-								 />
+								<div style={{ ...style.circleImage, ...style.alainBackground }} />
 								<h3 style={style.name}>Alain Vivier</h3>
 							</div>
 						)}
 					</div>
-					<p style={{ marginTop: '5vh' }}>{text.alain.p[3]}</p>
+					<p style={style.alainParagraphMargin}>{text.alain.p[3]}</p>
 					<p>{text.alain.p[4]}</p>
 					<p>{text.alain.p[5]}</p>
 					<p>{text.alain.p[6]}</p>
-					<p style={{ fontStyle: 'italic', textAlign: 'center', marginTop: '8vh' }}>
+					<p style={style.epilogue}>
 						{text.epilogue}
 					</p>
 				</div>
@@ -180,5 +167,37 @@ export const styles = (mobile: boolean): IStyles => ({
 		marginTop: '5vh',
 		marginBottom: '5vh',
 		borderLeft: '3px solid var(--flash)',
+	},
+	parallaxContainer: {
+		display: 'flex',
+		alignItems: 'flex-end',
+		justifyContent: 'end',
+		color: 'var(--light)',
+		fontStyle: 'italic',
+	},
+	parallaxText: {
+		marginRight: '5vw',
+	},
+	motifPosition: {
+		position: 'absolute',
+		top: '320px',
+		left: '100px',
+	},
+	geraldBackground: {
+		backgroundImage: "url('/Images/Gerald.png')",
+	},
+	alainBackground: {
+		backgroundImage: "url('/Images/Alain.png')",
+	},
+	desktopMarginRight: {
+		marginRight: '5%',
+	},
+	alainParagraphMargin: {
+		marginTop: '5vh',
+	},
+	epilogue: {
+		fontStyle: 'italic',
+		textAlign: 'center',
+		marginTop: '8vh',
 	},
 })

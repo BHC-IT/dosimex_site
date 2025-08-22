@@ -167,10 +167,13 @@ const Input: React.FC<IProps> = props => {
 
 	const isValid = erroredValidator.length === 0
 
+	const combinedDivStyle = { ...styles.divInput, ...props.style?.divInput }
+	const combinedLabelStyle = { ...styles.label, ...props.style?.label }
+
 	return (
-		<div style={{ ...styles.divInput, ...props.style?.divInput }}>
+		<div style={combinedDivStyle}>
 			<label
-				style={{ ...styles.label, ...props.style?.label }}
+				style={combinedLabelStyle}
 				htmlFor={props.id}
 			>
 				{props.label}

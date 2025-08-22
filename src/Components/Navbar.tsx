@@ -54,7 +54,7 @@ const Navbar: React.FC<IProps> = () => {
 				{pages.map((page: IPage, i: number) => (
 					<li
 						key={text.items[i]}
-						style={{ paddingLeft: '1.7vw' }}
+						style={styles.navbarLi}
 					>
 						<ItemNavbar
 							name={text.items[i]}

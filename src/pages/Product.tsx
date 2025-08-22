@@ -11,6 +11,7 @@ import { useText } from '../Hooks/useText'
 
 interface IStyles {
 	[key: string]: CSS.Properties | undefined
+	phoneNumber?: CSS.Properties
 }
 
 const ratio = 0.7
@@ -80,7 +81,7 @@ function Product() {
 				<p style={style.questionsTitle}>{text.questions.title}</p>
 				<p style={style.questionsP}>
 					{text.questions.p}
-					<span style={{ color: 'var(--main)' }}>06 89 70 90 35</span>
+					<span style={style.phoneNumber}>06 89 70 90 35</span>
 				</p>
 				<div style={style.contact}>
 					<ContactForm />
@@ -221,5 +222,8 @@ export const styles = (mobile: boolean): IStyles => ({
 		marginTop: mobile ? '-10vh' : '-5vh',
 		width: 'auto',
 		zIndex: 2,
+	},
+	phoneNumber: {
+		color: 'var(--main)',
 	},
 })

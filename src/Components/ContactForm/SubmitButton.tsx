@@ -26,6 +26,10 @@ const defaultStyles = {
 		backgroundColor: 'var(--dark)',
 		transform: 'translateY(-2px)',
 	},
+	loadingContainer: {
+		display: 'block',
+		margin: '0 auto',
+	},
 }
 
 const SubmitButton: React.FC<ISubmitButtonProps> = ({ style, text, isLoading }) => {
@@ -46,7 +50,7 @@ const SubmitButton: React.FC<ISubmitButtonProps> = ({ style, text, isLoading }) 
 			onMouseLeave={() => setIsHovered(false)}
 		>
 			{isLoading ? (
-				<div style={{ display: 'block', margin: '0 auto' }}>
+				<div style={defaultStyles.loadingContainer}>
 					{text.sending ?? 'Loading...'}
 				</div>
 			) : (

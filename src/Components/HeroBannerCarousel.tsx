@@ -5,7 +5,10 @@ import React, { useState, useEffect } from 'react'
 import { useIsMobile } from '../Hooks/useIsMobile'
 
 interface IStyles {
-	[key: string]: CSS.Properties
+	slideContainer: CSS.Properties
+	slideText: CSS.Properties
+	sliderWrapper: CSS.Properties
+	sliderContainer: CSS.Properties
 }
 
 interface ISlideProps {
@@ -26,41 +29,32 @@ const images = [
 	'ScreenCarousel4.png',
 ]
 
-const Slide = ({ name, text, vw }: ISlideProps) => (
-	<div style={{ width: '25%', float: 'left' }}>
-		<Image
-			src={`/Images/${name}`}
-			alt={`Banner image ${name}`}
-			width={29 * vw}
-			height={16.32 * vw}
-		/>
-		<p
-			style={{
-				fontStyle: 'italic',
-				float: 'right',
-				marginTop: '7vh',
-				padding: '0 10px',
-				fontSize: '1.8rem',
-				color: 'var(--grey)',
-			}}
-		>
-			{text}
-		</p>
-	</div>
-)
+const Slide = ({ name, text, vw }: ISlideProps) => {
+	const style = useIsMobile(styles)
+	if (style === null) return null
+
+	return (
+		<div style={style.slideContainer}>
+			<Image
+				src={`/Images/${name}`}
+				alt={`Banner image ${name}`}
+				width={29 * vw}
+				height={16.32 * vw}
+			/>
+			<p style={style.slideText}>
+				{text}
+			</p>
+		</div>
+	)
+}
 
 const SlideWrapper = ({ text, vw }: ITextProps) => {
+	const style = useIsMobile(styles)
+	if (style === null) return null
+
 	return (
-		<div style={{ overflow: 'hidden' }}>
-			<div
-				style={{
-					position: 'relative',
-					width: '400%',
-					margin: 0,
-					left: 0,
-					animation: '10s slidy infinite',
-				}}
-			>
+		<div style={style.sliderWrapper}>
+			<div style={style.sliderContainer}>
 				{images.map((e, i) => {
 					return (
 						<Slide
@@ -113,4 +107,27 @@ const HeroBannerCarousel: React.FC<IHeroBannerCarouselProps> = ({ text }) => {
 
 export default HeroBannerCarousel
 
-export const styles = (): IStyles => ({})
+export const styles = (mobile: boolean): IStyles => ({
+	slideContainer: {
+		width: '25%',
+		float: 'left',
+	},
+	slideText: {
+		fontStyle: 'italic',
+		float: 'right',
+		marginTop: '7vh',
+		padding: '0 10px',
+		fontSize: '1.8rem',
+		color: 'var(--grey)',
+	},
+	sliderWrapper: {
+		overflow: 'hidden',
+	},
+	sliderContainer: {
+		position: 'relative',
+		width: '400%',
+		margin: 0,
+		left: 0,
+		animation: '10s slidy infinite',
+	},
+})

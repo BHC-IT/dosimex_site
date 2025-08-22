@@ -40,4 +40,5 @@ vi.mock('react-device-detect', () => ({
 	isMobile: false,
 	isTablet: false,
 	isDesktop: true,
+	withOrientationChange: (Component: React.ComponentType) => Component,
 }))

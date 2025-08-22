@@ -42,7 +42,7 @@ const Book = (props: IProps) => {
 				<p style={style.author}>{props.author}</p>
 			</div>
 			<div style={style.divText}>
-				<p style={{ margin: 0 }}>{props.text}</p>
+				<p style={style.textContent}>{props.text}</p>
 			</div>
 		</div>
 	)
@@ -81,5 +81,8 @@ export const styles = (mobile: boolean): { [$: string]: CSS.Properties } => ({
 		fontWeight: 700,
 		fontSize: mobile ? '1.8rem' : '2.2rem',
 		textTransform: 'uppercase' as 'uppercase',
+	},
+	textContent: {
+		margin: 0,
 	},
 })

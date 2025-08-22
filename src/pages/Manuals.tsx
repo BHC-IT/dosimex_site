@@ -32,6 +32,8 @@ const hashes = ['#manuals', '#validations', '#internships']
 
 interface IStyles {
 	[key: string]: CSS.Properties
+	listItem: CSS.Properties
+	centerText: CSS.Properties
 }
 
 export default function Manuals() {
@@ -180,14 +182,14 @@ export default function Manuals() {
 						return (
 							<li
 								key={i}
-								style={{ cursor: 'pointer' }}
+								style={style.listItem}
 							>
 								<a
 									href={`../Folders/${manual.pdf}`}
 									target='_blank'
 									rel='noreferrer noopener'
 								>
-									<div style={{ textAlign: 'center' }}>
+									<div style={style.centerText}>
 										<Image
 											src={`/Images/${manual.img}`}
 											alt='couverture manuel'
@@ -217,14 +219,14 @@ export default function Manuals() {
 						return (
 							<li
 								key={i}
-								style={{ cursor: 'pointer' }}
+								style={style.listItem}
 							>
 								<a
 									href={`../Folders/${validation.pdf}`}
 									target='_blank'
 									rel='noreferrer noopener'
 								>
-									<div style={{ textAlign: 'center' }}>
+									<div style={style.centerText}>
 										<Image
 											src={`/Images/${validation.img}`}
 											alt='couverture manuel'
@@ -254,14 +256,14 @@ export default function Manuals() {
 						return (
 							<li
 								key={i}
-								style={{ cursor: 'pointer' }}
+								style={style.listItem}
 							>
 								<a
 									href={`../Folders/${internship.pdf}`}
 									target='_blank'
 									rel='noreferrer noopener'
 								>
-									<div style={{ textAlign: 'center' }}>
+									<div style={style.centerText}>
 										<Image
 											src={`/Images/${internship.img}`}
 											alt='couverture manuel'
@@ -347,5 +349,11 @@ export const styles = (mobile: boolean): IStyles => ({
 		textTransform: 'uppercase' as 'uppercase',
 		paddingLeft: '2%',
 		paddingRight: '2%',
+	},
+	listItem: {
+		cursor: 'pointer',
+	},
+	centerText: {
+		textAlign: 'center',
 	},
 })

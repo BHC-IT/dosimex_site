@@ -20,6 +20,12 @@ export interface IStyles {
 	numbers: { [idx: string]: CSS.Properties }
 	videos: { [idx: string]: CSS.Properties }
 	callToAction: { [idx: string]: CSS.Properties }
+	flagContainer: CSS.Properties
+	flagText: CSS.Properties
+	landscapePadding: CSS.Properties
+	videosTitle: CSS.Properties
+	numbersBackgroundLandscape: CSS.Properties
+	videosIframeLandscape: CSS.Properties
 }
 
 interface IProps {
@@ -42,16 +48,7 @@ function Home(props: IProps) {
 				<div style={style.header.headerText}>
 					<h1>{text.header.title}</h1>
 					<p style={style.header.headerSubtitle}>{text.header.p}</p>
-					<div
-						style={{
-							display: 'flex',
-							flexDirection: 'row',
-							justifyContent: 'start',
-							alignItems: 'center',
-							flex: 0,
-							paddingBottom: '5vh',
-						}}
-					>
+					<div style={style.flagContainer}>
 						<Image
 							quality={40}
 							loading='lazy'
@@ -60,7 +57,7 @@ function Home(props: IProps) {
 							width={1024 * ratioUk}
 							height={683 * ratioUk}
 						/>
-						<p style={{ ...style.header.headerPromo, paddingLeft: '1vw' }}>
+						<p style={{ ...style.header.headerPromo, ...style.flagText }}>
 							{text.header.promo}
 						</p>
 					</div>
@@ -95,7 +92,7 @@ function Home(props: IProps) {
 			<section style={style.offers.global}>
 				<h2 style={style.offers.title}>{text.offers.title}</h2>
 				<p style={style.offers.subtitle}>{text.offers.p}</p>
-				<div style={props.isLandscape ? { padding: '0 10vw' } : undefined}>
+				<div style={props.isLandscape ? style.landscapePadding : undefined}>
 					<div
 						className='container'
 						style={style.offers.divCardHome}
@@ -126,7 +123,7 @@ function Home(props: IProps) {
 				<div
 					style={
 						props.isLandscape
-							? { ...style.numbers.background, height: '85vh' }
+							? { ...style.numbers.background, ...style.numbersBackgroundLandscape }
 							: style.numbers.background
 					}
 				>
@@ -157,19 +154,13 @@ function Home(props: IProps) {
 					/>
 				</div>
 				<div style={style.videos.text}>
-					<h2 style={{ marginTop: '0' }}>{text.videos.title}</h2>
+					<h2 style={style.videosTitle}>{text.videos.title}</h2>
 					<p style={style.videos.p}>{text.videos.p}</p>
 					<MobileView>
 						<div
 							style={
 								props.isLandscape
-									? {
-											...style.videos.iframe,
-											width: '40vw',
-											height: '50vh',
-											marginRight: 'auto',
-											marginLeft: 'auto',
-										}
+									? { ...style.videos.iframe, ...style.videosIframeLandscape }
 									: style.videos.iframe
 							}
 						>
@@ -400,5 +391,31 @@ export const styles = (mobile: boolean): IStyles => ({
 		title: {
 			fontSize: mobile ? '3rem' : '4.2rem',
 		},
+	},
+	flagContainer: {
+		display: 'flex',
+		flexDirection: 'row',
+		justifyContent: 'start',
+		alignItems: 'center',
+		flex: 0,
+		paddingBottom: '5vh',
+	},
+	flagText: {
+		paddingLeft: '1vw',
+	},
+	landscapePadding: {
+		padding: '0 10vw',
+	},
+	videosTitle: {
+		marginTop: '0',
+	},
+	numbersBackgroundLandscape: {
+		height: '85vh',
+	},
+	videosIframeLandscape: {
+		width: '40vw',
+		height: '50vh',
+		marginRight: 'auto',
+		marginLeft: 'auto',
 	},
 })

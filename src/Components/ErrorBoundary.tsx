@@ -18,6 +18,7 @@ interface IStyles {
 	message: CSS.Properties
 	details: CSS.Properties
 	button: CSS.Properties
+	secondaryButton: CSS.Properties
 }
 
 const styles: IStyles = {
@@ -65,6 +66,17 @@ const styles: IStyles = {
 		fontSize: '1.4rem',
 		cursor: 'pointer',
 		transition: 'all 0.3s ease',
+	},
+	secondaryButton: {
+		padding: '12px 24px',
+		backgroundColor: 'var(--grey)',
+		color: 'white',
+		border: 'none',
+		borderRadius: '50px',
+		fontSize: '1.4rem',
+		cursor: 'pointer',
+		transition: 'all 0.3s ease',
+		marginLeft: '1rem',
 	},
 }
 
@@ -146,7 +158,7 @@ class ErrorBoundary extends Component<IProps, IState> {
 							Réessayer
 						</button>
 						<button
-							style={{ ...styles.button, marginLeft: '1rem', backgroundColor: 'var(--grey)' }}
+							style={styles.secondaryButton}
 							onClick={this.handleReload}
 							onMouseEnter={e => {
 								e.currentTarget.style.transform = 'translateY(-2px)'

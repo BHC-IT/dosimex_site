@@ -1,11 +1,11 @@
 import { render } from '@testing-library/react'
 import { describe, it, expect, vi } from 'vitest'
 
-import HeroBannerCarousel from '../HeroBannerCarousel'
+import HeroBannerCarousel, { styles } from '../HeroBannerCarousel'
 
 // Mock useIsMobile hook
 vi.mock('../../Hooks/useIsMobile', () => ({
-	useIsMobile: vi.fn(() => ({})),
+	useIsMobile: vi.fn(() => styles(false)),
 }))
 
 // Mock window.innerWidth

@@ -18,11 +18,12 @@ interface IMapOf<A> {
 	[i: string]: A
 }
 
-type IStyles = IMapOf<IMapOfStyle | IMapOf<IMapOfStyle>>
+type IStyles = { [key: string]: any }
 
 interface IProps {
 	text: ILang
 	style: IStyles
+	mainStyle?: IStyles
 }
 
 const center = {
@@ -83,10 +84,10 @@ const Exemples = ({ text, style }: IProps) => (
 	</div>
 )
 
-const Partnership = ({ text, style }: IProps) => {
+const Partnership = ({ text, style, mainStyle }: IProps) => {
 	const mobile = useMobile()
 
-	if (mobile === null) return null
+	if (mobile === null || !mainStyle) return null
 
 	if (mobile === true)
 		return (
@@ -96,7 +97,7 @@ const Partnership = ({ text, style }: IProps) => {
 				<p style={style.text}>{text.section2.li[1]}</p>
 				<p style={style.text}>{text.section2.li[2]}</p>
 				<p style={style.text}>{text.section2.li[3]}</p>
-				<div style={{ margin: '5vh auto 0 10%' }}>
+				<div style={mainStyle.buttonMargin}>
 					<a
 						style={style.btn}
 						href='../Folders/catalogue_formation_VNS_v7.pdf'
@@ -115,15 +116,15 @@ const Partnership = ({ text, style }: IProps) => {
 		)
 
 	return (
-		<div style={{ ...style.container }}>
+		<div style={style.container}>
 			<h3 style={style.title}>{text.section2.title}</h3>
-			<div style={{ display: 'flex', flexDirection: 'row' }}>
-				<div style={{ width: '50%' }}>
+			<div style={mainStyle.desktopRow}>
+				<div style={mainStyle.desktopHalfWidth}>
 					<p style={style.text}>{text.section2.li[0]}</p>
 					<p style={style.text}>{text.section2.li[1]}</p>
 					<p style={style.text}>{text.section2.li[2]}</p>
 					<p style={style.text}>{text.section2.li[3]}</p>
-					<div style={{ margin: '5vh auto 0 10%' }}>
+					<div style={mainStyle.buttonMargin}>
 						<a
 							style={style.btn}
 							href='../Folders/catalogue_formation_VNS_v7.pdf'
@@ -139,7 +140,7 @@ const Partnership = ({ text, style }: IProps) => {
 						</a>
 					</div>
 				</div>
-				<div style={{ display: 'flex', width: '50%' }}>
+				<div style={mainStyle.desktopFlexHalfWidth}>
 					<div style={style.imgContainer}>
 						<Image
 							src='/Images/formation.png'
@@ -172,14 +173,14 @@ const Training = () => {
 	if (style === null) return null
 
 	return (
-		<div style={{ display: 'flex', flexDirection: 'column', overflowX: 'hidden' }}>
+		<div style={style.mainContainer}>
 			<Header
 				text={text}
 				style={style.headerStyles as unknown as IStyles}
 			/>
 			<Separator
 				right={false}
-				style={style.separatorStyles as unknown as IStyles}
+				style={style.separatorStyles}
 			/>
 			<Exemples
 				text={text}
@@ -187,15 +188,16 @@ const Training = () => {
 			/>
 			<Separator
 				right
-				style={style.separatorStyles as unknown as IStyles}
+				style={style.separatorStyles}
 			/>
 			<Partnership
 				text={text}
-				style={style.partnershipStyles as unknown as IStyles}
+				style={style.partnershipStyles}
+				mainStyle={style}
 			/>
 			<Questions
 				text={text}
-				style={style.questionsStyles as unknown as IStyles}
+				style={style.questionsStyles}
 			/>
 		</div>
 	)
@@ -365,5 +367,24 @@ export const styles = (mobile: boolean) => ({
 			fontSize: '1.6rem',
 			marginBottom: mobile ? '7vh' : '4vh',
 		} as CSS.Properties,
+	},
+	mainContainer: {
+		display: 'flex',
+		flexDirection: 'column',
+		overflowX: 'hidden',
+	} as CSS.Properties,
+	buttonMargin: {
+		margin: '5vh auto 0 10%',
+	},
+	desktopRow: {
+		display: 'flex',
+		flexDirection: 'row',
+	},
+	desktopHalfWidth: {
+		width: '50%',
+	},
+	desktopFlexHalfWidth: {
+		display: 'flex',
+		width: '50%',
 	},
 })

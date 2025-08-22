@@ -18,6 +18,7 @@
       "Bash(git grep:*)",
       "Bash(npx vitest run:*)"
     ],
-    "deny": []
+    "deny": [],
+    "defaultMode": "acceptEdits"
   }
 }

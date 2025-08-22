@@ -11,6 +11,9 @@ interface IStyles {
 	divNameMail: CSS.Properties
 	phoneInput: CSS.Properties
 	input: CSS.Properties
+	phoneLabel: CSS.Properties
+	phoneInputField: CSS.Properties
+	phoneError: CSS.Properties
 }
 
 interface IPhoneEnterpriseRowProps {
@@ -38,6 +41,20 @@ const defaultStyles: IStyles = {
 		flexBasis: 'calc(50% - 0.5rem)',
 		minWidth: '250px',
 	},
+	phoneLabel: {
+		textTransform: 'uppercase',
+		color: 'var(--grey)',
+		fontSize: '2rem',
+		display: 'block',
+	},
+	phoneInputField: {
+		width: '100%',
+	},
+	phoneError: {
+		color: 'red',
+		margin: '4px 0 0 0',
+		fontSize: '1.4rem',
+	},
 }
 
 const PhoneEnterpriseRow: React.FC<IPhoneEnterpriseRowProps> = ({
@@ -57,12 +74,7 @@ const PhoneEnterpriseRow: React.FC<IPhoneEnterpriseRowProps> = ({
 			<div style={style.phoneInput ?? defaultStyles.phoneInput}>
 				<label
 					htmlFor="phone"
-					style={{
-						textTransform: 'uppercase',
-						color: 'var(--grey)',
-						fontSize: '2rem',
-						display: 'block',
-					}}
+					style={defaultStyles.phoneLabel}
 				>
 					{labels[2] ?? 'Phone'}
 				</label>
@@ -71,13 +83,11 @@ const PhoneEnterpriseRow: React.FC<IPhoneEnterpriseRowProps> = ({
 					value={formData.phone}
 					onChange={handlePhoneChange}
 					defaultCountry="FR"
-					style={{
-						width: '100%',
-					}}
+					style={defaultStyles.phoneInputField}
 					className={`phone-input-custom ${formData.phoneError ? 'phone-input-error' : ''}`}
 				/>
 				{formData.phoneError && (
-					<p style={{ color: 'red', margin: '4px 0 0 0', fontSize: '1.4rem' }}>
+					<p style={defaultStyles.phoneError}>
 						{formData.phoneError}
 					</p>
 				)}
