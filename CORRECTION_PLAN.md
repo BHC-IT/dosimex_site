@@ -109,8 +109,8 @@ This plan is organized by priority and confidence level. Each task is designed t
 
 #### Task 3.3: Convert CSS-in-JS to Tailwind CSS
 **Priority: HIGH | Confidence: HIGH**
-- [ ] Install and configure Tailwind CSS with Next.js 13
-- [ ] Set up Tailwind config to match existing CSS custom properties (--main, --dark, --light, --grey, --flash)
+- [x] Install and configure Tailwind CSS with Next.js 13
+- [x] Set up Tailwind config to match existing CSS custom properties (--main, --dark, --light, --grey, --flash)
 - [ ] Convert component-by-component CSS-in-JS objects to Tailwind classes
 - [ ] Replace responsive logic (`mobile ? 'class1' : 'class2'`) with Tailwind responsive prefixes (sm:, md:, lg:)
 - [ ] Convert hover effects from React state to Tailwind hover: utilities
