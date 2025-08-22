@@ -1,5 +1,4 @@
 {
-  "buildCommand": "pnpm build",
-  "framework": "nextjs",
-  "nodeVersion": "22"
+	"buildCommand": "pnpm build",
+	"framework": "nextjs"
 }
