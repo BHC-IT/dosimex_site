@@ -107,7 +107,7 @@ const HeroBannerCarousel: React.FC<IHeroBannerCarouselProps> = ({ text }) => {
 
 export default HeroBannerCarousel
 
-export const styles = (mobile: boolean): IStyles => ({
+export const styles = (_mobile: boolean): IStyles => ({
 	slideContainer: {
 		width: '25%',
 		float: 'left',

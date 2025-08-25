@@ -10,13 +10,6 @@ import ILang from '../lang/interface'
 
 const YouTube = dynamic(() => import('react-youtube'))
 
-interface IMapOfStyle {
-	[i: string]: CSS.Properties | Function
-}
-
-interface IMapOf<A> {
-	[i: string]: A
-}
 
 type IStyles = { [key: string]: any }
 
