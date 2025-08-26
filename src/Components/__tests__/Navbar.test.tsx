@@ -93,7 +93,7 @@ describe('Navbar Component', () => {
 	it('renders navbar with logo', () => {
 		render(<Navbar />)
 
-		const logos = screen.getAllByAltText('logo dosimex')
+		const logos = screen.getAllByAltText('DOSIMEX - Radiation Dosimetry Software')
 		expect(logos.length).toBeGreaterThan(0)
 
 		// Check the first logo (main navbar logo)
@@ -152,7 +152,7 @@ describe('Navbar Component', () => {
 	it('renders logo with correct dimensions', () => {
 		render(<Navbar />)
 
-		const logos = screen.getAllByAltText('logo dosimex')
+		const logos = screen.getAllByAltText('DOSIMEX - Radiation Dosimetry Software')
 		// Should have two logos (one in main nav, one in mobile)
 		expect(logos.length).toBeGreaterThan(0)
 

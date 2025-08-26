@@ -1,6 +1,17 @@
 import ILang from './interface'
 
 const text: ILang = {
+	altText: {
+		logo: 'DOSIMEX - Logiciel de dosimétrie des rayonnements',
+		flagUk: 'Drapeau du Royaume-Uni - DOSIMEX disponible en anglais',
+		decorativePattern: 'Motif géométrique décoratif en arrière-plan',
+		radiationSymbol: 'DOSIMEX symbole de sécurité radiologique - icône trèfle',
+		carouselMain: 'Interface du logiciel de dosimétrie DOSIMEX',
+		carouselScreens: 'Écran de bannière',
+		trainingMaterials: 'Matériel de formation DOSIMEX en sécurité radiologique',
+		manualCover: 'Couverture de manuel',
+		cardIcon: 'Icône',
+	},
 	Home: {
 		header: {
 			title: 'Des outils de calculs radioprotection pour tous',

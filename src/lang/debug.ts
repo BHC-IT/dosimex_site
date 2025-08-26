@@ -1,6 +1,17 @@
 import ILang from './interface'
 
 const text: ILang = {
+	altText: {
+		logo: '{altText.logo}',
+		flagUk: '{altText.flagUk}',
+		decorativePattern: '{altText.decorativePattern}',
+		radiationSymbol: '{altText.radiationSymbol}',
+		carouselMain: '{altText.carouselMain}',
+		carouselScreens: '{altText.carouselScreens}',
+		trainingMaterials: '{altText.trainingMaterials}',
+		manualCover: '{altText.manualCover}',
+		cardIcon: '{altText.cardIcon}',
+	},
 	Home: {
 		header: {
 			title: '{Home.header.title}',

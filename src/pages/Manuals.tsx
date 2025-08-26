@@ -38,6 +38,7 @@ interface IStyles {
 
 export default function Manuals() {
 	const text = useText('Manuals')
+	const altText = useText('altText') as { decorativePattern: string; manualCover: string } | null
 	const style = useIsMobile(styles)
 	const route = useRouter()
 	const isEnglishVersion = route.locale === 'en-US'
@@ -143,9 +144,11 @@ export default function Manuals() {
 				<div style={style.headerImage}>
 					<Image
 						src='/Images/motif_rect.svg'
-						alt='Decorative pattern'
+						alt={altText?.decorativePattern ?? 'Decorative geometric pattern background'}
 						width={343 * 0.9}
 						height={334 * 0.9}
+						loading="lazy"
+						quality={70}
 					/>
 				</div>
 				<div style={style.header}>
@@ -192,9 +195,11 @@ export default function Manuals() {
 									<div style={style.centerText}>
 										<Image
 											src={`/Images/${manual.img}`}
-											alt='couverture manuel'
+											alt={`${altText?.manualCover ?? 'Manual cover'} - ${manual.text}`}
 											width={230}
 											height={324}
+											quality={80}
+											loading="lazy"
 										/>
 										<p style={style.label}>{manual.text}</p>
 									</div>
@@ -229,9 +234,11 @@ export default function Manuals() {
 									<div style={style.centerText}>
 										<Image
 											src={`/Images/${validation.img}`}
-											alt='couverture manuel'
+											alt={`${altText?.manualCover ?? 'Manual cover'} - ${validation.text}`}
 											width={230}
 											height={324}
+											quality={80}
+											loading="lazy"
 										/>
 										<p style={style.label}>{validation.text}</p>
 									</div>
@@ -266,9 +273,11 @@ export default function Manuals() {
 									<div style={style.centerText}>
 										<Image
 											src={`/Images/${internship.img}`}
-											alt='couverture manuel'
+											alt={`${altText?.manualCover ?? 'Manual cover'} - ${internship.text}`}
 											width={230}
 											height={324}
+											quality={80}
+											loading="lazy"
 										/>
 										<p style={style.label}>{internship.text}</p>
 									</div>

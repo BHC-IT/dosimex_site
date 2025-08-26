@@ -39,6 +39,7 @@ const pages: IPage[] = [
 
 const Navbar: React.FC<IProps> = () => {
 	const text = useText('Navbar') as { items: string[]; button: string } | null
+	const altText = useText('altText') as { logo: string } | null
 	const [isClient, setIsClient] = useState(false)
 	const router = useRouter()
 
@@ -82,11 +83,11 @@ const Navbar: React.FC<IProps> = () => {
 							<Link href='/'>
 								<Image
 									src='/Images/logo_dosimex_new.webp'
-									alt='logo dosimex'
+									alt={altText?.logo ?? 'DOSIMEX - Radiation Dosimetry Software'}
 									width={LOGO_WIDTH * ratio}
 									height={LOGO_HEIGHT * ratio}
 									priority
-									quality={40}
+									quality={85}
 								/>
 							</Link>
 						</li>
@@ -113,11 +114,11 @@ const Navbar: React.FC<IProps> = () => {
 				>
 					<Image
 						src='/Images/logo_dosimex_new.webp'
-						alt='logo dosimex'
+						alt={altText?.logo ?? 'DOSIMEX - Radiation Dosimetry Software'}
 						width={LOGO_WIDTH * ratio}
 						height={LOGO_HEIGHT * ratio}
 						priority
-						quality={40}
+						quality={85}
 					/>
 				</div>
 			</div>

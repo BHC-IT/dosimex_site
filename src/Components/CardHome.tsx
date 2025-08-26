@@ -7,6 +7,7 @@ import { useRouter } from 'next/router'
 import Tilt from 'react-parallax-tilt'
 
 import { useIsMobile } from '../Hooks/useIsMobile'
+import { useText } from '../Hooks/useText'
 
 export interface IStyles {
 	global: CSS.Properties
@@ -29,6 +30,7 @@ interface IProps {
 const CardHome = (props: IProps) => {
 	const router = useRouter()
 	const style = useIsMobile(styles)
+	const altText = useText('altText') as { cardIcon: string } | null
 
 	if (style === null) return null
 
@@ -57,9 +59,11 @@ const CardHome = (props: IProps) => {
 				<div style={style.image}>
 					<Image
 						src={props.icon}
-						alt='icône'
+						alt={`${altText?.cardIcon ?? 'Icon'} - ${props.title}`}
 						width={80}
 						height={80}
+						quality={80}
+						loading="lazy"
 					/>
 				</div>
 				<h4 style={style.titleHeading}>{props.title}</h4>

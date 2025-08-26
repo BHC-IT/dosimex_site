@@ -6,13 +6,13 @@ exports[`HeroBannerCarousel Component > should match snapshot with text 1`] = `
     style="width: 307.2px; height: 194.56px; position: relative;"
   >
     <img
-      alt="DOSIMEX software mockup carousel"
+      alt="DOSIMEX radiation dosimetry software interface mockup"
       data-nimg="1"
       decoding="async"
+      fetchpriority="high"
       height="194.56"
-      loading="lazy"
-      src="/_next/image?url=%2FImages%2FMockupCarousel.png&w=640&q=75"
-      srcset="/_next/image?url=%2FImages%2FMockupCarousel.png&w=384&q=75 1x, /_next/image?url=%2FImages%2FMockupCarousel.png&w=640&q=75 2x"
+      src="/_next/image?url=%2FImages%2FMockupCarousel.png&w=640&q=85"
+      srcset="/_next/image?url=%2FImages%2FMockupCarousel.png&w=384&q=85 1x, /_next/image?url=%2FImages%2FMockupCarousel.png&w=640&q=85 2x"
       style="color: transparent;"
       width="307.2"
     />
@@ -35,8 +35,8 @@ exports[`HeroBannerCarousel Component > should match snapshot with text 1`] = `
             decoding="async"
             height="167.1168"
             loading="lazy"
-            src="/_next/image?url=%2FImages%2FScreenCarousel1.png&w=640&q=75"
-            srcset="/_next/image?url=%2FImages%2FScreenCarousel1.png&w=384&q=75 1x, /_next/image?url=%2FImages%2FScreenCarousel1.png&w=640&q=75 2x"
+            src="/_next/image?url=%2FImages%2FScreenCarousel1.png&w=640&q=80"
+            srcset="/_next/image?url=%2FImages%2FScreenCarousel1.png&w=384&q=80 1x, /_next/image?url=%2FImages%2FScreenCarousel1.png&w=640&q=80 2x"
             style="color: transparent;"
             width="296.96"
           />
@@ -55,8 +55,8 @@ exports[`HeroBannerCarousel Component > should match snapshot with text 1`] = `
             decoding="async"
             height="167.1168"
             loading="lazy"
-            src="/_next/image?url=%2FImages%2FScreenCarousel2.png&w=640&q=75"
-            srcset="/_next/image?url=%2FImages%2FScreenCarousel2.png&w=384&q=75 1x, /_next/image?url=%2FImages%2FScreenCarousel2.png&w=640&q=75 2x"
+            src="/_next/image?url=%2FImages%2FScreenCarousel2.png&w=640&q=80"
+            srcset="/_next/image?url=%2FImages%2FScreenCarousel2.png&w=384&q=80 1x, /_next/image?url=%2FImages%2FScreenCarousel2.png&w=640&q=80 2x"
             style="color: transparent;"
             width="296.96"
           />
@@ -75,8 +75,8 @@ exports[`HeroBannerCarousel Component > should match snapshot with text 1`] = `
             decoding="async"
             height="167.1168"
             loading="lazy"
-            src="/_next/image?url=%2FImages%2FScreenCarousel3.png&w=640&q=75"
-            srcset="/_next/image?url=%2FImages%2FScreenCarousel3.png&w=384&q=75 1x, /_next/image?url=%2FImages%2FScreenCarousel3.png&w=640&q=75 2x"
+            src="/_next/image?url=%2FImages%2FScreenCarousel3.png&w=640&q=80"
+            srcset="/_next/image?url=%2FImages%2FScreenCarousel3.png&w=384&q=80 1x, /_next/image?url=%2FImages%2FScreenCarousel3.png&w=640&q=80 2x"
             style="color: transparent;"
             width="296.96"
           />
@@ -95,8 +95,8 @@ exports[`HeroBannerCarousel Component > should match snapshot with text 1`] = `
             decoding="async"
             height="167.1168"
             loading="lazy"
-            src="/_next/image?url=%2FImages%2FScreenCarousel4.png&w=640&q=75"
-            srcset="/_next/image?url=%2FImages%2FScreenCarousel4.png&w=384&q=75 1x, /_next/image?url=%2FImages%2FScreenCarousel4.png&w=640&q=75 2x"
+            src="/_next/image?url=%2FImages%2FScreenCarousel4.png&w=640&q=80"
+            srcset="/_next/image?url=%2FImages%2FScreenCarousel4.png&w=384&q=80 1x, /_next/image?url=%2FImages%2FScreenCarousel4.png&w=640&q=80 2x"
             style="color: transparent;"
             width="296.96"
           />

@@ -26,6 +26,7 @@ export interface IStyles {
 
 const Footer = () => {
 	const text = useText('Footer')
+	const altText = useText('altText') as { radiationSymbol: string } | null
 	const style = useIsMobile(styles)
 
 	const ratio = 0.27
@@ -37,9 +38,11 @@ const Footer = () => {
 			<div style={style.col1}>
 				<Image
 					src='/Images/trefle.png'
-					alt='icône trèfle radioactivité'
+					alt={altText?.radiationSymbol ?? 'DOSIMEX radiation safety symbol - clover leaf icon'}
 					width={Math.round(154 * ratio)}
 					height={Math.round(154 * ratio)}
+					quality={75}
+					loading="lazy"
 				/>
 				<p>{text.col1.p[0]}</p>
 				<p>{text.col1.p[1]}</p>

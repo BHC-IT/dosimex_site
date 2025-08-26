@@ -3,6 +3,7 @@ import Image from 'next/image'
 import React, { useState, useEffect, useMemo, useCallback } from 'react'
 
 import { useIsMobile } from '../Hooks/useIsMobile'
+import { useText } from '../Hooks/useText'
 
 interface IStyles {
 	slideContainer: CSS.Properties
@@ -31,6 +32,7 @@ const images = [
 
 const Slide = React.memo(function Slide({ name, text, vw }: ISlideProps) {
 	const style = useIsMobile(styles)
+	const altText = useText('altText') as { carouselScreens: string } | null
 
 	// Memoize image dimensions to avoid recalculation
 	const imageDimensions = useMemo(() => ({
@@ -40,7 +42,7 @@ const Slide = React.memo(function Slide({ name, text, vw }: ISlideProps) {
 
 	// Memoize image src to avoid string concatenation on every render
 	const imageSrc = useMemo(() => `/Images/${name}`, [name])
-	const imageAlt = useMemo(() => `Banner image ${name}`, [name])
+	const imageAlt = useMemo(() => `${altText?.carouselScreens ?? 'Banner image'} ${name}`, [altText?.carouselScreens, name])
 
 	if (style === null) return null
 
@@ -51,6 +53,8 @@ const Slide = React.memo(function Slide({ name, text, vw }: ISlideProps) {
 				alt={imageAlt}
 				width={imageDimensions.width}
 				height={imageDimensions.height}
+				quality={80}
+				loading="lazy"
 			/>
 			<p style={style.slideText}>
 				{text}
@@ -90,6 +94,7 @@ interface IHeroBannerCarouselProps {
 
 const HeroBannerCarousel: React.FC<IHeroBannerCarouselProps> = React.memo(function HeroBannerCarousel({ text }) {
 	const [vw, setvw] = useState(1500)
+	const altText = useText('altText') as { carouselMain: string } | null
 
 	// Memoize the viewport width calculation callback
 	const updateViewportWidth = useCallback(() => {
@@ -131,7 +136,9 @@ const HeroBannerCarousel: React.FC<IHeroBannerCarouselProps> = React.memo(functi
 					src='/Images/MockupCarousel.png'
 					width={mockupDimensions.width}
 					height={mockupDimensions.height}
-					alt='DOSIMEX software mockup carousel'
+					alt={altText?.carouselMain ?? 'DOSIMEX radiation dosimetry software interface mockup'}
+					quality={85}
+					priority
 				/>
 			</div>
 			<div style={containerStyles.slideContainer}>

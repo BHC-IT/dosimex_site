@@ -16,7 +16,9 @@
       "Bash(pnpm run lint:*)",
       "Bash(pnpm run:*)",
       "Bash(git grep:*)",
-      "Bash(npx vitest run:*)"
+      "Bash(npx vitest run:*)",
+      "Bash(grep:*)",
+      "Bash(pnpm vitest:*)"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"

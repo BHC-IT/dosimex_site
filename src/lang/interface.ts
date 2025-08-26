@@ -1,5 +1,16 @@
 export default interface Lang {
 	[key: string]: any // Keep this for backwards compatibility, but specific types are defined below
+	altText: {
+		logo: string
+		flagUk: string
+		decorativePattern: string
+		radiationSymbol: string
+		carouselMain: string
+		carouselScreens: string
+		trainingMaterials: string
+		manualCover: string
+		cardIcon: string
+	}
 	Home: {
 		header: {
 			title: string

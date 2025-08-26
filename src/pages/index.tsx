@@ -34,6 +34,7 @@ interface IProps {
 
 function Home(props: IProps) {
 	const text = useText('Home')
+	const altText = useText('altText') as { flagUk: string; decorativePattern: string } | null
 	const style = useIsMobile(styles)
 
 	if (style === null) return null
@@ -50,10 +51,10 @@ function Home(props: IProps) {
 					<p style={style.header.headerSubtitle}>{text.header.p}</p>
 					<div style={style.flagContainer}>
 						<Image
-							quality={40}
+							quality={75}
 							loading='lazy'
 							src='/Images/Flag_Uk.webp'
-							alt='UK flag'
+							alt={altText?.flagUk ?? 'UK flag - DOSIMEX available in English'}
 							width={1024 * ratioUk}
 							height={683 * ratioUk}
 						/>
@@ -74,9 +75,11 @@ function Home(props: IProps) {
 					<div style={style.header.motif}>
 						<Image
 							src='/Images/motif_rect.svg'
-							alt='motif abstrait filigrane'
+							alt={altText?.decorativePattern ?? 'Decorative geometric pattern background'}
 							width={343 * 1.3}
 							height={334 * 1.3}
+							loading="lazy"
+							quality={70}
 						/>
 					</div>
 				</div>
@@ -148,9 +151,11 @@ function Home(props: IProps) {
 				<div style={style.videos.motif}>
 					<Image
 						src='/Images/motif_rect.svg'
-						alt='motif abstrait filigrane'
+						alt={altText?.decorativePattern ?? 'Decorative geometric pattern background'}
 						width={343 * 1.3}
 						height={334 * 1.3}
+						loading="lazy"
+						quality={70}
 					/>
 				</div>
 				<div style={style.videos.text}>

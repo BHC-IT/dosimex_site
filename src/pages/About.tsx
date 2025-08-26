@@ -28,6 +28,7 @@ const About = () => {
 	const style = useIsMobile(styles)
 	const isMobile = useMobile()
 	const text = useText('About')
+	const altText = useText('altText') as { decorativePattern: string } | null
 
 	if (style === null) return null
 
@@ -43,9 +44,11 @@ const About = () => {
 				<div style={style.motifPosition}>
 					<Image
 						src='/Images/motif_rect.svg'
-						alt='Decorative pattern'
+						alt={altText?.decorativePattern ?? 'Decorative geometric pattern background'}
 						width={343 * 0.9}
 						height={334 * 0.9}
+						loading="lazy"
+						quality={70}
 					/>
 				</div>
 			)}

@@ -1,6 +1,17 @@
 import ILang from './interface'
 
 const text: ILang = {
+	altText: {
+		logo: 'DOSIMEX - Radiation Dosimetry Software',
+		flagUk: 'UK flag - DOSIMEX available in English',
+		decorativePattern: 'Decorative geometric pattern background',
+		radiationSymbol: 'DOSIMEX radiation safety symbol - clover leaf icon',
+		carouselMain: 'DOSIMEX radiation dosimetry software interface mockup',
+		carouselScreens: 'Banner image',
+		trainingMaterials: 'DOSIMEX radiation safety training course materials',
+		manualCover: 'Manual cover',
+		cardIcon: 'Icon',
+	},
 	Home: {
 		header: {
 			title: 'Radiation protection calculation tools for everyone',

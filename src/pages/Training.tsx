@@ -17,6 +17,7 @@ interface IProps {
 	text: ILang
 	style: IStyles
 	mainStyle?: IStyles
+	altText?: { trainingMaterials: string } | null
 }
 
 const center = {
@@ -77,7 +78,7 @@ const Exemples = ({ text, style }: IProps) => (
 	</div>
 )
 
-const Partnership = ({ text, style, mainStyle }: IProps) => {
+const Partnership = ({ text, style, mainStyle, altText }: IProps) => {
 	const mobile = useMobile()
 
 	if (mobile === null || !mainStyle) return null
@@ -137,9 +138,11 @@ const Partnership = ({ text, style, mainStyle }: IProps) => {
 					<div style={style.imgContainer}>
 						<Image
 							src='/Images/formation.png'
-							alt='Training course image'
+							alt={altText?.trainingMaterials ?? 'DOSIMEX radiation safety training course materials'}
 							width={732 * 0.9}
 							height={503 * 0.9}
+							quality={80}
+							loading="lazy"
 						/>
 					</div>
 				</div>
@@ -161,6 +164,7 @@ const Questions = ({ text, style }: IProps) => (
 
 const Training = () => {
 	const text = useText('Training')
+	const altText = useText('altText') as { trainingMaterials: string } | null
 	const style = useIsMobile(styles)
 
 	if (style === null) return null
@@ -187,6 +191,7 @@ const Training = () => {
 				text={text}
 				style={style.partnershipStyles}
 				mainStyle={style}
+				altText={altText}
 			/>
 			<Questions
 				text={text}
