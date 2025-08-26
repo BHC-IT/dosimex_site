@@ -1,5 +1,5 @@
 import * as CSS from 'csstype'
-import React, { useState } from 'react'
+import React, { useState, useMemo, useCallback } from 'react'
 
 interface ISubmitButtonProps {
 	style: Partial<{
@@ -32,32 +32,43 @@ const defaultStyles = {
 	},
 }
 
-const SubmitButton: React.FC<ISubmitButtonProps> = ({ style, text, isLoading }) => {
+const SubmitButton: React.FC<ISubmitButtonProps> = React.memo(function SubmitButton({ style, text, isLoading }) {
 	const [isHovered, setIsHovered] = useState(false)
 
-	const buttonStyle = {
+	// Memoize button style calculation
+	const buttonStyle = useMemo(() => ({
 		...defaultStyles.base,
 		...(isHovered && !isLoading ? defaultStyles.hover : {}),
 		...style.button,
-	}
+	}), [isHovered, isLoading, style.button])
+
+	// Memoize text values
+	const { sendingText, buttonText } = useMemo(() => ({
+		sendingText: text.sending ?? 'Loading...',
+		buttonText: text.button ?? 'Submit',
+	}), [text.sending, text.button])
+
+	// Memoize event handlers
+	const handleMouseEnter = useCallback(() => setIsHovered(true), [])
+	const handleMouseLeave = useCallback(() => setIsHovered(false), [])
 
 	return (
 		<button
 			style={buttonStyle}
 			type="submit"
 			disabled={isLoading}
-			onMouseEnter={() => setIsHovered(true)}
-			onMouseLeave={() => setIsHovered(false)}
+			onMouseEnter={handleMouseEnter}
+			onMouseLeave={handleMouseLeave}
 		>
 			{isLoading ? (
 				<div style={defaultStyles.loadingContainer}>
-					{text.sending ?? 'Loading...'}
+					{sendingText}
 				</div>
 			) : (
-				(text.button ?? 'Submit')
+				buttonText
 			)}
 		</button>
 	)
-}
+})
 
 export default SubmitButton

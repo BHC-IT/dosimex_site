@@ -1,5 +1,5 @@
 import * as CSS from 'csstype'
-import React from 'react'
+import React, { useMemo } from 'react'
 
 import { useContactFormValidation } from '../Hooks/useContactFormValidation'
 import { useIsMobile } from '../Hooks/useIsMobile'
@@ -25,42 +25,52 @@ export interface IStyles {
 	button: CSS.Properties
 }
 
-const ContactForm: React.FC<IProps> = () => {
+const ContactForm: React.FC<IProps> = React.memo(function ContactForm() {
 	const text = useText('ContactForm') as Record<string, string | string[]> | null
 	const style = useIsMobile(styles)
 	const formData = useContactFormValidation(text ?? undefined)
+
+	// Memoize the final styles to avoid recalculation on every render
+	const memoizedStyles = useMemo(() => ({
+		form: style?.form ?? defaultStyles.form,
+		title: style?.title ?? defaultStyles.title,
+		defaultStyle: style ?? defaultStyles,
+	}), [style])
+
+	// Memoize the text object to avoid passing new object references
+	const memoizedText = useMemo(() => text ?? {}, [text])
 
 	// Don't render until device detection is complete to prevent hydration mismatch
 	if (style === null) return null
 
 	return (
 		<form
-			style={style?.form ?? defaultStyles.form}
+			style={memoizedStyles.form}
 			onSubmit={formData.handleSubmit}
 		>
-			<h3 style={style?.title ?? defaultStyles.title}>{text?.title}</h3>
+			<h3 style={memoizedStyles.title}>{text?.title}</h3>
 			<NameEmailRow
-				text={text ?? {}}
-				style={style ?? defaultStyles}
+				text={memoizedText}
+				style={memoizedStyles.defaultStyle}
 				formData={formData}
 			/>
 			<PhoneEnterpriseRow
-				text={text ?? {}}
-				style={style ?? defaultStyles}
+				text={memoizedText}
+				style={memoizedStyles.defaultStyle}
 				formData={formData}
 			/>
 			<SingleInputs
-				text={text ?? {}}
+				text={memoizedText}
 				formData={formData}
 			/>
 			<SubmitButton
-				style={style ?? defaultStyles}
-				text={text ?? {}}
+				style={memoizedStyles.defaultStyle}
+				text={memoizedText}
 				isLoading={formData.isLoading}
 			/>
 		</form>
 	)
-}
+})
 
 export const styles = (mobile: boolean): IStyles => ({
 	form: {

@@ -5,7 +5,7 @@ import HeroBannerCarousel, { styles } from '../HeroBannerCarousel'
 
 // Mock useIsMobile hook
 vi.mock('../../Hooks/useIsMobile', () => ({
-	useIsMobile: vi.fn(() => styles(false)),
+	useIsMobile: vi.fn(() => styles()),
 }))
 
 // Mock window.innerWidth

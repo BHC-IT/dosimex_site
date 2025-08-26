@@ -1,5 +1,5 @@
 import * as CSS from 'csstype'
-import React from 'react'
+import React, { useMemo, useCallback } from 'react'
 import PhoneInput from 'react-phone-number-input'
 
 import { IContactFormValidation } from '../../Hooks/useContactFormValidation'
@@ -57,21 +57,29 @@ const defaultStyles: IStyles = {
 	},
 }
 
-const PhoneEnterpriseRow: React.FC<IPhoneEnterpriseRowProps> = ({
+const PhoneEnterpriseRow: React.FC<IPhoneEnterpriseRowProps> = React.memo(function PhoneEnterpriseRow({
 	text,
 	style,
 	formData,
-}) => {
-	const labels = Array.isArray(text.label) ? text.label : []
+}) {
+	// Memoize parsed values and styles
+	const { labels, containerStyle, phoneContainerStyle, inputStyle, phoneInputClass } = useMemo(() => ({
+		labels: Array.isArray(text.label) ? text.label : [],
+		containerStyle: style.divNameMail ?? defaultStyles.divNameMail,
+		phoneContainerStyle: style.phoneInput ?? defaultStyles.phoneInput,
+		inputStyle: { divInput: style.input ?? defaultStyles.input },
+		phoneInputClass: `phone-input-custom ${formData.phoneError ? 'phone-input-error' : ''}`,
+	}), [text.label, style.divNameMail, style.phoneInput, style.input, formData.phoneError])
 
-	const handlePhoneChange = (value: string | undefined) => {
+	// Memoize callback to prevent unnecessary re-renders of PhoneInput
+	const handlePhoneChange = useCallback((value: string | undefined) => {
 		formData.setPhone(value)
 		formData.validatePhone(value)
-	}
+	}, [formData])
 
 	return (
-		<div style={style.divNameMail ?? defaultStyles.divNameMail}>
-			<div style={style.phoneInput ?? defaultStyles.phoneInput}>
+		<div style={containerStyle}>
+			<div style={phoneContainerStyle}>
 				<label
 					htmlFor="phone"
 					style={defaultStyles.phoneLabel}
@@ -84,7 +92,7 @@ const PhoneEnterpriseRow: React.FC<IPhoneEnterpriseRowProps> = ({
 					onChange={handlePhoneChange}
 					defaultCountry="FR"
 					style={defaultStyles.phoneInputField}
-					className={`phone-input-custom ${formData.phoneError ? 'phone-input-error' : ''}`}
+					className={phoneInputClass}
 				/>
 				{formData.phoneError && (
 					<p style={defaultStyles.phoneError}>
@@ -97,11 +105,11 @@ const PhoneEnterpriseRow: React.FC<IPhoneEnterpriseRowProps> = ({
 				type="text"
 				id="enterprise"
 				label={labels[3] ?? 'Enterprise'}
-				style={{ divInput: style.input ?? defaultStyles.input }}
-				onChange={(value: string) => formData.setEnterprise(value)}
+				style={inputStyle}
+				onChange={formData.setEnterprise}
 			/>
 		</div>
 	)
-}
+})
 
 export default PhoneEnterpriseRow

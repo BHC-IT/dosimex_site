@@ -1,5 +1,5 @@
 import * as CSS from 'csstype'
-import React from 'react'
+import React, { useMemo } from 'react'
 
 import { IContactFormValidation } from '../../Hooks/useContactFormValidation'
 import Input from '../Input'
@@ -29,46 +29,55 @@ const defaultStyles: IStyles = {
 	},
 }
 
-const NameEmailRow: React.FC<INameEmailRowProps> = ({
+const NameEmailRow: React.FC<INameEmailRowProps> = React.memo(function NameEmailRow({
 	text,
 	style,
 	formData,
-}) => {
-	const labels = Array.isArray(text.label) ? text.label : []
-	const errorEmailArray = Array.isArray(text.errorEmail)
-		? text.errorEmail
-		: [text.errorEmail || '']
+}) {
+	// Memoize parsed values to avoid recalculation on every render
+	const { labels, errorEmailArray, containerStyle, inputStyle } = useMemo(() => ({
+		labels: Array.isArray(text.label) ? text.label : [],
+		errorEmailArray: Array.isArray(text.errorEmail)
+			? text.errorEmail
+			: [text.errorEmail || ''],
+		containerStyle: style.divNameMail ?? defaultStyles.divNameMail,
+		inputStyle: { divInput: style.input ?? defaultStyles.input },
+	}), [text.label, text.errorEmail, style.divNameMail, style.input])
+
+	// Memoize error messages
+	const errorMessages = useMemo(() => ({
+		name: (text.errorName as string) ?? 'Name is required',
+		email: (text.errorName as string) ?? 'Email is required',
+	}), [text.errorName])
 
 	return (
-		<div style={style.divNameMail ?? defaultStyles.divNameMail}>
+		<div style={containerStyle}>
 			<Input
 				value={formData.name}
 				type="text"
 				id="name"
 				label={labels[0] ?? 'Name'}
-				style={{ divInput: style.input ?? defaultStyles.input }}
+				style={inputStyle}
 				required
-				isValid={(isValid: boolean) => formData.setNameValid(isValid)}
-				onChange={(value: string) => formData.setName(value)}
-				validator={formData.getNameValidators(
-					(text.errorName as string) ?? 'Name is required',
-				)}
+				isValid={formData.setNameValid}
+				onChange={formData.setName}
+				validator={formData.getNameValidators(errorMessages.name)}
 			/>
 			<Input
 				value={formData.email}
 				type="email"
 				id="email"
 				label={labels[1] ?? 'Email'}
-				style={{ divInput: style.input ?? defaultStyles.input }}
+				style={inputStyle}
 				required
-				onChange={(value: string) => formData.setEmail(value)}
+				onChange={formData.setEmail}
 				validator={formData.getEmailValidators(
 					errorEmailArray,
-					(text.errorName as string) ?? 'Email is required',
+					errorMessages.email,
 				)}
 			/>
 		</div>
 	)
-}
+})
 
 export default NameEmailRow

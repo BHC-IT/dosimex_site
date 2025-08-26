@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 
 import { IContactFormValidation } from '../../Hooks/useContactFormValidation'
 import Input from '../Input'
@@ -8,11 +8,15 @@ interface ISingleInputsProps {
 	formData: Pick<IContactFormValidation, 'address' | 'subject' | 'message' | 'setAddress' | 'setSubject' | 'setMessage' | 'getAddressValidators'>
 }
 
-const SingleInputs: React.FC<ISingleInputsProps> = ({
+const SingleInputs: React.FC<ISingleInputsProps> = React.memo(function SingleInputs({
 	text,
 	formData,
-}) => {
-	const labels = Array.isArray(text.label) ? text.label : []
+}) {
+	// Memoize parsed values to avoid recalculation
+	const { labels, errorMessage } = useMemo(() => ({
+		labels: Array.isArray(text.label) ? text.label : [],
+		errorMessage: (text.errorMessage as string) ?? 'Message is required',
+	}), [text.label, text.errorMessage])
 
 	return (
 		<>
@@ -21,14 +25,14 @@ const SingleInputs: React.FC<ISingleInputsProps> = ({
 				type="text"
 				id="address"
 				label={labels[4] ?? 'Address'}
-				onChange={(value: string) => formData.setAddress(value)}
+				onChange={formData.setAddress}
 			/>
 			<Input
 				value={formData.subject}
 				type="text"
 				id="subject"
 				label={labels[5] ?? 'Subject'}
-				onChange={(value: string) => formData.setSubject(value)}
+				onChange={formData.setSubject}
 			/>
 			<Input
 				value={formData.message}
@@ -36,13 +40,11 @@ const SingleInputs: React.FC<ISingleInputsProps> = ({
 				id="message"
 				label={labels[6] ?? 'Message'}
 				required
-				onChange={(value: string) => formData.setMessage(value)}
-				validator={formData.getAddressValidators(
-					(text.errorMessage as string) ?? 'Message is required',
-				)}
+				onChange={formData.setMessage}
+				validator={formData.getAddressValidators(errorMessage)}
 			/>
 		</>
 	)
-}
+})
 
 export default SingleInputs
