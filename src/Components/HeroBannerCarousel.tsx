@@ -30,7 +30,7 @@ const images = [
 	'ScreenCarousel4.png',
 ]
 
-const Slide = React.memo(function Slide({ name, text, vw }: ISlideProps) {
+const Slide = React.memo(({ name, text, vw }: ISlideProps) => {
 	const style = useIsMobile(styles)
 	const altText = useText('altText') as { carouselScreens: string } | null
 
@@ -63,7 +63,7 @@ const Slide = React.memo(function Slide({ name, text, vw }: ISlideProps) {
 	)
 })
 
-const SlideWrapper = React.memo(function SlideWrapper({ text, vw }: ITextProps) {
+const SlideWrapper = React.memo(({ text, vw }: ITextProps) => {
 	const style = useIsMobile(styles)
 
 	// Memoize slides to avoid recreating slide components on every render
@@ -92,7 +92,7 @@ interface IHeroBannerCarouselProps {
 	text?: string[]
 }
 
-const HeroBannerCarousel: React.FC<IHeroBannerCarouselProps> = React.memo(function HeroBannerCarousel({ text }) {
+const HeroBannerCarousel: React.FC<IHeroBannerCarouselProps> = React.memo(({ text }) => {
 	const [vw, setvw] = useState(1500)
 	const altText = useText('altText') as { carouselMain: string } | null
 

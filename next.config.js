@@ -1,6 +1,9 @@
 const removeImports = require('next-remove-imports')()
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+	enabled: process.env.ANALYZE === 'true',
+})
 
-module.exports = removeImports({
+module.exports = withBundleAnalyzer(removeImports({
 	distDir: 'build',
 	typescript: {
 		// Temporarily ignore build errors during transition
@@ -23,4 +26,4 @@ module.exports = removeImports({
 		})
 		return config
 	},
-})
+}))

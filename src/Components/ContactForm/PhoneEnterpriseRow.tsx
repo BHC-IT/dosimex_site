@@ -57,11 +57,11 @@ const defaultStyles: IStyles = {
 	},
 }
 
-const PhoneEnterpriseRow: React.FC<IPhoneEnterpriseRowProps> = React.memo(function PhoneEnterpriseRow({
+const PhoneEnterpriseRow: React.FC<IPhoneEnterpriseRowProps> = React.memo(({
 	text,
 	style,
 	formData,
-}) {
+}) => {
 	// Memoize parsed values and styles
 	const { labels, containerStyle, phoneContainerStyle, inputStyle, phoneInputClass } = useMemo(() => ({
 		labels: Array.isArray(text.label) ? text.label : [],

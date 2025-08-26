@@ -1,4 +1,5 @@
-import { last } from '@bhc/ts-tools'
+// Simple utility to get the last element of an array
+const last = <T>(array: T[]): T => array[array.length - 1]
 
 // const completeMissingBracket = ([first, ...rest]: string[]) => [first, ...rest.map(x => '[' + x)]
 

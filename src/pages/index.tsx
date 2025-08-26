@@ -7,11 +7,11 @@ import Button from '../Components/Button'
 import CardHome from '../Components/CardHome'
 import HeroBannerCarousel from '../Components/HeroBannerCarousel'
 import OpinionHome from '../Components/OpinionHome'
-import PartnersCarousel from '../Components/PartnersCarousel'
 import { useIsMobile } from '../Hooks/useIsMobile'
 import { useText } from '../Hooks/useText'
 
 const YouTube = dynamic(() => import('react-youtube'))
+const PartnersCarousel = dynamic(() => import('../Components/PartnersCarousel'))
 
 export interface IStyles {
 	header: { [idx: string]: CSS.Properties }

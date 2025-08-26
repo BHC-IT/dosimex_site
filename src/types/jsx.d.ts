@@ -224,19 +224,6 @@ declare module 'react-youtube' {
 	export default YouTube
 }
 
-// Fix for react-spinners
-declare module 'react-spinners' {
-	interface LoaderProps {
-		color?: string
-		loading?: boolean
-		css?: any
-		size?: number | string
-		[key: string]: any
-	}
-
-	export const ClipLoader: ComponentType<LoaderProps>
-}
-
 // Fix for react-multi-carousel
 declare module 'react-multi-carousel' {
 	interface CarouselProps {

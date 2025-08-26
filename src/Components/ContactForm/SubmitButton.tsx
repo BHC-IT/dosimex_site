@@ -32,7 +32,7 @@ const defaultStyles = {
 	},
 }
 
-const SubmitButton: React.FC<ISubmitButtonProps> = React.memo(function SubmitButton({ style, text, isLoading }) {
+const SubmitButton: React.FC<ISubmitButtonProps> = React.memo(({ style, text, isLoading }) => {
 	const [isHovered, setIsHovered] = useState(false)
 
 	// Memoize button style calculation

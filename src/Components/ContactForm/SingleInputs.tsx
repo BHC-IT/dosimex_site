@@ -8,10 +8,10 @@ interface ISingleInputsProps {
 	formData: Pick<IContactFormValidation, 'address' | 'subject' | 'message' | 'setAddress' | 'setSubject' | 'setMessage' | 'getAddressValidators'>
 }
 
-const SingleInputs: React.FC<ISingleInputsProps> = React.memo(function SingleInputs({
+const SingleInputs: React.FC<ISingleInputsProps> = React.memo(({
 	text,
 	formData,
-}) {
+}) => {
 	// Memoize parsed values to avoid recalculation
 	const { labels, errorMessage } = useMemo(() => ({
 		labels: Array.isArray(text.label) ? text.label : [],

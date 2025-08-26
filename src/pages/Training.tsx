@@ -10,7 +10,6 @@ import ILang from '../lang/interface'
 
 const YouTube = dynamic(() => import('react-youtube'))
 
-
 type IStyles = { [key: string]: any }
 
 interface IProps {
