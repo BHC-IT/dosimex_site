@@ -17,7 +17,7 @@ vi.mock('../../Hooks/useText', () => ({
 }))
 
 // Test data factories
-const createMockText = (overrides = []) => [
+const createMockText = (overrides: string[] = []): string[] => [
 	'Advanced radiation dose management system',
 	'Real-time monitoring and analysis tools',
 	'Comprehensive reporting and compliance features',
@@ -121,7 +121,7 @@ describe('HeroBannerCarousel Component', () => {
 
 			// Should have the main mockup image
 			const mockupImage = screen.getByAltText(
-				/main carousel interface|DOSIMEX radiation dosimetry software interface mockup/i
+				/main carousel interface|DOSIMEX radiation dosimetry software interface mockup/i,
 			)
 			expect(mockupImage).toBeInTheDocument()
 		})
@@ -144,7 +144,7 @@ describe('HeroBannerCarousel Component', () => {
 			expect(images.length).toBeGreaterThan(0)
 
 			// All images should have alt attributes
-			images.forEach((img) => {
+			images.forEach(img => {
 				expect(img).toHaveAttribute('alt')
 				expect(img.getAttribute('alt')).not.toBe('')
 			})
@@ -155,7 +155,7 @@ describe('HeroBannerCarousel Component', () => {
 		it('should handle different viewport widths', () => {
 			const viewportWidths = [320, 768, 1024, 1920]
 
-			viewportWidths.forEach((width) => {
+			viewportWidths.forEach(width => {
 				Object.defineProperty(window, 'innerWidth', {
 					writable: true,
 					configurable: true,

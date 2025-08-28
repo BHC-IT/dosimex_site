@@ -67,6 +67,8 @@ const Slide = React.memo(({ name, text, vw }: ISlideProps) => {
 	)
 })
 
+Slide.displayName = 'Slide'
+
 const SlideWrapper = React.memo(({ text, vw }: ITextProps) => {
 	const style = useIsMobile(styles)
 
@@ -91,6 +93,8 @@ const SlideWrapper = React.memo(({ text, vw }: ITextProps) => {
 		</div>
 	)
 })
+
+SlideWrapper.displayName = 'SlideWrapper'
 
 interface IHeroBannerCarouselProps {
 	text?: string[]
@@ -164,6 +168,8 @@ const HeroBannerCarousel: React.FC<IHeroBannerCarouselProps> = React.memo(({ tex
 		</div>
 	)
 })
+
+HeroBannerCarousel.displayName = 'HeroBannerCarousel'
 
 export default HeroBannerCarousel
 
