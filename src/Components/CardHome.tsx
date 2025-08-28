@@ -42,18 +42,11 @@ const CardHome = (props: IProps) => {
 			tiltMaxAngleY={10}
 			style={style.global}
 		>
-			<div
-				role="button"
-				tabIndex={0}
-				style={style.card}
+			<button
+				aria-label={`Navigate to ${props.title} section - ${props.content}`}
+				style={{ ...style.card, border: 'none', background: 'white' }}
 				onClick={() => {
 					void router.push(props.route)
-				}}
-				onKeyDown={e => {
-					if (e.key === 'Enter' || e.key === ' ') {
-						e.preventDefault()
-						void router.push(props.route)
-					}
 				}}
 			>
 				<div style={style.image}>
@@ -68,17 +61,16 @@ const CardHome = (props: IProps) => {
 				</div>
 				<h4 style={style.titleHeading}>{props.title}</h4>
 				<p style={style.subtitle}>{props.content}</p>
-				<button style={style.button}>
-					<Link href={`/${props.route}`}>
-						<div style={style.arrowContainer}>
-							<FontAwesomeIcon
-								icon={faLongArrowAltRight}
-								style={style.arrow}
-							/>
-						</div>
-					</Link>
-				</button>
-			</div>
+				<div style={style.button}>
+					<div style={style.arrowContainer}>
+						<FontAwesomeIcon
+							icon={faLongArrowAltRight}
+							style={style.arrow}
+							aria-hidden="true"
+						/>
+					</div>
+				</div>
+			</button>
 		</Tilt>
 	)
 }

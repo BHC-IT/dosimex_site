@@ -62,6 +62,7 @@ const LinkVideo = ({ link, textOver, mainStyle }: ILinkVideoProps) => {
 				href={handleLink(link)[1]}
 				target='_blank'
 				rel='noreferrer noopener'
+				aria-label={`Open external link: ${handleLink(link)[0]} (opens in new tab)`}
 				onMouseOver={e => {
 					setIsVisible(true)
 					setX(e.clientX)
@@ -73,6 +74,7 @@ const LinkVideo = ({ link, textOver, mainStyle }: ILinkVideoProps) => {
 					<FontAwesomeIcon
 						icon={faExternalLinkAlt}
 						style={isMobile ? mainStyle.iconSizeMobile : mainStyle.iconSizeDesktop}
+						aria-hidden="true"
 					/>
 				</div>
 			</a>
@@ -278,6 +280,7 @@ const Software = () => {
 									onClick={() => setTimeout(() => setDummy(dummy + 1), 100)}
 									href={hashes[i]}
 									style={style.headerLink}
+									aria-label={`Navigate to ${e} section`}
 								>
 									{e}
 								</LinkLabel>

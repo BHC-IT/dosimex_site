@@ -34,13 +34,14 @@ const defaultStyles = {
 
 const SubmitButton: React.FC<ISubmitButtonProps> = React.memo(({ style, text, isLoading }) => {
 	const [isHovered, setIsHovered] = useState(false)
+	const [isFocused, setIsFocused] = useState(false)
 
 	// Memoize button style calculation
 	const buttonStyle = useMemo(() => ({
 		...defaultStyles.base,
-		...(isHovered && !isLoading ? defaultStyles.hover : {}),
+		...((isHovered || isFocused) && !isLoading ? defaultStyles.hover : {}),
 		...style.button,
-	}), [isHovered, isLoading, style.button])
+	}), [isHovered, isFocused, isLoading, style.button])
 
 	// Memoize text values
 	const { sendingText, buttonText } = useMemo(() => ({
@@ -51,6 +52,8 @@ const SubmitButton: React.FC<ISubmitButtonProps> = React.memo(({ style, text, is
 	// Memoize event handlers
 	const handleMouseEnter = useCallback(() => setIsHovered(true), [])
 	const handleMouseLeave = useCallback(() => setIsHovered(false), [])
+	const handleFocus = useCallback(() => setIsFocused(true), [])
+	const handleBlur = useCallback(() => setIsFocused(false), [])
 
 	return (
 		<button
@@ -59,6 +62,8 @@ const SubmitButton: React.FC<ISubmitButtonProps> = React.memo(({ style, text, is
 			disabled={isLoading}
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}
+			onFocus={handleFocus}
+			onBlur={handleBlur}
 		>
 			{isLoading ? (
 				<div style={defaultStyles.loadingContainer}>

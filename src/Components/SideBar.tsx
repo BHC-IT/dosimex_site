@@ -88,10 +88,10 @@ const SideBar: React.FC<IProps> = props => {
 	const MenuComponent = Menu as React.ComponentType<Record<string, unknown>>
 
 	return (
-		<MenuComponent right {...props}>
+		<MenuComponent right {...props} aria-label="Mobile navigation menu">
 			<ul>
 				<li style={styles.logoListItem}>
-					<Link href="/">
+					<Link href="/" aria-label="Go to DOSIMEX homepage">
 						<Image
 							src="/Images/logo_dosimex_new.webp"
 							alt="Dosimex Logo"

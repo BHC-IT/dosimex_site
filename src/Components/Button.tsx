@@ -10,10 +10,11 @@ interface IProps {
 
 const Button = (props: IProps) => {
 	const [isHovered, setIsHovered] = useState(false)
+	const [isFocused, setIsFocused] = useState(false)
 
 	const buttonStyle = {
 		...styles.base,
-		...(isHovered ? styles.hover : {}),
+		...(isHovered || isFocused ? styles.hover : {}),
 		...props.style,
 	}
 
@@ -23,6 +24,8 @@ const Button = (props: IProps) => {
 				style={buttonStyle}
 				onMouseEnter={() => setIsHovered(true)}
 				onMouseLeave={() => setIsHovered(false)}
+				onFocus={() => setIsFocused(true)}
+				onBlur={() => setIsFocused(false)}
 			>
 				{props.name}
 			</button>

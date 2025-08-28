@@ -146,6 +146,7 @@ class ErrorBoundary extends Component<IProps, IState> {
 						<button
 							style={styles.button}
 							onClick={this.handleRetry}
+							aria-label="Retry loading the page"
 							onMouseEnter={e => {
 								e.currentTarget.style.transform = 'translateY(-2px)'
 								e.currentTarget.style.boxShadow = '0px 4px 8px rgba(0, 0, 0, 0.2)'
@@ -160,6 +161,7 @@ class ErrorBoundary extends Component<IProps, IState> {
 						<button
 							style={styles.secondaryButton}
 							onClick={this.handleReload}
+							aria-label="Reload the entire page"
 							onMouseEnter={e => {
 								e.currentTarget.style.transform = 'translateY(-2px)'
 								e.currentTarget.style.boxShadow = '0px 4px 8px rgba(0, 0, 0, 0.2)'

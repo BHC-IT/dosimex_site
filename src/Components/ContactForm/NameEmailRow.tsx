@@ -53,7 +53,7 @@ const NameEmailRow: React.FC<INameEmailRowProps> = React.memo(function NameEmail
 			containerStyle: style.divNameMail ?? defaultStyles.divNameMail,
 			inputStyle: { divInput: style.input ?? defaultStyles.input },
 		}),
-		[text.label, text.errorEmail, style.divNameMail, style.input]
+		[text.label, text.errorEmail, style.divNameMail, style.input],
 	)
 
 	// Memoize error messages
@@ -62,7 +62,7 @@ const NameEmailRow: React.FC<INameEmailRowProps> = React.memo(function NameEmail
 			name: (text.errorName as string) ?? 'Name is required',
 			email: (text.errorName as string) ?? 'Email is required',
 		}),
-		[text.errorName]
+		[text.errorName],
 	)
 
 	return (

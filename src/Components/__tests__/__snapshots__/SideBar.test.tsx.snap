@@ -2,6 +2,7 @@
 
 exports[`SideBar Component > should match snapshot with default props 1`] = `
 <div
+  aria-label="Mobile navigation menu"
   data-testid="burger-menu"
 >
   <ul>
@@ -9,6 +10,7 @@ exports[`SideBar Component > should match snapshot with default props 1`] = `
       style="cursor: pointer;"
     >
       <a
+        aria-label="Go to DOSIMEX homepage"
         href="/"
       >
         <img
@@ -82,6 +84,7 @@ exports[`SideBar Component > should match snapshot with default props 1`] = `
 
 exports[`SideBar Component > should match snapshot with text prop 1`] = `
 <div
+  aria-label="Mobile navigation menu"
   data-testid="burger-menu"
   text="[object Object]"
 >
@@ -90,6 +93,7 @@ exports[`SideBar Component > should match snapshot with text prop 1`] = `
       style="cursor: pointer;"
     >
       <a
+        aria-label="Go to DOSIMEX homepage"
         href="/"
       >
         <img

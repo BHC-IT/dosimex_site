@@ -43,8 +43,8 @@ describe('ErrorBoundary Component', () => {
 
 		expect(screen.getByText(/Oups, quelque chose s'est mal passé/)).toBeInTheDocument()
 		expect(screen.getByText(/Une erreur inattendue s'est produite/)).toBeInTheDocument()
-		expect(screen.getByRole('button', { name: /réessayer/i })).toBeInTheDocument()
-		expect(screen.getByRole('button', { name: /recharger la page/i })).toBeInTheDocument()
+		expect(screen.getByLabelText(/retry loading the page/i)).toBeInTheDocument()
+		expect(screen.getByLabelText(/reload the entire page/i)).toBeInTheDocument()
 	})
 
 	it('should render custom fallback when provided', () => {
@@ -114,7 +114,7 @@ describe('ErrorBoundary Component', () => {
 		expect(screen.getByText(/Oups, quelque chose s'est mal passé/)).toBeInTheDocument()
 
 		// Click retry button - this resets internal state
-		const retryButton = screen.getByRole('button', { name: /réessayer/i })
+		const retryButton = screen.getByLabelText(/retry loading the page/i)
 		fireEvent.click(retryButton)
 
 		// After clicking retry, component attempts to render children again
@@ -137,7 +137,7 @@ describe('ErrorBoundary Component', () => {
 			</ErrorBoundary>,
 		)
 
-		const reloadButton = screen.getByRole('button', { name: /recharger la page/i })
+		const reloadButton = screen.getByLabelText(/reload the entire page/i)
 		fireEvent.click(reloadButton)
 
 		expect(reloadMock).toHaveBeenCalledOnce()
@@ -170,7 +170,7 @@ describe('ErrorBoundary Component', () => {
 			</ErrorBoundary>,
 		)
 
-		const retryButton = screen.getByRole('button', { name: /réessayer/i })
+		const retryButton = screen.getByLabelText(/retry loading the page/i)
 
 		// Test hover effects
 		fireEvent.mouseEnter(retryButton)

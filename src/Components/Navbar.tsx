@@ -77,10 +77,10 @@ const Navbar: React.FC<IProps> = () => {
 	return (
 		<>
 			<div className='divNone'>
-				<nav style={styles.navbar}>
+				<nav style={styles.navbar} aria-label="Main navigation">
 					<ul style={styles.navbarUl}>
 						<li style={styles.navbarLi}>
-							<Link href='/'>
+							<Link href='/' aria-label="Go to DOSIMEX homepage">
 								<Image
 									src='/Images/logo_dosimex_new.webp'
 									alt={altText?.logo ?? 'DOSIMEX - Radiation Dosimetry Software'}

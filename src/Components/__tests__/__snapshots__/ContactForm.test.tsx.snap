@@ -2,6 +2,7 @@
 
 exports[`ContactForm Component > should match snapshot with default props 1`] = `
 <form
+  aria-label="Contact form to send a message to DOSIMEX"
   style="padding: 20px;"
 >
   <h3

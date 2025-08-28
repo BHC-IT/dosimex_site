@@ -162,6 +162,7 @@ export default function Manuals() {
 									onClick={() => setTimeout(() => setDummy(dummy + 1), 100)}
 									href={hashes[i]}
 									style={style.headerLink}
+									aria-label={`Navigate to ${e} section`}
 								>
 									{e}
 								</LinkLabel>

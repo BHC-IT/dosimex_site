@@ -25,7 +25,7 @@ export interface IStyles {
 	button: CSS.Properties
 }
 
-const ContactForm: React.FC<IProps> = React.memo(function ContactForm() {
+const ContactForm: React.FC<IProps> = React.memo(() => {
 	const text = useText('ContactForm') as Record<string, string | string[]> | null
 	const style = useIsMobile(styles)
 	const formData = useContactFormValidation(text ?? undefined)
@@ -47,6 +47,7 @@ const ContactForm: React.FC<IProps> = React.memo(function ContactForm() {
 		<form
 			style={memoizedStyles.form}
 			onSubmit={formData.handleSubmit}
+			aria-label="Contact form to send a message to DOSIMEX"
 		>
 			<h3 style={memoizedStyles.title}>{text?.title}</h3>
 			<NameEmailRow

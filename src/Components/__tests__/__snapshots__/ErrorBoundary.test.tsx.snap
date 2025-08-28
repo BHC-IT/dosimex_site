@@ -18,11 +18,13 @@ exports[`ErrorBoundary Component > should match snapshot with error state 1`] = 
   </p>
   <div>
     <button
+      aria-label="Retry loading the page"
       style="padding: 12px 24px; background-color: var(--main); color: white; border-radius: 50px; font-size: 1.4rem; cursor: pointer; transition: all 0.3s ease;"
     >
       Réessayer
     </button>
     <button
+      aria-label="Reload the entire page"
       style="padding: 12px 24px; background-color: var(--grey); color: white; border-radius: 50px; font-size: 1.4rem; cursor: pointer; transition: all 0.3s ease; margin-left: 1rem;"
     >
       Recharger la page
