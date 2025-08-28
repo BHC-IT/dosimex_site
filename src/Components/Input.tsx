@@ -72,6 +72,7 @@ const getInputElement = ({
 	handleChange,
 	handleBlur,
 }: IInputElementProps): JSX.Element => {
+	const errorId = props.id ? `${props.id}-error` : undefined
 	if (props.type === 'textarea') {
 		return (
 			<textarea
@@ -84,6 +85,9 @@ const getInputElement = ({
 				onChange={e => handleChange(e.target.value)}
 				onBlur={handleBlur}
 				required={props.required}
+				aria-invalid={!isValid}
+				aria-required={props.required}
+				aria-describedby={!isValid && errorId ? errorId : undefined}
 			/>
 		)
 	}
@@ -98,6 +102,9 @@ const getInputElement = ({
 			onChange={e => handleChange(e.target.value)}
 			onBlur={handleBlur}
 			required={props.required}
+			aria-invalid={!isValid}
+			aria-required={props.required}
+			aria-describedby={!isValid && errorId ? errorId : undefined}
 		/>
 	)
 }
@@ -189,7 +196,11 @@ const Input: React.FC<IProps> = props => {
 				handleBlur,
 			})}
 			{!isValid && erroredValidator.length > 0 && (
-				<div role="alert" aria-live="polite">
+				<div
+					id={props.id ? `${props.id}-error` : undefined}
+					role="alert"
+					aria-live="polite"
+				>
 					{erroredValidator.map((validator, index) => (
 						<p
 							key={`${props.id ?? 'input'}-error-${index}`}

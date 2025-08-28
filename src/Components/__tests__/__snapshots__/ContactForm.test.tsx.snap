@@ -23,6 +23,8 @@ exports[`ContactForm Component > should match snapshot with default props 1`] = 
         Name
       </label>
       <input
+        aria-invalid="false"
+        aria-required="true"
         id="name"
         required=""
         style="border: 1px solid var(--grey-bg); height: 4vh; border-radius: 5px; resize: none;"
@@ -40,6 +42,8 @@ exports[`ContactForm Component > should match snapshot with default props 1`] = 
         Email
       </label>
       <input
+        aria-invalid="false"
+        aria-required="true"
         id="email"
         required=""
         style="border: 1px solid var(--grey-bg); height: 4vh; border-radius: 5px; resize: none;"
@@ -1335,6 +1339,7 @@ exports[`ContactForm Component > should match snapshot with default props 1`] = 
         Enterprise
       </label>
       <input
+        aria-invalid="false"
         id="enterprise"
         style="border: 1px solid var(--grey-bg); height: 4vh; border-radius: 5px; resize: none;"
         type="text"
@@ -1352,6 +1357,7 @@ exports[`ContactForm Component > should match snapshot with default props 1`] = 
       Address
     </label>
     <input
+      aria-invalid="false"
       id="address"
       style="border: 1px solid var(--grey-bg); height: 4vh; border-radius: 5px; resize: none;"
       type="text"
@@ -1368,6 +1374,7 @@ exports[`ContactForm Component > should match snapshot with default props 1`] = 
       Subject
     </label>
     <input
+      aria-invalid="false"
       id="subject"
       style="border: 1px solid var(--grey-bg); height: 4vh; border-radius: 5px; resize: none;"
       type="text"
@@ -1384,6 +1391,8 @@ exports[`ContactForm Component > should match snapshot with default props 1`] = 
       Message
     </label>
     <textarea
+      aria-invalid="false"
+      aria-required="true"
       cols="20"
       id="message"
       required=""
