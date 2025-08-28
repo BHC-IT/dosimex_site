@@ -109,10 +109,91 @@ const getInputElement = ({
 	)
 }
 
+const createValidationHandler = (
+	props: IProps,
+	currentValue: string,
+	setErroredValidator: (validators: IValidator[]) => void,
+) => () => {
+	if (!props.validator || props.validator.length === 0) return
+
+	if (shouldSkipValidation(currentValue)) {
+		setErroredValidator([])
+		props.isValid?.(true)
+		return
+	}
+
+	const errored = runValidator(props.validator, currentValue)
+	const valid = errored.length === 0
+
+	setErroredValidator(errored)
+	props.isValid?.(valid)
+}
+
+const createChangeHandler = (
+	props: IProps,
+	isControlled: boolean,
+	setInternalValue: (value: string) => void,
+) => (newValue: string) => {
+	// For uncontrolled components, update internal state
+	if (!isControlled) {
+		setInternalValue(newValue)
+	}
+
+	// Always call onChange callback if provided
+	props.onChange?.(newValue)
+}
+
+const computeStyles = (styles: ReturnType<typeof getStyles>, props: IProps) => {
+	const styleInput = { ...styles.input, ...props.style?.input }
+	const styleInputTextarea = { ...styles.textarea, ...props.style?.textarea }
+	const styleInputInvalid = {
+		...styleInput,
+		...styles.inputInvalid,
+		...props.style?.inputInvalid,
+	}
+	const combinedDivStyle = { ...styles.divInput, ...props.style?.divInput }
+	const combinedLabelStyle = { ...styles.label, ...props.style?.label }
+
+	return {
+		styleInput,
+		styleInputTextarea,
+		styleInputInvalid,
+		combinedDivStyle,
+		combinedLabelStyle,
+	}
+}
+
+const renderErrorMessages = (
+	erroredValidator: IValidator[],
+	isValid: boolean,
+	inputId?: string,
+) => {
+	if (isValid || erroredValidator.length === 0) return null
+
+	return (
+		<div
+			id={inputId ? `${inputId}-error` : undefined}
+			role="alert"
+			aria-live="polite"
+		>
+			{erroredValidator.map((validator, index) => (
+				<p
+					key={`${inputId ?? 'input'}-error-${index}`}
+					style={{
+						color: 'red',
+						fontSize: '1.4rem',
+						margin: '0.5rem 0 0 0',
+					}}
+				>
+					{validator.errorMessage}
+				</p>
+			))}
+		</div>
+	)
+}
+
 const Input: React.FC<IProps> = props => {
 	const isMobile = useMobile()
-
-	// Determine if this is a controlled component
 	const isControlled = props.value !== undefined
 
 	// Initialize state based on controlled/uncontrolled pattern
@@ -134,48 +215,22 @@ const Input: React.FC<IProps> = props => {
 
 	// Get the current value (controlled vs uncontrolled)
 	const currentValue = isControlled ? (props.value ?? '') : internalValue
-
-	// Use the mobile detection result directly
 	const styles = getStyles(isMobile)
 
-	const handleBlur = () => {
-		if (!props.validator || props.validator.length === 0) return
+	// Create handlers using helper functions
+	const handleBlur = createValidationHandler(props, currentValue, setErroredValidator)
+	const handleChange = createChangeHandler(props, isControlled, setInternalValue)
 
-		if (shouldSkipValidation(currentValue)) {
-			setErroredValidator([])
-			props.isValid?.(true)
-			return
-		}
-
-		const errored = runValidator(props.validator, currentValue)
-		const valid = errored.length === 0
-
-		setErroredValidator(errored)
-		props.isValid?.(valid)
-	}
-
-	const handleChange = (newValue: string) => {
-		// For uncontrolled components, update internal state
-		if (!isControlled) {
-			setInternalValue(newValue)
-		}
-
-		// Always call onChange callback if provided
-		props.onChange?.(newValue)
-	}
-
-	const styleInput = { ...styles.input, ...props.style?.input }
-	const styleInputTextarea = { ...styles.textarea, ...props.style?.textarea }
-	const styleInputInvalid = {
-		...styleInput,
-		...styles.inputInvalid,
-		...props.style?.inputInvalid,
-	}
+	// Compute all styles
+	const {
+		styleInput,
+		styleInputTextarea,
+		styleInputInvalid,
+		combinedDivStyle,
+		combinedLabelStyle,
+	} = computeStyles(styles, props)
 
 	const isValid = erroredValidator.length === 0
-
-	const combinedDivStyle = { ...styles.divInput, ...props.style?.divInput }
-	const combinedLabelStyle = { ...styles.label, ...props.style?.label }
 
 	return (
 		<div style={combinedDivStyle}>
@@ -195,26 +250,7 @@ const Input: React.FC<IProps> = props => {
 				handleChange,
 				handleBlur,
 			})}
-			{!isValid && erroredValidator.length > 0 && (
-				<div
-					id={props.id ? `${props.id}-error` : undefined}
-					role="alert"
-					aria-live="polite"
-				>
-					{erroredValidator.map((validator, index) => (
-						<p
-							key={`${props.id ?? 'input'}-error-${index}`}
-							style={{
-								color: 'red',
-								fontSize: '1.4rem',
-								margin: '0.5rem 0 0 0',
-							}}
-						>
-							{validator.errorMessage}
-						</p>
-					))}
-				</div>
-			)}
+			{renderErrorMessages(erroredValidator, isValid, props.id)}
 		</div>
 	)
 }

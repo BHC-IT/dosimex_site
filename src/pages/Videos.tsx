@@ -96,12 +96,16 @@ const listVideoYt = {
 	packMes: ['vSI75UZ_9UQ', 'aA4QUutuaJc', '2Mq-TR8cG-o'],
 }
 
+// Constant for videos per row
+const VIDEOS_PER_ROW = 4
+
 const splitArrays = (nb: number, arr: any[]) => {
+
 	const retour: any[][] = []
 	let tmp: any[] = []
 	arr.map(id => {
 		tmp.push(id)
-		if (tmp.length === 4) {
+		if (tmp.length === VIDEOS_PER_ROW) {
 			retour.push(tmp)
 			tmp = []
 		}
@@ -194,7 +198,7 @@ const Pack = ({
 			<h3>{text.packTitle}</h3>
 			<h3 style={mainStyle.titleSpecialDynamic(style.titleSpe, color)}>{title}</h3>
 		</div>
-		{splitArrays(4, videoIds).map((listVidLine, index) => {
+		{splitArrays(VIDEOS_PER_ROW, videoIds).map((listVidLine, index) => {
 			return (
 				<VideosLine
 					key={index}

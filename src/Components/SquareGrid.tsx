@@ -45,10 +45,14 @@ const lines = (nbLines: number, nbColumns: number, squareStyle: CSS.Properties) 
 }
 
 const Grid = (props: Iprops) => {
+	// Constants for default grid dimensions
+	const DEFAULT_NB_LINES = 6
+	const DEFAULT_NB_COLUMNS = 4
+
 	const combinedContainerStyle = { ...mainContainer, ...props?.styles?.containerStyle }
 	return (
 		<div style={combinedContainerStyle}>
-			{lines(props?.nbLine ?? 6, props?.nbColumn ?? 4, props?.styles?.squareStyle ?? {})}
+			{lines(props?.nbLine ?? DEFAULT_NB_LINES, props?.nbColumn ?? DEFAULT_NB_COLUMNS, props?.styles?.squareStyle ?? {})}
 		</div>
 	)
 }

@@ -14,8 +14,12 @@ interface IStyles {
 	phoneNumber?: CSS.Properties
 }
 
-const ratio = 0.7
-const ratio2 = 0.6
+// Constants for image scaling ratios and dimensions
+const IMAGE_RATIO = 0.7
+const IMAGE_RATIO_2 = 0.6
+const BASE_WIDTH = 722
+const BASE_HEIGHT_MOBILE = 324
+const BASE_HEIGHT_DESKTOP = 405
 
 // const hashes = '#buy'
 
@@ -175,8 +179,8 @@ export const styles = (mobile: boolean): IStyles => ({
 		fontSize: mobile ? '2rem' : '2.2rem',
 	},
 	imagePrice: {
-		width: mobile ? '100vw' : `${722 * ratio2}px`,
-		height: mobile ? `${324 * ratio}px` : `${405 * ratio2}px`,
+		width: mobile ? '100vw' : `${BASE_WIDTH * IMAGE_RATIO_2}px`,
+		height: mobile ? `${BASE_HEIGHT_MOBILE * IMAGE_RATIO}px` : `${BASE_HEIGHT_DESKTOP * IMAGE_RATIO_2}px`,
 		backgroundImage: "url('/Images/usbkey.png')",
 		backgroundPosition: 'center',
 		backgroundRepeat: 'no-repeat',

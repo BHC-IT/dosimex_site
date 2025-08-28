@@ -17,8 +17,13 @@ export interface IStyles {
 	languageText: CSS.Properties
 }
 
-const ratioFr = 0.012
-const ratioUk = 0.03
+// Constants for flag image dimensions
+const FRANCE_FLAG_WIDTH = 2560
+const FRANCE_FLAG_HEIGHT = 1707
+const UK_FLAG_WIDTH = 1024
+const UK_FLAG_HEIGHT = 683
+const FRANCE_FLAG_RATIO = 0.012
+const UK_FLAG_RATIO = 0.03
 
 const LanguageSwitch = (props: IProps) => {
 	const isSelected = (lang: string) =>
@@ -46,8 +51,8 @@ const LanguageSwitch = (props: IProps) => {
 								<Image
 									src='/Images/Flag_France.png'
 									alt='French flag'
-									width={2560 * ratioFr}
-									height={1707 * ratioFr}
+									width={FRANCE_FLAG_WIDTH * FRANCE_FLAG_RATIO}
+									height={FRANCE_FLAG_HEIGHT * FRANCE_FLAG_RATIO}
 								/>
 							</div>
 							<p style={styles.languageText}>Fr</p>
@@ -65,8 +70,8 @@ const LanguageSwitch = (props: IProps) => {
 								<Image
 									src='/Images/Flag_Uk.jpg'
 									alt='UK flag'
-									width={1024 * ratioUk}
-									height={683 * ratioUk}
+									width={UK_FLAG_WIDTH * UK_FLAG_RATIO}
+									height={UK_FLAG_HEIGHT * UK_FLAG_RATIO}
 								/>
 							</div>
 							<p>En</p>

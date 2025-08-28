@@ -7,6 +7,15 @@ import styled from 'styled-components'
 import { useIsMobile } from '../Hooks/useIsMobile'
 import { useText } from '../Hooks/useText'
 
+// Constants for motif image dimensions
+const MOTIF_WIDTH = 343
+const MOTIF_HEIGHT = 334
+const MOTIF_SCALE_MANUALS = 0.9
+
+// Constants for click timeout and styling
+const CLICK_TIMEOUT_MS = 100
+const HEADER_LINE_HEIGHT = 0.7
+
 const LinkZone = styled.li`
 	display: flex;
 	align-items: center;
@@ -145,8 +154,8 @@ export default function Manuals() {
 					<Image
 						src='/Images/motif_rect.svg'
 						alt={altText?.decorativePattern ?? 'Decorative geometric pattern background'}
-						width={343 * 0.9}
-						height={334 * 0.9}
+						width={MOTIF_WIDTH * MOTIF_SCALE_MANUALS}
+						height={MOTIF_HEIGHT * MOTIF_SCALE_MANUALS}
 						loading="lazy"
 						quality={70}
 					/>
@@ -159,7 +168,7 @@ export default function Manuals() {
 							<LinkZone key={e}>
 								<p style={style.arrow}>→</p>
 								<LinkLabel
-									onClick={() => setTimeout(() => setDummy(dummy + 1), 100)}
+									onClick={() => setTimeout(() => setDummy(dummy + 1), CLICK_TIMEOUT_MS)}
 									href={hashes[i]}
 									style={style.headerLink}
 									aria-label={`Navigate to ${e} section`}
@@ -317,7 +326,7 @@ export const styles = (mobile: boolean): IStyles => ({
 	headerTitle: {
 		padding: 0,
 		margin: 0,
-		lineHeight: mobile ? undefined : 0.7,
+		lineHeight: mobile ? undefined : HEADER_LINE_HEIGHT,
 	},
 	headerText: {
 		color: 'var(--dark)',

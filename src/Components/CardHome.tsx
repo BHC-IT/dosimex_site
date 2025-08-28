@@ -2,7 +2,6 @@ import { faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import * as CSS from 'csstype'
 import Image from 'next/image'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Tilt from 'react-parallax-tilt'
 

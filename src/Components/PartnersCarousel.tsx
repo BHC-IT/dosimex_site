@@ -6,6 +6,10 @@ import { useIsMobile, useDeviceType } from '../Hooks/useIsMobile'
 import { useText } from '../Hooks/useText'
 import 'react-multi-carousel/lib/styles.css'
 
+// Constants for carousel transition durations
+const TRANSITION_DURATION_MOBILE = 2200
+const TRANSITION_DURATION_DESKTOP = 1500
+
 interface IMapOfStyle {
 	[i: string]: CSS.Properties
 }
@@ -150,7 +154,7 @@ const PartnersCarousel = () => {
 			autoPlaySpeed={1000}
 			keyBoardControl={false}
 			customTransition='all .5'
-			transitionDuration={isMobile ? 2200 : 1500}
+			transitionDuration={isMobile ? TRANSITION_DURATION_MOBILE : TRANSITION_DURATION_DESKTOP}
 			containerClass='carousel-container'
 			deviceType={deviceType}
 			removeArrowOnDeviceType={['tablet', 'mobile']}

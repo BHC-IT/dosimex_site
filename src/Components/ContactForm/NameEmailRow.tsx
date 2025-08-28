@@ -38,11 +38,11 @@ const defaultStyles: IStyles = {
 	},
 }
 
-const NameEmailRow: React.FC<INameEmailRowProps> = React.memo(function NameEmailRow({
+const NameEmailRow: React.FC<INameEmailRowProps> = React.memo(({
 	text,
 	style,
 	formData,
-}) {
+}) => {
 	// Memoize parsed values to avoid recalculation on every render
 	const { labels, errorEmailArray, containerStyle, inputStyle } = useMemo(
 		() => ({

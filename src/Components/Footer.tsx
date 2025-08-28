@@ -8,6 +8,77 @@ import * as React from 'react'
 import { useIsMobile } from '../Hooks/useIsMobile'
 import { useText } from '../Hooks/useText'
 
+interface SocialMediaProps {
+	text: { col1: { p: string[] } }
+	style: IStyles
+}
+
+interface ResourcesColumnProps {
+	title: string
+	links: { href: string; text: string; isExternal?: boolean }[]
+	style: IStyles
+}
+
+const SocialMediaSection = ({ text, style }: SocialMediaProps) => (
+	<div style={style.divSocialMedia}>
+		<div style={style.divIconSocial}>
+			<div style={style.iconSocial}>
+				<a
+					href='https://www.youtube.com/channel/UCmijJyGaFfJte4xsTk90MVA/featured'
+					target='_blank'
+					rel='noreferrer noopener'
+				>
+					<Icon
+						path={mdiYoutube}
+						size={2}
+					/>
+				</a>
+			</div>
+			<div style={style.iconSocial}>
+				<a
+					href='https://fr.linkedin.com/company/dosimex'
+					target='_blank'
+					rel='noreferrer noopener'
+				>
+					<Icon
+						path={mdiLinkedin}
+						size={1.6}
+					/>
+				</a>
+			</div>
+		</div>
+		<div style={style.textSocialMedia}>
+			<p style={style.pSocialMedia}>{text.col1.p[3]}</p>
+		</div>
+	</div>
+)
+
+const ResourcesColumn = ({ title, links, style }: ResourcesColumnProps) => (
+	<div style={style.col}>
+		<p style={style.colTitle}>{title}</p>
+		{links.map((link, index) =>
+			link.isExternal ? (
+				<a
+					key={index}
+					href={link.href}
+					target='_blank'
+					rel='noreferrer noopener'
+				>
+					<p style={style.linkRessource}>{link.text}</p>
+				</a>
+			) : (
+				<Link
+					key={index}
+					href={link.href}
+					replace
+				>
+					<p style={style.linkRessource}>{link.text}</p>
+				</Link>
+			),
+		)}
+	</div>
+)
+
 export interface IStyles {
 	footer: CSS.Properties
 	col1: CSS.Properties
@@ -29,9 +100,23 @@ const Footer = () => {
 	const altText = useText('altText') as { radiationSymbol: string } | null
 	const style = useIsMobile(styles)
 
-	const ratio = 0.27
+	// Constants for image dimensions
+	const TREFLE_BASE_SIZE = 154
+	const TREFLE_RATIO = 0.27
 
 	if (style === null) return null
+
+	const resourcesLinks = [
+		{ href: '/Videos', text: text.col2.p[0] },
+		{ href: '/Manuals', text: text.col2.p[1] },
+		{ href: '/Books', text: text.col2.p[2] },
+	]
+
+	const aboutLinks = [
+		{ href: '/About', text: text.col3.p[0] },
+		{ href: '/Folders/Informations_légales.pdf', text: text.col3.p[1], isExternal: true },
+		{ href: '/Contact', text: text.col3.p[2] },
+	]
 
 	return (
 		<footer style={style.footer}>
@@ -39,8 +124,8 @@ const Footer = () => {
 				<Image
 					src='/Images/trefle.png'
 					alt={altText?.radiationSymbol ?? 'DOSIMEX radiation safety symbol - clover leaf icon'}
-					width={Math.round(154 * ratio)}
-					height={Math.round(154 * ratio)}
+					width={Math.round(TREFLE_BASE_SIZE * TREFLE_RATIO)}
+					height={Math.round(TREFLE_BASE_SIZE * TREFLE_RATIO)}
 					quality={75}
 					loading="lazy"
 				/>
@@ -53,82 +138,11 @@ const Footer = () => {
 					/>
 					<p style={style.phoneText}>{text.col1.p[2]}</p>
 				</div>
-				<div style={style.divSocialMedia}>
-					<div style={style.divIconSocial}>
-						<div style={style.iconSocial}>
-							<a
-								href='https://www.youtube.com/channel/UCmijJyGaFfJte4xsTk90MVA/featured'
-								target='_blank'
-								rel='noreferrer noopener'
-							>
-								<Icon
-									path={mdiYoutube}
-									size={2}
-								/>
-							</a>
-						</div>
-						<div style={style.iconSocial}>
-							<a
-								href='https://fr.linkedin.com/company/dosimex'
-								target='_blank'
-								rel='noreferrer noopener'
-							>
-								<Icon
-									path={mdiLinkedin}
-									size={1.6}
-								/>
-							</a>
-						</div>
-					</div>
-					<div style={style.textSocialMedia}>
-						<p style={style.pSocialMedia}>{text.col1.p[3]}</p>
-					</div>
-				</div>
+				<SocialMediaSection text={text} style={style} />
 			</div>
 			<div style={style.col2}>
-				<div style={style.col}>
-					<p style={style.colTitle}>{text.col2.title}</p>
-					<Link
-						href='/Videos'
-						replace
-					>
-						<p style={style.linkRessource}>{text.col2.p[0]}</p>
-					</Link>
-					<Link
-						href='/Manuals'
-						replace
-					>
-						<p style={style.linkRessource}>{text.col2.p[1]}</p>
-					</Link>
-					<Link
-						href='/Books'
-						replace
-					>
-						<p style={style.linkRessource}>{text.col2.p[2]}</p>
-					</Link>
-				</div>
-				<div style={style.col}>
-					<p style={style.colTitle}>{text.col3.title}</p>
-					<Link
-						href='/About'
-						replace
-					>
-						<p style={style.linkRessource}>{text.col3.p[0]}</p>
-					</Link>
-					<a
-						href='/Folders/Informations_légales.pdf'
-						target='_blank'
-						rel='noreferrer noopener'
-					>
-						<p style={style.linkRessource}>{text.col3.p[1]}</p>
-					</a>
-					<Link
-						href='/Contact'
-						replace
-					>
-						<p style={style.linkRessource}>{text.col3.p[2]}</p>
-					</Link>
-				</div>
+				<ResourcesColumn title={text.col2.title} links={resourcesLinks} style={style} />
+				<ResourcesColumn title={text.col3.title} links={aboutLinks} style={style} />
 			</div>
 		</footer>
 	)

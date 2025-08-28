@@ -37,9 +37,15 @@ function Home(props: IProps) {
 	const altText = useText('altText') as { flagUk: string; decorativePattern: string } | null
 	const style = useIsMobile(styles)
 
-	if (style === null) return null
+	// Constants for image dimensions
+	const UK_FLAG_WIDTH = 1024
+	const UK_FLAG_HEIGHT = 683
+	const UK_FLAG_RATIO = 0.05
+	const MOTIF_WIDTH = 343
+	const MOTIF_HEIGHT = 334
+	const MOTIF_SCALE = 1.3
 
-	const ratioUk = 0.05
+	if (style === null) return null
 	return (
 		<>
 			<header
@@ -55,8 +61,8 @@ function Home(props: IProps) {
 							loading='lazy'
 							src='/Images/Flag_Uk.webp'
 							alt={altText?.flagUk ?? 'UK flag - DOSIMEX available in English'}
-							width={1024 * ratioUk}
-							height={683 * ratioUk}
+							width={UK_FLAG_WIDTH * UK_FLAG_RATIO}
+							height={UK_FLAG_HEIGHT * UK_FLAG_RATIO}
 						/>
 						<p style={{ ...style.header.headerPromo, ...style.flagText }}>
 							{text.header.promo}
@@ -76,8 +82,8 @@ function Home(props: IProps) {
 						<Image
 							src='/Images/motif_rect.svg'
 							alt={altText?.decorativePattern ?? 'Decorative geometric pattern background'}
-							width={343 * 1.3}
-							height={334 * 1.3}
+							width={MOTIF_WIDTH * MOTIF_SCALE}
+							height={MOTIF_HEIGHT * MOTIF_SCALE}
 							loading="lazy"
 							quality={70}
 						/>
@@ -152,8 +158,8 @@ function Home(props: IProps) {
 					<Image
 						src='/Images/motif_rect.svg'
 						alt={altText?.decorativePattern ?? 'Decorative geometric pattern background'}
-						width={343 * 1.3}
-						height={334 * 1.3}
+						width={MOTIF_WIDTH * MOTIF_SCALE}
+						height={MOTIF_HEIGHT * MOTIF_SCALE}
 						loading="lazy"
 						quality={70}
 					/>

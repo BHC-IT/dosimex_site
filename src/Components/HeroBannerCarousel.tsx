@@ -34,10 +34,14 @@ const Slide = React.memo(({ name, text, vw }: ISlideProps) => {
 	const style = useIsMobile(styles)
 	const altText = useText('altText') as { carouselScreens: string } | null
 
+	// Constants for image dimensions ratio
+	const IMAGE_WIDTH_RATIO = 29
+	const IMAGE_HEIGHT_RATIO = 16.32
+
 	// Memoize image dimensions to avoid recalculation
 	const imageDimensions = useMemo(() => ({
-		width: 29 * vw,
-		height: 16.32 * vw,
+		width: IMAGE_WIDTH_RATIO * vw,
+		height: IMAGE_HEIGHT_RATIO * vw,
 	}), [vw])
 
 	// Memoize image src to avoid string concatenation on every render
@@ -93,12 +97,16 @@ interface IHeroBannerCarouselProps {
 }
 
 const HeroBannerCarousel: React.FC<IHeroBannerCarouselProps> = React.memo(({ text }) => {
-	const [vw, setvw] = useState(1500)
+	// Constants for initial viewport and calculations
+	const INITIAL_VIEWPORT_WIDTH = 1500
+	const VIEWPORT_DIVISOR = 100
+
+	const [vw, setvw] = useState(INITIAL_VIEWPORT_WIDTH)
 	const altText = useText('altText') as { carouselMain: string } | null
 
 	// Memoize the viewport width calculation callback
 	const updateViewportWidth = useCallback(() => {
-		setvw(window.innerWidth / 100)
+		setvw(window.innerWidth / VIEWPORT_DIVISOR)
 	}, [])
 
 	useEffect(() => {
@@ -107,24 +115,30 @@ const HeroBannerCarousel: React.FC<IHeroBannerCarouselProps> = React.memo(({ tex
 
 	const style = useIsMobile(styles)
 
+	// Constants for container dimensions
+	const MOCKUP_WIDTH_RATIO = 30
+	const MOCKUP_HEIGHT_RATIO = 19
+	const SLIDE_LEFT_OFFSET = 0.5
+	const SLIDE_TOP_OFFSET = 0.7
+
 	// Memoize the expensive style calculations
 	const containerStyles = useMemo(() => ({
 		mockupContainer: {
-			width: `${30 * vw}px`,
-			height: `${19 * vw}px`,
+			width: `${MOCKUP_WIDTH_RATIO * vw}px`,
+			height: `${MOCKUP_HEIGHT_RATIO * vw}px`,
 			position: 'relative' as const,
 		},
 		slideContainer: {
 			position: 'absolute' as const,
-			left: `${0.5 * vw}px`,
-			top: `${0.7 * vw}px`,
+			left: `${SLIDE_LEFT_OFFSET * vw}px`,
+			top: `${SLIDE_TOP_OFFSET * vw}px`,
 		},
 	}), [vw])
 
 	// Memoize mockup image dimensions
 	const mockupDimensions = useMemo(() => ({
-		width: 30 * vw,
-		height: 19 * vw,
+		width: MOCKUP_WIDTH_RATIO * vw,
+		height: MOCKUP_HEIGHT_RATIO * vw,
 	}), [vw])
 
 	if (style === null) return null

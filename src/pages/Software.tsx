@@ -17,10 +17,6 @@ interface IMapOfStyle {
 	[i: string]: CSS.Properties
 }
 
-interface IMapOf<A> {
-	[i: string]: A
-}
-
 type IStyles = { [key: string]: any }
 
 interface IProps {
@@ -220,8 +216,23 @@ const LiTitle = styled.h5`
 // `;
 
 const hashes = ['#op', '#pedago', '#mesure']
-const ratioFr = 0.012
-const ratioUk = 0.03
+
+// Constants for flag image dimensions
+const FRANCE_FLAG_WIDTH = 2560
+const FRANCE_FLAG_HEIGHT = 1707
+const UK_FLAG_WIDTH = 1024
+const UK_FLAG_HEIGHT = 683
+const FRANCE_FLAG_RATIO = 0.012
+const UK_FLAG_RATIO = 0.03
+
+// Constants for click timeout
+const CLICK_TIMEOUT_MS = 100
+
+// Constants for motif image dimensions and styling
+const MOTIF_WIDTH = 343
+const MOTIF_HEIGHT = 334
+const MOTIF_SCALE_SOFTWARE = 0.9
+const HEADER_LINE_HEIGHT = 0.7
 
 const Software = () => {
 	const text = useText('Software')
@@ -265,8 +276,8 @@ const Software = () => {
 						loading='lazy'
 						src='/Images/motif_rect.svg'
 						alt='Decorative pattern'
-						width={343 * 0.9}
-						height={334 * 0.9}
+						width={MOTIF_WIDTH * MOTIF_SCALE_SOFTWARE}
+						height={MOTIF_HEIGHT * MOTIF_SCALE_SOFTWARE}
 					/>
 				</div>
 				<div style={style.header}>
@@ -277,7 +288,7 @@ const Software = () => {
 							<LinkZone key={e}>
 								<p style={style.arrow}>→</p>
 								<LinkLabel
-									onClick={() => setTimeout(() => setDummy(dummy + 1), 100)}
+									onClick={() => setTimeout(() => setDummy(dummy + 1), CLICK_TIMEOUT_MS)}
 									href={hashes[i]}
 									style={style.headerLink}
 									aria-label={`Navigate to ${e} section`}
@@ -332,8 +343,8 @@ const Software = () => {
 										loading='lazy'
 										src='/Images/Flag_France.webp'
 										alt='French flag'
-										width={2560 * ratioFr}
-										height={1707 * ratioFr}
+										width={FRANCE_FLAG_WIDTH * FRANCE_FLAG_RATIO}
+										height={FRANCE_FLAG_HEIGHT * FRANCE_FLAG_RATIO}
 									/>
 								</div>
 								<Image
@@ -341,8 +352,8 @@ const Software = () => {
 									loading='lazy'
 									src='/Images/Flag_Uk.webp'
 									alt='UK flag'
-									width={1024 * ratioUk}
-									height={683 * ratioUk}
+									width={UK_FLAG_WIDTH * UK_FLAG_RATIO}
+									height={UK_FLAG_HEIGHT * UK_FLAG_RATIO}
 								/>
 							</div>
 							<LiLabel
@@ -395,8 +406,8 @@ const Software = () => {
 										loading='lazy'
 										src='/Images/Flag_France.webp'
 										alt='French flag'
-										width={2560 * ratioFr}
-										height={1707 * ratioFr}
+										width={FRANCE_FLAG_WIDTH * FRANCE_FLAG_RATIO}
+										height={FRANCE_FLAG_HEIGHT * FRANCE_FLAG_RATIO}
 									/>
 								</div>
 								<Image
@@ -404,8 +415,8 @@ const Software = () => {
 									loading='lazy'
 									src='/Images/Flag_Uk.webp'
 									alt='UK flag'
-									width={1024 * ratioUk}
-									height={683 * ratioUk}
+									width={UK_FLAG_WIDTH * UK_FLAG_RATIO}
+									height={UK_FLAG_HEIGHT * UK_FLAG_RATIO}
 								/>
 							</div>
 							<LiLabel
@@ -458,8 +469,8 @@ const Software = () => {
 										loading='lazy'
 										src='/Images/Flag_France.webp'
 										alt='French flag'
-										width={2560 * ratioFr}
-										height={1707 * ratioFr}
+										width={FRANCE_FLAG_WIDTH * FRANCE_FLAG_RATIO}
+										height={FRANCE_FLAG_HEIGHT * FRANCE_FLAG_RATIO}
 									/>
 								</div>
 								<Image
@@ -467,8 +478,8 @@ const Software = () => {
 									loading='lazy'
 									src='/Images/Flag_Uk.webp'
 									alt='UK flag'
-									width={1024 * ratioUk}
-									height={683 * ratioUk}
+									width={UK_FLAG_WIDTH * UK_FLAG_RATIO}
+									height={UK_FLAG_HEIGHT * UK_FLAG_RATIO}
 								/>
 							</div>
 							<LiLabel
@@ -510,8 +521,8 @@ const Software = () => {
 										loading='lazy'
 										src='/Images/Flag_France.webp'
 										alt='French flag'
-										width={2560 * ratioFr}
-										height={1707 * ratioFr}
+										width={FRANCE_FLAG_WIDTH * FRANCE_FLAG_RATIO}
+										height={FRANCE_FLAG_HEIGHT * FRANCE_FLAG_RATIO}
 									/>
 								</div>
 								<Image
@@ -519,8 +530,8 @@ const Software = () => {
 									loading='lazy'
 									src='/Images/Flag_Uk.webp'
 									alt='UK flag'
-									width={1024 * ratioUk}
-									height={683 * ratioUk}
+									width={UK_FLAG_WIDTH * UK_FLAG_RATIO}
+									height={UK_FLAG_HEIGHT * UK_FLAG_RATIO}
 								/>
 							</div>
 							<LiLabel
@@ -554,8 +565,8 @@ const Software = () => {
 												loading='lazy'
 												src='/Images/Flag_France.webp'
 												alt='French flag'
-												width={2560 * ratioFr}
-												height={1707 * ratioFr}
+												width={FRANCE_FLAG_WIDTH * FRANCE_FLAG_RATIO}
+												height={FRANCE_FLAG_HEIGHT * FRANCE_FLAG_RATIO}
 											/>
 										</div>
 										<Image
@@ -563,8 +574,8 @@ const Software = () => {
 											loading='lazy'
 											src='/Images/Flag_Uk.webp'
 											alt='UK flag'
-											width={1024 * ratioUk}
-											height={683 * ratioUk}
+											width={UK_FLAG_WIDTH * UK_FLAG_RATIO}
+											height={UK_FLAG_HEIGHT * UK_FLAG_RATIO}
 										/>
 									</>
 								) : (
@@ -573,8 +584,8 @@ const Software = () => {
 										loading='lazy'
 										src='/Images/Flag_France.webp'
 										alt='French flag'
-										width={2560 * ratioFr}
-										height={1707 * ratioFr}
+										width={FRANCE_FLAG_WIDTH * FRANCE_FLAG_RATIO}
+										height={FRANCE_FLAG_HEIGHT * FRANCE_FLAG_RATIO}
 									/>
 								)}
 							</div>
@@ -609,8 +620,8 @@ const Software = () => {
 												loading='lazy'
 												src='/Images/Flag_France.webp'
 												alt='French flag'
-												width={2560 * ratioFr}
-												height={1707 * ratioFr}
+												width={FRANCE_FLAG_WIDTH * FRANCE_FLAG_RATIO}
+												height={FRANCE_FLAG_HEIGHT * FRANCE_FLAG_RATIO}
 											/>
 										</div>
 										<Image
@@ -618,8 +629,8 @@ const Software = () => {
 											loading='lazy'
 											src='/Images/Flag_Uk.webp'
 											alt='UK flag'
-											width={1024 * ratioUk}
-											height={683 * ratioUk}
+											width={UK_FLAG_WIDTH * UK_FLAG_RATIO}
+											height={UK_FLAG_HEIGHT * UK_FLAG_RATIO}
 										/>
 									</>
 								) : (
@@ -628,8 +639,8 @@ const Software = () => {
 										loading='lazy'
 										src='/Images/Flag_France.webp'
 										alt='French flag'
-										width={2560 * ratioFr}
-										height={1707 * ratioFr}
+										width={FRANCE_FLAG_WIDTH * FRANCE_FLAG_RATIO}
+										height={FRANCE_FLAG_HEIGHT * FRANCE_FLAG_RATIO}
 									/>
 								)}
 							</div>
@@ -786,7 +797,7 @@ export const styles = (mobile: boolean): IStyles => ({
 	headerTitle: {
 		padding: 0,
 		margin: 0,
-		lineHeight: mobile ? undefined : 0.7,
+		lineHeight: mobile ? undefined : HEADER_LINE_HEIGHT,
 		textAlign: mobile ? 'center' : undefined,
 	},
 	headerLink: {

@@ -4,6 +4,11 @@ import Image from 'next/image'
 import { useIsMobile, useMobile } from '../Hooks/useIsMobile'
 import { useText } from '../Hooks/useText'
 
+// Constants for motif image dimensions
+const MOTIF_WIDTH = 343
+const MOTIF_HEIGHT = 334
+const MOTIF_SCALE_ABOUT = 0.9
+
 export interface IStyles {
 	global: CSS.Properties
 	title: CSS.Properties
@@ -45,8 +50,8 @@ const About = () => {
 					<Image
 						src='/Images/motif_rect.svg'
 						alt={altText?.decorativePattern ?? 'Decorative geometric pattern background'}
-						width={343 * 0.9}
-						height={334 * 0.9}
+						width={MOTIF_WIDTH * MOTIF_SCALE_ABOUT}
+						height={MOTIF_HEIGHT * MOTIF_SCALE_ABOUT}
 						loading="lazy"
 						quality={70}
 					/>
