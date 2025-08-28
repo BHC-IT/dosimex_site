@@ -781,7 +781,7 @@ export const styles = (mobile: boolean): IStyles => ({
 		textAlign: 'justify',
 		marginTop: '5vh',
 		fontSize: mobile ? '1.6rem' : undefined,
-		fontWeight: 100,
+		fontWeight: 300,
 	},
 	headerTitle: {
 		padding: 0,

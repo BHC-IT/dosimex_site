@@ -229,13 +229,13 @@ export const styles = (mobile: boolean): IStyles => ({
 			marginBottom: mobile ? '6vh' : '4vh',
 			marginTop: mobile ? '4vh' : undefined,
 			textAlign: 'justify',
-			fontWeight: 100,
+			fontWeight: 300,
 		},
 		headerPromo: {
 			color: 'var(--dark)',
 			fontSize: mobile ? '1.6rem' : '2rem',
 			textAlign: 'justify',
-			fontWeight: 100,
+			fontWeight: 300,
 		},
 		headerImage: {
 			display: mobile ? 'none' : undefined,

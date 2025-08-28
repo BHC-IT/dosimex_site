@@ -286,7 +286,7 @@ export const styles = (mobile: boolean): IStyles => ({
 			color: 'var(--dark)',
 			fontSize: mobile ? '1.6rem' : '1.8rem',
 			textAlign: mobile ? 'justify' : undefined,
-			fontWeight: 100,
+			fontWeight: 300,
 		} as CSS.Properties,
 		btn: {
 			zIndex: 1,

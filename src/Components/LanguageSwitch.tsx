@@ -24,7 +24,7 @@ const LanguageSwitch = (props: IProps) => {
 	const isSelected = (lang: string) =>
 		props.language === lang
 			? styles.item
-			: { ...styles.item, color: 'rgb(150,150,150)', fontWeight: undefined }
+			: { ...styles.item, color: '#767676', fontWeight: undefined }
 
 	return (
 		<li>

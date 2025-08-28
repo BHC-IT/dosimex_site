@@ -323,7 +323,7 @@ export const styles = (mobile: boolean): IStyles => ({
 		color: 'var(--dark)',
 		textAlign: 'justify',
 		marginTop: '5vh',
-		fontWeight: 100,
+		fontWeight: 300,
 	},
 	headerLink: {
 		fontSize: mobile ? '2rem' : '2.4rem',
