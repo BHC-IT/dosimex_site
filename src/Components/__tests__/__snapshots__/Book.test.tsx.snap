@@ -1,5 +1,69 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`Book Component > Rendering > should render correctly with landscape orientation 1`] = `
+<div
+  style="display: flex; padding: 5vh 0px;"
+>
+  <div>
+    <a
+      href="https://example.com/book.pdf"
+      rel="noreferrer noopener"
+      target="_blank"
+    >
+      <div
+        style="width: 30vw; height: 80vh; cursor: pointer; background-position: center; background-repeat: no-repeat; background-size: cover; background-image: url("/Images/software-architecture-book.jpg");"
+      />
+    </a>
+    <p
+      style="font-family: Lato; font-weight: 700; font-size: 2.2rem; text-transform: uppercase;"
+    >
+      John Smith
+    </p>
+  </div>
+  <div
+    style="padding-left: 5%; display: flex; text-align: justify;"
+  >
+    <p
+      style="margin: 0px;"
+    >
+      This is a comprehensive guide to understanding complex software architecture patterns.
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Book Component > Rendering > should render correctly with portrait orientation 1`] = `
+<div
+  style="display: flex; padding: 5vh 0px;"
+>
+  <div>
+    <a
+      href="https://example.com/book.pdf"
+      rel="noreferrer noopener"
+      target="_blank"
+    >
+      <div
+        style="width: 15vw; height: 45vh; cursor: pointer; background-position: center; background-repeat: no-repeat; background-size: cover; background-image: url("/Images/software-architecture-book.jpg");"
+      />
+    </a>
+    <p
+      style="font-family: Lato; font-weight: 700; font-size: 2.2rem; text-transform: uppercase;"
+    >
+      John Smith
+    </p>
+  </div>
+  <div
+    style="padding-left: 5%; display: flex; text-align: justify;"
+  >
+    <p
+      style="margin: 0px;"
+    >
+      This is a comprehensive guide to understanding complex software architecture patterns.
+    </p>
+  </div>
+</div>
+`;
+
 exports[`Book Component > should render correctly with landscape orientation 1`] = `null`;
 
 exports[`Book Component > should render correctly with portrait orientation 1`] = `null`;

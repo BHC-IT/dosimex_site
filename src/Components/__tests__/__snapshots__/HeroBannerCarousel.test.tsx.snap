@@ -1,5 +1,117 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`HeroBannerCarousel Component > Rendering > should render with text array 1`] = `
+<div>
+  <div
+    style="width: 307.2px; height: 194.56px; position: relative;"
+  >
+    <img
+      alt="Main carousel interface"
+      data-nimg="1"
+      decoding="async"
+      fetchpriority="high"
+      height="194.56"
+      src="/_next/image?url=%2FImages%2FMockupCarousel.png&w=640&q=85"
+      srcset="/_next/image?url=%2FImages%2FMockupCarousel.png&w=384&q=85 1x, /_next/image?url=%2FImages%2FMockupCarousel.png&w=640&q=85 2x"
+      style="color: transparent;"
+      width="307.2"
+    />
+  </div>
+  <div
+    style="position: absolute; left: 5.12px; top: 7.167999999999999px;"
+  >
+    <div
+      style="overflow: hidden;"
+    >
+      <div
+        style="position: relative; width: 400%; margin: 0px; left: 0px; animation: 10s slidy infinite;"
+      >
+        <div
+          style="width: 25%; float: left;"
+        >
+          <img
+            alt="Screenshot ScreenCarousel1.png"
+            data-nimg="1"
+            decoding="async"
+            height="167.1168"
+            loading="lazy"
+            src="/_next/image?url=%2FImages%2FScreenCarousel1.png&w=640&q=80"
+            srcset="/_next/image?url=%2FImages%2FScreenCarousel1.png&w=384&q=80 1x, /_next/image?url=%2FImages%2FScreenCarousel1.png&w=640&q=80 2x"
+            style="color: transparent;"
+            width="296.96"
+          />
+          <p
+            style="font-style: italic; float: right; margin-top: 7vh; padding: 0px 10px; font-size: 1.8rem; color: var(--grey);"
+          >
+            Advanced radiation dose management system
+          </p>
+        </div>
+        <div
+          style="width: 25%; float: left;"
+        >
+          <img
+            alt="Screenshot ScreenCarousel2.png"
+            data-nimg="1"
+            decoding="async"
+            height="167.1168"
+            loading="lazy"
+            src="/_next/image?url=%2FImages%2FScreenCarousel2.png&w=640&q=80"
+            srcset="/_next/image?url=%2FImages%2FScreenCarousel2.png&w=384&q=80 1x, /_next/image?url=%2FImages%2FScreenCarousel2.png&w=640&q=80 2x"
+            style="color: transparent;"
+            width="296.96"
+          />
+          <p
+            style="font-style: italic; float: right; margin-top: 7vh; padding: 0px 10px; font-size: 1.8rem; color: var(--grey);"
+          >
+            Real-time monitoring and analysis tools
+          </p>
+        </div>
+        <div
+          style="width: 25%; float: left;"
+        >
+          <img
+            alt="Screenshot ScreenCarousel3.png"
+            data-nimg="1"
+            decoding="async"
+            height="167.1168"
+            loading="lazy"
+            src="/_next/image?url=%2FImages%2FScreenCarousel3.png&w=640&q=80"
+            srcset="/_next/image?url=%2FImages%2FScreenCarousel3.png&w=384&q=80 1x, /_next/image?url=%2FImages%2FScreenCarousel3.png&w=640&q=80 2x"
+            style="color: transparent;"
+            width="296.96"
+          />
+          <p
+            style="font-style: italic; float: right; margin-top: 7vh; padding: 0px 10px; font-size: 1.8rem; color: var(--grey);"
+          >
+            Comprehensive reporting and compliance features
+          </p>
+        </div>
+        <div
+          style="width: 25%; float: left;"
+        >
+          <img
+            alt="Screenshot ScreenCarousel4.png"
+            data-nimg="1"
+            decoding="async"
+            height="167.1168"
+            loading="lazy"
+            src="/_next/image?url=%2FImages%2FScreenCarousel4.png&w=640&q=80"
+            srcset="/_next/image?url=%2FImages%2FScreenCarousel4.png&w=384&q=80 1x, /_next/image?url=%2FImages%2FScreenCarousel4.png&w=640&q=80 2x"
+            style="color: transparent;"
+            width="296.96"
+          />
+          <p
+            style="font-style: italic; float: right; margin-top: 7vh; padding: 0px 10px; font-size: 1.8rem; color: var(--grey);"
+          >
+            User-friendly interface for efficient workflow
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`HeroBannerCarousel Component > should match snapshot with text 1`] = `
 <div>
   <div

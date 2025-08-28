@@ -1,3 +1,48 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`OpinionHome Component > Rendering > should render correctly with text 1`] = `
+<div
+  style="background-color: var(--grey-bg); padding: 10vh 10vw;"
+>
+  <div>
+    <h5
+      style="font-size: 1.8rem; margin: 0px;"
+    >
+      John Doe
+    </h5>
+    <p
+      style="margin: 0px;"
+    >
+      Software Engineer
+    </p>
+  </div>
+  <div
+    style="margin: 4vh 0px;"
+  >
+    <img
+      alt="icône citation"
+      src="/Images/icon_quote.png"
+    />
+    <p
+      style="text-align: justify;"
+    >
+      Great product! Very easy to use and efficient.
+    </p>
+  </div>
+  <a
+    href="../Folders/extrait_retour_utilisateurs.pdf"
+    rel="noreferrer noopener"
+    style="padding: 8px 25px; border: 2px solid var(--main); border-radius: 50px; color: var(--main); text-transform: uppercase; transition: all 0.3s ease 0s; display: flex; align-items: center; justify-content: space-around; width: 220px; margin: 7vh auto 2vh auto; text-decoration: none;"
+    target="_blank"
+  >
+    Download PDF
+    <img
+      alt="icône télécharger"
+      src="/Images/icon_download.png"
+      style="width: 1.2vw; min-width: 25px;"
+    />
+  </a>
+</div>
+`;
+
 exports[`OpinionHome Component > should render correctly with text 1`] = `null`;
