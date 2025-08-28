@@ -47,4 +47,6 @@ const SingleInputs: React.FC<ISingleInputsProps> = React.memo(({
 	)
 })
 
+SingleInputs.displayName = 'SingleInputs'
+
 export default SingleInputs

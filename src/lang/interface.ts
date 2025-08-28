@@ -1,4 +1,5 @@
 export default interface Lang {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	[key: string]: any // Keep this for backwards compatibility, but specific types are defined below
 	altText: {
 		logo: string

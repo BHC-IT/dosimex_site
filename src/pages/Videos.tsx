@@ -1,5 +1,6 @@
 import * as CSS from 'csstype'
 import dynamic from 'next/dynamic'
+import { CSSProperties } from 'react'
 
 import SquareGrid, { IStyles as SquareStyle } from '../Components/SquareGrid'
 import { useIsMobile } from '../Hooks/useIsMobile'
@@ -14,17 +15,19 @@ interface IMapOf<A> {
 
 type IMapOfStyle = IMapOf<CSS.Properties | Function>
 
-type IStyles = { [key: string]: any }
+type IStyles = {
+	[key: string]: CSSProperties | ((arg1?: string | boolean | CSSProperties, arg2?: string | boolean) => CSSProperties)
+}
 
 interface IVideoStyle {
 	container: CSS.Properties
 	itemContainer: CSS.Properties
-	itemLabel: Function
+	itemLabel: (color: string) => CSS.Properties
 }
 
 interface ISeparatorStyle {
-	container: Function
-	line: Function
+	container: (right?: boolean) => CSS.Properties
+	line: (color?: string) => CSS.Properties
 }
 
 interface IHeaderProps {
@@ -99,10 +102,10 @@ const listVideoYt = {
 // Constant for videos per row
 const VIDEOS_PER_ROW = 4
 
-const splitArrays = (nb: number, arr: any[]) => {
+const splitArrays = <T extends unknown>(nb: number, arr: T[]) => {
 
-	const retour: any[][] = []
-	let tmp: any[] = []
+	const retour: T[][] = []
+	let tmp: T[] = []
 	arr.map(id => {
 		tmp.push(id)
 		if (tmp.length === VIDEOS_PER_ROW) {
@@ -142,11 +145,13 @@ const Separator = ({ right, color, style }: ISeparatorProps) => (
 )
 
 const LabelVideo = ({ color, label, style, mainStyle }: ILabelVideoProps) => (
-	<div style={mainStyle.labelVideoContainer}>
+	<div style={mainStyle.labelVideoContainer as CSSProperties}>
 		<div style={style.itemLabel(color)}>
-			<p style={mainStyle.labelVideoText}>{label}</p>
+			<p style={mainStyle.labelVideoText as CSSProperties}>{label}</p>
 		</div>
-		<p style={mainStyle.labelVideoAbsolute(color)}>{label}</p>
+		<p style={typeof mainStyle.labelVideoAbsolute === 'function'
+			? mainStyle.labelVideoAbsolute(color)
+			: mainStyle.labelVideoAbsolute}>{label}</p>
 	</div>
 )
 
@@ -194,9 +199,13 @@ const Pack = ({
 	mainStyle,
 }: IPackProps) => (
 	<div style={style.container}>
-		<div style={mainStyle.titleContainerDynamic(style.titleContainer, right)}>
+		<div style={typeof mainStyle.titleContainerDynamic === 'function'
+			? mainStyle.titleContainerDynamic(style.titleContainer, right)
+			: mainStyle.titleContainerDynamic}>
 			<h3>{text.packTitle}</h3>
-			<h3 style={mainStyle.titleSpecialDynamic(style.titleSpe, color)}>{title}</h3>
+			<h3 style={typeof mainStyle.titleSpecialDynamic === 'function'
+				? mainStyle.titleSpecialDynamic(style.titleSpe, color)
+				: mainStyle.titleSpecialDynamic}>{title}</h3>
 		</div>
 		{splitArrays(VIDEOS_PER_ROW, videoIds).map((listVidLine, index) => {
 			return (
@@ -220,10 +229,10 @@ export default function Videos() {
 	if (style === null) return null
 
 	return (
-		<div style={style.mainContainer}>
+		<div style={style.mainContainer as CSSProperties}>
 			<Header
 				text={text}
-				style={style.headerStyle}
+				style={style.headerStyle as IMapOfStyle}
 			/>
 			<Separator
 				color='var(--main)'
@@ -237,7 +246,7 @@ export default function Videos() {
 				label={text.packOpe.label}
 				style={style.packStyle as IMapOf<CSS.Properties>}
 				styleVideo={style.videosLineStyle as unknown as IVideoStyle}
-				mainStyle={style}
+				mainStyle={style as unknown as IStyles}
 			/>
 			<Separator
 				right
@@ -251,7 +260,7 @@ export default function Videos() {
 				label={text.packPeda.label}
 				style={style.packStyle as IMapOf<CSS.Properties>}
 				styleVideo={style.videosLineStyle as unknown as IVideoStyle}
-				mainStyle={style}
+				mainStyle={style as unknown as IStyles}
 			/>
 			<Separator
 				color='var(--orange)'
@@ -265,13 +274,13 @@ export default function Videos() {
 				label={text.packMes.label}
 				style={style.packStyle as IMapOf<CSS.Properties>}
 				styleVideo={style.videosLineStyle as unknown as IVideoStyle}
-				mainStyle={style}
+				mainStyle={style as unknown as IStyles}
 			/>
 		</div>
 	)
 }
 
-export const styles = (mobile: boolean): IStyles => ({
+export const styles = (mobile: boolean) => ({
 	headerStyle: {
 		container: {
 			...center,

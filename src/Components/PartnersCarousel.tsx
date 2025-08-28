@@ -95,14 +95,22 @@ const Card = ({ text, style, link, url, color, isMobile, isTablet }: ICardProps)
 	const [over, setOver] = useState(false)
 	return (
 		<div
+			role="button"
+			tabIndex={0}
 			style={{
 				display: 'flex',
 				justifyContent: 'center',
 				alignItems: isTablet ? 'flex-start' : 'center',
 				flexDirection: isMobile ? 'column' : undefined,
+				cursor: 'pointer',
 			}}
 			onMouseOut={() => setOver(false)}
 			onMouseOver={() => setOver(true)}
+			onKeyDown={e => {
+				if (e.key === 'Enter' || e.key === ' ') {
+					setOver(!over)
+				}
+			}}
 		>
 			<a
 				href={url}

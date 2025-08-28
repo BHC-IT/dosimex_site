@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import CSS from 'csstype'
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, CSSProperties } from 'react'
 import { BrowserView, MobileView, isMobile } from 'react-device-detect'
 import styled from 'styled-components'
 
@@ -17,11 +17,55 @@ interface IMapOfStyle {
 	[i: string]: CSS.Properties
 }
 
-type IStyles = { [key: string]: any }
+interface IStyles {
+	container: CSSProperties
+	divImage: CSSProperties
+	header: CSSProperties
+	headerText: CSSProperties
+	headerTitle: CSSProperties
+	headerLink: CSSProperties
+	arrow: CSSProperties
+	partHeader: CSSProperties
+	textPartHeader: CSSProperties
+	questionsStyles: {
+		container: CSSProperties
+		text: CSSProperties
+		title?: CSSProperties
+	}
+	divPack: CSSProperties
+	divPackHeader: CSSProperties
+	descrip: CSSProperties
+	pLi: CSSProperties
+	liLabel: IMapOfStyle
+	divFlag: CSSProperties
+	inlineIcon: CSSProperties
+	iconSizeMobile: CSSProperties
+	iconSizeDesktop: CSSProperties
+	tooltipStyle: (isVisible: boolean, x: number) => CSS.Properties
+	inlineDisplay: CSSProperties
+	sectionContainer: CSSProperties
+	sectionRowStart: CSSProperties
+	sectionRowEnd: CSSProperties
+	sectionMobileConditional: (i: number) => CSS.Properties
+	flagSpacing: CSSProperties
+	partColumn: CSSProperties
+	textJustify: CSSProperties
+	videoButtonMargin: CSSProperties
+	moreSection: CSSProperties
+	linkContainerFirst: CSSProperties
+	linkContainer: CSSProperties
+	linkText: CSSProperties
+	simpleLinkText: CSSProperties
+	mobileButtonContainer: CSSProperties
+}
 
-interface IProps {
+interface IQuestionsProps {
 	text: ILang
-	style: IStyles
+	style: {
+		container: CSSProperties
+		text: CSSProperties
+		title?: CSSProperties
+	}
 }
 
 interface ILiLabelProps {
@@ -37,7 +81,7 @@ interface ILinkVideoProps {
 	mainStyle: IStyles
 }
 
-const Questions = ({ text, style }: IProps) => (
+const Questions = ({ text, style }: IQuestionsProps) => (
 	<div style={style.container}>
 		<h3 style={style.title}>{text.ask.title}</h3>
 		<p style={style.text}>{text.ask.text}</p>
@@ -358,7 +402,7 @@ const Software = () => {
 							</div>
 							<LiLabel
 								text={text.packOpe.li[i]}
-								style={style.liLabel as IMapOfStyle}
+								style={style.liLabel}
 								textOver={text.linkVideo}
 								mainStyle={style}
 							/>
@@ -421,7 +465,7 @@ const Software = () => {
 							</div>
 							<LiLabel
 								text={text.packPeda.li[i]}
-								style={style.liLabel as IMapOfStyle}
+								style={style.liLabel}
 								textOver={text.linkVideo}
 								mainStyle={style}
 							/>
@@ -484,7 +528,7 @@ const Software = () => {
 							</div>
 							<LiLabel
 								text={text.packMes.li[i]}
-								style={style.liLabel as IMapOfStyle}
+								style={style.liLabel}
 								textOver={text.linkVideo}
 								mainStyle={style}
 							/>
@@ -536,7 +580,7 @@ const Software = () => {
 							</div>
 							<LiLabel
 								text={text.packOpe.li[i]}
-								style={style.liLabel as IMapOfStyle}
+								style={style.liLabel}
 								mainStyle={style}
 							/>
 						</div>
@@ -591,7 +635,7 @@ const Software = () => {
 							</div>
 							<LiLabel
 								text={text.packPeda.li[i]}
-								style={style.liLabel as IMapOfStyle}
+								style={style.liLabel}
 								mainStyle={style}
 							/>
 						</div>
@@ -646,7 +690,7 @@ const Software = () => {
 							</div>
 							<LiLabel
 								text={text.packMes.li[i]}
-								style={style.liLabel as IMapOfStyle}
+								style={style.liLabel}
 								mainStyle={style}
 							/>
 						</div>

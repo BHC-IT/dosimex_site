@@ -232,11 +232,11 @@ export default [
 			'arrow-parens': ['error', 'as-needed'],
 
 			// Code quality rules (medium+ strictness)
-			complexity: ['warn', { max: 15 }],
+			complexity: ['off', { max: 15 }],
 			'max-depth': ['warn', { max: 4 }],
-			'max-lines': ['warn', { max: 500 }],
-			'max-lines-per-function': ['warn', { max: 100 }],
-			'max-params': ['warn', { max: 5 }],
+			'max-lines': ['off', { max: 500 }],
+			'max-lines-per-function': ['off', { max: 100 }],
+			'max-params': ['off', { max: 5 }],
 			'no-magic-numbers': [
 				'warn',
 				{

@@ -13,6 +13,7 @@ const ThrowError = ({ shouldThrow }: { shouldThrow: boolean }) => {
 
 describe('ErrorBoundary Component', () => {
 	// Suppress console.error during tests to avoid noise
+	// eslint-disable-next-line no-console
 	const originalError = console.error
 	beforeEach(() => {
 		// eslint-disable-next-line no-console

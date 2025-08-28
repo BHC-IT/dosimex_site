@@ -37,10 +37,7 @@ describe('CardHome Debug', () => {
 			route: '/test',
 		}
 
-		const { container, debug } = render(<CardHome {...props} />)
-
-		console.log('Container:', container.innerHTML)
-		debug()
+		const { container } = render(<CardHome {...props} />)
 
 		// Just check if anything renders at all
 		expect(container).toBeDefined()

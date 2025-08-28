@@ -74,7 +74,7 @@ const PhoneEnterpriseRow: React.FC<IPhoneEnterpriseRowProps> = React.memo(({
 	// Memoize callback to prevent unnecessary re-renders of PhoneInput
 	const handlePhoneChange = useCallback((value: string | undefined) => {
 		formData.setPhone(value)
-		formData.validatePhone(value)
+		formData.validatePhone()
 	}, [formData])
 
 	return (
@@ -111,5 +111,7 @@ const PhoneEnterpriseRow: React.FC<IPhoneEnterpriseRowProps> = React.memo(({
 		</div>
 	)
 })
+
+PhoneEnterpriseRow.displayName = 'PhoneEnterpriseRow'
 
 export default PhoneEnterpriseRow

@@ -33,6 +33,17 @@ const CardHome = (props: IProps) => {
 
 	if (style === null) return null
 
+	const handleClick = () => {
+		void router.push(props.route)
+	}
+
+	const handleKeyDown = (e: React.KeyboardEvent) => {
+		if (e.key === 'Enter' || e.key === ' ') {
+			e.preventDefault()
+			handleClick()
+		}
+	}
+
 	return (
 		<Tilt
 			tiltReverse
@@ -44,14 +55,13 @@ const CardHome = (props: IProps) => {
 			<button
 				aria-label={`Navigate to ${props.title} section - ${props.content}`}
 				style={{ ...style.card, border: 'none', background: 'white' }}
-				onClick={() => {
-					void router.push(props.route)
-				}}
+				onClick={handleClick}
+				onKeyDown={handleKeyDown}
 			>
 				<div style={style.image}>
 					<Image
 						src={props.icon}
-						alt={`${altText?.cardIcon ?? 'Icon'} - ${props.title}`}
+						alt={`${altText?.cardIcon ?? 'Card icon'} - ${props.title}`}
 						width={80}
 						height={80}
 						quality={80}

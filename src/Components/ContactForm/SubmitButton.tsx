@@ -76,4 +76,6 @@ const SubmitButton: React.FC<ISubmitButtonProps> = React.memo(({ style, text, is
 	)
 })
 
+SubmitButton.displayName = 'SubmitButton'
+
 export default SubmitButton

@@ -86,10 +86,12 @@ const NameEmailRow: React.FC<INameEmailRowProps> = React.memo(({
 				style={inputStyle}
 				required
 				onChange={formData.setEmail}
-				validator={formData.getEmailValidators(errorEmailArray, errorMessages.email)}
+				validator={formData.getEmailValidators(errorEmailArray)}
 			/>
 		</div>
 	)
 })
+
+NameEmailRow.displayName = 'NameEmailRow'
 
 export default NameEmailRow

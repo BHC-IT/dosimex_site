@@ -73,6 +73,8 @@ const ContactForm: React.FC<IProps> = React.memo(() => {
 	)
 })
 
+ContactForm.displayName = 'ContactForm'
+
 export const styles = (mobile: boolean): IStyles => ({
 	form: {
 		padding: '2vh 4vw',
