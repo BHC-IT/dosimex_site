@@ -19,7 +19,8 @@
       "Bash(npx vitest run:*)",
       "Bash(grep:*)",
       "Bash(pnpm vitest:*)",
-      "Bash(pnmp run test:run:*)"
+      "Bash(pnmp run test:run:*)",
+      "Bash(pnmp test:*)"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"
