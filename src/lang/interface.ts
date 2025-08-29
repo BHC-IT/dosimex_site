@@ -149,6 +149,24 @@ export default interface Lang {
 			italic: string
 		}
 		titlePrice: string
+		pricing: {
+			title: string
+			packageTitle: string
+			packageFeatures: string[]
+			volumeTitle: string
+			volumeText: string
+			volumeItems: string[]
+			orderTitle: string
+			orderText: string
+			quoteButton: string
+		}
+		faq: {
+			title: string
+			questions: {
+				question: string
+				answer: string
+			}[]
+		}
 		questions: {
 			title: string
 			p: string

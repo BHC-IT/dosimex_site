@@ -14,7 +14,7 @@ const text: ILang = {
 	},
 	Home: {
 		header: {
-			title: 'Des outils de calculs radioprotection pour tous',
+			title: 'DOSIMEX - La suite Excel professionnelle pour vos calculs en radioprotection',
 			p: "Ensemble d'outils de calculs pratiques, simples d’emploi, validés, et répondant à de nombreuses situations rencontrées en radioprotection. Ils vous permettront d'améliorer votre niveau d'expertise.",
 			promo: 'La plupart de nos outils de calcul existent désormais en version anglaise.',
 			button: 'Découvrir',
@@ -338,7 +338,7 @@ const text: ILang = {
 		buttonKnowMore: 'En savoir plus',
 		title: 'Fiche technique du produit',
 		descrip:
-			'Le pack DOSIMEX 3.2 regroupe tous nos outils professionnels de calcul en radioprotection dans une solution unique et prête à l’emploi. Distribué en version numérique, il est livré avec une licence individuelle mono-poste. Après votre commande, vous recevez immédiatement par e-mail un lien de téléchargement ainsi que votre clé de licence. Installation immédiate, protection optimale, résultats fiables — commencez vos calculs sans attendre.',
+			"DOSIMEX 3.2 - Pack professionnel de 17 outils Excel pour la radioprotection. Solution complète de calculs en radioprotection, DOSIMEX regroupe 17 codes professionnels développés en VBA/Excel, prêts à l'emploi : 6 codes opérationnels (calculs de dose, zonage, protection), 6 modules pédagogiques interactifs, 5 utilitaires de mesure et analyse. Livraison numérique immédiate • Licence mono-poste • Support inclus",
 		partE: {
 			title: 'Contenu du pack',
 			p: [
@@ -356,9 +356,47 @@ const text: ILang = {
 			italic: "Les fichiers de Dosimex sont cryptés. Aucun autre fichier excel ne doit etre ouvert pendant l'utilisation de Dosimex",
 		},
 		titlePrice: 'Obtenir la licence Dosimex 3.2',
+		pricing: {
+			title: 'Tarification',
+			packageTitle: 'Pack DOSIMEX 3.2 - Licence mono-poste',
+			packageFeatures: [
+				'Prix : 500€ HT/an',
+				'Licence annuelle avec mises à jour incluses',
+				'Support technique inclus',
+				'Installation immédiate après achat',
+			],
+			volumeTitle: 'Tarifs dégressifs disponibles',
+			volumeText:
+				"Pour l'achat de plusieurs licences, nous proposons des tarifs préférentiels :",
+			volumeItems: [
+				'1-5 licences : Demander un devis',
+				'6+ licences : Tarifs entreprise sur mesure',
+			],
+			orderTitle: 'Comment commander ?',
+			orderText:
+				'Demandez votre devis personnalisé via le formulaire ci-dessous. Nous vous répondrons dans les plus brefs délais avec votre devis et les modalités de paiement.',
+			quoteButton: 'Demander un devis',
+		},
+		faq: {
+			title: 'Questions fréquentes',
+			questions: [
+				{
+					question: 'Pourquoi Excel ?',
+					answer: "Excel est l'environnement de travail habituel des professionnels. Aucun logiciel supplémentaire à apprendre, intégration facile dans vos workflows existants.",
+				},
+				{
+					question: "Quelle version d'Excel ?",
+					answer: 'Compatible avec Excel 2003 à Excel 2024, de Windows XP à Windows 11. Sur Mac, une machine virtuelle est nécessaire.',
+				},
+				{
+					question: 'Les mises à jour sont-elles incluses ?',
+					answer: 'Oui, toutes les mises à jour sont incluses dans votre licence annuelle, ainsi que le support technique.',
+				},
+			],
+		},
 		questions: {
 			title: 'Une demande de devis ? Des questions ?',
-			p: 'N’hésitez pas à nous contacter via le formulaire ci-dessous ou par téléphone au ',
+			p: "N'hésitez pas à nous contacter via le formulaire ci-dessous ou par téléphone au ",
 		},
 	},
 	Training: {

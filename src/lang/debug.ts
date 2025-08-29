@@ -263,6 +263,46 @@ const text: ILang = {
 			italic: '{Product.prerequisites.italic}',
 		},
 		titlePrice: '{Product.titlePrice}',
+		pricing: {
+			title: '{Product.pricing.title}',
+			packageTitle: '{Product.pricing.packageTitle}',
+			packageFeatures: [
+				'{Product.pricing.packageFeatures[0]}',
+				'{Product.pricing.packageFeatures[1]}',
+				'{Product.pricing.packageFeatures[2]}',
+				'{Product.pricing.packageFeatures[3]}',
+			],
+			volumeTitle: '{Product.pricing.volumeTitle}',
+			volumeText: '{Product.pricing.volumeText}',
+			volumeItems: [
+				'{Product.pricing.volumeItems[0]}',
+				'{Product.pricing.volumeItems[1]}',
+			],
+			orderTitle: '{Product.pricing.orderTitle}',
+			orderText: '{Product.pricing.orderText}',
+			quoteButton: '{Product.pricing.quoteButton}',
+		},
+		faq: {
+			title: '{Product.faq.title}',
+			questions: [
+				{
+					question: '{Product.faq.questions[0].question}',
+					answer: '{Product.faq.questions[0].answer}',
+				},
+				{
+					question: '{Product.faq.questions[1].question}',
+					answer: '{Product.faq.questions[1].answer}',
+				},
+				{
+					question: '{Product.faq.questions[2].question}',
+					answer: '{Product.faq.questions[2].answer}',
+				},
+				{
+					question: '{Product.faq.questions[3].question}',
+					answer: '{Product.faq.questions[3].answer}',
+				},
+			],
+		},
 		questions: {
 			title: '{Product.questions.title}',
 			p: '{Product.questions.p}',

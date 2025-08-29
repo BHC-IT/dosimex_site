@@ -14,7 +14,7 @@ const text: ILang = {
 	},
 	Home: {
 		header: {
-			title: 'Radiation protection calculation tools for everyone',
+			title: 'DOSIMEX - The Professional Excel Suite for Radiation Protection Calculations',
 			p: 'A set of practical, easy-to-use, validated calculation tools that address many situations encountered in radiation protection. They will allow you to improve your expertise level.',
 			promo: 'Most of our calculation tools are available in English and French.',
 			button: 'Discover',
@@ -338,7 +338,7 @@ const text: ILang = {
 		buttonKnowMore: 'Read more',
 		title: 'Product data sheet',
 		descrip:
-			'The DOSIMEX 3.2 pack brings together all our professional radiation protection calculation tools in a single, ready-to-use solution. Delivered as a digital version, it comes with a single-user license. Once your order is confirmed, you will immediately receive by e-mail: a secure download link and your license key. Instant installation, optimal protection, reliable results — start your calculations right away.',
+			'DOSIMEX 3.2 - Professional pack of 17 Excel tools for radiation protection. Complete radiation protection calculation solution, DOSIMEX brings together 17 professional codes developed in VBA/Excel, ready to use: 6 operational codes (dose calculations, zoning, protection), 6 interactive educational modules, 5 measurement and analysis utilities. Instant digital delivery • Single-user license • Support included',
 		partE: {
 			title: 'Pack content',
 			p: [
@@ -354,6 +354,43 @@ const text: ILang = {
 			italic: '',
 		},
 		titlePrice: 'Get Dosimex 3.2 License',
+		pricing: {
+			title: 'Pricing',
+			packageTitle: 'DOSIMEX 3.2 Pack - Single-user License',
+			packageFeatures: [
+				'Price: €500/year (excl. VAT)',
+				'Annual license with updates included',
+				'Technical support included',
+				'Instant installation after purchase',
+			],
+			volumeTitle: 'Volume Discounts Available',
+			volumeText: 'For purchasing multiple licenses, we offer preferential rates:',
+			volumeItems: [
+				'1-5 licenses: Request a quote',
+				'6+ licenses: Custom enterprise pricing',
+			],
+			orderTitle: 'How to order?',
+			orderText:
+				'Request your personalized quote using the form below. We will respond promptly with your quote and payment terms.',
+			quoteButton: 'Request a quote',
+		},
+		faq: {
+			title: 'Frequently Asked Questions',
+			questions: [
+				{
+					question: 'Why Excel?',
+					answer: 'Excel is the standard working environment for professionals. No additional software to learn, easy integration into your existing workflows.',
+				},
+				{
+					question: 'Which Excel version?',
+					answer: 'Compatible with Excel 2003 to Excel 2024, from Windows XP to Windows 11. On Mac, a virtual machine is required.',
+				},
+				{
+					question: 'Are updates included?',
+					answer: 'Yes, all updates are included in your annual license, as well as technical support.',
+				},
+			],
+		},
 		questions: {
 			title: 'A request for a quotation? Any questions?',
 			p: 'Feel free to contact us via the form below or by phone at ',

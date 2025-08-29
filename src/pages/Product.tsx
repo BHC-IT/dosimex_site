@@ -27,6 +27,7 @@ function Product() {
 	const text = useText('Product')
 	const style = useIsMobile(styles)
 	const [dummy] = useState(0)
+	const [isButtonHovered, setIsButtonHovered] = useState(false)
 	const buy = useRef(null as HTMLDivElement | null)
 
 	useEffect(() => {
@@ -77,7 +78,42 @@ function Product() {
 				<p>{text.between}</p>
 				<h4 style={style.prerequisites}>{text.prerequisites.title}</h4>
 				<p>{text.prerequisites.p}</p>
+				{/* Pricing Section */}
+				<section style={style.pricingSection}>
+					<h4 style={style.pricingTitle}>{text.pricing.title}</h4>
+					<div style={style.pricingCard}>
+						<h5 style={style.packageTitle}>{text.pricing.packageTitle}</h5>
+						<ul style={style.featuresList}>
+							{text.pricing.packageFeatures.map((feature: string, index: number) => (
+								<li
+									key={index}
+									style={style.featureItem}
+								>
+									{feature}
+								</li>
+							))}
+						</ul>
+					</div>
+
+					<div style={style.orderSection}>
+						<h5 style={style.orderTitle}>{text.pricing.orderTitle}</h5>
+						<p style={style.orderText}>{text.pricing.orderText}</p>
+						<button
+							style={{
+								...style.quoteButton,
+								...(isButtonHovered ? style.quoteButtonHover : {}),
+							}}
+							onClick={() => buy.current?.scrollIntoView({ behavior: 'smooth' })}
+							onMouseEnter={() => setIsButtonHovered(true)}
+							onMouseLeave={() => setIsButtonHovered(false)}
+							type='button'
+						>
+							{text.pricing.quoteButton}
+						</button>
+					</div>
+				</section>
 			</section>
+
 			<section
 				style={style.questions}
 				ref={buy}
@@ -89,6 +125,26 @@ function Product() {
 				</p>
 				<div style={style.contact}>
 					<ContactForm />
+				</div>
+			</section>
+			{/* FAQ Section */}
+			<section
+				className='container'
+				style={style.faqSection}
+			>
+				<h4 style={style.faqTitle}>{text.faq.title}</h4>
+				<div style={style.faqContainer}>
+					{text.faq.questions.map(
+						(faq: { question: string; answer: string }, index: number) => (
+							<div
+								key={index}
+								style={style.faqItem}
+							>
+								<h5 style={style.faqQuestion}>{faq.question}</h5>
+								<p style={style.faqAnswer}>{faq.answer}</p>
+							</div>
+						)
+					)}
 				</div>
 			</section>
 		</div>
@@ -180,7 +236,9 @@ export const styles = (mobile: boolean): IStyles => ({
 	},
 	imagePrice: {
 		width: mobile ? '100vw' : `${BASE_WIDTH * IMAGE_RATIO_2}px`,
-		height: mobile ? `${BASE_HEIGHT_MOBILE * IMAGE_RATIO}px` : `${BASE_HEIGHT_DESKTOP * IMAGE_RATIO_2}px`,
+		height: mobile
+			? `${BASE_HEIGHT_MOBILE * IMAGE_RATIO}px`
+			: `${BASE_HEIGHT_DESKTOP * IMAGE_RATIO_2}px`,
 		backgroundImage: "url('/Images/usbkey.png')",
 		backgroundPosition: 'center',
 		backgroundRepeat: 'no-repeat',
@@ -229,5 +287,112 @@ export const styles = (mobile: boolean): IStyles => ({
 	},
 	phoneNumber: {
 		color: 'var(--main)',
+	},
+	// Pricing Section Styles
+	pricingSection: {
+		marginTop: '8vh',
+		marginBottom: '4vh',
+		padding: mobile ? '4vh 6vw' : '',
+	},
+	pricingTitle: {
+		color: 'var(--main)',
+		fontFamily: 'var(--lato)',
+		fontWeight: 'bold',
+		marginBottom: '4vh',
+	},
+	pricingCard: {
+		backgroundColor: 'var(--light)',
+		border: '1px solid var(--flash)',
+		color: 'var(--dark)',
+		padding: mobile ? '3vh 4vw' : '4vh 3vw',
+		textAlign: 'center' as 'center',
+		marginBottom: '4vh',
+	},
+	packageTitle: {
+		fontSize: mobile ? '1.8rem' : '2rem',
+		fontWeight: 'bold',
+		marginBottom: '2vh',
+		fontFamily: 'var(--lato)',
+		color: 'var(--main)',
+	},
+	featuresList: {
+		listStyle: 'none',
+		padding: 0,
+		margin: 0,
+	},
+	featureItem: {
+		padding: '0.8vh 0',
+		fontSize: mobile ? '1.4rem' : '1.6rem',
+		borderBottom: '1px solid rgba(0,0,0,0.1)',
+	},
+	orderSection: {
+		textAlign: 'center' as 'center',
+		padding: mobile ? '3vh 4vw' : '4vh 6vw',
+	},
+	orderTitle: {
+		fontSize: mobile ? '2rem' : '2.4rem',
+		fontWeight: 'bold',
+		marginBottom: '2vh',
+		color: 'var(--main)',
+		fontFamily: 'var(--lato)',
+	},
+	orderText: {
+		fontSize: mobile ? '1.4rem' : '1.6rem',
+		marginBottom: '3vh',
+		lineHeight: '1.8',
+		color: 'var(--dark)',
+	},
+	quoteButton: {
+		padding: '8px 25px',
+		backgroundColor: 'var(--main)',
+		borderRadius: '50px',
+		color: 'white',
+		cursor: 'pointer',
+		textTransform: 'uppercase' as 'uppercase',
+		transition: 'all 0.3s ease 0s',
+		border: 'none',
+	},
+	quoteButtonHover: {
+		transform: 'translateY(-4px)',
+		boxShadow: '0px 5px 5px rgba(0, 0, 0, 0.1)',
+	},
+	// FAQ Section Styles
+	faqSection: {
+		marginBottom: '10vh',
+		padding: mobile ? '4vh 6vw' : '6vh 8vw',
+	},
+	faqTitle: {
+		color: 'var(--main)',
+		fontSize: mobile ? '2rem' : '3rem',
+		fontFamily: 'var(--lato)',
+		fontWeight: 'bold',
+		textAlign: 'center' as 'center',
+		marginBottom: '5vh',
+	},
+	faqContainer: {
+		display: 'flex',
+		flexDirection: 'column',
+		gap: '3vh',
+		maxWidth: mobile ? '100%' : '80%',
+		margin: '0 auto',
+	},
+	faqItem: {
+		backgroundColor: 'var(--light)',
+		padding: mobile ? '3vh 4vw' : '4vh 5vw',
+		border: '1px solid var(--flash)',
+		boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+	},
+	faqQuestion: {
+		color: 'var(--main)',
+		fontSize: mobile ? '1.6rem' : '1.8rem',
+		fontWeight: 'bold',
+		marginBottom: '2vh',
+		fontFamily: 'var(--lato)',
+	},
+	faqAnswer: {
+		fontSize: mobile ? '1.4rem' : '1.5rem',
+		lineHeight: '1.8',
+		color: 'var(--dark)',
+		margin: 0,
 	},
 })
