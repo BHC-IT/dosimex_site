@@ -278,6 +278,12 @@ const MOTIF_HEIGHT = 334
 const MOTIF_SCALE_SOFTWARE = 0.9
 const HEADER_LINE_HEIGHT = 0.7
 
+// Constants for UK flag removal indexes
+const PACK_OPE_DOSIMEX_GAMMAGRAPHY_INDEX = 5
+const PACK_PEDA_NUCLEAR_METER_INDEX = 4
+const PACK_PEDA_RADIOACTIVE_DECAY_INDEX = 5
+const PACK_MES_CALIBRATION_LINE_INDEX = 4
+
 const Software = () => {
 	const text = useText('Software')
 	const style = useIsMobile(styles)
@@ -285,6 +291,18 @@ const Software = () => {
 	const opRef = useRef(null as HTMLDivElement | null)
 	const pedaRef = useRef(null as HTMLDivElement | null)
 	const mesureRef = useRef(null as HTMLDivElement | null)
+
+	// Helper function to determine if a tool should show UK flag
+	const shouldShowUkFlag = (packType: string, index: number): boolean => {
+		// Remove UK flag for specific tools:
+		// Pack Opé: DOSIMEX-GAMMAGRAPHIE (index 5)
+		// Pack Peda: Compteur nucléaire (index 4), Décroissance radioactive (index 5)
+		// Pack Mes: Droite étalonnage (index 4)
+		if (packType === 'packOpe' && index === PACK_OPE_DOSIMEX_GAMMAGRAPHY_INDEX) return false // DOSIMEX-GAMMAGRAPHIE
+		if (packType === 'packPeda' && (index === PACK_PEDA_NUCLEAR_METER_INDEX || index === PACK_PEDA_RADIOACTIVE_DECAY_INDEX)) return false // Nuclear meter, Radioactive decay
+		if (packType === 'packMes' && index === PACK_MES_CALIBRATION_LINE_INDEX) return false // Calibration line
+		return true
+	}
 
 	useEffect(() => {
 		if (window.location.hash === '#op') {
@@ -391,14 +409,16 @@ const Software = () => {
 										height={FRANCE_FLAG_HEIGHT * FRANCE_FLAG_RATIO}
 									/>
 								</div>
-								<Image
-									quality={40}
-									loading='lazy'
-									src='/Images/Flag_Uk.webp'
-									alt='UK flag'
-									width={UK_FLAG_WIDTH * UK_FLAG_RATIO}
-									height={UK_FLAG_HEIGHT * UK_FLAG_RATIO}
-								/>
+								{shouldShowUkFlag('packOpe', i) && (
+									<Image
+										quality={40}
+										loading='lazy'
+										src='/Images/Flag_Uk.webp'
+										alt='UK flag'
+										width={UK_FLAG_WIDTH * UK_FLAG_RATIO}
+										height={UK_FLAG_HEIGHT * UK_FLAG_RATIO}
+									/>
+								)}
 							</div>
 							<LiLabel
 								text={text.packOpe.li[i]}
@@ -454,14 +474,16 @@ const Software = () => {
 										height={FRANCE_FLAG_HEIGHT * FRANCE_FLAG_RATIO}
 									/>
 								</div>
-								<Image
-									quality={40}
-									loading='lazy'
-									src='/Images/Flag_Uk.webp'
-									alt='UK flag'
-									width={UK_FLAG_WIDTH * UK_FLAG_RATIO}
-									height={UK_FLAG_HEIGHT * UK_FLAG_RATIO}
-								/>
+								{shouldShowUkFlag('packPeda', i) && (
+									<Image
+										quality={40}
+										loading='lazy'
+										src='/Images/Flag_Uk.webp'
+										alt='UK flag'
+										width={UK_FLAG_WIDTH * UK_FLAG_RATIO}
+										height={UK_FLAG_HEIGHT * UK_FLAG_RATIO}
+									/>
+								)}
 							</div>
 							<LiLabel
 								text={text.packPeda.li[i]}
@@ -517,14 +539,16 @@ const Software = () => {
 										height={FRANCE_FLAG_HEIGHT * FRANCE_FLAG_RATIO}
 									/>
 								</div>
-								<Image
-									quality={40}
-									loading='lazy'
-									src='/Images/Flag_Uk.webp'
-									alt='UK flag'
-									width={UK_FLAG_WIDTH * UK_FLAG_RATIO}
-									height={UK_FLAG_HEIGHT * UK_FLAG_RATIO}
-								/>
+								{shouldShowUkFlag('packMes', i) && (
+									<Image
+										quality={40}
+										loading='lazy'
+										src='/Images/Flag_Uk.webp'
+										alt='UK flag'
+										width={UK_FLAG_WIDTH * UK_FLAG_RATIO}
+										height={UK_FLAG_HEIGHT * UK_FLAG_RATIO}
+									/>
+								)}
 							</div>
 							<LiLabel
 								text={text.packMes.li[i]}
@@ -569,14 +593,16 @@ const Software = () => {
 										height={FRANCE_FLAG_HEIGHT * FRANCE_FLAG_RATIO}
 									/>
 								</div>
-								<Image
-									quality={40}
-									loading='lazy'
-									src='/Images/Flag_Uk.webp'
-									alt='UK flag'
-									width={UK_FLAG_WIDTH * UK_FLAG_RATIO}
-									height={UK_FLAG_HEIGHT * UK_FLAG_RATIO}
-								/>
+								{shouldShowUkFlag('packOpe', i) && (
+									<Image
+										quality={40}
+										loading='lazy'
+										src='/Images/Flag_Uk.webp'
+										alt='UK flag'
+										width={UK_FLAG_WIDTH * UK_FLAG_RATIO}
+										height={UK_FLAG_HEIGHT * UK_FLAG_RATIO}
+									/>
+								)}
 							</div>
 							<LiLabel
 								text={text.packOpe.li[i]}
@@ -601,28 +627,7 @@ const Software = () => {
 						>
 							<div style={style.divFlag}>
 								<p style={style.pLi}>{e}</p>
-								{i === 0 ? (
-									<>
-										<div style={{ marginRight: '6px', display: 'inline' }}>
-											<Image
-												quality={40}
-												loading='lazy'
-												src='/Images/Flag_France.webp'
-												alt='French flag'
-												width={FRANCE_FLAG_WIDTH * FRANCE_FLAG_RATIO}
-												height={FRANCE_FLAG_HEIGHT * FRANCE_FLAG_RATIO}
-											/>
-										</div>
-										<Image
-											quality={40}
-											loading='lazy'
-											src='/Images/Flag_Uk.webp'
-											alt='UK flag'
-											width={UK_FLAG_WIDTH * UK_FLAG_RATIO}
-											height={UK_FLAG_HEIGHT * UK_FLAG_RATIO}
-										/>
-									</>
-								) : (
+								<div style={{ marginRight: '6px', display: 'inline' }}>
 									<Image
 										quality={40}
 										loading='lazy'
@@ -630,6 +635,16 @@ const Software = () => {
 										alt='French flag'
 										width={FRANCE_FLAG_WIDTH * FRANCE_FLAG_RATIO}
 										height={FRANCE_FLAG_HEIGHT * FRANCE_FLAG_RATIO}
+									/>
+								</div>
+								{shouldShowUkFlag('packPeda', i) && (
+									<Image
+										quality={40}
+										loading='lazy'
+										src='/Images/Flag_Uk.webp'
+										alt='UK flag'
+										width={UK_FLAG_WIDTH * UK_FLAG_RATIO}
+										height={UK_FLAG_HEIGHT * UK_FLAG_RATIO}
 									/>
 								)}
 							</div>
@@ -656,28 +671,7 @@ const Software = () => {
 						>
 							<div style={style.divFlag}>
 								<p style={style.pLi}>{e}</p>
-								{i === 1 ? (
-									<>
-										<div style={{ marginRight: '6px', display: 'inline' }}>
-											<Image
-												quality={40}
-												loading='lazy'
-												src='/Images/Flag_France.webp'
-												alt='French flag'
-												width={FRANCE_FLAG_WIDTH * FRANCE_FLAG_RATIO}
-												height={FRANCE_FLAG_HEIGHT * FRANCE_FLAG_RATIO}
-											/>
-										</div>
-										<Image
-											quality={40}
-											loading='lazy'
-											src='/Images/Flag_Uk.webp'
-											alt='UK flag'
-											width={UK_FLAG_WIDTH * UK_FLAG_RATIO}
-											height={UK_FLAG_HEIGHT * UK_FLAG_RATIO}
-										/>
-									</>
-								) : (
+								<div style={{ marginRight: '6px', display: 'inline' }}>
 									<Image
 										quality={40}
 										loading='lazy'
@@ -685,6 +679,16 @@ const Software = () => {
 										alt='French flag'
 										width={FRANCE_FLAG_WIDTH * FRANCE_FLAG_RATIO}
 										height={FRANCE_FLAG_HEIGHT * FRANCE_FLAG_RATIO}
+									/>
+								</div>
+								{shouldShowUkFlag('packMes', i) && (
+									<Image
+										quality={40}
+										loading='lazy'
+										src='/Images/Flag_Uk.webp'
+										alt='UK flag'
+										width={UK_FLAG_WIDTH * UK_FLAG_RATIO}
+										height={UK_FLAG_HEIGHT * UK_FLAG_RATIO}
 									/>
 								)}
 							</div>

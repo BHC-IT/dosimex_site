@@ -352,7 +352,7 @@ const text: ILang = {
 			'Un sommaire général (SOMMAIRE_GENERAL.pps) à la racine des dossiers permet de naviguer sur l’ensemble du pack Dosimex.',
 		prerequisites: {
 			title: 'Prérequis',
-			p: 'Les codes sont écrits en VBA sous Excel. Le pack Dosimex fonctionne avec Windows XP à Windows 11 et Excel 2003 à 2024 en autorisant le fonctionnement des macros. Sur Mac il est nécessaire de créer une « machine virtuelle ».\n Suivant les mesures de sécurité mises en place dans l’entreprise, il est conseillé de demander à votre service informatique de « whitelister » Dosimex.',
+			p: 'Les codes sont écrits en VBA sous Excel. Le pack Dosimex fonctionne avec Windows XP à Windows 11 et Excel 2003 à 2024 en autorisant le fonctionnement des macros. Sur Mac et Linux il est nécessaire de créer une « machine virtuelle ».\n Suivant les mesures de sécurité mises en place dans l’entreprise, il est conseillé de demander à votre service informatique de « whitelister » Dosimex.',
 			italic: "Les fichiers de Dosimex sont cryptés. Aucun autre fichier excel ne doit etre ouvert pendant l'utilisation de Dosimex",
 		},
 		titlePrice: 'Obtenir la licence Dosimex 3.2',
@@ -386,7 +386,7 @@ const text: ILang = {
 				},
 				{
 					question: "Quelle version d'Excel ?",
-					answer: 'Compatible avec Excel 2003 à Excel 2024, de Windows XP à Windows 11. Sur Mac, une machine virtuelle est nécessaire.',
+					answer: 'Compatible avec Excel 2003 à Excel 2024, de Windows XP à Windows 11. Sur Mac et Linux, une machine virtuelle est nécessaire.',
 				},
 				{
 					question: 'Les mises à jour sont-elles incluses ?',
