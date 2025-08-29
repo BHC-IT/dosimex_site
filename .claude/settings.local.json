@@ -20,7 +20,9 @@
       "Bash(grep:*)",
       "Bash(pnpm vitest:*)",
       "Bash(pnmp run test:run:*)",
-      "Bash(pnmp test:*)"
+      "Bash(pnmp test:*)",
+      "Bash(pnpm audit:*)",
+      "Bash(pnpm ls:*)"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"

@@ -13,6 +13,16 @@ module.exports = withBundleAnalyzer(removeImports({
 		// Disable SWC lockfile patching to prevent pnpm conflicts
 		forceSwcTransforms: false,
 	},
+	compiler: {
+		// Enable styled-components with SSR support (replaces .babelrc)
+		styledComponents: {
+			ssr: true,
+		},
+	},
+	images: {
+		// Configure image qualities for Next.js 15+
+		qualities: [40, 70, 75, 80, 85, 90, 95]
+	},
 	i18n: {
 		locales: ['en-US', 'fr', 'debug'],
 		defaultLocale: 'fr',
