@@ -76,6 +76,19 @@ const text: ILang = {
 				'I use DOSIMEX, which gives me total satisfaction, both by the quality of its results and its ease of use, in the training of personnel from the Ministry of the Armed Forces. It has, among other things, the strength of taking into account common situations faced by MinArm agents, both in the roles of medical PCRs (thanks to the X-ray calculation module!) as well as those involved at all levels in the industrial field (from PNR to engineer). Finally, it is so easy to use that almost all the PCRs we train have adopted it in their units.',
 			btn: 'More reviews',
 		},
+		references: {
+			title: 'Publications and References',
+			subtitle: 'DOSIMEX is cited in numerous scientific publications and reference articles in radiation protection. Discover how our tools contribute to the advancement of research and practice in radiation protection.',
+			btnText: 'Download',
+			article1: {
+				title: 'Operational Radiation Protection Articles',
+				description: 'Compilation of articles and publications where DOSIMEX is used as a reference for radiation protection calculations in operational contexts.',
+			},
+			article2: {
+				title: 'Academic Publications and Research',
+				description: 'Selection of academic publications and scientific research citing DOSIMEX in their methodologies and results.',
+			},
+		},
 		callToAction: {
 			title: 'Get your Dosimex license today by requesting a quote',
 			button: 'Get Dosimex',

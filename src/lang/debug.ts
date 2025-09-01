@@ -77,6 +77,19 @@ const text: ILang = {
 			opinion: '{Home.opinion.opinion}',
 			btn: '{Home.opinion.btn}',
 		},
+		references: {
+			title: '{Home.references.title}',
+			subtitle: '{Home.references.subtitle}',
+			btnText: '{Home.references.btnText}',
+			article1: {
+				title: '{Home.references.article1.title}',
+				description: '{Home.references.article1.description}',
+			},
+			article2: {
+				title: '{Home.references.article2.title}',
+				description: '{Home.references.article2.description}',
+			},
+		},
 		callToAction: {
 			title: '{Home.callToAction.title}',
 			button: '{Home.callToAction.button}',

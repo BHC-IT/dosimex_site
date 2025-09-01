@@ -7,6 +7,7 @@ import Button from '../Components/Button'
 import CardHome from '../Components/CardHome'
 import HeroBannerCarousel from '../Components/HeroBannerCarousel'
 import OpinionHome from '../Components/OpinionHome'
+import References from '../Components/References'
 import { useIsMobile } from '../Hooks/useIsMobile'
 import { useText } from '../Hooks/useText'
 
@@ -81,10 +82,13 @@ function Home(props: IProps) {
 					<div style={style.header.motif}>
 						<Image
 							src='/Images/motif_rect.svg'
-							alt={altText?.decorativePattern ?? 'Decorative geometric pattern background'}
+							alt={
+								altText?.decorativePattern ??
+								'Decorative geometric pattern background'
+							}
 							width={MOTIF_WIDTH * MOTIF_SCALE}
 							height={MOTIF_HEIGHT * MOTIF_SCALE}
-							loading="lazy"
+							loading='lazy'
 							quality={70}
 						/>
 					</div>
@@ -157,10 +161,12 @@ function Home(props: IProps) {
 				<div style={style.videos.motif}>
 					<Image
 						src='/Images/motif_rect.svg'
-						alt={altText?.decorativePattern ?? 'Decorative geometric pattern background'}
+						alt={
+							altText?.decorativePattern ?? 'Decorative geometric pattern background'
+						}
 						width={MOTIF_WIDTH * MOTIF_SCALE}
 						height={MOTIF_HEIGHT * MOTIF_SCALE}
-						loading="lazy"
+						loading='lazy'
 						quality={70}
 					/>
 				</div>
@@ -200,6 +206,10 @@ function Home(props: IProps) {
 				<OpinionHome text={text.opinion} />
 			</section>
 
+			<section>
+				<References text={text.references} />
+			</section>
+
 			<div
 				className='container'
 				style={style.callToAction.global}
@@ -222,13 +232,13 @@ export const styles = (mobile: boolean): IStyles => ({
 			? {
 					textAlign: 'center',
 					marginTop: '7vh',
-				}
+			  }
 			: {
 					display: 'flex',
 					alignItems: 'center',
 					justifyContent: 'space-between',
 					height: '90vh',
-				},
+			  },
 		headerSubtitle: {
 			color: 'var(--dark)',
 			fontSize: mobile ? '1.6rem' : '2rem',
@@ -334,7 +344,7 @@ export const styles = (mobile: boolean): IStyles => ({
 					display: 'flex',
 					flexDirection: 'column',
 					paddingLeft: '15vw',
-				}
+			  }
 			: {
 					display: 'flex',
 					alignContent: 'center',
@@ -349,7 +359,7 @@ export const styles = (mobile: boolean): IStyles => ({
 					paddingBottom: '4vh',
 					paddingTop: '4vh',
 					backgroundColor: 'white',
-				},
+			  },
 		divNumber: {
 			width: mobile ? '35%' : undefined,
 		},
@@ -397,7 +407,7 @@ export const styles = (mobile: boolean): IStyles => ({
 		global: {
 			textAlign: 'center',
 			paddingBottom: '30vh',
-			paddingTop: '20vh',
+			paddingTop: '16vh',
 		},
 		title: {
 			fontSize: mobile ? '3rem' : '4.2rem',

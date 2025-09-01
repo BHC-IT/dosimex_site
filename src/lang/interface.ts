@@ -59,6 +59,19 @@ export default interface Lang {
 			opinion: string
 			btn: string
 		}
+		references: {
+			title: string
+			subtitle: string
+			btnText: string
+			article1: {
+				title: string
+				description: string
+			}
+			article2: {
+				title: string
+				description: string
+			}
+		}
 		callToAction: {
 			title: string
 			button: string

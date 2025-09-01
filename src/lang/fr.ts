@@ -73,8 +73,21 @@ const text: ILang = {
 			name: 'Jean-Lionel Trolet',
 			job: 'EAMEA',
 			opinion:
-				'J’utilise DOSIMEX, qui me donne totalement satisfaction, tant par la qualité de ses résultats que par sa facilité d’usage, dans les formations du personnel du ministère des armées. Il possède, entre autres, la force de tenir compte de situations courantes auxquelles sont confrontées les agents de MinArm, tant dans les rôles de PCR médicaux (merci au module de calcul X !) que les intervenants de tous niveaux dans le domaine industriel (du PNR à l’ingénieur). Enfin son usage est si simple que quasiment tous les PCR que nous formons l’ont adopté dans leurs unités.',
+				'J\'utilise DOSIMEX, qui me donne totalement satisfaction, tant par la qualité de ses résultats que par sa facilité d\'usage, dans les formations du personnel du ministère des armées. Il possède, entre autres, la force de tenir compte de situations courantes auxquelles sont confrontées les agents de MinArm, tant dans les rôles de PCR médicaux (merci au module de calcul X !) que les intervenants de tous niveaux dans le domaine industriel (du PNR à l\'ingénieur). Enfin son usage est si simple que quasiment tous les PCR que nous formons l\'ont adopté dans leurs unités.',
 			btn: 'Tous les avis',
+		},
+		references: {
+			title: 'Publications et Références',
+			subtitle: 'DOSIMEX est cité dans de nombreuses publications scientifiques et articles de référence en radioprotection. Découvrez comment nos outils contribuent à l\'avancement de la recherche et de la pratique en radioprotection.',
+			btnText: 'Télécharger',
+			article1: {
+				title: 'Articles de radioprotection opérationnelle',
+				description: 'Compilation d\'articles et de publications où DOSIMEX est utilisé comme référence pour les calculs de radioprotection dans des contextes opérationnels.',
+			},
+			article2: {
+				title: 'Publications académiques et recherche',
+				description: 'Sélection de publications académiques et de recherches scientifiques citant DOSIMEX dans leurs méthodologies et résultats.',
+			},
 		},
 		callToAction: {
 			title: "Obtenez votre licence Dosimex dès aujourd'hui en demandant un devis",
