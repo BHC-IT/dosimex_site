@@ -14,7 +14,7 @@ const text: ILang = {
 	},
 	Home: {
 		header: {
-			title: 'DOSIMEX - The Professional Excel Suite for Radiation Protection Calculations',
+			title: 'Radiation protection calculation tools for everyone',
 			p: 'A set of practical, easy-to-use, validated calculation tools that address many situations encountered in radiation protection. They will allow you to improve your expertise level.',
 			promo: 'Most of our calculation tools are available in English and French.',
 			button: 'Discover',
@@ -99,10 +99,10 @@ const text: ILang = {
 			descrip:
 				'These calculation tools enable to estimate the radiological risks at their correct levels and to design the necessary protections',
 			liTitles: [
-				'DOSIMEX-GX 3.1',
-				'DOSIMEX-B 3.0',
-				'DOSIMEX-N 3.0',
-				'DOSIMEX-I 3.0',
+				'DOSIMEX-GX 3.2',
+				'DOSIMEX-B 3.2',
+				'DOSIMEX-N 3.2',
+				'DOSIMEX-I 3.2',
 				'DOSIMEX-MN 1.0',
 				'DOSIMEX-GAMMAGRAPHY',
 			],
@@ -120,10 +120,10 @@ const text: ILang = {
 			descrip:
 				'They provide a better understanding of the physics of radiation-matter interaction, which is the source of the generated doses, as well as of the protective capacities of the screens that can be used',
 			liTitles: [
-				'Photon Interaction 3.0',
-				'Charged particles Interaction 3.0',
-				'Serious Game 3.0',
-				'ICRU 57 coefficients 3.0',
+				'Photon Interaction 3.2',
+				'Charged particles Interaction 3.2',
+				'Serious Game 3.2',
+				'ICRU 57 coefficients 3.2',
 				'Nuclear meter',
 				'Radioactive decay',
 			],
@@ -161,7 +161,7 @@ const text: ILang = {
 				'complete validation files',
 				'gamma source validation extracts',
 				'X-ray generator validation',
-				"What's new in Dosimex-GX 3.0",
+				"What's new in Dosimex-GX 3.2",
 				'Our reading selection',
 			],
 		},
@@ -352,7 +352,7 @@ const text: ILang = {
 			'A general summary (SOMMAIRE_GENERAL.pps) at the root of the folders allows navigation through the entire Dosimex package.',
 		prerequisites: {
 			title: 'Prerequisites',
-			p: 'The codes are written in VBA in Excel. The Dosimex package works with Windows XP to Windows 11 and Excel 2003 to 2024 by authorizing the operation of macros. On Mac and Linux it is necessary to create a "virtual machine".\n Depending on the security measures in place in your company, it is advisable to ask your IT department to whitelist Dosimex.',
+			p: 'The codes are written in VBA in Excel. The Dosimex package works with Windows XP to Windows 11 and Excel 2003 to 2024 by authorizing the operation of macros. On Mac and Linux it is necessary to create a "virtual machine".',
 			italic: '',
 		},
 		titlePrice: 'Get Dosimex 3.2 License',

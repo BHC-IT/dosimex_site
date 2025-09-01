@@ -14,7 +14,7 @@ const text: ILang = {
 	},
 	Home: {
 		header: {
-			title: 'DOSIMEX - La suite Excel professionnelle pour vos calculs en radioprotection',
+			title: 'Des outils de calculs radioprotection pour tous',
 			p: "Ensemble d'outils de calculs pratiques, simples d’emploi, validés, et répondant à de nombreuses situations rencontrées en radioprotection. Ils vous permettront d'améliorer votre niveau d'expertise.",
 			promo: 'La plupart de nos outils de calcul existent désormais en version anglaise.',
 			button: 'Découvrir',
@@ -352,7 +352,7 @@ const text: ILang = {
 			'Un sommaire général (SOMMAIRE_GENERAL.pps) à la racine des dossiers permet de naviguer sur l’ensemble du pack Dosimex.',
 		prerequisites: {
 			title: 'Prérequis',
-			p: 'Les codes sont écrits en VBA sous Excel. Le pack Dosimex fonctionne avec Windows XP à Windows 11 et Excel 2003 à 2024 en autorisant le fonctionnement des macros. Sur Mac et Linux il est nécessaire de créer une « machine virtuelle ».\n Suivant les mesures de sécurité mises en place dans l’entreprise, il est conseillé de demander à votre service informatique de « whitelister » Dosimex.',
+			p: 'Les codes sont écrits en VBA sous Excel. Le pack Dosimex fonctionne avec Windows XP à Windows 11 et Excel 2003 à 2024 en autorisant le fonctionnement des macros. Sur Mac et Linux il est nécessaire de créer une « machine virtuelle ».',
 			italic: "Les fichiers de Dosimex sont cryptés. Aucun autre fichier excel ne doit etre ouvert pendant l'utilisation de Dosimex",
 		},
 		titlePrice: 'Obtenir la licence Dosimex 3.2',

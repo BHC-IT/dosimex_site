@@ -91,15 +91,15 @@ export default function Manuals() {
 				img: isEnglishVersion ? 'handbook1.png' : 'manuel1.png',
 				pdf: isEnglishVersion
 					? 'Handbook1_Radionucléide.pdf'
-					: 'Manuel_1_Radionucléide_3.0.pdf',
+					: '1_Manuel_Radionucléide.pdf',
 				text: text.manuals[1],
 			},
 			{
 				img: isEnglishVersion ? 'handbook2.png' : 'manuel2.png',
-				pdf: isEnglishVersion ? 'Handbook2_Xgenerator.pdf' : 'Manuel_2_Géné_X_3.0.pdf',
+				pdf: isEnglishVersion ? 'Handbook2_Xgenerator.pdf' : '2_Manuel_Géné_X.pdf',
 				text: text.manuals[2],
 			},
-			{ img: 'manuel3.png', pdf: 'Manuel_3_Application_15_160.pdf', text: text.manuals[3] },
+			{ img: 'manuel3.png', pdf: '3_Manuel_Application_15_160.pdf', text: text.manuals[3] },
 			{ img: 'manuel4.png', pdf: 'Annexe_S_ radiologie.pdf', text: text.manuals[4] },
 		],
 		validations: [
@@ -153,10 +153,12 @@ export default function Manuals() {
 				<div style={style.headerImage}>
 					<Image
 						src='/Images/motif_rect.svg'
-						alt={altText?.decorativePattern ?? 'Decorative geometric pattern background'}
+						alt={
+							altText?.decorativePattern ?? 'Decorative geometric pattern background'
+						}
 						width={MOTIF_WIDTH * MOTIF_SCALE_MANUALS}
 						height={MOTIF_HEIGHT * MOTIF_SCALE_MANUALS}
-						loading="lazy"
+						loading='lazy'
 						quality={70}
 					/>
 				</div>
@@ -168,7 +170,9 @@ export default function Manuals() {
 							<LinkZone key={e}>
 								<p style={style.arrow}>→</p>
 								<LinkLabel
-									onClick={() => setTimeout(() => setDummy(dummy + 1), CLICK_TIMEOUT_MS)}
+									onClick={() =>
+										setTimeout(() => setDummy(dummy + 1), CLICK_TIMEOUT_MS)
+									}
 									href={hashes[i]}
 									style={style.headerLink}
 									aria-label={`Navigate to ${e} section`}
@@ -205,11 +209,13 @@ export default function Manuals() {
 									<div style={style.centerText}>
 										<Image
 											src={`/Images/${manual.img}`}
-											alt={`${altText?.manualCover ?? 'Manual cover'} - ${manual.text}`}
+											alt={`${altText?.manualCover ?? 'Manual cover'} - ${
+												manual.text
+											}`}
 											width={230}
 											height={324}
 											quality={80}
-											loading="lazy"
+											loading='lazy'
 										/>
 										<p style={style.label}>{manual.text}</p>
 									</div>
@@ -244,11 +250,13 @@ export default function Manuals() {
 									<div style={style.centerText}>
 										<Image
 											src={`/Images/${validation.img}`}
-											alt={`${altText?.manualCover ?? 'Manual cover'} - ${validation.text}`}
+											alt={`${altText?.manualCover ?? 'Manual cover'} - ${
+												validation.text
+											}`}
 											width={230}
 											height={324}
 											quality={80}
-											loading="lazy"
+											loading='lazy'
 										/>
 										<p style={style.label}>{validation.text}</p>
 									</div>
@@ -283,11 +291,13 @@ export default function Manuals() {
 									<div style={style.centerText}>
 										<Image
 											src={`/Images/${internship.img}`}
-											alt={`${altText?.manualCover ?? 'Manual cover'} - ${internship.text}`}
+											alt={`${altText?.manualCover ?? 'Manual cover'} - ${
+												internship.text
+											}`}
 											width={230}
 											height={324}
 											quality={80}
-											loading="lazy"
+											loading='lazy'
 										/>
 										<p style={style.label}>{internship.text}</p>
 									</div>
