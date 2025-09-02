@@ -81,14 +81,15 @@ const text: ILang = {
 			title: '{Home.references.title}',
 			subtitle: '{Home.references.subtitle}',
 			btnText: '{Home.references.btnText}',
-			article1: {
-				title: '{Home.references.article1.title}',
-				description: '{Home.references.article1.description}',
-			},
-			article2: {
-				title: '{Home.references.article2.title}',
-				description: '{Home.references.article2.description}',
-			},
+			internshipsText: '{Home.references.internshipsText}',
+			internshipsBtn: '{Home.references.internshipsBtn}',
+			items: [
+				{
+					title: '{Home.references.items[0].title}',
+					description: '{Home.references.items[0].description}',
+					url: '{Home.references.items[0].url}',
+				},
+			],
 		},
 		callToAction: {
 			title: '{Home.callToAction.title}',

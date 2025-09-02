@@ -1,8 +1,280 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`References Component > Rendering > should render correctly with desktop styles 1`] = `
+<div>
+  <div
+    style="background-color: white; padding: 8vh 8vw 6vh 8vw;"
+  >
+    <div
+      style="max-width: 1200px; margin: 0px auto;"
+    >
+      <h2
+        style="text-align: center; color: var(--dark); font-size: 3.6rem; margin-bottom: 2vh;"
+      >
+        Publications et Références
+      </h2>
+      <p
+        style="text-align: center; color: var(--grey); font-size: 1.8rem; max-width: 800px; margin: 0px auto 4vh auto;"
+      >
+        DOSIMEX est cité dans de nombreuses publications scientifiques, articles de presse spécialisée et travaux de recherche.
+      </p>
+      <div
+        style="display: flex; flex-direction: column; gap: 2.5vh; margin-bottom: 6vh;"
+      >
+        <div
+          style="border-radius: 15px; padding: 1vh 3vw; border-left: 4px solid var(--main);"
+        >
+          <h4
+            style="color: var(--dark); font-size: 2rem; margin-bottom: 1vh; line-height: 1.3;"
+          >
+            Le calcul prédictif de dose pour une meilleure protection
+          </h4>
+          <div
+            style="display: flex; flex-direction: row; align-items: center; gap: 0;"
+          >
+            <p
+              style="color: var(--grey); font-size: 1.5rem; line-height: 1.5; margin: 0px; flex: 1 1 0%;"
+            >
+              Article SIH-Solutions sur l'utilisation de DOSIMEX à l'Institut Curie pour la prédiction des expositions en radiologie médicale.
+            </p>
+            <a
+              href="https://www.sih-solutions.fr/le-calcul-predictif-de-dose-pour-une-meilleure-protection"
+              rel="noreferrer noopener"
+              style="color: var(--main); font-size: 1.5rem; font-weight: bold; text-decoration: none; cursor: pointer; margin-left: 3vw; flex-shrink: 0; white-space: nowrap; align-self: center; display: flex; align-items: center; min-height: 3rem;"
+              target="_blank"
+            >
+              Lire l'article
+            </a>
+          </div>
+        </div>
+        <div
+          style="border-radius: 15px; padding: 1vh 3vw; border-left: 4px solid var(--main);"
+        >
+          <h4
+            style="color: var(--dark); font-size: 2rem; margin-bottom: 1vh; line-height: 1.3;"
+          >
+            L'évaluation de la dose : un pré-requis de la gestion des risques
+          </h4>
+          <div
+            style="display: flex; flex-direction: row; align-items: center; gap: 0;"
+          >
+            <p
+              style="color: var(--grey); font-size: 1.5rem; line-height: 1.5; margin: 0px; flex: 1 1 0%;"
+            >
+              Post LinkedIn sur l'utilisation de DOSIMEX dans les CHU de Nantes et Toulouse.
+            </p>
+            <a
+              href="https://www.linkedin.com/posts/sih-solutions_dosimex-activity-6940552424990380032-wsY9"
+              rel="noreferrer noopener"
+              style="color: var(--main); font-size: 1.5rem; font-weight: bold; text-decoration: none; cursor: pointer; margin-left: 3vw; flex-shrink: 0; white-space: nowrap; align-self: center; display: flex; align-items: center; min-height: 3rem;"
+              target="_blank"
+            >
+              Lire l'article
+            </a>
+          </div>
+        </div>
+        <div
+          style="border-radius: 15px; padding: 1vh 3vw; border-left: 4px solid var(--main);"
+        >
+          <h4
+            style="color: var(--dark); font-size: 2rem; margin-bottom: 1vh; line-height: 1.3;"
+          >
+            Étude de l'impact de couches de PMMA sur l'équilibre électronique
+          </h4>
+          <div
+            style="font-size: 1.4rem; font-weight: 600; font-style: italic; margin-bottom: 1.5vh;"
+          >
+            <span>
+              Zidouz T. et al.
+            </span>
+            <span>
+               (
+              2025
+              )
+            </span>
+            <span>
+               - 
+              Radiation Physics and Chemistry
+            </span>
+          </div>
+          <div
+            style="display: flex; flex-direction: row; align-items: center; gap: 0;"
+          >
+            <p
+              style="color: var(--grey); font-size: 1.5rem; line-height: 1.5; margin: 0px; flex: 1 1 0%;"
+            >
+              Étudie l'impact de couches de PMMA sur l'équilibre électronique pour l'étalonnage d'instruments de radioprotection.
+            </p>
+            <a
+              href="https://www.sciencedirect.com/science/article/abs/pii/S0969804324004160"
+              rel="noreferrer noopener"
+              style="color: var(--main); font-size: 1.5rem; font-weight: bold; text-decoration: none; cursor: pointer; margin-left: 3vw; flex-shrink: 0; white-space: nowrap; align-self: center; display: flex; align-items: center; min-height: 3rem;"
+              target="_blank"
+            >
+              Lire l'article
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        style="background-color: var(--flashTrans); border-radius: 15px; padding: 3vh 3vw; text-align: center; border-left: 4px solid var(--main);"
+      >
+        <p
+          style="color: var(--grey); font-size: 1.6rem; margin-bottom: 2vh; line-height: 1.5;"
+        >
+          Retrouvez également des rapports de stage de fin d'études citant DOSIMEX dans leurs méthodologies.
+        </p>
+        <a
+          href="/Manuals#internships"
+          style="color: var(--main); font-size: 1.5rem; font-weight: bold; text-decoration: none; cursor: pointer;"
+        >
+          Voir les stages
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`References Component > Rendering > should render correctly with mobile styles 1`] = `
+<div>
+  <div
+    style="background-color: white; padding: 6vh 5vw;"
+  >
+    <div
+      style="max-width: 1200px; margin: 0px auto;"
+    >
+      <h2
+        style="text-align: center; color: var(--dark); font-size: 3rem; margin-bottom: 2vh;"
+      >
+        Publications et Références
+      </h2>
+      <p
+        style="text-align: center; color: var(--grey); font-size: 1.6rem; max-width: 800px; margin: 0px auto 4vh auto;"
+      >
+        DOSIMEX est cité dans de nombreuses publications scientifiques, articles de presse spécialisée et travaux de recherche.
+      </p>
+      <div
+        style="display: flex; flex-direction: column; gap: 3vh; margin-bottom: 4vh;"
+      >
+        <div
+          style="border-radius: 15px; padding: 1vh 4vw; border-left: 4px solid var(--main);"
+        >
+          <h4
+            style="color: var(--dark); font-size: 1.8rem; margin-bottom: 1vh; line-height: 1.3;"
+          >
+            Le calcul prédictif de dose pour une meilleure protection
+          </h4>
+          <div
+            style="display: flex; flex-direction: column; align-items: flex-start; gap: 1.5vh;"
+          >
+            <p
+              style="color: var(--grey); font-size: 1.4rem; line-height: 1.5; margin: 0px 0px 2vh 0px; flex: 1 1 0%;"
+            >
+              Article SIH-Solutions sur l'utilisation de DOSIMEX à l'Institut Curie pour la prédiction des expositions en radiologie médicale.
+            </p>
+            <a
+              href="https://www.sih-solutions.fr/le-calcul-predictif-de-dose-pour-une-meilleure-protection"
+              rel="noreferrer noopener"
+              style="color: var(--main); font-size: 1.4rem; font-weight: bold; text-decoration: none; cursor: pointer; margin-left: 0px; flex-shrink: 0; white-space: nowrap; align-self: flex-start; display: flex; align-items: center; min-height: auto;"
+              target="_blank"
+            >
+              Lire l'article
+            </a>
+          </div>
+        </div>
+        <div
+          style="border-radius: 15px; padding: 1vh 4vw; border-left: 4px solid var(--main);"
+        >
+          <h4
+            style="color: var(--dark); font-size: 1.8rem; margin-bottom: 1vh; line-height: 1.3;"
+          >
+            L'évaluation de la dose : un pré-requis de la gestion des risques
+          </h4>
+          <div
+            style="display: flex; flex-direction: column; align-items: flex-start; gap: 1.5vh;"
+          >
+            <p
+              style="color: var(--grey); font-size: 1.4rem; line-height: 1.5; margin: 0px 0px 2vh 0px; flex: 1 1 0%;"
+            >
+              Post LinkedIn sur l'utilisation de DOSIMEX dans les CHU de Nantes et Toulouse.
+            </p>
+            <a
+              href="https://www.linkedin.com/posts/sih-solutions_dosimex-activity-6940552424990380032-wsY9"
+              rel="noreferrer noopener"
+              style="color: var(--main); font-size: 1.4rem; font-weight: bold; text-decoration: none; cursor: pointer; margin-left: 0px; flex-shrink: 0; white-space: nowrap; align-self: flex-start; display: flex; align-items: center; min-height: auto;"
+              target="_blank"
+            >
+              Lire l'article
+            </a>
+          </div>
+        </div>
+        <div
+          style="border-radius: 15px; padding: 1vh 4vw; border-left: 4px solid var(--main);"
+        >
+          <h4
+            style="color: var(--dark); font-size: 1.8rem; margin-bottom: 1vh; line-height: 1.3;"
+          >
+            Étude de l'impact de couches de PMMA sur l'équilibre électronique
+          </h4>
+          <div
+            style="font-size: 1.3rem; font-weight: 600; font-style: italic; margin-bottom: 1.5vh;"
+          >
+            <span>
+              Zidouz T. et al.
+            </span>
+            <span>
+               (
+              2025
+              )
+            </span>
+            <span>
+               - 
+              Radiation Physics and Chemistry
+            </span>
+          </div>
+          <div
+            style="display: flex; flex-direction: column; align-items: flex-start; gap: 1.5vh;"
+          >
+            <p
+              style="color: var(--grey); font-size: 1.4rem; line-height: 1.5; margin: 0px 0px 2vh 0px; flex: 1 1 0%;"
+            >
+              Étudie l'impact de couches de PMMA sur l'équilibre électronique pour l'étalonnage d'instruments de radioprotection.
+            </p>
+            <a
+              href="https://www.sciencedirect.com/science/article/abs/pii/S0969804324004160"
+              rel="noreferrer noopener"
+              style="color: var(--main); font-size: 1.4rem; font-weight: bold; text-decoration: none; cursor: pointer; margin-left: 0px; flex-shrink: 0; white-space: nowrap; align-self: flex-start; display: flex; align-items: center; min-height: auto;"
+              target="_blank"
+            >
+              Lire l'article
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        style="background-color: var(--flashTrans); border-radius: 15px; padding: 3vh 4vw; text-align: center; border-left: 4px solid var(--main);"
+      >
+        <p
+          style="color: var(--grey); font-size: 1.5rem; margin-bottom: 2vh; line-height: 1.5;"
+        >
+          Retrouvez également des rapports de stage de fin d'études citant DOSIMEX dans leurs méthodologies.
+        </p>
+        <a
+          href="/Manuals#internships"
+          style="color: var(--main); font-size: 1.4rem; font-weight: bold; text-decoration: none; cursor: pointer;"
+        >
+          Voir les stages
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`References Component > Snapshot Tests > should match desktop snapshot 1`] = `
 <div
-  style="background-color: white; padding: 10vh 10vw;"
+  style="background-color: white; padding: 8vh 8vw 6vh 8vw;"
 >
   <div
     style="max-width: 1200px; margin: 0px auto;"
@@ -10,70 +282,125 @@ exports[`References Component > Snapshot Tests > should match desktop snapshot 1
     <h2
       style="text-align: center; color: var(--dark); font-size: 3.6rem; margin-bottom: 2vh;"
     >
-      Publications and References
+      Publications et Références
     </h2>
     <p
-      style="text-align: center; color: var(--grey); font-size: 1.8rem; max-width: 800px; margin: 0px auto 6vh auto;"
+      style="text-align: center; color: var(--grey); font-size: 1.8rem; max-width: 800px; margin: 0px auto 4vh auto;"
     >
-      DOSIMEX is cited in numerous scientific publications and reference articles in radiation protection.
+      DOSIMEX est cité dans de nombreuses publications scientifiques, articles de presse spécialisée et travaux de recherche.
     </p>
     <div
-      style="display: flex; flex-direction: row; gap: 3vw; justify-content: center; align-items: stretch;"
+      style="display: flex; flex-direction: column; gap: 2.5vh; margin-bottom: 6vh;"
     >
       <div
-        style="background-color: var(--grey-bg); padding: 4vh 3vw; border-radius: 20px; flex: 1 1 0%; display: flex; flex-direction: column; max-width: 500px;"
+        style="border-radius: 15px; padding: 1vh 3vw; border-left: 4px solid var(--main);"
       >
-        <h3
-          style="color: var(--dark); font-size: 2.4rem; margin-bottom: 2vh;"
+        <h4
+          style="color: var(--dark); font-size: 2rem; margin-bottom: 1vh; line-height: 1.3;"
         >
-          Operational Radiation Protection Articles
-        </h3>
-        <p
-          style="color: var(--grey); font-size: 1.6rem; margin-bottom: 3vh; line-height: 1.6; flex: 1 1 0%;"
+          Le calcul prédictif de dose pour une meilleure protection
+        </h4>
+        <div
+          style="display: flex; flex-direction: row; align-items: center; gap: 0;"
         >
-          Compilation of articles and publications where DOSIMEX is used as a reference.
-        </p>
-        <a
-          href="#"
-          rel="noreferrer noopener"
-          style="padding: 8px 25px; border: 2px solid var(--main); border-radius: 50px; color: var(--main); text-transform: uppercase; transition: all 0.3s ease 0s; display: flex; align-items: center; justify-content: center; gap: 10px; width: fit-content; margin-top: auto; text-decoration: none; font-size: 1.6rem;"
-          target="_blank"
-        >
-          Download
-          <img
-            alt="icône télécharger"
-            src="/Images/icon_download.png"
-            style="width: 1.2vw; min-width: 20px;"
-          />
-        </a>
+          <p
+            style="color: var(--grey); font-size: 1.5rem; line-height: 1.5; margin: 0px; flex: 1 1 0%;"
+          >
+            Article SIH-Solutions sur l'utilisation de DOSIMEX à l'Institut Curie pour la prédiction des expositions en radiologie médicale.
+          </p>
+          <a
+            href="https://www.sih-solutions.fr/le-calcul-predictif-de-dose-pour-une-meilleure-protection"
+            rel="noreferrer noopener"
+            style="color: var(--main); font-size: 1.5rem; font-weight: bold; text-decoration: none; cursor: pointer; margin-left: 3vw; flex-shrink: 0; white-space: nowrap; align-self: center; display: flex; align-items: center; min-height: 3rem;"
+            target="_blank"
+          >
+            Lire l'article
+          </a>
+        </div>
       </div>
       <div
-        style="background-color: var(--grey-bg); padding: 4vh 3vw; border-radius: 20px; flex: 1 1 0%; display: flex; flex-direction: column; max-width: 500px;"
+        style="border-radius: 15px; padding: 1vh 3vw; border-left: 4px solid var(--main);"
       >
-        <h3
-          style="color: var(--dark); font-size: 2.4rem; margin-bottom: 2vh;"
+        <h4
+          style="color: var(--dark); font-size: 2rem; margin-bottom: 1vh; line-height: 1.3;"
         >
-          Academic Publications and Research
-        </h3>
-        <p
-          style="color: var(--grey); font-size: 1.6rem; margin-bottom: 3vh; line-height: 1.6; flex: 1 1 0%;"
+          L'évaluation de la dose : un pré-requis de la gestion des risques
+        </h4>
+        <div
+          style="display: flex; flex-direction: row; align-items: center; gap: 0;"
         >
-          Selection of academic publications and scientific research citing DOSIMEX.
-        </p>
-        <a
-          href="#"
-          rel="noreferrer noopener"
-          style="padding: 8px 25px; border: 2px solid var(--main); border-radius: 50px; color: var(--main); text-transform: uppercase; transition: all 0.3s ease 0s; display: flex; align-items: center; justify-content: center; gap: 10px; width: fit-content; margin-top: auto; text-decoration: none; font-size: 1.6rem;"
-          target="_blank"
-        >
-          Download
-          <img
-            alt="icône télécharger"
-            src="/Images/icon_download.png"
-            style="width: 1.2vw; min-width: 20px;"
-          />
-        </a>
+          <p
+            style="color: var(--grey); font-size: 1.5rem; line-height: 1.5; margin: 0px; flex: 1 1 0%;"
+          >
+            Post LinkedIn sur l'utilisation de DOSIMEX dans les CHU de Nantes et Toulouse.
+          </p>
+          <a
+            href="https://www.linkedin.com/posts/sih-solutions_dosimex-activity-6940552424990380032-wsY9"
+            rel="noreferrer noopener"
+            style="color: var(--main); font-size: 1.5rem; font-weight: bold; text-decoration: none; cursor: pointer; margin-left: 3vw; flex-shrink: 0; white-space: nowrap; align-self: center; display: flex; align-items: center; min-height: 3rem;"
+            target="_blank"
+          >
+            Lire l'article
+          </a>
+        </div>
       </div>
+      <div
+        style="border-radius: 15px; padding: 1vh 3vw; border-left: 4px solid var(--main);"
+      >
+        <h4
+          style="color: var(--dark); font-size: 2rem; margin-bottom: 1vh; line-height: 1.3;"
+        >
+          Étude de l'impact de couches de PMMA sur l'équilibre électronique
+        </h4>
+        <div
+          style="font-size: 1.4rem; font-weight: 600; font-style: italic; margin-bottom: 1.5vh;"
+        >
+          <span>
+            Zidouz T. et al.
+          </span>
+          <span>
+             (
+            2025
+            )
+          </span>
+          <span>
+             - 
+            Radiation Physics and Chemistry
+          </span>
+        </div>
+        <div
+          style="display: flex; flex-direction: row; align-items: center; gap: 0;"
+        >
+          <p
+            style="color: var(--grey); font-size: 1.5rem; line-height: 1.5; margin: 0px; flex: 1 1 0%;"
+          >
+            Étudie l'impact de couches de PMMA sur l'équilibre électronique pour l'étalonnage d'instruments de radioprotection.
+          </p>
+          <a
+            href="https://www.sciencedirect.com/science/article/abs/pii/S0969804324004160"
+            rel="noreferrer noopener"
+            style="color: var(--main); font-size: 1.5rem; font-weight: bold; text-decoration: none; cursor: pointer; margin-left: 3vw; flex-shrink: 0; white-space: nowrap; align-self: center; display: flex; align-items: center; min-height: 3rem;"
+            target="_blank"
+          >
+            Lire l'article
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      style="background-color: var(--flashTrans); border-radius: 15px; padding: 3vh 3vw; text-align: center; border-left: 4px solid var(--main);"
+    >
+      <p
+        style="color: var(--grey); font-size: 1.6rem; margin-bottom: 2vh; line-height: 1.5;"
+      >
+        Retrouvez également des rapports de stage de fin d'études citant DOSIMEX dans leurs méthodologies.
+      </p>
+      <a
+        href="/Manuals#internships"
+        style="color: var(--main); font-size: 1.5rem; font-weight: bold; text-decoration: none; cursor: pointer;"
+      >
+        Voir les stages
+      </a>
     </div>
   </div>
 </div>
@@ -81,7 +408,7 @@ exports[`References Component > Snapshot Tests > should match desktop snapshot 1
 
 exports[`References Component > Snapshot Tests > should match mobile snapshot 1`] = `
 <div
-  style="background-color: white; padding: 8vh 5vw;"
+  style="background-color: white; padding: 6vh 5vw;"
 >
   <div
     style="max-width: 1200px; margin: 0px auto;"
@@ -89,149 +416,125 @@ exports[`References Component > Snapshot Tests > should match mobile snapshot 1`
     <h2
       style="text-align: center; color: var(--dark); font-size: 3rem; margin-bottom: 2vh;"
     >
-      Publications and References
+      Publications et Références
     </h2>
     <p
-      style="text-align: center; color: var(--grey); font-size: 1.6rem; max-width: 800px; margin: 0px auto 6vh auto;"
+      style="text-align: center; color: var(--grey); font-size: 1.6rem; max-width: 800px; margin: 0px auto 4vh auto;"
     >
-      DOSIMEX is cited in numerous scientific publications and reference articles in radiation protection.
+      DOSIMEX est cité dans de nombreuses publications scientifiques, articles de presse spécialisée et travaux de recherche.
     </p>
     <div
-      style="display: flex; flex-direction: column; gap: 4vh; justify-content: center; align-items: stretch;"
+      style="display: flex; flex-direction: column; gap: 3vh; margin-bottom: 4vh;"
     >
       <div
-        style="background-color: var(--grey-bg); padding: 4vh 4vw; border-radius: 20px; flex: 1 1 0%; display: flex; flex-direction: column; max-width: 100%;"
+        style="border-radius: 15px; padding: 1vh 4vw; border-left: 4px solid var(--main);"
       >
-        <h3
-          style="color: var(--dark); font-size: 2rem; margin-bottom: 2vh;"
+        <h4
+          style="color: var(--dark); font-size: 1.8rem; margin-bottom: 1vh; line-height: 1.3;"
         >
-          Operational Radiation Protection Articles
-        </h3>
-        <p
-          style="color: var(--grey); font-size: 1.4rem; margin-bottom: 3vh; line-height: 1.6; flex: 1 1 0%;"
+          Le calcul prédictif de dose pour une meilleure protection
+        </h4>
+        <div
+          style="display: flex; flex-direction: column; align-items: flex-start; gap: 1.5vh;"
         >
-          Compilation of articles and publications where DOSIMEX is used as a reference.
-        </p>
-        <a
-          href="#"
-          rel="noreferrer noopener"
-          style="padding: 8px 25px; border: 2px solid var(--main); border-radius: 50px; color: var(--main); text-transform: uppercase; transition: all 0.3s ease 0s; display: flex; align-items: center; justify-content: center; gap: 10px; width: fit-content; margin-top: auto; text-decoration: none; font-size: 1.4rem;"
-          target="_blank"
-        >
-          Download
-          <img
-            alt="icône télécharger"
-            src="/Images/icon_download.png"
-            style="width: 4.7vw; max-width: 20px;"
-          />
-        </a>
+          <p
+            style="color: var(--grey); font-size: 1.4rem; line-height: 1.5; margin: 0px 0px 2vh 0px; flex: 1 1 0%;"
+          >
+            Article SIH-Solutions sur l'utilisation de DOSIMEX à l'Institut Curie pour la prédiction des expositions en radiologie médicale.
+          </p>
+          <a
+            href="https://www.sih-solutions.fr/le-calcul-predictif-de-dose-pour-une-meilleure-protection"
+            rel="noreferrer noopener"
+            style="color: var(--main); font-size: 1.4rem; font-weight: bold; text-decoration: none; cursor: pointer; margin-left: 0px; flex-shrink: 0; white-space: nowrap; align-self: flex-start; display: flex; align-items: center; min-height: auto;"
+            target="_blank"
+          >
+            Lire l'article
+          </a>
+        </div>
       </div>
       <div
-        style="background-color: var(--grey-bg); padding: 4vh 4vw; border-radius: 20px; flex: 1 1 0%; display: flex; flex-direction: column; max-width: 100%;"
+        style="border-radius: 15px; padding: 1vh 4vw; border-left: 4px solid var(--main);"
       >
-        <h3
-          style="color: var(--dark); font-size: 2rem; margin-bottom: 2vh;"
+        <h4
+          style="color: var(--dark); font-size: 1.8rem; margin-bottom: 1vh; line-height: 1.3;"
         >
-          Academic Publications and Research
-        </h3>
-        <p
-          style="color: var(--grey); font-size: 1.4rem; margin-bottom: 3vh; line-height: 1.6; flex: 1 1 0%;"
+          L'évaluation de la dose : un pré-requis de la gestion des risques
+        </h4>
+        <div
+          style="display: flex; flex-direction: column; align-items: flex-start; gap: 1.5vh;"
         >
-          Selection of academic publications and scientific research citing DOSIMEX.
-        </p>
-        <a
-          href="#"
-          rel="noreferrer noopener"
-          style="padding: 8px 25px; border: 2px solid var(--main); border-radius: 50px; color: var(--main); text-transform: uppercase; transition: all 0.3s ease 0s; display: flex; align-items: center; justify-content: center; gap: 10px; width: fit-content; margin-top: auto; text-decoration: none; font-size: 1.4rem;"
-          target="_blank"
+          <p
+            style="color: var(--grey); font-size: 1.4rem; line-height: 1.5; margin: 0px 0px 2vh 0px; flex: 1 1 0%;"
+          >
+            Post LinkedIn sur l'utilisation de DOSIMEX dans les CHU de Nantes et Toulouse.
+          </p>
+          <a
+            href="https://www.linkedin.com/posts/sih-solutions_dosimex-activity-6940552424990380032-wsY9"
+            rel="noreferrer noopener"
+            style="color: var(--main); font-size: 1.4rem; font-weight: bold; text-decoration: none; cursor: pointer; margin-left: 0px; flex-shrink: 0; white-space: nowrap; align-self: flex-start; display: flex; align-items: center; min-height: auto;"
+            target="_blank"
+          >
+            Lire l'article
+          </a>
+        </div>
+      </div>
+      <div
+        style="border-radius: 15px; padding: 1vh 4vw; border-left: 4px solid var(--main);"
+      >
+        <h4
+          style="color: var(--dark); font-size: 1.8rem; margin-bottom: 1vh; line-height: 1.3;"
         >
-          Download
-          <img
-            alt="icône télécharger"
-            src="/Images/icon_download.png"
-            style="width: 4.7vw; max-width: 20px;"
-          />
-        </a>
+          Étude de l'impact de couches de PMMA sur l'équilibre électronique
+        </h4>
+        <div
+          style="font-size: 1.3rem; font-weight: 600; font-style: italic; margin-bottom: 1.5vh;"
+        >
+          <span>
+            Zidouz T. et al.
+          </span>
+          <span>
+             (
+            2025
+            )
+          </span>
+          <span>
+             - 
+            Radiation Physics and Chemistry
+          </span>
+        </div>
+        <div
+          style="display: flex; flex-direction: column; align-items: flex-start; gap: 1.5vh;"
+        >
+          <p
+            style="color: var(--grey); font-size: 1.4rem; line-height: 1.5; margin: 0px 0px 2vh 0px; flex: 1 1 0%;"
+          >
+            Étudie l'impact de couches de PMMA sur l'équilibre électronique pour l'étalonnage d'instruments de radioprotection.
+          </p>
+          <a
+            href="https://www.sciencedirect.com/science/article/abs/pii/S0969804324004160"
+            rel="noreferrer noopener"
+            style="color: var(--main); font-size: 1.4rem; font-weight: bold; text-decoration: none; cursor: pointer; margin-left: 0px; flex-shrink: 0; white-space: nowrap; align-self: flex-start; display: flex; align-items: center; min-height: auto;"
+            target="_blank"
+          >
+            Lire l'article
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-`;
-
-exports[`References Component > Snapshot Tests > should match snapshot with hover state 1`] = `
-<div
-  style="background-color: white; padding: 10vh 10vw;"
->
-  <div
-    style="max-width: 1200px; margin: 0px auto;"
-  >
-    <h2
-      style="text-align: center; color: var(--dark); font-size: 3.6rem; margin-bottom: 2vh;"
-    >
-      Publications and References
-    </h2>
-    <p
-      style="text-align: center; color: var(--grey); font-size: 1.8rem; max-width: 800px; margin: 0px auto 6vh auto;"
-    >
-      DOSIMEX is cited in numerous scientific publications and reference articles in radiation protection.
-    </p>
     <div
-      style="display: flex; flex-direction: row; gap: 3vw; justify-content: center; align-items: stretch;"
+      style="background-color: var(--flashTrans); border-radius: 15px; padding: 3vh 4vw; text-align: center; border-left: 4px solid var(--main);"
     >
-      <div
-        style="background-color: var(--grey-bg); padding: 4vh 3vw; border-radius: 20px; flex: 1 1 0%; display: flex; flex-direction: column; max-width: 500px;"
+      <p
+        style="color: var(--grey); font-size: 1.5rem; margin-bottom: 2vh; line-height: 1.5;"
       >
-        <h3
-          style="color: var(--dark); font-size: 2.4rem; margin-bottom: 2vh;"
-        >
-          Operational Radiation Protection Articles
-        </h3>
-        <p
-          style="color: var(--grey); font-size: 1.6rem; margin-bottom: 3vh; line-height: 1.6; flex: 1 1 0%;"
-        >
-          Compilation of articles and publications where DOSIMEX is used as a reference.
-        </p>
-        <a
-          href="#"
-          rel="noreferrer noopener"
-          style="padding: 8px 25px; border: 2px solid var(--main); border-radius: 50px; color: white; text-transform: uppercase; transition: all 0.3s ease 0s; display: flex; align-items: center; justify-content: center; gap: 10px; width: fit-content; margin-top: auto; text-decoration: none; font-size: 1.6rem; transform: translateY(-4px); box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1); background-color: var(--main);"
-          target="_blank"
-        >
-          Download
-          <img
-            alt="icône télécharger"
-            src="/Images/icon_download.png"
-            style="width: 1.2vw; min-width: 20px;"
-          />
-        </a>
-      </div>
-      <div
-        style="background-color: var(--grey-bg); padding: 4vh 3vw; border-radius: 20px; flex: 1 1 0%; display: flex; flex-direction: column; max-width: 500px;"
+        Retrouvez également des rapports de stage de fin d'études citant DOSIMEX dans leurs méthodologies.
+      </p>
+      <a
+        href="/Manuals#internships"
+        style="color: var(--main); font-size: 1.4rem; font-weight: bold; text-decoration: none; cursor: pointer;"
       >
-        <h3
-          style="color: var(--dark); font-size: 2.4rem; margin-bottom: 2vh;"
-        >
-          Academic Publications and Research
-        </h3>
-        <p
-          style="color: var(--grey); font-size: 1.6rem; margin-bottom: 3vh; line-height: 1.6; flex: 1 1 0%;"
-        >
-          Selection of academic publications and scientific research citing DOSIMEX.
-        </p>
-        <a
-          href="#"
-          rel="noreferrer noopener"
-          style="padding: 8px 25px; border: 2px solid var(--main); border-radius: 50px; color: var(--main); text-transform: uppercase; transition: all 0.3s ease 0s; display: flex; align-items: center; justify-content: center; gap: 10px; width: fit-content; margin-top: auto; text-decoration: none; font-size: 1.6rem;"
-          target="_blank"
-        >
-          Download
-          <img
-            alt="icône télécharger"
-            src="/Images/icon_download.png"
-            style="width: 1.2vw; min-width: 20px;"
-          />
-        </a>
-      </div>
+        Voir les stages
+      </a>
     </div>
   </div>
 </div>

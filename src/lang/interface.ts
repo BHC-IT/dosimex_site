@@ -63,14 +63,16 @@ export default interface Lang {
 			title: string
 			subtitle: string
 			btnText: string
-			article1: {
+			internshipsText: string
+			internshipsBtn: string
+			items: Array<{
 				title: string
 				description: string
-			}
-			article2: {
-				title: string
-				description: string
-			}
+				url: string
+				year?: string
+				journal?: string
+				authors?: string
+			}>
 		}
 		callToAction: {
 			title: string

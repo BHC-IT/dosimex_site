@@ -14,6 +14,8 @@ const MOTIF_SCALE_MANUALS = 0.9
 
 // Constants for click timeout and styling
 const CLICK_TIMEOUT_MS = 100
+const SCROLL_DELAY_MS = 100
+const INITIAL_SCROLL_DELAY_MS = 200
 const HEADER_LINE_HEIGHT = 0.7
 
 const LinkZone = styled.li`
@@ -59,31 +61,71 @@ export default function Manuals() {
 	const internshipsRef = useRef(null as HTMLDivElement | null)
 
 	useEffect(() => {
-		if (window.location.hash === '#manuals') {
-			manualsRef.current?.scrollIntoView({
-				behavior: 'smooth',
-				block: 'start',
-				inline: 'center',
-			})
-			manualsRef.current?.focus()
-		}
-		if (window.location.hash === '#validations') {
-			validationsRef.current?.scrollIntoView({
-				behavior: 'smooth',
-				block: 'start',
-				inline: 'center',
-			})
-			validationsRef.current?.focus()
-		}
-		if (window.location.hash === '#internships') {
-			internshipsRef.current?.scrollIntoView({
-				behavior: 'smooth',
-				block: 'start',
-				inline: 'center',
-			})
-			internshipsRef.current?.focus()
-		}
+		// Add a small delay to ensure the page is fully rendered
+		const timer = setTimeout(() => {
+			if (window.location.hash === '#manuals') {
+				manualsRef.current?.scrollIntoView({
+					behavior: 'smooth',
+					block: 'start',
+					inline: 'center',
+				})
+				manualsRef.current?.focus()
+			}
+			if (window.location.hash === '#validations') {
+				validationsRef.current?.scrollIntoView({
+					behavior: 'smooth',
+					block: 'start',
+					inline: 'center',
+				})
+				validationsRef.current?.focus()
+			}
+			if (window.location.hash === '#internships') {
+				internshipsRef.current?.scrollIntoView({
+					behavior: 'smooth',
+					block: 'start',
+					inline: 'center',
+				})
+				internshipsRef.current?.focus()
+			}
+		}, SCROLL_DELAY_MS)
+
+		return () => clearTimeout(timer)
 	}, [dummy])
+
+	// Additional useEffect to handle initial page load with hash
+	useEffect(() => {
+		// Handle hash on initial page load
+		const handleInitialHash = () => {
+			if (window.location.hash === '#manuals') {
+				manualsRef.current?.scrollIntoView({
+					behavior: 'smooth',
+					block: 'start',
+					inline: 'center',
+				})
+				manualsRef.current?.focus()
+			}
+			if (window.location.hash === '#validations') {
+				validationsRef.current?.scrollIntoView({
+					behavior: 'smooth',
+					block: 'start',
+					inline: 'center',
+				})
+				validationsRef.current?.focus()
+			}
+			if (window.location.hash === '#internships') {
+				internshipsRef.current?.scrollIntoView({
+					behavior: 'smooth',
+					block: 'start',
+					inline: 'center',
+				})
+				internshipsRef.current?.focus()
+			}
+		}
+
+		// Delay to ensure DOM is fully rendered
+		const timer = setTimeout(handleInitialHash, INITIAL_SCROLL_DELAY_MS)
+		return () => clearTimeout(timer)
+	}, [])
 
 	const manuals = {
 		manuals: [

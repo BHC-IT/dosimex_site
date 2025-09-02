@@ -8,15 +8,16 @@ export interface IStyles {
 	container: CSS.Properties
 	title: CSS.Properties
 	subtitle: CSS.Properties
-	articlesContainer: CSS.Properties
-	articleCard: CSS.Properties
-	articleTitle: CSS.Properties
-	articleDescription: CSS.Properties
-	button: {
-		base: CSS.Properties
-		hover: CSS.Properties
-	}
-	icon: CSS.Properties
+	referencesList: CSS.Properties
+	referenceItem: CSS.Properties
+	referenceTitle: CSS.Properties
+	referenceMetadata: CSS.Properties
+	referenceDescription: CSS.Properties
+	referenceDescriptionContainer: CSS.Properties
+	textButton: CSS.Properties
+	internshipsSection: CSS.Properties
+	internshipsText: CSS.Properties
+	internshipsButton: CSS.Properties
 }
 
 interface IProps {
@@ -24,63 +25,66 @@ interface IProps {
 		title: string
 		subtitle: string
 		btnText: string
-		article1: {
+		internshipsText: string
+		internshipsBtn: string
+		items: Array<{
 			title: string
 			description: string
-		}
-		article2: {
-			title: string
-			description: string
-		}
+			url: string
+			year?: string
+			journal?: string
+			authors?: string
+		}>
 	}
 }
 
 const References = (props: IProps) => {
-	const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(null)
 	const style = useIsMobile(styles)
 
 	if (style === null) return null
-
-	const getButtonStyle = (index: number) => ({
-		...style.button.base,
-		...(hoveredIndex === index ? style.button.hover : {}),
-	})
-
-	const articles = [
-		{ ...props.text.article1, href: '#' },
-		{ ...props.text.article2, href: '#' },
-	]
 
 	return (
 		<div style={style.global}>
 			<div style={style.container}>
 				<h2 style={style.title}>{props.text.title}</h2>
 				<p style={style.subtitle}>{props.text.subtitle}</p>
-				<div style={style.articlesContainer}>
-					{articles.map((article, index) => (
+				<div style={style.referencesList}>
+					{props.text.items.map((item, index) => (
 						<div
 							key={index}
-							style={style.articleCard}
+							style={style.referenceItem}
 						>
-							<h3 style={style.articleTitle}>{article.title}</h3>
-							<p style={style.articleDescription}>{article.description}</p>
-							<a
-								style={getButtonStyle(index)}
-								href={article.href}
-								target='_blank'
-								rel='noreferrer noopener'
-								onMouseEnter={() => setHoveredIndex(index)}
-								onMouseLeave={() => setHoveredIndex(null)}
-							>
-								{props.text.btnText}
-								<img
-									style={style.icon}
-									src='/Images/icon_download.png'
-									alt='icône télécharger'
-								/>
-							</a>
+							<h4 style={style.referenceTitle}>{item.title}</h4>
+							{(item.authors ?? item.year ?? item.journal) && (
+								<div style={style.referenceMetadata}>
+									{item.authors && <span>{item.authors}</span>}
+									{item.year && <span> ({item.year})</span>}
+									{item.journal && <span> - {item.journal}</span>}
+								</div>
+							)}
+							<div style={style.referenceDescriptionContainer}>
+								<p style={style.referenceDescription}>{item.description}</p>
+								<a
+									style={style.textButton}
+									href={item.url}
+									target='_blank'
+									rel='noreferrer noopener'
+								>
+									{props.text.btnText}
+								</a>
+							</div>
 						</div>
 					))}
+				</div>
+
+				<div style={style.internshipsSection}>
+					<p style={style.internshipsText}>{props.text.internshipsText}</p>
+					<a
+						style={style.internshipsButton}
+						href='/Manuals#internships'
+					>
+						{props.text.internshipsBtn}
+					</a>
 				</div>
 			</div>
 		</div>
@@ -92,7 +96,7 @@ export default References
 export const styles = (mobile: boolean): IStyles => ({
 	global: {
 		backgroundColor: 'white',
-		padding: mobile ? '8vh 5vw' : '12vh 8vw 6vh 8vw',
+		padding: mobile ? '6vh 5vw' : '8vh 8vw 6vh 8vw',
 	},
 	container: {
 		maxWidth: '1200px',
@@ -108,65 +112,77 @@ export const styles = (mobile: boolean): IStyles => ({
 		textAlign: 'center',
 		color: 'var(--grey)',
 		fontSize: mobile ? '1.6rem' : '1.8rem',
-		marginBottom: '6vh',
 		maxWidth: '800px',
 		margin: '0 auto 6vh auto',
 	},
-	articlesContainer: {
-		display: 'flex',
-		flexDirection: mobile ? 'column' : 'row',
-		gap: mobile ? '4vh' : '3vw',
-		justifyContent: 'center',
-		alignItems: 'stretch',
-	},
-	articleCard: {
-		backgroundColor: 'var(--flashTrans)',
-		padding: mobile ? '4vh 4vw' : '4vh 3vw',
-		borderRadius: '20px',
-		flex: 1,
+	referencesList: {
 		display: 'flex',
 		flexDirection: 'column',
-		maxWidth: mobile ? '100%' : '500px',
+		gap: mobile ? '3vh' : '2.5vh',
+		marginBottom: mobile ? '4vh' : '6vh',
 	},
-	articleTitle: {
+	referenceItem: {
+		borderRadius: '15px',
+		padding: mobile ? '1vh 4vw' : '1vh 3vw',
+		borderLeft: '4px solid var(--main)',
+	},
+	referenceTitle: {
 		color: 'var(--dark)',
-		fontSize: mobile ? '2rem' : '2.4rem',
-		marginBottom: '2vh',
+		fontSize: mobile ? '1.6rem' : '1.7rem',
+		marginBottom: '1vh',
 	},
-	articleDescription: {
+	referenceMetadata: {
+		fontSize: mobile ? '1.3rem' : '1.4rem',
+		fontWeight: '600',
+		fontStyle: 'italic',
+		marginBottom: '1.5vh',
+	},
+	referenceDescription: {
 		color: 'var(--grey)',
-		fontSize: mobile ? '1.4rem' : '1.6rem',
-		marginBottom: '3vh',
-		lineHeight: 1.6,
+		fontSize: mobile ? '1.4rem' : '1.5rem',
+		marginBottom: mobile ? '2vh' : '0',
+		lineHeight: 1.5,
+		margin: mobile ? '0 0 2vh 0' : '0',
 		flex: 1,
 	},
-	button: {
-		base: {
-			padding: '8px 25px',
-			border: '2px solid var(--main)',
-			borderRadius: '50px',
-			color: 'var(--main)',
-			textTransform: 'uppercase',
-			transition: 'all 0.3s ease 0s',
-			display: 'flex',
-			alignItems: 'center',
-			justifyContent: 'center',
-			gap: '10px',
-			width: 'fit-content',
-			marginTop: 'auto',
-			textDecoration: 'none',
-			fontSize: mobile ? '1.4rem' : '1.6rem',
-		},
-		hover: {
-			transform: 'translateY(-4px)',
-			boxShadow: '0px 5px 5px rgba(0, 0, 0, 0.1)',
-			backgroundColor: 'var(--main)',
-			color: 'white',
-		},
+	referenceDescriptionContainer: {
+		display: 'flex',
+		flexDirection: mobile ? 'column' : 'row',
+		alignItems: mobile ? 'flex-start' : 'center',
+		gap: mobile ? '1.5vh' : '0',
 	},
-	icon: {
-		width: mobile ? '4.7vw' : '1.2vw',
-		minWidth: mobile ? undefined : '20px',
-		maxWidth: mobile ? '20px' : undefined,
+	textButton: {
+		color: 'var(--main)',
+		fontSize: mobile ? '1.4rem' : '1.5rem',
+		fontWeight: 'bold',
+		textDecoration: 'none',
+		cursor: 'pointer',
+		marginLeft: mobile ? '0' : '3vw',
+		flexShrink: 0,
+		whiteSpace: 'nowrap',
+		alignSelf: mobile ? 'flex-start' : 'center',
+		display: 'flex',
+		alignItems: 'center',
+		minHeight: mobile ? 'auto' : '3rem',
+	},
+	internshipsSection: {
+		backgroundColor: 'var(--grey-bg)',
+		borderRadius: '15px',
+		padding: mobile ? '3vh 4vw' : '3vh 3vw',
+		textAlign: 'center',
+		borderLeft: '4px solid var(--main)',
+	},
+	internshipsText: {
+		color: 'var(--dark)',
+		fontSize: mobile ? '1.5rem' : '1.6rem',
+		marginBottom: '2vh',
+		lineHeight: 1.5,
+	},
+	internshipsButton: {
+		color: 'var(--main)',
+		fontSize: mobile ? '1.4rem' : '1.5rem',
+		fontWeight: 'bold',
+		textDecoration: 'none',
+		cursor: 'pointer',
 	},
 })
