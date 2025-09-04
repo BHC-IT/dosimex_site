@@ -1,6 +1,7 @@
 import * as CSS from 'csstype'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
+import React, { useRef } from 'react'
 import { BrowserView, MobileView, withOrientationChange } from 'react-device-detect'
 
 import Button from '../Components/Button'
@@ -8,6 +9,7 @@ import CardHome from '../Components/CardHome'
 import HeroBannerCarousel from '../Components/HeroBannerCarousel'
 import OpinionHome from '../Components/OpinionHome'
 import References from '../Components/References'
+import ScrollButton from '../Components/ScrollButton'
 import { useIsMobile } from '../Hooks/useIsMobile'
 import { useText } from '../Hooks/useText'
 
@@ -15,7 +17,11 @@ const YouTube = dynamic(() => import('react-youtube'))
 const PartnersCarousel = dynamic(() => import('../Components/PartnersCarousel'))
 
 export interface IStyles {
-	header: { [idx: string]: CSS.Properties }
+	header: {
+		[idx: string]: CSS.Properties
+		buttonsContainer: CSS.Properties
+		referencesButton: CSS.Properties
+	}
 	partners: { [idx: string]: CSS.Properties }
 	offers: { [idx: string]: CSS.Properties }
 	numbers: { [idx: string]: CSS.Properties }
@@ -37,6 +43,14 @@ function Home(props: IProps) {
 	const text = useText('Home')
 	const altText = useText('altText') as { flagUk: string; decorativePattern: string } | null
 	const style = useIsMobile(styles)
+	const referencesRef = useRef<HTMLElement>(null)
+
+	const scrollToReferences = () => {
+		referencesRef.current?.scrollIntoView({
+			behavior: 'smooth',
+			block: 'start',
+		})
+	}
 
 	// Constants for image dimensions
 	const UK_FLAG_WIDTH = 1024
@@ -69,11 +83,18 @@ function Home(props: IProps) {
 							{text.header.promo}
 						</p>
 					</div>
-					<Button
-						style={style.header.button}
-						name={text.header.button}
-						route='Software'
-					/>
+					<div style={style.header.buttonsContainer}>
+						<Button
+							style={style.header.button}
+							name={text.header.button}
+							route='Software'
+						/>
+						<ScrollButton
+							style={style.header.referencesButton}
+							name={text.header.referencesButton}
+							onClick={scrollToReferences}
+						/>
+					</div>
 				</div>
 				<div style={style.header.headerImage}>
 					<div style={style.header.image}>
@@ -206,7 +227,7 @@ function Home(props: IProps) {
 				<OpinionHome text={text.opinion} />
 			</section>
 
-			<section>
+			<section ref={referencesRef}>
 				<References text={text.references} />
 			</section>
 
@@ -232,13 +253,13 @@ export const styles = (mobile: boolean): IStyles => ({
 			? {
 					textAlign: 'center',
 					marginTop: '7vh',
-			  }
+				}
 			: {
 					display: 'flex',
 					alignItems: 'center',
 					justifyContent: 'space-between',
 					height: '90vh',
-			  },
+				},
 		headerSubtitle: {
 			color: 'var(--dark)',
 			fontSize: mobile ? '1.6rem' : '2rem',
@@ -280,10 +301,20 @@ export const styles = (mobile: boolean): IStyles => ({
 			position: 'absolute',
 			marginTop: '0',
 		},
+		buttonsContainer: {
+			display: 'flex',
+			flexDirection: mobile ? 'column' : 'row',
+			gap: mobile ? '2vh' : '2vw',
+			alignItems: 'center',
+		},
 		button: {
 			border: '2px solid var(--main)',
 			backgroundColor: 'white',
 			color: 'var(--main)',
+			minWidth: mobile ? '200px' : '150px',
+		},
+		referencesButton: {
+			minWidth: mobile ? '200px' : '150px',
 		},
 	},
 	partners: {
@@ -344,7 +375,7 @@ export const styles = (mobile: boolean): IStyles => ({
 					display: 'flex',
 					flexDirection: 'column',
 					paddingLeft: '15vw',
-			  }
+				}
 			: {
 					display: 'flex',
 					alignContent: 'center',
@@ -359,7 +390,7 @@ export const styles = (mobile: boolean): IStyles => ({
 					paddingBottom: '4vh',
 					paddingTop: '4vh',
 					backgroundColor: 'white',
-			  },
+				},
 		divNumber: {
 			width: mobile ? '35%' : undefined,
 		},

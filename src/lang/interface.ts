@@ -18,6 +18,7 @@ export default interface Lang {
 			p: string
 			promo: string
 			button: string
+			referencesButton: string
 			textImage: string[]
 		}
 		partners: {

@@ -18,6 +18,7 @@ const text: ILang = {
 			p: '{Home.header.p}',
 			promo: '{Home.header.promo}',
 			button: '{Home.header.button}',
+			referencesButton: '{Home.header.referencesButton}',
 			textImage: [
 				'{Home.header.textImage[0]}',
 				'{Home.header.textImage[1]}',

@@ -18,6 +18,7 @@ const text: ILang = {
 			p: 'A set of practical, easy-to-use, validated calculation tools that address many situations encountered in radiation protection. They will allow you to improve your expertise level.',
 			promo: 'Most of our calculation tools are available in English and French.',
 			button: 'Discover',
+			referencesButton: 'Publications',
 			textImage: [
 				'Dosimex-B Beta emission',
 				'Dosimex-GX X-ray Generator',

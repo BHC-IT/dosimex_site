@@ -15,9 +15,10 @@ const text: ILang = {
 	Home: {
 		header: {
 			title: 'Des outils de calculs radioprotection pour tous',
-			p: "Ensemble d'outils de calculs pratiques, simples d’emploi, validés, et répondant à de nombreuses situations rencontrées en radioprotection. Ils vous permettront d'améliorer votre niveau d'expertise.",
+			p: "Ensemble d'outils de calculs pratiques, simples d'emploi, validés, et répondant à de nombreuses situations rencontrées en radioprotection. Ils vous permettront d'améliorer votre niveau d'expertise.",
 			promo: 'La plupart de nos outils de calcul existent désormais en version anglaise.',
 			button: 'Découvrir',
+			referencesButton: 'Publications',
 			textImage: [
 				'Dosimex-B Émission beta',
 				'Dosimex-GX Générateur X',
