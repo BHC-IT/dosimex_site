@@ -1,12 +1,24 @@
 import ILang from './interface'
 
 const text: ILang = {
+	altText: {
+		logo: '{altText.logo}',
+		flagUk: '{altText.flagUk}',
+		decorativePattern: '{altText.decorativePattern}',
+		radiationSymbol: '{altText.radiationSymbol}',
+		carouselMain: '{altText.carouselMain}',
+		carouselScreens: '{altText.carouselScreens}',
+		trainingMaterials: '{altText.trainingMaterials}',
+		manualCover: '{altText.manualCover}',
+		cardIcon: '{altText.cardIcon}',
+	},
 	Home: {
 		header: {
 			title: '{Home.header.title}',
 			p: '{Home.header.p}',
 			promo: '{Home.header.promo}',
 			button: '{Home.header.button}',
+			referencesButton: '{Home.header.referencesButton}',
 			textImage: [
 				'{Home.header.textImage[0]}',
 				'{Home.header.textImage[1]}',
@@ -65,6 +77,20 @@ const text: ILang = {
 			job: '{Home.opinion.job}',
 			opinion: '{Home.opinion.opinion}',
 			btn: '{Home.opinion.btn}',
+		},
+		references: {
+			title: '{Home.references.title}',
+			subtitle: '{Home.references.subtitle}',
+			btnText: '{Home.references.btnText}',
+			internshipsText: '{Home.references.internshipsText}',
+			internshipsBtn: '{Home.references.internshipsBtn}',
+			items: [
+				{
+					title: '{Home.references.items[0].title}',
+					description: '{Home.references.items[0].description}',
+					url: '{Home.references.items[0].url}',
+				},
+			],
 		},
 		callToAction: {
 			title: '{Home.callToAction.title}',
@@ -232,15 +258,11 @@ const text: ILang = {
 		],
 	},
 	Product: {
-		header: {
-			title: '{Product.header.title}',
-			p: '{Product.header.p}',
-			button: '{Product.header.button}',
-		},
 		buttonKnowMore: '{Product.buttonKnowMore}',
 		title: '{Product.title}',
 		descrip: '{Product.descrip}',
 		partE: {
+			title: '{Product.partE.title}',
 			p: [
 				'{Product.partE.p[0]}',
 				'{Product.partE.p[1]}',
@@ -250,17 +272,52 @@ const text: ILang = {
 			],
 		},
 		between: '{Product.between}',
-		partD: {
-			p: '{Product.partD.p}',
-		},
 		prerequisites: {
 			title: '{Product.prerequisites.title}',
 			p: '{Product.prerequisites.p}',
 			italic: '{Product.prerequisites.italic}',
 		},
 		titlePrice: '{Product.titlePrice}',
-		price: '{Product.price}',
-		priceShipment: '{Product.priceShipment}',
+		pricing: {
+			title: '{Product.pricing.title}',
+			packageTitle: '{Product.pricing.packageTitle}',
+			packageFeatures: [
+				'{Product.pricing.packageFeatures[0]}',
+				'{Product.pricing.packageFeatures[1]}',
+				'{Product.pricing.packageFeatures[2]}',
+				'{Product.pricing.packageFeatures[3]}',
+			],
+			volumeTitle: '{Product.pricing.volumeTitle}',
+			volumeText: '{Product.pricing.volumeText}',
+			volumeItems: [
+				'{Product.pricing.volumeItems[0]}',
+				'{Product.pricing.volumeItems[1]}',
+			],
+			orderTitle: '{Product.pricing.orderTitle}',
+			orderText: '{Product.pricing.orderText}',
+			quoteButton: '{Product.pricing.quoteButton}',
+		},
+		faq: {
+			title: '{Product.faq.title}',
+			questions: [
+				{
+					question: '{Product.faq.questions[0].question}',
+					answer: '{Product.faq.questions[0].answer}',
+				},
+				{
+					question: '{Product.faq.questions[1].question}',
+					answer: '{Product.faq.questions[1].answer}',
+				},
+				{
+					question: '{Product.faq.questions[2].question}',
+					answer: '{Product.faq.questions[2].answer}',
+				},
+				{
+					question: '{Product.faq.questions[3].question}',
+					answer: '{Product.faq.questions[3].answer}',
+				},
+			],
+		},
 		questions: {
 			title: '{Product.questions.title}',
 			p: '{Product.questions.p}',
@@ -333,9 +390,13 @@ const text: ILang = {
 			'{ContactForm.label[1]}',
 			'{ContactForm.label[2]}',
 			'{ContactForm.label[3]}',
+			'{ContactForm.label[4]}',
+			'{ContactForm.label[5]}',
+			'{ContactForm.label[6]}',
 		],
 		errorName: '{ContactForm.errorName}',
 		errorEmail: ['{ContactForm.errorEmail[0]}', '{ContactForm.errorEmail[1]}'],
+		errorPhone: '{ContactForm.errorPhone}',
 		errorMessage: '{ContactForm.errorMessage}',
 		button: '{ContactForm.button}',
 		sending: '{ContactForm.sending}',
@@ -367,7 +428,6 @@ const text: ILang = {
 			'{Navbar.items[2]}',
 			'{Navbar.items[3]}',
 			'{Navbar.items[4]}',
-			'{Navbar.items[5]}',
 		],
 		button: '{Navbar.button}',
 	},

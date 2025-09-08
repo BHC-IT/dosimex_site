@@ -1,0 +1,81 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`LanguageSwitch Component > Rendering > should render language switch with all elements correctly 1`] = `
+<li>
+  <div
+    style="display: flex; align-items: center; justify-content: center;"
+  >
+    <div
+      style="padding-left: 1.7vw; padding-right: 8px; padding-top: 3px;"
+    >
+      <div
+        data-path="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z"
+        data-size="1.4"
+        data-testid="mdi-icon"
+      />
+    </div>
+    <div>
+      <a
+        data-locale="fr"
+        data-replace="true"
+        href="/about-us"
+      >
+        <div
+          style="color: rgb(118, 118, 118); cursor: pointer; display: flex; align-items: center; justify-content: space-between;"
+        >
+          <div
+            style="margin-right: 5px;"
+          >
+            <img
+              alt="French flag"
+              data-nimg="1"
+              decoding="async"
+              height="20.484"
+              loading="lazy"
+              src="/_next/image?url=%2FImages%2FFlag_France.png&w=64&q=75"
+              srcset="/_next/image?url=%2FImages%2FFlag_France.png&w=32&q=75 1x, /_next/image?url=%2FImages%2FFlag_France.png&w=64&q=75 2x"
+              style="color: transparent;"
+              width="30.72"
+            />
+          </div>
+          <p
+            style="margin-right: 7px;"
+          >
+            Fr
+          </p>
+        </div>
+      </a>
+    </div>
+    <div>
+      <a
+        data-locale="en-US"
+        data-replace="true"
+        href="/about-us"
+      >
+        <div
+          style="color: rgb(118, 118, 118); cursor: pointer; display: flex; align-items: center; justify-content: space-between;"
+        >
+          <div
+            style="margin-right: 5px;"
+          >
+            <img
+              alt="UK flag"
+              data-nimg="1"
+              decoding="async"
+              height="20.49"
+              loading="lazy"
+              src="/_next/image?url=%2FImages%2FFlag_Uk.jpg&w=64&q=75"
+              srcset="/_next/image?url=%2FImages%2FFlag_Uk.jpg&w=32&q=75 1x, /_next/image?url=%2FImages%2FFlag_Uk.jpg&w=64&q=75 2x"
+              style="color: transparent;"
+              width="30.72"
+            />
+          </div>
+          <p>
+            En
+          </p>
+        </div>
+      </a>
+    </div>
+  </div>
+</li>
+`;

@@ -1,13 +1,15 @@
-import ContactForm from '../Components/ContactForm'
+import * as CSS from 'csstype'
 import Image from 'next/image'
 
-import { isMobile } from 'react-device-detect'
+import ContactForm from '../Components/ContactForm'
+import { useMobile } from '../Hooks/useIsMobile'
 
 export default function Contact() {
+	const isMobile = useMobile()
+
 	return (
-		<>
-			<div>
-				<div style={{ position: 'absolute', top: '10vh' }}>
+		<div>
+				<div style={styles.backgroundContainer}>
 					{isMobile ? null : (
 						<Image
 							src='/Images/motif_trefle.svg'
@@ -17,10 +19,19 @@ export default function Contact() {
 						/>
 					)}
 				</div>
-				<div style={{ position: 'relative' }}>
+				<div style={styles.formContainer}>
 					<ContactForm />
 				</div>
 			</div>
-		</>
 	)
+}
+
+const styles: { [key: string]: CSS.Properties } = {
+	backgroundContainer: {
+		position: 'absolute',
+		top: '10vh',
+	},
+	formContainer: {
+		position: 'relative',
+	},
 }

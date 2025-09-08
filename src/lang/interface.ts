@@ -1,11 +1,24 @@
 export default interface Lang {
-	[key: string]: any
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	[key: string]: any // Keep this for backwards compatibility, but specific types are defined below
+	altText: {
+		logo: string
+		flagUk: string
+		decorativePattern: string
+		radiationSymbol: string
+		carouselMain: string
+		carouselScreens: string
+		trainingMaterials: string
+		manualCover: string
+		cardIcon: string
+	}
 	Home: {
 		header: {
 			title: string
 			p: string
 			promo: string
 			button: string
+			referencesButton: string
 			textImage: string[]
 		}
 		partners: {
@@ -46,6 +59,21 @@ export default interface Lang {
 			job: string
 			opinion: string
 			btn: string
+		}
+		references: {
+			title: string
+			subtitle: string
+			btnText: string
+			internshipsText: string
+			internshipsBtn: string
+			items: Array<{
+				title: string
+				description: string
+				url: string
+				year?: string
+				journal?: string
+				authors?: string
+			}>
 		}
 		callToAction: {
 			title: string
@@ -123,29 +151,38 @@ export default interface Lang {
 		internships: string[]
 	}
 	Product: {
-		header: {
-			title: string
-			p: string
-			button: string
-		}
 		buttonKnowMore: string
 		title: string
 		descrip: string
 		partE: {
+			title: string
 			p: string[]
 		}
 		between: string
-		partD: {
-			p: string
-		}
 		prerequisites: {
 			title: string
 			p: string
 			italic: string
 		}
 		titlePrice: string
-		price: string
-		priceShipment: string
+		pricing: {
+			title: string
+			packageTitle: string
+			packageFeatures: string[]
+			volumeTitle: string
+			volumeText: string
+			volumeItems: string[]
+			orderTitle: string
+			orderText: string
+			quoteButton: string
+		}
+		faq: {
+			title: string
+			questions: {
+				question: string
+				answer: string
+			}[]
+		}
 		questions: {
 			title: string
 			p: string
@@ -196,6 +233,7 @@ export default interface Lang {
 		label: string[]
 		errorName: string
 		errorEmail: string[]
+		errorPhone: string
 		errorMessage: string
 		button: string
 		sending: string

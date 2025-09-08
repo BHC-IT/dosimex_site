@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rm:*)",
+      "Bash(pnpm test:*)",
+      "Bash(pnpm lint:check:*)",
+      "Bash(find:*)",
+      "Bash(diff:*)",
+      "Bash(mv:*)",
+      "Bash(pnpm lint:*)",
+      "Bash(npx eslint:*)",
+      "Bash(pnpm build:*)",
+      "Bash(pnpm check-types:*)",
+      "Bash(npx tsc:*)",
+      "Bash(pnpm run test:*)",
+      "Bash(pnpm run lint:*)",
+      "Bash(pnpm run:*)",
+      "Bash(git grep:*)",
+      "Bash(npx vitest run:*)",
+      "Bash(grep:*)",
+      "Bash(pnpm vitest:*)",
+      "Bash(pnmp run test:run:*)",
+      "Bash(pnmp test:*)",
+      "Bash(pnpm audit:*)",
+      "Bash(pnpm ls:*)",
+      "WebFetch(domain:www.sih-solutions.fr)",
+      "WebFetch(domain:www.linkedin.com)",
+      "WebFetch(domain:www.sciencedirect.com)",
+      "WebFetch(domain:www.sciencedirect.com)",
+      "WebFetch(domain:papers.ssrn.com)",
+      "WebFetch(domain:inis.iaea.org)",
+      "Bash(pnmp run check-types)"
+    ],
+    "deny": [],
+    "defaultMode": "acceptEdits"
+  }
+}

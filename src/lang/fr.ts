@@ -1,16 +1,28 @@
 import ILang from './interface'
 
 const text: ILang = {
+	altText: {
+		logo: 'DOSIMEX - Logiciel de dosimétrie des rayonnements',
+		flagUk: 'Drapeau du Royaume-Uni - DOSIMEX disponible en anglais',
+		decorativePattern: 'Motif géométrique décoratif en arrière-plan',
+		radiationSymbol: 'DOSIMEX symbole de sécurité radiologique - icône trèfle',
+		carouselMain: 'Interface du logiciel de dosimétrie DOSIMEX',
+		carouselScreens: 'Écran de bannière',
+		trainingMaterials: 'Matériel de formation DOSIMEX en sécurité radiologique',
+		manualCover: 'Couverture de manuel',
+		cardIcon: 'Icône',
+	},
 	Home: {
 		header: {
 			title: 'Des outils de calculs radioprotection pour tous',
-			p: "Ensemble d'outils de calculs pratiques, simples d’emploi, validés, et répondant à de nombreuses situations rencontrées en radioprotection. Ils vous permettront d'améliorer votre niveau d'expertise.",
-			promo: 'Tous nos outils de calcul existent désormais en version anglaise.',
+			p: "Ensemble d'outils de calculs pratiques, simples d'emploi, validés, et répondant à de nombreuses situations rencontrées en radioprotection. Ils vous permettront d'améliorer votre niveau d'expertise.",
+			promo: 'La plupart de nos outils de calcul existent désormais en version anglaise.',
 			button: 'Découvrir',
+			referencesButton: 'Publications',
 			textImage: [
-				'Clé Dosimex',
-				'Dosimex-GX Radionucléide',
+				'Dosimex-B Émission beta',
 				'Dosimex-GX Générateur X',
+				'Dosimex-GX Radionucléide',
 				'Dosimex-N Monte-Carlo neutron',
 			],
 		},
@@ -24,18 +36,16 @@ const text: ILang = {
 				'Nous sommes fiers de les aider dans leurs missions',
 				'Notre éditeur historique pour l’ouvrage « calcul de doses générées par les rayonnements ionisants »',
 				'Utilisent Dosimex à gogo dans leurs calculs',
-				'',
 				'Parmi les premiers à nous soutenir. Et ils continuent. Merci',
 				'Notre partenaire de longue date  pour les formations en spectrométrie gamma et autres',
 				'Ils nous ont fait l’honneur d’apprécier nos codes. Et nous recommandons chaudement le code RayXpert',
-				"Le créateur de notre site. Et d'autres projets en cours !",
 			],
 		},
 		offers: {
 			title: 'Ce que nous proposons',
-			p: 'Un ensemble d‘outils de calculs (13 au total) couvrant l’essentiel du champ en radioprotection: exposition externe gamma, bêta, neutron, exposition interne, transfert atmosphérique et plus encore. Vous trouverez sur le site des vidéos explicatives pour chaque outil ainsi que leurs dossiers de validation (pdf téléchargeable).',
+			p: 'Un ensemble d‘outils de calculs (17 au total) couvrant l’essentiel du champ en radioprotection: exposition externe gamma, bêta, neutron, exposition interne, transfert atmosphérique et plus encore. Vous trouverez sur le site des vidéos explicatives pour chaque outil ainsi que leurs dossiers de validation (pdf téléchargeable).',
 			card1: {
-				title: 'Pack logiciel',
+				title: 'Packs logiciel',
 				p: 'Retrouvez tous les utilitaires Dosimex avec des vidéos spécifiques : pack opérationnel, pack pédagogique, pack mesure',
 			},
 			card2: {
@@ -44,15 +54,15 @@ const text: ILang = {
 			},
 			card3: {
 				title: 'Formations',
-				p: 'Nous vous accompagnons pour prendre en mains ces outils de calculs en nous adaptant à vos problèmes specifiques',
+				p: 'Nous vous accompagnons pour prendre en mains ces outils de calculs en nous adaptant à vos problèmes spécifiques',
 			},
 		},
 		numbers: {
-			number1: '30 ans',
+			number1: '+30 ans',
 			p1: "d'expérience",
 			number2: '+1000',
 			p2: 'radioprotectionnistes convaincus',
-			number3: '11',
+			number3: '35',
 			p3: "journées d'accompagnement réalisées",
 		},
 		videos: {
@@ -64,21 +74,90 @@ const text: ILang = {
 			name: 'Jean-Lionel Trolet',
 			job: 'EAMEA',
 			opinion:
-				'J’utilise DOSIMEX, qui me donne totalement satisfaction, tant par la qualité de ses résultats que par sa facilité d’usage, dans les formations du personnel du ministère des armées. Il possède, entre autres, la force de tenir compte de situations courantes auxquelles sont confrontées les agents de MinArm, tant dans les rôles de PCR médicaux (merci au module de calcul X !) que les intervenants de tous niveaux dans le domaine industriel (du PNR à l’ingénieur). Enfin son usage est si simple que quasiment tous les PCR que nous formons l’ont adopté dans leurs unités.',
+				"J'utilise DOSIMEX, qui me donne totalement satisfaction, tant par la qualité de ses résultats que par sa facilité d'usage, dans les formations du personnel du ministère des armées. Il possède, entre autres, la force de tenir compte de situations courantes auxquelles sont confrontées les agents de MinArm, tant dans les rôles de PCR médicaux (merci au module de calcul X !) que les intervenants de tous niveaux dans le domaine industriel (du PNR à l'ingénieur). Enfin son usage est si simple que quasiment tous les PCR que nous formons l'ont adopté dans leurs unités.",
 			btn: 'Tous les avis',
 		},
+		references: {
+			title: 'Publications et Références',
+			subtitle:
+				"DOSIMEX est cité dans de nombreuses publications scientifiques, articles de presse spécialisée et travaux de recherche. Découvrez comment nos outils contribuent à l'avancement de la recherche et de la pratique en radioprotection.",
+			btnText: 'Consulter',
+			internshipsText:
+				"Retrouvez également des rapports de stage de fin d'études citant DOSIMEX dans leurs méthodologies.",
+			internshipsBtn: 'Voir',
+			items: [
+				{
+					title: 'Le calcul prédictif de dose pour une meilleure protection',
+					description:
+						"Article SIH-Solutions sur l'utilisation de DOSIMEX à l'Institut Curie pour la prédiction des expositions en radiologie médicale.",
+					url: 'https://www.sih-solutions.fr/le-calcul-predictif-de-dose-pour-une-meilleure-protection',
+				},
+				{
+					title: "L'évaluation de la dose : un pré-requis de la gestion des risques",
+					description:
+						"Post LinkedIn sur l'utilisation de DOSIMEX dans les CHU de Nantes et Toulouse.",
+					url: 'https://www.linkedin.com/posts/sih-solutions_dosimex-activity-6940552424990380032-wsY9/?utm_source=linkedin_share&utm_medium=member_desktop_web',
+				},
+				{
+					title: "Étude de l'impact de couches de PMMA sur l'équilibre électronique",
+					description:
+						"Étudie l'impact de couches de PMMA sur l'équilibre électronique pour l'étalonnage d'instruments de radioprotection et modélise les faisceaux X/γ avec DOSIMEX.",
+					url: 'https://www.sciencedirect.com/science/article/abs/pii/S0969804324004160',
+					authors: 'Zidouz T. et al.',
+					year: '2025',
+					journal: 'Radiation Physics and Chemistry',
+				},
+				{
+					title: 'Définition de qualités de faisceau en contexte médical',
+					description:
+						"Utilise DOSIMEX pour définir des qualités de faisceau (X et γ) en contexte médical et analyser l'influence de l'épaisseur de PMMA sur les facteurs d'étalonnage.",
+					url: 'https://www.sciencedirect.com/science/article/abs/pii/S0969804324001532',
+					authors: 'Talbi A. et al.',
+					year: '2024',
+					journal: 'Radiation Physics and Chemistry',
+				},
+				{
+					title: "Travaux de radioprotection pour cellule d'examen - INB 164",
+					description:
+						"Travaux de radioprotection pour la mise en service d'une cellule d'examen : comparaison/usage de trois codes dont DOSIMEX aux côtés de MicroShield et RayXpert.",
+					url: 'https://inis.iaea.org/records/8q3yn-jja37',
+					authors: 'Étude CEDRA',
+					year: '2018',
+					journal: 'INIS - IAEA Database',
+				},
+				{
+					title: "Étude d'optimisation de la dosimétrie - Validation logicielle",
+					description:
+						"Étude d'optimisation de la dosimétrie ; simulations de faisceaux X réalisées avec DOSIMEX (description de l'argument de validation logicielle).",
+					url: 'https://inis.iaea.org/records/xaj40-pdm79',
+					authors: 'Zidouz T. et al.',
+					year: '2025',
+					journal: 'SSRN - Prépublication',
+				},
+				{
+					title: 'DOSIMEX - Des codes de calcul de radioprotection à la portée de tous',
+					description:
+						'Article de présentation "Dosimex – des codes de calcul de radioprotection à la portée de tous" (référence-source sur le pack et ses modules). Utile à citer quand on justifie l\'emploi de DOSIMEX dans une méthode.',
+					url: 'https://inis.iaea.org/records/xaj40-pdm79',
+					authors: 'Vivier A., Lopez G.',
+					year: '2016',
+					journal:
+						'Rayonnements Ionisants, Techniques de Mesures et de Protection - INIS',
+				},
+			],
+		},
 		callToAction: {
-			title: 'Vous pouvez acheter la clé Dosimex en nous demandant un devis',
-			button: 'Acheter Dosimex',
+			title: "Obtenez votre licence Dosimex dès aujourd'hui en demandant un devis",
+			button: 'Obtenir Dosimex',
 		},
 		videoLink: {
-			pres: 'Wrpd_sX0f_M',
+			pres: 'q9QXG78ciXY',
 		},
 	},
 	Software: {
 		header: {
-			title: 'Nos produits',
-			p: 'Les 13 utilitaires se répartissent suivant 3 thématiques: calculs opérationnels de radioprotection, outils pédagogiques permettant d’approfondir les aspects physiques et enfin des utilitaires concernant les aspects mesures.',
+			title: 'Notre produit',
+			p: 'Le pack DOSIMEX est votre solution numérique de référence pour tous les calculs en radioprotection. Il regroupe 17 utilitaires : des codes précis et fiables pour les calculs opérationnels, des modules pédagogiques clairs, riches et interactifs, et des utilitaires concernant les aspects mesures. Conçu pour être rapide, fiable et facile à utiliser, DOSIMEX devient un outil indispensable pour gagner du temps, travailler en toute sécurité et obtenir des résultats précis.',
 			li: ['Pack opérationnel', 'Pack pédagogique', 'Pack mesures'],
 		},
 		button: {
@@ -95,13 +174,15 @@ const text: ILang = {
 				'DOSIMEX-N 3.2',
 				'DOSIMEX-I 3.2',
 				'DOSIMEX-MN 3.2',
+				'DOSIMEX-GAMMAGRAPHIE',
 			],
 			li: [
 				'code de calcul déterministe de débit de dose émetteurs [gamma](https://www.youtube.com/watch?v=E5eWKTJaNxQ) et [générateur X](https://www.youtube.com/watch?v=wkuVxTBXc8g), avec option feuille de calcul [norme NF C15-160 /2018](https://www.youtube.com/watch?v=Ga4roi63sSM). Avec de nombreuses [options](https://www.youtube.com/watch?v=ksOJEbihuvA) : effet de ciel, rayonnement de freinage, zonage, build-up',
 				'[code de calcul déterministe](https://www.youtube.com/watch?v=4Cfya_rHa04) de débit de dose émetteur bêta et électrons monoénergétiques. Prise en compte sources volumiques (bécher, seringue) ou surfaciques (contamination peau)',
 				'[code de calcul Monte-Carlo](https://www.youtube.com/watch?v=7emAJHES-fw) de débit de dose émetteur neutron (type Am/Be) avec protection biologique (eau, polyéthylène, Bore, Cadmium etc..). Module pédagogique avec visualisation trajectoire neutron',
-				'[code de calcul expositions interne](https://www.youtube.com/watch?v=4Cfya_rHa04). Prise en compte cinétique fuite, renouvellement, dépôt au sol. Calculs de transfert atmosphérique. Calcul mélanges RAI/RAV/RCA',
+				'[code de calcul expositions interne](https://www.youtube.com/watch?v=4Cfya_rHa04). Conforme à l’arrêté du 16/11/23. Prise en compte cinétique fuite, renouvellement, dépôt au sol. Calculs de transfert atmosphérique. Calcul mélanges RAI/RAV/RCA',
 				'[utilitaire de gestion de données](https://www.youtube.com/watch?v=sj-FVjP87jA) permettant de connaitre les doses absorbées par unité d’activité administrée pour les radiopharmaceutiques CIPR 53, 80, 106 et 128',
+				'[outil dédié au calcul de zonage en gammagraphie](https://youtu.be/oJYfQDhBP68) pour 4 sources : Se 75, Cs 137, Co 60 et Ir 192. Calculs isodoses et zonage opérationnel. Ecran plomb, béton, acier, air',
 			],
 		},
 		packPeda: {
@@ -113,12 +194,16 @@ const text: ILang = {
 				'IRM particules chargées 3.2',
 				'Serious Game 3.2',
 				'Coefficients ICRU 57 3.2',
+				'Compteur nucléaire',
+				'Décroissance radioactive',
 			],
 			li: [
-				'[utilitaire](https://www.youtube.com/watch?v=cBQ5-CiqqT4) mettant en œuvre les principes d’interactions photon –matières dans les matériaux avec diverses applications : calcul de kerma, de dose, de libre parcours moyen, effet Compton, visualisation de trajectoires (Monte-Carlo).',
-				'[utilitaire](https://www.youtube.com/watch?v=vXT2h8GJ8Qk) mettant en œuvre les principes d’interactions particules chargées–matières dans les matériaux avec diverses applications : calcul de parcours, de coefficient fluence-dose, application aux spectres bêta.',
+				'[utilitaire](https://www.youtube.com/watch?v=cBQ5-CiqqT4) mettant en œuvre les principes d’interactions photon –matières dans les matériaux avec diverses applications : calcul de kerma, de dose, de libre parcours moyen, effet Compton, visualisation de trajectoires (Monte-Carlo)',
+				'[utilitaire](https://www.youtube.com/watch?v=vXT2h8GJ8Qk) mettant en œuvre les principes d’interactions particules chargées–matières dans les matériaux avec diverses applications : calcul de parcours, de coefficient fluence-dose, application aux spectres bêta',
 				'[utilitaire](https://www.youtube.com/watch?v=pYbgwudKniA) à vocation pédagogique permettant de mettre en évidence les paramètres essentiels de la radioprotection : distance, temps, écran, activité, nature radionucléide',
-				'[utilitaire](https://www.youtube.com/watch?v=Ltk5x2dW_VI) permettant de connaitre les coefficients fluence-équivalents de dose et kerma air normalisés pour les électrons, les photons et les neutrons.',
+				'[utilitaire](https://www.youtube.com/watch?v=Ltk5x2dW_VI) permettant de connaitre les coefficients fluence-équivalents de dose et kerma air normalisés pour les électrons, les photons et les neutrons',
+				'[simulateur de compteur nucléaire](https://youtu.be/oJYfQDhBP68) permettant de retrouver de façon réaliste les aspects statistiques, le concept de rendement, d’incertitudes et de seuil de décision',
+				'[outil de simulation permettant de comprendre les aspects probabilistes de la désintégration nucléaire](https://youtu.be/v8RMSH0qryE): durée de vie, période, fluctuation, loi de décroissance…',
 			],
 		},
 		packMes: {
@@ -129,12 +214,14 @@ const text: ILang = {
 				'Code Co3',
 				'Composition de variables aléatoires',
 				'Calcul de seuil de décision',
+				'Droite étalonnage',
 			],
 			li: [
-				'[code déterministe](https://www.youtube.com/watch?v=vSI75UZ_9UQ) calculant le rendement d’absorption totale en spectrométrie gamma, avec correction de couches mortes (caractérisation), correction de coïncidence et rendement de pics sommes.',
-				'[code de calcul](https://www.youtube.com/watch?v=2Mq-TR8cG-o) de Coefficient de Conversion Contaminamètres permettant de calculer les rendements(Bq/cm2/ cps) de divers ictomètres et d’obtenir les activités surfaciques versus la nature de la sonde et le spectre isotopique mesuré.',
+				'[code déterministe](https://www.youtube.com/watch?v=vSI75UZ_9UQ) calculant le rendement d’absorption totale en spectrométrie gamma, avec correction de couches mortes (caractérisation), correction de coïncidence et rendement de pics sommes',
+				'[code de calcul](https://www.youtube.com/watch?v=2Mq-TR8cG-o) de Coefficient de Conversion Contaminamètres permettant de calculer les rendements(Bq/cm2/ cps) de divers ictomètres et d’obtenir les activités surfaciques versus la nature de la sonde et le spectre isotopique mesuré',
 				'utilitaire permettant de combiner par méthode Monte-Carlo jusqu’à 5 variables de types différents . Cet utilitaire est accompagné des documents de cours complets sur le sujet des calculs d’incertitudes',
-				'[utilitaire](https://www.youtube.com/watch?v=aA4QUutuaJc) permettant de déterminer le seuil de décision et la limite de détection en mesure nucléaire. Cet utilitaire est accompagné des documents de cours.',
+				'[utilitaire](https://www.youtube.com/watch?v=aA4QUutuaJc) permettant de déterminer le seuil de décision et la limite de détection en mesure nucléaire. Cet utilitaire est accompagné des documents de cours',
+				'outil permettant de construire une droite d’étalonnage en tenant compte des incertitudes sur les étalons. Avec un ensemble de tests: analyse de variance, test de non régression… Avec projection inverse bayesienne, calcul seuil de décision et limite de détection',
 			],
 		},
 		more: {
@@ -318,39 +405,68 @@ const text: ILang = {
 		],
 	},
 	Product: {
-		header: {
-			title: 'Pack dosimex 3.2',
-			p: "Ensemble des codes et utilitaires (voir onglets « nos produits ») obtenu par téléchargement et utilisable avec un n° de licence  monoposte, sans limitation de temps. L'ensemble des utilitaires de calculs est vendu pour 600€ TTC. Contactez-nous via le formulaire en bas de page pour un devis.",
-			button: 'Commander Dosimex',
-		},
 		buttonKnowMore: 'En savoir plus',
 		title: 'Fiche technique du produit',
 		descrip:
-			"La clé USB DOSIMEX 3.0 fonctionne comme un dongle. Il suffit de la connecter sur un PC pour voir apparaître automatiquement l’ensemble des dossiers. Les codes s'ouvrent et s’utilisent directement sur la clé. Elle se subdivise en 2 partitions :",
+			"DOSIMEX 3.2 - Pack professionnel de 17 outils Excel pour la radioprotection. Solution complète de calculs en radioprotection, DOSIMEX regroupe 17 codes professionnels développés en VBA/Excel, prêts à l'emploi : 6 codes opérationnels (calculs de dose, zonage, protection), 6 modules pédagogiques interactifs, 5 utilitaires de mesure et analyse. Livraison numérique immédiate • Licence mono-poste • Support inclus",
 		partE: {
+			title: 'Contenu du pack',
 			p: [
-				'Tous les codes et utilitaires (15) des packs opérationnel (5), pédagogique (4) et mesures (4) présentés sur ce site',
+				'Tous les codes et utilitaires (17) des packs opérationnel (6), pédagogique (6) et mesures (5) présentés sur ce site',
 				'La documentation associée : manuel d’emploi et dossier de validation de chaque code.',
 				"Des documents de cours (11) : physique nucléaire, mesure nucléaire, IRM particules chargées, IRM photon, IRM neutrons, grandeurs opérationnelles, seuil de décision : principes et application, statistiques : principes, incertitudes et test d'hypothèse.",
 				'Les annexes (19) de l’ouvrage « Calcul de doses générées par les rayonnements ionisants » (EDP Sciences 2016).',
 			],
 		},
 		between:
-			'Un sommaire général (Sommaire général.pps) à la racine des dossiers permet de naviguer sur l’ensemble du pack Dosimex.',
-		partD: {
-			p: 'Protégée en écriture, elle permet une restauration des fichiers si nécessaire.',
-		},
+			'Un sommaire général (SOMMAIRE_GENERAL.pps) à la racine des dossiers permet de naviguer sur l’ensemble du pack Dosimex.',
 		prerequisites: {
 			title: 'Prérequis',
-			p: `Les codes sont écrits en VBA sous Excel. Le pack Dosimex fonctionne avec Windows XP à Windows 10 et Excel 2003 à 2019 en autorisant le fonctionnement des macros. Sur Mac il est nécessaire de créer une « machine virtuelle ».\n Suivant les mesures de sécurité mises en place dans l’entreprise, il est conseillé de demander à votre service informatique de « whitelister » Dosimex.`,
+			p: 'Les codes sont écrits en VBA sous Excel. Le pack Dosimex fonctionne avec Windows XP à Windows 11 et Excel 2003 à 2024 en autorisant le fonctionnement des macros. Sur Mac et Linux il est nécessaire de créer une « machine virtuelle ».',
 			italic: "Les fichiers de Dosimex sont cryptés. Aucun autre fichier excel ne doit etre ouvert pendant l'utilisation de Dosimex",
 		},
-		titlePrice: 'Obtenir la clé USB Dosimex 3.0',
-		price: '600€ TTC',
-		priceShipment: "(frais d'envoi inclus)",
+		titlePrice: 'Obtenir la licence Dosimex 3.2',
+		pricing: {
+			title: 'Tarification',
+			packageTitle: 'Pack DOSIMEX 3.2 - Licence mono-poste',
+			packageFeatures: [
+				'Prix : 500€ HT/an',
+				'Licence annuelle avec mises à jour incluses',
+				'Support technique inclus',
+				'Installation immédiate après achat',
+			],
+			volumeTitle: 'Tarifs dégressifs disponibles',
+			volumeText:
+				"Pour l'achat de plusieurs licences, nous proposons des tarifs préférentiels :",
+			volumeItems: [
+				'1-5 licences : Demander un devis',
+				'6+ licences : Tarifs entreprise sur mesure',
+			],
+			orderTitle: 'Comment commander ?',
+			orderText:
+				'Demandez votre devis personnalisé via le formulaire ci-dessous. Nous vous répondrons dans les plus brefs délais avec votre devis et les modalités de paiement.',
+			quoteButton: 'Demander un devis',
+		},
+		faq: {
+			title: 'Questions fréquentes',
+			questions: [
+				{
+					question: 'Pourquoi Excel ?',
+					answer: "Excel est l'environnement de travail habituel des professionnels. Aucun logiciel supplémentaire à apprendre, intégration facile dans vos workflows existants.",
+				},
+				{
+					question: "Quelle version d'Excel ?",
+					answer: 'Compatible avec Excel 2003 à Excel 2024, de Windows XP à Windows 11. Sur Mac et Linux, une machine virtuelle est nécessaire.',
+				},
+				{
+					question: 'Les mises à jour sont-elles incluses ?',
+					answer: 'Oui, toutes les mises à jour sont incluses dans votre licence annuelle, ainsi que le support technique.',
+				},
+			],
+		},
 		questions: {
 			title: 'Une demande de devis ? Des questions ?',
-			p: 'N’hésitez pas à nous contacter via le formulaire ci-dessous ou par téléphone au ',
+			p: "N'hésitez pas à nous contacter via le formulaire ci-dessous ou par téléphone au ",
 		},
 	},
 	Training: {
@@ -378,7 +494,7 @@ const text: ILang = {
 			],
 		},
 		section2: {
-			title: "Nous proposons en partenariat avec Safetechnologie d'autres formations sur les thématiques :",
+			title: "Nous proposons en partenariat avec Veolia Nuclear Solutions d'autres formations sur les thématiques :",
 			li: [
 				'◦ Physique nucléaire et radioactivité',
 				'◦ Interaction rayonnements matière',
@@ -415,9 +531,10 @@ const text: ILang = {
 	},
 	ContactForm: {
 		title: 'Contactez-nous',
-		label: ['Nom', 'Email', 'Sujet', 'Message'],
+		label: ['Nom', 'Email', 'Téléphone', 'Entreprise', 'Adresse', 'Sujet', 'Message'],
 		errorName: 'Veuillez rentrer un nom',
 		errorEmail: ['Veuillez rentrer un email', 'Veuillez rentrer un email valide'],
+		errorPhone: 'Veuillez rentrer un numéro de téléphone valide',
 		errorMessage: 'Veuillez rentrer un message',
 		button: 'Envoyer',
 		sending: 'Envoi en cours...',
@@ -427,7 +544,7 @@ const text: ILang = {
 	Footer: {
 		col1: {
 			p: [
-				'Copyright © 2021 Designed by BHC-IT',
+				'Copyright © 2025 Designed by Dosimex',
 				'Tous droits réservés ',
 				'06 89 70 90 35',
 				'Retrouvez-nous sur nos réseaux',
@@ -443,15 +560,8 @@ const text: ILang = {
 		},
 	},
 	Navbar: {
-		items: [
-			'Nos produits',
-			'Formations',
-			'Documentation',
-			'Qui sommes-nous ?',
-			'Actualités',
-			'Contact',
-		],
-		button: 'Acheter Dosimex',
+		items: ['Notre produit', 'Formations', 'Documentation', 'Qui sommes-nous ?', 'Contact'],
+		button: 'Obtenir Dosimex',
 	},
 }
 

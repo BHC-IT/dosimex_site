@@ -1,80 +1,119 @@
-import React from "react";
-import Button from './Button';
-import LanguageSwitch from './LanguageSwitch';
-import Link from 'next/link';
-import { slide as Menu } from "react-burger-menu";
-import ItemNavbar from './ItemNavbar';
-import Image from 'next/image';
-import { useText } from '../Hooks/useText';
-import { withRouter, NextRouter } from 'next/router';
+import * as CSS from 'csstype'
+import Image from 'next/image'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import React from 'react'
+import { slide as Menu } from 'react-burger-menu'
 
-interface WithRouterProps {
-	router: NextRouter
-}
+import { useText } from '../Hooks/useText'
+
+import Button from './Button'
+import ItemNavbar from './ItemNavbar'
+import LanguageSwitch from './LanguageSwitch'
 
 interface IPage {
-	route: string,
+	route: string
 }
 
-interface IProps extends WithRouterProps {
-	text?: any
+interface INavbarText {
+	items: string[]
+	button: string
 }
 
-const pages : IPage[] = [
-	{route: 'Software'},
-	{route: 'Training'},
-	{route: 'Manuals'},
-	{route: 'About'},
-	{route: 'articles'},
-	{route: 'Contact'},
-]
+interface IProps {
+	text?: INavbarText
+}
 
-const RenderNav = ({text} : any) => {
+const styles: { [key: string]: CSS.Properties } = {
+	logoListItem: {
+		cursor: 'pointer',
+	},
+}
+
+interface IRenderNavProps {
+	text?: INavbarText | null
+}
+
+// Type-safe route definitions
+const pages: readonly IPage[] = [
+	{ route: 'Software' },
+	{ route: 'Training' },
+	{ route: 'Manuals' },
+	{ route: 'About' },
+	{ route: 'Contact' },
+] as const
+
+const RenderNav = ({ text }: IRenderNavProps): JSX.Element | null => {
+	// Early return if no navigation items are available
+	if (!text?.items || text.items.length === 0) {
+		return null
+	}
+
 	return (
 		<>
-		{
-			pages.map((page: IPage, i: number) =>
-				<li className="menu-item" key={text.items[i]}>
-					<ItemNavbar
-						name={text.items[i]}
-						route={page.route}
-					/>
-				</li>
-			)
-		}
+			{pages.map((page: IPage, index: number) => {
+				const navigationText = text.items[index]
+
+				// Skip rendering if no text is available for this navigation item
+				if (!navigationText) {
+					return null
+				}
+
+				return (
+					<li
+						className="menu-item"
+						key={`nav-${page.route}-${index}`}
+					>
+						<ItemNavbar
+							name={navigationText}
+							route={page.route}
+						/>
+					</li>
+				)
+			})}
 		</>
 	)
 }
 
-const ratio = 0.5;
+// Constants for better maintainability
+const LOGO_WIDTH = 212
+const LOGO_HEIGHT = 44
+const LOGO_RATIO = 0.5
 
-const SideBar = (props: IProps) => {
-	const text = useText('Navbar');
+const SideBar: React.FC<IProps> = props => {
+	const text = useText('Navbar') as INavbarText | null
+	const router = useRouter()
+
+	// Cast Menu component to avoid TypeScript issues with third-party components
+	const MenuComponent = Menu as React.ComponentType<Record<string, unknown>>
 
 	return (
-		<Menu right {...props}>
+		<MenuComponent right {...props} aria-label="Mobile navigation menu">
 			<ul>
-				<li style={{cursor: "pointer"}}>
-					<Link href="/">
+				<li style={styles.logoListItem}>
+					<Link href="/" aria-label="Go to DOSIMEX homepage">
 						<Image
 							src="/Images/logo_dosimex_new.webp"
-							alt="logo dosimex"
-							width={`${212 * ratio}rem`}
-							height={`${44 * ratio}rem`}
+							alt="Dosimex Logo"
+							width={LOGO_WIDTH * LOGO_RATIO}
+							height={LOGO_HEIGHT * LOGO_RATIO}
 							loading="lazy"
 							quality={40}
 						/>
 					</Link>
 				</li>
-				<RenderNav text={text}/>
-				<LanguageSwitch route={props.router.pathname} language={props.router.locale}/>
+				<RenderNav text={text} />
+				<LanguageSwitch
+					route={router.pathname}
+					language={router.locale}
+				/>
 			</ul>
 			<Button
-				name={text.button}
+				name={text?.button ?? 'Contact'}
 				route="Product"
 			/>
-		</Menu>
-	);
-};
+		</MenuComponent>
+	)
+}
 
-export default withRouter(SideBar);
+export default SideBar

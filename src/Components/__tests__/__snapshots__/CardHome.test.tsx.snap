@@ -1,0 +1,66 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CardHome Component > Rendering > should render card with all content correctly 1`] = `
+<div
+  data-testid="tilt-wrapper"
+  scale="1.05"
+  style="width: 28%; min-width: 250px;"
+  tiltmaxanglex="10"
+  tiltmaxangley="10"
+>
+  <button
+    aria-label="Navigate to Software Solutions section - Advanced radiation dosimetry software for comprehensive dose management and analysis."
+    style="border-radius: 10px; box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.15); text-align: center; width: 100%; padding-bottom: 2vh; height: 47vh; cursor: pointer; padding-top: 5vh; background: white;"
+  >
+    <div
+      style="width: 20%; height: 20%; margin-left: auto; margin-right: auto;"
+    >
+      <img
+        alt="Feature icon - Software Solutions"
+        data-nimg="1"
+        decoding="async"
+        height="80"
+        loading="lazy"
+        src="/_next/image?url=%2FImages%2Fsoftware-icon.png&w=256&q=80"
+        srcset="/_next/image?url=%2FImages%2Fsoftware-icon.png&w=96&q=80 1x, /_next/image?url=%2FImages%2Fsoftware-icon.png&w=256&q=80 2x"
+        style="color: transparent;"
+        width="80"
+      />
+    </div>
+    <h4
+      style="margin-bottom: 0px;"
+    >
+      Software Solutions
+    </h4>
+    <p
+      style="color: var(--grey); font-size: 1.8rem; margin-bottom: 4vh; margin-left: 2%; margin-right: 2%;"
+    >
+      Advanced radiation dosimetry software for comprehensive dose management and analysis.
+    </p>
+    <div
+      style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; padding: 20px; margin: 2vh auto 4vh auto; background-color: var(--main); border-radius: 50%; color: white;"
+    >
+      <div
+        style="display: flex; align-items: center;"
+      >
+        <svg
+          aria-hidden="true"
+          class="svg-inline--fa fa-right-long "
+          data-icon="right-long"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          style="width: 1.3vw;"
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M334.5 414c8.8 3.8 19 2 26-4.6l144-136c4.8-4.5 7.5-10.8 7.5-17.4s-2.7-12.9-7.5-17.4l-144-136c-7-6.6-17.2-8.4-26-4.6s-14.5 12.5-14.5 22l0 72L32 192c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l288 0 0 72c0 9.6 5.7 18.2 14.5 22z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+    </div>
+  </button>
+</div>
+`;

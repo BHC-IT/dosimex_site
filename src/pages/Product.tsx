@@ -1,32 +1,36 @@
-import * as React from 'react'
-import ContactForm from '../Components/ContactForm'
-// import Image from 'next/image'
-import Link from 'next/link'
 import * as CSS from 'csstype'
+import Link from 'next/link'
+import React, { useState, useRef, useEffect } from 'react'
+import { withOrientationChange } from 'react-device-detect'
+
+import ContactForm from '../Components/ContactForm'
 import { useIsMobile } from '../Hooks/useIsMobile'
 import { useText } from '../Hooks/useText'
-import { withOrientationChange } from 'react-device-detect'
+
+// import Image from 'next/image'
 
 interface IStyles {
 	[key: string]: CSS.Properties | undefined
+	phoneNumber?: CSS.Properties
 }
 
-interface IProps {
-	isLandscape: boolean
-}
-
-const ratio = 0.7
-const ratio2 = 0.6
+// Constants for image scaling ratios and dimensions
+const IMAGE_RATIO = 0.7
+const IMAGE_RATIO_2 = 0.6
+const BASE_WIDTH = 722
+const BASE_HEIGHT_MOBILE = 324
+const BASE_HEIGHT_DESKTOP = 405
 
 // const hashes = '#buy'
 
-function Product(props: IProps) {
+function Product() {
 	const text = useText('Product')
 	const style = useIsMobile(styles)
-	const [dummy] = React.useState<number>(0)
-	const buy = React.useRef<HTMLDivElement>(null)
+	const [dummy] = useState(0)
+	const [isButtonHovered, setIsButtonHovered] = useState(false)
+	const buy = useRef(null as HTMLDivElement | null)
 
-	React.useEffect(() => {
+	useEffect(() => {
 		if (window.location.hash === '#buy') {
 			buy.current?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'center' })
 			buy.current?.focus()
@@ -37,36 +41,14 @@ function Product(props: IProps) {
 
 	return (
 		<div style={style.global}>
-			{/* <header style={style.header}>
-			<div style={style.headerImage}>
-				<Image
-					src="/Images/motif_rect.svg"
-					alt="motif abstrait filigrane"
-					width={343*1.7}
-					height={334*1.7}
-				/>
-			</div>
-			<div style={style.headerText}>
-				<h2>{text.header.title}</h2>
-				<p style={style.headerP}>{text.header.p}</p>
-				<a onClick={() => setTimeout(() => setDummy(dummy+1), 100)} href={hashes} style={style.button}>
-					{text.header.button}
-				</a>
-			</div>
-		</header> */}
 			<section>
 				<h3 style={style.title}>{text.title}</h3>
 				<div style={style.banner}>
-					<div style={style.banner1}>
-						<p>{text.descrip}</p>
-					</div>
-					<div style={style.banner2}>
-						<div style={style.bannerImage}></div>
-					</div>
+					<p>{text.descrip}</p>
 				</div>
 			</section>
 			<section className='container'>
-				<h4>Partition E</h4>
+				<h4>{text.partE.title}</h4>
 				<div style={style.borderLeft}>
 					<div style={style.flexP}>
 						<p>{text.partE.p[0]}</p>
@@ -94,31 +76,44 @@ function Product(props: IProps) {
 					{text.partE.p[3] ? <p>{text.partE.p[3]}</p> : null}
 				</div>
 				<p>{text.between}</p>
-				<h4>Partition D</h4>
-				<div style={style.borderLeft}>
-					<p>{text.partD.p}</p>
-				</div>
 				<h4 style={style.prerequisites}>{text.prerequisites.title}</h4>
 				<p>{text.prerequisites.p}</p>
-			</section>
-			{/*
-			<section ref={buy}>
-				<h3 style={{...style.title, marginTop: "15vh"}}>{text.titlePrice}</h3>
-				<div style={style.divPrice}>
-					<div style={style.imagePrice}></div>
-					<div style={style.pPriceDiv}>
-						<p style={style.pPrice}>{text.price}</p>
-						<p>{text.priceShipment}</p>
+				{/* Pricing Section */}
+				<section style={style.pricingSection}>
+					<h4 style={style.pricingTitle}>{text.pricing.title}</h4>
+					<div style={style.pricingCard}>
+						<h5 style={style.packageTitle}>{text.pricing.packageTitle}</h5>
+						<ul style={style.featuresList}>
+							{text.pricing.packageFeatures.map((feature: string, index: number) => (
+								<li
+									key={index}
+									style={style.featureItem}
+								>
+									{feature}
+								</li>
+							))}
+						</ul>
 					</div>
-					{<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style={props.isLandscape ? {...style.formPrice, width: "32vw", height: "15vh"} : style.formPrice}>
-						<input type="hidden" name="cmd" value="_s-xclick"/>
-						<input type="hidden" name="hosted_button_id" value="5ZR8G5EHFRUH4"/>
-						<input style={props.isLandscape ? {...style.paypal, width: "15vw"} : style.paypal} type="image" src="/Images/PayPal-Logo.png" name="submit" alt="PayPal, le réflexe sécurité pour payer en ligne"/>
-						<img alt="" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" width="1" height="1"/>
-					</form>}
-				</div>
+
+					<div style={style.orderSection}>
+						<h5 style={style.orderTitle}>{text.pricing.orderTitle}</h5>
+						<p style={style.orderText}>{text.pricing.orderText}</p>
+						<button
+							style={{
+								...style.quoteButton,
+								...(isButtonHovered ? style.quoteButtonHover : {}),
+							}}
+							onClick={() => buy.current?.scrollIntoView({ behavior: 'smooth' })}
+							onMouseEnter={() => setIsButtonHovered(true)}
+							onMouseLeave={() => setIsButtonHovered(false)}
+							type='button'
+						>
+							{text.pricing.quoteButton}
+						</button>
+					</div>
+				</section>
 			</section>
-		*/}
+
 			<section
 				style={style.questions}
 				ref={buy}
@@ -126,13 +121,32 @@ function Product(props: IProps) {
 				<p style={style.questionsTitle}>{text.questions.title}</p>
 				<p style={style.questionsP}>
 					{text.questions.p}
-					<span style={{ color: 'var(--main)' }}>06 89 70 90 35</span>
+					<span style={style.phoneNumber}>06 89 70 90 35</span>
 				</p>
 				<div style={style.contact}>
 					<ContactForm />
 				</div>
 			</section>
-			{props.isLandscape ? <div style={style.spaceTopFooter}></div> : null}
+			{/* FAQ Section */}
+			<section
+				className='container'
+				style={style.faqSection}
+			>
+				<h4 style={style.faqTitle}>{text.faq.title}</h4>
+				<div style={style.faqContainer}>
+					{text.faq.questions.map(
+						(faq: { question: string; answer: string }, index: number) => (
+							<div
+								key={index}
+								style={style.faqItem}
+							>
+								<h5 style={style.faqQuestion}>{faq.question}</h5>
+								<p style={style.faqAnswer}>{faq.answer}</p>
+							</div>
+						),
+					)}
+				</div>
+			</section>
 		</div>
 	)
 }
@@ -144,31 +158,6 @@ export const styles = (mobile: boolean): IStyles => ({
 		color: 'var(--dark)',
 		textAlign: 'justify',
 		lineHeight: '3.2rem',
-	},
-	header: {
-		display: 'flex',
-		alignItems: 'center',
-		marginTop: '0',
-		marginBottom: '0',
-		height: '90vh',
-	},
-	headerImage: {
-		display: mobile ? 'none' : undefined,
-		marginLeft: '15px',
-	},
-	headerText: {
-		paddingLeft: mobile ? undefined : '8vw',
-		textAlign: mobile ? 'center' : undefined,
-	},
-	headerP: {
-		marginTop: '5vh',
-		marginBottom: '3vh',
-		color: 'var(--dark)',
-		fontSize: mobile ? '1.6rem' : '1.8rem',
-		width: mobile ? undefined : '85%',
-		padding: mobile ? '2vh 8vw 3vh 8vw' : undefined,
-		textAlign: mobile ? 'justify' : undefined,
-		fontWeight: 100,
 	},
 	button: {
 		padding: '12px 25px',
@@ -192,35 +181,13 @@ export const styles = (mobile: boolean): IStyles => ({
 		display: 'flex',
 		flexDirection: mobile ? 'column-reverse' : undefined,
 		alignItems: 'center',
+		marginRight: mobile ? undefined : '25vw',
 		height: mobile ? undefined : '30vh',
 		justifyContent: 'space-between',
-	},
-	banner1: {
 		backgroundColor: 'var(--main)',
-		height: '100%',
-		width: mobile ? '100%' : '66%',
 		color: 'var(--light)',
-		display: 'flex',
-		alignItems: 'center',
 		paddingLeft: '10vw',
 		paddingRight: '10vw',
-	},
-	banner2: {
-		backgroundColor: 'var(--main)',
-		height: mobile ? undefined : '100%',
-		display: 'flex',
-		alignItems: 'center',
-	},
-	bannerImage: {
-		width: mobile ? '100vw' : `${722 * ratio}px`,
-		height: mobile ? `${324 * ratio}px` : `${405 * ratio}px`,
-		backgroundImage: "url('/Images/usbkey.png')",
-		backgroundPosition: 'center',
-		backgroundRepeat: 'no-repeat',
-		backgroundSize: 'contain',
-		position: 'relative',
-		right: mobile ? '5%' : '45%',
-		marginTop: mobile ? '6vh' : undefined,
 	},
 	borderLeft: {
 		borderLeft: '5px solid var(--main)',
@@ -268,8 +235,10 @@ export const styles = (mobile: boolean): IStyles => ({
 		fontSize: mobile ? '2rem' : '2.2rem',
 	},
 	imagePrice: {
-		width: mobile ? '100vw' : `${722 * ratio2}px`,
-		height: mobile ? `${324 * ratio}px` : `${405 * ratio2}px`,
+		width: mobile ? '100vw' : `${BASE_WIDTH * IMAGE_RATIO_2}px`,
+		height: mobile
+			? `${BASE_HEIGHT_MOBILE * IMAGE_RATIO}px`
+			: `${BASE_HEIGHT_DESKTOP * IMAGE_RATIO_2}px`,
 		backgroundImage: "url('/Images/usbkey.png')",
 		backgroundPosition: 'center',
 		backgroundRepeat: 'no-repeat',
@@ -316,12 +285,114 @@ export const styles = (mobile: boolean): IStyles => ({
 		width: 'auto',
 		zIndex: 2,
 	},
-	spaceTopFooter: mobile
-		? {
-				content: '',
-				height: '40vh',
-				marginTop: '10vh',
-				marginBottom: '50vh',
-		  }
-		: undefined,
+	phoneNumber: {
+		color: 'var(--main)',
+	},
+	// Pricing Section Styles
+	pricingSection: {
+		marginTop: '8vh',
+		marginBottom: '4vh',
+		padding: mobile ? '4vh 6vw' : '',
+	},
+	pricingTitle: {
+		color: 'var(--main)',
+		fontFamily: 'var(--lato)',
+		fontWeight: 'bold',
+		marginBottom: '4vh',
+	},
+	pricingCard: {
+		backgroundColor: 'var(--light)',
+		border: '1px solid var(--flash)',
+		color: 'var(--dark)',
+		padding: mobile ? '3vh 4vw' : '4vh 3vw',
+		textAlign: 'center' as 'center',
+		marginBottom: '4vh',
+	},
+	packageTitle: {
+		fontSize: mobile ? '1.8rem' : '2rem',
+		fontWeight: 'bold',
+		marginBottom: '2vh',
+		fontFamily: 'var(--lato)',
+		color: 'var(--main)',
+	},
+	featuresList: {
+		listStyle: 'none',
+		padding: 0,
+		margin: 0,
+	},
+	featureItem: {
+		padding: '0.8vh 0',
+		fontSize: mobile ? '1.4rem' : '1.6rem',
+		borderBottom: '1px solid rgba(0,0,0,0.1)',
+	},
+	orderSection: {
+		textAlign: 'center' as 'center',
+		padding: mobile ? '3vh 4vw' : '4vh 6vw',
+	},
+	orderTitle: {
+		fontSize: mobile ? '2rem' : '2.4rem',
+		fontWeight: 'bold',
+		marginBottom: '2vh',
+		color: 'var(--main)',
+		fontFamily: 'var(--lato)',
+	},
+	orderText: {
+		fontSize: mobile ? '1.4rem' : '1.6rem',
+		marginBottom: '3vh',
+		lineHeight: '1.8',
+		color: 'var(--dark)',
+	},
+	quoteButton: {
+		padding: '8px 25px',
+		backgroundColor: 'var(--main)',
+		borderRadius: '50px',
+		color: 'white',
+		cursor: 'pointer',
+		textTransform: 'uppercase' as 'uppercase',
+		transition: 'all 0.3s ease 0s',
+		border: 'none',
+	},
+	quoteButtonHover: {
+		transform: 'translateY(-4px)',
+		boxShadow: '0px 5px 5px rgba(0, 0, 0, 0.1)',
+	},
+	// FAQ Section Styles
+	faqSection: {
+		marginBottom: '10vh',
+		padding: mobile ? '4vh 6vw' : '6vh 8vw',
+	},
+	faqTitle: {
+		color: 'var(--main)',
+		fontSize: mobile ? '2rem' : '3rem',
+		fontFamily: 'var(--lato)',
+		fontWeight: 'bold',
+		textAlign: 'center' as 'center',
+		marginBottom: '5vh',
+	},
+	faqContainer: {
+		display: 'flex',
+		flexDirection: 'column',
+		gap: '3vh',
+		maxWidth: mobile ? '100%' : '80%',
+		margin: '0 auto',
+	},
+	faqItem: {
+		backgroundColor: 'var(--light)',
+		padding: mobile ? '3vh 4vw' : '4vh 5vw',
+		border: '1px solid var(--flash)',
+		boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+	},
+	faqQuestion: {
+		color: 'var(--main)',
+		fontSize: mobile ? '1.6rem' : '1.8rem',
+		fontWeight: 'bold',
+		marginBottom: '2vh',
+		fontFamily: 'var(--lato)',
+	},
+	faqAnswer: {
+		fontSize: mobile ? '1.4rem' : '1.5rem',
+		lineHeight: '1.8',
+		color: 'var(--dark)',
+		margin: 0,
+	},
 })

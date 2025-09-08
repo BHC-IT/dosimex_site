@@ -1,6 +1,27 @@
 @import url(https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap);
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-size: 62.5%;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  body {
+    font-size: 1.7rem;
+    line-height: 1.7;
+    font-family: 'Nunito', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lato', sans-serif;
+  }
+}
+
 :root {
 	--main: #FF2532;
 	--dark: #0B0D17;
@@ -21,6 +42,42 @@
 	text-decoration: none;
 	/*Visualisation des éléments */
 	/*border: 1px dotted rgba(0,0,0,0.3);*/
+}
+
+/* Focus indicators for accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+	outline: 2px solid var(--main);
+	outline-offset: 2px;
+}
+
+/* Remove focus outline for mouse users but keep for keyboard users */
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible),
+input:focus:not(:focus-visible),
+textarea:focus:not(:focus-visible),
+select:focus:not(:focus-visible),
+[tabindex]:focus:not(:focus-visible) {
+	outline: none;
+}
+
+/* Enhanced focus for form inputs */
+input:focus-visible,
+textarea:focus-visible {
+	outline: 2px solid var(--main);
+	outline-offset: 2px;
+	box-shadow: 0 0 0 3px rgba(255, 37, 50, 0.1);
+}
+
+/* Focus for buttons with enhanced visibility */
+button:focus-visible {
+	outline: 2px solid var(--main);
+	outline-offset: 2px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 *:hover {
@@ -68,7 +125,7 @@ ul {
 }
 
 h1 {
-	font-size: 7rem;
+	font-size: 5.4rem;
 	line-height: 1.2;
 	margin-bottom: 3vh;
 	font-family: var(--lato);
@@ -262,4 +319,41 @@ h5 {
 	html {
 		font-size: 55%;
 	}
+}
+
+/* Custom PhoneInput styles to match form inputs */
+.phone-input-custom .PhoneInputInput {
+	border: 1px solid var(--grey-bg);
+	height: 4vh;
+	border-radius: 5px;
+	resize: none;
+	padding: 0 12px;
+	font-size: 1.6rem;
+	font-family: var(--nunito);
+}
+
+/* Error state for phone input */
+.phone-input-error .PhoneInputInput {
+	border: 1px solid red;
+}
+
+@media screen and (max-width: 768px) {
+	.phone-input-custom .PhoneInputInput {
+		height: 25px;
+	}
+}
+
+.phone-input-custom .PhoneInputCountrySelect {
+	border: 1px solid var(--grey-bg);
+	border-radius: 5px;
+	margin-right: 8px;
+	padding: 4px;
+}
+
+.phone-input-error .PhoneInputCountrySelect {
+	border: 1px solid red;
+}
+
+.phone-input-custom .PhoneInputCountryIcon {
+	border-radius: 2px;
 }

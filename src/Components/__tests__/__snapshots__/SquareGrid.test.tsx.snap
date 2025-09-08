@@ -1,0 +1,631 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SquareGrid Component > Rendering > should render default grid without custom styles 1`] = `
+<div
+  style="display: flex; justify-content: center; align-items: center;"
+>
+  <div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+    </div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+    </div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+    </div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+    </div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+    </div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SquareGrid Component > Rendering > should render with custom container styles 1`] = `
+<div
+  style="display: flex; justify-content: center; align-items: center; background-color: red; padding: 20px;"
+>
+  <div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+    </div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+    </div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+    </div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+    </div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+    </div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SquareGrid Component > Rendering > should render with custom square styles 1`] = `
+<div
+  style="display: flex; justify-content: center; align-items: center;"
+>
+  <div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+    </div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+    </div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+    </div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+    </div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+    </div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SquareGrid Component > should render default grid without custom styles 1`] = `
+<div
+  style="display: flex; justify-content: center; align-items: center;"
+>
+  <div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+    </div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+    </div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+    </div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+    </div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+    </div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SquareGrid Component > should render with custom container styles 1`] = `
+<div
+  style="display: flex; justify-content: center; align-items: center; background-color: red; padding: 20px;"
+>
+  <div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+    </div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+    </div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+    </div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+    </div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+    </div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: yellow; margin: 1rem;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SquareGrid Component > should render with custom square styles 1`] = `
+<div
+  style="display: flex; justify-content: center; align-items: center;"
+>
+  <div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+    </div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+    </div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+    </div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+    </div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+    </div>
+    <div
+      style="display: flex; justify-content: center; align-items: center; flex-direction: row;"
+    >
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+      <div
+        style="height: 10px; width: 10px; background-color: blue; margin: 1rem; border-radius: 10px;"
+      />
+    </div>
+  </div>
+</div>
+`;
