@@ -107,7 +107,7 @@ function Product() {
 											<span style={style.featureCheck}>✓</span>
 											<span>{feature}</span>
 										</li>
-									)
+									),
 								)}
 							</ul>
 						</div>
@@ -138,7 +138,7 @@ function Product() {
 											<span style={style.featureCheck}>✓</span>
 											<span>{feature}</span>
 										</li>
-									)
+									),
 								)}
 							</ul>
 						</div>
@@ -192,7 +192,7 @@ function Product() {
 								<h5 style={style.faqQuestion}>{faq.question}</h5>
 								<p style={style.faqAnswer}>{faq.answer}</p>
 							</div>
-						)
+						),
 					)}
 				</div>
 			</section>
