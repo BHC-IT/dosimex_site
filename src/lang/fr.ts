@@ -429,19 +429,31 @@ const text: ILang = {
 		pricing: {
 			title: 'Tarification',
 			packageTitle: 'Pack DOSIMEX 3.2 - Licence mono-poste',
-			packageFeatures: [
-				'Prix : 500€ HT/an',
-				'Licence annuelle avec mises à jour incluses',
-				'Support technique inclus',
-				'Installation immédiate après achat',
-			],
-			volumeTitle: 'Tarifs dégressifs disponibles',
-			volumeText:
-				"Pour l'achat de plusieurs licences, nous proposons des tarifs préférentiels :",
-			volumeItems: [
-				'1-5 licences : Demander un devis',
-				'6+ licences : Tarifs entreprise sur mesure',
-			],
+			pricingOptions: {
+				annual: {
+					title: 'Licence annuelle',
+					price: '500€ HT',
+					duration: 'par an',
+					features: [
+						'Mises à jour incluses pendant 1 an',
+						'Support technique inclus',
+						'Installation immédiate après achat',
+						'Renouvellement annuel',
+					],
+				},
+				triennial: {
+					title: 'Licence 3 ans',
+					price: '1 000€ HT',
+					duration: 'pour 3 ans',
+					features: [
+						'Mises à jour incluses pendant 3 ans',
+						'Support technique inclus',
+						'Installation immédiate après achat',
+						'Validité 3 ans sans renouvellement',
+					],
+					savings: 'Économisez 500€ sur 3 ans !',
+				},
+			},
 			orderTitle: 'Comment commander ?',
 			orderText:
 				'Demandez votre devis personnalisé via le formulaire ci-dessous. Nous vous répondrons dans les plus brefs délais avec votre devis et les modalités de paiement.',

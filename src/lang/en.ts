@@ -428,18 +428,31 @@ const text: ILang = {
 		pricing: {
 			title: 'Pricing',
 			packageTitle: 'DOSIMEX 3.2 Pack - Single-user License',
-			packageFeatures: [
-				'Price: €500/year (excl. VAT)',
-				'Annual license with updates included',
-				'Technical support included',
-				'Instant installation after purchase',
-			],
-			volumeTitle: 'Volume Discounts Available',
-			volumeText: 'For purchasing multiple licenses, we offer preferential rates:',
-			volumeItems: [
-				'1-5 licenses: Request a quote',
-				'6+ licenses: Custom enterprise pricing',
-			],
+			pricingOptions: {
+				annual: {
+					title: 'Annual License',
+					price: '€500 excl. VAT',
+					duration: 'per year',
+					features: [
+						'Updates included for 1 year',
+						'Technical support included',
+						'Instant installation after purchase',
+						'Annual renewal required',
+					],
+				},
+				triennial: {
+					title: '3-Year License',
+					price: '€1,000 excl. VAT',
+					duration: 'for 3 years',
+					features: [
+						'Updates included for 3 years',
+						'Technical support included',
+						'Instant installation after purchase',
+						'3-year validity without renewal',
+					],
+					savings: 'Save €500 over 3 years!',
+				},
+			},
 			orderTitle: 'How to order?',
 			orderText:
 				'Request your personalized quote using the form below. We will respond promptly with your quote and payment terms.',

@@ -281,18 +281,31 @@ const text: ILang = {
 		pricing: {
 			title: '{Product.pricing.title}',
 			packageTitle: '{Product.pricing.packageTitle}',
-			packageFeatures: [
-				'{Product.pricing.packageFeatures[0]}',
-				'{Product.pricing.packageFeatures[1]}',
-				'{Product.pricing.packageFeatures[2]}',
-				'{Product.pricing.packageFeatures[3]}',
-			],
-			volumeTitle: '{Product.pricing.volumeTitle}',
-			volumeText: '{Product.pricing.volumeText}',
-			volumeItems: [
-				'{Product.pricing.volumeItems[0]}',
-				'{Product.pricing.volumeItems[1]}',
-			],
+			pricingOptions: {
+				annual: {
+					title: '{Product.pricing.pricingOptions.annual.title}',
+					price: '{Product.pricing.pricingOptions.annual.price}',
+					duration: '{Product.pricing.pricingOptions.annual.duration}',
+					features: [
+						'{Product.pricing.pricingOptions.annual.features[0]}',
+						'{Product.pricing.pricingOptions.annual.features[1]}',
+						'{Product.pricing.pricingOptions.annual.features[2]}',
+						'{Product.pricing.pricingOptions.annual.features[3]}',
+					],
+				},
+				triennial: {
+					title: '{Product.pricing.pricingOptions.triennial.title}',
+					price: '{Product.pricing.pricingOptions.triennial.price}',
+					duration: '{Product.pricing.pricingOptions.triennial.duration}',
+					features: [
+						'{Product.pricing.pricingOptions.triennial.features[0]}',
+						'{Product.pricing.pricingOptions.triennial.features[1]}',
+						'{Product.pricing.pricingOptions.triennial.features[2]}',
+						'{Product.pricing.pricingOptions.triennial.features[3]}',
+					],
+					savings: '{Product.pricing.pricingOptions.triennial.savings}',
+				},
+			},
 			orderTitle: '{Product.pricing.orderTitle}',
 			orderText: '{Product.pricing.orderText}',
 			quoteButton: '{Product.pricing.quoteButton}',

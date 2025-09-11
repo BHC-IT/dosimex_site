@@ -81,18 +81,67 @@ function Product() {
 				{/* Pricing Section */}
 				<section style={style.pricingSection}>
 					<h4 style={style.pricingTitle}>{text.pricing.title}</h4>
-					<div style={style.pricingCard}>
-						<h5 style={style.packageTitle}>{text.pricing.packageTitle}</h5>
-						<ul style={style.featuresList}>
-							{text.pricing.packageFeatures.map((feature: string, index: number) => (
-								<li
-									key={index}
-									style={style.featureItem}
-								>
-									{feature}
-								</li>
-							))}
-						</ul>
+					<h5 style={style.packageTitle}>{text.pricing.packageTitle}</h5>
+
+					<div style={style.pricingCards}>
+						{/* Annual License */}
+						<div style={style.pricingCard}>
+							<h6 style={style.pricingCardTitle}>
+								{text.pricing.pricingOptions.annual.title}
+							</h6>
+							<div style={style.priceSection}>
+								<span style={style.price}>
+									{text.pricing.pricingOptions.annual.price}
+								</span>
+								<span style={style.duration}>
+									{text.pricing.pricingOptions.annual.duration}
+								</span>
+							</div>
+							<ul style={style.featuresList}>
+								{text.pricing.pricingOptions.annual.features.map(
+									(feature: string, index: number) => (
+										<li
+											key={index}
+											style={style.featureItem}
+										>
+											<span style={style.featureCheck}>✓</span>
+											<span>{feature}</span>
+										</li>
+									)
+								)}
+							</ul>
+						</div>
+
+						{/* 3-Year License */}
+						<div style={{ ...style.pricingCard, ...style.recommendedCard }}>
+							<div style={style.savingsBadge}>
+								{text.pricing.pricingOptions.triennial.savings}
+							</div>
+							<h6 style={style.pricingCardTitle}>
+								{text.pricing.pricingOptions.triennial.title}
+							</h6>
+							<div style={style.priceSection}>
+								<span style={style.price}>
+									{text.pricing.pricingOptions.triennial.price}
+								</span>
+								<span style={style.duration}>
+									{text.pricing.pricingOptions.triennial.duration}
+								</span>
+							</div>
+							<ul style={style.featuresList}>
+								{text.pricing.pricingOptions.triennial.features.map(
+									(feature: string, index: number) => (
+										<li
+											key={index}
+											style={style.featureItem}
+										>
+											<span style={style.featureCheck}>✓</span>
+											<span>{feature}</span>
+										</li>
+									)
+								)}
+							</ul>
+						</div>
 					</div>
 
 					<div style={style.orderSection}>
@@ -143,7 +192,7 @@ function Product() {
 								<h5 style={style.faqQuestion}>{faq.question}</h5>
 								<p style={style.faqAnswer}>{faq.answer}</p>
 							</div>
-						),
+						)
 					)}
 				</div>
 			</section>
@@ -298,36 +347,103 @@ export const styles = (mobile: boolean): IStyles => ({
 		color: 'var(--main)',
 		fontFamily: 'var(--lato)',
 		fontWeight: 'bold',
-		marginBottom: '4vh',
-	},
-	pricingCard: {
-		backgroundColor: 'var(--light)',
-		border: '1px solid var(--flash)',
-		color: 'var(--dark)',
-		padding: mobile ? '3vh 4vw' : '4vh 3vw',
+		marginBottom: '2vh',
 		textAlign: 'center' as 'center',
-		marginBottom: '4vh',
 	},
 	packageTitle: {
 		fontSize: mobile ? '1.8rem' : '2rem',
 		fontWeight: 'bold',
-		marginBottom: '2vh',
+		marginBottom: '4vh',
 		fontFamily: 'var(--lato)',
 		color: 'var(--main)',
+		textAlign: 'center' as 'center',
+	},
+	pricingCards: {
+		display: 'flex',
+		flexDirection: mobile ? 'column' : 'row',
+		gap: mobile ? '3vh' : '4vw',
+		justifyContent: 'center',
+		alignItems: 'stretch',
+		marginBottom: '6vh',
+	},
+	pricingCard: {
+		backgroundColor: 'var(--light)',
+		border: '2px solid var(--flash)',
+		color: 'var(--dark)',
+		padding: mobile ? '4vh 6vw' : '5vh 4vw',
+		textAlign: 'center' as 'center',
+		borderRadius: '12px',
+		flex: '1',
+		maxWidth: mobile ? '100%' : '380px',
+		minWidth: mobile ? '100%' : '320px',
+		position: 'relative' as 'relative',
+		transition: 'all 0.3s ease',
+	},
+	recommendedCard: {
+		border: '2px solid var(--main)',
+		transform: mobile ? 'none' : 'scale(1.05)',
+		boxShadow: '0 8px 25px rgba(0, 121, 193, 0.15)',
+	},
+	savingsBadge: {
+		position: 'absolute' as 'absolute',
+		top: '-10px',
+		left: '50%',
+		transform: 'translateX(-50%)',
+		backgroundColor: 'var(--main)',
+		color: 'white',
+		padding: '5px 15px',
+		borderRadius: '20px',
+		fontSize: mobile ? '1.2rem' : '1.3rem',
+		fontWeight: 'bold',
+		whiteSpace: 'nowrap' as 'nowrap',
+	},
+	pricingCardTitle: {
+		fontSize: mobile ? '1.6rem' : '1.8rem',
+		fontWeight: 'bold',
+		marginBottom: '2vh',
+		color: 'var(--main)',
+		fontFamily: 'var(--lato)',
+	},
+	priceSection: {
+		marginBottom: '3vh',
+	},
+	price: {
+		fontSize: mobile ? '2.4rem' : '2.8rem',
+		fontWeight: 'bold',
+		color: 'var(--main)',
+		display: 'block',
+		fontFamily: 'var(--lato)',
+	},
+	duration: {
+		fontSize: mobile ? '1.3rem' : '1.4rem',
+		color: 'var(--dark)',
+		opacity: 0.8,
 	},
 	featuresList: {
 		listStyle: 'none',
 		padding: 0,
 		margin: 0,
+		textAlign: 'left' as 'left',
 	},
 	featureItem: {
-		padding: '0.8vh 0',
-		fontSize: mobile ? '1.4rem' : '1.6rem',
+		padding: '1vh 0',
+		fontSize: mobile ? '1.3rem' : '1.4rem',
 		borderBottom: '1px solid rgba(0,0,0,0.1)',
+		display: 'flex',
+		alignItems: 'center',
+		gap: '10px',
+	},
+	featureCheck: {
+		color: 'var(--main)',
+		fontWeight: 'bold',
+		fontSize: mobile ? '1.4rem' : '1.5rem',
 	},
 	orderSection: {
 		textAlign: 'center' as 'center',
 		padding: mobile ? '3vh 4vw' : '4vh 6vw',
+		backgroundColor: 'var(--light)',
+		borderRadius: '12px',
+		border: '1px solid var(--flash)',
 	},
 	orderTitle: {
 		fontSize: mobile ? '2rem' : '2.4rem',
@@ -343,7 +459,7 @@ export const styles = (mobile: boolean): IStyles => ({
 		color: 'var(--dark)',
 	},
 	quoteButton: {
-		padding: '8px 25px',
+		padding: '12px 30px',
 		backgroundColor: 'var(--main)',
 		borderRadius: '50px',
 		color: 'white',
@@ -351,10 +467,12 @@ export const styles = (mobile: boolean): IStyles => ({
 		textTransform: 'uppercase' as 'uppercase',
 		transition: 'all 0.3s ease 0s',
 		border: 'none',
+		fontSize: mobile ? '1.4rem' : '1.5rem',
+		fontWeight: 'bold',
 	},
 	quoteButtonHover: {
 		transform: 'translateY(-4px)',
-		boxShadow: '0px 5px 5px rgba(0, 0, 0, 0.1)',
+		boxShadow: '0px 8px 15px rgba(0, 121, 193, 0.3)',
 	},
 	// FAQ Section Styles
 	faqSection: {
@@ -380,6 +498,7 @@ export const styles = (mobile: boolean): IStyles => ({
 		backgroundColor: 'var(--light)',
 		padding: mobile ? '3vh 4vw' : '4vh 5vw',
 		border: '1px solid var(--flash)',
+		borderRadius: '12px',
 		boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
 	},
 	faqQuestion: {

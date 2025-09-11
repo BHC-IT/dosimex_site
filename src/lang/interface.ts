@@ -168,10 +168,21 @@ export default interface Lang {
 		pricing: {
 			title: string
 			packageTitle: string
-			packageFeatures: string[]
-			volumeTitle: string
-			volumeText: string
-			volumeItems: string[]
+			pricingOptions: {
+				annual: {
+					title: string
+					price: string
+					duration: string
+					features: string[]
+				}
+				triennial: {
+					title: string
+					price: string
+					duration: string
+					features: string[]
+					savings: string
+				}
+			}
 			orderTitle: string
 			orderText: string
 			quoteButton: string
