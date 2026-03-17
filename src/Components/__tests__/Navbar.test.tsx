@@ -45,8 +45,10 @@ vi.mock('../ItemNavbar', () => ({
 	default: ({ name }: { name: string }) => <div data-testid='nav-item'>{name}</div>,
 }))
 
-vi.mock('../Button', () => ({
-	default: ({ name }: { name: string }) => <button data-testid='nav-button'>{name}</button>,
+vi.mock('../ExternalLinkButton', () => ({
+	default: ({ name, href }: { name: string; href: string }) => (
+		<a data-testid='nav-button' href={href}>{name}</a>
+	),
 }))
 
 vi.mock('../LanguageSwitch', () => ({

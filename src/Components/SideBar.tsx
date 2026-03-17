@@ -7,7 +7,7 @@ import { slide as Menu } from 'react-burger-menu'
 
 import { useText } from '../Hooks/useText'
 
-import Button from './Button'
+import ExternalLinkButton from './ExternalLinkButton'
 import ItemNavbar from './ItemNavbar'
 import LanguageSwitch from './LanguageSwitch'
 
@@ -108,9 +108,9 @@ const SideBar: React.FC<IProps> = props => {
 					language={router.locale}
 				/>
 			</ul>
-			<Button
-				name={text?.button ?? 'Contact'}
-				route="Product"
+			<ExternalLinkButton
+				name={text?.button ?? 'Free Trial'}
+				href="https://dosismart.com"
 			/>
 		</MenuComponent>
 	)

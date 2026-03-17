@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react'
 
 import { useText } from '../Hooks/useText'
 
-import Button from './Button'
+import ExternalLinkButton from './ExternalLinkButton'
 import ItemNavbar from './ItemNavbar'
 import LanguageSwitch from './LanguageSwitch'
 import SideBar from './SideBar'
@@ -97,9 +97,9 @@ const Navbar: React.FC<IProps> = () => {
 							language={router.locale}
 						/>
 					</ul>
-					<Button
-						name={text?.button ?? 'Contact'}
-						route='Product'
+					<ExternalLinkButton
+						name={text?.button ?? 'Free Trial'}
+						href="https://dosismart.com"
 					/>
 				</nav>
 			</div>

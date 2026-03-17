@@ -74,11 +74,12 @@ exports[`SideBar Component > should match snapshot with default props 1`] = `
       en
     </div>
   </ul>
-  <button
+  <a
     data-testid="sidebar-button"
+    href="https://dosismart.com"
   >
     Get Started
-  </button>
+  </a>
 </div>
 `;
 
@@ -157,10 +158,11 @@ exports[`SideBar Component > should match snapshot with text prop 1`] = `
       en
     </div>
   </ul>
-  <button
+  <a
     data-testid="sidebar-button"
+    href="https://dosismart.com"
   >
     Get Started
-  </button>
+  </a>
 </div>
 `;

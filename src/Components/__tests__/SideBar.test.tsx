@@ -52,8 +52,10 @@ vi.mock('react-burger-menu', () => ({
 }))
 
 // Mock components
-vi.mock('../Button', () => ({
-	default: ({ name }: any) => <button data-testid='sidebar-button'>{name}</button>,
+vi.mock('../ExternalLinkButton', () => ({
+	default: ({ name, href }: { name: string; href: string }) => (
+		<a data-testid='sidebar-button' href={href}>{name}</a>
+	),
 }))
 
 vi.mock('../LanguageSwitch', () => ({
