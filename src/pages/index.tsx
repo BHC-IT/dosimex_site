@@ -6,6 +6,7 @@ import { BrowserView, MobileView, withOrientationChange } from 'react-device-det
 
 import Button from '../Components/Button'
 import CardHome from '../Components/CardHome'
+import ExternalLinkButton from '../Components/ExternalLinkButton'
 import HeroBannerCarousel from '../Components/HeroBannerCarousel'
 import OpinionHome from '../Components/OpinionHome'
 import References from '../Components/References'
@@ -236,10 +237,17 @@ function Home(props: IProps) {
 				style={style.callToAction.global}
 			>
 				<h2 style={style.callToAction.title}>{text.callToAction.title}</h2>
-				<Button
-					name={text.callToAction.button}
-					route='Product'
-				/>
+				<div style={style.callToAction.buttonsContainer}>
+					<ExternalLinkButton
+						name={text.callToAction.trialButton}
+						href="https://dosismart.com"
+					/>
+					<Button
+						name={text.callToAction.button}
+						route='Product'
+						style={style.callToAction.secondaryButton}
+					/>
+				</div>
 			</div>
 		</>
 	)
@@ -442,6 +450,19 @@ export const styles = (mobile: boolean): IStyles => ({
 		},
 		title: {
 			fontSize: mobile ? '3rem' : '4.2rem',
+		},
+		buttonsContainer: {
+			display: 'flex',
+			flexDirection: mobile ? 'column' : 'row',
+			gap: mobile ? '2vh' : '2vw',
+			justifyContent: 'center',
+			alignItems: 'center',
+			marginTop: '4vh',
+		},
+		secondaryButton: {
+			border: '2px solid var(--main)',
+			backgroundColor: 'white',
+			color: 'var(--main)',
 		},
 	},
 	flagContainer: {
