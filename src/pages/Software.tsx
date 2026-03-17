@@ -8,7 +8,8 @@ import { BrowserView, MobileView, isMobile } from 'react-device-detect'
 import styled from 'styled-components'
 
 import Button from '../Components/Button'
-import { useIsMobile } from '../Hooks/useIsMobile'
+import ExternalLinkButton from '../Components/ExternalLinkButton'
+import { useIsMobile, useMobile } from '../Hooks/useIsMobile'
 import { useText } from '../Hooks/useText'
 import ILang from '../lang/interface'
 import { parseStringLink, handleLink, isLink } from '../utils/parseStringLink'
@@ -287,6 +288,7 @@ const PACK_MES_CALIBRATION_LINE_INDEX = 4
 const Software = () => {
 	const text = useText('Software')
 	const style = useIsMobile(styles)
+	const mobile = useMobile()
 	const [dummy, setDummy] = useState(0)
 	const opRef = useRef(null as HTMLDivElement | null)
 	const pedaRef = useRef(null as HTMLDivElement | null)
@@ -361,6 +363,37 @@ const Software = () => {
 						))}
 					</ul>
 				</div>
+			</div>
+
+			{/* Dosismart announcement banner */}
+			<div style={{
+				margin: mobile ? '8vh 5vw 0' : '15vh 10vw 0',
+				padding: mobile ? '4vh 6vw' : '5vh 8vw',
+				backgroundColor: 'var(--light)',
+				border: '2px solid var(--main)',
+				borderRadius: '12px',
+				textAlign: 'center' as const,
+			}}>
+				<h3 style={{
+					color: 'var(--main)',
+					fontFamily: 'var(--lato)',
+					fontWeight: 'bold',
+					marginBottom: '2vh',
+				}}>{text.dosismartBanner.title}</h3>
+				<p style={{
+					color: 'var(--dark)',
+					fontSize: mobile ? '1.4rem' : '1.6rem',
+					lineHeight: '1.8',
+					marginBottom: '3vh',
+					maxWidth: '700px',
+					marginLeft: 'auto',
+					marginRight: 'auto',
+					textAlign: 'justify' as const,
+				}}>{text.dosismartBanner.text}</p>
+				<ExternalLinkButton
+					name={text.dosismartBanner.button}
+					href="https://dosismart.com"
+				/>
 			</div>
 
 			<BrowserView>
