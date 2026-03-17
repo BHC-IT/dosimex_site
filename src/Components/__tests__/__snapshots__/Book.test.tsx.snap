@@ -63,7 +63,3 @@ exports[`Book Component > Rendering > should render correctly with portrait orie
   </div>
 </div>
 `;
-
-exports[`Book Component > should render correctly with landscape orientation 1`] = `null`;
-
-exports[`Book Component > should render correctly with portrait orientation 1`] = `null`;

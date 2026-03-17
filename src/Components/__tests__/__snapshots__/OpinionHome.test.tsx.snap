@@ -44,5 +44,3 @@ exports[`OpinionHome Component > Rendering > should render correctly with text 1
   </a>
 </div>
 `;
-
-exports[`OpinionHome Component > should render correctly with text 1`] = `null`;
