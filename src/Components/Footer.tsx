@@ -107,9 +107,10 @@ const Footer = () => {
 	if (style === null) return null
 
 	const resourcesLinks = [
-		{ href: '/Videos', text: text.col2.p[0] },
-		{ href: '/Manuals', text: text.col2.p[1] },
-		{ href: '/Books', text: text.col2.p[2] },
+		{ href: 'https://dosismart.com', text: text.col2.p[0], isExternal: true },
+		{ href: '/Videos', text: text.col2.p[1] },
+		{ href: '/Manuals', text: text.col2.p[2] },
+		{ href: '/Books', text: text.col2.p[3] },
 	]
 
 	const aboutLinks = [

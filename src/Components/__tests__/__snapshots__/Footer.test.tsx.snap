@@ -98,6 +98,17 @@ exports[`Footer Component > Rendering > should render footer with all elements c
         Resources
       </p>
       <a
+        href="https://dosismart.com"
+        rel="noreferrer noopener"
+        target="_blank"
+      >
+        <p
+          style="cursor: pointer;"
+        >
+          Dosismart
+        </p>
+      </a>
+      <a
         data-replace="true"
         href="/Videos"
       >

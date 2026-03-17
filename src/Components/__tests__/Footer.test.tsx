@@ -44,7 +44,7 @@ const createMockText = () => ({
 		},
 		col2: {
 			title: 'Resources',
-			p: ['Videos', 'User Manuals', 'Technical Books'],
+			p: ['Dosismart', 'Videos', 'User Manuals', 'Technical Books'],
 		},
 		col3: {
 			title: 'About',
@@ -196,6 +196,12 @@ describe('Footer Component', () => {
 
 			expect(screen.getByText('Resources')).toBeInTheDocument()
 
+			// External link (Dosismart)
+			const dosismartLink = screen.getByRole('link', { name: /dosismart/i })
+			expect(dosismartLink).toHaveAttribute('href', 'https://dosismart.com')
+			expect(dosismartLink).toHaveAttribute('target', '_blank')
+			expect(dosismartLink).toHaveAttribute('rel', 'noreferrer noopener')
+
 			// Internal links (using Next.js Link)
 			const videosLink = screen.getByRole('link', { name: /videos/i })
 			expect(videosLink).toHaveAttribute('href', '/Videos')
@@ -273,6 +279,7 @@ describe('Footer Component', () => {
 			const externalLinks = [
 				allLinks.find(link => link.getAttribute('href')?.includes('youtube.com')),
 				allLinks.find(link => link.getAttribute('href')?.includes('linkedin.com')),
+				screen.getByRole('link', { name: /dosismart/i }),
 				screen.getByRole('link', { name: /legal information/i }),
 			]
 
@@ -288,8 +295,8 @@ describe('Footer Component', () => {
 
 			const allLinks = screen.getAllByRole('link')
 
-			// Should have all expected links: YouTube, LinkedIn, Videos, Manuals, Books, About, Legal, Contact
-			expect(allLinks.length).toBeGreaterThanOrEqual(8)
+			// Should have all expected links: YouTube, LinkedIn, Dosismart, Videos, Manuals, Books, About, Legal, Contact
+			expect(allLinks.length).toBeGreaterThanOrEqual(9)
 
 			// All links should be keyboard accessible
 			allLinks.forEach(link => {
@@ -303,7 +310,7 @@ describe('Footer Component', () => {
 			vi.mocked(useText).mockImplementation((key: any) => {
 				return key === 'Footer' ? {
 					col1: { p: ['', '', '', ''] },
-					col2: { title: '', p: ['', '', ''] },
+					col2: { title: '', p: ['', '', '', ''] },
 					col3: { title: '', p: ['', '', ''] },
 				} : { radiationSymbol: '' }
 			})
@@ -325,7 +332,7 @@ describe('Footer Component', () => {
 							'Suivez-nous pour les dernières mises à jour!',
 						],
 					},
-					col2: { title: 'Ressources', p: ['Vidéos', 'Manuels d\'utilisation', 'Livres techniques'] },
+					col2: { title: 'Ressources', p: ['Dosismart', 'Vidéos', 'Manuels d\'utilisation', 'Livres techniques'] },
 					col3: { title: 'À propos', p: ['Notre société', 'Informations légales', 'Nous contacter'] },
 				} : { radiationSymbol: 'Symbole de radioprotection DOSIMEX' }
 			})
@@ -347,7 +354,7 @@ describe('Footer Component', () => {
 							'Follow us on all our social media platforms for the latest updates, industry insights, product announcements, and educational content!',
 						],
 					},
-					col2: { title: 'Resources', p: ['Educational Videos', 'Comprehensive User Manuals', 'Technical Reference Books'] },
+					col2: { title: 'Resources', p: ['Dosismart', 'Educational Videos', 'Comprehensive User Manuals', 'Technical Reference Books'] },
 					col3: { title: 'About Us', p: ['Company Information', 'Legal Documentation', 'Contact Information'] },
 				} : { radiationSymbol: 'DOSIMEX radiation safety symbol' }
 			})
