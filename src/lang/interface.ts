@@ -78,9 +78,16 @@ export default interface Lang {
 		callToAction: {
 			title: string
 			button: string
+			trialButton: string
 		}
 		videoLink: {
 			pres: string
+		}
+	}
+	Contact: {
+		header: {
+			title: string
+			subtitle: string
 		}
 	}
 	Software: {
@@ -114,6 +121,11 @@ export default interface Lang {
 		more: {
 			title: string
 			links: string[]
+		}
+		dosismartBanner: {
+			title: string
+			text: string
+			button: string
 		}
 		ask: {
 			title: string
@@ -193,6 +205,11 @@ export default interface Lang {
 				question: string
 				answer: string
 			}[]
+		}
+		trialBanner: {
+			title: string
+			text: string
+			button: string
 		}
 		questions: {
 			title: string

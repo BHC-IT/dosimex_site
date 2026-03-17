@@ -95,9 +95,16 @@ const text: ILang = {
 		callToAction: {
 			title: '{Home.callToAction.title}',
 			button: '{Home.callToAction.button}',
+			trialButton: '{Home.callToAction.trialButton}',
 		},
 		videoLink: {
 			pres: 'vPalFZk5io0',
+		},
+	},
+	Contact: {
+		header: {
+			title: '{Contact.header.title}',
+			subtitle: '{Contact.header.subtitle}',
 		},
 	},
 	Software: {
@@ -170,6 +177,11 @@ const text: ILang = {
 				'{Software.more.links[4]}',
 				'{Software.more.links[5]}',
 			],
+		},
+		dosismartBanner: {
+			title: '{Software.dosismartBanner.title}',
+			text: '{Software.dosismartBanner.text}',
+			button: '{Software.dosismartBanner.button}',
 		},
 		ask: {
 			title: '{Software.ask.title}',
@@ -330,6 +342,11 @@ const text: ILang = {
 					answer: '{Product.faq.questions[3].answer}',
 				},
 			],
+		},
+		trialBanner: {
+			title: '{Product.trialBanner.title}',
+			text: '{Product.trialBanner.text}',
+			button: '{Product.trialBanner.button}',
 		},
 		questions: {
 			title: '{Product.questions.title}',

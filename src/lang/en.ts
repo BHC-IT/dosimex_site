@@ -16,7 +16,7 @@ const text: ILang = {
 		header: {
 			title: 'Radiation protection calculation tools for everyone',
 			p: 'A set of practical, easy-to-use, validated calculation tools that address many situations encountered in radiation protection. They will allow you to improve your expertise level.',
-			promo: 'Most of our calculation tools are available in English and French.',
+			promo: 'New: Dosismart — Dosimex calculation codes, now in the browser. No installation required.',
 			button: 'Discover',
 			referencesButton: 'Publications',
 			textImage: [
@@ -45,15 +45,15 @@ const text: ILang = {
 			title: 'What we offer',
 			p: 'A set of calculation tools (total of 17) covering most of the field in radiation protection: gamma, beta and neutron external exposure, internal exposure, atmospheric transfer and more. You will find on this site explanatory videos for each tool and their validation files (downloadable pdf).',
 			card1: {
-				title: 'Software packs',
-				p: 'Find all Dosimex utilities with specific videos: operational pack, learning pack, measurement pack',
+				title: 'Dosimex + Dosismart',
+				p: '17 Dosimex calculation tools (Excel) and Dosismart, their web version running in the browser',
 			},
 			card2: {
 				title: 'Documentation',
 				p: 'Validated via MCNP, RayXpert, Microshield and Mercurad. Access all documentation associated with Dosimex-GX',
 			},
 			card3: {
-				title: 'Formations',
+				title: 'Training',
 				p: 'We guide you to take in hand these calculation tools by adapting us to your specific problems',
 			},
 		},
@@ -146,11 +146,18 @@ const text: ILang = {
 			],
 		},
 		callToAction: {
-			title: 'Get your Dosimex license today by requesting a quote',
-			button: 'Get Dosimex',
+			title: 'Dosimex + Dosismart: Excel and web, same calculation codes',
+			button: 'Request a quote',
+			trialButton: '14-day free trial',
 		},
 		videoLink: {
 			pres: 'q9QXG78ciXY',
+		},
+	},
+	Contact: {
+		header: {
+			title: 'Quote or demonstration',
+			subtitle: 'Describe your needs below. Response within 24 hours. Video conference demonstration available.',
 		},
 	},
 	Software: {
@@ -234,9 +241,14 @@ const text: ILang = {
 				'Our reading selection',
 			],
 		},
+		dosismartBanner: {
+			title: 'New: these tools also exist as a web version',
+			text: 'Dosismart runs the Dosimex calculation codes in the browser. No installation, works on any OS.',
+			button: 'Try Dosismart',
+		},
 		ask: {
 			title: 'Any questions ?',
-			text: 'For a quotation, please contact us here or by phone at 06 89 70 90 35',
+			text: 'For a quote or to try Dosismart, contact us here or by phone at 06 89 70 90 35',
 			labelButton: 'Contact us',
 		},
 	},
@@ -407,7 +419,7 @@ const text: ILang = {
 		buttonKnowMore: 'Read more',
 		title: 'Product data sheet',
 		descrip:
-			'DOSIMEX 3.2 - Professional pack of 17 Excel tools for radiation protection. Complete radiation protection calculation solution, DOSIMEX brings together 17 professional codes developed in VBA/Excel, ready to use: 6 operational codes (dose calculations, zoning, protection), 6 interactive educational modules, 5 measurement and analysis utilities. Instant digital delivery • Single-user license • Support included',
+			'DOSIMEX 3.2 + DOSISMART — 17 Dosimex professional codes (VBA/Excel) and Dosismart, their web version. 6 operational codes (dose calculations, zoning, shielding), 6 interactive educational modules, 5 measurement and analysis utilities. Dosimex license + Dosismart access included. Technical support included.',
 		partE: {
 			title: 'Pack content',
 			p: [
@@ -421,13 +433,13 @@ const text: ILang = {
 			'A general summary (SOMMAIRE_GENERAL.pps) at the root of the folders allows navigation through the entire Dosimex package.',
 		prerequisites: {
 			title: 'Prerequisites',
-			p: 'The codes are written in VBA in Excel. The Dosimex package works with Windows XP to Windows 11 and Excel 2003 to 2024 by authorizing the operation of macros. On Mac and Linux it is necessary to create a "virtual machine".',
+			p: 'Dosimex: VBA/Excel, Windows XP to 11, Excel 2003 to 2024. Virtual machine required on Mac/Linux. Dosismart: web browser (Chrome, Firefox, Edge, Safari), any OS, no installation.',
 			italic: '',
 		},
-		titlePrice: 'Get Dosimex 3.2 License',
+		titlePrice: 'Get the Dosimex + Dosismart pack',
 		pricing: {
 			title: 'Pricing',
-			packageTitle: 'DOSIMEX 3.2 Pack - Single-user License',
+			packageTitle: 'DOSIMEX 3.2 + DOSISMART Pack — Single-user License',
 			pricingOptions: {
 				annual: {
 					title: 'Annual License',
@@ -462,21 +474,30 @@ const text: ILang = {
 			title: 'Frequently Asked Questions',
 			questions: [
 				{
-					question: 'Why Excel?',
-					answer: 'Excel is the standard working environment for professionals. No additional software to learn, easy integration into your existing workflows.',
+					question: 'Why two versions?',
+					answer: 'Dosimex runs in Excel, integrated into your existing workflows. Dosismart runs in the browser, usable on any device without installation. Both use the same calculation codes.',
 				},
 				{
-					question: 'Which Excel version?',
-					answer: 'Compatible with Excel 2003 to Excel 2024, from Windows XP to Windows 11. On Mac and Linux, a virtual machine is required.',
+					question: 'What are the prerequisites?',
+					answer: 'Dosimex: Excel 2003 to 2024, Windows. Dosismart: modern web browser (Chrome, Firefox, Edge, Safari), any OS, no installation.',
 				},
 				{
 					question: 'Are updates included?',
-					answer: 'Yes, all updates are included in your annual license, as well as technical support.',
+					answer: 'Yes. Dosimex and Dosismart updates included with the license, plus technical support.',
+				},
+				{
+					question: 'How does the free trial work?',
+					answer: 'Dosismart trial: 14 days, no commitment, no credit card. Full access to all calculation tools.',
 				},
 			],
 		},
+		trialBanner: {
+			title: 'Free trial — Dosismart, 14 days',
+			text: 'Dosismart is the web version of Dosimex calculation codes. Runs in the browser, no installation. No commitment, no credit card.',
+			button: 'Start trial',
+		},
 		questions: {
-			title: 'A request for a quotation? Any questions?',
+			title: 'Quote, free trial, questions?',
 			p: 'Feel free to contact us via the form below or by phone at ',
 		},
 	},
@@ -563,7 +584,7 @@ const text: ILang = {
 		},
 		col2: {
 			title: 'Resources',
-			p: ['Video archives', 'Manuals and validations', 'Readings'],
+			p: ['Dosismart', 'Video archives', 'Manuals and validations', 'Readings'],
 		},
 		col3: {
 			title: 'Company',
@@ -572,7 +593,7 @@ const text: ILang = {
 	},
 	Navbar: {
 		items: ['Product', 'Training', 'Documentation', 'About us', 'Contact'],
-		button: 'Get Dosimex',
+		button: 'Free Trial',
 	},
 }
 

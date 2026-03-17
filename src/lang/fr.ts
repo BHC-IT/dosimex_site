@@ -16,7 +16,7 @@ const text: ILang = {
 		header: {
 			title: 'Des outils de calculs radioprotection pour tous',
 			p: "Ensemble d'outils de calculs pratiques, simples d'emploi, validés, et répondant à de nombreuses situations rencontrées en radioprotection. Ils vous permettront d'améliorer votre niveau d'expertise.",
-			promo: 'La plupart de nos outils de calcul existent désormais en version anglaise.',
+			promo: 'Nouveau : Dosismart, vos codes de calcul Dosimex en version web. Fonctionne dans le navigateur, sans installation.',
 			button: 'Découvrir',
 			referencesButton: 'Publications',
 			textImage: [
@@ -45,8 +45,8 @@ const text: ILang = {
 			title: 'Ce que nous proposons',
 			p: 'Un ensemble d‘outils de calculs (17 au total) couvrant l’essentiel du champ en radioprotection: exposition externe gamma, bêta, neutron, exposition interne, transfert atmosphérique et plus encore. Vous trouverez sur le site des vidéos explicatives pour chaque outil ainsi que leurs dossiers de validation (pdf téléchargeable).',
 			card1: {
-				title: 'Packs logiciel',
-				p: 'Retrouvez tous les utilitaires Dosimex avec des vidéos spécifiques : pack opérationnel, pack pédagogique, pack mesure',
+				title: 'Dosimex + Dosismart',
+				p: '17 outils de calcul Dosimex (Excel) et Dosismart, leur version web utilisable dans le navigateur',
 			},
 			card2: {
 				title: 'Documentation',
@@ -147,11 +147,18 @@ const text: ILang = {
 			],
 		},
 		callToAction: {
-			title: "Obtenez votre licence Dosimex dès aujourd'hui en demandant un devis",
-			button: 'Obtenir Dosimex',
+			title: 'Dosimex + Dosismart : Excel et web, même codes de calcul',
+			button: 'Demander un devis',
+			trialButton: 'Essai gratuit 14 jours',
 		},
 		videoLink: {
 			pres: 'q9QXG78ciXY',
+		},
+	},
+	Contact: {
+		header: {
+			title: 'Devis ou démonstration',
+			subtitle: 'Décrivez votre besoin ci-dessous. Réponse sous 24h. Démonstration par visioconférence possible.',
 		},
 	},
 	Software: {
@@ -235,9 +242,14 @@ const text: ILang = {
 				'notre sélection de lectures',
 			],
 		},
+		dosismartBanner: {
+			title: 'Nouveau : ces outils existent aussi en version web',
+			text: "Dosismart reprend les codes de calcul Dosimex sous forme d'application web. Fonctionne dans le navigateur, sans installation, sur tout système d'exploitation.",
+			button: 'Essayer Dosismart',
+		},
 		ask: {
 			title: 'Des questions ?',
-			text: 'Pour un devis, n’hésitez pas à nous contacter ici ou par téléphone au 06 89 70 90 35',
+			text: 'Pour un devis ou pour essayer Dosismart gratuitement, contactez-nous ici ou par téléphone au 06 89 70 90 35',
 			labelButton: 'Nous contacter',
 		},
 	},
@@ -408,7 +420,7 @@ const text: ILang = {
 		buttonKnowMore: 'En savoir plus',
 		title: 'Fiche technique du produit',
 		descrip:
-			"DOSIMEX 3.2 - Pack professionnel de 17 outils Excel pour la radioprotection. Solution complète de calculs en radioprotection, DOSIMEX regroupe 17 codes professionnels développés en VBA/Excel, prêts à l'emploi : 6 codes opérationnels (calculs de dose, zonage, protection), 6 modules pédagogiques interactifs, 5 utilitaires de mesure et analyse. Livraison numérique immédiate • Licence mono-poste • Support inclus",
+			'Pack DOSIMEX 3.2 + DOSISMART — 17 codes professionnels Dosimex (VBA/Excel) et Dosismart, leur version web. 6 codes opérationnels (calculs de dose, zonage, protection), 6 modules pédagogiques interactifs, 5 utilitaires de mesure et analyse. Licence Dosimex + accès Dosismart inclus. Support technique inclus.',
 		partE: {
 			title: 'Contenu du pack',
 			p: [
@@ -422,13 +434,13 @@ const text: ILang = {
 			'Un sommaire général (SOMMAIRE_GENERAL.pps) à la racine des dossiers permet de naviguer sur l’ensemble du pack Dosimex.',
 		prerequisites: {
 			title: 'Prérequis',
-			p: 'Les codes sont écrits en VBA sous Excel. Le pack Dosimex fonctionne avec Windows XP à Windows 11 et Excel 2003 à 2024 en autorisant le fonctionnement des macros. Sur Mac et Linux il est nécessaire de créer une « machine virtuelle ».',
+			p: "Dosimex : VBA/Excel, Windows XP à 11, Excel 2003 à 2024. Machine virtuelle nécessaire sur Mac/Linux. Dosismart : navigateur web (Chrome, Firefox, Edge, Safari), tout système d'exploitation, aucune installation.",
 			italic: "Les fichiers de Dosimex sont cryptés. Aucun autre fichier excel ne doit etre ouvert pendant l'utilisation de Dosimex",
 		},
-		titlePrice: 'Obtenir la licence Dosimex 3.2',
+		titlePrice: 'Obtenir le pack Dosimex + Dosismart',
 		pricing: {
 			title: 'Tarification',
-			packageTitle: 'Pack DOSIMEX 3.2 - Licence mono-poste',
+			packageTitle: 'Pack DOSIMEX 3.2 + DOSISMART — Licence mono-poste',
 			pricingOptions: {
 				annual: {
 					title: 'Licence annuelle',
@@ -463,21 +475,30 @@ const text: ILang = {
 			title: 'Questions fréquentes',
 			questions: [
 				{
-					question: 'Pourquoi Excel ?',
-					answer: "Excel est l'environnement de travail habituel des professionnels. Aucun logiciel supplémentaire à apprendre, intégration facile dans vos workflows existants.",
+					question: 'Pourquoi deux versions ?',
+					answer: 'Dosimex fonctionne sous Excel, intégré à vos workflows existants. Dosismart fonctionne via navigateur web, utilisable sur tout appareil sans installation. Les deux accèdent aux mêmes codes de calcul.',
 				},
 				{
-					question: "Quelle version d'Excel ?",
-					answer: 'Compatible avec Excel 2003 à Excel 2024, de Windows XP à Windows 11. Sur Mac et Linux, une machine virtuelle est nécessaire.',
+					question: 'Quels sont les prérequis ?',
+					answer: "Dosimex : Excel 2003 à 2024, Windows. Dosismart : navigateur web récent (Chrome, Firefox, Edge, Safari), tout OS, pas d'installation.",
 				},
 				{
 					question: 'Les mises à jour sont-elles incluses ?',
-					answer: 'Oui, toutes les mises à jour sont incluses dans votre licence annuelle, ainsi que le support technique.',
+					answer: 'Oui. Mises à jour Dosimex et Dosismart incluses dans la licence, ainsi que le support technique.',
+				},
+				{
+					question: "Comment fonctionne l'essai gratuit ?",
+					answer: 'Essai Dosismart 14 jours, sans engagement, sans carte bancaire. Accès à tous les outils de calcul.',
 				},
 			],
 		},
+		trialBanner: {
+			title: 'Essai gratuit Dosismart — 14 jours',
+			text: 'Dosismart est la version web des codes de calcul Dosimex. Fonctionne dans le navigateur, sans installation. Essai sans engagement, sans carte bancaire.',
+			button: "Démarrer l'essai",
+		},
 		questions: {
-			title: 'Une demande de devis ? Des questions ?',
+			title: 'Devis, essai gratuit, questions ?',
 			p: "N'hésitez pas à nous contacter via le formulaire ci-dessous ou par téléphone au ",
 		},
 	},
@@ -564,7 +585,7 @@ const text: ILang = {
 		},
 		col2: {
 			title: 'Ressources',
-			p: ['Archives vidéos', 'Manuels et validations', 'Lectures'],
+			p: ['Dosismart', 'Archives vidéos', 'Manuels et validations', 'Lectures'],
 		},
 		col3: {
 			title: 'Entreprise',
@@ -573,7 +594,7 @@ const text: ILang = {
 	},
 	Navbar: {
 		items: ['Notre produit', 'Formations', 'Documentation', 'Qui sommes-nous ?', 'Contact'],
-		button: 'Obtenir Dosimex',
+		button: 'Essai gratuit',
 	},
 }
 
