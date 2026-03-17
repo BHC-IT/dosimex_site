@@ -1,3 +1,7 @@
 # Persistent memory index — managed by /remember and /forget
 version: 1
-topics: []
+topics:
+  - file: topics/product-naming.md
+    summary: "Correct casing for product names (Dosismart, Dosimex)"
+    tags: [dosismart, naming, branding, product]
+    updated: 2026-03-17
