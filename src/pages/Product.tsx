@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import { withOrientationChange } from 'react-device-detect'
 
 import ContactForm from '../Components/ContactForm'
+import ExternalLinkButton from '../Components/ExternalLinkButton'
 import { useIsMobile } from '../Hooks/useIsMobile'
 import { useText } from '../Hooks/useText'
 
@@ -78,6 +79,15 @@ function Product() {
 				<p>{text.between}</p>
 				<h4 style={style.prerequisites}>{text.prerequisites.title}</h4>
 				<p>{text.prerequisites.p}</p>
+				{/* Dosismart Trial Banner */}
+				<section style={style.trialBanner}>
+					<h4 style={style.trialBannerTitle}>{text.trialBanner.title}</h4>
+					<p style={style.trialBannerText}>{text.trialBanner.text}</p>
+					<ExternalLinkButton
+						name={text.trialBanner.button}
+						href="https://dosismart.com"
+					/>
+				</section>
 				{/* Pricing Section */}
 				<section style={style.pricingSection}>
 					<h4 style={style.pricingTitle}>{text.pricing.title}</h4>
@@ -263,6 +273,31 @@ export const styles = (mobile: boolean): IStyles => ({
 	prerequisites: {
 		marginTop: '10vh',
 		color: 'var(--main)',
+	},
+	trialBanner: {
+		marginTop: '8vh',
+		marginBottom: '4vh',
+		padding: mobile ? '4vh 8vw' : '6vh 10vw',
+		backgroundColor: 'var(--light)',
+		border: '2px solid var(--main)',
+		borderRadius: '12px',
+		textAlign: 'center' as 'center',
+	},
+	trialBannerTitle: {
+		color: 'var(--main)',
+		fontFamily: 'var(--lato)',
+		fontWeight: 'bold',
+		fontSize: mobile ? '2rem' : '2.6rem',
+		marginBottom: '2vh',
+	},
+	trialBannerText: {
+		fontSize: mobile ? '1.4rem' : '1.6rem',
+		lineHeight: '1.8',
+		color: 'var(--dark)',
+		marginBottom: '3vh',
+		maxWidth: '600px',
+		marginLeft: 'auto',
+		marginRight: 'auto',
 	},
 	divPrice: {
 		display: 'flex',
