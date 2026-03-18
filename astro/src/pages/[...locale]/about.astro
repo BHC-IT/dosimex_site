@@ -1,13 +1,16 @@
 ---
 import { Image } from 'astro:assets'
 import Layout from '@/layouts/Layout.astro'
-import { getTranslations } from '@/i18n/utils'
+import { getTranslations, getLocalePaths, type Locale } from '@/i18n/utils'
 import { organizationSchema } from '@/data/schemas'
 import bgHague from '@/assets/images/BackGroundHague.png'
 import geraldImg from '@/assets/images/Gerald.png'
 import alainImg from '@/assets/images/Alain.png'
 
-const t = getTranslations('fr')
+export const getStaticPaths = getLocalePaths
+
+const { locale } = Astro.props as { locale: Locale }
+const t = getTranslations(locale)
 const a = t.about
 ---
 

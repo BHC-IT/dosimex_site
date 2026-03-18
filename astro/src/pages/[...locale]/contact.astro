@@ -1,10 +1,13 @@
 ---
 import Layout from '@/layouts/Layout.astro'
 import ContactForm from '@/components/ContactForm.tsx'
-import { getTranslations } from '@/i18n/utils'
+import { getTranslations, getLocalePaths, type Locale } from '@/i18n/utils'
 import { organizationSchema } from '@/data/schemas'
 
-const t = getTranslations('en')
+export const getStaticPaths = getLocalePaths
+
+const { locale } = Astro.props as { locale: Locale }
+const t = getTranslations(locale)
 ---
 
 <Layout title={t.seo.contact.title} description={t.seo.contact.description} jsonLd={[organizationSchema]}>

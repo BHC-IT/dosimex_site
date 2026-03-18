@@ -1,10 +1,13 @@
 ---
 import Layout from '@/layouts/Layout.astro'
 import ContactForm from '@/components/ContactForm.tsx'
-import { getTranslations } from '@/i18n/utils'
+import { getTranslations, getLocalePaths, localePath, type Locale } from '@/i18n/utils'
 import { organizationSchema } from '@/data/schemas'
 
-const t = getTranslations('fr')
+export const getStaticPaths = getLocalePaths
+
+const { locale } = Astro.props as { locale: Locale }
+const t = getTranslations(locale)
 const p = t.product
 
 const softwareSchema = {
@@ -17,7 +20,7 @@ const softwareSchema = {
 		'@type': 'Offer',
 		price: '500',
 		priceCurrency: 'EUR',
-		description: 'Licence annuelle mono-poste',
+		description: p.schemaDescription,
 	},
 }
 
@@ -59,14 +62,14 @@ const faqSchema = {
 			</div>
 			<div class="mt-8 flex flex-wrap gap-4">
 				<a
-					href="/software"
+					href={localePath(locale, '/software')}
 					class="inline-flex items-center gap-2 rounded-lg border border-primary px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/10"
 				>
 					{p.partE.softwareLink}
 					<span aria-hidden="true">&rarr;</span>
 				</a>
 				<a
-					href="/manuals"
+					href={localePath(locale, '/manuals')}
 					class="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-muted/20"
 				>
 					{p.partE.manualsLink}

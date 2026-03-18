@@ -1,11 +1,14 @@
 ---
 import Layout from '@/layouts/Layout.astro'
 import VideoEmbed from '@/components/VideoEmbed.astro'
-import { getTranslations } from '@/i18n/utils'
+import { getTranslations, getLocalePaths, type Locale } from '@/i18n/utils'
 import { videoIds } from '@/data/videos'
 import { organizationSchema } from '@/data/schemas'
 
-const t = getTranslations('fr')
+export const getStaticPaths = getLocalePaths
+
+const { locale } = Astro.props as { locale: Locale }
+const t = getTranslations(locale)
 const v = t.videos
 ---
 

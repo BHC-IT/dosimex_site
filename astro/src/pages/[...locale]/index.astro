@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets'
 import Layout from '@/layouts/Layout.astro'
 import VideoEmbed from '@/components/VideoEmbed.astro'
-import { getTranslations } from '@/i18n/utils'
+import { getTranslations, getLocalePaths, localePath, type Locale } from '@/i18n/utils'
 import { partnerLogos, partnerLogoAlts } from '@/data/videos'
 import { organizationSchema, websiteSchema } from '@/data/schemas'
 import heroImg from '@/assets/images/home_header_carousel.png'
@@ -10,34 +10,38 @@ import iconExcel from '@/assets/images/icon_excel.png'
 import iconBook from '@/assets/images/icon_book.png'
 import iconFormation from '@/assets/images/icon_formation.png'
 
+export const getStaticPaths = getLocalePaths
+
+const { locale } = Astro.props as { locale: Locale }
+
 const partnerGlob = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/logo_partenaires/*.webp', { eager: true })
 const partnerImages = partnerLogos.map((filename) => {
 	const match = Object.entries(partnerGlob).find(([path]) => path.endsWith(`/${filename}`))
 	return match![1].default
 })
 
-const t = getTranslations('en')
+const t = getTranslations(locale)
 
 const offerCards = [
 	{
 		...t.home.offers.card1,
 		icon: iconExcel,
-		href: '/en/software',
+		href: localePath(locale, '/software'),
 	},
 	{
 		...t.home.offers.card2,
 		icon: iconBook,
-		href: '/en/manuals',
+		href: localePath(locale, '/manuals'),
 	},
 	{
 		...t.home.offers.card3,
 		icon: iconFormation,
-		href: '/en/training',
+		href: localePath(locale, '/training'),
 	},
 ]
 ---
 
-<Layout title={t.seo.home.title} description={t.seo.home.description} jsonLd={[organizationSchema, websiteSchema('en')]}>
+<Layout title={t.seo.home.title} description={t.seo.home.description} jsonLd={[organizationSchema, websiteSchema(locale)]}>
 
 	<!-- ═══════════════════════════ HERO ═══════════════════════════ -->
 	<section class="relative overflow-hidden py-16 md:py-24">
@@ -75,7 +79,7 @@ const offerCards = [
 							</svg>
 						</a>
 						<a
-							href="/en/software"
+							href={localePath(locale, '/software')}
 							class="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-6 py-3 text-base font-semibold text-foreground transition-colors hover:bg-muted"
 						>
 							{t.home.hero.cta}
@@ -102,7 +106,7 @@ const offerCards = [
 						<div class="absolute -inset-4 rounded-2xl bg-gradient-to-r from-primary/20 via-accent/10 to-emerald-400/10 blur-2xl" aria-hidden="true"></div>
 						<Image
 							src={heroImg}
-							alt="DOSIMEX radiation dosimetry software interface"
+							alt={t.altText.carouselMain}
 							widths={[400, 512, 800]}
 							sizes="(max-width: 1024px) 100vw, 512px"
 							class="relative w-full max-w-lg rounded-xl shadow-2xl"
@@ -186,7 +190,7 @@ const offerCards = [
 					</div>
 					<div class="flex shrink-0 flex-wrap items-center gap-4">
 						<a
-							href="/en/contact"
+							href={localePath(locale, '/contact')}
 							class="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg transition-all hover:bg-primary/90 hover:shadow-xl"
 						>
 							{t.home.callToAction.button}
@@ -232,7 +236,7 @@ const offerCards = [
 			<div class="grid items-center gap-12 lg:grid-cols-2">
 				<!-- Video embed -->
 				<div>
-					<VideoEmbed videoId="q9QXG78ciXY" title="Dosimex Presentation" />
+					<VideoEmbed videoId="q9QXG78ciXY" title={t.home.videoTitle} />
 				</div>
 
 				<!-- Text content -->
@@ -244,7 +248,7 @@ const offerCards = [
 						{t.home.videos.description}
 					</p>
 					<a
-						href="/en/videos"
+						href={localePath(locale, '/videos')}
 						class="mt-6 inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg transition-all hover:bg-primary/90 hover:shadow-xl"
 					>
 						{t.home.videos.button}

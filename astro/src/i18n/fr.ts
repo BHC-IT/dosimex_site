@@ -111,6 +111,7 @@ export const fr = {
 				{ value: '35', label: "journées d'accompagnement réalisées" },
 			],
 		},
+		videoTitle: 'Présentation Dosimex',
 		videos: {
 			title: 'Retrouvez-nous sur Youtube',
 			description:
@@ -368,10 +369,12 @@ export const fr = {
 			text: 'Pour un devis ou pour essayer Dosismart gratuitement, contactez-nous ici ou par téléphone au 06 89 70 90 35',
 			labelButton: 'Nous contacter',
 		},
+		watchVideo: 'Voir la vidéo sur YouTube',
 		videosButton: 'Voir toutes les vidéos',
 	},
 	product: {
 		title: 'Fiche technique du produit',
+		schemaDescription: 'Licence annuelle mono-poste',
 		buttonKnowMore: 'En savoir plus',
 		description:
 			'Pack DOSIMEX 3.2 + DOSISMART — 17 codes professionnels Dosimex (VBA/Excel) et Dosismart, leur version web. 6 codes opérationnels (calculs de dose, zonage, protection), 6 modules pédagogiques interactifs, 5 utilitaires de mesure et analyse. Licence Dosimex + accès Dosismart inclus. Support technique inclus.',
@@ -493,6 +496,9 @@ export const fr = {
 	},
 	books: {
 		header: { title: 'Lectures' },
+		viewBook: 'Voir le livre',
+		coverAlt: 'Couverture :',
+		byAuthor: 'par',
 		items: [
 			{ extract: "Cet ouvrage s'adresse aux étudiants se destinant à l'industrie du nucléaire, à la médecine nucléaire ou encore à la recherche.", author: 'Arnaud Boquet', title: 'La radioprotection des travailleurs, des patients et du public' },
 			{ extract: "Cet ouvrage a deux objectifs complémentaires : apporter au lecteur une compréhension des principes physiques à l'oeuvre lorsqu'une cible est exposée à des rayonnements ionisants, et proposer des outils de calcul simples permettant d'évaluer les doses absorbées.", author: 'Alain Vivier et Gérald Lopez', title: 'Calcul de doses générées par les rayonnements ionisants' },
@@ -527,6 +533,7 @@ export const fr = {
 		},
 	},
 	training: {
+		videoTitle: 'Dosimex \u2014 Pr\u00e9sentation',
 		header: {
 			title: 'Formations',
 			description: "Nous proposons des formations intra-entreprise sur site ou en visio pouvant aller de 1 à 3 jours pour la prise en main des outils Dosimex. Ces formations s'appuient sur des travaux dirigés intégrant l'utilisation des outils Dosimex dans le cadre plus large de l'analyse des risques radiologiques appliqués à des cas concrets rencontrés dans le monde industriel et médical.",

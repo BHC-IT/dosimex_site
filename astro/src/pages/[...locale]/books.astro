@@ -1,9 +1,13 @@
 ---
 import { Image } from 'astro:assets'
 import Layout from '@/layouts/Layout.astro'
-import { getTranslations } from '@/i18n/utils'
+import { getTranslations, getLocalePaths, type Locale } from '@/i18n/utils'
 import { bookUrls } from '@/data/videos'
 import { organizationSchema } from '@/data/schemas'
+
+export const getStaticPaths = getLocalePaths
+
+const { locale } = Astro.props as { locale: Locale }
 
 const bookGlob = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/livre*.png', { eager: true })
 const bookImages = Object.entries(bookGlob)
@@ -14,7 +18,7 @@ const bookImages = Object.entries(bookGlob)
 	})
 	.map(([, m]) => m.default)
 
-const t = getTranslations('fr')
+const t = getTranslations(locale)
 const b = t.books
 
 const bookSchemas = b.items.map((book, i) => ({
@@ -46,7 +50,7 @@ const bookSchemas = b.items.map((book, i) => ({
 						<div class="bg-muted/10 p-6 flex items-center justify-center" style="aspect-ratio: 3/4;">
 							<Image
 								src={bookImages[index]}
-								alt={`Couverture : ${book.title} par ${book.author}`}
+								alt={`${b.coverAlt} ${book.title} ${b.byAuthor} ${book.author}`}
 								width={350}
 								class="h-full w-full object-contain"
 								loading="lazy"
@@ -65,7 +69,7 @@ const bookSchemas = b.items.map((book, i) => ({
 								rel="noopener noreferrer"
 								class="mt-4 inline-flex items-center gap-2 rounded-lg border border-primary px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary/10"
 							>
-								Voir le livre
+								{b.viewBook}
 								<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 									<path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
 								</svg>

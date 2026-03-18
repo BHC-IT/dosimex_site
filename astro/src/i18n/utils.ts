@@ -35,6 +35,30 @@ export function getAlternateUrl(pathname: string): string {
  * Build an absolute canonical URL from the site origin and pathname.
  * Strips trailing slashes except for root `/`.
  */
+/**
+ * Static paths for [...locale] dynamic routes.
+ * `undefined` param = default locale (fr), no prefix.
+ */
+export function getLocalePaths() {
+	return [
+		{ params: { locale: undefined }, props: { locale: 'fr' as const } },
+		{ params: { locale: 'en' }, props: { locale: 'en' as const } },
+	]
+}
+
+/**
+ * Prefix a path with the locale segment when needed.
+ * `localePath('fr', '/software')` → `/software`
+ * `localePath('en', '/software')` → `/en/software`
+ */
+export function localePath(locale: Locale, path: string): string {
+	return locale === 'fr' ? path : `/en${path}`
+}
+
+/**
+ * Build an absolute canonical URL from the site origin and pathname.
+ * Strips trailing slashes except for root `/`.
+ */
 export function getCanonicalUrl(site: string, pathname: string): string {
 	const base = site.replace(/\/$/, '')
 	const path = pathname.replace(/\/$/, '') || '/'

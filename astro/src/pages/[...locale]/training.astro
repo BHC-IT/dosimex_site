@@ -1,11 +1,14 @@
 ---
 import Layout from '@/layouts/Layout.astro'
 import VideoEmbed from '@/components/VideoEmbed.astro'
-import { getTranslations } from '@/i18n/utils'
+import { getTranslations, getLocalePaths, localePath, type Locale } from '@/i18n/utils'
 import { videoIds } from '@/data/videos'
 import { organizationSchema } from '@/data/schemas'
 
-const t = getTranslations('en')
+export const getStaticPaths = getLocalePaths
+
+const { locale } = Astro.props as { locale: Locale }
+const t = getTranslations(locale)
 const tr = t.training
 ---
 
@@ -24,7 +27,7 @@ const tr = t.training
 					</p>
 				</div>
 				<div>
-					<VideoEmbed videoId={videoIds.presentation} title="Dosimex — Presentation" />
+					<VideoEmbed videoId={videoIds.presentation} title={tr.videoTitle} />
 				</div>
 			</div>
 		</div>
@@ -87,7 +90,7 @@ const tr = t.training
 					{tr.questions.text}
 				</p>
 				<a
-					href="/en/contact"
+					href={localePath(locale, '/contact')}
 					class="mt-6 inline-block rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
 				>
 					{tr.questions.button}
