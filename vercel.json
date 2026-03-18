@@ -1,5 +1,5 @@
 {
 	"framework": "astro",
 	"installCommand": "cd astro && pnpm install",
-	"buildCommand": "cd astro && pnpm build && cp -r astro/.vercel/output .vercel/output"
+	"buildCommand": "cd astro && pnpm build && mkdir -p ../.vercel && cp -r .vercel/output ../.vercel/output"
 }
