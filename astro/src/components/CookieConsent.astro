@@ -1,0 +1,167 @@
+---
+---
+
+<!-- PostHog loader: exact official snippet, kept in global scope via is:inline -->
+<script is:inline>
+	function loadPostHog() {
+		if (window.posthog && window.posthog.__SV) return;
+		!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group identify setPersonProperties setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags resetGroups onFeatureFlags addFeatureFlagsHandler onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+		posthog.init('phc_ccmp9396R1aM5aSTcA0ivHgmqmb4vPfeNkuXhmTkqRG', {
+			api_host: 'https://g.dosismart.com',
+			defaults: '2026-01-30'
+		});
+	}
+</script>
+
+<!-- Cookie consent: processed script (bundled with vanilla-cookieconsent) -->
+<script>
+	import 'vanilla-cookieconsent/dist/cookieconsent.css'
+	import * as CookieConsent from 'vanilla-cookieconsent'
+
+	CookieConsent.run({
+		categories: {
+			necessary: {
+				enabled: true,
+				readOnly: true,
+			},
+			analytics: {},
+		},
+
+		language: {
+			default: 'fr',
+			autoDetect: 'document',
+			translations: {
+				fr: {
+					consentModal: {
+						title: 'Gestion des cookies',
+						description:
+							"Ce site utilise des cookies d'analyse (PostHog) pour mesurer l'audience et améliorer l'expérience utilisateur. Vous pouvez accepter ou refuser ces cookies, ou personnaliser vos préférences.",
+						acceptAllBtn: 'Tout accepter',
+						acceptNecessaryBtn: 'Tout refuser',
+						showPreferencesBtn: 'Personnaliser',
+					},
+					preferencesModal: {
+						title: 'Préférences de cookies',
+						acceptAllBtn: 'Tout accepter',
+						acceptNecessaryBtn: 'Tout refuser',
+						savePreferencesBtn: 'Enregistrer mes choix',
+						sections: [
+							{
+								title: 'Utilisation des cookies',
+								description:
+									"Nous utilisons des cookies pour mesurer l'audience de notre site et améliorer votre expérience de navigation. Vous pouvez choisir les catégories de cookies que vous souhaitez autoriser.",
+							},
+							{
+								title: 'Cookies strictement nécessaires',
+								description:
+									'Ces cookies sont indispensables au fonctionnement du site et ne peuvent pas être désactivés. Ils mémorisent vos préférences de consentement.',
+								linkedCategory: 'necessary',
+							},
+							{
+								title: 'Cookies analytiques',
+								description:
+									"Ces cookies nous permettent de mesurer le nombre de visites et les sources de trafic afin d'améliorer les performances de notre site. Outil utilisé : PostHog.",
+								linkedCategory: 'analytics',
+								cookieTable: {
+									headers: {
+										name: 'Nom',
+										domain: 'Domaine',
+										description: 'Description',
+										expiration: 'Expiration',
+									},
+									body: [
+										{
+											name: 'ph_*',
+											domain: 'g.dosismart.com',
+											description:
+												"Cookies d'analyse PostHog pour le suivi anonyme de l'audience.",
+											expiration: '1 an',
+										},
+									],
+								},
+							},
+						],
+					},
+				},
+				en: {
+					consentModal: {
+						title: 'Cookie consent',
+						description:
+							'This site uses analytics cookies (PostHog) to measure traffic and improve user experience. You can accept or decline these cookies, or customise your preferences.',
+						acceptAllBtn: 'Accept all',
+						acceptNecessaryBtn: 'Reject all',
+						showPreferencesBtn: 'Preferences',
+					},
+					preferencesModal: {
+						title: 'Cookie preferences',
+						acceptAllBtn: 'Accept all',
+						acceptNecessaryBtn: 'Reject all',
+						savePreferencesBtn: 'Save preferences',
+						sections: [
+							{
+								title: 'Cookie usage',
+								description:
+									'We use cookies to measure our website audience and improve your browsing experience. You can choose which cookie categories you wish to allow.',
+							},
+							{
+								title: 'Strictly necessary cookies',
+								description:
+									'These cookies are essential for the website to function and cannot be disabled. They remember your consent preferences.',
+								linkedCategory: 'necessary',
+							},
+							{
+								title: 'Analytics cookies',
+								description:
+									'These cookies allow us to count visits and traffic sources so we can improve our site performance. Tool used: PostHog.',
+								linkedCategory: 'analytics',
+								cookieTable: {
+									headers: {
+										name: 'Name',
+										domain: 'Domain',
+										description: 'Description',
+										expiration: 'Expiration',
+									},
+									body: [
+										{
+											name: 'ph_*',
+											domain: 'g.dosismart.com',
+											description:
+												'PostHog analytics cookies for anonymous audience tracking.',
+											expiration: '1 year',
+										},
+									],
+								},
+							},
+						],
+					},
+				},
+			},
+		},
+
+		guiOptions: {
+			consentModal: {
+				layout: 'bar',
+				position: 'bottom',
+			},
+		},
+
+		onConsent() {
+			if (CookieConsent.acceptedCategory('analytics')) {
+				loadPostHog()
+			}
+		},
+
+		onChange({ changedCategories }) {
+			if (changedCategories.includes('analytics')) {
+				if (CookieConsent.acceptedCategory('analytics')) {
+					loadPostHog()
+				} else if (typeof posthog !== 'undefined') {
+					posthog.opt_out_capturing()
+				}
+			}
+		},
+	})
+
+	// Clean up old localStorage-based consent
+	localStorage.removeItem('cookie_consent')
+</script>

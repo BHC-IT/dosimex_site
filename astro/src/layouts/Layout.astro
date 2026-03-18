@@ -11,6 +11,7 @@ import '@/styles/global.css'
 import Navbar from '@/components/Navbar.astro'
 import Footer from '@/components/Footer.astro'
 import BaseHead from '@/components/BaseHead.astro'
+import CookieConsent from '@/components/CookieConsent.astro'
 import { getTranslations, getLocaleFromUrl } from '@/i18n/utils'
 
 interface Props {
@@ -60,5 +61,8 @@ const { title, description = defaultDescription, ogImage, robots, jsonLd } = Ast
 		</main>
 
 		<Footer t={t} locale={locale} />
+
+		<CookieConsent />
+		<script src="@/scripts/tracking.ts"></script>
 	</body>
 </html>

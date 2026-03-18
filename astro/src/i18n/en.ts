@@ -617,5 +617,6 @@ export const en = {
 			title: 'Company',
 			p: ['About us', 'Legal', 'Contact'],
 		},
+		manageCookies: 'Manage cookies',
 	},
 } as const

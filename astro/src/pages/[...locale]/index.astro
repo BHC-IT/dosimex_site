@@ -44,7 +44,7 @@ const offerCards = [
 <Layout title={t.seo.home.title} description={t.seo.home.description} jsonLd={[organizationSchema, websiteSchema(locale)]}>
 
 	<!-- ═══════════════════════════ HERO ═══════════════════════════ -->
-	<section class="relative overflow-hidden py-16 md:py-24">
+	<section data-ph-section="hero" class="relative overflow-hidden py-16 md:py-24">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="grid items-center gap-12 lg:grid-cols-2">
 				<!-- Left column -->
@@ -72,6 +72,7 @@ const offerCards = [
 							target="_blank"
 							rel="noopener noreferrer"
 							class="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-base font-semibold text-primary-foreground shadow-lg transition-all hover:bg-primary/90 hover:shadow-xl"
+							data-ph-cta="try_dosismart"
 						>
 							{t.home.hero.trialButton}
 							<svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
@@ -81,6 +82,7 @@ const offerCards = [
 						<a
 							href={localePath(locale, '/software')}
 							class="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-6 py-3 text-base font-semibold text-foreground transition-colors hover:bg-muted"
+							data-ph-cta="discover_software"
 						>
 							{t.home.hero.cta}
 							<svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
@@ -90,6 +92,7 @@ const offerCards = [
 						<a
 							href="#references"
 							class="inline-flex items-center gap-2 text-base font-semibold text-primary transition-colors hover:text-primary/80"
+							data-ph-cta="view_references"
 						>
 							{t.home.hero.referencesButton}
 							<svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
@@ -120,7 +123,7 @@ const offerCards = [
 	</section>
 
 	<!-- ═══════════════════════════ PARTNERS ═══════════════════════════ -->
-	<section class="border-y bg-muted/30 py-12">
+	<section data-ph-section="partners" class="border-y bg-muted/30 py-12">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<h2 class="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-muted-foreground">
 				{t.home.partners.title}
@@ -143,7 +146,7 @@ const offerCards = [
 	</section>
 
 	<!-- ═══════════════════════════ OFFERS ═══════════════════════════ -->
-	<section class="py-16 md:py-24">
+	<section data-ph-section="offers" class="py-16 md:py-24">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="mx-auto max-w-2xl text-center">
 				<h2 class="text-3xl font-bold tracking-tight text-foreground font-lato sm:text-4xl">
@@ -156,7 +159,7 @@ const offerCards = [
 
 			<div class="mt-12 grid gap-8 md:grid-cols-3">
 				{offerCards.map((card) => (
-					<a href={card.href} class="group relative rounded-xl border bg-card p-8 shadow-sm transition-all hover:shadow-md hover:-translate-y-1">
+					<a href={card.href} data-ph-cta="offer_software" class="group relative rounded-xl border bg-card p-8 shadow-sm transition-all hover:shadow-md hover:-translate-y-1">
 						<div class="mb-5 flex h-14 w-14 items-center justify-center rounded-lg bg-primary/10">
 							<Image src={card.icon} alt={card.title} width={32} height={32} class="h-8 w-8 object-contain" loading="lazy" />
 						</div>
@@ -175,7 +178,7 @@ const offerCards = [
 	</section>
 
 	<!-- ═══════════════════════════ CTA BANNER ═══════════════════════════ -->
-	<section class="py-8 md:py-12">
+	<section data-ph-section="cta-banner" class="py-8 md:py-12">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-primary/15 via-accent/10 to-emerald-400/10 p-8 md:p-12">
 				<!-- Decorative element -->
@@ -192,6 +195,7 @@ const offerCards = [
 						<a
 							href={localePath(locale, '/contact')}
 							class="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg transition-all hover:bg-primary/90 hover:shadow-xl"
+							data-ph-cta="contact_us"
 						>
 							{t.home.callToAction.button}
 						</a>
@@ -200,6 +204,7 @@ const offerCards = [
 							target="_blank"
 							rel="noopener noreferrer"
 							class="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-muted"
+							data-ph-cta="try_dosismart"
 						>
 							{t.home.callToAction.trialButton}
 							<svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
@@ -213,7 +218,7 @@ const offerCards = [
 	</section>
 
 	<!-- ═══════════════════════════ NUMBERS ═══════════════════════════ -->
-	<section class="py-16 md:py-24">
+	<section data-ph-section="numbers" class="py-16 md:py-24">
 		<div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
 			<div class="grid gap-8 md:grid-cols-3">
 				{t.home.numbers.items.map((item) => (
@@ -231,7 +236,7 @@ const offerCards = [
 	</section>
 
 	<!-- ═══════════════════════════ VIDEOS ═══════════════════════════ -->
-	<section class="border-y bg-muted/30 py-16 md:py-24">
+	<section data-ph-section="videos" class="border-y bg-muted/30 py-16 md:py-24">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="grid items-center gap-12 lg:grid-cols-2">
 				<!-- Video embed -->
@@ -250,6 +255,7 @@ const offerCards = [
 					<a
 						href={localePath(locale, '/videos')}
 						class="mt-6 inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg transition-all hover:bg-primary/90 hover:shadow-xl"
+						data-ph-cta="view_videos"
 					>
 						{t.home.videos.button}
 						<svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
@@ -262,7 +268,7 @@ const offerCards = [
 	</section>
 
 	<!-- ═══════════════════════════ TESTIMONIAL ═══════════════════════════ -->
-	<section class="py-16 md:py-24">
+	<section data-ph-section="testimonial" class="py-16 md:py-24">
 		<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
 			<div class="relative rounded-2xl border bg-card p-8 shadow-sm md:p-12">
 				<!-- Quote icon -->

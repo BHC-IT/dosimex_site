@@ -102,6 +102,7 @@ const faqSchema = {
 					target="_blank"
 					rel="noopener noreferrer"
 					class="mt-6 inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+					data-ph-cta="try_dosismart"
 				>
 					{p.trialBanner.button}
 					<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -113,7 +114,7 @@ const faqSchema = {
 	</section>
 
 	<!-- Pricing -->
-	<section class="py-16 md:py-24">
+	<section data-ph-section="pricing" class="py-16 md:py-24">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<h2 class="text-center text-3xl font-bold text-foreground font-lato">{p.pricing.title}</h2>
 			<p class="mt-2 text-center text-foreground/60">{p.pricing.packageTitle}</p>
@@ -173,6 +174,7 @@ const faqSchema = {
 			<a
 				href="#buy"
 				class="mt-6 inline-block rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+				data-ph-cta="request_quote"
 			>
 				{p.pricing.quoteButton}
 			</a>
@@ -180,7 +182,7 @@ const faqSchema = {
 	</section>
 
 	<!-- FAQ -->
-	<section class="py-16 md:py-24">
+	<section data-ph-section="faq" class="py-16 md:py-24">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<h2 class="text-center text-3xl font-bold text-foreground font-lato">{p.faq.title}</h2>
 			<div class="mx-auto mt-10 max-w-3xl space-y-4">

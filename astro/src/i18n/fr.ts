@@ -618,5 +618,6 @@ export const fr = {
 			title: 'Entreprise',
 			p: ['Qui sommes-nous ?', 'Mentions légales', 'Contact'],
 		},
+		manageCookies: 'Gérer les cookies',
 	},
 } as const

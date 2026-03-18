@@ -2,6 +2,19 @@ import { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { Menu, X } from 'lucide-react'
 
+function trackEvent(event: string, properties?: Record<string, unknown>) {
+	if (typeof window !== 'undefined' && 'posthog' in window) {
+		const ph = (window as { posthog?: { capture: (e: string, p?: Record<string, unknown>) => void } }).posthog
+		if (!ph) return
+		const [, lang] = window.location.pathname.split('/')
+		ph.capture(event, {
+			locale: lang === 'en' ? 'en' : 'fr',
+			page: window.location.pathname,
+			...properties,
+		})
+	}
+}
+
 interface NavLink {
 	label: string
 	href: string
@@ -37,7 +50,10 @@ export default function MobileMenu({
 			{isOpen && (
 				<div
 					className="fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm"
-					onClick={() => setIsOpen(false)}
+					onClick={() => {
+						setIsOpen(false)
+						trackEvent('mobile_menu_toggle', { action: 'close' })
+					}}
 				/>
 			)}
 
@@ -47,11 +63,15 @@ export default function MobileMenu({
 					isOpen ? 'translate-x-0' : 'translate-x-full'
 				}`}
 				style={{ backgroundColor: 'var(--color-background, #fff)' }}
+				data-mobile-menu
 			>
 				<div className="flex items-center justify-between border-b p-4">
 					<span className="text-lg font-bold font-lato">DOSIMEX</span>
 					<button
-						onClick={() => setIsOpen(false)}
+						onClick={() => {
+							setIsOpen(false)
+							trackEvent('mobile_menu_toggle', { action: 'close' })
+						}}
 						className="rounded-md p-2 text-foreground/60 hover:bg-muted"
 						aria-label="Close menu"
 						type="button"
@@ -83,6 +103,7 @@ export default function MobileMenu({
 					<a
 						href={productHref}
 						className="block rounded-lg border border-primary px-4 py-3 text-center text-sm font-semibold text-primary transition-colors hover:bg-primary/10"
+						data-ph-cta="request_quote"
 					>
 						{quoteButton}
 					</a>
@@ -91,6 +112,7 @@ export default function MobileMenu({
 						target="_blank"
 						rel="noopener noreferrer"
 						className="block rounded-lg bg-primary px-4 py-3 text-center text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+						data-ph-cta="try_dosismart"
 					>
 						{trialButton}
 					</a>
@@ -102,7 +124,10 @@ export default function MobileMenu({
 	return (
 		<>
 			<button
-				onClick={() => setIsOpen(true)}
+				onClick={() => {
+					setIsOpen(true)
+					trackEvent('mobile_menu_toggle', { action: 'open' })
+				}}
 				className="rounded-md p-2 text-foreground/60 transition-colors hover:bg-muted"
 				aria-label="Open menu"
 				type="button"

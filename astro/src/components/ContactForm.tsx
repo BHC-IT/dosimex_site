@@ -1,10 +1,23 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useRef } from 'react'
 import type { FormEvent } from 'react'
 import emailjs from '@emailjs/browser'
 import PhoneInput, { isPossiblePhoneNumber } from 'react-phone-number-input'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-phone-number-input/style.css'
 import 'react-toastify/dist/ReactToastify.css'
+
+function trackEvent(event: string, properties?: Record<string, unknown>) {
+	if (typeof window !== 'undefined' && 'posthog' in window) {
+		const ph = (window as { posthog?: { capture: (e: string, p?: Record<string, unknown>) => void } }).posthog
+		if (!ph) return
+		const [, lang] = window.location.pathname.split('/')
+		ph.capture(event, {
+			locale: lang === 'en' ? 'en' : 'fr',
+			page: window.location.pathname,
+			...properties,
+		})
+	}
+}
 
 interface ContactFormProps {
 	labels: {
@@ -53,6 +66,14 @@ export default function ContactForm({
 	const [message, setMessage] = useState('')
 	const [isLoading, setIsLoading] = useState(false)
 
+	// PostHog: track which fields have been focused (fire once per field)
+	const focusedFields = useRef(new Set<string>())
+	const trackFieldFocus = useCallback((field: string) => {
+		if (focusedFields.current.has(field)) return
+		focusedFields.current.add(field)
+		trackEvent('form_field_focus', { field })
+	}, [])
+
 	// Track which fields have been touched for validation display
 	const [touched, setTouched] = useState<Record<string, boolean>>({})
 
@@ -93,6 +114,17 @@ export default function ContactForm({
 		(e: FormEvent) => {
 			e.preventDefault()
 
+			// PostHog: track submit attempt
+			const filledFields = [
+				name.trim() && 'name',
+				email.trim() && 'email',
+				phone && 'phone',
+				company.trim() && 'company',
+				subject.trim() && 'subject',
+				message.trim() && 'message',
+			].filter(Boolean) as string[]
+			trackEvent('form_submit_attempt', { fields_filled: filledFields })
+
 			// Touch all required fields to show errors
 			setTouched({
 				name: true,
@@ -101,7 +133,16 @@ export default function ContactForm({
 				message: true,
 			})
 
-			if (!isFormValid()) return
+			if (!isFormValid()) {
+				const invalidFields = [
+					name.trim() === '' && 'name',
+					!EMAIL_REGEX.test(email) && 'email',
+					phone && !isPossiblePhoneNumber(phone) && 'phone',
+					message.trim() === '' && 'message',
+				].filter(Boolean) as string[]
+				trackEvent('form_validation_error', { invalid_fields: invalidFields })
+				return
+			}
 
 			const toastId = toast.loading(sending)
 			setIsLoading(true)
@@ -123,11 +164,13 @@ export default function ContactForm({
 				.then(() => {
 					toast.dismiss(toastId)
 					toast.success(messageSent)
+					trackEvent('form_submit_success')
 					resetForm()
 				})
 				.catch(() => {
 					toast.dismiss(toastId)
 					toast.error(messageNotSent)
+					trackEvent('form_submit_failure')
 				})
 				.finally(() => {
 					setIsLoading(false)
@@ -172,6 +215,7 @@ export default function ContactForm({
 							id="name"
 							value={name}
 							onChange={e => setName(e.target.value)}
+							onFocus={() => trackFieldFocus('name')}
 							onBlur={() => markTouched('name')}
 							required
 							className={inputClass}
@@ -193,6 +237,7 @@ export default function ContactForm({
 							id="email"
 							value={email}
 							onChange={e => setEmail(e.target.value)}
+							onFocus={() => trackFieldFocus('email')}
 							onBlur={() => markTouched('email')}
 							required
 							className={inputClass}
@@ -213,6 +258,7 @@ export default function ContactForm({
 							defaultCountry="FR"
 							value={phone}
 							onChange={setPhone}
+							onFocus={() => trackFieldFocus('phone')}
 							onBlur={() => markTouched('phone')}
 							numberInputProps={{ id: 'phone' }}
 							className={`${inputClass} [&_.PhoneInputInput]:border-none [&_.PhoneInputInput]:bg-transparent [&_.PhoneInputInput]:outline-none [&_.PhoneInputInput]:text-foreground`}
@@ -232,6 +278,7 @@ export default function ContactForm({
 							id="company"
 							value={company}
 							onChange={e => setCompany(e.target.value)}
+							onFocus={() => trackFieldFocus('company')}
 							className={inputClass}
 							placeholder={labels.company}
 						/>
@@ -247,6 +294,7 @@ export default function ContactForm({
 							id="subject"
 							value={subject}
 							onChange={e => setSubject(e.target.value)}
+							onFocus={() => trackFieldFocus('subject')}
 							className={inputClass}
 							placeholder={labels.subject}
 						/>
@@ -262,6 +310,7 @@ export default function ContactForm({
 							id="message"
 							value={message}
 							onChange={e => setMessage(e.target.value)}
+							onFocus={() => trackFieldFocus('message')}
 							onBlur={() => markTouched('message')}
 							rows={5}
 							required

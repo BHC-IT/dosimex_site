@@ -41,6 +41,17 @@ const { videoId, title = 'YouTube video', class: className = '' } = Astro.props
 			const activate = () => {
 				const id = el.dataset.videoId
 				const title = el.dataset.videoTitle ?? 'YouTube video'
+
+				// PostHog tracking
+				if (typeof posthog !== 'undefined') {
+					const [, lang] = window.location.pathname.split('/')
+					posthog.capture('video_play', {
+						locale: lang === 'en' ? 'en' : 'fr',
+						page: window.location.pathname,
+						video_id: id,
+						video_title: title,
+					})
+				}
 				const iframe = document.createElement('iframe')
 				iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1`
 				iframe.title = title

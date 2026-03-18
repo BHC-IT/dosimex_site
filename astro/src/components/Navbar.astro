@@ -61,6 +61,7 @@ const altLocaleLabel = locale === 'en' ? 'FR' : 'EN'
 			<a
 				href={locale === 'en' ? '/en/product' : '/product'}
 				class="rounded-lg border border-primary px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary/10"
+				data-ph-cta="request_quote"
 			>
 				{t.navbar.quoteButton}
 			</a>
@@ -69,6 +70,7 @@ const altLocaleLabel = locale === 'en' ? 'FR' : 'EN'
 				target="_blank"
 				rel="noopener noreferrer"
 				class="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+				data-ph-cta="try_dosismart"
 			>
 				{t.navbar.button}
 			</a>
