@@ -1,0 +1,71 @@
+@import 'tailwindcss';
+
+@theme {
+	/* Light mode colors */
+	--color-background: #FFFFFF;
+	--color-foreground: #0B0D17;
+	--color-primary: #FF2532;
+	--color-primary-foreground: #FFFFFF;
+	--color-secondary: hsl(0, 10%, 92%);
+	--color-secondary-foreground: hsl(0, 10%, 30%);
+	--color-muted: #F3F4FA;
+	--color-muted-foreground: hsl(229, 10%, 40%);
+	--color-accent: #FFC03D;
+	--color-accent-foreground: #0B0D17;
+	--color-card: #FFFFFF;
+	--color-card-foreground: #0B0D17;
+	--color-border: hsl(220, 13%, 91%);
+	--color-input: hsl(220, 13%, 91%);
+	--color-ring: #FF2532;
+	--color-destructive: hsl(3, 100%, 50%);
+
+	/* Fonts */
+	--font-lato: 'Lato', sans-serif;
+	--font-nunito: 'Nunito', sans-serif;
+
+	/* Border radius */
+	--radius-sm: 0.375rem;
+	--radius-md: 0.5rem;
+	--radius-lg: 0.75rem;
+	--radius-xl: 1rem;
+}
+
+/* Dark mode overrides */
+.dark {
+	--color-background: #0B0D17;
+	--color-foreground: #F3F4FA;
+	--color-primary: #FF4D58;
+	--color-primary-foreground: #FFFFFF;
+	--color-secondary: hsl(229, 14%, 14%);
+	--color-secondary-foreground: hsl(229, 14%, 74%);
+	--color-muted: hsl(229, 15%, 14%);
+	--color-muted-foreground: hsl(229, 10%, 60%);
+	--color-accent: #FFC03D;
+	--color-accent-foreground: #0B0D17;
+	--color-card: hsl(229, 25%, 10%);
+	--color-card-foreground: #F3F4FA;
+	--color-border: hsl(229, 15%, 20%);
+	--color-input: hsl(229, 15%, 20%);
+	--color-ring: #FF4D58;
+}
+
+/* Base styles */
+@layer base {
+	* {
+		border-color: var(--color-border);
+	}
+
+	body {
+		font-family: var(--font-nunito);
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-family: var(--font-lato);
+	}
+
+	/* Focus styles */
+	:focus-visible {
+		outline: 2px solid var(--color-ring);
+		outline-offset: 2px;
+	}
+}

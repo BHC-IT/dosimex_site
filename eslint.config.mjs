@@ -328,6 +328,7 @@ export default [
 			'build/',
 			'dist/',
 			'coverage/',
+			'astro/',
 			'*.config.js',
 			'*.config.ts',
 		],

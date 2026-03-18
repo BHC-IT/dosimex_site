@@ -1,0 +1,98 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import VideoEmbed from '@/components/VideoEmbed.astro'
+import { getTranslations } from '@/i18n/utils'
+import { videoIds } from '@/data/videos'
+
+const t = getTranslations('fr')
+const tr = t.training
+---
+
+<Layout title={`${tr.header.title} — Dosimex`} description={tr.header.description}>
+
+	<!-- Header -->
+	<section class="py-16 md:py-20">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="grid items-center gap-10 md:grid-cols-2">
+				<div>
+					<h1 class="text-4xl font-extrabold tracking-tight text-foreground font-lato md:text-5xl">
+						{tr.header.title}
+					</h1>
+					<p class="mt-6 text-lg text-foreground/70 leading-relaxed">
+						{tr.header.description}
+					</p>
+				</div>
+				<div>
+					<VideoEmbed videoId={videoIds.presentation} title="Dosimex — Présentation" />
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Section 1: Training Topics -->
+	<section class="bg-muted/30 py-16 md:py-20">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<h2 class="text-2xl font-bold text-foreground font-lato md:text-3xl">
+				{tr.section1.title}
+			</h2>
+			<div class="mt-8 grid gap-4 md:grid-cols-2">
+				{tr.section1.items.map((item) => (
+					<div class="border-l-4 border-primary/30 pl-4 py-2">
+						<p class="text-foreground/80">{item}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Section 2: Partnership -->
+	<section class="py-16 md:py-20">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<h2 class="text-2xl font-bold text-foreground font-lato md:text-3xl">
+				{tr.section2.title}
+			</h2>
+			<ul class="mt-8 space-y-3">
+				{tr.section2.items.map((item) => (
+					<li class="flex items-center gap-3 text-foreground/80">
+						<svg class="h-4 w-4 shrink-0 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+						</svg>
+						{item}
+					</li>
+				))}
+			</ul>
+			<a
+				href="/Folders/catalogue_formations.pdf"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+			>
+				{tr.section2.button}
+				<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+				</svg>
+			</a>
+		</div>
+	</section>
+
+	<!-- Questions CTA -->
+	<section class="py-16 md:py-20">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="rounded-xl bg-gradient-to-r from-primary/15 via-accent/10 to-emerald-400/10 p-8 text-center md:p-12">
+				<h2 class="text-2xl font-bold text-foreground font-lato md:text-3xl">
+					{tr.questions.title}
+				</h2>
+				<p class="mx-auto mt-4 max-w-2xl text-foreground/70">
+					{tr.questions.text}
+				</p>
+				<a
+					href="/contact"
+					class="mt-6 inline-block rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+				>
+					{tr.questions.button}
+				</a>
+			</div>
+		</div>
+	</section>
+
+</Layout>

@@ -1,0 +1,94 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { getTranslations } from '@/i18n/utils'
+
+const t = getTranslations('en')
+const a = t.about
+---
+
+<Layout title={`${a.header.title} — Dosimex`}>
+
+	<!-- Header with parallax-style banner -->
+	<section class="relative overflow-hidden py-20 md:py-32">
+		<div class="absolute inset-0 -z-10">
+			<img
+				src="/Images/BackGroundHague.png"
+				alt="Cap de la Hague"
+				class="h-full w-full object-cover"
+			/>
+			<div class="absolute inset-0 bg-dark/70"></div>
+		</div>
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+			<h1 class="text-4xl font-extrabold tracking-tight text-white font-lato md:text-5xl">
+				{a.header.title}
+			</h1>
+		</div>
+	</section>
+
+	<!-- Gerald section: photo left, paragraphs right -->
+	<section class="py-16 md:py-20">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="rounded-xl border bg-card p-8 shadow-sm">
+				<div class="flex flex-col gap-8 md:flex-row">
+					<div class="md:w-1/3 shrink-0">
+						<img
+							src="/Images/Gerald.png"
+							alt="Gerald Lopez"
+							class="rounded-xl object-cover shadow-lg w-full"
+						/>
+						<h2 class="mt-4 text-center text-2xl font-bold text-foreground font-lato">
+							Gerald Lopez
+						</h2>
+					</div>
+					<div class="md:w-2/3 space-y-4">
+						{a.gerald.paragraphs.map((paragraph) => (
+							<p class="text-foreground/80 leading-relaxed">{paragraph}</p>
+						))}
+
+						<!-- Timeline -->
+						<div class="mt-8 border-l-4 border-primary pl-6 space-y-4">
+							{a.gerald.timeline.map((item) => (
+								<p class="text-foreground/70 leading-relaxed">{item}</p>
+							))}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Alain section: photo right, paragraphs left -->
+	<section class="bg-muted/30 py-16 md:py-20">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="rounded-xl border bg-card p-8 shadow-sm">
+				<div class="flex flex-col gap-8 md:flex-row-reverse">
+					<div class="md:w-1/3 shrink-0">
+						<img
+							src="/Images/Alain.png"
+							alt="Alain Vivier"
+							class="rounded-xl object-cover shadow-lg w-full"
+						/>
+						<h2 class="mt-4 text-center text-2xl font-bold text-foreground font-lato">
+							Alain Vivier
+						</h2>
+					</div>
+					<div class="md:w-2/3 space-y-4">
+						{a.alain.paragraphs.map((paragraph) => (
+							<p class="text-foreground/80 leading-relaxed">{paragraph}</p>
+						))}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Epilogue -->
+	<section class="py-12">
+		<div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
+			<p class="italic text-foreground/60 leading-relaxed">
+				{a.epilogue}
+			</p>
+		</div>
+	</section>
+
+</Layout>

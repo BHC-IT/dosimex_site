@@ -1,0 +1,87 @@
+---
+import MobileMenu from './MobileMenu.tsx'
+import ThemeToggle from './ThemeToggle.astro'
+
+interface Props {
+	t: Record<string, any>
+	locale: string
+}
+
+const { t, locale } = Astro.props
+
+const navLinks = [
+	{ label: t.navbar.items[0], href: locale === 'en' ? '/en/software' : '/software' },
+	{ label: t.navbar.items[1], href: locale === 'en' ? '/en/training' : '/training' },
+	{ label: t.navbar.items[2], href: locale === 'en' ? '/en/manuals' : '/manuals' },
+	{ label: t.navbar.items[3], href: locale === 'en' ? '/en/about' : '/about' },
+	{ label: t.navbar.items[4], href: locale === 'en' ? '/en/contact' : '/contact' },
+]
+
+const altLocaleHref = locale === 'en' ? '/' : '/en/'
+const altLocaleLabel = locale === 'en' ? 'FR' : 'EN'
+---
+
+<header class="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
+	<div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+		<!-- Logo -->
+		<a href={locale === 'en' ? '/en/' : '/'} class="shrink-0">
+			<img
+				src="/Images/logo_dosimex_new.webp"
+				alt={t.altText?.logo ?? 'DOSIMEX'}
+				class="h-8 w-auto"
+				loading="eager"
+			/>
+		</a>
+
+		<!-- Desktop nav -->
+		<nav class="hidden items-center gap-6 lg:flex" aria-label="Main navigation">
+			{navLinks.map((link) => (
+				<a
+					href={link.href}
+					class="text-sm font-medium text-foreground/70 transition-colors hover:text-primary"
+				>
+					{link.label}
+				</a>
+			))}
+		</nav>
+
+		<!-- Desktop actions -->
+		<div class="hidden items-center gap-3 lg:flex">
+			<a
+				href={altLocaleHref}
+				class="rounded-md px-2 py-1 text-xs font-bold text-foreground/60 transition-colors hover:text-foreground border border-border"
+			>
+				{altLocaleLabel}
+			</a>
+			<ThemeToggle />
+			<a
+				href={locale === 'en' ? '/en/product' : '/product'}
+				class="rounded-lg border border-primary px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary/10"
+			>
+				{t.navbar.quoteButton}
+			</a>
+			<a
+				href="https://dosismart.com"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+			>
+				{t.navbar.button}
+			</a>
+		</div>
+
+		<!-- Mobile menu -->
+		<div class="flex items-center gap-2 lg:hidden">
+			<ThemeToggle />
+			<MobileMenu
+				client:load
+				navLinks={navLinks}
+				trialButton={t.navbar.button}
+				quoteButton={t.navbar.quoteButton}
+				altLocaleHref={altLocaleHref}
+				altLocaleLabel={altLocaleLabel}
+				productHref={locale === 'en' ? '/en/product' : '/product'}
+			/>
+		</div>
+	</div>
+</header>

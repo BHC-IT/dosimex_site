@@ -1,0 +1,191 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { getTranslations } from '@/i18n/utils'
+
+const t = getTranslations('fr')
+const p = t.product
+---
+
+<Layout title={`${p.title} — Dosimex`} description={p.description}>
+
+	<!-- Header -->
+	<section class="py-16 md:py-24">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<h1 class="text-4xl font-extrabold tracking-tight text-accent font-lato md:text-5xl">
+				{p.title}
+			</h1>
+			<div class="mt-8 rounded-xl border-2 border-primary bg-primary/5 p-6 md:p-8">
+				<p class="text-foreground/80 leading-relaxed">{p.description}</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Pack Content -->
+	<section class="bg-muted/30 py-16 md:py-24">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<h2 class="text-3xl font-bold text-foreground font-lato">{p.partE.title}</h2>
+			<div class="mt-8 space-y-4">
+				{p.partE.items.map((item) => (
+					<div class="border-l-4 border-primary/50 bg-card rounded-r-lg p-5 shadow-sm">
+						<p class="text-foreground/80 leading-relaxed">{item}</p>
+					</div>
+				))}
+			</div>
+			<div class="mt-8 flex flex-wrap gap-4">
+				<a
+					href="/software"
+					class="inline-flex items-center gap-2 rounded-lg border border-primary px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/10"
+				>
+					{p.partE.softwareLink}
+					<span aria-hidden="true">&rarr;</span>
+				</a>
+				<a
+					href="/manuals"
+					class="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-muted/20"
+				>
+					{p.partE.manualsLink}
+					<span aria-hidden="true">&rarr;</span>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Prerequisites -->
+	<section class="py-16 md:py-24">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<h2 class="text-2xl font-bold text-foreground font-lato">{p.prerequisites.title}</h2>
+			<p class="mt-4 max-w-3xl text-foreground/70 leading-relaxed">{p.prerequisites.text}</p>
+		</div>
+	</section>
+
+	<!-- Trial Banner -->
+	<section class="py-8">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="rounded-2xl bg-gradient-to-r from-primary/15 via-accent/10 to-emerald-400/10 p-8 md:p-12">
+				<h2 class="text-2xl font-bold text-foreground font-lato md:text-3xl">
+					{p.trialBanner.title}
+				</h2>
+				<p class="mt-4 max-w-2xl text-foreground/70">
+					{p.trialBanner.text}
+				</p>
+				<a
+					href="https://dosismart.com"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="mt-6 inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+				>
+					{p.trialBanner.button}
+					<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+					</svg>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Pricing -->
+	<section class="py-16 md:py-24">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<h2 class="text-center text-3xl font-bold text-foreground font-lato">{p.pricing.title}</h2>
+			<p class="mt-2 text-center text-foreground/60">{p.pricing.packageTitle}</p>
+
+			<div class="mt-12 grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
+				<!-- Annual -->
+				<div class="rounded-xl border-2 border-border p-8 transition-shadow hover:shadow-md">
+					<h3 class="text-xl font-bold text-foreground font-lato">{p.pricing.annual.title}</h3>
+					<div class="mt-4">
+						<span class="text-4xl font-extrabold text-foreground">{p.pricing.annual.price}</span>
+						<span class="ml-2 text-foreground/60">{p.pricing.annual.duration}</span>
+					</div>
+					<ul class="mt-6 space-y-3">
+						{p.pricing.annual.features.map((feature) => (
+							<li class="flex items-start gap-3">
+								<svg class="mt-0.5 h-5 w-5 shrink-0 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+									<path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+								</svg>
+								<span class="text-foreground/70">{feature}</span>
+							</li>
+						))}
+					</ul>
+				</div>
+
+				<!-- 3-Year (recommended) -->
+				<div class="relative rounded-xl border-2 border-primary p-8 shadow-lg scale-[1.02] md:scale-105">
+					<div class="absolute -top-3 left-1/2 -translate-x-1/2">
+						<span class="inline-block rounded-full bg-accent px-4 py-1 text-xs font-bold text-accent-foreground">
+							{p.pricing.triennial.savings}
+						</span>
+					</div>
+					<h3 class="text-xl font-bold text-foreground font-lato">{p.pricing.triennial.title}</h3>
+					<div class="mt-4">
+						<span class="text-4xl font-extrabold text-primary">{p.pricing.triennial.price}</span>
+						<span class="ml-2 text-foreground/60">{p.pricing.triennial.duration}</span>
+					</div>
+					<ul class="mt-6 space-y-3">
+						{p.pricing.triennial.features.map((feature) => (
+							<li class="flex items-start gap-3">
+								<svg class="mt-0.5 h-5 w-5 shrink-0 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+									<path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+								</svg>
+								<span class="text-foreground/70">{feature}</span>
+							</li>
+						))}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Order -->
+	<section class="bg-muted/30 py-16 md:py-24">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+			<h2 class="text-2xl font-bold text-foreground font-lato md:text-3xl">{p.pricing.orderTitle}</h2>
+			<p class="mx-auto mt-4 max-w-2xl text-foreground/70">{p.pricing.orderText}</p>
+			<a
+				href="#buy"
+				class="mt-6 inline-block rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+			>
+				{p.pricing.quoteButton}
+			</a>
+		</div>
+	</section>
+
+	<!-- FAQ -->
+	<section class="py-16 md:py-24">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<h2 class="text-center text-3xl font-bold text-foreground font-lato">{p.faq.title}</h2>
+			<div class="mx-auto mt-10 max-w-3xl space-y-4">
+				{p.faq.questions.map((item) => (
+					<div class="rounded-xl bg-muted/10 p-6">
+						<h3 class="text-lg font-bold text-foreground">{item.question}</h3>
+						<p class="mt-3 text-foreground/70 leading-relaxed">{item.answer}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Contact Section -->
+	<section id="buy" class="py-16 md:py-24">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="rounded-2xl bg-accent/15 p-8 md:p-12">
+				<h2 class="text-center text-2xl font-bold text-foreground font-lato md:text-3xl">
+					{p.contact.title}
+				</h2>
+				<p class="mx-auto mt-4 max-w-2xl text-center text-foreground/70">
+					{p.contact.text}
+					<a href="tel:+33689709035" class="font-semibold text-foreground hover:text-primary transition-colors">
+						{p.contact.phone}
+					</a>
+				</p>
+				<!-- Contact form placeholder -->
+				<div class="mx-auto mt-8 max-w-2xl rounded-xl border bg-card p-8 shadow-sm">
+					<p class="text-center text-foreground/50 italic">
+						Formulaire de contact
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</Layout>

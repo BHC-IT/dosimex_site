@@ -18,7 +18,8 @@
 		"check-types": "tsc --noEmit",
 		"lint": "eslint .",
 		"lint:fix": "eslint . --fix",
-		"lint:check": "eslint . --max-warnings 0"
+		"lint:check": "eslint . --max-warnings 0",
+		"dev:astro": "pnpm -C astro dev"
 	},
 	"dependencies": {
 		"@emailjs/browser": "^4.4.1",

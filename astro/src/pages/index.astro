@@ -1,0 +1,351 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import VideoEmbed from '@/components/VideoEmbed.astro'
+import { getTranslations } from '@/i18n/utils'
+import { partnerLogos } from '@/data/videos'
+
+const t = getTranslations('fr')
+
+const offerCards = [
+	{
+		...t.home.offers.card1,
+		icon: '/Images/icon_excel.png',
+		href: '/software',
+	},
+	{
+		...t.home.offers.card2,
+		icon: '/Images/icon_book.png',
+		href: '/manuals',
+	},
+	{
+		...t.home.offers.card3,
+		icon: '/Images/icon_formation.png',
+		href: '/training',
+	},
+]
+---
+
+<Layout title="Dosimex — Outils de calculs radioprotection">
+
+	<!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+	<section class="relative overflow-hidden py-16 md:py-24">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="grid items-center gap-12 lg:grid-cols-2">
+				<!-- Left column -->
+				<div class="max-w-xl">
+					<!-- Promo badge -->
+					<div class="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
+						<svg class="h-4 w-4 shrink-0" viewBox="0 0 20 20" fill="currentColor">
+							<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
+						</svg>
+						<span>{t.home.hero.promo}</span>
+					</div>
+
+					<h1 class="text-4xl font-extrabold tracking-tight text-foreground font-lato md:text-5xl lg:text-6xl">
+						{t.home.hero.title}
+					</h1>
+
+					<p class="mt-6 text-lg leading-relaxed text-muted-foreground">
+						{t.home.hero.subtitle}
+					</p>
+
+					<!-- CTA Buttons -->
+					<div class="mt-8 flex flex-wrap items-center gap-4">
+						<a
+							href="https://dosismart.com"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-base font-semibold text-primary-foreground shadow-lg transition-all hover:bg-primary/90 hover:shadow-xl"
+						>
+							{t.home.hero.trialButton}
+							<svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+								<path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd" />
+							</svg>
+						</a>
+						<a
+							href="/software"
+							class="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-6 py-3 text-base font-semibold text-foreground transition-colors hover:bg-muted"
+						>
+							{t.home.hero.cta}
+							<svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+								<path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+							</svg>
+						</a>
+						<a
+							href="#references"
+							class="inline-flex items-center gap-2 text-base font-semibold text-primary transition-colors hover:text-primary/80"
+						>
+							{t.home.hero.referencesButton}
+							<svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+								<path fill-rule="evenodd" d="M10 3a.75.75 0 01.75.75v10.638l3.96-4.158a.75.75 0 111.08 1.04l-5.25 5.5a.75.75 0 01-1.08 0l-5.25-5.5a.75.75 0 111.08-1.04l3.96 4.158V3.75A.75.75 0 0110 3z" clip-rule="evenodd" />
+							</svg>
+						</a>
+					</div>
+				</div>
+
+				<!-- Right column: hero image -->
+				<div class="relative flex justify-center lg:justify-end">
+					<div class="relative">
+						<!-- Decorative glow -->
+						<div class="absolute -inset-4 rounded-2xl bg-gradient-to-r from-primary/20 via-accent/10 to-emerald-400/10 blur-2xl" aria-hidden="true"></div>
+						<img
+							src="/Images/home_header_carousel.png"
+							alt="Interface du logiciel de dosimétrie DOSIMEX"
+							class="relative w-full max-w-lg rounded-xl shadow-2xl"
+							loading="eager"
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════ PARTNERS ═══════════════════════════ -->
+	<section class="border-y bg-muted/30 py-12">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<h2 class="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+				{t.home.partners.title}
+			</h2>
+			<!-- Scrolling logo row -->
+			<div class="relative overflow-hidden">
+				<div class="partner-scroll flex items-center gap-12">
+					{[...partnerLogos, ...partnerLogos].map((logo) => (
+						<img
+							src={`/Images/logo_partenaires/${logo}`}
+							alt={logo.replace(/\.\w+$/, '')}
+							class="h-10 w-auto shrink-0 object-contain opacity-60 grayscale transition-all hover:opacity-100 hover:grayscale-0 sm:h-12"
+							loading="lazy"
+						/>
+					))}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════ OFFERS ═══════════════════════════ -->
+	<section class="py-16 md:py-24">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="mx-auto max-w-2xl text-center">
+				<h2 class="text-3xl font-bold tracking-tight text-foreground font-lato sm:text-4xl">
+					{t.home.offers.title}
+				</h2>
+				<p class="mt-4 text-lg text-muted-foreground">
+					{t.home.offers.description}
+				</p>
+			</div>
+
+			<div class="mt-12 grid gap-8 md:grid-cols-3">
+				{offerCards.map((card) => (
+					<a href={card.href} class="group relative rounded-xl border bg-card p-8 shadow-sm transition-all hover:shadow-md hover:-translate-y-1">
+						<div class="mb-5 flex h-14 w-14 items-center justify-center rounded-lg bg-primary/10">
+							<img src={card.icon} alt="" class="h-8 w-8 object-contain" loading="lazy" />
+						</div>
+						<h3 class="text-xl font-bold text-foreground font-lato">{card.title}</h3>
+						<p class="mt-3 text-muted-foreground">{card.description}</p>
+						<div class="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-primary transition-transform group-hover:translate-x-1">
+							<span>{t.home.hero.cta}</span>
+							<svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+								<path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+							</svg>
+						</div>
+					</a>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════ CTA BANNER ═══════════════════════════ -->
+	<section class="py-8 md:py-12">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-primary/15 via-accent/10 to-emerald-400/10 p-8 md:p-12">
+				<!-- Decorative element -->
+				<div class="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-primary/10 blur-3xl" aria-hidden="true"></div>
+				<div class="absolute -bottom-12 -left-12 h-48 w-48 rounded-full bg-accent/10 blur-3xl" aria-hidden="true"></div>
+
+				<div class="relative flex flex-col items-center gap-6 text-center md:flex-row md:text-left">
+					<div class="flex-1">
+						<h2 class="text-2xl font-bold text-foreground font-lato md:text-3xl">
+							{t.home.callToAction.title}
+						</h2>
+					</div>
+					<div class="flex shrink-0 flex-wrap items-center gap-4">
+						<a
+							href="/contact"
+							class="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg transition-all hover:bg-primary/90 hover:shadow-xl"
+						>
+							{t.home.callToAction.button}
+						</a>
+						<a
+							href="https://dosismart.com"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-muted"
+						>
+							{t.home.callToAction.trialButton}
+							<svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+								<path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd" />
+							</svg>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════ NUMBERS ═══════════════════════════ -->
+	<section class="py-16 md:py-24">
+		<div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+			<div class="grid gap-8 md:grid-cols-3">
+				{t.home.numbers.items.map((item) => (
+					<div class="group text-center">
+						<div class="text-5xl font-extrabold text-primary font-lato md:text-6xl">
+							{item.value}
+						</div>
+						<div class="mt-3 text-lg text-muted-foreground">
+							{item.label}
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════ VIDEOS ═══════════════════════════ -->
+	<section class="border-y bg-muted/30 py-16 md:py-24">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="grid items-center gap-12 lg:grid-cols-2">
+				<!-- Video embed -->
+				<div>
+					<VideoEmbed videoId="q9QXG78ciXY" title="Présentation Dosimex" />
+				</div>
+
+				<!-- Text content -->
+				<div>
+					<h2 class="text-3xl font-bold tracking-tight text-foreground font-lato sm:text-4xl">
+						{t.home.videos.title}
+					</h2>
+					<p class="mt-4 text-lg leading-relaxed text-muted-foreground">
+						{t.home.videos.description}
+					</p>
+					<a
+						href="/videos"
+						class="mt-6 inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg transition-all hover:bg-primary/90 hover:shadow-xl"
+					>
+						{t.home.videos.button}
+						<svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+							<path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
+						</svg>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════ TESTIMONIAL ═══════════════════════════ -->
+	<section class="py-16 md:py-24">
+		<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+			<div class="relative rounded-2xl border bg-card p-8 shadow-sm md:p-12">
+				<!-- Quote icon -->
+				<div class="absolute -top-4 left-8 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-md">
+					<svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+						<path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/>
+					</svg>
+				</div>
+
+				<blockquote class="mt-4">
+					<p class="text-lg leading-relaxed text-foreground/90 italic md:text-xl">
+						"{t.home.opinion.text}"
+					</p>
+				</blockquote>
+
+				<div class="mt-6 flex items-center gap-4">
+					<div class="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
+						<span class="text-lg font-bold text-primary">{t.home.opinion.name.charAt(0)}</span>
+					</div>
+					<div>
+						<div class="font-bold text-foreground">{t.home.opinion.name}</div>
+						<div class="text-sm text-muted-foreground">{t.home.opinion.job}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════ REFERENCES ═══════════════════════════ -->
+	<section id="references" class="border-t bg-muted/30 py-16 md:py-24">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="mx-auto max-w-2xl text-center">
+				<h2 class="text-3xl font-bold tracking-tight text-foreground font-lato sm:text-4xl">
+					{t.home.references.title}
+				</h2>
+				<p class="mt-4 text-lg text-muted-foreground">
+					{t.home.references.subtitle}
+				</p>
+			</div>
+
+			<div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+				{t.home.references.items.map((item) => (
+					<div class="flex flex-col rounded-xl border bg-card p-6 shadow-sm transition-shadow hover:shadow-md">
+						<h3 class="text-base font-bold text-foreground font-lato leading-snug">
+							{item.title}
+						</h3>
+						<p class="mt-2 flex-1 text-sm text-muted-foreground">
+							{item.description}
+						</p>
+						{('authors' in item || 'year' in item || 'journal' in item) && (
+							<div class="mt-3 flex flex-wrap gap-2">
+								{'authors' in item && (
+									<span class="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium text-muted-foreground">
+										{item.authors}
+									</span>
+								)}
+								{'year' in item && (
+									<span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-xs font-medium text-primary">
+										{item.year}
+									</span>
+								)}
+								{'journal' in item && (
+									<span class="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium text-muted-foreground">
+										{item.journal}
+									</span>
+								)}
+							</div>
+						)}
+						<a
+							href={item.url}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
+						>
+							{t.home.references.btnText}
+							<svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+								<path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd" />
+							</svg>
+						</a>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+</Layout>
+
+<!-- Partner logo scroll animation -->
+<style>
+	@keyframes partner-scroll {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(-50%);
+		}
+	}
+
+	.partner-scroll {
+		animation: partner-scroll 30s linear infinite;
+	}
+
+	.partner-scroll:hover {
+		animation-play-state: paused;
+	}
+</style>

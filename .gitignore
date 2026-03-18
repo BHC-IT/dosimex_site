@@ -34,3 +34,8 @@ tsconfig.tsbuildinfo
 
 .envrc
 !.claude
+
+# Astro
+astro/node_modules
+astro/dist
+astro/.astro

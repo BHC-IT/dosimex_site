@@ -1,0 +1,49 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import ContactForm from '@/components/ContactForm.tsx'
+import { getTranslations } from '@/i18n/utils'
+
+const t = getTranslations('fr')
+---
+
+<Layout title="Dosimex — Contact">
+
+	<!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
+	<section class="py-16 md:py-24">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="mx-auto max-w-2xl text-center">
+				<h1 class="text-4xl font-extrabold tracking-tight text-foreground font-lato sm:text-5xl">
+					{t.contact.header.title}
+				</h1>
+				<p class="mt-4 text-lg text-muted-foreground">
+					{t.contact.header.subtitle}
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════ CONTACT FORM ═══════════════════════════ -->
+	<section class="pb-16 md:pb-24">
+		<div id="contact-form" class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
+			<ContactForm
+				client:load
+				labels={t.contactForm.labels}
+				errors={t.contactForm.errors}
+				button={t.contactForm.button}
+				sending={t.contactForm.sending}
+				messageSent={t.contactForm.messageSent}
+				messageNotSent={t.contactForm.messageNotSent}
+				title={t.contactForm.title}
+			/>
+
+			<!-- Contact info -->
+			<div class="mt-8 text-center text-sm text-muted-foreground">
+				<p>{t.contact.header.subtitle}</p>
+				<p class="mt-2 font-medium text-foreground">
+					{t.footer.col1.p[2]}
+				</p>
+			</div>
+		</div>
+	</section>
+
+</Layout>
