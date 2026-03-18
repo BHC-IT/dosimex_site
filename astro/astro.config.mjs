@@ -5,6 +5,7 @@ import tailwindcss from '@tailwindcss/vite'
 import vercel from '@astrojs/vercel'
 
 export default defineConfig({
+	output: 'server',
 	site: 'https://dosimex.fr',
 	integrations: [react(), sitemap()],
 	vite: {
