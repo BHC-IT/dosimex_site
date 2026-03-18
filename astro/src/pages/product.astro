@@ -1,5 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro'
+import ContactForm from '@/components/ContactForm.tsx'
 import { getTranslations } from '@/i18n/utils'
 
 const t = getTranslations('fr')
@@ -178,11 +179,17 @@ const p = t.product
 						{p.contact.phone}
 					</a>
 				</p>
-				<!-- Contact form placeholder -->
-				<div class="mx-auto mt-8 max-w-2xl rounded-xl border bg-card p-8 shadow-sm">
-					<p class="text-center text-foreground/50 italic">
-						Formulaire de contact
-					</p>
+				<div class="mx-auto mt-8 max-w-2xl">
+					<ContactForm
+						client:load
+						labels={t.contactForm.labels}
+						errors={t.contactForm.errors}
+						button={t.contactForm.button}
+						sending={t.contactForm.sending}
+						messageSent={t.contactForm.messageSent}
+						messageNotSent={t.contactForm.messageNotSent}
+						title={t.contactForm.title}
+					/>
 				</div>
 			</div>
 		</div>
