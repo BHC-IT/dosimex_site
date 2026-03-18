@@ -25,8 +25,16 @@ const t = getTranslations(locale)
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Nunito:wght@400;600;700;800&display=swap"
-			rel="stylesheet"
+			rel="preload"
+			as="style"
+			onload="this.onload=null;this.rel='stylesheet'"
 		/>
+		<noscript>
+			<link
+				href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Nunito:wght@400;600;700;800&display=swap"
+				rel="stylesheet"
+			/>
+		</noscript>
 		<title>{title}</title>
 		<!-- Dark mode: only activate if user explicitly chose dark -->
 		<script is:inline>

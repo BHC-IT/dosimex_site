@@ -40,3 +40,4 @@ astro/node_modules
 astro/dist
 astro/.astro
 astro/.vercel
+.vercel
