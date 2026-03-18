@@ -3,12 +3,13 @@ import Layout from '@/layouts/Layout.astro'
 import VideoEmbed from '@/components/VideoEmbed.astro'
 import { getTranslations } from '@/i18n/utils'
 import { videoIds } from '@/data/videos'
+import { organizationSchema } from '@/data/schemas'
 
 const t = getTranslations('fr')
 const v = t.videos
 ---
 
-<Layout title={`${v.header.title} — Dosimex`} description={v.header.description}>
+<Layout title={t.seo.videos.title} description={t.seo.videos.description} jsonLd={[organizationSchema]}>
 
 	<!-- Header -->
 	<section class="py-16 md:py-20">

@@ -2,12 +2,37 @@
 import Layout from '@/layouts/Layout.astro'
 import ContactForm from '@/components/ContactForm.tsx'
 import { getTranslations } from '@/i18n/utils'
+import { organizationSchema } from '@/data/schemas'
 
 const t = getTranslations('fr')
 const p = t.product
+
+const softwareSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'SoftwareApplication',
+	name: 'Dosimex 3.2 + Dosismart',
+	applicationCategory: 'BusinessApplication',
+	operatingSystem: 'Windows, Web',
+	offers: {
+		'@type': 'Offer',
+		price: '500',
+		priceCurrency: 'EUR',
+		description: 'Licence annuelle mono-poste',
+	},
+}
+
+const faqSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: p.faq.questions.map((q) => ({
+		'@type': 'Question',
+		name: q.question,
+		acceptedAnswer: { '@type': 'Answer', text: q.answer },
+	})),
+}
 ---
 
-<Layout title={`${p.title} — Dosimex`} description={p.description}>
+<Layout title={t.seo.product.title} description={t.seo.product.description} jsonLd={[organizationSchema, softwareSchema, faqSchema]}>
 
 	<!-- Header -->
 	<section class="py-16 md:py-24">

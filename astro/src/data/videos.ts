@@ -28,6 +28,19 @@ export const partnerLogos = [
 	'trad.webp',
 ] as const
 
+export const partnerLogoAlts = [
+	'Logo ALARA',
+	'Logo APAVE',
+	'Logo B2C',
+	'Logo CLS',
+	'Logo COSSEN',
+	'Logo EDP Sciences',
+	'Logo LEA',
+	'Logo RP Cirkus',
+	'Logo Veolia Nuclear Solutions',
+	'Logo TRAD',
+] as const
+
 export const bookImages = [
 	'livre1.png',
 	'livre2.png',

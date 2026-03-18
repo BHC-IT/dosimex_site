@@ -16,3 +16,27 @@ export function getLocaleFromUrl(url: URL): Locale {
 	if (lang === 'en') return 'en'
 	return 'fr'
 }
+
+/**
+ * Given a pathname, return the equivalent path in the alternate locale.
+ * `/software` → `/en/software`, `/en/software` → `/software`
+ * `/` → `/en/`, `/en/` → `/`
+ */
+export function getAlternateUrl(pathname: string): string {
+	const clean = pathname.replace(/\/$/, '') || '/'
+	if (clean.startsWith('/en')) {
+		const rest = clean.slice(3) // strip "/en"
+		return rest || '/'
+	}
+	return `/en${clean === '/' ? '/' : clean}`
+}
+
+/**
+ * Build an absolute canonical URL from the site origin and pathname.
+ * Strips trailing slashes except for root `/`.
+ */
+export function getCanonicalUrl(site: string, pathname: string): string {
+	const base = site.replace(/\/$/, '')
+	const path = pathname.replace(/\/$/, '') || '/'
+	return path === '/' ? `${base}/` : `${base}${path}`
+}

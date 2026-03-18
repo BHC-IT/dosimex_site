@@ -2,6 +2,7 @@
 import Layout from '@/layouts/Layout.astro'
 import { getTranslations } from '@/i18n/utils'
 import { manualPdfs } from '@/data/videos'
+import { organizationSchema } from '@/data/schemas'
 
 const t = getTranslations('en')
 const m = t.manuals
@@ -9,7 +10,7 @@ const m = t.manuals
 const anchorIds = ['manuals', 'validations', 'internships'] as const
 ---
 
-<Layout title={`${m.header.title} — Dosimex`} description={m.header.description}>
+<Layout title={t.seo.manuals.title} description={t.seo.manuals.description} jsonLd={[organizationSchema]}>
 
 	<!-- Header -->
 	<section class="py-16 md:py-20">

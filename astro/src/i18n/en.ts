@@ -1,4 +1,42 @@
 export const en = {
+	seo: {
+		home: {
+			title: 'Dosimex — Radiation Protection Calculation Tools',
+			description: 'Dosimex: 17 professional calculation tools for radiation protection. Gamma, beta, neutron dose calculations, internal exposure and atmospheric transfer. Free trial available.',
+		},
+		software: {
+			title: 'Calculation Tools — Dosimex',
+			description: 'Explore 17 Dosimex tools: operational codes (gamma, beta, neutron), interactive learning modules and measurement utilities for radiation protection.',
+		},
+		product: {
+			title: 'Product & Pricing — Dosimex',
+			description: 'Dosimex 3.2 + Dosismart pack: 17 calculation codes, single-user license from €500/year excl. VAT. 14-day free Dosismart trial, no commitment.',
+		},
+		training: {
+			title: 'Radiation Protection Training — Dosimex',
+			description: 'Dosimex in-house training from 1 to 3 days: hands-on calculation tools, practical exercises applied to real radiation protection cases.',
+		},
+		books: {
+			title: 'Recommended Readings — Dosimex',
+			description: 'Curated selection of reference books on radiation protection, dosimetry and nuclear physics recommended by Dosimex experts.',
+		},
+		manuals: {
+			title: 'Documentation & Validation — Dosimex',
+			description: 'User manuals, MCNP validation files and internship reports for Dosimex-GX. Complete documentation available as downloadable PDFs.',
+		},
+		videos: {
+			title: 'Videos & Tutorials — Dosimex',
+			description: 'Explanatory videos for each Dosimex tool: operational, learning and measurement packs. Visit our YouTube channel for more.',
+		},
+		about: {
+			title: 'Our Team — Dosimex',
+			description: 'Meet Gérald Lopez and Alain Vivier, the creators of Dosimex. Over 30 years of experience in radiation protection and dosimetry.',
+		},
+		contact: {
+			title: 'Contact & Quote — Dosimex',
+			description: 'Contact Dosimex for a quote, demo or free trial. Response within 24 hours. Video conference demonstration available.',
+		},
+	},
 	altText: {
 		logo: 'DOSIMEX - Radiation Dosimetry Software',
 		flagUk: 'UK flag - DOSIMEX available in English',
@@ -455,17 +493,17 @@ export const en = {
 	books: {
 		header: { title: 'Readings' },
 		items: [
-			{ extract: 'This book is intended for students studying for careers in the nuclear industry, nuclear medicine or research. Users of ionizing radiation will also find useful and up-to-date information.', author: 'Arnaud Boquet' },
-			{ extract: 'This book has two complementary objectives: to provide the reader an understanding of the physical principles at work when a target is exposed to ionizing radiation, and to propose simple calculation tools to evaluate the absorbed doses.', author: 'Alain Vivier and Gérald Lopez' },
-			{ extract: 'This volume corresponds to the practical module dedicated to industrial and research facilities concerned with the possession or management of unsealed sources and sealed sources necessary for their control.', author: 'Hugues Bruchet' },
-			{ extract: 'The role of the competent person in radiation protection (PCR) has developed widely in recent years. This volume is intended for PCRs or future PCRs involved in medical sector facilities.', author: 'Hugues Bruchet, Amélie Roué et Christine Jimonet' },
-			{ extract: 'This volume corresponds to the practical module dedicated to industrial and research facilities concerned with the possession or management of X-ray generators and sealed sources.', author: 'Jean-Claude Moreau and Marc Ammerich' },
-			{ extract: 'It was time to retrace the history of nuclear physics. Bernard Fernandez takes you by the hand to guide you through the meanders of a complicated but fascinating science.', author: 'Bernard Fernandez' },
-			{ extract: "Intended for a wide audience, Le monde subatomique describes the evolution of ideas about the interactions and constituents of matter, from the discovery of the neutron to that of the Z° boson.", author: 'Luc Valentin' },
-			{ extract: 'This book aims to synthesize many years of experience in the field of external dosimetry and protection techniques against this type of exposure in the industrial, research and medical fields.', author: 'Rodolphe Antoni et Laurent Bourgois' },
-			{ extract: 'This book reviews the state of the art in dosimetric calculations, ionizing radiation metrology and radiation protection through problems related to concrete applications in the field.', author: 'Laurent Bourgois and Rodolphe Antoni' },
-			{ extract: 'Radioactivity is everywhere, it surrounds us. This book, without complex mathematical formulas, will allow all readers to better understand the role and the work of radiation protectionists.', author: 'Marc Ammerich' },
-			{ extract: 'These books are adapted to students in master radiation protection, engineering school but also to students specialized in BTS or license radiation protection.', author: 'Marc Ammerich' },
+			{ extract: 'This book is intended for students studying for careers in the nuclear industry, nuclear medicine or research. Users of ionizing radiation will also find useful and up-to-date information.', author: 'Arnaud Boquet', title: 'Radiation Protection of Workers, Patients and the Public' },
+			{ extract: 'This book has two complementary objectives: to provide the reader an understanding of the physical principles at work when a target is exposed to ionizing radiation, and to propose simple calculation tools to evaluate the absorbed doses.', author: 'Alain Vivier and Gérald Lopez', title: 'Calculation of Doses Generated by Ionizing Radiation' },
+			{ extract: 'This volume corresponds to the practical module dedicated to industrial and research facilities concerned with the possession or management of unsealed sources and sealed sources necessary for their control.', author: 'Hugues Bruchet', title: 'RPC — Radiation Protection Principles and Regulations' },
+			{ extract: 'The role of the competent person in radiation protection (PCR) has developed widely in recent years. This volume is intended for PCRs or future PCRs involved in medical sector facilities.', author: 'Hugues Bruchet, Amélie Roué et Christine Jimonet', title: 'RPC — Medical Sector' },
+			{ extract: 'This volume corresponds to the practical module dedicated to industrial and research facilities concerned with the possession or management of X-ray generators and sealed sources.', author: 'Jean-Claude Moreau and Marc Ammerich', title: 'RPC — Industry and Research Sector' },
+			{ extract: 'It was time to retrace the history of nuclear physics. Bernard Fernandez takes you by the hand to guide you through the meanders of a complicated but fascinating science.', author: 'Bernard Fernandez', title: 'From Atom to Nucleus — A Historical Approach to Nuclear Physics' },
+			{ extract: "Intended for a wide audience, Le monde subatomique describes the evolution of ideas about the interactions and constituents of matter, from the discovery of the neutron to that of the Z° boson.", author: 'Luc Valentin', title: 'The Subatomic World' },
+			{ extract: 'This book aims to synthesize many years of experience in the field of external dosimetry and protection techniques against this type of exposure in the industrial, research and medical fields.', author: 'Rodolphe Antoni et Laurent Bourgois', title: 'Shielding Techniques and Radiation Protection' },
+			{ extract: 'This book reviews the state of the art in dosimetric calculations, ionizing radiation metrology and radiation protection through problems related to concrete applications in the field.', author: 'Laurent Bourgois and Rodolphe Antoni', title: 'Dosimetry of Ionizing Radiation and Radiation Protection' },
+			{ extract: 'Radioactivity is everywhere, it surrounds us. This book, without complex mathematical formulas, will allow all readers to better understand the role and the work of radiation protectionists.', author: 'Marc Ammerich', title: 'Radioactivity Under Surveillance' },
+			{ extract: 'These books are adapted to students in master radiation protection, engineering school but also to students specialized in BTS or license radiation protection.', author: 'Marc Ammerich', title: 'Radiation Protection Exercises — Volume 1' },
 		],
 	},
 	manuals: {

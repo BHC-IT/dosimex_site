@@ -1,12 +1,13 @@
 ---
 import Layout from '@/layouts/Layout.astro'
 import { getTranslations } from '@/i18n/utils'
+import { organizationSchema } from '@/data/schemas'
 
 const t = getTranslations('en')
 const s = t.software
 ---
 
-<Layout title={`${s.header.title} — Dosimex`} description={s.header.description}>
+<Layout title={t.seo.software.title} description={t.seo.software.description} jsonLd={[organizationSchema]}>
 
 	<!-- Header -->
 	<section class="py-16 md:py-24">

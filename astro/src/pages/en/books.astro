@@ -2,12 +2,21 @@
 import Layout from '@/layouts/Layout.astro'
 import { getTranslations } from '@/i18n/utils'
 import { bookImages, bookUrls } from '@/data/videos'
+import { organizationSchema } from '@/data/schemas'
 
 const t = getTranslations('en')
 const b = t.books
+
+const bookSchemas = b.items.map((book, i) => ({
+	'@context': 'https://schema.org',
+	'@type': 'Book',
+	name: book.title,
+	author: { '@type': 'Person', name: book.author },
+	url: bookUrls[i],
+}))
 ---
 
-<Layout title={`${b.header.title} — Dosimex`}>
+<Layout title={t.seo.books.title} description={t.seo.books.description} jsonLd={[organizationSchema, ...bookSchemas]}>
 
 	<!-- Header -->
 	<section class="py-16 md:py-20">
@@ -27,7 +36,7 @@ const b = t.books
 						<div class="bg-muted/10 p-6 flex items-center justify-center" style="aspect-ratio: 3/4;">
 							<img
 								src={`/Images/${bookImages[index]}`}
-								alt={book.author}
+								alt={`Cover: ${book.title} by ${book.author}`}
 								class="h-full w-full object-contain"
 								loading="lazy"
 							/>

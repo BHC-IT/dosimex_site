@@ -2,7 +2,8 @@
 import Layout from '@/layouts/Layout.astro'
 import VideoEmbed from '@/components/VideoEmbed.astro'
 import { getTranslations } from '@/i18n/utils'
-import { partnerLogos } from '@/data/videos'
+import { partnerLogos, partnerLogoAlts } from '@/data/videos'
+import { organizationSchema, websiteSchema } from '@/data/schemas'
 
 const t = getTranslations('fr')
 
@@ -25,7 +26,7 @@ const offerCards = [
 ]
 ---
 
-<Layout title="Dosimex — Outils de calculs radioprotection">
+<Layout title={t.seo.home.title} description={t.seo.home.description} jsonLd={[organizationSchema, websiteSchema('fr')]}>
 
 	<!-- ═══════════════════════════ HERO ═══════════════════════════ -->
 	<section class="relative overflow-hidden py-16 md:py-24">
@@ -112,10 +113,10 @@ const offerCards = [
 			<!-- Scrolling logo row -->
 			<div class="relative overflow-hidden">
 				<div class="partner-scroll flex items-center gap-12">
-					{[...partnerLogos, ...partnerLogos].map((logo) => (
+					{[...partnerLogos, ...partnerLogos].map((logo, i) => (
 						<img
 							src={`/Images/logo_partenaires/${logo}`}
-							alt={logo.replace(/\.\w+$/, '')}
+							alt={partnerLogoAlts[i % partnerLogos.length]}
 							class="h-10 w-auto shrink-0 object-contain opacity-60 grayscale transition-all hover:opacity-100 hover:grayscale-0 sm:h-12"
 							loading="lazy"
 						/>

@@ -2,11 +2,12 @@
 import Layout from '@/layouts/Layout.astro'
 import ContactForm from '@/components/ContactForm.tsx'
 import { getTranslations } from '@/i18n/utils'
+import { organizationSchema } from '@/data/schemas'
 
 const t = getTranslations('en')
 ---
 
-<Layout title="Dosimex — Contact">
+<Layout title={t.seo.contact.title} description={t.seo.contact.description} jsonLd={[organizationSchema]}>
 
 	<!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
 	<section class="py-16 md:py-24">

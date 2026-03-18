@@ -1,0 +1,55 @@
+---
+import { getLocaleFromUrl, getAlternateUrl, getCanonicalUrl } from '@/i18n/utils'
+
+interface Props {
+	title: string
+	description: string
+	ogImage?: string
+	robots?: string
+	jsonLd?: Record<string, unknown>[]
+}
+
+const { title, description, ogImage, robots, jsonLd } = Astro.props
+
+const locale = getLocaleFromUrl(Astro.url)
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://dosimex.fr'
+const canonicalUrl = getCanonicalUrl(siteUrl, Astro.url.pathname)
+const alternatePathname = getAlternateUrl(Astro.url.pathname)
+const alternateUrl = getCanonicalUrl(siteUrl, alternatePathname)
+const resolvedOgImage = ogImage
+	? ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`
+	: `${siteUrl}/og-default.png`
+const ogLocale = locale === 'fr' ? 'fr_FR' : 'en_US'
+const ogLocaleAlternate = locale === 'fr' ? 'en_US' : 'fr_FR'
+---
+
+<!-- SEO meta -->
+<meta name="description" content={description} />
+{robots && <meta name="robots" content={robots} />}
+
+<!-- Canonical & hreflang -->
+<link rel="canonical" href={canonicalUrl} />
+<link rel="alternate" hreflang="fr" href={locale === 'fr' ? canonicalUrl : alternateUrl} />
+<link rel="alternate" hreflang="en" href={locale === 'en' ? canonicalUrl : alternateUrl} />
+<link rel="alternate" hreflang="x-default" href={locale === 'fr' ? canonicalUrl : alternateUrl} />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Dosimex" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:image" content={resolvedOgImage} />
+<meta property="og:locale" content={ogLocale} />
+<meta property="og:locale:alternate" content={ogLocaleAlternate} />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={resolvedOgImage} />
+
+<!-- JSON-LD structured data -->
+{jsonLd?.map((schema) => (
+	<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+))}

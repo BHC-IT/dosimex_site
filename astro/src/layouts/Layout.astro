@@ -2,16 +2,23 @@
 import '@/styles/global.css'
 import Navbar from '@/components/Navbar.astro'
 import Footer from '@/components/Footer.astro'
+import BaseHead from '@/components/BaseHead.astro'
 import { getTranslations, getLocaleFromUrl } from '@/i18n/utils'
 
 interface Props {
 	title: string
 	description?: string
+	ogImage?: string
+	robots?: string
+	jsonLd?: Record<string, unknown>[]
 }
 
-const { title, description = 'Dosimex — Outils de calculs radioprotection' } = Astro.props
 const locale = getLocaleFromUrl(Astro.url)
 const t = getTranslations(locale)
+const defaultDescription = locale === 'en'
+	? 'Dosimex — Radiation protection calculation tools'
+	: 'Dosimex — Outils de calculs radioprotection'
+const { title, description = defaultDescription, ogImage, robots, jsonLd } = Astro.props
 ---
 
 <!doctype html>
@@ -19,7 +26,6 @@ const t = getTranslations(locale)
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="description" content={description} />
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,6 +42,7 @@ const t = getTranslations(locale)
 			/>
 		</noscript>
 		<title>{title}</title>
+		<BaseHead title={title} description={description} ogImage={ogImage} robots={robots} jsonLd={jsonLd} />
 		<!-- Dark mode: only activate if user explicitly chose dark -->
 		<script is:inline>
 			(function() {

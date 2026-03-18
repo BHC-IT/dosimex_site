@@ -1,12 +1,13 @@
 ---
 import Layout from '@/layouts/Layout.astro'
 import { getTranslations } from '@/i18n/utils'
+import { organizationSchema } from '@/data/schemas'
 
 const t = getTranslations('fr')
 const a = t.about
 ---
 
-<Layout title={`${a.header.title} — Dosimex`}>
+<Layout title={t.seo.about.title} description={t.seo.about.description} jsonLd={[organizationSchema]}>
 
 	<!-- Header with parallax-style banner -->
 	<section class="relative overflow-hidden py-20 md:py-32">

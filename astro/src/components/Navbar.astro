@@ -1,6 +1,7 @@
 ---
 import MobileMenu from './MobileMenu.tsx'
 import ThemeToggle from './ThemeToggle.astro'
+import { getAlternateUrl } from '@/i18n/utils'
 
 interface Props {
 	t: Record<string, any>
@@ -17,7 +18,7 @@ const navLinks = [
 	{ label: t.navbar.items[4], href: locale === 'en' ? '/en/contact' : '/contact' },
 ]
 
-const altLocaleHref = locale === 'en' ? '/' : '/en/'
+const altLocaleHref = getAlternateUrl(Astro.url.pathname)
 const altLocaleLabel = locale === 'en' ? 'FR' : 'EN'
 ---
 

@@ -1,4 +1,42 @@
 export const fr = {
+	seo: {
+		home: {
+			title: 'Dosimex — Outils de calculs radioprotection',
+			description: 'Dosimex : 17 outils de calculs professionnels pour la radioprotection. Calculs de dose gamma, bêta, neutron, exposition interne et transfert atmosphérique. Essai gratuit.',
+		},
+		software: {
+			title: 'Nos outils de calcul — Dosimex',
+			description: 'Découvrez les 17 outils Dosimex : codes opérationnels (gamma, bêta, neutron), modules pédagogiques interactifs et utilitaires de mesure pour la radioprotection.',
+		},
+		product: {
+			title: 'Fiche produit & Tarifs — Dosimex',
+			description: 'Pack Dosimex 3.2 + Dosismart : 17 codes de calcul, licence mono-poste à partir de 500€ HT/an. Essai gratuit Dosismart 14 jours, sans engagement.',
+		},
+		training: {
+			title: 'Formations radioprotection — Dosimex',
+			description: 'Formations intra-entreprise Dosimex de 1 à 3 jours : prise en main des outils de calcul, travaux dirigés appliqués aux cas concrets en radioprotection.',
+		},
+		books: {
+			title: 'Lectures recommandées — Dosimex',
+			description: "Sélection d'ouvrages de référence en radioprotection, dosimétrie et physique nucléaire recommandés par les experts Dosimex.",
+		},
+		manuals: {
+			title: 'Documentation & Validation — Dosimex',
+			description: "Manuels d'utilisation, dossiers de validation MCNP et rapports de stage pour Dosimex-GX. Documentation complète téléchargeable en PDF.",
+		},
+		videos: {
+			title: 'Vidéos & Tutoriels — Dosimex',
+			description: "Vidéos explicatives pour chaque outil Dosimex : pack opérationnel, pédagogique et mesures. Retrouvez-nous sur notre chaîne YouTube.",
+		},
+		about: {
+			title: 'Notre équipe — Dosimex',
+			description: "Découvrez Gérald Lopez et Alain Vivier, les créateurs de Dosimex. Plus de 30 ans d'expérience en radioprotection et dosimétrie.",
+		},
+		contact: {
+			title: 'Contact & Devis — Dosimex',
+			description: 'Contactez Dosimex pour un devis, une démonstration ou un essai gratuit. Réponse sous 24h. Démonstration par visioconférence possible.',
+		},
+	},
 	altText: {
 		logo: 'DOSIMEX - Logiciel de dosim\u00e9trie des rayonnements',
 		flagUk: 'Drapeau du Royaume-Uni - DOSIMEX disponible en anglais',
@@ -456,17 +494,17 @@ export const fr = {
 	books: {
 		header: { title: 'Lectures' },
 		items: [
-			{ extract: "Cet ouvrage s'adresse aux étudiants se destinant à l'industrie du nucléaire, à la médecine nucléaire ou encore à la recherche.", author: 'Arnaud Boquet' },
-			{ extract: "Cet ouvrage a deux objectifs complémentaires : apporter au lecteur une compréhension des principes physiques à l'oeuvre lorsqu'une cible est exposée à des rayonnements ionisants, et proposer des outils de calcul simples permettant d'évaluer les doses absorbées.", author: 'Alain Vivier et Gérald Lopez' },
-			{ extract: "Ce volume correspond au module pratique dédié aux installations de l'industrie et de la recherche concernées par la détention ou la gestion de sources non scellées et de sources scellées.", author: 'Hugues Bruchet' },
-			{ extract: "Le rôle de la personne compétente en radioprotection (PCR) s'est largement développé ces dernières années. Ce volume s'adresse aux PCR ou futures PCR concernées par les installations du secteur médical.", author: 'Hugues Bruchet, Amélie Roué et Christine Jimonet' },
-			{ extract: "Ce volume correspond au module pratique dédié aux installations de l'industrie et de la recherche concernées par la détention ou la gestion de générateurs X et de sources scellées.", author: 'Jean-Claude Moreau et Marc Ammerich' },
-			{ extract: "Il était temps de retracer l'histoire de la physique nucléaire. Bernard Fernandez vous prend par la main pour vous guider à travers les méandres d'une science compliquée mais passionnante.", author: 'Bernard Fernandez' },
-			{ extract: "Destiné à un large public, Le monde subatomique décrit l'évolution des idées sur les interactions et les constituants de la matière, avec leurs applications, depuis la découverte du neutron jusqu'à celle du boson Z°.", author: 'Luc Valentin' },
-			{ extract: "Cet ouvrage a pour ambition de faire la synthèse de nombreuses années d'expériences dans le domaine de la dosimétrie externe et des techniques de protection contre ce type d'exposition.", author: 'Rodolphe Antoni et Laurent Bourgois' },
-			{ extract: "Cet ouvrage fait le point sur l'état de l'art en matière de calculs dosimétriques, de métrologie des rayonnements ionisants et de radioprotection.", author: 'Laurent Bourgois et Rodolphe Antoni' },
-			{ extract: "La radioactivité est partout, elle nous entoure. Pourtant nous avons vécu avec durant plusieurs siècles sans le savoir. Ce livre, sans formule mathématique complexe, permettra à tous les lecteurs de mieux connaître le rôle et le travail des radioprotectionnistes.", author: 'Marc Ammerich' },
-			{ extract: "Ces livres sont adaptés aux étudiants en master radioprotection, école d'ingénieur mais aussi aux étudiants spécialisés en BTS ou licence radioprotection.", author: 'Marc Ammerich' },
+			{ extract: "Cet ouvrage s'adresse aux étudiants se destinant à l'industrie du nucléaire, à la médecine nucléaire ou encore à la recherche.", author: 'Arnaud Boquet', title: 'La radioprotection des travailleurs, des patients et du public' },
+			{ extract: "Cet ouvrage a deux objectifs complémentaires : apporter au lecteur une compréhension des principes physiques à l'oeuvre lorsqu'une cible est exposée à des rayonnements ionisants, et proposer des outils de calcul simples permettant d'évaluer les doses absorbées.", author: 'Alain Vivier et Gérald Lopez', title: 'Calcul de doses générées par les rayonnements ionisants' },
+			{ extract: "Ce volume correspond au module pratique dédié aux installations de l'industrie et de la recherche concernées par la détention ou la gestion de sources non scellées et de sources scellées.", author: 'Hugues Bruchet', title: 'PCR — Principes de radioprotection, réglementation' },
+			{ extract: "Le rôle de la personne compétente en radioprotection (PCR) s'est largement développé ces dernières années. Ce volume s'adresse aux PCR ou futures PCR concernées par les installations du secteur médical.", author: 'Hugues Bruchet, Amélie Roué et Christine Jimonet', title: 'PCR — Secteur médical' },
+			{ extract: "Ce volume correspond au module pratique dédié aux installations de l'industrie et de la recherche concernées par la détention ou la gestion de générateurs X et de sources scellées.", author: 'Jean-Claude Moreau et Marc Ammerich', title: 'PCR — Secteur industrie et recherche' },
+			{ extract: "Il était temps de retracer l'histoire de la physique nucléaire. Bernard Fernandez vous prend par la main pour vous guider à travers les méandres d'une science compliquée mais passionnante.", author: 'Bernard Fernandez', title: "De l'atome au noyau — Une approche historique de la physique nucléaire" },
+			{ extract: "Destiné à un large public, Le monde subatomique décrit l'évolution des idées sur les interactions et les constituants de la matière, avec leurs applications, depuis la découverte du neutron jusqu'à celle du boson Z°.", author: 'Luc Valentin', title: 'Le monde subatomique' },
+			{ extract: "Cet ouvrage a pour ambition de faire la synthèse de nombreuses années d'expériences dans le domaine de la dosimétrie externe et des techniques de protection contre ce type d'exposition.", author: 'Rodolphe Antoni et Laurent Bourgois', title: 'Techniques de blindage et de radioprotection' },
+			{ extract: "Cet ouvrage fait le point sur l'état de l'art en matière de calculs dosimétriques, de métrologie des rayonnements ionisants et de radioprotection.", author: 'Laurent Bourgois et Rodolphe Antoni', title: 'Dosimétrie des rayonnements ionisants et radioprotection' },
+			{ extract: "La radioactivité est partout, elle nous entoure. Pourtant nous avons vécu avec durant plusieurs siècles sans le savoir. Ce livre, sans formule mathématique complexe, permettra à tous les lecteurs de mieux connaître le rôle et le travail des radioprotectionnistes.", author: 'Marc Ammerich', title: 'La radioactivité sous surveillance' },
+			{ extract: "Ces livres sont adaptés aux étudiants en master radioprotection, école d'ingénieur mais aussi aux étudiants spécialisés en BTS ou licence radioprotection.", author: 'Marc Ammerich', title: 'Exercices de radioprotection — Tome 1' },
 		],
 	},
 	manuals: {
