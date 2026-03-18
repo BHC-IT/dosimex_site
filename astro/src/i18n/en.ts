@@ -1,8 +1,8 @@
 export const en = {
 	seo: {
 		home: {
-			title: 'Dosimex — Radiation Protection Calculation Tools',
-			description: 'Dosimex: 17 professional calculation tools for radiation protection. Gamma, beta, neutron dose calculations, internal exposure and atmospheric transfer. Free trial available.',
+			title: 'Dosimex — Professional Radiation Protection Software',
+			description: 'Dosimex: 17 professional tools for radiation protection. Gamma, beta, neutron dose calculations, internal exposure and atmospheric transfer.',
 		},
 		software: {
 			title: 'Calculation Tools — Dosimex',

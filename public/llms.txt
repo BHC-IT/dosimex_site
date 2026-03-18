@@ -1,0 +1,17 @@
+# Dosimex
+
+> Professional radiation protection calculation software — 17 tools for gamma, beta, neutron dose calculations, internal exposure and atmospheric transfer.
+
+Dosimex is a suite of radiation protection calculation tools developed by Dosimex (dosimex.fr). It includes Dosimex-GX (17 Excel-based professional codes) and Dosismart (their web-based counterpart). The tools cover operational dose calculations, educational modules, and measurement utilities. Licensed annually for single-user workstations with technical support included.
+
+## Pages
+
+- [Home](https://dosimex.fr/): Overview of Dosimex tools and offers
+- [Software](https://dosimex.fr/software): Details on all 17 calculation tools — operational, educational, and measurement
+- [Product](https://dosimex.fr/product): Product data sheet, pricing, and licensing information
+- [Training](https://dosimex.fr/training): In-house training courses from 1 to 3 days
+- [Documentation](https://dosimex.fr/manuals): User manuals, MCNP validation files, and reports
+- [Videos](https://dosimex.fr/videos): Explanatory videos for each Dosimex tool
+- [Books](https://dosimex.fr/books): Recommended readings on radiation protection and dosimetry
+- [About](https://dosimex.fr/about): Team and company background
+- [Contact](https://dosimex.fr/contact): Contact form for quotes and free trials

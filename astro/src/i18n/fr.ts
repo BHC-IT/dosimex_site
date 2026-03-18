@@ -1,8 +1,8 @@
 export const fr = {
 	seo: {
 		home: {
-			title: 'Dosimex — Outils de calculs radioprotection',
-			description: 'Dosimex : 17 outils de calculs professionnels pour la radioprotection. Calculs de dose gamma, bêta, neutron, exposition interne et transfert atmosphérique. Essai gratuit.',
+			title: 'Dosimex — Logiciel de calculs en radioprotection',
+			description: 'Dosimex : 17 outils de calculs pour la radioprotection. Dose gamma, bêta, neutron, exposition interne et transfert atmosphérique.',
 		},
 		software: {
 			title: 'Nos outils de calcul — Dosimex',
