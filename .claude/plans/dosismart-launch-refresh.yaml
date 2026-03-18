@@ -1,0 +1,824 @@
+goal: "Refresh Dosimex website for Dosismart launch — dual CTA (free trial + quote), bundle messaging across Home/Product/Software/Navbar, updated FAQ and contact context"
+checks:
+    - name: tests
+      command: 'pnpm test:run'
+    - name: lint
+      command: 'pnpm lint:check'
+    - name: types
+      command: 'pnpm check-types'
+steps:
+    - name: 'Foundation — new component and translation updates'
+      tasks:
+          - id: '1.1'
+            summary: 'Create ExternalLinkButton component for external URLs (dosismart.com)'
+            prompt: |
+                Create a new React component `ExternalLinkButton` at `src/Components/ExternalLinkButton.tsx`.
+
+                This component must look **visually identical** to the existing `Button` component but link to an external URL
+                instead of an internal Next.js route. It will be used for the "Free Trial" CTA linking to dosismart.com.
+
+                **Reference the existing Button component** at `src/Components/Button.tsx` for the exact styling pattern.
+                The existing Button uses:
+                - `<Link href={/${props.route}} replace>` wrapper with a `<button>` inside
+                - Hover state via `useState` (isHovered, isFocused)
+                - Styles: red bg (var(--main)), white text, uppercase, 50px border-radius, hover translateY(-4px)
+
+                **ExternalLinkButton requirements:**
+                - Props interface: `{ name: string; href: string; style?: CSS.Properties }`
+                - Render as `<a href={props.href} target="_blank" rel="noreferrer noopener">` wrapping a styled `<span>` or `<div>`
+                - Apply the EXACT same base + hover styles as Button (import them or duplicate)
+                - Include the same hover/focus state logic (translateY, boxShadow)
+                - Use `import * as CSS from 'csstype'` for the style type (same as Button)
+                - Export both the component (default) and the styles object (named)
+                - Add `aria-label` on the anchor: `Open ${props.name} (opens in new tab)`
+
+                **Do NOT:**
+                - Use `any` types
+                - Modify the existing Button component
+                - Add tests (we'll update snapshots later)
+
+                **File to create:** `src/Components/ExternalLinkButton.tsx`
+                **File to reference:** `src/Components/Button.tsx`
+            files:
+                - src/Components/Button.tsx
+                - src/Components/ExternalLinkButton.tsx
+            done: true
+
+          - id: '1.2'
+            summary: 'Extend ILang interface and update FR/EN translations for all Dosismart content'
+            prompt: |
+                Update the translation system to add all new content for the Dosismart launch.
+                You MUST update all 3 files atomically — interface, French, and English — so TypeScript is satisfied.
+
+                **Context:** Dosimex is launching Dosismart (dosismart.com), a web app reimplementation.
+                They're sold as a pack (no way to get one without the other). Dosismart has a 14-day free trial.
+                The spelling is "Dosismart" (not DosiSmart).
+
+                ## File 1: `src/lang/interface.ts`
+
+                Add these new keys to the existing interface (keep all existing keys unchanged):
+
+                1. In `Home.callToAction`, add: `trialButton: string`
+                   (existing `title` and `button` stay)
+
+                2. Add a new top-level section `Contact`:
+                   ```
+                   Contact: {
+                       header: {
+                           title: string
+                           subtitle: string
+                       }
+                   }
+                   ```
+
+                3. In `Software`, add inside the existing structure:
+                   ```
+                   dosismartBanner: {
+                       title: string
+                       text: string
+                       button: string
+                   }
+                   ```
+
+                4. In `Product`, add:
+                   ```
+                   trialBanner: {
+                       title: string
+                       text: string
+                       button: string
+                   }
+                   ```
+
+                5. In `Footer.col2`, change `p: string[]` — no change needed, it's already flexible.
+
+                ## File 2: `src/lang/fr.ts`
+
+                Update/add these values (keep ALL existing values that aren't listed here):
+
+                **Navbar.button:** Change from `'Obtenir Dosimex'` to `'Essai gratuit'`
+
+                **Home.header.promo:** Change from the English-availability message to:
+                `'Nouveau : Dosismart, vos codes de calcul Dosimex en version web. Fonctionne dans le navigateur, sans installation.'`
+
+                **Home.callToAction:** Update to:
+                ```
+                callToAction: {
+                    title: 'Dosimex + Dosismart : Excel et web, même codes de calcul',
+                    button: 'Demander un devis',
+                    trialButton: 'Essai gratuit 14 jours',
+                },
+                ```
+
+                **Home.offers.card1:** Update to:
+                ```
+                card1: {
+                    title: 'Dosimex + Dosismart',
+                    p: '17 outils de calcul Dosimex (Excel) et Dosismart, leur version web utilisable dans le navigateur',
+                },
+                ```
+
+                **Home.offers.card3.title:** Keep `'Formations'` (correct in French)
+
+                **Add new `Contact` section** (top-level, alongside Home, Software, etc.):
+                ```
+                Contact: {
+                    header: {
+                        title: 'Devis ou démonstration',
+                        subtitle: 'Décrivez votre besoin ci-dessous. Réponse sous 24h. Démonstration par visioconférence possible.',
+                    },
+                },
+                ```
+
+                **Software.dosismartBanner:** Add new section inside Software:
+                ```
+                dosismartBanner: {
+                    title: 'Nouveau : ces outils existent aussi en version web',
+                    text: 'Dosismart reprend les codes de calcul Dosimex sous forme d\'application web. Fonctionne dans le navigateur, sans installation, sur tout système d\'exploitation.',
+                    button: 'Essayer Dosismart',
+                },
+                ```
+
+                **Software.ask:** Update the existing ask section:
+                ```
+                ask: {
+                    title: 'Des questions ?',
+                    text: 'Pour un devis ou pour essayer Dosismart gratuitement, contactez-nous ici ou par téléphone au 06 89 70 90 35',
+                    labelButton: 'Nous contacter',
+                },
+                ```
+
+                **Product.trialBanner:** Add new section inside Product:
+                ```
+                trialBanner: {
+                    title: 'Essai gratuit Dosismart — 14 jours',
+                    text: 'Dosismart est la version web des codes de calcul Dosimex. Fonctionne dans le navigateur, sans installation. Essai sans engagement, sans carte bancaire.',
+                    button: 'Démarrer l\'essai',
+                },
+                ```
+
+                **Product.descrip:** Replace with:
+                `"Pack DOSIMEX 3.2 + DOSISMART — 17 codes professionnels Dosimex (VBA/Excel) et Dosismart, leur version web. 6 codes opérationnels (calculs de dose, zonage, protection), 6 modules pédagogiques interactifs, 5 utilitaires de mesure et analyse. Licence Dosimex + accès Dosismart inclus. Support technique inclus."`
+
+                **Product.titlePrice:** Change to `'Obtenir le pack Dosimex + Dosismart'`
+
+                **Product.pricing.packageTitle:** Change to `'Pack DOSIMEX 3.2 + DOSISMART — Licence mono-poste'`
+
+                **Product.prerequisites.p:** Replace with:
+                `'Dosimex : VBA/Excel, Windows XP à 11, Excel 2003 à 2024. Machine virtuelle nécessaire sur Mac/Linux. Dosismart : navigateur web (Chrome, Firefox, Edge, Safari), tout système d\'exploitation, aucune installation.'`
+
+                **Product.faq.questions:** Replace the entire array with:
+                ```
+                [
+                    {
+                        question: 'Pourquoi deux versions ?',
+                        answer: "Dosimex fonctionne sous Excel, intégré à vos workflows existants. Dosismart fonctionne via navigateur web, utilisable sur tout appareil sans installation. Les deux accèdent aux mêmes codes de calcul.",
+                    },
+                    {
+                        question: 'Quels sont les prérequis ?',
+                        answer: 'Dosimex : Excel 2003 à 2024, Windows. Dosismart : navigateur web récent (Chrome, Firefox, Edge, Safari), tout OS, pas d\'installation.',
+                    },
+                    {
+                        question: 'Les mises à jour sont-elles incluses ?',
+                        answer: 'Oui. Mises à jour Dosimex et Dosismart incluses dans la licence, ainsi que le support technique.',
+                    },
+                    {
+                        question: 'Comment fonctionne l\'essai gratuit ?',
+                        answer: 'Essai Dosismart 14 jours, sans engagement, sans carte bancaire. Accès à tous les outils de calcul.',
+                    },
+                ]
+                ```
+
+                **Product.questions.title:** Change to `'Devis, essai gratuit, questions ?'`
+
+                **Footer.col2.p:** Add `'Dosismart'` as first entry:
+                `['Dosismart', 'Archives vidéos', 'Manuels et validations', 'Lectures']`
+
+                ## File 3: `src/lang/en.ts`
+
+                Apply equivalent changes in English:
+
+                **Navbar.button:** `'Free Trial'`
+
+                **Home.header.promo:** `'New: Dosismart — Dosimex calculation codes, now in the browser. No installation required.'`
+
+                **Home.callToAction:**
+                ```
+                callToAction: {
+                    title: 'Dosimex + Dosismart: Excel and web, same calculation codes',
+                    button: 'Request a quote',
+                    trialButton: '14-day free trial',
+                },
+                ```
+
+                **Home.offers.card1:**
+                ```
+                card1: {
+                    title: 'Dosimex + Dosismart',
+                    p: '17 Dosimex calculation tools (Excel) and Dosismart, their web version running in the browser',
+                },
+                ```
+
+                **Home.offers.card3.title:** Change from `'Formations'` to `'Training'` (THIS IS A BUG FIX — it was left in French)
+
+                **Contact section:**
+                ```
+                Contact: {
+                    header: {
+                        title: 'Quote or demonstration',
+                        subtitle: 'Describe your needs below. Response within 24 hours. Video conference demonstration available.',
+                    },
+                },
+                ```
+
+                **Software.dosismartBanner:**
+                ```
+                dosismartBanner: {
+                    title: 'New: these tools also exist as a web version',
+                    text: 'Dosismart runs the Dosimex calculation codes in the browser. No installation, works on any OS.',
+                    button: 'Try Dosismart',
+                },
+                ```
+
+                **Software.ask.text:** `'For a quote or to try Dosismart, contact us here or by phone at 06 89 70 90 35'`
+
+                **Product.trialBanner:**
+                ```
+                trialBanner: {
+                    title: 'Free trial — Dosismart, 14 days',
+                    text: 'Dosismart is the web version of Dosimex calculation codes. Runs in the browser, no installation. No commitment, no credit card.',
+                    button: 'Start trial',
+                },
+                ```
+
+                **Product.descrip:** `'DOSIMEX 3.2 + DOSISMART — 17 Dosimex professional codes (VBA/Excel) and Dosismart, their web version. 6 operational codes (dose calculations, zoning, shielding), 6 interactive educational modules, 5 measurement and analysis utilities. Dosimex license + Dosismart access included. Technical support included.'`
+
+                **Product.titlePrice:** `'Get the Dosimex + Dosismart pack'`
+
+                **Product.pricing.packageTitle:** `'DOSIMEX 3.2 + DOSISMART Pack — Single-user License'`
+
+                **Product.prerequisites.p:** `'Dosimex: VBA/Excel, Windows XP to 11, Excel 2003 to 2024. Virtual machine required on Mac/Linux. Dosismart: web browser (Chrome, Firefox, Edge, Safari), any OS, no installation.'`
+
+                **Product.faq.questions:** Replace with:
+                ```
+                [
+                    {
+                        question: 'Why two versions?',
+                        answer: 'Dosimex runs in Excel, integrated into your existing workflows. Dosismart runs in the browser, usable on any device without installation. Both use the same calculation codes.',
+                    },
+                    {
+                        question: 'What are the prerequisites?',
+                        answer: 'Dosimex: Excel 2003 to 2024, Windows. Dosismart: modern web browser (Chrome, Firefox, Edge, Safari), any OS, no installation.',
+                    },
+                    {
+                        question: 'Are updates included?',
+                        answer: 'Yes. Dosimex and Dosismart updates included with the license, plus technical support.',
+                    },
+                    {
+                        question: 'How does the free trial work?',
+                        answer: 'Dosismart trial: 14 days, no commitment, no credit card. Full access to all calculation tools.',
+                    },
+                ]
+                ```
+
+                **Product.questions.title:** `'Quote, free trial, questions?'`
+
+                **Footer.col2.p:** `['Dosismart', 'Video archives', 'Manuals and validations', 'Readings']`
+
+                ## Important rules:
+                - Do NOT use `any` types
+                - Keep ALL existing keys that aren't listed above — only change/add what's specified
+                - Ensure the `Contact` section is placed at the correct level in the interface (same level as `Home`, `Software`, etc.)
+                - Escape single quotes properly in French strings using backslash
+                - The `Product.prerequisites.italic` field exists in fr.ts — keep it unchanged
+                - The `[key: string]: any` index signature in the interface allows the new Contact section without structural issues
+            files:
+                - src/lang/interface.ts
+                - src/lang/fr.ts
+                - src/lang/en.ts
+            done: true
+
+    - name: 'Navigation — Navbar and SideBar trial CTA'
+      tasks:
+          - id: '2.1'
+            summary: 'Replace Navbar and SideBar CTA button with external trial link to dosismart.com'
+            prompt: |
+                Update the Navbar and SideBar components to use the new ExternalLinkButton for the main CTA,
+                linking to the Dosismart free trial at `https://dosismart.com`.
+
+                ## Navbar (`src/Components/Navbar.tsx`)
+
+                1. Add import: `import ExternalLinkButton from './ExternalLinkButton'`
+                2. Replace the `<Button>` at line ~100-103:
+                   ```tsx
+                   // BEFORE:
+                   <Button name={text?.button ?? 'Contact'} route='Product' />
+                   // AFTER:
+                   <ExternalLinkButton name={text?.button ?? 'Free Trial'} href="https://dosismart.com" />
+                   ```
+                3. Keep all other code unchanged (nav items, logo, LanguageSwitch, etc.)
+                4. You can remove the Button import ONLY if it's no longer used in this file. Check first.
+
+                ## SideBar (`src/Components/SideBar.tsx`)
+
+                1. Add import: `import ExternalLinkButton from './ExternalLinkButton'`
+                2. Replace the `<Button>` at line ~111-114:
+                   ```tsx
+                   // BEFORE:
+                   <Button name={text?.button ?? 'Contact'} route="Product" />
+                   // AFTER:
+                   <ExternalLinkButton name={text?.button ?? 'Free Trial'} href="https://dosismart.com" />
+                   ```
+                3. Remove the Button import if no longer used in this file.
+
+                ## Test updates
+
+                ### `src/Components/__tests__/Navbar.test.tsx`
+                The test mocks Button at line ~48-50:
+                ```tsx
+                vi.mock('../Button', () => ({
+                    default: ({ name }: { name: string }) => <button data-testid='nav-button'>{name}</button>,
+                }))
+                ```
+                Replace this mock (or add alongside it) with an ExternalLinkButton mock:
+                ```tsx
+                vi.mock('../ExternalLinkButton', () => ({
+                    default: ({ name, href }: { name: string; href: string }) => (
+                        <a data-testid='nav-button' href={href}>{name}</a>
+                    ),
+                }))
+                ```
+                Also update the test at line ~121 that checks for the button text 'Get Started' — it should still find
+                the element by `data-testid='nav-button'` and check its content (the mock text value).
+                If the Button mock is no longer needed (because Button is no longer imported in Navbar), remove it.
+
+                ### Snapshot updates
+                After making all changes, delete the snapshot file `src/Components/__tests__/__snapshots__/SideBar.test.tsx.snap`
+                so it gets regenerated on the next test run. Run `pnpm test:run` to verify all tests pass and
+                the snapshot is recreated.
+
+                ## Important:
+                - Do NOT use `any` types
+                - Do NOT modify ExternalLinkButton.tsx (already created in a previous task)
+                - Do NOT change nav items or other Navbar structure
+            files:
+                - src/Components/Navbar.tsx
+                - src/Components/SideBar.tsx
+                - src/Components/__tests__/Navbar.test.tsx
+                - src/Components/__tests__/__snapshots__/SideBar.test.tsx.snap
+                - src/Components/ExternalLinkButton.tsx
+            done: true
+
+    - name: 'Home page — hero, offers, and dual CTA'
+      tasks:
+          - id: '3.1'
+            summary: 'Update Home page with Dosismart announcement, updated offer card, and dual CTA buttons'
+            prompt: |
+                Update the Home page to reflect the Dosimex + Dosismart bundle launch.
+
+                **File:** `src/pages/index.tsx`
+
+                ## Changes needed:
+
+                ### 1. Import ExternalLinkButton
+                Add at the top imports:
+                ```tsx
+                import ExternalLinkButton from '../Components/ExternalLinkButton'
+                ```
+
+                ### 2. Bottom CTA section (lines ~234-243)
+                Currently:
+                ```tsx
+                <div className='container' style={style.callToAction.global}>
+                    <h2 style={style.callToAction.title}>{text.callToAction.title}</h2>
+                    <Button name={text.callToAction.button} route='Product' />
+                </div>
+                ```
+
+                Replace with a dual-CTA layout:
+                ```tsx
+                <div className='container' style={style.callToAction.global}>
+                    <h2 style={style.callToAction.title}>{text.callToAction.title}</h2>
+                    <div style={style.callToAction.buttonsContainer}>
+                        <ExternalLinkButton
+                            name={text.callToAction.trialButton}
+                            href="https://dosismart.com"
+                        />
+                        <Button
+                            name={text.callToAction.button}
+                            route='Product'
+                            style={style.callToAction.secondaryButton}
+                        />
+                    </div>
+                </div>
+                ```
+
+                ### 3. Update styles object
+                In the `styles` function (starts around line 250), update the `callToAction` section:
+
+                Add `buttonsContainer` and `secondaryButton` to the callToAction styles:
+                ```tsx
+                callToAction: {
+                    global: {
+                        textAlign: 'center',
+                        paddingBottom: '30vh',
+                        paddingTop: '16vh',
+                    },
+                    title: {
+                        fontSize: mobile ? '3rem' : '4.2rem',
+                    },
+                    buttonsContainer: {
+                        display: 'flex',
+                        flexDirection: mobile ? 'column' : 'row',
+                        gap: mobile ? '2vh' : '2vw',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        marginTop: '4vh',
+                    },
+                    secondaryButton: {
+                        border: '2px solid var(--main)',
+                        backgroundColor: 'white',
+                        color: 'var(--main)',
+                    },
+                },
+                ```
+
+                ### 4. The IStyles interface
+                The `callToAction` key in the IStyles interface (line ~29) is typed as `{ [idx: string]: CSS.Properties }`.
+                The new `buttonsContainer` and `secondaryButton` keys are CSS.Properties, so they fit the existing
+                index signature. No interface change needed.
+
+                ### 5. Content changes
+                The actual text content (promo, CTA title, card titles) comes from translations which were already
+                updated in a previous task. No text changes needed in this file — it all flows through `useText('Home')`.
+
+                ## Important:
+                - Do NOT change the hero carousel component or images
+                - Do NOT modify the partners, numbers, videos, or references sections
+                - Do NOT use `any` types
+                - Keep all existing imports that are still used
+            files:
+                - src/pages/index.tsx
+                - src/Components/ExternalLinkButton.tsx
+            done: true
+
+    - name: 'Product page — bundle overhaul with trial CTA'
+      tasks:
+          - id: '4.1'
+            summary: 'Restructure Product page for Dosimex + Dosismart bundle with trial banner and rewritten FAQ'
+            prompt: |
+                Restructure the Product page to present the Dosimex + Dosismart bundle.
+
+                **File:** `src/pages/Product.tsx`
+
+                ## Changes needed:
+
+                ### 1. Import ExternalLinkButton
+                Add import:
+                ```tsx
+                import ExternalLinkButton from '../Components/ExternalLinkButton'
+                ```
+
+                ### 2. Add trial banner section BEFORE the pricing section
+                After the prerequisites section and before the pricing section (currently around line 81-82),
+                add a new trial banner:
+                ```tsx
+                {/* Dosismart Trial Banner */}
+                <section style={style.trialBanner}>
+                    <h4 style={style.trialBannerTitle}>{text.trialBanner.title}</h4>
+                    <p style={style.trialBannerText}>{text.trialBanner.text}</p>
+                    <ExternalLinkButton
+                        name={text.trialBanner.button}
+                        href="https://dosismart.com"
+                    />
+                </section>
+                ```
+
+                ### 3. Add styles for the trial banner
+                Add these styles to the `styles` function:
+                ```tsx
+                trialBanner: {
+                    marginTop: '8vh',
+                    marginBottom: '4vh',
+                    padding: mobile ? '4vh 8vw' : '6vh 10vw',
+                    backgroundColor: 'var(--light)',
+                    border: '2px solid var(--main)',
+                    borderRadius: '12px',
+                    textAlign: 'center' as 'center',
+                },
+                trialBannerTitle: {
+                    color: 'var(--main)',
+                    fontFamily: 'var(--lato)',
+                    fontWeight: 'bold',
+                    fontSize: mobile ? '2rem' : '2.6rem',
+                    marginBottom: '2vh',
+                },
+                trialBannerText: {
+                    fontSize: mobile ? '1.4rem' : '1.6rem',
+                    lineHeight: '1.8',
+                    color: 'var(--dark)',
+                    marginBottom: '3vh',
+                    maxWidth: '600px',
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                },
+                ```
+
+                ### 4. Update the IStyles interface
+                The Product page has `interface IStyles { [key: string]: CSS.Properties | undefined; ... }`.
+                The index signature `[key: string]: CSS.Properties | undefined` accepts any string key
+                with CSS.Properties value, so the new style keys fit without interface changes.
+
+                ### 5. Content changes
+                All text content (descrip, titlePrice, pricing, FAQ, etc.) comes from translations
+                which were already updated. No text hardcoding needed.
+
+                ## Important:
+                - Do NOT change the contact form section at the bottom
+                - Do NOT change the pricing card structure or prices (€500/€1000)
+                - Do NOT change the scroll-to-buy hash functionality
+                - Do NOT use `any` types
+                - Keep all existing functionality intact
+            files:
+                - src/pages/Product.tsx
+                - src/Components/ExternalLinkButton.tsx
+            done: true
+
+    - name: 'Software page — Dosismart announcement'
+      tasks:
+          - id: '5.1'
+            summary: 'Add Dosismart announcement banner to Software page header'
+            prompt: |
+                Add a Dosismart announcement banner to the Software page, placed after the header section.
+
+                **File:** `src/pages/Software.tsx`
+
+                ## Changes needed:
+
+                ### 1. Import ExternalLinkButton
+                Add import at the top:
+                ```tsx
+                import ExternalLinkButton from '../Components/ExternalLinkButton'
+                ```
+
+                ### 2. Add banner after the header section
+                The Software page structure starts with a `<div>` containing:
+                - A header section (lines ~332-364) with motif image, title, description, and pack links
+                - Then BrowserView and MobileView sections for the packs
+
+                After the closing `</div>` of the header container (the one with `style={style.container}`,
+                around line 364), add a new Dosismart banner section:
+
+                ```tsx
+                {/* Dosismart announcement banner */}
+                <div style={{
+                    margin: mobile ? '8vh 5vw 0' : '15vh 10vw 0',
+                    padding: mobile ? '4vh 6vw' : '5vh 8vw',
+                    backgroundColor: 'var(--light)',
+                    border: '2px solid var(--main)',
+                    borderRadius: '12px',
+                    textAlign: 'center' as const,
+                }}>
+                    <h3 style={{
+                        color: 'var(--main)',
+                        fontFamily: 'var(--lato)',
+                        fontWeight: 'bold',
+                        marginBottom: '2vh',
+                    }}>{text.dosismartBanner.title}</h3>
+                    <p style={{
+                        color: 'var(--dark)',
+                        fontSize: mobile ? '1.4rem' : '1.6rem',
+                        lineHeight: '1.8',
+                        marginBottom: '3vh',
+                        maxWidth: '700px',
+                        marginLeft: 'auto',
+                        marginRight: 'auto',
+                        textAlign: 'justify' as const,
+                    }}>{text.dosismartBanner.text}</p>
+                    <ExternalLinkButton
+                        name={text.dosismartBanner.button}
+                        href="https://dosismart.com"
+                    />
+                </div>
+                ```
+
+                ### 3. Access mobile state
+                The Software component currently uses `useIsMobile(styles)` which returns style object or null.
+                To access the `mobile` boolean for the inline styles above, you need to also call `useMobile()`.
+                Add the import if not already present:
+                ```tsx
+                import { useIsMobile, useMobile } from '../Hooks/useIsMobile'
+                ```
+                And in the component body:
+                ```tsx
+                const mobile = useMobile()
+                ```
+                Check if `useMobile` is already imported — the current file imports `useIsMobile` from that module.
+                You may need to add `useMobile` to the destructured import.
+
+                ### 4. The `text.dosismartBanner` property
+                This was added to the ILang `Software` section and both translation files in a previous task.
+                It has `title`, `text`, and `button` string properties.
+
+                ## Important:
+                - Do NOT change the existing pack sections (operational, learning, measurement)
+                - Do NOT change the "More resources" section
+                - Do NOT change the Questions section at the bottom (its text was updated via translations)
+                - Do NOT use `any` types
+                - Place the banner BETWEEN the header and the first pack section, not inside either
+                - Use `isMobile` from react-device-detect or `useMobile()` from the hooks — check what's already imported
+            files:
+                - src/pages/Software.tsx
+                - src/Hooks/useIsMobile.ts
+                - src/Components/ExternalLinkButton.tsx
+            done: true
+
+    - name: 'Contact page context and Footer update'
+      tasks:
+          - id: '6.1'
+            summary: 'Add contextual header to Contact page with quote/demo messaging'
+            prompt: |
+                Add a contextual header section above the contact form on the Contact page.
+
+                **File:** `src/pages/Contact.tsx`
+
+                Currently this page (read it first) just renders a decorative image and the ContactForm
+                component with no explanatory text. We need to add a header that tells visitors
+                what to expect when they submit the form.
+
+                ## Changes needed:
+
+                ### 1. Add useText hook
+                Import and use the text hook:
+                ```tsx
+                import { useText } from '../Hooks/useText'
+                ```
+                In the component body:
+                ```tsx
+                const text = useText('Contact')
+                ```
+
+                ### 2. Add header section
+                Above the `<div style={styles.formContainer}>`, add a header section:
+                ```tsx
+                <div style={styles.headerContainer}>
+                    <h2 style={styles.headerTitle}>{text.header.title}</h2>
+                    <p style={styles.headerSubtitle}>{text.header.subtitle}</p>
+                </div>
+                ```
+
+                ### 3. Add styles
+                Add to the existing `styles` object:
+                ```tsx
+                headerContainer: {
+                    textAlign: 'center' as 'center',
+                    padding: '12vh 10vw 0',
+                    position: 'relative' as 'relative',
+                    zIndex: 2,
+                },
+                headerTitle: {
+                    color: 'var(--dark)',
+                    fontFamily: 'var(--lato)',
+                    fontWeight: 900,
+                    marginBottom: '2vh',
+                },
+                headerSubtitle: {
+                    color: 'var(--grey, rgb(60,60,60))',
+                    fontSize: '1.6rem',
+                    maxWidth: '600px',
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                    lineHeight: '1.8',
+                },
+                ```
+
+                ## Important:
+                - Do NOT modify the ContactForm component
+                - Do NOT change the existing decorative image section
+                - Do NOT use `any` types
+                - The `Contact` section was added to ILang and both translation files in a previous task
+                - Keep the existing `formContainer` and `backgroundContainer` styles unchanged
+            files:
+                - src/pages/Contact.tsx
+                - src/lang/interface.ts
+            done: true
+
+          - id: '6.2'
+            summary: 'Add Dosismart link to Footer resources column'
+            prompt: |
+                Update the Footer component to include a Dosismart link in the Resources column.
+
+                **File:** `src/Components/Footer.tsx`
+
+                ## Current state:
+                The Footer component builds `resourcesLinks` array from translation text (read the file first):
+                ```tsx
+                const resourcesLinks = [
+                    { href: '/Videos', text: text.col2.p[0] },
+                    { href: '/Manuals', text: text.col2.p[1] },
+                    { href: '/Books', text: text.col2.p[2] },
+                ]
+                ```
+
+                The translations were updated in a previous task so that `text.col2.p` now has 4 entries:
+                `['Dosismart', 'Archives vidéos', 'Manuels et validations', 'Lectures']` (FR)
+                `['Dosismart', 'Video archives', 'Manuals and validations', 'Readings']` (EN)
+
+                ## Changes needed:
+
+                ### 1. Update resourcesLinks array
+                Add the Dosismart link as the first entry, pointing to the external URL:
+                ```tsx
+                const resourcesLinks = [
+                    { href: 'https://dosismart.com', text: text.col2.p[0], isExternal: true },
+                    { href: '/Videos', text: text.col2.p[1] },
+                    { href: '/Manuals', text: text.col2.p[2] },
+                    { href: '/Books', text: text.col2.p[3] },
+                ]
+                ```
+
+                Note: The `isExternal: true` flag is already supported by the existing `ResourcesColumn`
+                component in this file — external links render as `<a target="_blank" rel="noreferrer noopener">`
+                while internal links use Next.js `<Link>`.
+
+                ### 2. Snapshot update
+                After making changes, delete the snapshot file:
+                `src/Components/__tests__/__snapshots__/Footer.test.tsx.snap`
+
+                Then also update the Footer test at `src/Components/__tests__/Footer.test.tsx`:
+                - The test's `createMockText()` function provides mock footer data.
+                  Update `col2.p` to have 4 entries instead of 3:
+                  ```
+                  col2: {
+                      title: 'Resources',
+                      p: ['Dosismart', 'Videos', 'User Manuals', 'Technical Books'],
+                  },
+                  ```
+                - Update the "Resources Column" test that checks for links. Currently it checks:
+                  - Videos at `/Videos` → now at index [1], so it should look for `text.col2.p[1]`
+                  - User Manuals at `/Manuals` → now at index [2]
+                  - Technical Books at `/Books` → now at index [3]
+                  - Add a check for the new Dosismart external link at `https://dosismart.com`
+                - Update the accessibility test that counts links (`allLinks.length`). The footer now has
+                  one more link (9 instead of 8), so update `toBeGreaterThanOrEqual(9)`.
+
+                ## Important:
+                - Do NOT change the Footer component structure or styling
+                - Do NOT use `any` types
+                - The ResourcesColumn component already handles `isExternal` — just use it
+                - Make sure to update BOTH the component and the test
+            files:
+                - src/Components/Footer.tsx
+                - src/Components/__tests__/Footer.test.tsx
+                - src/Components/__tests__/__snapshots__/Footer.test.tsx.snap
+            done: true
+
+    - name: 'Final cleanup — verify all tests and snapshots'
+      tasks:
+          - id: '7.1'
+            summary: 'Regenerate all snapshots and verify complete test suite passes'
+            prompt: |
+                Final verification step. Run the full test suite and fix any remaining issues.
+
+                ## Steps:
+
+                ### 1. Delete all snapshot files to force regeneration
+                Delete all `.snap` files in `src/Components/__tests__/__snapshots__/` and
+                `src/__tests__/__snapshots__/`. They will be recreated on the next test run.
+
+                Command: `find src -name "*.snap" -delete`
+
+                ### 2. Run the full test suite
+                Run: `pnpm test:run`
+
+                If any tests fail:
+                - Read the failing test file and the component it tests
+                - Determine if the failure is due to:
+                  a) Changed translation structure (fix the mock data in the test)
+                  b) Changed component structure (fix the test assertions)
+                  c) Missing imports or type errors (fix the source code)
+                - Fix the issue and re-run
+
+                ### 3. Run lint
+                Run: `pnpm lint:fix` then `pnpm lint:check`
+                Fix any lint issues introduced by the changes.
+
+                ### 4. Run type check
+                Run: `pnpm check-types`
+                Fix any TypeScript errors.
+
+                ## Common issues to watch for:
+                - Snapshot tests will auto-regenerate on first run after deletion — this is expected
+                - Tests that mock `useText` may need updated mock data if the ILang structure changed
+                - The SideBar test may fail if it still expects a `<Button>` but now gets an `<ExternalLinkButton>`
+                - Footer test assertions about link counts may need updating
+
+                ## Important:
+                - Do NOT add new features or change content — only fix test/lint/type issues
+                - Do NOT use `any` types
+                - Do NOT skip or delete tests — fix them
+                - The goal is all 3 checks passing: `pnpm test:run`, `pnpm lint:check`, `pnpm check-types`
+            files:
+                - src/Components/__tests__/Navbar.test.tsx
+                - src/Components/__tests__/Footer.test.tsx
+                - src/Components/__tests__/SideBar.test.tsx
+            done: true
