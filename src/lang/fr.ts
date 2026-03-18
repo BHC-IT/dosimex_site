@@ -595,6 +595,7 @@ const text: ILang = {
 	Navbar: {
 		items: ['Notre produit', 'Formations', 'Documentation', 'Qui sommes-nous ?', 'Contact'],
 		button: 'Essai gratuit',
+		quoteButton: 'Demander un devis',
 	},
 }
 

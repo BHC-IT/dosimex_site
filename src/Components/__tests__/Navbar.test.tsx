@@ -45,6 +45,12 @@ vi.mock('../ItemNavbar', () => ({
 	default: ({ name }: { name: string }) => <div data-testid='nav-item'>{name}</div>,
 }))
 
+vi.mock('../Button', () => ({
+	default: ({ name, route, style }: { name: string; route: string; style?: Record<string, string> }) => (
+		<a data-testid='nav-quote-button' href={`/${route}`} style={style}>{name}</a>
+	),
+}))
+
 vi.mock('../ExternalLinkButton', () => ({
 	default: ({ name, href }: { name: string; href: string }) => (
 		<a data-testid='nav-button' href={href}>{name}</a>
@@ -70,6 +76,7 @@ const mockRouter = {
 const mockText = {
 	items: ['Software', 'Training', 'Manuals', 'About', 'Contact'],
 	button: 'Get Started',
+	quoteButton: 'Request a quote',
 }
 
 describe('Navbar Component', () => {
@@ -123,6 +130,14 @@ describe('Navbar Component', () => {
 		expect(button).toHaveTextContent('Get Started')
 	})
 
+	it('renders quote button', () => {
+		render(<Navbar />)
+
+		const quoteButton = screen.getByTestId('nav-quote-button')
+		expect(quoteButton).toBeInTheDocument()
+		expect(quoteButton).toHaveTextContent('Request a quote')
+	})
+
 	it('renders language switch component', () => {
 		render(<Navbar />)
 
@@ -144,6 +159,7 @@ describe('Navbar Component', () => {
 		const minimalText = {
 			items: ['Software', 'Training', 'Manuals', 'About', 'Contact'],
 			button: 'Get Started',
+			quoteButton: 'Request a quote',
 		}
 
 		vi.mocked(useText).mockReturnValue(minimalText)

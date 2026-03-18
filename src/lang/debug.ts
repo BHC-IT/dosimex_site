@@ -460,6 +460,7 @@ const text: ILang = {
 			'{Navbar.items[4]}',
 		],
 		button: '{Navbar.button}',
+		quoteButton: '{Navbar.quoteButton}',
 	},
 }
 

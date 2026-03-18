@@ -52,6 +52,12 @@ vi.mock('react-burger-menu', () => ({
 }))
 
 // Mock components
+vi.mock('../Button', () => ({
+	default: ({ name, route, style }: { name: string; route: string; style?: Record<string, string> }) => (
+		<a data-testid='sidebar-quote-button' href={`/${route}`} style={style}>{name}</a>
+	),
+}))
+
 vi.mock('../ExternalLinkButton', () => ({
 	default: ({ name, href }: { name: string; href: string }) => (
 		<a data-testid='sidebar-button' href={href}>{name}</a>
@@ -75,6 +81,7 @@ const mockRouter = {
 const mockText = {
 	items: ['Software', 'Training', 'Manuals', 'About', 'Contact'],
 	button: 'Get Started',
+	quoteButton: 'Request a quote',
 }
 
 describe('SideBar Component', () => {
@@ -121,6 +128,14 @@ describe('SideBar Component', () => {
 		expect(button).toHaveTextContent('Get Started')
 	})
 
+	it('renders quote button', () => {
+		render(<SideBar />)
+
+		const quoteButton = screen.getByTestId('sidebar-quote-button')
+		expect(quoteButton).toBeInTheDocument()
+		expect(quoteButton).toHaveTextContent('Request a quote')
+	})
+
 	it('renders language switch component', () => {
 		render(<SideBar />)
 
@@ -148,7 +163,7 @@ describe('SideBar Component', () => {
 	})
 
 	it('renders button with correct props from useText', () => {
-		const customText = { ...mockText, button: 'Custom Button' }
+		const customText = { ...mockText, button: 'Custom Button', quoteButton: 'Custom Quote' }
 		vi.mocked(useText).mockReturnValue(customText)
 
 		render(<SideBar />)
@@ -160,7 +175,7 @@ describe('SideBar Component', () => {
 	it('handles empty text items gracefully', () => {
 		// Clear the previous mock and set up a new one for this test
 		vi.clearAllMocks()
-		const emptyText = { items: [], button: 'Test' }
+		const emptyText = { items: [], button: 'Test', quoteButton: 'Quote' }
 		vi.mocked(useText).mockReturnValue(emptyText)
 
 		const { container } = render(<SideBar />)
@@ -182,7 +197,7 @@ describe('SideBar Component', () => {
 	})
 
 	it('accepts text prop and renders consistently', () => {
-		const customText = { items: ['Custom', 'Items'], button: 'Custom Button' }
+		const customText = { items: ['Custom', 'Items'], button: 'Custom Button', quoteButton: 'Custom Quote' }
 		render(<SideBar text={customText} />)
 
 		const burgerMenu = screen.getByTestId('burger-menu')
@@ -202,6 +217,7 @@ describe('SideBar Component', () => {
 		const testMockText = {
 			items: ['Item 1', 'Item 2'],
 			button: 'Test Button',
+			quoteButton: 'Test Quote',
 		}
 		const { container } = render(<SideBar text={testMockText} />)
 		expect(container.firstChild).toMatchSnapshot()

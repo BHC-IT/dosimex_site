@@ -284,5 +284,6 @@ export default interface Lang {
 	Navbar: {
 		items: string[]
 		button: string
+		quoteButton: string
 	}
 }

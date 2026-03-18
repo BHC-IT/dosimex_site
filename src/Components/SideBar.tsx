@@ -7,6 +7,7 @@ import { slide as Menu } from 'react-burger-menu'
 
 import { useText } from '../Hooks/useText'
 
+import Button from './Button'
 import ExternalLinkButton from './ExternalLinkButton'
 import ItemNavbar from './ItemNavbar'
 import LanguageSwitch from './LanguageSwitch'
@@ -18,6 +19,7 @@ interface IPage {
 interface INavbarText {
 	items: string[]
 	button: string
+	quoteButton: string
 }
 
 interface IProps {
@@ -108,12 +110,33 @@ const SideBar: React.FC<IProps> = props => {
 					language={router.locale}
 				/>
 			</ul>
-			<ExternalLinkButton
-				name={text?.button ?? 'Free Trial'}
-				href="https://dosismart.com"
-			/>
+			<div style={sidebarStyles.buttonsContainer}>
+				<Button
+					name={text?.quoteButton ?? 'Request a quote'}
+					route='Product#buy'
+					style={sidebarStyles.quoteButton}
+				/>
+				<ExternalLinkButton
+					name={text?.button ?? 'Free Trial'}
+					href="https://dosismart.com"
+				/>
+			</div>
 		</MenuComponent>
 	)
+}
+
+const sidebarStyles: { [key: string]: CSS.Properties } = {
+	buttonsContainer: {
+		display: 'flex',
+		flexDirection: 'column',
+		gap: '1.5vh',
+		marginTop: '2vh',
+	},
+	quoteButton: {
+		border: '2px solid var(--main)',
+		backgroundColor: 'white',
+		color: 'var(--main)',
+	},
 }
 
 export default SideBar

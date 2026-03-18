@@ -6,6 +6,7 @@ import React, { useState, useEffect } from 'react'
 
 import { useText } from '../Hooks/useText'
 
+import Button from './Button'
 import ExternalLinkButton from './ExternalLinkButton'
 import ItemNavbar from './ItemNavbar'
 import LanguageSwitch from './LanguageSwitch'
@@ -24,6 +25,8 @@ export interface IStyles {
 	navbarUl: CSS.Properties
 	navbarLi: CSS.Properties
 	navbarButton: CSS.Properties
+	navbarButtons: CSS.Properties
+	quoteButton: CSS.Properties
 }
 
 const LOGO_WIDTH = 212
@@ -38,7 +41,7 @@ const pages: IPage[] = [
 ]
 
 const Navbar: React.FC<IProps> = () => {
-	const text = useText('Navbar') as { items: string[]; button: string } | null
+	const text = useText('Navbar') as { items: string[]; button: string; quoteButton: string } | null
 	const altText = useText('altText') as { logo: string } | null
 	const [isClient, setIsClient] = useState(false)
 	const router = useRouter()
@@ -97,10 +100,17 @@ const Navbar: React.FC<IProps> = () => {
 							language={router.locale}
 						/>
 					</ul>
-					<ExternalLinkButton
-						name={text?.button ?? 'Free Trial'}
-						href="https://dosismart.com"
-					/>
+					<div style={styles.navbarButtons}>
+						<Button
+							name={text?.quoteButton ?? 'Request a quote'}
+							route='Product#buy'
+							style={styles.quoteButton}
+						/>
+						<ExternalLinkButton
+							name={text?.button ?? 'Free Trial'}
+							href="https://dosismart.com"
+						/>
+					</div>
 				</nav>
 			</div>
 			<div id='containerNav'>
@@ -146,6 +156,16 @@ export const styles: IStyles = {
 	},
 	navbarButton: {
 		float: 'right',
+	},
+	navbarButtons: {
+		display: 'flex',
+		alignItems: 'center',
+		gap: '1vw',
+	},
+	quoteButton: {
+		border: '2px solid var(--main)',
+		backgroundColor: 'white',
+		color: 'var(--main)',
 	},
 }
 
