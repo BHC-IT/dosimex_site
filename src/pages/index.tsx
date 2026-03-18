@@ -28,8 +28,9 @@ export interface IStyles {
 	numbers: { [idx: string]: CSS.Properties }
 	videos: { [idx: string]: CSS.Properties }
 	callToAction: { [idx: string]: CSS.Properties }
-	flagContainer: CSS.Properties
-	flagText: CSS.Properties
+	promoBanner: CSS.Properties
+	promoBannerText: CSS.Properties
+	trialButton: CSS.Properties
 	landscapePadding: CSS.Properties
 	videosTitle: CSS.Properties
 	numbersBackgroundLandscape: CSS.Properties
@@ -42,7 +43,7 @@ interface IProps {
 
 function Home(props: IProps) {
 	const text = useText('Home')
-	const altText = useText('altText') as { flagUk: string; decorativePattern: string } | null
+	const altText = useText('altText') as { decorativePattern: string } | null
 	const style = useIsMobile(styles)
 	const referencesRef = useRef<HTMLElement>(null)
 
@@ -54,9 +55,6 @@ function Home(props: IProps) {
 	}
 
 	// Constants for image dimensions
-	const UK_FLAG_WIDTH = 1024
-	const UK_FLAG_HEIGHT = 683
-	const UK_FLAG_RATIO = 0.05
 	const MOTIF_WIDTH = 343
 	const MOTIF_HEIGHT = 334
 	const MOTIF_SCALE = 1.3
@@ -71,20 +69,15 @@ function Home(props: IProps) {
 				<div style={style.header.headerText}>
 					<h1>{text.header.title}</h1>
 					<p style={style.header.headerSubtitle}>{text.header.p}</p>
-					<div style={style.flagContainer}>
-						<Image
-							quality={75}
-							loading='lazy'
-							src='/Images/Flag_Uk.webp'
-							alt={altText?.flagUk ?? 'UK flag - DOSIMEX available in English'}
-							width={UK_FLAG_WIDTH * UK_FLAG_RATIO}
-							height={UK_FLAG_HEIGHT * UK_FLAG_RATIO}
-						/>
-						<p style={{ ...style.header.headerPromo, ...style.flagText }}>
-							{text.header.promo}
-						</p>
+					<div style={style.promoBanner}>
+						<p style={style.promoBannerText}>{text.header.promo}</p>
 					</div>
 					<div style={style.header.buttonsContainer}>
+						<ExternalLinkButton
+							name={text.callToAction.trialButton}
+							href="https://dosismart.com"
+							style={style.trialButton}
+						/>
 						<Button
 							style={style.header.button}
 							name={text.header.button}
@@ -153,6 +146,24 @@ function Home(props: IProps) {
 					</div>
 				</div>
 			</section>
+
+			<div
+				className='container'
+				style={style.callToAction.global}
+			>
+				<h2 style={style.callToAction.title}>{text.callToAction.title}</h2>
+				<div style={style.callToAction.buttonsContainer}>
+					<ExternalLinkButton
+						name={text.callToAction.trialButton}
+						href="https://dosismart.com"
+					/>
+					<Button
+						name={text.callToAction.button}
+						route='Product'
+						style={style.callToAction.secondaryButton}
+					/>
+				</div>
+			</div>
 
 			<section>
 				<div
@@ -231,24 +242,6 @@ function Home(props: IProps) {
 			<section ref={referencesRef}>
 				<References text={text.references} />
 			</section>
-
-			<div
-				className='container'
-				style={style.callToAction.global}
-			>
-				<h2 style={style.callToAction.title}>{text.callToAction.title}</h2>
-				<div style={style.callToAction.buttonsContainer}>
-					<ExternalLinkButton
-						name={text.callToAction.trialButton}
-						href="https://dosismart.com"
-					/>
-					<Button
-						name={text.callToAction.button}
-						route='Product'
-						style={style.callToAction.secondaryButton}
-					/>
-				</div>
-			</div>
 		</>
 	)
 }
@@ -273,12 +266,6 @@ export const styles = (mobile: boolean): IStyles => ({
 			fontSize: mobile ? '1.6rem' : '2rem',
 			marginBottom: mobile ? '6vh' : '4vh',
 			marginTop: mobile ? '4vh' : undefined,
-			textAlign: 'justify',
-			fontWeight: 300,
-		},
-		headerPromo: {
-			color: 'var(--dark)',
-			fontSize: mobile ? '1.6rem' : '2rem',
 			textAlign: 'justify',
 			fontWeight: 300,
 		},
@@ -319,11 +306,8 @@ export const styles = (mobile: boolean): IStyles => ({
 			border: '2px solid var(--main)',
 			backgroundColor: 'white',
 			color: 'var(--main)',
-			minWidth: mobile ? '200px' : '150px',
 		},
-		referencesButton: {
-			minWidth: mobile ? '200px' : '150px',
-		},
+		referencesButton: {},
 	},
 	partners: {
 		title: {
@@ -445,8 +429,8 @@ export const styles = (mobile: boolean): IStyles => ({
 	callToAction: {
 		global: {
 			textAlign: 'center',
-			paddingBottom: '30vh',
-			paddingTop: '16vh',
+			paddingBottom: '10vh',
+			paddingTop: '8vh',
 		},
 		title: {
 			fontSize: mobile ? '3rem' : '4.2rem',
@@ -465,16 +449,23 @@ export const styles = (mobile: boolean): IStyles => ({
 			color: 'var(--main)',
 		},
 	},
-	flagContainer: {
-		display: 'flex',
-		flexDirection: 'row',
-		justifyContent: 'start',
+	promoBanner: {
+		display: 'inline-flex',
 		alignItems: 'center',
-		flex: 0,
-		paddingBottom: '5vh',
+		backgroundColor: '#FFF0F1',
+		border: '1px solid #FFCDD2',
+		borderRadius: '50px',
+		padding: mobile ? '10px 18px' : '12px 24px',
+		marginBottom: mobile ? '3vh' : '2.5vh',
 	},
-	flagText: {
-		paddingLeft: '1vw',
+	promoBannerText: {
+		color: 'var(--main)',
+		fontWeight: 600,
+		fontSize: mobile ? '1.3rem' : '1.4rem',
+		margin: 0,
+	},
+	trialButton: {
+		whiteSpace: 'nowrap' as const,
 	},
 	landscapePadding: {
 		padding: '0 10vw',

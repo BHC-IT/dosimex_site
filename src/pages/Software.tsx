@@ -367,7 +367,7 @@ const Software = () => {
 
 			{/* Dosismart announcement banner */}
 			<div style={{
-				margin: mobile ? '8vh 5vw 0' : '15vh 10vw 0',
+				margin: mobile ? '4vh 5vw 0' : '4vh 10vw 0',
 				padding: mobile ? '4vh 6vw' : '5vh 8vw',
 				backgroundColor: 'var(--light)',
 				border: '2px solid var(--main)',
