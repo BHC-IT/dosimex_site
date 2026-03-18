@@ -30,10 +30,10 @@ const { title, description = defaultDescription, ogImage, robots, jsonLd } = Ast
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
+			id="gfonts"
 			href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Nunito:wght@400;600;700;800&display=swap"
 			rel="preload"
 			as="style"
-			onload="this.onload=null;this.rel='stylesheet'"
 		/>
 		<noscript>
 			<link
@@ -41,6 +41,9 @@ const { title, description = defaultDescription, ogImage, robots, jsonLd } = Ast
 				rel="stylesheet"
 			/>
 		</noscript>
+		<script is:inline>
+			var f=document.getElementById('gfonts');if(f){f.onload=function(){f.onload=null;f.rel='stylesheet'}}
+		</script>
 		<title>{title}</title>
 		<BaseHead title={title} description={description} ogImage={ogImage} robots={robots} jsonLd={jsonLd} />
 		<!-- Dark mode: only activate if user explicitly chose dark -->
