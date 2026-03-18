@@ -1,7 +1,10 @@
 ---
+import { Image } from 'astro:assets'
 import Layout from '@/layouts/Layout.astro'
 import { getTranslations } from '@/i18n/utils'
 import { organizationSchema } from '@/data/schemas'
+import flagFr from '@/assets/images/Flag_France.webp'
+import flagEn from '@/assets/images/Flag_Uk.webp'
 
 const t = getTranslations('fr')
 const s = t.software
@@ -84,9 +87,9 @@ const s = t.software
 							)}
 						</div>
 						<div class="mt-2 flex items-center gap-2">
-							<img src="/Images/Flag_France.webp" alt="FR" class="h-4 inline" />
+							<Image src={flagFr} alt="FR" height={16} class="h-4 inline" />
 							{!tool.frOnly && (
-								<img src="/Images/Flag_Uk.webp" alt="EN" class="h-4 inline" />
+								<Image src={flagEn} alt="EN" height={16} class="h-4 inline" />
 							)}
 						</div>
 						<p class="mt-3 text-sm text-foreground/70 leading-relaxed">{tool.description}</p>
@@ -123,9 +126,9 @@ const s = t.software
 							)}
 						</div>
 						<div class="mt-2 flex items-center gap-2">
-							<img src="/Images/Flag_France.webp" alt="FR" class="h-4 inline" />
+							<Image src={flagFr} alt="FR" height={16} class="h-4 inline" />
 							{!tool.frOnly && (
-								<img src="/Images/Flag_Uk.webp" alt="EN" class="h-4 inline" />
+								<Image src={flagEn} alt="EN" height={16} class="h-4 inline" />
 							)}
 						</div>
 						<p class="mt-3 text-sm text-foreground/70 leading-relaxed">{tool.description}</p>
@@ -162,9 +165,9 @@ const s = t.software
 							)}
 						</div>
 						<div class="mt-2 flex items-center gap-2">
-							<img src="/Images/Flag_France.webp" alt="FR" class="h-4 inline" />
+							<Image src={flagFr} alt="FR" height={16} class="h-4 inline" />
 							{!tool.frOnly && (
-								<img src="/Images/Flag_Uk.webp" alt="EN" class="h-4 inline" />
+								<Image src={flagEn} alt="EN" height={16} class="h-4 inline" />
 							)}
 						</div>
 						<p class="mt-3 text-sm text-foreground/70 leading-relaxed">{tool.description}</p>

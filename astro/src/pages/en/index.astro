@@ -1,26 +1,37 @@
 ---
+import { Image } from 'astro:assets'
 import Layout from '@/layouts/Layout.astro'
 import VideoEmbed from '@/components/VideoEmbed.astro'
 import { getTranslations } from '@/i18n/utils'
 import { partnerLogos, partnerLogoAlts } from '@/data/videos'
 import { organizationSchema, websiteSchema } from '@/data/schemas'
+import heroImg from '@/assets/images/home_header_carousel.png'
+import iconExcel from '@/assets/images/icon_excel.png'
+import iconBook from '@/assets/images/icon_book.png'
+import iconFormation from '@/assets/images/icon_formation.png'
+
+const partnerGlob = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/logo_partenaires/*.webp', { eager: true })
+const partnerImages = partnerLogos.map((filename) => {
+	const match = Object.entries(partnerGlob).find(([path]) => path.endsWith(`/${filename}`))
+	return match![1].default
+})
 
 const t = getTranslations('en')
 
 const offerCards = [
 	{
 		...t.home.offers.card1,
-		icon: '/Images/icon_excel.png',
+		icon: iconExcel,
 		href: '/en/software',
 	},
 	{
 		...t.home.offers.card2,
-		icon: '/Images/icon_book.png',
+		icon: iconBook,
 		href: '/en/manuals',
 	},
 	{
 		...t.home.offers.card3,
-		icon: '/Images/icon_formation.png',
+		icon: iconFormation,
 		href: '/en/training',
 	},
 ]
@@ -89,11 +100,11 @@ const offerCards = [
 					<div class="relative">
 						<!-- Decorative glow -->
 						<div class="absolute -inset-4 rounded-2xl bg-gradient-to-r from-primary/20 via-accent/10 to-emerald-400/10 blur-2xl" aria-hidden="true"></div>
-						<img
-							src="/Images/home_header_carousel.png"
+						<Image
+							src={heroImg}
 							alt="DOSIMEX radiation dosimetry software interface"
-							width="1006"
-							height="634"
+							widths={[400, 512, 800]}
+							sizes="(max-width: 1024px) 100vw, 512px"
 							class="relative w-full max-w-lg rounded-xl shadow-2xl"
 							loading="eager"
 							fetchpriority="high"
@@ -113,10 +124,11 @@ const offerCards = [
 			<!-- Scrolling logo row -->
 			<div class="relative overflow-hidden">
 				<div class="partner-scroll flex items-center gap-12">
-					{[...partnerLogos, ...partnerLogos].map((logo, i) => (
-						<img
-							src={`/Images/logo_partenaires/${logo}`}
-							alt={partnerLogoAlts[i % partnerLogos.length]}
+					{[...partnerImages, ...partnerImages].map((img, i) => (
+						<Image
+							src={img}
+							alt={partnerLogoAlts[i % partnerImages.length]}
+							height={48}
 							class="h-10 w-auto shrink-0 object-contain opacity-60 grayscale transition-all hover:opacity-100 hover:grayscale-0 sm:h-12"
 							loading="lazy"
 						/>
@@ -142,7 +154,7 @@ const offerCards = [
 				{offerCards.map((card) => (
 					<a href={card.href} class="group relative rounded-xl border bg-card p-8 shadow-sm transition-all hover:shadow-md hover:-translate-y-1">
 						<div class="mb-5 flex h-14 w-14 items-center justify-center rounded-lg bg-primary/10">
-							<img src={card.icon} alt="" class="h-8 w-8 object-contain" loading="lazy" />
+							<Image src={card.icon} alt="" width={32} height={32} class="h-8 w-8 object-contain" loading="lazy" />
 						</div>
 						<h3 class="text-xl font-bold text-foreground font-lato">{card.title}</h3>
 						<p class="mt-3 text-muted-foreground">{card.description}</p>

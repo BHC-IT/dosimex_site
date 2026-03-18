@@ -1,7 +1,11 @@
 ---
+import { Image } from 'astro:assets'
 import Layout from '@/layouts/Layout.astro'
 import { getTranslations } from '@/i18n/utils'
 import { organizationSchema } from '@/data/schemas'
+import bgHague from '@/assets/images/BackGroundHague.png'
+import geraldImg from '@/assets/images/Gerald.png'
+import alainImg from '@/assets/images/Alain.png'
 
 const t = getTranslations('en')
 const a = t.about
@@ -12,11 +16,11 @@ const a = t.about
 	<!-- Header with parallax-style banner -->
 	<section class="relative overflow-hidden py-20 md:py-32">
 		<div class="absolute inset-0 -z-10">
-			<img
-				src="/Images/BackGroundHague.png"
+			<Image
+				src={bgHague}
 				alt="Cap de la Hague"
-				width="900"
-				height="600"
+				widths={[640, 1024, 1920]}
+				sizes="100vw"
 				class="h-full w-full object-cover"
 				loading="eager"
 			/>
@@ -35,11 +39,10 @@ const a = t.about
 			<div class="rounded-xl border bg-card p-8 shadow-sm">
 				<div class="flex flex-col gap-8 md:flex-row">
 					<div class="md:w-1/3 shrink-0">
-						<img
-							src="/Images/Gerald.png"
+						<Image
+							src={geraldImg}
 							alt="Gerald Lopez"
-							width="1080"
-							height="1440"
+							width={400}
 							class="rounded-xl object-cover shadow-lg w-full"
 							loading="lazy"
 						/>
@@ -70,11 +73,10 @@ const a = t.about
 			<div class="rounded-xl border bg-card p-8 shadow-sm">
 				<div class="flex flex-col gap-8 md:flex-row-reverse">
 					<div class="md:w-1/3 shrink-0">
-						<img
-							src="/Images/Alain.png"
+						<Image
+							src={alainImg}
 							alt="Alain Vivier"
-							width="316"
-							height="409"
+							width={400}
 							class="rounded-xl object-cover shadow-lg w-full"
 							loading="lazy"
 						/>

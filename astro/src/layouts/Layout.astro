@@ -1,4 +1,12 @@
 ---
+import '@fontsource/lato/300.css'
+import '@fontsource/lato/400.css'
+import '@fontsource/lato/700.css'
+import '@fontsource/lato/900.css'
+import '@fontsource/nunito/400.css'
+import '@fontsource/nunito/600.css'
+import '@fontsource/nunito/700.css'
+import '@fontsource/nunito/800.css'
 import '@/styles/global.css'
 import Navbar from '@/components/Navbar.astro'
 import Footer from '@/components/Footer.astro'
@@ -27,23 +35,6 @@ const { title, description = defaultDescription, ogImage, robots, jsonLd } = Ast
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			id="gfonts"
-			href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Nunito:wght@400;600;700;800&display=swap"
-			rel="preload"
-			as="style"
-		/>
-		<noscript>
-			<link
-				href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Nunito:wght@400;600;700;800&display=swap"
-				rel="stylesheet"
-			/>
-		</noscript>
-		<script is:inline>
-			var f=document.getElementById('gfonts');if(f){f.onload=function(){f.onload=null;f.rel='stylesheet'}}
-		</script>
 		<title>{title}</title>
 		<BaseHead title={title} description={description} ogImage={ogImage} robots={robots} jsonLd={jsonLd} />
 		<!-- Dark mode: only activate if user explicitly chose dark -->

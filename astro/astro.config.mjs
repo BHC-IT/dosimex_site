@@ -1,13 +1,12 @@
 import { defineConfig } from 'astro/config'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
+import critters from 'astro-critters'
 import tailwindcss from '@tailwindcss/vite'
-import vercel from '@astrojs/vercel'
 
 export default defineConfig({
-	output: 'server',
 	site: 'https://dosimex.fr',
-	integrations: [react(), sitemap()],
+	integrations: [react(), sitemap(), critters()],
 	vite: {
 		plugins: [tailwindcss()],
 	},
@@ -18,5 +17,4 @@ export default defineConfig({
 			prefixDefaultLocale: false,
 		},
 	},
-	adapter: vercel(),
 })

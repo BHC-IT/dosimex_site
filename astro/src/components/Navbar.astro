@@ -1,7 +1,9 @@
 ---
+import { Image } from 'astro:assets'
 import MobileMenu from './MobileMenu.tsx'
 import ThemeToggle from './ThemeToggle.astro'
 import { getAlternateUrl } from '@/i18n/utils'
+import logoImg from '@/assets/images/logo_dosimex_new.webp'
 
 interface Props {
 	t: Record<string, any>
@@ -26,11 +28,10 @@ const altLocaleLabel = locale === 'en' ? 'FR' : 'EN'
 	<div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
 		<!-- Logo -->
 		<a href={locale === 'en' ? '/en/' : '/'} class="shrink-0">
-			<img
-				src="/Images/logo_dosimex_new.webp"
+			<Image
+				src={logoImg}
 				alt={t.altText?.logo ?? 'DOSIMEX'}
-				width="212"
-				height="44"
+				height={32}
 				class="h-8 w-auto"
 				loading="eager"
 			/>
