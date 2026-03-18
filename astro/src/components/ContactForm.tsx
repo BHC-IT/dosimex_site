@@ -214,6 +214,7 @@ export default function ContactForm({
 							value={phone}
 							onChange={setPhone}
 							onBlur={() => markTouched('phone')}
+							numberInputProps={{ id: 'phone' }}
 							className={`${inputClass} [&_.PhoneInputInput]:border-none [&_.PhoneInputInput]:bg-transparent [&_.PhoneInputInput]:outline-none [&_.PhoneInputInput]:text-foreground`}
 						/>
 						{phoneError && (
