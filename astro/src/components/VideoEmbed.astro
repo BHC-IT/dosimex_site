@@ -10,7 +10,7 @@ const { videoId, title = 'YouTube video', class: className = '' } = Astro.props
 
 <div class:list={['relative aspect-video w-full overflow-hidden rounded-xl', className]}>
 	<iframe
-		src={`https://www.youtube.com/embed/${videoId}`}
+		src={`https://www.youtube-nocookie.com/embed/${videoId}`}
 		title={title}
 		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 		allowfullscreen

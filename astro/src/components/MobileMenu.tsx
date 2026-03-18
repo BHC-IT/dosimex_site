@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { Menu, X } from 'lucide-react'
 
@@ -25,6 +25,11 @@ export default function MobileMenu({
 	productHref,
 }: MobileMenuProps) {
 	const [isOpen, setIsOpen] = useState(false)
+	const [mounted, setMounted] = useState(false)
+
+	useEffect(() => {
+		setMounted(true)
+	}, [])
 
 	const drawer = (
 		<>
@@ -105,9 +110,7 @@ export default function MobileMenu({
 				<Menu className="h-6 w-6" />
 			</button>
 
-			{typeof document !== 'undefined'
-				? createPortal(drawer, document.body)
-				: null}
+			{mounted ? createPortal(drawer, document.body) : null}
 		</>
 	)
 }
