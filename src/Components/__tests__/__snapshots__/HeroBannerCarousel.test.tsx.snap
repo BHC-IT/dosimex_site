@@ -9,6 +9,7 @@ exports[`HeroBannerCarousel Component > Rendering > should render with text arra
       alt="Main carousel interface"
       data-nimg="1"
       decoding="async"
+      fetchpriority="high"
       height="194.56"
       src="/_next/image?url=%2FImages%2FMockupCarousel.png&w=640&q=85"
       srcset="/_next/image?url=%2FImages%2FMockupCarousel.png&w=384&q=85 1x, /_next/image?url=%2FImages%2FMockupCarousel.png&w=640&q=85 2x"

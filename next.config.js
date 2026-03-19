@@ -19,10 +19,7 @@ module.exports = withBundleAnalyzer(removeImports({
 			ssr: true,
 		},
 	},
-	images: {
-		// Configure image qualities for Next.js 15+
-		qualities: [40, 70, 75, 80, 85, 90, 95]
-	},
+	images: {},
 	i18n: {
 		locales: ['en-US', 'fr', 'debug'],
 		defaultLocale: 'fr',
