@@ -3,7 +3,6 @@ import { Image } from 'astro:assets'
 import Layout from '@/layouts/Layout.astro'
 import { getTranslations, getLocalePaths, type Locale } from '@/i18n/utils'
 import { organizationSchema } from '@/data/schemas'
-import bgHague from '@/assets/images/BackGroundHague.png'
 import geraldImg from '@/assets/images/Gerald.png'
 import alainImg from '@/assets/images/Alain.png'
 
@@ -16,21 +15,10 @@ const a = t.about
 
 <Layout title={t.seo.about.title} description={t.seo.about.description} jsonLd={[organizationSchema]}>
 
-	<!-- Header with parallax-style banner -->
-	<section class="relative overflow-hidden py-20 md:py-32">
-		<div class="absolute inset-0 -z-10">
-			<Image
-				src={bgHague}
-				alt="Cap de la Hague"
-				widths={[640, 1024, 1920]}
-				sizes="100vw"
-				class="h-full w-full object-cover"
-				loading="eager"
-			/>
-			<div class="absolute inset-0 bg-dark/70"></div>
-		</div>
+	<!-- Header -->
+	<section class="py-16 md:py-24">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-			<h1 class="text-4xl font-extrabold tracking-tight text-white font-lato md:text-5xl">
+			<h1 class="text-4xl font-extrabold tracking-tight text-foreground font-lato md:text-5xl">
 				{a.header.title}
 			</h1>
 		</div>

@@ -44,7 +44,7 @@ const offerCards = [
 <Layout title={t.seo.home.title} description={t.seo.home.description} jsonLd={[organizationSchema, websiteSchema(locale)]}>
 
 	<!-- ═══════════════════════════ HERO ═══════════════════════════ -->
-	<section data-ph-section="hero" class="relative overflow-hidden py-16 md:py-24">
+	<section data-ph-section="hero" class="relative overflow-hidden py-12 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="grid items-center gap-12 lg:grid-cols-2">
 				<!-- Left column -->
@@ -106,7 +106,7 @@ const offerCards = [
 				<div class="relative flex justify-center lg:justify-end">
 					<div class="relative">
 						<!-- Decorative glow -->
-						<div class="absolute -inset-4 rounded-2xl bg-gradient-to-r from-primary/20 via-accent/10 to-emerald-400/10 blur-2xl" aria-hidden="true"></div>
+						<div class="absolute -inset-4 rounded-2xl bg-primary/10 blur-2xl" aria-hidden="true"></div>
 						<Image
 							src={heroImg}
 							alt={t.altText.carouselMain}
@@ -146,7 +146,7 @@ const offerCards = [
 	</section>
 
 	<!-- ═══════════════════════════ OFFERS ═══════════════════════════ -->
-	<section data-ph-section="offers" class="py-16 md:py-24">
+	<section data-ph-section="offers" class="py-12 md:py-16">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="mx-auto max-w-2xl text-center">
 				<h2 class="text-3xl font-bold tracking-tight text-foreground font-lato sm:text-4xl">
@@ -180,10 +180,9 @@ const offerCards = [
 	<!-- ═══════════════════════════ CTA BANNER ═══════════════════════════ -->
 	<section data-ph-section="cta-banner" class="py-8 md:py-12">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-primary/15 via-accent/10 to-emerald-400/10 p-8 md:p-12">
+			<div class="relative overflow-hidden rounded-2xl bg-muted/50 p-8 md:p-12">
 				<!-- Decorative element -->
-				<div class="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-primary/10 blur-3xl" aria-hidden="true"></div>
-				<div class="absolute -bottom-12 -left-12 h-48 w-48 rounded-full bg-accent/10 blur-3xl" aria-hidden="true"></div>
+				<div class="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-primary/5 blur-3xl" aria-hidden="true"></div>
 
 				<div class="relative flex flex-col items-center gap-6 text-center md:flex-row md:text-left">
 					<div class="flex-1">
@@ -218,7 +217,7 @@ const offerCards = [
 	</section>
 
 	<!-- ═══════════════════════════ NUMBERS ═══════════════════════════ -->
-	<section data-ph-section="numbers" class="py-16 md:py-24">
+	<section data-ph-section="numbers" class="py-12 md:py-16">
 		<div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
 			<div class="grid gap-8 md:grid-cols-3">
 				{t.home.numbers.items.map((item) => (
@@ -236,7 +235,7 @@ const offerCards = [
 	</section>
 
 	<!-- ═══════════════════════════ VIDEOS ═══════════════════════════ -->
-	<section data-ph-section="videos" class="border-y bg-muted/30 py-16 md:py-24">
+	<section data-ph-section="videos" class="py-12 md:py-16">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="grid items-center gap-12 lg:grid-cols-2">
 				<!-- Video embed -->
@@ -268,7 +267,7 @@ const offerCards = [
 	</section>
 
 	<!-- ═══════════════════════════ TESTIMONIAL ═══════════════════════════ -->
-	<section data-ph-section="testimonial" class="py-16 md:py-24">
+	<section data-ph-section="testimonial" class="py-12 md:py-16">
 		<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
 			<div class="relative rounded-2xl border bg-card p-8 shadow-sm md:p-12">
 				<!-- Quote icon -->
@@ -298,7 +297,7 @@ const offerCards = [
 	</section>
 
 	<!-- ═══════════════════════════ REFERENCES ═══════════════════════════ -->
-	<section id="references" class="border-t bg-muted/30 py-16 md:py-24">
+	<section id="references" class="py-12 md:py-16">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="mx-auto max-w-2xl text-center">
 				<h2 class="text-3xl font-bold tracking-tight text-foreground font-lato sm:text-4xl">
