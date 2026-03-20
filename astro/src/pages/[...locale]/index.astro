@@ -3,10 +3,19 @@ import { Image } from 'astro:assets'
 import Layout from '@/layouts/Layout.astro'
 import VideoEmbed from '@/components/VideoEmbed.astro'
 import StatsCounter from '@/components/StatsCounter.astro'
+import HeroCarousel from '@/components/HeroCarousel.astro'
 import { getTranslations, getLocalePaths, localePath, type Locale } from '@/i18n/utils'
 import { partnerLogos, partnerLogoAlts, videoIds } from '@/data/videos'
 import { organizationSchema, websiteSchema } from '@/data/schemas'
 import heroImg from '@/assets/images/home_header_carousel.png'
+
+const heroSlides = [
+	{ src: '/Images/dosismart-screenshot.png', alt: 'Dosismart — Calcul gamma dans le navigateur', label: 'Dosismart — Application web' },
+	{ src: '/Images/ScreenCarousel2.png', alt: 'DOSIMEX-GX — Générateur X', label: 'DOSIMEX-GX — Générateur X' },
+	{ src: '/Images/ScreenCarousel3.png', alt: 'DOSIMEX-GX — Source cylindrique', label: 'DOSIMEX-GX — Source cylindrique' },
+	{ src: '/Images/ScreenCarousel1.png', alt: 'DOSIMEX-B — Dose bêta', label: 'DOSIMEX-B — Dose bêta' },
+	{ src: '/Images/ScreenCarousel4.png', alt: 'DOSIMEX-N — Dose neutrons', label: 'DOSIMEX-N — Dose neutrons' },
+]
 
 export const getStaticPaths = getLocalePaths
 
@@ -21,7 +30,7 @@ const partnerImages = partnerLogos.map((filename) => {
 
 const offerCards = [
 	{ ...t.home.offers.card1, href: localePath(locale, '/software'), icon: 'calculator' as const },
-	{ ...t.home.offers.card2, href: localePath(locale, '/manuals'), icon: 'file' as const },
+	{ ...t.home.offers.card2, href: 'https://dosismart.com', icon: 'globe' as const, external: true },
 	{ ...t.home.offers.card3, href: localePath(locale, '/training'), icon: 'graduation' as const },
 ]
 
@@ -69,15 +78,7 @@ const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item)
 				</p>
 			</div>
 			<div class="lg:col-span-5">
-				<Image
-					src={heroImg}
-					alt={t.altText.carouselMain}
-					widths={[400, 600, 800]}
-					sizes="(max-width: 1024px) 100vw, 40vw"
-					class="w-full rounded-lg"
-					loading="eager"
-					fetchpriority="high"
-				/>
+				<HeroCarousel slides={heroSlides} />
 			</div>
 		</div>
 	</section>
@@ -121,8 +122,8 @@ const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item)
 							{card.icon === 'calculator' && (
 								<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><line x1="16" x2="16" y1="10" y2="10"/><line x1="12" x2="12" y1="10" y2="10"/><line x1="8" x2="8" y1="10" y2="10"/><line x1="12" x2="12" y1="14" y2="14"/><line x1="8" x2="8" y1="14" y2="14"/><line x1="12" x2="12" y1="18" y2="18"/><line x1="8" x2="8" y1="18" y2="18"/></svg>
 							)}
-							{card.icon === 'file' && (
-								<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg>
+							{card.icon === 'globe' && (
+								<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
 							)}
 							{card.icon === 'graduation' && (
 								<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
@@ -130,7 +131,12 @@ const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item)
 						</div>
 						<h3 class="text-xl font-heading font-semibold text-slate-950 dark:text-slate-100">{card.title}</h3>
 						<p class="mt-3 text-base text-slate-600 dark:text-slate-400">{card.description}</p>
-						<a href={card.href} class="mt-5 inline-flex items-center text-primary-600 font-heading font-semibold hover:underline">
+						<a
+							href={card.href}
+							target={'external' in card ? '_blank' : undefined}
+							rel={'external' in card ? 'noopener noreferrer' : undefined}
+							class="mt-5 inline-flex items-center text-primary-600 font-heading font-semibold hover:underline"
+						>
 							{card.linkLabel} <span class="ml-1">&rarr;</span>
 						</a>
 					</div>
@@ -204,12 +210,10 @@ const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item)
 	<!-- ══════════ DOSISMART BANNER ══════════ -->
 	<section id="dosismart" data-ph-section="dosismart" class="bg-primary-50 dark:bg-[#2a1f1f] py-12 md:py-20">
 		<div class="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12 items-center">
-			<div class="order-2 lg:order-1">
-				<Image
-					src={heroImg}
-					alt="Dosismart web application"
-					widths={[400, 600]}
-					sizes="(max-width: 1024px) 100vw, 50vw"
+			<div class="order-2 lg:order-1" data-lightbox>
+				<img
+					src="/Images/dosismart-screenshot.png"
+					alt="Dosismart — Calcul gamma dans le navigateur"
 					class="w-full rounded-lg"
 					loading="lazy"
 				/>
@@ -221,6 +225,14 @@ const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item)
 				<p class="mt-4 text-base text-slate-600 dark:text-slate-400 max-w-lg">
 					{t.home.dosismart.text}
 				</p>
+				<div class="mt-4 space-y-1">
+					<p class="text-sm font-heading font-semibold text-slate-800 dark:text-slate-200">
+						<span class="inline-block w-2 h-2 rounded-full bg-success mr-2"></span>{t.home.dosismart.available}
+					</p>
+					<p class="text-sm font-heading text-slate-500">
+						<span class="inline-block w-2 h-2 rounded-full bg-accent-400 mr-2"></span>{t.home.dosismart.coming}
+					</p>
+				</div>
 				<a
 					href="https://dosismart.com"
 					target="_blank"
@@ -316,22 +328,25 @@ const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item)
 			</p>
 			<div class="mt-8 flex flex-wrap items-center justify-center gap-4">
 				<a
+					href={localePath(locale, '/contact')}
+					class="inline-flex items-center h-12 px-6 text-base font-heading font-semibold text-white bg-primary-600 hover:bg-primary-700 rounded-[8px] transition-colors duration-150"
+					data-ph-cta="close-quote"
+				>
+					{t.home.close.quoteButton}
+				</a>
+				<a
 					href="https://dosismart.com"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="inline-flex items-center h-12 px-6 text-base font-heading font-semibold text-white bg-primary-600 hover:bg-primary-700 rounded-[8px] transition-colors duration-150"
+					class="inline-flex items-center h-12 px-6 text-base font-heading font-semibold text-slate-300 border-[1.5px] border-slate-600 hover:bg-slate-800 rounded-[8px] transition-colors duration-150"
 					data-ph-cta="close-trial"
 				>
 					{t.home.close.trialButton}
 				</a>
-				<a
-					href={localePath(locale, '/product')}
-					class="inline-flex items-center h-12 px-6 text-base font-heading font-semibold text-slate-300 border-[1.5px] border-slate-600 hover:bg-slate-800 rounded-[8px] transition-colors duration-150"
-					data-ph-cta="close-pricing"
-				>
-					{t.home.close.quoteButton}
-				</a>
 			</div>
+			<p class="mt-4 text-sm text-slate-500">
+				{t.home.close.dosismartNote}
+			</p>
 		</div>
 	</section>
 

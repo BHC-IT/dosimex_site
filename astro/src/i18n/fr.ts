@@ -34,7 +34,7 @@ export const fr = {
 		},
 		contact: {
 			title: 'Contact & Devis — Dosimex',
-			description: 'Contactez Dosimex pour un devis, une démonstration ou un essai gratuit. Réponse sous 24h. Démonstration par visioconférence possible.',
+			description: 'Contactez Dosimex pour un devis, une démonstration ou un essai gratuit Dosismart. Démonstration par visioconférence possible.',
 		},
 	},
 	altText: {
@@ -56,10 +56,10 @@ export const fr = {
 		hero: {
 			title: 'La radioprotection, calculée juste.',
 			subtitle:
-				"17 outils de calcul validés MCNP. Gamma, bêta, neutron, exposition interne, transfert atmosphérique. Prise en main immédiate.",
+				"17 outils validés MCNP sous Excel. Calcul gamma source ponctuelle déjà disponible dans le navigateur avec Dosismart — sources 3D et générateur X bientôt.",
 			cta: 'Voir les outils',
-			trialButton: 'Essai gratuit 14 jours',
-			priceNote: 'Dosimex (Excel) + Dosismart (navigateur) — À partir de 500\u00A0€ HT/an',
+			trialButton: 'Essayer Dosismart',
+			priceNote: 'À partir de 500\u00A0€ HT/an — Essai Dosismart gratuit',
 		},
 		partners: {
 			title: 'Nos partenaires',
@@ -81,35 +81,38 @@ export const fr = {
 			description:
 				"17 outils couvrant l'essentiel du champ en radioprotection. Chaque code est accompagné de sa vidéo explicative et de son dossier de validation téléchargeable.",
 			card1: {
-				title: 'Dosimex + Dosismart',
+				title: 'Dosimex',
 				description:
-					'17 outils de calcul Dosimex (Excel) et Dosismart, leur version web utilisable dans le navigateur',
+					'17 outils de calcul sous Excel : gamma, bêta, neutron, exposition interne, gammagraphie, modules pédagogiques et mesures.',
 				linkLabel: 'Voir les outils',
 			},
 			card2: {
-				title: 'Documentation',
+				title: 'Dosismart',
 				description:
-					"Validé via MCNP, RayXpert, Microshield et Mercurad. Accéder à l'ensemble de la documentation associée à Dosimex-GX",
-				linkLabel: 'Télécharger',
+					"Vos calculs dans le navigateur. Source ponctuelle gamma disponible dès maintenant. Sources 3D et générateur X en cours de développement.",
+				linkLabel: 'Essayer gratuitement',
 			},
 			card3: {
 				title: 'Formations',
 				description:
-					'Nous vous accompagnons pour prendre en mains ces outils de calculs en nous adaptant à vos problèmes spécifiques',
+					'Nous vous accompagnons pour prendre en main ces outils de calculs en nous adaptant à vos problèmes spécifiques.',
 				linkLabel: 'En savoir plus',
 			},
 		},
 		dosismart: {
-			title: 'Aussi disponible dans le navigateur',
-			text: 'Dosismart reprend les codes Dosimex en version web. Aucune installation, tout OS.',
+			title: 'Dosismart — vos calculs dans le navigateur',
+			text: "L'application web qui rend les calculs de radioprotection accessibles partout. Aucune installation, tout OS, tout appareil.",
+			available: 'Disponible maintenant : calcul source ponctuelle gamma.',
+			coming: 'Bientôt : sources 3D et générateur X.',
 			button: 'Essayer gratuitement',
 		},
 		close: {
-			title: 'Prêt à essayer ?',
-			price: 'À partir de 500€ HT/an',
-			includes: 'Licence Excel + accès Dosismart + support technique',
+			title: 'Prêt à calculer juste ?',
+			price: 'Dosimex : à partir de 500€ HT/an',
+			includes: '17 outils Excel + accès Dosismart + support technique',
+			dosismartNote: 'Dosismart est aussi disponible en essai gratuit',
 			quoteButton: 'Demander un devis',
-			trialButton: 'Essai gratuit 14 jours',
+			trialButton: 'Essayer Dosismart',
 		},
 		packs: {
 			title: 'Ce que contient Dosimex',
@@ -208,10 +211,9 @@ export const fr = {
 	contact: {
 		header: {
 			title: 'Devis ou démonstration',
-			subtitle: 'Décrivez votre besoin. Réponse sous 24h.',
+			subtitle: 'Décrivez votre besoin.',
 		},
 		info: {
-			responseTime: { label: 'Délai de réponse', value: 'Sous 24h' },
 			phone: { label: 'Téléphone', value: '06 89 70 90 35' },
 			demo: { label: 'Démonstration', value: 'Visioconférence disponible' },
 		},
@@ -220,7 +222,7 @@ export const fr = {
 		header: {
 			title: 'Outils de calcul',
 			description:
-				"Le pack DOSIMEX regroupe 17 utilitaires de calcul en radioprotection : 6 codes opérationnels, 6 modules pédagogiques et 5 outils de mesure. Disponible sous Excel et en version web (Dosismart).",
+				"Le pack Dosimex regroupe 17 utilitaires de calcul en radioprotection sous Excel : 6 codes opérationnels, 6 modules pédagogiques et 5 outils de mesure. Le calcul gamma source ponctuelle est aussi disponible dans Dosismart (navigateur web).",
 			anchors: [
 				{ label: 'Pack opérationnel', href: '#pack-ope' },
 				{ label: 'Pack pédagogique', href: '#pack-peda' },
@@ -228,8 +230,8 @@ export const fr = {
 			],
 		},
 		dosismartBanner: {
-			title: 'Nouveau : ces outils existent aussi en version web',
-			text: "Dosismart reprend les codes de calcul Dosimex sous forme d'application web. Fonctionne dans le navigateur, sans installation, sur tout système d'exploitation.",
+			title: 'Dosismart : le calcul gamma dans le navigateur',
+			text: "Le calcul source ponctuelle gamma est déjà disponible dans Dosismart, notre application web. Sources 3D et générateur X arrivent bientôt. Sans installation, tout OS.",
 			button: 'Essayer Dosismart',
 		},
 		packOpe: {
@@ -393,7 +395,7 @@ export const fr = {
 		schemaDescription: 'Licence annuelle mono-poste',
 		buttonKnowMore: 'En savoir plus',
 		description:
-			'Pack DOSIMEX 3.2 + DOSISMART — 17 codes professionnels Dosimex (VBA/Excel) et Dosismart, leur version web. 6 codes opérationnels (calculs de dose, zonage, protection), 6 modules pédagogiques interactifs, 5 utilitaires de mesure et analyse. Licence Dosimex + accès Dosismart inclus. Support technique inclus.',
+			'Pack DOSIMEX 3.2 — 17 codes professionnels sous Excel : 6 codes opérationnels (calculs de dose, zonage, protection), 6 modules pédagogiques interactifs, 5 utilitaires de mesure et analyse. Accès Dosismart inclus (application web, actuellement calcul gamma source ponctuelle). Support technique inclus.',
 		partE: {
 			title: 'Contenu du pack',
 			items: [
@@ -412,13 +414,13 @@ export const fr = {
 			text: "Dosimex : VBA/Excel, Windows XP à 11, Excel 2003 à 2024. Machine virtuelle nécessaire sur Mac/Linux. Dosismart : navigateur web (Chrome, Firefox, Edge, Safari), tout système d'exploitation, aucune installation.",
 		},
 		trialBanner: {
-			title: 'Essai gratuit Dosismart — 14 jours',
-			text: 'Dosismart est la version web des codes de calcul Dosimex. Fonctionne dans le navigateur, sans installation. Essai sans engagement, sans carte bancaire.',
+			title: 'Essayez Dosismart gratuitement',
+			text: "Dosismart est l'application web de calcul en radioprotection. Calcul gamma source ponctuelle disponible maintenant — sources 3D et générateur X bientôt. Sans installation, sans carte bancaire.",
 			button: "Démarrer l'essai",
 		},
 		pricing: {
 			title: 'Tarification',
-			packageTitle: 'Pack DOSIMEX 3.2 + DOSISMART — Licence mono-poste',
+			packageTitle: 'Pack DOSIMEX 3.2 — Licence mono-poste (accès Dosismart inclus)',
 			annual: {
 				title: 'Licence annuelle',
 				price: '500\u20AC HT',
@@ -451,9 +453,9 @@ export const fr = {
 			title: 'Questions fréquentes',
 			questions: [
 				{
-					question: 'Pourquoi deux versions ?',
+					question: 'Quelle différence entre Dosimex et Dosismart ?',
 					answer:
-						'Dosimex fonctionne sous Excel, intégré à vos workflows existants. Dosismart fonctionne via navigateur web, utilisable sur tout appareil sans installation. Les deux accèdent aux mêmes codes de calcul.',
+						"Dosimex est le pack complet sous Excel avec les 17 outils de calcul. Dosismart est l'application web, accessible dans le navigateur sans installation. Dosismart propose actuellement le calcul gamma source ponctuelle, avec les sources 3D et le générateur X en développement. L'accès Dosismart est inclus dans la licence Dosimex.",
 				},
 				{
 					question: 'Quels sont les prérequis ?',
@@ -466,9 +468,9 @@ export const fr = {
 						'Oui. Mises à jour Dosimex et Dosismart incluses dans la licence, ainsi que le support technique.',
 				},
 				{
-					question: "Comment fonctionne l'essai gratuit ?",
+					question: "Comment fonctionne l'essai gratuit Dosismart ?",
 					answer:
-						'Essai Dosismart 14 jours, sans engagement, sans carte bancaire. Accès à tous les outils de calcul.',
+						"L'essai Dosismart est gratuit, sans engagement et sans carte bancaire. Vous accédez au calcul gamma source ponctuelle directement dans votre navigateur. Aucune installation requise.",
 				},
 			],
 		},

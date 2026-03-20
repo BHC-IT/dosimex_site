@@ -34,7 +34,7 @@ export const en = {
 		},
 		contact: {
 			title: 'Contact & Quote — Dosimex',
-			description: 'Contact Dosimex for a quote, demo or free trial. Response within 24 hours. Video conference demonstration available.',
+			description: 'Contact Dosimex for a quote, demo or free Dosismart trial. Video conference demonstration available.',
 		},
 	},
 	altText: {
@@ -56,10 +56,10 @@ export const en = {
 		hero: {
 			title: 'Radiation protection, calculated right.',
 			subtitle:
-				'17 MCNP-validated calculation tools. Gamma, beta, neutron, internal exposure, atmospheric transfer. Immediate setup.',
+				'17 MCNP-validated tools in Excel. Point source gamma calculation already available in the browser with Dosismart — 3D sources and X-ray coming soon.',
 			cta: 'View the tools',
-			trialButton: 'Free trial 14 days',
-			priceNote: 'Dosimex (Excel) + Dosismart (browser) — From €500/year excl. VAT',
+			trialButton: 'Try Dosismart',
+			priceNote: 'From €500/year excl. VAT — Free Dosismart trial',
 		},
 		partners: {
 			title: 'Partners',
@@ -81,35 +81,38 @@ export const en = {
 			description:
 				'17 tools covering the essentials of radiation protection. Each code comes with an explanatory video and downloadable validation files.',
 			card1: {
-				title: 'Dosimex + Dosismart',
+				title: 'Dosimex',
 				description:
-					'17 Dosimex calculation tools (Excel) and Dosismart, their web version running in the browser',
+					'17 calculation tools in Excel: gamma, beta, neutron, internal exposure, radiography, educational modules and measurement utilities.',
 				linkLabel: 'See the tools',
 			},
 			card2: {
-				title: 'Documentation',
+				title: 'Dosismart',
 				description:
-					'Validated via MCNP, RayXpert, Microshield and Mercurad. Access all documentation associated with Dosimex-GX',
-				linkLabel: 'Download',
+					'Your calculations in the browser. Point source gamma available now. 3D sources and X-ray generator under development.',
+				linkLabel: 'Try for free',
 			},
 			card3: {
 				title: 'Training',
 				description:
-					'Hands-on training adapted to your specific use cases and radiation protection problems',
+					'Hands-on training adapted to your specific use cases and radiation protection problems.',
 				linkLabel: 'Learn more',
 			},
 		},
 		dosismart: {
-			title: 'Also available in the browser',
-			text: 'Dosismart runs the Dosimex codes as a web app. No installation, any OS.',
+			title: 'Dosismart — your calculations in the browser',
+			text: 'The web application making radiation protection calculations accessible anywhere. No installation, any OS, any device.',
+			available: 'Available now: point source gamma calculation.',
+			coming: 'Coming soon: 3D sources and X-ray generator.',
 			button: 'Try for free',
 		},
 		close: {
-			title: 'Ready to try?',
-			price: 'From \u20AC500/year excl. VAT',
-			includes: 'Excel license + Dosismart access + technical support',
+			title: 'Ready to calculate right?',
+			price: 'Dosimex: from \u20AC500/year excl. VAT',
+			includes: '17 Excel tools + Dosismart access + technical support',
+			dosismartNote: 'Dosismart is also available as a free trial',
 			quoteButton: 'Request a quote',
-			trialButton: '14-day free trial',
+			trialButton: 'Try Dosismart',
 		},
 		packs: {
 			title: 'What Dosimex contains',
@@ -208,10 +211,9 @@ export const en = {
 	contact: {
 		header: {
 			title: 'Quote or demonstration',
-			subtitle: 'Describe your needs. Response within 24 hours.',
+			subtitle: 'Describe your needs.',
 		},
 		info: {
-			responseTime: { label: 'Response time', value: 'Within 24h' },
 			phone: { label: 'Phone', value: '06 89 70 90 35' },
 			demo: { label: 'Demo', value: 'Video conference available' },
 		},
@@ -220,7 +222,7 @@ export const en = {
 		header: {
 			title: 'Calculation tools',
 			description:
-				'The DOSIMEX pack includes 17 radiation protection calculation utilities: 6 operational codes, 6 learning modules and 5 measurement tools. Available in Excel and as a web app (Dosismart).',
+				'The Dosimex pack includes 17 radiation protection calculation utilities in Excel: 6 operational codes, 6 learning modules and 5 measurement tools. Point source gamma calculation is also available in Dosismart (web browser).',
 			anchors: [
 				{ label: 'Operational pack', href: '#pack-ope' },
 				{ label: 'Learning pack', href: '#pack-peda' },
@@ -228,8 +230,8 @@ export const en = {
 			],
 		},
 		dosismartBanner: {
-			title: 'New: these tools also exist as a web version',
-			text: 'Dosismart runs the Dosimex calculation codes in the browser. No installation, works on any OS.',
+			title: 'Dosismart: gamma calculation in the browser',
+			text: 'Point source gamma calculation is already available in Dosismart, our web application. 3D sources and X-ray generator coming soon. No installation, any OS.',
 			button: 'Try Dosismart',
 		},
 		packOpe: {
@@ -393,7 +395,7 @@ export const en = {
 		schemaDescription: 'Annual single-user license',
 		buttonKnowMore: 'Read more',
 		description:
-			'DOSIMEX 3.2 + DOSISMART — 17 Dosimex professional codes (VBA/Excel) and Dosismart, their web version. 6 operational codes (dose calculations, zoning, shielding), 6 interactive educational modules, 5 measurement and analysis utilities. Dosimex license + Dosismart access included. Technical support included.',
+			'DOSIMEX 3.2 — 17 professional codes in Excel: 6 operational codes (dose calculations, zoning, shielding), 6 interactive educational modules, 5 measurement and analysis utilities. Dosismart access included (web application, currently point source gamma calculation). Technical support included.',
 		partE: {
 			title: 'Pack content',
 			items: [
@@ -412,13 +414,13 @@ export const en = {
 			text: 'Dosimex: VBA/Excel, Windows XP to 11, Excel 2003 to 2024. Virtual machine required on Mac/Linux. Dosismart: web browser (Chrome, Firefox, Edge, Safari), any OS, no installation.',
 		},
 		trialBanner: {
-			title: 'Free trial — Dosismart, 14 days',
-			text: 'Dosismart is the web version of Dosimex calculation codes. Runs in the browser, no installation. No commitment, no credit card.',
+			title: 'Try Dosismart for free',
+			text: 'Dosismart is the web application for radiation protection calculations. Point source gamma available now — 3D sources and X-ray coming soon. No installation, no credit card.',
 			button: 'Start trial',
 		},
 		pricing: {
 			title: 'Pricing',
-			packageTitle: 'DOSIMEX 3.2 + DOSISMART Pack — Single-user License',
+			packageTitle: 'DOSIMEX 3.2 Pack — Single-user License (Dosismart access included)',
 			annual: {
 				title: 'Annual License',
 				price: '\u20AC500 excl. VAT',
@@ -451,9 +453,9 @@ export const en = {
 			title: 'Frequently Asked Questions',
 			questions: [
 				{
-					question: 'Why two versions?',
+					question: 'What is the difference between Dosimex and Dosismart?',
 					answer:
-						'Dosimex runs in Excel, integrated into your existing workflows. Dosismart runs in the browser, usable on any device without installation. Both use the same calculation codes.',
+						"Dosimex is the complete Excel pack with all 17 calculation tools. Dosismart is the web application, accessible in the browser without installation. Dosismart currently offers point source gamma calculation, with 3D sources and X-ray generator under development. Dosismart access is included with the Dosimex license.",
 				},
 				{
 					question: 'What are the prerequisites?',
@@ -466,9 +468,9 @@ export const en = {
 						'Yes. Dosimex and Dosismart updates included with the license, plus technical support.',
 				},
 				{
-					question: 'How does the free trial work?',
+					question: 'How does the free Dosismart trial work?',
 					answer:
-						'Dosismart trial: 14 days, no commitment, no credit card. Full access to all calculation tools.',
+						'The Dosismart trial is free, with no commitment and no credit card. You get access to point source gamma calculation directly in your browser. No installation required.',
 				},
 			],
 		},

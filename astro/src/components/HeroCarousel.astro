@@ -1,0 +1,138 @@
+---
+interface Slide {
+	src: string
+	alt: string
+	label: string
+}
+
+interface Props {
+	slides: Slide[]
+}
+
+const { slides } = Astro.props
+---
+
+<div class="hero-carousel relative" data-carousel>
+	<!-- Slides -->
+	<div class="overflow-hidden rounded-lg">
+		<div class="carousel-track flex transition-transform duration-300 ease-out" style={`width: ${slides.length * 100}%`}>
+			{slides.map((slide, i) => (
+				<div class="carousel-slide flex-shrink-0" style={`width: ${100 / slides.length}%`} data-lightbox data-lightbox-group="hero">
+					<img
+						src={slide.src}
+						alt={slide.alt}
+						class="w-full h-auto"
+						loading={i === 0 ? 'eager' : 'lazy'}
+					/>
+				</div>
+			))}
+		</div>
+	</div>
+
+	<!-- Label -->
+	<div class="mt-3 flex items-center justify-between">
+		<span class="carousel-label text-xs font-heading font-medium text-slate-500 dark:text-slate-400">
+			{slides[0].label}
+		</span>
+
+		<!-- Dots + arrows -->
+		<div class="flex items-center gap-3">
+			<button type="button" class="carousel-prev p-1 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors" aria-label="Previous">
+				<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M15 19l-7-7 7-7"/></svg>
+			</button>
+			<div class="flex gap-1.5">
+				{slides.map((_, i) => (
+					<button
+						type="button"
+						class:list={[
+							'carousel-dot w-2 h-2 rounded-full transition-colors duration-200',
+							i === 0 ? 'bg-primary-600' : 'bg-slate-300 dark:bg-slate-600',
+						]}
+						aria-label={`Slide ${i + 1}`}
+						data-index={i}
+					/>
+				))}
+			</div>
+			<button type="button" class="carousel-next p-1 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors" aria-label="Next">
+				<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg>
+			</button>
+		</div>
+	</div>
+</div>
+
+<script>
+	function initCarousels() {
+		document.querySelectorAll<HTMLElement>('[data-carousel]').forEach((carousel) => {
+			const track = carousel.querySelector<HTMLElement>('.carousel-track')
+			const dots = carousel.querySelectorAll<HTMLButtonElement>('.carousel-dot')
+			const label = carousel.querySelector<HTMLElement>('.carousel-label')
+			const prevBtn = carousel.querySelector<HTMLButtonElement>('.carousel-prev')
+			const nextBtn = carousel.querySelector<HTMLButtonElement>('.carousel-next')
+			const slides = carousel.querySelectorAll('.carousel-slide')
+			if (!track || !slides.length) return
+
+			const labels = Array.from(slides).map((_, i) => {
+				return dots[i]?.closest('[data-carousel]')?.querySelectorAll('.carousel-slide')[i]
+			})
+
+			let current = 0
+			const count = slides.length
+
+			// Collect labels from slide alt text
+			const slideLabels: string[] = []
+			slides.forEach((slide) => {
+				const img = slide.querySelector('img')
+				slideLabels.push(img?.alt ?? '')
+			})
+
+			function goTo(index: number) {
+				current = ((index % count) + count) % count
+				track!.style.transform = `translateX(-${current * (100 / count)}%)`
+
+				dots.forEach((dot, i) => {
+					dot.classList.toggle('bg-primary-600', i === current)
+					dot.classList.toggle('bg-slate-300', i !== current)
+					dot.classList.toggle('dark:bg-slate-600', i !== current)
+				})
+
+				if (label) {
+					// Read label from a data attribute on the dot
+					const dotLabel = dots[current]?.dataset.label
+					if (dotLabel) label.textContent = dotLabel
+				}
+			}
+
+			// Store labels on dots
+			dots.forEach((dot, i) => {
+				const img = slides[i]?.querySelector('img')
+				dot.dataset.label = img?.alt ?? `Slide ${i + 1}`
+			})
+
+			prevBtn?.addEventListener('click', () => goTo(current - 1))
+			nextBtn?.addEventListener('click', () => goTo(current + 1))
+			dots.forEach((dot) => {
+				dot.addEventListener('click', () => {
+					const idx = parseInt(dot.dataset.index ?? '0', 10)
+					goTo(idx)
+				})
+			})
+
+			// Keyboard
+			carousel.addEventListener('keydown', (e) => {
+				if (e.key === 'ArrowLeft') goTo(current - 1)
+				if (e.key === 'ArrowRight') goTo(current + 1)
+			})
+
+			// Swipe support
+			let startX = 0
+			track.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX }, { passive: true })
+			track.addEventListener('touchend', (e) => {
+				const diff = startX - e.changedTouches[0].clientX
+				if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1))
+			}, { passive: true })
+		})
+	}
+
+	initCarousels()
+	document.addEventListener('astro:page-load', initCarousels)
+</script>
