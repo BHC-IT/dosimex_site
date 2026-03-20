@@ -3,6 +3,8 @@ interface Slide {
 	src: string
 	alt: string
 	label: string
+	width: number
+	height: number
 }
 
 interface Props {
@@ -21,8 +23,11 @@ const { slides } = Astro.props
 					<img
 						src={slide.src}
 						alt={slide.alt}
+						width={slide.width}
+						height={slide.height}
 						class="w-full h-auto"
 						loading={i === 0 ? 'eager' : 'lazy'}
+						fetchpriority={i === 0 ? 'high' : undefined}
 					/>
 				</div>
 			))}

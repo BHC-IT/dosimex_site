@@ -10,11 +10,11 @@ import { organizationSchema, websiteSchema } from '@/data/schemas'
 import heroImg from '@/assets/images/home_header_carousel.png'
 
 const heroSlides = [
-	{ src: '/Images/dosismart-screenshot.png', alt: 'Dosismart — Calcul gamma dans le navigateur', label: 'Dosismart — Application web' },
-	{ src: '/Images/ScreenCarousel2.png', alt: 'DOSIMEX-GX — Générateur X', label: 'DOSIMEX-GX — Générateur X' },
-	{ src: '/Images/ScreenCarousel3.png', alt: 'DOSIMEX-GX — Source cylindrique', label: 'DOSIMEX-GX — Source cylindrique' },
-	{ src: '/Images/ScreenCarousel1.png', alt: 'DOSIMEX-B — Dose bêta', label: 'DOSIMEX-B — Dose bêta' },
-	{ src: '/Images/ScreenCarousel4.png', alt: 'DOSIMEX-N — Dose neutrons', label: 'DOSIMEX-N — Dose neutrons' },
+	{ src: '/Images/dosismart-screenshot.webp', alt: 'Dosismart — Calcul gamma dans le navigateur', label: 'Dosismart — Application web', width: 1280, height: 761 },
+	{ src: '/Images/ScreenCarousel2.webp', alt: 'DOSIMEX-GX — Générateur X', label: 'DOSIMEX-GX — Générateur X', width: 1280, height: 675 },
+	{ src: '/Images/ScreenCarousel3.webp', alt: 'DOSIMEX-GX — Source cylindrique', label: 'DOSIMEX-GX — Source cylindrique', width: 1280, height: 783 },
+	{ src: '/Images/ScreenCarousel1.webp', alt: 'DOSIMEX-B — Dose bêta', label: 'DOSIMEX-B — Dose bêta', width: 1280, height: 727 },
+	{ src: '/Images/ScreenCarousel4.webp', alt: 'DOSIMEX-N — Dose neutrons', label: 'DOSIMEX-N — Dose neutrons', width: 1280, height: 638 },
 ]
 
 export const getStaticPaths = getLocalePaths
@@ -89,13 +89,14 @@ const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item)
 			<p class="text-center text-sm uppercase tracking-[0.1em] font-heading font-semibold text-slate-400 mb-8">
 				{locale === 'fr' ? 'Ils nous font confiance' : 'Trusted by'}
 			</p>
-			<div class="flex flex-wrap items-center justify-center gap-8 lg:gap-12">
+			<div class="flex flex-wrap items-center justify-center gap-8 lg:gap-12 min-h-[40px]">
 				{partnerImages.map((img, i) => (
 					<Image
 						src={img}
 						alt={partnerLogoAlts[i]}
 						height={40}
-						class="h-10 w-auto object-contain logo-grayscale"
+						width={120}
+						class="h-10 w-auto max-w-[120px] object-contain logo-grayscale"
 						loading="lazy"
 					/>
 				))}
@@ -212,8 +213,10 @@ const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item)
 		<div class="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12 items-center">
 			<div class="order-2 lg:order-1" data-lightbox>
 				<img
-					src="/Images/dosismart-screenshot.png"
+					src="/Images/dosismart-screenshot.webp"
 					alt="Dosismart — Calcul gamma dans le navigateur"
+					width="1280"
+					height="761"
 					class="w-full rounded-lg"
 					loading="lazy"
 				/>
