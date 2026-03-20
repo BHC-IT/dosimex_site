@@ -24,7 +24,7 @@ const alternateUrl = getAlternateUrl(currentPath)
 
 <header
 	id="site-nav"
-	class="sticky top-0 z-50 bg-white dark:bg-[#252320] border-b border-slate-200 dark:border-[#3D3A35] transition-transform duration-300"
+	class="sticky top-0 z-50 bg-white dark:bg-[#0B0D17] border-b border-slate-200 dark:border-[#1E2035] transition-transform duration-300"
 >
 	<div class="mx-auto max-w-7xl px-6 flex items-center justify-between h-16">
 		<!-- Logo -->
@@ -66,19 +66,28 @@ const alternateUrl = getAlternateUrl(currentPath)
 				class="text-sm font-heading"
 				aria-label={locale === 'fr' ? 'Switch to English' : 'Passer en français'}
 			>
-				<span class:list={[locale === 'fr' ? 'font-semibold text-slate-950 dark:text-slate-100' : 'text-slate-400 hover:text-slate-600']}>FR</span>
+				<span class:list={[locale === 'fr' ? 'font-semibold text-slate-950 dark:text-slate-100' : 'text-slate-600 dark:text-slate-400 hover:text-slate-800']}>FR</span>
 				<span class="text-slate-300 mx-1">|</span>
-				<span class:list={[locale === 'en' ? 'font-semibold text-slate-950 dark:text-slate-100' : 'text-slate-400 hover:text-slate-600']}>EN</span>
+				<span class:list={[locale === 'en' ? 'font-semibold text-slate-950 dark:text-slate-100' : 'text-slate-600 dark:text-slate-400 hover:text-slate-800']}>EN</span>
 			</a>
 
 			<ThemeToggle />
 
-			<!-- CTA -->
+			<!-- CTA: Quote -->
 			<a
-				href={locale === 'en' ? 'https://dosismart.com' : 'https://dosismart.com'}
+				href={localePath(locale, '/contact')}
+				class="inline-flex items-center h-8 px-4 text-sm font-semibold font-heading text-foreground border border-border hover:bg-muted rounded-lg transition-colors duration-150"
+				data-ph-cta="nav-quote"
+			>
+				{locale === 'en' ? 'Request a quote' : 'Demander un devis'}
+			</a>
+
+			<!-- CTA: Trial -->
+			<a
+				href="https://dosismart.com"
 				target="_blank"
 				rel="noopener noreferrer"
-				class="inline-flex items-center h-8 px-4 text-sm font-semibold font-heading text-white bg-primary-600 hover:bg-primary-700 rounded-[8px] transition-colors duration-150"
+				class="inline-flex items-center h-8 px-4 text-sm font-semibold font-heading text-white bg-primary-600 hover:bg-primary-700 rounded-lg shadow-lg transition-colors duration-150"
 				data-ph-cta="nav-trial"
 			>
 				{t.navbar.button}

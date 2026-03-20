@@ -11,17 +11,20 @@ interface Props {
 const { items } = Astro.props
 ---
 
-<section id="stats" data-ph-section="stats" class="bg-slate-950 bg-grid py-16 md:py-20">
+<section id="stats" data-ph-section="stats" class="relative overflow-hidden py-16 md:py-20">
+	<div class="absolute inset-0 -z-10" aria-hidden="true">
+		<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[800px] rounded-full bg-primary/5 blur-3xl"></div>
+	</div>
 	<div class="mx-auto max-w-5xl px-6 grid grid-cols-1 sm:grid-cols-3 gap-10 text-center">
 		{items.map((item) => (
 			<div class="reveal">
 				<div
-					class="text-4xl md:text-6xl font-heading font-bold text-accent-400 tabular-nums"
+					class="text-5xl md:text-6xl font-heading font-extrabold text-primary tabular-nums"
 					data-count-target={item.value}
 				>
 					{item.value}
 				</div>
-				<div class="mt-2 text-base text-slate-400">
+				<div class="mt-2 text-base text-muted-foreground">
 					{item.label}
 				</div>
 			</div>

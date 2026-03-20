@@ -43,10 +43,10 @@ const { title, description = defaultDescription, ogImage, robots, jsonLd } = Ast
 			})()
 		</script>
 	</head>
-	<body class="min-h-screen bg-background text-foreground font-body antialiased">
+	<body class="min-h-screen bg-background text-foreground font-body antialiased relative overflow-x-hidden">
 		<Navbar t={t} locale={locale} />
 
-		<main>
+		<main class="relative">
 			<slot />
 		</main>
 

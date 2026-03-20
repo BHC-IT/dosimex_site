@@ -40,19 +40,20 @@ const packs = [
 	{ id: 'mes', label: t.software.packMes.title, description: t.software.packMes.description, tools: t.software.packMes.tools },
 ]
 
-const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item).slice(0, 4)
+const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item)
 ---
 
 <Layout title={t.seo.home.title} description={t.seo.home.description} jsonLd={[organizationSchema, websiteSchema(locale)]}>
 
 	<!-- ══════════ HERO ══════════ -->
-	<section id="hero" data-ph-section="hero" class="bg-slate-50 dark:bg-[#1A1917] py-16 lg:py-32">
-		<div class="mx-auto max-w-7xl px-6 grid lg:grid-cols-12 gap-12 items-center">
+	<section id="hero" data-ph-section="hero" class="relative overflow-hidden py-16 lg:py-32">
+		<div class="absolute -top-24 right-0 h-[400px] w-[600px] rounded-full bg-primary/5 blur-3xl" aria-hidden="true"></div>
+		<div class="mx-auto max-w-7xl px-6 grid lg:grid-cols-12 gap-12 items-center relative">
 			<div class="lg:col-span-7">
-				<h1 class="text-3xl md:text-5xl font-heading font-bold text-slate-950 dark:text-slate-100 tracking-tight">
+				<h1 class="text-3xl md:text-5xl font-heading font-bold text-foreground tracking-tight">
 					{t.home.hero.title}
 				</h1>
-				<p class="mt-6 text-lg text-slate-600 dark:text-slate-400 max-w-xl">
+				<p class="mt-6 text-lg text-muted-foreground max-w-xl">
 					{t.home.hero.subtitle}
 				</p>
 				<div class="mt-8 flex flex-wrap items-center gap-4">
@@ -60,20 +61,22 @@ const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item)
 						href="https://dosismart.com"
 						target="_blank"
 						rel="noopener noreferrer"
-						class="inline-flex items-center h-12 px-6 text-base font-heading font-semibold text-white bg-primary-600 hover:bg-primary-700 rounded-[8px] transition-colors duration-150"
+						class="inline-flex items-center gap-2 h-12 px-6 text-base font-heading font-semibold text-white bg-primary-600 hover:bg-primary-700 rounded-lg shadow-lg transition-colors duration-150"
 						data-ph-cta="hero-trial"
 					>
 						{t.home.hero.trialButton}
+						<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
 					</a>
 					<a
 						href={localePath(locale, '/software')}
-						class="inline-flex items-center h-12 px-6 text-base font-heading font-semibold text-slate-700 dark:text-slate-200 border-[1.5px] border-slate-300 dark:border-[#3D3A35] hover:bg-slate-100 dark:hover:bg-[#302D29] rounded-[8px] transition-colors duration-150"
+						class="inline-flex items-center gap-2 h-12 px-6 text-base font-heading font-semibold text-foreground border border-border hover:bg-muted rounded-lg transition-colors duration-150"
 						data-ph-cta="hero-tools"
 					>
 						{t.home.hero.cta}
+						<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
 					</a>
 				</div>
-				<p class="mt-4 text-sm text-slate-500">
+				<p class="mt-4 text-sm text-muted-foreground">
 					{t.home.hero.priceNote}
 				</p>
 			</div>
@@ -84,9 +87,9 @@ const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item)
 	</section>
 
 	<!-- ══════════ PARTNER LOGOS ══════════ -->
-	<section id="partners" data-ph-section="partners" class="bg-[#E8E6E3] dark:bg-[#252320] py-10">
+	<section id="partners" data-ph-section="partners" class="border-y bg-muted/30 py-10">
 		<div class="mx-auto max-w-7xl px-6">
-			<p class="text-center text-sm uppercase tracking-[0.1em] font-heading font-semibold text-slate-400 mb-8">
+			<p class="text-center text-sm uppercase tracking-[0.1em] font-heading font-semibold text-muted-foreground mb-8">
 				{locale === 'fr' ? 'Ils nous font confiance' : 'Trusted by'}
 			</p>
 			<div class="flex flex-wrap items-center justify-center gap-8 lg:gap-12 min-h-[40px]">
@@ -105,43 +108,92 @@ const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item)
 	</section>
 
 	<!-- ══════════ PRODUCT OVERVIEW CARDS ══════════ -->
-	<section id="offers" data-ph-section="offers" class="bg-slate-50 dark:bg-[#1A1917] py-12 md:py-20">
+	<section id="offers" data-ph-section="offers" class="py-12 md:py-20">
 		<div class="mx-auto max-w-7xl px-6">
 			<div class="text-center max-w-2xl mx-auto">
-				<h2 class="text-3xl font-heading font-semibold text-slate-950 dark:text-slate-100">
+				<h2 class="text-3xl font-heading font-semibold text-foreground">
 					{t.home.offers.title}
 				</h2>
-				<p class="mt-4 text-base text-slate-600 dark:text-slate-400">
+				<p class="mt-4 text-base text-muted-foreground">
 					{t.home.offers.description}
 				</p>
 			</div>
 
 			<div class="mt-12 grid gap-8 lg:grid-cols-3">
 				{offerCards.map((card) => (
-					<div class="bg-white dark:bg-[#252320] border border-slate-200 dark:border-[#3D3A35] rounded-lg p-8 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200">
-						<div class="w-8 h-8 text-primary-600 mb-4">
+					<a
+						href={card.href}
+						target={'external' in card ? '_blank' : undefined}
+						rel={'external' in card ? 'noopener noreferrer' : undefined}
+						class="group block bg-card border border-border rounded-xl p-8 hover:shadow-md hover:-translate-y-1 transition-all duration-200"
+					>
+						<div class="flex h-14 w-14 items-center justify-center rounded-lg bg-primary/10 text-primary-600 mb-4">
 							{card.icon === 'calculator' && (
-								<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><line x1="16" x2="16" y1="10" y2="10"/><line x1="12" x2="12" y1="10" y2="10"/><line x1="8" x2="8" y1="10" y2="10"/><line x1="12" x2="12" y1="14" y2="14"/><line x1="8" x2="8" y1="14" y2="14"/><line x1="12" x2="12" y1="18" y2="18"/><line x1="8" x2="8" y1="18" y2="18"/></svg>
+								<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><line x1="16" x2="16" y1="10" y2="10"/><line x1="12" x2="12" y1="10" y2="10"/><line x1="8" x2="8" y1="10" y2="10"/><line x1="12" x2="12" y1="14" y2="14"/><line x1="8" x2="8" y1="14" y2="14"/><line x1="12" x2="12" y1="18" y2="18"/><line x1="8" x2="8" y1="18" y2="18"/></svg>
 							)}
 							{card.icon === 'globe' && (
-								<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+								<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
 							)}
 							{card.icon === 'graduation' && (
-								<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
+								<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
 							)}
 						</div>
-						<h3 class="text-xl font-heading font-semibold text-slate-950 dark:text-slate-100">{card.title}</h3>
-						<p class="mt-3 text-base text-slate-600 dark:text-slate-400">{card.description}</p>
+						<h3 class="text-xl font-heading font-semibold text-foreground">{card.title}</h3>
+						<p class="mt-3 text-base text-muted-foreground">{card.description}</p>
+						<span class="mt-5 inline-flex items-center gap-1 text-primary-600 font-heading font-semibold">
+							{card.linkLabel} <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+						</span>
+					</a>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ══════════ DOSISMART BANNER ══════════ -->
+	<section id="dosismart" data-ph-section="dosismart" class="py-12 md:py-20">
+		<div class="mx-auto max-w-7xl px-6">
+			<div class="relative overflow-hidden rounded-2xl bg-muted/50 p-8 md:p-12">
+				<div class="absolute -top-20 -right-20 h-[400px] w-[400px] rounded-full bg-primary/5 blur-3xl" aria-hidden="true"></div>
+				<div class="relative grid lg:grid-cols-2 gap-12 items-center">
+					<div class="order-2 lg:order-1" data-lightbox>
+						<img
+							src="/Images/dosismart-screenshot.webp"
+							srcset="/Images/dosismart-screenshot-sm.webp 640w, /Images/dosismart-screenshot.webp 1280w"
+							sizes="(max-width: 1024px) 100vw, 640px"
+							alt="Dosismart — Calcul gamma dans le navigateur"
+							width="1280"
+							height="761"
+							class="w-full rounded-xl"
+							loading="lazy"
+						/>
+					</div>
+					<div class="order-1 lg:order-2">
+						<h2 class="text-3xl font-heading font-semibold text-foreground">
+							{t.home.dosismart.title}
+						</h2>
+						<p class="mt-4 text-base text-muted-foreground max-w-lg">
+							{t.home.dosismart.text}
+						</p>
+						<div class="mt-4 space-y-1">
+							<p class="text-sm font-heading font-semibold text-foreground">
+								<span class="inline-block w-2 h-2 rounded-full bg-success mr-2"></span>{t.home.dosismart.available}
+							</p>
+							<p class="text-sm font-heading text-muted-foreground">
+								<span class="inline-block w-2 h-2 rounded-full bg-accent-400 mr-2"></span>{t.home.dosismart.coming}
+							</p>
+						</div>
 						<a
-							href={card.href}
-							target={'external' in card ? '_blank' : undefined}
-							rel={'external' in card ? 'noopener noreferrer' : undefined}
-							class="mt-5 inline-flex items-center text-primary-600 font-heading font-semibold hover:underline"
+							href="https://dosismart.com"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="mt-6 inline-flex items-center gap-2 h-12 px-6 text-base font-heading font-semibold text-white bg-primary-600 hover:bg-primary-700 rounded-lg shadow-lg transition-colors duration-150"
+							data-ph-cta="dosismart-trial"
 						>
-							{card.linkLabel} <span class="ml-1">&rarr;</span>
+							{t.home.dosismart.button}
+							<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
 						</a>
 					</div>
-				))}
+				</div>
 			</div>
 		</div>
 	</section>
@@ -150,18 +202,18 @@ const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item)
 	<StatsCounter items={t.home.numbers.items} />
 
 	<!-- ══════════ TOOL PACKS PREVIEW ══════════ -->
-	<section id="packs" data-ph-section="packs" class="bg-slate-50 dark:bg-[#1A1917] py-12 md:py-20">
+	<section id="packs" data-ph-section="packs" class="py-12 md:py-20">
 		<div class="mx-auto max-w-7xl px-6">
-			<h2 class="text-3xl font-heading font-semibold text-slate-950 dark:text-slate-100">
+			<h2 class="text-3xl font-heading font-semibold text-foreground">
 				{t.home.packs.title}
 			</h2>
-			<p class="mt-2 text-base text-slate-600 dark:text-slate-400 max-w-2xl">
+			<p class="mt-2 text-base text-muted-foreground max-w-2xl">
 				{t.home.packs.subtitle}
 			</p>
 
 			<!-- Tabs -->
-			<div class="mt-8" role="tablist" aria-label="Tool packs">
-				<div class="flex border-b border-slate-200 dark:border-[#3D3A35] gap-0">
+			<div class="mt-8">
+				<div class="flex border-b border-border gap-0" role="tablist" aria-label="Tool packs">
 					{packs.map((pack, i) => (
 						<button
 							type="button"
@@ -172,8 +224,8 @@ const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item)
 							class:list={[
 								'px-4 py-3 text-sm font-heading font-medium border-b-[3px] transition-colors duration-150 -mb-px cursor-pointer',
 								i === 0
-									? 'border-primary-600 text-slate-950 dark:text-slate-100'
-									: 'border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300',
+									? 'border-primary-600 text-foreground'
+									: 'border-transparent text-muted-foreground hover:text-foreground',
 							]}
 						>
 							{pack.label}
@@ -188,19 +240,19 @@ const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item)
 						aria-labelledby={`tab-${pack.id}`}
 						class:list={['mt-8', i !== 0 && 'hidden']}
 					>
-						<p class="text-base text-slate-600 dark:text-slate-400 mb-6 max-w-2xl">{pack.description}</p>
+						<p class="text-base text-muted-foreground mb-6 max-w-2xl">{pack.description}</p>
 						<div class="flex flex-wrap gap-2">
 							{pack.tools.map((tool) => (
-								<span class="inline-block text-sm bg-[#E8E6E3] dark:bg-[#302D29] text-slate-700 dark:text-slate-300 rounded-[6px] px-3 py-1">
+								<span class="inline-block text-sm bg-muted text-foreground rounded-lg px-3 py-1">
 									{tool.name}
 								</span>
 							))}
 						</div>
 						<a
 							href={localePath(locale, '/software')}
-							class="mt-6 inline-flex items-center text-primary-600 font-heading font-semibold hover:underline"
+							class="mt-6 inline-flex items-center gap-1 text-primary-600 font-heading font-semibold hover:underline"
 						>
-							{t.home.packs.allTools} <span class="ml-1">&rarr;</span>
+							{t.home.packs.allTools} <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
 						</a>
 					</div>
 				))}
@@ -208,122 +260,113 @@ const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item)
 		</div>
 	</section>
 
-	<!-- ══════════ DOSISMART BANNER ══════════ -->
-	<section id="dosismart" data-ph-section="dosismart" class="bg-primary-50 dark:bg-[#2a1f1f] py-12 md:py-20">
-		<div class="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12 items-center">
-			<div class="order-2 lg:order-1" data-lightbox>
-				<img
-					src="/Images/dosismart-screenshot.webp"
-					srcset="/Images/dosismart-screenshot-sm.webp 640w, /Images/dosismart-screenshot.webp 1280w"
-					sizes="(max-width: 1024px) 100vw, 640px"
-					alt="Dosismart — Calcul gamma dans le navigateur"
-					width="1280"
-					height="761"
-					class="w-full rounded-lg"
-					loading="lazy"
-				/>
-			</div>
-			<div class="order-1 lg:order-2">
-				<h2 class="text-3xl font-heading font-semibold text-slate-950 dark:text-slate-100">
-					{t.home.dosismart.title}
-				</h2>
-				<p class="mt-4 text-base text-slate-600 dark:text-slate-400 max-w-lg">
-					{t.home.dosismart.text}
-				</p>
-				<div class="mt-4 space-y-1">
-					<p class="text-sm font-heading font-semibold text-slate-800 dark:text-slate-200">
-						<span class="inline-block w-2 h-2 rounded-full bg-success mr-2"></span>{t.home.dosismart.available}
-					</p>
-					<p class="text-sm font-heading text-slate-500">
-						<span class="inline-block w-2 h-2 rounded-full bg-accent-400 mr-2"></span>{t.home.dosismart.coming}
-					</p>
-				</div>
-				<a
-					href="https://dosismart.com"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="mt-6 inline-flex items-center h-12 px-6 text-base font-heading font-semibold text-white bg-primary-600 hover:bg-primary-700 rounded-[8px] transition-colors duration-150"
-					data-ph-cta="dosismart-trial"
-				>
-					{t.home.dosismart.button}
-				</a>
-			</div>
-		</div>
-	</section>
-
 	<!-- ══════════ TESTIMONIAL ══════════ -->
-	<section id="testimonial" data-ph-section="testimonial" class="bg-[#E8E6E3] dark:bg-[#252320] py-12 md:py-20">
-		<div class="mx-auto max-w-3xl px-6 text-center">
-			<div class="text-6xl text-primary-200 leading-none select-none" aria-hidden="true">&ldquo;</div>
-			<blockquote class="mt-2">
-				<p class="text-xl md:text-2xl text-slate-800 dark:text-slate-200 italic leading-relaxed">
-					{t.home.opinion.text}
-				</p>
-			</blockquote>
-			<div class="mt-6">
-				<div class="text-base font-heading font-semibold text-slate-900 dark:text-slate-100">
-					{t.home.opinion.name}
+	<section id="testimonial" data-ph-section="testimonial" class="py-12 md:py-20">
+		<div class="mx-auto max-w-3xl px-6">
+			<div class="relative rounded-2xl border bg-card p-8 shadow-sm md:p-12">
+				<!-- Quote icon -->
+				<div class="absolute -top-4 left-8 flex h-10 w-10 items-center justify-center rounded-full bg-primary-600 text-white" aria-hidden="true">
+					<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
 				</div>
-				<div class="text-sm text-slate-500">
-					{t.home.opinion.job}
+				<blockquote class="mt-4">
+					<p class="text-xl md:text-2xl text-foreground italic leading-relaxed">
+						{t.home.opinion.text}
+					</p>
+				</blockquote>
+				<div class="mt-6 flex items-center gap-3">
+					<div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary-600 font-heading font-bold text-lg">
+						{t.home.opinion.name.charAt(0)}
+					</div>
+					<div>
+						<div class="text-base font-heading font-semibold text-foreground">
+							{t.home.opinion.name}
+						</div>
+						<div class="text-sm text-muted-foreground">
+							{t.home.opinion.job}
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
 	<!-- ══════════ VIDEO ══════════ -->
-	<section id="video" data-ph-section="video" class="bg-slate-50 dark:bg-[#1A1917] py-12 md:py-20">
-		<div class="mx-auto max-w-4xl px-6">
-			<h2 class="text-3xl font-heading font-semibold text-slate-950 dark:text-slate-100 text-center mb-8">
-				{t.home.videoTitle}
-			</h2>
-			<VideoEmbed videoId={videoIds.presentation} title={t.home.videoTitle} />
-			<div class="mt-6 text-center">
-				<a href={localePath(locale, '/videos')} class="text-primary-600 font-heading font-semibold hover:underline">
-					{t.home.videos.button} <span class="ml-1">&rarr;</span>
-				</a>
+	<section id="video" data-ph-section="video" class="py-12 md:py-20">
+		<div class="mx-auto max-w-7xl px-6">
+			<div class="grid lg:grid-cols-2 gap-12 items-center">
+				<div>
+					<VideoEmbed videoId={videoIds.presentation} title={t.home.videoTitle} />
+				</div>
+				<div>
+					<h2 class="text-3xl font-heading font-semibold text-foreground mb-4">
+						{t.home.videoTitle}
+					</h2>
+					<p class="text-base text-muted-foreground mb-6">
+						{locale === 'fr'
+							? 'Découvrez DOSIMEX en vidéo : présentation des outils, tutoriels et cas pratiques.'
+							: 'Discover DOSIMEX in video: tool presentations, tutorials and practical cases.'}
+					</p>
+					<a href={localePath(locale, '/videos')} class="inline-flex items-center gap-1 text-primary-600 font-heading font-semibold hover:underline">
+						{t.home.videos.button} <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+					</a>
+				</div>
 			</div>
 		</div>
 	</section>
 
 	<!-- ══════════ REFERENCES ══════════ -->
-	<section id="references" data-ph-section="references" class="bg-[#E8E6E3] dark:bg-[#252320] py-12">
+	<section id="references" data-ph-section="references" class="py-12 md:py-20 border-t">
 		<div class="mx-auto max-w-7xl px-6">
-			<h2 class="text-2xl font-heading font-semibold text-slate-950 dark:text-slate-100 mb-6">
+			<h2 class="text-2xl font-heading font-semibold text-foreground mb-2">
 				{t.home.references.title}
 			</h2>
-			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+			<p class="text-base text-muted-foreground mb-8 max-w-2xl">
+				{t.home.references.subtitle}
+			</p>
+			<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 				{refsWithMeta.map((item) => (
 					<a
 						href={item.url}
 						target="_blank"
 						rel="noopener noreferrer"
-						class="block bg-white dark:bg-[#1A1917] rounded-[8px] p-4 hover:shadow-sm transition-shadow"
+						class="group block border border-border bg-card rounded-xl p-6 hover:shadow-md hover:-translate-y-1 transition-all duration-200"
 					>
-						<h3 class="text-sm font-heading font-semibold text-slate-900 dark:text-slate-100 line-clamp-2">
+						<h3 class="text-sm font-heading font-semibold text-foreground line-clamp-2">
 							{item.title}
 						</h3>
-						{'authors' in item && 'year' in item && (
-							<p class="mt-2 text-xs text-slate-500">
-								{item.authors} &middot; {item.year}
+						{'description' in item && (
+							<p class="mt-2 text-sm text-muted-foreground line-clamp-3">
+								{item.description}
 							</p>
 						)}
-						{'journal' in item && (
-							<p class="mt-1 text-xs text-slate-400 italic">{item.journal}</p>
-						)}
+						<div class="mt-3 flex flex-wrap gap-2">
+							{'authors' in item && (
+								<span class="inline-block text-xs bg-muted text-muted-foreground rounded-full px-2 py-0.5">
+									{item.authors}
+								</span>
+							)}
+							{'year' in item && (
+								<span class="inline-block text-xs bg-muted text-muted-foreground rounded-full px-2 py-0.5">
+									{item.year}
+								</span>
+							)}
+							{'journal' in item && (
+								<span class="inline-block text-xs bg-muted text-muted-foreground rounded-full px-2 py-0.5 italic">
+									{item.journal}
+								</span>
+							)}
+						</div>
+						<span class="mt-4 inline-flex items-center gap-1 text-sm text-primary-600 font-heading font-semibold">
+							{t.home.references.btnText} <svg class="w-3 h-3 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+						</span>
 					</a>
 				))}
-			</div>
-			<div class="mt-4">
-				<a href={localePath(locale, '/manuals')} class="text-sm text-primary-600 font-heading font-semibold hover:underline">
-					{t.home.references.btnText} <span class="ml-1">&rarr;</span>
-				</a>
 			</div>
 		</div>
 	</section>
 
 	<!-- ══════════ CTA CLOSE ══════════ -->
-	<section id="cta-close" data-ph-section="cta-close" class="bg-slate-950 bg-grid py-16 md:py-24">
+	<section id="cta-close" data-ph-section="cta-close" class="bg-[#0B0D17] bg-grid py-16 md:py-24">
 		<div class="mx-auto max-w-3xl px-6 text-center">
 			<h2 class="text-3xl font-heading font-bold text-white">
 				{t.home.close.title}
@@ -334,22 +377,24 @@ const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item)
 			<div class="mt-8 flex flex-wrap items-center justify-center gap-4">
 				<a
 					href={localePath(locale, '/contact')}
-					class="inline-flex items-center h-12 px-6 text-base font-heading font-semibold text-white bg-primary-600 hover:bg-primary-700 rounded-[8px] transition-colors duration-150"
+					class="inline-flex items-center gap-2 h-12 px-6 text-base font-heading font-semibold text-white bg-primary-600 hover:bg-primary-700 rounded-lg shadow-lg transition-colors duration-150"
 					data-ph-cta="close-quote"
 				>
 					{t.home.close.quoteButton}
+					<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
 				</a>
 				<a
 					href="https://dosismart.com"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="inline-flex items-center h-12 px-6 text-base font-heading font-semibold text-slate-300 border-[1.5px] border-slate-600 hover:bg-slate-800 rounded-[8px] transition-colors duration-150"
+					class="inline-flex items-center gap-2 h-12 px-6 text-base font-heading font-semibold text-slate-300 border border-slate-600 hover:bg-slate-800 rounded-lg transition-colors duration-150"
 					data-ph-cta="close-trial"
 				>
 					{t.home.close.trialButton}
+					<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
 				</a>
 			</div>
-			<p class="mt-4 text-sm text-slate-500">
+			<p class="mt-4 text-sm text-slate-600">
 				{t.home.close.dosismartNote}
 			</p>
 		</div>
@@ -368,12 +413,12 @@ const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item)
 
 				tabs.forEach((t) => {
 					t.setAttribute('aria-selected', 'false')
-					t.classList.remove('border-primary-600', 'text-slate-950', 'dark:text-slate-100')
-					t.classList.add('border-transparent', 'text-slate-500')
+					t.classList.remove('border-primary-600', 'text-foreground')
+					t.classList.add('border-transparent', 'text-muted-foreground')
 				})
 				tab.setAttribute('aria-selected', 'true')
-				tab.classList.add('border-primary-600', 'text-slate-950', 'dark:text-slate-100')
-				tab.classList.remove('border-transparent', 'text-slate-500')
+				tab.classList.add('border-primary-600', 'text-foreground')
+				tab.classList.remove('border-transparent', 'text-muted-foreground')
 
 				document.querySelectorAll<HTMLElement>('[role="tabpanel"]').forEach((p) => p.classList.add('hidden'))
 				document.getElementById(panelId)?.classList.remove('hidden')

@@ -53,12 +53,16 @@ const { slides } = Astro.props
 					<button
 						type="button"
 						class:list={[
-							'carousel-dot w-2 h-2 rounded-full transition-colors duration-200',
-							i === 0 ? 'bg-primary-600' : 'bg-slate-300 dark:bg-slate-600',
+							'carousel-dot w-6 h-6 flex items-center justify-center rounded-full transition-colors duration-200',
 						]}
 						aria-label={`Slide ${i + 1}`}
 						data-index={i}
-					/>
+					>
+						<span class:list={[
+							'block w-2 h-2 rounded-full transition-colors duration-200',
+							i === 0 ? 'bg-primary-600' : 'bg-slate-300 dark:bg-slate-600',
+						]} />
+					</button>
 				))}
 			</div>
 			<button type="button" class="carousel-next p-1 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors" aria-label="Next">
@@ -98,9 +102,12 @@ const { slides } = Astro.props
 				track!.style.transform = `translateX(-${current * (100 / count)}%)`
 
 				dots.forEach((dot, i) => {
-					dot.classList.toggle('bg-primary-600', i === current)
-					dot.classList.toggle('bg-slate-300', i !== current)
-					dot.classList.toggle('dark:bg-slate-600', i !== current)
+					const span = dot.querySelector('span')
+					if (span) {
+						span.classList.toggle('bg-primary-600', i === current)
+						span.classList.toggle('bg-slate-300', i !== current)
+						span.classList.toggle('dark:bg-slate-600', i !== current)
+					}
 				})
 
 				if (label) {

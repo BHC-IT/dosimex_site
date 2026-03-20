@@ -44,8 +44,8 @@
 	--color-slate-950: #22201E;
 
 	/* Semantic aliases */
-	--color-background: var(--color-slate-50);
-	--color-foreground: var(--color-slate-950);
+	--color-background: #FFFFFF;
+	--color-foreground: #0B0D17;
 	--color-muted: var(--color-slate-150);
 	--color-muted-foreground: var(--color-slate-500);
 	--color-border: var(--color-slate-200);
@@ -55,10 +55,13 @@
 	--color-card-foreground: var(--color-slate-950);
 
 	/* Dark surface (fixed, doesn't invert) */
-	--color-dark: var(--color-slate-950);
-	--color-dark-lighter: #2A2724;
+	--color-dark: #0B0D17;
+	--color-dark-lighter: #141625;
 	--color-dark-text: #F0EFED;
 	--color-dark-muted: var(--color-slate-400);
+
+	/* Primary shorthand */
+	--color-primary: #DB2132;
 
 	/* Semantic */
 	--color-success: #16A34A;
@@ -86,14 +89,14 @@
 
 /* Dark mode overrides */
 .dark {
-	--color-background: #1A1917;
+	--color-background: #0B0D17;
 	--color-foreground: #F0EFED;
-	--color-muted: #252320;
+	--color-muted: #141625;
 	--color-muted-foreground: #9A9389;
-	--color-border: #3D3A35;
-	--color-input: #3D3A35;
+	--color-border: #1E2035;
+	--color-input: #1E2035;
 	--color-ring: #E63E50;
-	--color-card: #252320;
+	--color-card: #141625;
 	--color-card-foreground: #F0EFED;
 
 	--color-primary-600: #E63E50;

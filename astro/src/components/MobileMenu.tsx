@@ -68,7 +68,7 @@ export default function MobileMenu({ navLinks, alternateUrl, locale }: Props) {
 						type="button"
 						aria-label="Close menu"
 						onClick={() => setIsOpen(false)}
-						className="p-2 text-slate-500 hover:text-slate-700"
+						className="p-2 text-slate-600 hover:text-slate-700"
 					>
 						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
 							<path d="M18 6L6 18M6 6l12 12" />
@@ -97,7 +97,7 @@ export default function MobileMenu({ navLinks, alternateUrl, locale }: Props) {
 					<a
 						href={alternateUrl}
 						onClick={() => setIsOpen(false)}
-						className="text-sm font-medium text-slate-500 hover:text-slate-800"
+						className="text-sm font-medium text-slate-600 hover:text-slate-800"
 					>
 						{locale === 'fr' ? 'English' : 'Français'}
 					</a>
@@ -105,7 +105,7 @@ export default function MobileMenu({ navLinks, alternateUrl, locale }: Props) {
 					<button
 						type="button"
 						onClick={toggleDarkMode}
-						className="text-sm text-slate-500 hover:text-slate-700"
+						className="text-sm text-slate-600 hover:text-slate-700"
 					>
 						{locale === 'fr' ? 'Mode sombre' : 'Dark mode'}
 					</button>
