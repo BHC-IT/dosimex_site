@@ -14,8 +14,8 @@ const v = t.videos
 
 <Layout title={t.seo.videos.title} description={t.seo.videos.description} jsonLd={[organizationSchema]}>
 
-	<!-- Header -->
-	<section class="py-16 md:py-20">
+	<!-- Hero -->
+	<section class="py-16 md:py-24">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
 			<h1 class="text-4xl font-extrabold tracking-tight text-foreground font-lato md:text-5xl">
 				{v.header.title}
@@ -27,7 +27,7 @@ const v = t.videos
 				href={videoIds.channelUrl}
 				target="_blank"
 				rel="noopener noreferrer"
-				class="mt-8 inline-flex items-center gap-2 rounded-lg border border-primary px-6 py-3 font-semibold text-primary transition-colors hover:bg-primary/10"
+				class="mt-8 inline-flex items-center gap-2 rounded-[8px] border border-primary-600 px-6 h-12 font-heading font-semibold text-primary-600 transition-colors hover:bg-primary/10"
 				data-ph-cta="subscribe_channel"
 			>
 				{v.header.button}
@@ -41,10 +41,10 @@ const v = t.videos
 	<!-- Pack Operational -->
 	<section class="py-16 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<h2 class="mb-10 text-3xl font-bold text-foreground font-lato">
+			<h2 class="mb-10 text-3xl font-heading font-semibold text-foreground">
 				{v.packTitle}<span class="text-primary">{v.packOpe.name}</span>
 			</h2>
-			<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+			<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 				{videoIds.packOpe.map((id) => (
 					<VideoEmbed videoId={id} title={v.packOpe.label} />
 				))}
@@ -53,12 +53,12 @@ const v = t.videos
 	</section>
 
 	<!-- Pack Pedagogical -->
-	<section class="bg-muted/10 py-16 md:py-20">
+	<section class="bg-[#E8E6E3] dark:bg-[#252320] py-16 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<h2 class="mb-10 text-3xl font-bold text-foreground font-lato">
+			<h2 class="mb-10 text-3xl font-heading font-semibold text-foreground">
 				{v.packTitle}<span class="text-primary">{v.packPeda.name}</span>
 			</h2>
-			<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+			<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 				{videoIds.packPeda.map((id) => (
 					<VideoEmbed videoId={id} title={v.packPeda.label} />
 				))}
@@ -69,10 +69,10 @@ const v = t.videos
 	<!-- Pack Measurement -->
 	<section class="py-16 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<h2 class="mb-10 text-3xl font-bold text-foreground font-lato">
+			<h2 class="mb-10 text-3xl font-heading font-semibold text-foreground">
 				{v.packTitle}<span class="text-primary">{v.packMes.name}</span>
 			</h2>
-			<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+			<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 				{videoIds.packMes.map((id) => (
 					<VideoEmbed videoId={id} title={v.packMes.label} />
 				))}

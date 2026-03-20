@@ -1,93 +1,135 @@
 ---
-import { Image } from 'astro:assets'
-import MobileMenu from './MobileMenu.tsx'
 import ThemeToggle from './ThemeToggle.astro'
-import { getAlternateUrl } from '@/i18n/utils'
-import logoImg from '@/assets/images/logo_dosimex_new.webp'
+import MobileMenu from './MobileMenu.tsx'
+import { localePath, getAlternateUrl, type Translations, type Locale } from '@/i18n/utils'
 
 interface Props {
-	t: Record<string, any>
-	locale: string
+	t: Translations
+	locale: Locale
 }
 
 const { t, locale } = Astro.props
+const currentPath = Astro.url.pathname
 
 const navLinks = [
-	{ label: t.navbar.items[0], href: locale === 'en' ? '/en/software' : '/software' },
-	{ label: t.navbar.items[1], href: locale === 'en' ? '/en/training' : '/training' },
-	{ label: t.navbar.items[2], href: locale === 'en' ? '/en/manuals' : '/manuals' },
-	{ label: t.navbar.items[3], href: locale === 'en' ? '/en/about' : '/about' },
-	{ label: t.navbar.items[4], href: locale === 'en' ? '/en/contact' : '/contact' },
+	{ label: t.navbar.items[0], href: localePath(locale, '/software') },
+	{ label: t.navbar.items[1], href: localePath(locale, '/product') },
+	{ label: t.navbar.items[2], href: localePath(locale, '/training') },
+	{ label: t.navbar.items[3], href: localePath(locale, '/about') },
+	{ label: t.navbar.items[4], href: localePath(locale, '/contact') },
 ]
 
-const altLocaleHref = getAlternateUrl(Astro.url.pathname)
-const altLocaleLabel = locale === 'en' ? 'FR' : 'EN'
+const alternateUrl = getAlternateUrl(currentPath)
 ---
 
-<header class="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
-	<div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+<header
+	id="site-nav"
+	class="sticky top-0 z-50 bg-white dark:bg-[#252320] border-b border-slate-200 dark:border-[#3D3A35] transition-transform duration-300"
+>
+	<div class="mx-auto max-w-7xl px-6 flex items-center justify-between h-16">
 		<!-- Logo -->
-		<a href={locale === 'en' ? '/en/' : '/'} class="shrink-0">
-			<Image
-				src={logoImg}
-				alt={t.altText?.logo ?? 'DOSIMEX'}
-				widths={[212]}
-				class="h-8 w-auto"
-				loading="eager"
+		<a href={localePath(locale, '/')} class="flex-shrink-0">
+			<img
+				src="/Images/logo_dosimex_new.webp"
+				alt={t.altText.logo}
+				class="h-7"
+				width="140"
+				height="28"
 			/>
 		</a>
 
 		<!-- Desktop nav -->
-		<nav class="hidden items-center gap-6 lg:flex" aria-label="Main navigation">
-			{navLinks.map((link) => (
-				<a
-					href={link.href}
-					class="text-sm font-medium text-foreground/70 transition-colors hover:text-primary"
-				>
-					{link.label}
-				</a>
-			))}
+		<nav class="hidden lg:flex items-center gap-6" aria-label="Main navigation">
+			{navLinks.map((link) => {
+				const isActive = currentPath === link.href || currentPath === link.href + '/'
+				return (
+					<a
+						href={link.href}
+						class:list={[
+							'text-sm font-medium font-heading transition-colors duration-150 relative pb-1',
+							isActive
+								? 'text-slate-950 dark:text-slate-100 border-b-2 border-primary-600'
+								: 'text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-slate-100',
+						]}
+					>
+						{link.label}
+					</a>
+				)
+			})}
 		</nav>
 
-		<!-- Desktop actions -->
-		<div class="hidden items-center gap-3 lg:flex">
+		<!-- Right cluster -->
+		<div class="hidden lg:flex items-center gap-4">
+			<!-- Language toggle -->
 			<a
-				href={altLocaleHref}
-				class="rounded-md px-2 py-1 text-xs font-bold text-foreground/60 transition-colors hover:text-foreground border border-border"
+				href={alternateUrl}
+				class="text-sm font-heading"
+				aria-label={locale === 'fr' ? 'Switch to English' : 'Passer en français'}
 			>
-				{altLocaleLabel}
+				<span class:list={[locale === 'fr' ? 'font-semibold text-slate-950 dark:text-slate-100' : 'text-slate-400 hover:text-slate-600']}>FR</span>
+				<span class="text-slate-300 mx-1">|</span>
+				<span class:list={[locale === 'en' ? 'font-semibold text-slate-950 dark:text-slate-100' : 'text-slate-400 hover:text-slate-600']}>EN</span>
 			</a>
+
 			<ThemeToggle />
+
+			<!-- CTA -->
 			<a
-				href={locale === 'en' ? '/en/product' : '/product'}
-				class="rounded-lg border border-primary px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary/10"
-				data-ph-cta="request_quote"
-			>
-				{t.navbar.quoteButton}
-			</a>
-			<a
-				href="https://dosismart.com"
+				href={locale === 'en' ? 'https://dosismart.com' : 'https://dosismart.com'}
 				target="_blank"
 				rel="noopener noreferrer"
-				class="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-				data-ph-cta="try_dosismart"
+				class="inline-flex items-center h-8 px-4 text-sm font-semibold font-heading text-white bg-primary-600 hover:bg-primary-700 rounded-[8px] transition-colors duration-150"
+				data-ph-cta="nav-trial"
 			>
 				{t.navbar.button}
 			</a>
 		</div>
 
-		<!-- Mobile menu -->
-		<div class="flex items-center gap-2 lg:hidden">
-			<ThemeToggle />
+		<!-- Mobile: trial + hamburger -->
+		<div class="flex lg:hidden items-center gap-3">
+			<a
+				href="https://dosismart.com"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="inline-flex items-center h-8 px-3 text-sm font-semibold font-heading text-white bg-primary-600 hover:bg-primary-700 rounded-[8px] transition-colors duration-150"
+				data-ph-cta="nav-trial-mobile"
+			>
+				{locale === 'en' ? 'Trial' : 'Essai'}
+			</a>
 			<MobileMenu
 				client:idle
-				navLinks={navLinks}
-				trialButton={t.navbar.button}
-				quoteButton={t.navbar.quoteButton}
-				altLocaleHref={altLocaleHref}
-				altLocaleLabel={altLocaleLabel}
-				productHref={locale === 'en' ? '/en/product' : '/product'}
+				navLinks={navLinks.map((l) => ({ label: l.label, href: l.href }))}
+				alternateUrl={alternateUrl}
+				locale={locale}
 			/>
 		</div>
 	</div>
 </header>
+
+<script>
+	function initNavScroll() {
+		const nav = document.getElementById('site-nav')
+		if (!nav) return
+
+		let lastScrollY = 0
+		const threshold = 10
+
+		window.addEventListener('scroll', () => {
+			const currentY = window.scrollY
+			if (currentY < threshold) {
+				nav.classList.remove('nav-hidden')
+				nav.classList.add('nav-visible')
+			} else if (currentY > lastScrollY + threshold) {
+				nav.classList.add('nav-hidden')
+				nav.classList.remove('nav-visible')
+			} else if (currentY < lastScrollY - threshold) {
+				nav.classList.remove('nav-hidden')
+				nav.classList.add('nav-visible')
+			}
+			lastScrollY = currentY
+		}, { passive: true })
+	}
+
+	initNavScroll()
+	document.addEventListener('astro:page-load', initNavScroll)
+</script>

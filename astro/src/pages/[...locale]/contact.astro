@@ -12,7 +12,7 @@ const t = getTranslations(locale)
 
 <Layout title={t.seo.contact.title} description={t.seo.contact.description} jsonLd={[organizationSchema]}>
 
-	<!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
+	<!-- Hero -->
 	<section class="py-16 md:py-24">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="mx-auto max-w-2xl text-center">
@@ -26,26 +26,86 @@ const t = getTranslations(locale)
 		</div>
 	</section>
 
-	<!-- ═══════════════════════════ CONTACT FORM ═══════════════════════════ -->
+	<!-- Two-column layout -->
 	<section class="pb-16 md:pb-24">
-		<div id="contact-form" class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
-			<ContactForm
-				client:visible
-				labels={t.contactForm.labels}
-				errors={t.contactForm.errors}
-				button={t.contactForm.button}
-				sending={t.contactForm.sending}
-				messageSent={t.contactForm.messageSent}
-				messageNotSent={t.contactForm.messageNotSent}
-				title={t.contactForm.title}
-			/>
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="grid gap-12 lg:grid-cols-12">
 
-			<!-- Contact info -->
-			<div class="mt-8 text-center text-sm text-muted-foreground">
-				<p>{t.contact.header.subtitle}</p>
-				<p class="mt-2 font-medium text-foreground">
-					{t.footer.col1.p[2]}
-				</p>
+				<!-- Left: Contact Form -->
+				<div class="lg:col-span-7">
+					<ContactForm
+						client:idle
+						locale={locale}
+						labels={t.contactForm.labels}
+						errors={t.contactForm.errors}
+						buttonText={t.contactForm.button}
+						sendingText={t.contactForm.sending}
+						successText={t.contactForm.messageSent}
+						errorText={t.contactForm.messageNotSent}
+					/>
+				</div>
+
+				<!-- Right: Trust sidebar -->
+				<div class="lg:col-span-5">
+					<div class="rounded-lg border border-slate-200 dark:border-[#3D3A35] bg-slate-50 dark:bg-[#252320] p-8 sticky top-8">
+						<h2 class="text-xl font-heading font-semibold text-foreground">
+							{t.contactForm.title}
+						</h2>
+
+						<!-- Contact info items -->
+						<div class="mt-6 space-y-5">
+							<div class="flex items-start gap-4">
+								<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10">
+									<svg class="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+										<path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+									</svg>
+								</div>
+								<div>
+									<p class="text-sm font-medium text-foreground">{t.contact.info.responseTime.label}</p>
+									<p class="text-sm text-foreground/70">{t.contact.info.responseTime.value}</p>
+								</div>
+							</div>
+
+							<div class="flex items-start gap-4">
+								<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10">
+									<svg class="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+										<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+									</svg>
+								</div>
+								<div>
+									<p class="text-sm font-medium text-foreground">{t.contact.info.phone.label}</p>
+									<p class="text-sm text-foreground/70">{t.contact.info.phone.value}</p>
+								</div>
+							</div>
+
+							<div class="flex items-start gap-4">
+								<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10">
+									<svg class="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+										<path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
+									</svg>
+								</div>
+								<div>
+									<p class="text-sm font-medium text-foreground">{t.contact.info.demo.label}</p>
+									<p class="text-sm text-foreground/70">{t.contact.info.demo.value}</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Divider -->
+						<hr class="my-8 border-slate-200 dark:border-[#3D3A35]" />
+
+						<!-- Stats -->
+						<div class="grid grid-cols-2 gap-4">
+							{t.home.numbers.items.slice(0, 2).map((stat) => (
+								<div class="text-center">
+									<p class="text-2xl font-heading font-bold text-primary">{stat.value}</p>
+									<p class="mt-1 text-xs text-foreground/60">{stat.label}</p>
+								</div>
+							))}
+						</div>
+					</div>
+				</div>
+
 			</div>
 		</div>
 	</section>

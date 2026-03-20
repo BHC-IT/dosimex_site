@@ -2,17 +2,16 @@
 import { Image } from 'astro:assets'
 import Layout from '@/layouts/Layout.astro'
 import VideoEmbed from '@/components/VideoEmbed.astro'
+import StatsCounter from '@/components/StatsCounter.astro'
 import { getTranslations, getLocalePaths, localePath, type Locale } from '@/i18n/utils'
-import { partnerLogos, partnerLogoAlts } from '@/data/videos'
+import { partnerLogos, partnerLogoAlts, videoIds } from '@/data/videos'
 import { organizationSchema, websiteSchema } from '@/data/schemas'
 import heroImg from '@/assets/images/home_header_carousel.png'
-import iconExcel from '@/assets/images/icon_excel.png'
-import iconBook from '@/assets/images/icon_book.png'
-import iconFormation from '@/assets/images/icon_formation.png'
 
 export const getStaticPaths = getLocalePaths
 
 const { locale } = Astro.props as { locale: Locale }
+const t = getTranslations(locale)
 
 const partnerGlob = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/logo_partenaires/*.webp', { eager: true })
 const partnerImages = partnerLogos.map((filename) => {
@@ -20,357 +19,347 @@ const partnerImages = partnerLogos.map((filename) => {
 	return match![1].default
 })
 
-const t = getTranslations(locale)
-
 const offerCards = [
-	{
-		...t.home.offers.card1,
-		icon: iconExcel,
-		href: localePath(locale, '/software'),
-	},
-	{
-		...t.home.offers.card2,
-		icon: iconBook,
-		href: localePath(locale, '/manuals'),
-	},
-	{
-		...t.home.offers.card3,
-		icon: iconFormation,
-		href: localePath(locale, '/training'),
-	},
+	{ ...t.home.offers.card1, href: localePath(locale, '/software'), icon: 'calculator' as const },
+	{ ...t.home.offers.card2, href: localePath(locale, '/manuals'), icon: 'file' as const },
+	{ ...t.home.offers.card3, href: localePath(locale, '/training'), icon: 'graduation' as const },
 ]
+
+const packs = [
+	{ id: 'ope', label: t.software.packOpe.title, description: t.software.packOpe.description, tools: t.software.packOpe.tools },
+	{ id: 'peda', label: t.software.packPeda.title, description: t.software.packPeda.description, tools: t.software.packPeda.tools },
+	{ id: 'mes', label: t.software.packMes.title, description: t.software.packMes.description, tools: t.software.packMes.tools },
+]
+
+const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item).slice(0, 4)
 ---
 
 <Layout title={t.seo.home.title} description={t.seo.home.description} jsonLd={[organizationSchema, websiteSchema(locale)]}>
 
-	<!-- ═══════════════════════════ HERO ═══════════════════════════ -->
-	<section data-ph-section="hero" class="relative overflow-hidden py-12 md:py-20">
-		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="grid items-center gap-12 lg:grid-cols-2">
-				<!-- Left column -->
-				<div class="max-w-xl">
-					<!-- Promo badge -->
-					<div class="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-medium text-foreground">
-						<svg class="h-4 w-4 shrink-0" viewBox="0 0 20 20" fill="currentColor">
-							<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" />
-						</svg>
-						<span>{t.home.hero.promo}</span>
-					</div>
-
-					<h1 class="text-4xl font-extrabold tracking-tight text-foreground font-lato md:text-5xl lg:text-6xl">
-						{t.home.hero.title}
-					</h1>
-
-					<p class="mt-6 text-lg leading-relaxed text-muted-foreground">
-						{t.home.hero.subtitle}
-					</p>
-
-					<!-- CTA Buttons -->
-					<div class="mt-8 flex flex-wrap items-center gap-4">
-						<a
-							href="https://dosismart.com"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-base font-semibold text-primary-foreground shadow-lg transition-all hover:bg-primary/90 hover:shadow-xl"
-							data-ph-cta="try_dosismart"
-						>
-							{t.home.hero.trialButton}
-							<svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-								<path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd" />
-							</svg>
-						</a>
-						<a
-							href={localePath(locale, '/software')}
-							class="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-6 py-3 text-base font-semibold text-foreground transition-colors hover:bg-muted"
-							data-ph-cta="discover_software"
-						>
-							{t.home.hero.cta}
-							<svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-								<path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
-							</svg>
-						</a>
-						<a
-							href="#references"
-							class="inline-flex items-center gap-2 text-base font-semibold text-primary transition-colors hover:text-primary/80"
-							data-ph-cta="view_references"
-						>
-							{t.home.hero.referencesButton}
-							<svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-								<path fill-rule="evenodd" d="M10 3a.75.75 0 01.75.75v10.638l3.96-4.158a.75.75 0 111.08 1.04l-5.25 5.5a.75.75 0 01-1.08 0l-5.25-5.5a.75.75 0 111.08-1.04l3.96 4.158V3.75A.75.75 0 0110 3z" clip-rule="evenodd" />
-							</svg>
-						</a>
-					</div>
+	<!-- ══════════ HERO ══════════ -->
+	<section id="hero" data-ph-section="hero" class="bg-slate-50 dark:bg-[#1A1917] py-16 lg:py-32">
+		<div class="mx-auto max-w-7xl px-6 grid lg:grid-cols-12 gap-12 items-center">
+			<div class="lg:col-span-7">
+				<h1 class="text-3xl md:text-5xl font-heading font-bold text-slate-950 dark:text-slate-100 tracking-tight">
+					{t.home.hero.title}
+				</h1>
+				<p class="mt-6 text-lg text-slate-600 dark:text-slate-400 max-w-xl">
+					{t.home.hero.subtitle}
+				</p>
+				<div class="mt-8 flex flex-wrap items-center gap-4">
+					<a
+						href="https://dosismart.com"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="inline-flex items-center h-12 px-6 text-base font-heading font-semibold text-white bg-primary-600 hover:bg-primary-700 rounded-[8px] transition-colors duration-150"
+						data-ph-cta="hero-trial"
+					>
+						{t.home.hero.trialButton}
+					</a>
+					<a
+						href={localePath(locale, '/software')}
+						class="inline-flex items-center h-12 px-6 text-base font-heading font-semibold text-slate-700 dark:text-slate-200 border-[1.5px] border-slate-300 dark:border-[#3D3A35] hover:bg-slate-100 dark:hover:bg-[#302D29] rounded-[8px] transition-colors duration-150"
+						data-ph-cta="hero-tools"
+					>
+						{t.home.hero.cta}
+					</a>
 				</div>
-
-				<!-- Right column: hero image -->
-				<div class="relative flex justify-center lg:justify-end">
-					<div class="relative">
-						<!-- Decorative glow -->
-						<div class="absolute -inset-4 rounded-2xl bg-primary/10 blur-2xl" aria-hidden="true"></div>
-						<Image
-							src={heroImg}
-							alt={t.altText.carouselMain}
-							widths={[400, 512, 800]}
-							sizes="(max-width: 1024px) 100vw, 512px"
-							class="relative w-full max-w-lg rounded-xl shadow-2xl"
-							loading="eager"
-							fetchpriority="high"
-						/>
-					</div>
-				</div>
+				<p class="mt-4 text-sm text-slate-500">
+					{t.home.hero.priceNote}
+				</p>
+			</div>
+			<div class="lg:col-span-5">
+				<Image
+					src={heroImg}
+					alt={t.altText.carouselMain}
+					widths={[400, 600, 800]}
+					sizes="(max-width: 1024px) 100vw, 40vw"
+					class="w-full rounded-xl shadow-xl rotate-1"
+					loading="eager"
+					fetchpriority="high"
+				/>
 			</div>
 		</div>
 	</section>
 
-	<!-- ═══════════════════════════ PARTNERS ═══════════════════════════ -->
-	<section data-ph-section="partners" class="border-y bg-muted/30 py-12">
-		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<h2 class="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-muted-foreground">
-				{t.home.partners.title}
-			</h2>
-			<!-- Scrolling logo row -->
-			<div class="relative overflow-hidden">
-				<div class="partner-scroll flex items-center gap-12">
-					{[...partnerImages, ...partnerImages].map((img, i) => (
-						<Image
-							src={img}
-							alt={partnerLogoAlts[i % partnerImages.length]}
-							height={48}
-							class="h-10 w-auto shrink-0 object-contain opacity-60 grayscale transition-all hover:opacity-100 hover:grayscale-0 sm:h-12"
-							loading="lazy"
-						/>
-					))}
-				</div>
+	<!-- ══════════ PARTNER LOGOS ══════════ -->
+	<section id="partners" data-ph-section="partners" class="bg-[#E8E6E3] dark:bg-[#252320] py-10">
+		<div class="mx-auto max-w-7xl px-6">
+			<p class="text-center text-sm uppercase tracking-[0.1em] font-heading font-semibold text-slate-400 mb-8">
+				{locale === 'fr' ? 'Ils nous font confiance' : 'Trusted by'}
+			</p>
+			<div class="flex flex-wrap items-center justify-center gap-8 lg:gap-12">
+				{partnerImages.map((img, i) => (
+					<Image
+						src={img}
+						alt={partnerLogoAlts[i]}
+						height={40}
+						class="h-10 w-auto object-contain logo-grayscale"
+						loading="lazy"
+					/>
+				))}
 			</div>
 		</div>
 	</section>
 
-	<!-- ═══════════════════════════ OFFERS ═══════════════════════════ -->
-	<section data-ph-section="offers" class="py-12 md:py-16">
-		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="mx-auto max-w-2xl text-center">
-				<h2 class="text-3xl font-bold tracking-tight text-foreground font-lato sm:text-4xl">
+	<!-- ══════════ PRODUCT OVERVIEW CARDS ══════════ -->
+	<section id="offers" data-ph-section="offers" class="bg-slate-50 dark:bg-[#1A1917] py-12 md:py-20">
+		<div class="mx-auto max-w-7xl px-6">
+			<div class="text-center max-w-2xl mx-auto">
+				<h2 class="text-3xl font-heading font-semibold text-slate-950 dark:text-slate-100">
 					{t.home.offers.title}
 				</h2>
-				<p class="mt-4 text-lg text-muted-foreground">
+				<p class="mt-4 text-base text-slate-600 dark:text-slate-400">
 					{t.home.offers.description}
 				</p>
 			</div>
 
-			<div class="mt-12 grid gap-8 md:grid-cols-3">
+			<div class="mt-12 grid gap-8 lg:grid-cols-3">
 				{offerCards.map((card) => (
-					<a href={card.href} data-ph-cta="offer_software" class="group relative rounded-xl border bg-card p-8 shadow-sm transition-all hover:shadow-md hover:-translate-y-1">
-						<div class="mb-5 flex h-14 w-14 items-center justify-center rounded-lg bg-primary/10">
-							<Image src={card.icon} alt={card.title} width={32} height={32} class="h-8 w-8 object-contain" loading="lazy" />
+					<div class="bg-white dark:bg-[#252320] border border-slate-200 dark:border-[#3D3A35] rounded-lg p-8 hover:shadow-sm hover:-translate-y-0.5 transition-all duration-200">
+						<div class="w-8 h-8 text-primary-600 mb-4">
+							{card.icon === 'calculator' && (
+								<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><line x1="16" x2="16" y1="10" y2="10"/><line x1="12" x2="12" y1="10" y2="10"/><line x1="8" x2="8" y1="10" y2="10"/><line x1="12" x2="12" y1="14" y2="14"/><line x1="8" x2="8" y1="14" y2="14"/><line x1="12" x2="12" y1="18" y2="18"/><line x1="8" x2="8" y1="18" y2="18"/></svg>
+							)}
+							{card.icon === 'file' && (
+								<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg>
+							)}
+							{card.icon === 'graduation' && (
+								<svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
+							)}
 						</div>
-						<h3 class="text-xl font-bold text-foreground font-lato">{card.title}</h3>
-						<p class="mt-3 text-muted-foreground">{card.description}</p>
-						<div class="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-primary transition-transform group-hover:translate-x-1">
-							<span>{t.home.hero.cta}</span>
-							<svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-								<path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
-							</svg>
-						</div>
-					</a>
-				))}
-			</div>
-		</div>
-	</section>
-
-	<!-- ═══════════════════════════ CTA BANNER ═══════════════════════════ -->
-	<section data-ph-section="cta-banner" class="py-8 md:py-12">
-		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="relative overflow-hidden rounded-2xl bg-muted/50 p-8 md:p-12">
-				<!-- Decorative element -->
-				<div class="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-primary/5 blur-3xl" aria-hidden="true"></div>
-
-				<div class="relative flex flex-col items-center gap-6 text-center md:flex-row md:text-left">
-					<div class="flex-1">
-						<h2 class="text-2xl font-bold text-foreground font-lato md:text-3xl">
-							{t.home.callToAction.title}
-						</h2>
-					</div>
-					<div class="flex shrink-0 flex-wrap items-center gap-4">
-						<a
-							href={localePath(locale, '/contact')}
-							class="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg transition-all hover:bg-primary/90 hover:shadow-xl"
-							data-ph-cta="contact_us"
-						>
-							{t.home.callToAction.button}
+						<h3 class="text-xl font-heading font-semibold text-slate-950 dark:text-slate-100">{card.title}</h3>
+						<p class="mt-3 text-base text-slate-600 dark:text-slate-400">{card.description}</p>
+						<a href={card.href} class="mt-5 inline-flex items-center text-primary-600 font-heading font-semibold hover:underline">
+							{card.linkLabel} <span class="ml-1">&rarr;</span>
 						</a>
-						<a
-							href="https://dosismart.com"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-muted"
-							data-ph-cta="try_dosismart"
-						>
-							{t.home.callToAction.trialButton}
-							<svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-								<path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd" />
-							</svg>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- ═══════════════════════════ NUMBERS ═══════════════════════════ -->
-	<section data-ph-section="numbers" class="py-12 md:py-16">
-		<div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-			<div class="grid gap-8 md:grid-cols-3">
-				{t.home.numbers.items.map((item) => (
-					<div class="group text-center">
-						<div class="text-5xl font-extrabold text-primary font-lato md:text-6xl">
-							{item.value}
-						</div>
-						<div class="mt-3 text-lg text-muted-foreground">
-							{item.label}
-						</div>
 					</div>
 				))}
 			</div>
 		</div>
 	</section>
 
-	<!-- ═══════════════════════════ VIDEOS ═══════════════════════════ -->
-	<section data-ph-section="videos" class="py-12 md:py-16">
-		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="grid items-center gap-12 lg:grid-cols-2">
-				<!-- Video embed -->
-				<div>
-					<VideoEmbed videoId="q9QXG78ciXY" title={t.home.videoTitle} />
+	<!-- ══════════ STATS COUNTER ══════════ -->
+	<StatsCounter items={t.home.numbers.items} />
+
+	<!-- ══════════ TOOL PACKS PREVIEW ══════════ -->
+	<section id="packs" data-ph-section="packs" class="bg-slate-50 dark:bg-[#1A1917] py-12 md:py-20">
+		<div class="mx-auto max-w-7xl px-6">
+			<h2 class="text-3xl font-heading font-semibold text-slate-950 dark:text-slate-100">
+				{t.home.packs.title}
+			</h2>
+			<p class="mt-2 text-base text-slate-600 dark:text-slate-400 max-w-2xl">
+				{t.home.packs.subtitle}
+			</p>
+
+			<!-- Tabs -->
+			<div class="mt-8" role="tablist" aria-label="Tool packs">
+				<div class="flex border-b border-slate-200 dark:border-[#3D3A35] gap-0">
+					{packs.map((pack, i) => (
+						<button
+							type="button"
+							role="tab"
+							id={`tab-${pack.id}`}
+							aria-selected={i === 0 ? 'true' : 'false'}
+							aria-controls={`panel-${pack.id}`}
+							class:list={[
+								'px-4 py-3 text-sm font-heading font-medium border-b-[3px] transition-colors duration-150 -mb-px cursor-pointer',
+								i === 0
+									? 'border-primary-600 text-slate-950 dark:text-slate-100'
+									: 'border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300',
+							]}
+						>
+							{pack.label}
+						</button>
+					))}
 				</div>
 
-				<!-- Text content -->
-				<div>
-					<h2 class="text-3xl font-bold tracking-tight text-foreground font-lato sm:text-4xl">
-						{t.home.videos.title}
-					</h2>
-					<p class="mt-4 text-lg leading-relaxed text-muted-foreground">
-						{t.home.videos.description}
-					</p>
-					<a
-						href={localePath(locale, '/videos')}
-						class="mt-6 inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg transition-all hover:bg-primary/90 hover:shadow-xl"
-						data-ph-cta="view_videos"
+				{packs.map((pack, i) => (
+					<div
+						role="tabpanel"
+						id={`panel-${pack.id}`}
+						aria-labelledby={`tab-${pack.id}`}
+						class:list={['mt-8', i !== 0 && 'hidden']}
 					>
-						{t.home.videos.button}
-						<svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-							<path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd" />
-						</svg>
-					</a>
-				</div>
+						<p class="text-base text-slate-600 dark:text-slate-400 mb-6 max-w-2xl">{pack.description}</p>
+						<div class="flex flex-wrap gap-2">
+							{pack.tools.map((tool) => (
+								<span class="inline-block text-sm bg-[#E8E6E3] dark:bg-[#302D29] text-slate-700 dark:text-slate-300 rounded-[6px] px-3 py-1">
+									{tool.name}
+								</span>
+							))}
+						</div>
+						<a
+							href={localePath(locale, '/software')}
+							class="mt-6 inline-flex items-center text-primary-600 font-heading font-semibold hover:underline"
+						>
+							{t.home.packs.allTools} <span class="ml-1">&rarr;</span>
+						</a>
+					</div>
+				))}
 			</div>
 		</div>
 	</section>
 
-	<!-- ═══════════════════════════ TESTIMONIAL ═══════════════════════════ -->
-	<section data-ph-section="testimonial" class="py-12 md:py-16">
-		<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-			<div class="relative rounded-2xl border bg-card p-8 shadow-sm md:p-12">
-				<!-- Quote icon -->
-				<div class="absolute -top-4 left-8 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-md">
-					<svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-						<path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/>
-					</svg>
-				</div>
-
-				<blockquote class="mt-4">
-					<p class="text-lg leading-relaxed text-foreground/90 italic md:text-xl">
-						"{t.home.opinion.text}"
-					</p>
-				</blockquote>
-
-				<div class="mt-6 flex items-center gap-4">
-					<div class="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center">
-						<span class="text-lg font-bold text-foreground">{t.home.opinion.name.charAt(0)}</span>
-					</div>
-					<div>
-						<div class="font-bold text-foreground">{t.home.opinion.name}</div>
-						<div class="text-sm text-muted-foreground">{t.home.opinion.job}</div>
-					</div>
-				</div>
+	<!-- ══════════ DOSISMART BANNER ══════════ -->
+	<section id="dosismart" data-ph-section="dosismart" class="bg-primary-50 dark:bg-[#2a1f1f] py-12 md:py-20">
+		<div class="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12 items-center">
+			<div class="order-2 lg:order-1">
+				<Image
+					src={heroImg}
+					alt="Dosismart web application"
+					widths={[400, 600]}
+					sizes="(max-width: 1024px) 100vw, 50vw"
+					class="w-full rounded-xl shadow-lg"
+					loading="lazy"
+				/>
 			</div>
-		</div>
-	</section>
-
-	<!-- ═══════════════════════════ REFERENCES ═══════════════════════════ -->
-	<section id="references" class="py-12 md:py-16">
-		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="mx-auto max-w-2xl text-center">
-				<h2 class="text-3xl font-bold tracking-tight text-foreground font-lato sm:text-4xl">
-					{t.home.references.title}
+			<div class="order-1 lg:order-2">
+				<h2 class="text-3xl font-heading font-semibold text-slate-950 dark:text-slate-100">
+					{t.home.dosismart.title}
 				</h2>
-				<p class="mt-4 text-lg text-muted-foreground">
-					{t.home.references.subtitle}
+				<p class="mt-4 text-base text-slate-600 dark:text-slate-400 max-w-lg">
+					{t.home.dosismart.text}
 				</p>
+				<a
+					href="https://dosismart.com"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="mt-6 inline-flex items-center h-12 px-6 text-base font-heading font-semibold text-white bg-primary-600 hover:bg-primary-700 rounded-[8px] transition-colors duration-150"
+					data-ph-cta="dosismart-trial"
+				>
+					{t.home.dosismart.button}
+				</a>
 			</div>
+		</div>
+	</section>
 
-			<div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-				{t.home.references.items.map((item) => (
-					<div class="flex flex-col rounded-xl border bg-card p-6 shadow-sm transition-shadow hover:shadow-md">
-						<h3 class="text-base font-bold text-foreground font-lato leading-snug">
+	<!-- ══════════ TESTIMONIAL ══════════ -->
+	<section id="testimonial" data-ph-section="testimonial" class="bg-[#E8E6E3] dark:bg-[#252320] py-12 md:py-20">
+		<div class="mx-auto max-w-3xl px-6 text-center">
+			<div class="text-6xl text-primary-200 leading-none select-none" aria-hidden="true">&ldquo;</div>
+			<blockquote class="mt-2">
+				<p class="text-xl md:text-2xl text-slate-800 dark:text-slate-200 italic leading-relaxed">
+					{t.home.opinion.text}
+				</p>
+			</blockquote>
+			<div class="mt-6">
+				<div class="text-base font-heading font-semibold text-slate-900 dark:text-slate-100">
+					{t.home.opinion.name}
+				</div>
+				<div class="text-sm text-slate-500">
+					{t.home.opinion.job}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ══════════ VIDEO ══════════ -->
+	<section id="video" data-ph-section="video" class="bg-slate-50 dark:bg-[#1A1917] py-12 md:py-20">
+		<div class="mx-auto max-w-4xl px-6">
+			<h2 class="text-3xl font-heading font-semibold text-slate-950 dark:text-slate-100 text-center mb-8">
+				{t.home.videoTitle}
+			</h2>
+			<VideoEmbed videoId={videoIds.presentation} title={t.home.videoTitle} />
+			<div class="mt-6 text-center">
+				<a href={localePath(locale, '/videos')} class="text-primary-600 font-heading font-semibold hover:underline">
+					{t.home.videos.button} <span class="ml-1">&rarr;</span>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- ══════════ REFERENCES ══════════ -->
+	<section id="references" data-ph-section="references" class="bg-[#E8E6E3] dark:bg-[#252320] py-12">
+		<div class="mx-auto max-w-7xl px-6">
+			<h2 class="text-2xl font-heading font-semibold text-slate-950 dark:text-slate-100 mb-6">
+				{t.home.references.title}
+			</h2>
+			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+				{refsWithMeta.map((item) => (
+					<a
+						href={item.url}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="block bg-white dark:bg-[#1A1917] rounded-[8px] p-4 hover:shadow-sm transition-shadow"
+					>
+						<h3 class="text-sm font-heading font-semibold text-slate-900 dark:text-slate-100 line-clamp-2">
 							{item.title}
 						</h3>
-						<p class="mt-2 flex-1 text-sm text-muted-foreground">
-							{item.description}
-						</p>
-						{('authors' in item || 'year' in item || 'journal' in item) && (
-							<div class="mt-3 flex flex-wrap gap-2">
-								{'authors' in item && (
-									<span class="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium text-muted-foreground">
-										{item.authors}
-									</span>
-								)}
-								{'year' in item && (
-									<span class="inline-flex items-center rounded-md bg-primary/10 px-2 py-1 text-xs font-medium text-foreground">
-										{item.year}
-									</span>
-								)}
-								{'journal' in item && (
-									<span class="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium text-muted-foreground">
-										{item.journal}
-									</span>
-								)}
-							</div>
+						{'authors' in item && 'year' in item && (
+							<p class="mt-2 text-xs text-slate-500">
+								{item.authors} &middot; {item.year}
+							</p>
 						)}
-						<a
-							href={item.url}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
-						>
-							{t.home.references.btnText}
-							<svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-								<path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z" clip-rule="evenodd" />
-							</svg>
-						</a>
-					</div>
+						{'journal' in item && (
+							<p class="mt-1 text-xs text-slate-400 italic">{item.journal}</p>
+						)}
+					</a>
 				))}
+			</div>
+			<div class="mt-4">
+				<a href={localePath(locale, '/manuals')} class="text-sm text-primary-600 font-heading font-semibold hover:underline">
+					{t.home.references.btnText} <span class="ml-1">&rarr;</span>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- ══════════ CTA CLOSE ══════════ -->
+	<section id="cta-close" data-ph-section="cta-close" class="bg-slate-950 bg-grid py-16 md:py-24">
+		<div class="mx-auto max-w-3xl px-6 text-center">
+			<h2 class="text-3xl font-heading font-bold text-white">
+				{t.home.close.title}
+			</h2>
+			<p class="mt-4 text-lg text-slate-400">
+				{t.home.close.price} &mdash; {t.home.close.includes}
+			</p>
+			<div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+				<a
+					href="https://dosismart.com"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="inline-flex items-center h-12 px-6 text-base font-heading font-semibold text-white bg-primary-600 hover:bg-primary-700 rounded-[8px] transition-colors duration-150"
+					data-ph-cta="close-trial"
+				>
+					{t.home.close.trialButton}
+				</a>
+				<a
+					href={localePath(locale, '/product')}
+					class="inline-flex items-center h-12 px-6 text-base font-heading font-semibold text-slate-300 border-[1.5px] border-slate-600 hover:bg-slate-800 rounded-[8px] transition-colors duration-150"
+					data-ph-cta="close-pricing"
+				>
+					{t.home.close.quoteButton}
+				</a>
 			</div>
 		</div>
 	</section>
 
 </Layout>
 
-<!-- Partner logo scroll animation -->
-<style>
-	@keyframes partner-scroll {
-		0% {
-			transform: translateX(0);
-		}
-		100% {
-			transform: translateX(-50%);
-		}
-	}
+<!-- Tab switching script -->
+<script>
+	function initTabs() {
+		const tabs = document.querySelectorAll<HTMLButtonElement>('[role="tab"]')
+		tabs.forEach((tab) => {
+			tab.addEventListener('click', () => {
+				const panelId = tab.getAttribute('aria-controls')
+				if (!panelId) return
 
-	.partner-scroll {
-		animation: partner-scroll 30s linear infinite;
-	}
+				tabs.forEach((t) => {
+					t.setAttribute('aria-selected', 'false')
+					t.classList.remove('border-primary-600', 'text-slate-950', 'dark:text-slate-100')
+					t.classList.add('border-transparent', 'text-slate-500')
+				})
+				tab.setAttribute('aria-selected', 'true')
+				tab.classList.add('border-primary-600', 'text-slate-950', 'dark:text-slate-100')
+				tab.classList.remove('border-transparent', 'text-slate-500')
 
-	.partner-scroll:hover {
-		animation-play-state: paused;
+				document.querySelectorAll<HTMLElement>('[role="tabpanel"]').forEach((p) => p.classList.add('hidden'))
+				document.getElementById(panelId)?.classList.remove('hidden')
+			})
+		})
 	}
-</style>
+	initTabs()
+	document.addEventListener('astro:page-load', initTabs)
+</script>

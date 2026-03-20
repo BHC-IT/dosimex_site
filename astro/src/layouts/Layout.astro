@@ -1,12 +1,6 @@
 ---
-import '@fontsource/lato/300.css'
-import '@fontsource/lato/400.css'
-import '@fontsource/lato/700.css'
-import '@fontsource/lato/900.css'
-import '@fontsource/nunito/400.css'
-import '@fontsource/nunito/600.css'
-import '@fontsource/nunito/700.css'
-import '@fontsource/nunito/800.css'
+import '@fontsource-variable/inter'
+import '@fontsource-variable/source-sans-3'
 import '@/styles/global.css'
 import Navbar from '@/components/Navbar.astro'
 import Footer from '@/components/Footer.astro'
@@ -38,21 +32,16 @@ const { title, description = defaultDescription, ogImage, robots, jsonLd } = Ast
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<title>{title}</title>
 		<BaseHead title={title} description={description} ogImage={ogImage} robots={robots} jsonLd={jsonLd} />
-		<!-- Dark mode: only activate if user explicitly chose dark -->
 		<script is:inline>
 			(function() {
-				if (localStorage.getItem('theme') === 'dark') {
+				const theme = localStorage.getItem('theme')
+				if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
 					document.documentElement.classList.add('dark')
 				}
 			})()
 		</script>
 	</head>
-	<body class="min-h-screen bg-background text-foreground font-nunito antialiased">
-		<!-- Decorative gradient background -->
-		<div aria-hidden="true" class="pointer-events-none fixed inset-0 overflow-hidden -z-10">
-			<div class="absolute -top-24 left-1/2 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-primary/5 blur-3xl"></div>
-		</div>
-
+	<body class="min-h-screen bg-background text-foreground font-body antialiased">
 		<Navbar t={t} locale={locale} />
 
 		<main>
@@ -63,5 +52,25 @@ const { title, description = defaultDescription, ogImage, robots, jsonLd } = Ast
 
 		<CookieConsent />
 		<script src="@/scripts/tracking.ts"></script>
+
+		<!-- Scroll reveal observer -->
+		<script>
+			function initReveal() {
+				const observer = new IntersectionObserver(
+					(entries) => {
+						for (const entry of entries) {
+							if (entry.isIntersecting) {
+								entry.target.classList.add('revealed')
+								observer.unobserve(entry.target)
+							}
+						}
+					},
+					{ threshold: 0.1 }
+				)
+				document.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
+			}
+			initReveal()
+			document.addEventListener('astro:page-load', initReveal)
+		</script>
 	</body>
 </html>

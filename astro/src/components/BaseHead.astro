@@ -1,5 +1,5 @@
 ---
-import { getLocaleFromUrl, getAlternateUrl, getCanonicalUrl } from '@/i18n/utils'
+import { getCanonicalUrl, getAlternateUrl } from '@/i18n/utils'
 
 interface Props {
 	title: string
@@ -9,47 +9,41 @@ interface Props {
 	jsonLd?: Record<string, unknown>[]
 }
 
-const { title, description, ogImage, robots, jsonLd } = Astro.props
-
-const locale = getLocaleFromUrl(Astro.url)
-const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://dosimex.fr'
-const canonicalUrl = getCanonicalUrl(siteUrl, Astro.url.pathname)
-const alternatePathname = getAlternateUrl(Astro.url.pathname)
-const alternateUrl = getCanonicalUrl(siteUrl, alternatePathname)
-const resolvedOgImage = ogImage
-	? ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`
-	: `${siteUrl}/og-default.png`
-const ogLocale = locale === 'fr' ? 'fr_FR' : 'en_US'
-const ogLocaleAlternate = locale === 'fr' ? 'en_US' : 'fr_FR'
+const { title, description, ogImage = '/og-default.png', robots, jsonLd } = Astro.props
+const site = Astro.site?.toString() ?? 'https://dosimex.fr'
+const canonicalUrl = getCanonicalUrl(site, Astro.url.pathname)
+const alternateUrl = getCanonicalUrl(site, getAlternateUrl(Astro.url.pathname))
+const isEn = Astro.url.pathname.startsWith('/en')
+const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${site.replace(/\/$/, '')}${ogImage}`
 ---
 
-<!-- SEO meta -->
+<!-- SEO -->
 <meta name="description" content={description} />
 {robots && <meta name="robots" content={robots} />}
 
-<!-- Canonical & hreflang -->
+<!-- Canonical + hreflang -->
 <link rel="canonical" href={canonicalUrl} />
-<link rel="alternate" hreflang="fr" href={locale === 'fr' ? canonicalUrl : alternateUrl} />
-<link rel="alternate" hreflang="en" href={locale === 'en' ? canonicalUrl : alternateUrl} />
-<link rel="alternate" hreflang="x-default" href={locale === 'fr' ? canonicalUrl : alternateUrl} />
+<link rel="alternate" hreflang="fr" href={isEn ? alternateUrl : canonicalUrl} />
+<link rel="alternate" hreflang="en" href={isEn ? canonicalUrl : alternateUrl} />
+<link rel="alternate" hreflang="x-default" href={isEn ? alternateUrl : canonicalUrl} />
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
-<meta property="og:site_name" content="Dosimex" />
+<meta property="og:url" content={canonicalUrl} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:url" content={canonicalUrl} />
-<meta property="og:image" content={resolvedOgImage} />
-<meta property="og:locale" content={ogLocale} />
-<meta property="og:locale:alternate" content={ogLocaleAlternate} />
+<meta property="og:image" content={ogImageUrl} />
+<meta property="og:locale" content={isEn ? 'en_US' : 'fr_FR'} />
+<meta property="og:locale:alternate" content={isEn ? 'fr_FR' : 'en_US'} />
+<meta property="og:site_name" content="Dosimex" />
 
-<!-- Twitter Card -->
+<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={resolvedOgImage} />
+<meta name="twitter:image" content={ogImageUrl} />
 
-<!-- JSON-LD structured data -->
+<!-- JSON-LD -->
 {jsonLd?.map((schema) => (
 	<script type="application/ld+json" set:html={JSON.stringify(schema)} />
 ))}

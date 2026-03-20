@@ -14,10 +14,10 @@ const tr = t.training
 
 <Layout title={t.seo.training.title} description={t.seo.training.description} jsonLd={[organizationSchema]}>
 
-	<!-- Header -->
-	<section class="py-16 md:py-20">
+	<!-- Hero -->
+	<section class="py-16 md:py-24">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="grid items-center gap-10 md:grid-cols-2">
+			<div class="grid items-center gap-10 lg:grid-cols-2">
 				<div>
 					<h1 class="text-4xl font-extrabold tracking-tight text-foreground font-lato md:text-5xl">
 						{tr.header.title}
@@ -34,9 +34,9 @@ const tr = t.training
 	</section>
 
 	<!-- Section 1: Training Topics -->
-	<section class="bg-muted/30 py-16 md:py-20">
+	<section class="bg-[#E8E6E3] dark:bg-[#252320] py-16 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<h2 class="text-2xl font-bold text-foreground font-lato md:text-3xl">
+			<h2 class="text-2xl font-heading font-semibold text-foreground md:text-3xl">
 				{tr.section1.title}
 			</h2>
 			<div class="mt-8 grid gap-4 md:grid-cols-2">
@@ -49,10 +49,10 @@ const tr = t.training
 		</div>
 	</section>
 
-	<!-- Section 2: Partnership -->
+	<!-- Section 2: Partner Training -->
 	<section class="py-16 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<h2 class="text-2xl font-bold text-foreground font-lato md:text-3xl">
+			<h2 class="text-2xl font-heading font-semibold text-foreground md:text-3xl">
 				{tr.section2.title}
 			</h2>
 			<ul class="mt-8 space-y-3">
@@ -69,7 +69,7 @@ const tr = t.training
 				href="/Folders/catalogue_formations.pdf"
 				target="_blank"
 				rel="noopener noreferrer"
-				class="mt-8 inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+				class="mt-8 inline-flex items-center gap-2 rounded-[8px] bg-primary-600 hover:bg-primary-700 h-12 px-6 font-heading font-semibold text-white transition-colors"
 				data-ph-cta="download_catalog"
 			>
 				{tr.section2.button}
@@ -80,19 +80,19 @@ const tr = t.training
 		</div>
 	</section>
 
-	<!-- Questions CTA -->
-	<section class="py-16 md:py-20">
+	<!-- Contact CTA -->
+	<section class="bg-slate-950 py-16 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="rounded-xl bg-gradient-to-r from-primary/15 via-accent/10 to-emerald-400/10 p-8 text-center md:p-12">
-				<h2 class="text-2xl font-bold text-foreground font-lato md:text-3xl">
+			<div class="text-center">
+				<h2 class="text-2xl font-heading font-semibold text-white md:text-3xl">
 					{tr.questions.title}
 				</h2>
-				<p class="mx-auto mt-4 max-w-2xl text-foreground/70">
+				<p class="mx-auto mt-4 max-w-2xl text-slate-300">
 					{tr.questions.text}
 				</p>
 				<a
 					href={localePath(locale, '/contact')}
-					class="mt-6 inline-block rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+					class="mt-6 inline-flex items-center rounded-[8px] bg-primary-600 hover:bg-primary-700 h-12 px-6 font-heading font-semibold text-white transition-colors"
 					data-ph-cta="contact_us"
 				>
 					{tr.questions.button}

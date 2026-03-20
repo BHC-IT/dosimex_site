@@ -1,6 +1,5 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import ContactForm from '@/components/ContactForm.tsx'
 import { getTranslations, getLocalePaths, localePath, type Locale } from '@/i18n/utils'
 import { organizationSchema } from '@/data/schemas'
 
@@ -9,6 +8,10 @@ export const getStaticPaths = getLocalePaths
 const { locale } = Astro.props as { locale: Locale }
 const t = getTranslations(locale)
 const p = t.product
+
+const trialLabel = locale === 'fr' ? 'Essai gratuit 14 jours' : 'Free trial 14 days'
+const quoteLabel = locale === 'fr' ? 'Demander un devis' : 'Request a quote'
+const monthlyNote = locale === 'fr' ? 'Soit moins de 42\u20AC/mois' : 'Less than \u20AC42/month'
 
 const softwareSchema = {
 	'@context': 'https://schema.org',
@@ -37,190 +40,212 @@ const faqSchema = {
 
 <Layout title={t.seo.product.title} description={t.seo.product.description} jsonLd={[organizationSchema, softwareSchema, faqSchema]}>
 
-	<!-- Header -->
-	<section class="py-16 md:py-24">
-		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<h1 class="text-4xl font-extrabold tracking-tight text-accent font-lato md:text-5xl">
+	<!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+	<section class="py-12 md:py-20">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+			<h1 class="text-3xl font-semibold tracking-tight text-foreground font-heading md:text-4xl lg:text-5xl">
 				{p.title}
 			</h1>
-			<div class="mt-8 rounded-xl border-2 border-primary bg-primary/5 p-6 md:p-8">
-				<p class="text-foreground/80 leading-relaxed">{p.description}</p>
+			<p class="mx-auto mt-6 max-w-3xl text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+				{p.description}
+			</p>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════ PRICING CARDS ═══════════════════════════ -->
+	<section data-ph-section="pricing" class="bg-[#E8E6E3] dark:bg-[#252320] py-12 md:py-20">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<h2 class="text-center text-3xl font-semibold text-foreground font-heading">{p.pricing.title}</h2>
+			<p class="mt-2 text-center text-slate-600 dark:text-slate-400">{p.pricing.packageTitle}</p>
+
+			<div class="mt-12 grid gap-8 lg:grid-cols-2 max-w-4xl mx-auto">
+				<!-- Annual card -->
+				<div class="rounded-lg border border-slate-200 dark:border-[#3D3A35] bg-white dark:bg-[#252320] p-8 hover:shadow-sm hover:-translate-y-0.5 transition">
+					<h3 class="text-xl font-semibold text-foreground font-heading">{p.pricing.annual.title}</h3>
+					<div class="mt-6">
+						<span class="text-5xl font-bold text-foreground font-heading">{p.pricing.annual.price}</span>
+						<span class="ml-2 text-slate-500">{p.pricing.annual.duration}</span>
+					</div>
+					<p class="mt-2 text-sm text-slate-500">{monthlyNote}</p>
+					<ul class="mt-8 space-y-3">
+						{p.pricing.annual.features.map((feature) => (
+							<li class="flex items-start gap-3">
+								<svg class="mt-0.5 h-5 w-5 shrink-0 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+									<path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+								</svg>
+								<span class="text-slate-600 dark:text-slate-400">{feature}</span>
+							</li>
+						))}
+					</ul>
+					<a
+						href={localePath(locale, '/contact')}
+						class="mt-8 block w-full rounded-[8px] bg-primary-600 hover:bg-primary-700 text-white text-center h-12 leading-[3rem] font-heading font-semibold transition-colors"
+						data-ph-cta="request_quote"
+					>
+						{quoteLabel}
+					</a>
+				</div>
+
+				<!-- 3-year card (best value) -->
+				<div class="relative rounded-lg border-t-4 border-t-primary-600 border border-slate-200 dark:border-[#3D3A35] bg-white dark:bg-[#252320] p-8 hover:shadow-sm hover:-translate-y-0.5 transition">
+					<div class="absolute -top-4 left-1/2 -translate-x-1/2">
+						<span class="inline-block rounded-full bg-accent-400 px-4 py-1 text-xs font-bold text-slate-950">
+							{locale === 'fr' ? 'Meilleure offre' : 'Best value'}
+						</span>
+					</div>
+					<h3 class="text-xl font-semibold text-foreground font-heading">{p.pricing.triennial.title}</h3>
+					<div class="mt-6">
+						<span class="text-5xl font-bold text-foreground font-heading">{p.pricing.triennial.price}</span>
+						<span class="ml-2 text-slate-500">{p.pricing.triennial.duration}</span>
+					</div>
+					<p class="mt-2 text-sm font-semibold text-accent-600">{p.pricing.triennial.savings}</p>
+					<ul class="mt-8 space-y-3">
+						{p.pricing.triennial.features.map((feature) => (
+							<li class="flex items-start gap-3">
+								<svg class="mt-0.5 h-5 w-5 shrink-0 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+									<path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+								</svg>
+								<span class="text-slate-600 dark:text-slate-400">{feature}</span>
+							</li>
+						))}
+					</ul>
+					<a
+						href={localePath(locale, '/contact')}
+						class="mt-8 block w-full rounded-[8px] bg-primary-600 hover:bg-primary-700 text-white text-center h-12 leading-[3rem] font-heading font-semibold transition-colors"
+						data-ph-cta="request_quote"
+					>
+						{quoteLabel}
+					</a>
+				</div>
+			</div>
+
+			<!-- Free trial link below cards -->
+			<div class="mt-8 text-center">
+				<a
+					href="https://dosismart.com"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="text-primary-600 font-heading font-semibold hover:underline"
+					data-ph-cta="try_dosismart"
+				>
+					{trialLabel} &rarr;
+				</a>
 			</div>
 		</div>
 	</section>
 
-	<!-- Pack Content -->
-	<section class="bg-muted/30 py-16 md:py-24">
+	<!-- ═══════════════════════════ TRIAL BANNER ═══════════════════════════ -->
+	<section class="bg-primary-50 dark:bg-primary-950/20 py-12 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<h2 class="text-3xl font-bold text-foreground font-lato">{p.partE.title}</h2>
+			<h2 class="text-3xl font-semibold text-foreground font-heading">{p.trialBanner.title}</h2>
+			<p class="mt-4 max-w-2xl text-base text-slate-600 dark:text-slate-400">
+				{p.trialBanner.text}
+			</p>
+			<a
+				href="https://dosismart.com"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="mt-6 inline-flex items-center gap-2 rounded-[8px] bg-primary-600 hover:bg-primary-700 text-white h-12 px-6 font-heading font-semibold transition-colors"
+				data-ph-cta="try_dosismart"
+			>
+				{p.trialBanner.button}
+				<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+				</svg>
+			</a>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════ WHAT'S INCLUDED ═══════════════════════════ -->
+	<section class="py-12 md:py-20">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<h2 class="text-3xl font-semibold text-foreground font-heading">{p.partE.title}</h2>
 			<div class="mt-8 space-y-4">
 				{p.partE.items.map((item) => (
-					<div class="border-l-4 border-primary/50 bg-card rounded-r-lg p-5 shadow-sm">
-						<p class="text-foreground/80 leading-relaxed">{item}</p>
+					<div class="rounded-lg border border-slate-200 dark:border-[#3D3A35] bg-white dark:bg-[#252320] p-6 flex items-start gap-4">
+						<svg class="mt-0.5 h-5 w-5 shrink-0 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+						</svg>
+						<p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">{item}</p>
 					</div>
 				))}
 			</div>
 			<div class="mt-8 flex flex-wrap gap-4">
 				<a
 					href={localePath(locale, '/software')}
-					class="inline-flex items-center gap-2 rounded-lg border border-primary px-5 py-2.5 text-sm font-semibold text-primary transition-colors hover:bg-primary/10"
+					class="text-primary-600 font-heading font-semibold hover:underline"
 				>
-					{p.partE.softwareLink}
-					<span aria-hidden="true">&rarr;</span>
+					{p.partE.softwareLink} &rarr;
 				</a>
 				<a
 					href={localePath(locale, '/manuals')}
-					class="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-muted/20"
+					class="text-primary-600 font-heading font-semibold hover:underline"
 				>
-					{p.partE.manualsLink}
-					<span aria-hidden="true">&rarr;</span>
+					{p.partE.manualsLink} &rarr;
 				</a>
 			</div>
 		</div>
 	</section>
 
-	<!-- Prerequisites -->
-	<section class="py-16 md:py-24">
+	<!-- ═══════════════════════════ PREREQUISITES ═══════════════════════════ -->
+	<section class="bg-[#E8E6E3] dark:bg-[#252320] py-12 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<h2 class="text-2xl font-bold text-foreground font-lato">{p.prerequisites.title}</h2>
-			<p class="mt-4 max-w-3xl text-foreground/70 leading-relaxed">{p.prerequisites.text}</p>
+			<h2 class="text-3xl font-semibold text-foreground font-heading">{p.prerequisites.title}</h2>
+			<p class="mt-4 max-w-3xl text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+				{p.prerequisites.text}
+			</p>
 		</div>
 	</section>
 
-	<!-- Trial Banner -->
-	<section class="py-8">
+	<!-- ═══════════════════════════ FAQ ═══════════════════════════ -->
+	<section data-ph-section="faq" class="py-12 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="rounded-2xl bg-muted/50 p-8 md:p-12">
-				<h2 class="text-2xl font-bold text-foreground font-lato md:text-3xl">
-					{p.trialBanner.title}
-				</h2>
-				<p class="mt-4 max-w-2xl text-foreground/70">
-					{p.trialBanner.text}
-				</p>
-				<a
-					href="https://dosismart.com"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="mt-6 inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-					data-ph-cta="try_dosismart"
-				>
-					{p.trialBanner.button}
-					<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-					</svg>
-				</a>
-			</div>
-		</div>
-	</section>
-
-	<!-- Pricing -->
-	<section data-ph-section="pricing" class="py-16 md:py-24">
-		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<h2 class="text-center text-3xl font-bold text-foreground font-lato">{p.pricing.title}</h2>
-			<p class="mt-2 text-center text-foreground/60">{p.pricing.packageTitle}</p>
-
-			<div class="mt-12 grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
-				<!-- Annual -->
-				<div class="rounded-xl border-2 border-border p-8 transition-shadow hover:shadow-md">
-					<h3 class="text-xl font-bold text-foreground font-lato">{p.pricing.annual.title}</h3>
-					<div class="mt-4">
-						<span class="text-4xl font-extrabold text-foreground">{p.pricing.annual.price}</span>
-						<span class="ml-2 text-foreground/60">{p.pricing.annual.duration}</span>
-					</div>
-					<ul class="mt-6 space-y-3">
-						{p.pricing.annual.features.map((feature) => (
-							<li class="flex items-start gap-3">
-								<svg class="mt-0.5 h-5 w-5 shrink-0 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-									<path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-								</svg>
-								<span class="text-foreground/70">{feature}</span>
-							</li>
-						))}
-					</ul>
-				</div>
-
-				<!-- 3-Year (recommended) -->
-				<div class="relative rounded-xl border-2 border-primary p-8 shadow-lg scale-[1.02] md:scale-105">
-					<div class="absolute -top-3 left-1/2 -translate-x-1/2">
-						<span class="inline-block rounded-full bg-accent px-4 py-1 text-xs font-bold text-accent-foreground">
-							{p.pricing.triennial.savings}
-						</span>
-					</div>
-					<h3 class="text-xl font-bold text-foreground font-lato">{p.pricing.triennial.title}</h3>
-					<div class="mt-4">
-						<span class="text-4xl font-extrabold text-primary">{p.pricing.triennial.price}</span>
-						<span class="ml-2 text-foreground/60">{p.pricing.triennial.duration}</span>
-					</div>
-					<ul class="mt-6 space-y-3">
-						{p.pricing.triennial.features.map((feature) => (
-							<li class="flex items-start gap-3">
-								<svg class="mt-0.5 h-5 w-5 shrink-0 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-									<path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-								</svg>
-								<span class="text-foreground/70">{feature}</span>
-							</li>
-						))}
-					</ul>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Order -->
-	<section class="bg-muted/30 py-16 md:py-24">
-		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-			<h2 class="text-2xl font-bold text-foreground font-lato md:text-3xl">{p.pricing.orderTitle}</h2>
-			<p class="mx-auto mt-4 max-w-2xl text-foreground/70">{p.pricing.orderText}</p>
-			<a
-				href="#buy"
-				class="mt-6 inline-block rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-				data-ph-cta="request_quote"
-			>
-				{p.pricing.quoteButton}
-			</a>
-		</div>
-	</section>
-
-	<!-- FAQ -->
-	<section data-ph-section="faq" class="py-16 md:py-24">
-		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<h2 class="text-center text-3xl font-bold text-foreground font-lato">{p.faq.title}</h2>
+			<h2 class="text-center text-3xl font-semibold text-foreground font-heading">{p.faq.title}</h2>
 			<div class="mx-auto mt-10 max-w-3xl space-y-4">
 				{p.faq.questions.map((item) => (
-					<div class="rounded-xl bg-muted/10 p-6">
-						<h3 class="text-lg font-bold text-foreground">{item.question}</h3>
-						<p class="mt-3 text-foreground/70 leading-relaxed">{item.answer}</p>
-					</div>
+					<details class="group rounded-lg border border-slate-200 dark:border-[#3D3A35] bg-white dark:bg-[#252320]">
+						<summary class="flex items-center justify-between p-6 font-heading font-semibold text-foreground">
+							<span>{item.question}</span>
+							<svg class="faq-chevron h-5 w-5 shrink-0 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+							</svg>
+						</summary>
+						<div class="px-6 pb-6">
+							<p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">{item.answer}</p>
+						</div>
+					</details>
 				))}
 			</div>
 		</div>
 	</section>
 
-	<!-- Contact Section -->
-	<section id="buy" class="py-16 md:py-24">
-		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="rounded-2xl bg-gradient-to-r from-primary/8 via-accent/5 to-emerald-400/5 p-8 md:p-12">
-				<h2 class="text-center text-2xl font-bold text-foreground font-lato md:text-3xl">
-					{p.contact.title}
-				</h2>
-				<p class="mx-auto mt-4 max-w-2xl text-center text-foreground/70">
-					{p.contact.text}
-					<a href="tel:+33689709035" class="font-semibold text-foreground hover:text-primary transition-colors">
-						{p.contact.phone}
-					</a>
-				</p>
-				<div class="mx-auto mt-8 max-w-2xl">
-					<ContactForm
-						client:visible
-						labels={t.contactForm.labels}
-						errors={t.contactForm.errors}
-						button={t.contactForm.button}
-						sending={t.contactForm.sending}
-						messageSent={t.contactForm.messageSent}
-						messageNotSent={t.contactForm.messageNotSent}
-						title={t.contactForm.title}
-					/>
-				</div>
+	<!-- ═══════════════════════════ CONTACT CTA ═══════════════════════════ -->
+	<section class="bg-slate-950 py-12 md:py-20">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+			<h2 class="text-3xl font-semibold text-white font-heading">{p.contact.title}</h2>
+			<p class="mx-auto mt-4 max-w-2xl text-slate-400">
+				{p.contact.text}
+				<a href="tel:+33689709035" class="font-semibold text-white hover:text-primary-400 transition-colors">
+					{p.contact.phone}
+				</a>
+			</p>
+			<div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+				<a
+					href="https://dosismart.com"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="inline-flex items-center rounded-[8px] bg-primary-600 hover:bg-primary-700 text-white h-12 px-6 font-heading font-semibold transition-colors"
+					data-ph-cta="try_dosismart"
+				>
+					{trialLabel}
+				</a>
+				<a
+					href={localePath(locale, '/contact')}
+					class="inline-flex items-center rounded-[8px] border-[1.5px] border-slate-300 text-white h-12 px-6 font-heading font-semibold hover:bg-slate-800 transition-colors"
+					data-ph-cta="contact_us"
+				>
+					{quoteLabel}
+				</a>
 			</div>
 		</div>
 	</section>

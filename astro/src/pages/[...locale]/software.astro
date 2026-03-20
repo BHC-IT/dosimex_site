@@ -1,10 +1,8 @@
 ---
-import { Image } from 'astro:assets'
 import Layout from '@/layouts/Layout.astro'
+import VideoEmbed from '@/components/VideoEmbed.astro'
 import { getTranslations, getLocalePaths, localePath, type Locale } from '@/i18n/utils'
 import { organizationSchema } from '@/data/schemas'
-import flagFr from '@/assets/images/Flag_France.webp'
-import flagEn from '@/assets/images/Flag_Uk.webp'
 
 export const getStaticPaths = getLocalePaths
 
@@ -15,187 +13,155 @@ const s = t.software
 
 <Layout title={t.seo.software.title} description={t.seo.software.description} jsonLd={[organizationSchema]}>
 
-	<!-- Header -->
-	<section class="py-16 md:py-24">
+	<!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+	<section class="py-12 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<h1 class="text-4xl font-extrabold tracking-tight text-foreground font-lato md:text-5xl">
+			<h1 class="text-3xl font-semibold tracking-tight text-foreground font-heading md:text-4xl lg:text-5xl">
 				{s.header.title}
 			</h1>
-			<p class="mt-6 max-w-3xl text-lg text-foreground/70 leading-relaxed">
+			<p class="mt-6 max-w-3xl text-base text-slate-600 dark:text-slate-400 leading-relaxed">
 				{s.header.description}
 			</p>
-			<div class="mt-8 flex flex-wrap gap-4">
+			<div class="mt-8 flex flex-wrap gap-3">
 				{s.header.anchors.map((anchor) => (
 					<a
 						href={anchor.href}
-						class="inline-flex items-center gap-2 rounded-lg border border-border px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-muted/20"
+						class="inline-flex items-center gap-2 rounded-[8px] border-[1.5px] border-slate-300 dark:border-[#3D3A35] text-slate-700 dark:text-slate-300 h-12 px-6 font-heading font-semibold hover:bg-slate-100 dark:hover:bg-[#3D3A35] transition-colors"
 					>
 						{anchor.label}
-						<span aria-hidden="true">&rarr;</span>
+						<span aria-hidden="true">&darr;</span>
 					</a>
 				))}
 			</div>
 		</div>
 	</section>
 
-	<!-- Dosismart Banner -->
-	<section class="py-8">
+	<!-- ═══════════════════════════ DOSISMART BANNER ═══════════════════════════ -->
+	<section class="bg-primary-50 dark:bg-primary-950/20 py-12 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="rounded-2xl bg-gradient-to-r from-primary/15 via-accent/10 to-emerald-400/10 p-8 md:p-12">
-				<h2 class="text-2xl font-bold text-foreground font-lato md:text-3xl">
-					{s.dosismartBanner.title}
-				</h2>
-				<p class="mt-4 max-w-2xl text-foreground/70">
-					{s.dosismartBanner.text}
-				</p>
-				<a
-					href="https://dosismart.com"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="mt-6 inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-					data-ph-cta="try_dosismart"
-				>
-					{s.dosismartBanner.button}
-					<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-					</svg>
-				</a>
-			</div>
+			<h2 class="text-3xl font-semibold text-foreground font-heading">
+				{s.dosismartBanner.title}
+			</h2>
+			<p class="mt-4 max-w-2xl text-base text-slate-600 dark:text-slate-400">
+				{s.dosismartBanner.text}
+			</p>
+			<a
+				href="https://dosismart.com"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="mt-6 inline-flex items-center gap-2 rounded-[8px] bg-primary-600 hover:bg-primary-700 text-white h-12 px-6 font-heading font-semibold transition-colors"
+				data-ph-cta="try_dosismart"
+			>
+				{s.dosismartBanner.button}
+				<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+				</svg>
+			</a>
 		</div>
 	</section>
 
-	<!-- Pack Operational -->
-	<section id="pack-ope" class="py-16 md:py-24">
+	<!-- ═══════════════════════════ PACK OPERATIONNEL ═══════════════════════════ -->
+	<section id="pack-ope" class="py-12 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="mb-10 border-l-4 border-accent pl-6">
-				<h2 class="text-3xl font-bold text-foreground font-lato">{s.packOpe.title}</h2>
-				<p class="mt-3 text-foreground/70">{s.packOpe.description}</p>
+			<div class="mb-10">
+				<h2 class="text-3xl font-semibold text-foreground font-heading">{s.packOpe.title}</h2>
+				<p class="mt-3 max-w-3xl text-base text-slate-600 dark:text-slate-400">{s.packOpe.description}</p>
 			</div>
-			<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+			<div class="grid gap-6 lg:grid-cols-2">
 				{s.packOpe.tools.map((tool) => (
-					<div class="rounded-xl border bg-card p-6 shadow-sm transition-colors hover:bg-muted/20">
+					<div class="rounded-lg border border-slate-200 dark:border-[#3D3A35] bg-white dark:bg-[#252320] p-8 hover:shadow-sm hover:-translate-y-0.5 transition">
 						<div class="flex items-start justify-between gap-3">
-							<h3 class="text-lg font-bold text-foreground">{tool.name}</h3>
-							{tool.videoId && (
-								<a
-									href={`https://www.youtube.com/watch?v=${tool.videoId}`}
-									target="_blank"
-									rel="noopener noreferrer"
-									class="shrink-0 text-primary transition-colors hover:text-primary/80"
-									aria-label={`${tool.name} — ${s.watchVideo}`}
-								>
-									<svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-										<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-									</svg>
-								</a>
-							)}
+							<h3 class="text-lg font-semibold text-foreground font-heading">{tool.name}</h3>
+							<div class="flex items-center gap-2 shrink-0">
+								{tool.frOnly && (
+									<span class="text-xs bg-[#E8E6E3] dark:bg-[#3D3A35] text-slate-500 rounded px-2 py-0.5">FR only</span>
+								)}
+							</div>
 						</div>
-						<div class="mt-2 flex items-center gap-2">
-							<Image src={flagFr} alt="FR" height={16} class="h-4 inline" />
-							{!tool.frOnly && (
-								<Image src={flagEn} alt="EN" height={16} class="h-4 inline" />
-							)}
-						</div>
-						<p class="mt-3 text-sm text-foreground/70 leading-relaxed">{tool.description}</p>
+						<p class="mt-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{tool.description}</p>
+						{tool.videoId && (
+							<div class="mt-4">
+								<VideoEmbed videoId={tool.videoId} title={tool.name} />
+							</div>
+						)}
 					</div>
 				))}
 			</div>
 		</div>
 	</section>
 
-	<!-- Pack Pedagogical -->
-	<section id="pack-peda" class="bg-muted/30 py-16 md:py-24">
+	<!-- ═══════════════════════════ PACK PEDAGOGIQUE ═══════════════════════════ -->
+	<section id="pack-peda" class="bg-[#E8E6E3] dark:bg-[#252320] py-12 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="mb-10 border-l-4 border-primary pl-6">
-				<h2 class="text-3xl font-bold text-foreground font-lato">{s.packPeda.title}</h2>
-				<p class="mt-3 text-foreground/70">{s.packPeda.description}</p>
+			<div class="mb-10">
+				<h2 class="text-3xl font-semibold text-foreground font-heading">{s.packPeda.title}</h2>
+				<p class="mt-3 max-w-3xl text-base text-slate-600 dark:text-slate-400">{s.packPeda.description}</p>
 			</div>
-			<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+			<div class="grid gap-6 lg:grid-cols-2">
 				{s.packPeda.tools.map((tool) => (
-					<div class="rounded-xl border bg-card p-6 shadow-sm transition-colors hover:bg-muted/20">
+					<div class="rounded-lg border border-slate-200 dark:border-[#3D3A35] bg-white dark:bg-[#1A1917] p-8 hover:shadow-sm hover:-translate-y-0.5 transition">
 						<div class="flex items-start justify-between gap-3">
-							<h3 class="text-lg font-bold text-foreground">{tool.name}</h3>
-							{tool.videoId && (
-								<a
-									href={`https://www.youtube.com/watch?v=${tool.videoId}`}
-									target="_blank"
-									rel="noopener noreferrer"
-									class="shrink-0 text-primary transition-colors hover:text-primary/80"
-									aria-label={`${tool.name} — ${s.watchVideo}`}
-								>
-									<svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-										<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-									</svg>
-								</a>
-							)}
+							<h3 class="text-lg font-semibold text-foreground font-heading">{tool.name}</h3>
+							<div class="flex items-center gap-2 shrink-0">
+								{tool.frOnly && (
+									<span class="text-xs bg-[#E8E6E3] dark:bg-[#3D3A35] text-slate-500 rounded px-2 py-0.5">FR only</span>
+								)}
+							</div>
 						</div>
-						<div class="mt-2 flex items-center gap-2">
-							<Image src={flagFr} alt="FR" height={16} class="h-4 inline" />
-							{!tool.frOnly && (
-								<Image src={flagEn} alt="EN" height={16} class="h-4 inline" />
-							)}
-						</div>
-						<p class="mt-3 text-sm text-foreground/70 leading-relaxed">{tool.description}</p>
+						<p class="mt-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{tool.description}</p>
+						{tool.videoId && (
+							<div class="mt-4">
+								<VideoEmbed videoId={tool.videoId} title={tool.name} />
+							</div>
+						)}
 					</div>
 				))}
 			</div>
 		</div>
 	</section>
 
-	<!-- Pack Measurement -->
-	<section id="pack-mes" class="py-16 md:py-24">
+	<!-- ═══════════════════════════ PACK MESURES ═══════════════════════════ -->
+	<section id="pack-mes" class="py-12 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="mb-10 border-l-4 border-orange-400 pl-6">
-				<h2 class="text-3xl font-bold text-foreground font-lato">{s.packMes.title}</h2>
-				<p class="mt-3 text-foreground/70">{s.packMes.description}</p>
+			<div class="mb-10">
+				<h2 class="text-3xl font-semibold text-foreground font-heading">{s.packMes.title}</h2>
+				<p class="mt-3 max-w-3xl text-base text-slate-600 dark:text-slate-400">{s.packMes.description}</p>
 			</div>
-			<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+			<div class="grid gap-6 lg:grid-cols-2">
 				{s.packMes.tools.map((tool) => (
-					<div class="rounded-xl border bg-card p-6 shadow-sm transition-colors hover:bg-muted/20">
+					<div class="rounded-lg border border-slate-200 dark:border-[#3D3A35] bg-white dark:bg-[#252320] p-8 hover:shadow-sm hover:-translate-y-0.5 transition">
 						<div class="flex items-start justify-between gap-3">
-							<h3 class="text-lg font-bold text-foreground">{tool.name}</h3>
-							{tool.videoId && (
-								<a
-									href={`https://www.youtube.com/watch?v=${tool.videoId}`}
-									target="_blank"
-									rel="noopener noreferrer"
-									class="shrink-0 text-primary transition-colors hover:text-primary/80"
-									aria-label={`${tool.name} — ${s.watchVideo}`}
-								>
-									<svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-										<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-									</svg>
-								</a>
-							)}
+							<h3 class="text-lg font-semibold text-foreground font-heading">{tool.name}</h3>
+							<div class="flex items-center gap-2 shrink-0">
+								{tool.frOnly && (
+									<span class="text-xs bg-[#E8E6E3] dark:bg-[#3D3A35] text-slate-500 rounded px-2 py-0.5">FR only</span>
+								)}
+							</div>
 						</div>
-						<div class="mt-2 flex items-center gap-2">
-							<Image src={flagFr} alt="FR" height={16} class="h-4 inline" />
-							{!tool.frOnly && (
-								<Image src={flagEn} alt="EN" height={16} class="h-4 inline" />
-							)}
-						</div>
-						<p class="mt-3 text-sm text-foreground/70 leading-relaxed">{tool.description}</p>
+						<p class="mt-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{tool.description}</p>
+						{tool.videoId && (
+							<div class="mt-4">
+								<VideoEmbed videoId={tool.videoId} title={tool.name} />
+							</div>
+						)}
 					</div>
 				))}
 			</div>
 		</div>
 	</section>
 
-	<!-- More Resources -->
-	<section class="bg-muted/30 py-16 md:py-24">
+	<!-- ═══════════════════════════ MORE RESOURCES ═══════════════════════════ -->
+	<section class="bg-[#E8E6E3] dark:bg-[#252320] py-12 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<h2 class="text-2xl font-bold text-foreground font-lato">{s.more.title}</h2>
+			<h2 class="text-3xl font-semibold text-foreground font-heading">{s.more.title}</h2>
 			<ul class="mt-6 space-y-3">
 				{s.more.links.map((link) => (
 					<li>
 						<a
 							href={localePath(locale, link.href)}
-							class="inline-flex items-center gap-2 text-foreground/80 transition-colors hover:text-primary"
+							class="text-primary-600 font-heading font-semibold hover:underline"
 						>
-							<svg class="h-4 w-4 shrink-0 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-							</svg>
-							{link.label}
+							{link.label} &rarr;
 						</a>
 					</li>
 				))}
@@ -203,37 +169,19 @@ const s = t.software
 		</div>
 	</section>
 
-	<!-- Questions CTA -->
-	<section class="py-16 md:py-24">
-		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="rounded-2xl bg-gradient-to-r from-primary/15 via-accent/10 to-emerald-400/10 p-8 text-center md:p-12">
-				<h2 class="text-2xl font-bold text-foreground font-lato md:text-3xl">
-					{s.ask.title}
-				</h2>
-				<p class="mx-auto mt-4 max-w-2xl text-foreground/70">
-					{s.ask.text}
-				</p>
-				<a
-					href={localePath(locale, '/contact')}
-					class="mt-6 inline-block rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-					data-ph-cta="contact_us"
-				>
-					{s.ask.labelButton}
-				</a>
-			</div>
-		</div>
-	</section>
-
-	<!-- Videos button -->
-	<section class="pb-16 md:pb-24">
+	<!-- ═══════════════════════════ CONTACT CTA ═══════════════════════════ -->
+	<section class="py-12 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+			<h2 class="text-3xl font-semibold text-foreground font-heading">{s.ask.title}</h2>
+			<p class="mx-auto mt-4 max-w-2xl text-base text-slate-600 dark:text-slate-400">
+				{s.ask.text}
+			</p>
 			<a
-				href={localePath(locale, '/videos')}
-				class="inline-flex items-center gap-2 rounded-lg border border-border px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-muted/20"
-				data-ph-cta="view_videos"
+				href={localePath(locale, '/contact')}
+				class="mt-6 inline-flex items-center rounded-[8px] bg-primary-600 hover:bg-primary-700 text-white h-12 px-6 font-heading font-semibold transition-colors"
+				data-ph-cta="contact_us"
 			>
-				{s.videosButton}
-				<span aria-hidden="true">&rarr;</span>
+				{s.ask.labelButton}
 			</a>
 		</div>
 	</section>

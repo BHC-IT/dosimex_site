@@ -2,69 +2,56 @@
 interface Props {
 	videoId: string
 	title?: string
-	class?: string
 }
 
-const { videoId, title = 'YouTube video', class: className = '' } = Astro.props
+const { videoId, title = 'Video' } = Astro.props
+const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
 ---
 
 <div
-	class:list={['yt-facade relative aspect-video w-full overflow-hidden rounded-xl cursor-pointer bg-black', className]}
+	class="relative aspect-video rounded-lg overflow-hidden shadow-lg cursor-pointer group"
 	data-video-id={videoId}
-	data-video-title={title}
 	role="button"
 	tabindex="0"
-	aria-label={`Play: ${title}`}
+	aria-label={`Play video: ${title}`}
 >
-	<!-- YouTube thumbnail -->
+	<!-- Thumbnail -->
 	<img
-		src={`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`}
+		src={thumbnailUrl}
 		alt={title}
-		class="absolute inset-0 h-full w-full object-cover"
+		class="w-full h-full object-cover"
 		loading="lazy"
 	/>
-	<!-- Play button overlay -->
-	<div class="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors hover:bg-black/10">
-		<svg class="h-16 w-16 text-white drop-shadow-lg" viewBox="0 0 68 48" fill="none">
-			<path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/>
-			<path d="M45 24L27 14v20" fill="white"/>
-		</svg>
+
+	<!-- Overlay -->
+	<div class="absolute inset-0 bg-black/35 group-hover:bg-black/25 transition-colors duration-200 flex items-center justify-center">
+		<!-- Play button -->
+		<div class="w-[72px] h-[72px] bg-primary-600 rounded-full flex items-center justify-center shadow-[0_4px_24px_rgba(219,33,50,0.3)] group-hover:scale-110 transition-transform duration-200">
+			<svg class="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+				<path d="M8 5v14l11-7z" />
+			</svg>
+		</div>
 	</div>
 </div>
 
 <script>
-	function initFacades() {
-		document.querySelectorAll<HTMLElement>('.yt-facade').forEach((el) => {
-			if (el.dataset.initialized) return
-			el.dataset.initialized = 'true'
-
-			const activate = () => {
+	function initVideoEmbeds() {
+		document.querySelectorAll<HTMLElement>('[data-video-id]').forEach((el) => {
+			function activate() {
 				const id = el.dataset.videoId
-				const title = el.dataset.videoTitle ?? 'YouTube video'
-
-				// PostHog tracking
-				if (typeof posthog !== 'undefined') {
-					const [, lang] = window.location.pathname.split('/')
-					posthog.capture('video_play', {
-						locale: lang === 'en' ? 'en' : 'fr',
-						page: window.location.pathname,
-						video_id: id,
-						video_title: title,
-					})
-				}
+				if (!id) return
 				const iframe = document.createElement('iframe')
-				iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1`
-				iframe.title = title
+				iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`
 				iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
 				iframe.allowFullscreen = true
-				iframe.className = 'absolute inset-0 h-full w-full'
-				el.replaceChildren(iframe)
+				iframe.className = 'absolute inset-0 w-full h-full'
+				iframe.title = el.getAttribute('aria-label') ?? 'Video'
+				el.innerHTML = ''
 				el.classList.remove('cursor-pointer')
 				el.removeAttribute('role')
 				el.removeAttribute('tabindex')
-				el.removeAttribute('aria-label')
+				el.appendChild(iframe)
 			}
-
 			el.addEventListener('click', activate, { once: true })
 			el.addEventListener('keydown', (e) => {
 				if (e.key === 'Enter' || e.key === ' ') {
@@ -74,7 +61,6 @@ const { videoId, title = 'YouTube video', class: className = '' } = Astro.props
 			}, { once: true })
 		})
 	}
-
-	initFacades()
-	document.addEventListener('astro:page-load', initFacades)
+	initVideoEmbeds()
+	document.addEventListener('astro:page-load', initVideoEmbeds)
 </script>

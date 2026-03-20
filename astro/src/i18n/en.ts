@@ -49,20 +49,17 @@ export const en = {
 		cardIcon: 'Icon',
 	},
 	navbar: {
-		items: ['Product', 'Training', 'Documentation', 'About us', 'Contact'],
-		button: 'Free Trial',
-		quoteButton: 'Request a quote',
+		items: ['Software', 'Product', 'Training', 'About', 'Contact'],
+		button: 'Free trial 14 days',
 	},
 	home: {
 		hero: {
-			title: 'Radiation protection calculation tools for everyone',
+			title: 'Radiation protection, calculated right.',
 			subtitle:
-				'A set of practical, easy-to-use, validated calculation tools that address many situations encountered in radiation protection. They will allow you to improve your expertise level.',
-			promo:
-				'New: Dosismart -- Dosimex calculation codes, now in the browser. No installation required.',
-			cta: 'Discover',
-			trialButton: 'Free Trial',
-			referencesButton: 'Publications',
+				'17 MCNP-validated calculation tools. Gamma, beta, neutron, internal exposure, atmospheric transfer. Immediate setup.',
+			cta: 'View the tools',
+			trialButton: 'Free trial 14 days',
+			priceNote: 'Dosimex (Excel) + Dosismart (browser) — From €500/year excl. VAT',
 		},
 		partners: {
 			title: 'Partners',
@@ -80,35 +77,50 @@ export const en = {
 			],
 		},
 		offers: {
-			title: 'What we offer',
+			title: 'What you get',
 			description:
-				'A set of calculation tools (total of 17) covering most of the field in radiation protection: gamma, beta and neutron external exposure, internal exposure, atmospheric transfer and more. You will find on this site explanatory videos for each tool and their validation files (downloadable pdf).',
+				'17 tools covering the essentials of radiation protection. Each code comes with an explanatory video and downloadable validation files.',
 			card1: {
 				title: 'Dosimex + Dosismart',
 				description:
 					'17 Dosimex calculation tools (Excel) and Dosismart, their web version running in the browser',
+				linkLabel: 'See the tools',
 			},
 			card2: {
 				title: 'Documentation',
 				description:
 					'Validated via MCNP, RayXpert, Microshield and Mercurad. Access all documentation associated with Dosimex-GX',
+				linkLabel: 'Download',
 			},
 			card3: {
 				title: 'Training',
 				description:
-					'We guide you to take in hand these calculation tools by adapting us to your specific problems',
+					'Hands-on training adapted to your specific use cases and radiation protection problems',
+				linkLabel: 'Learn more',
 			},
 		},
-		callToAction: {
-			title: 'Dosimex + Dosismart: Excel and web, same calculation codes',
-			button: 'Request a quote',
+		dosismart: {
+			title: 'Also available in the browser',
+			text: 'Dosismart runs the Dosimex codes as a web app. No installation, any OS.',
+			button: 'Try for free',
+		},
+		close: {
+			title: 'Ready to try?',
+			price: 'From \u20AC500/year excl. VAT',
+			includes: 'Excel license + Dosismart access + technical support',
+			quoteButton: 'Request a quote',
 			trialButton: '14-day free trial',
+		},
+		packs: {
+			title: 'What Dosimex contains',
+			subtitle: 'Every code is validated (MCNP, RayXpert, Microshield) with full documentation included.',
+			allTools: 'See all tools in detail',
 		},
 		numbers: {
 			items: [
 				{ value: '+30 years', label: 'of experience' },
-				{ value: '+1000', label: 'convinced radioprotectionists' },
-				{ value: '35', label: 'days of support provided' },
+				{ value: '+1000', label: 'users in the field' },
+				{ value: '17', label: 'calculation codes' },
 			],
 		},
 		videoTitle: 'Dosimex Presentation',
@@ -120,7 +132,7 @@ export const en = {
 		},
 		opinion: {
 			name: 'Jean-Lionel Trolet',
-			job: 'EAMEA',
+			job: 'EAMEA — French Military School of Nuclear Energy Applications',
 			text: 'I use DOSIMEX, which gives me total satisfaction, both by the quality of its results and its ease of use, in the training of personnel from the Ministry of the Armed Forces. It has, among other things, the strength of taking into account common situations faced by MinArm agents, both in the roles of medical PCRs (thanks to the X-ray calculation module!) as well as those involved at all levels in the industrial field (from PNR to engineer). Finally, it is so easy to use that almost all the PCRs we train have adopted it in their units.',
 			button: 'More reviews',
 		},
@@ -196,15 +208,19 @@ export const en = {
 	contact: {
 		header: {
 			title: 'Quote or demonstration',
-			subtitle:
-				'Describe your needs below. Response within 24 hours. Video conference demonstration available.',
+			subtitle: 'Describe your needs. Response within 24 hours.',
+		},
+		info: {
+			responseTime: { label: 'Response time', value: 'Within 24h' },
+			phone: { label: 'Phone', value: '06 89 70 90 35' },
+			demo: { label: 'Demo', value: 'Video conference available' },
 		},
 	},
 	software: {
 		header: {
-			title: 'Product',
+			title: 'Calculation tools',
 			description:
-				'The DOSIMEX pack is your reference digital solution for all radiation protection calculations. It includes 17 utilities: precise and reliable codes for operational calculations, clear, rich, and interactive educational modules, and tools covering measurement aspects. Designed to be fast, reliable, and easy to use, DOSIMEX becomes an indispensable tool for saving time, working safely, and achieving accurate results.',
+				'The DOSIMEX pack includes 17 radiation protection calculation utilities: 6 operational codes, 6 learning modules and 5 measurement tools. Available in Excel and as a web app (Dosismart).',
 			anchors: [
 				{ label: 'Operational pack', href: '#pack-ope' },
 				{ label: 'Learning pack', href: '#pack-peda' },
@@ -466,32 +482,23 @@ export const en = {
 		header: { title: 'Our team' },
 		gerald: {
 			paragraphs: [
-				'I began my career in 1997 in the French Navy as an electrical technician on weapons systems. After training as a radiation protection technician (RT), I joined the RPD at Ile Longue, with various missions focused on nuclear-armed ballistic missile submarines (SNLE): radiological assistance, reactor compartment mapping, radiological analyses in the medium activity laboratory, nuclear safety exercises...',
-				"In 2003, after training as a senior technician in radiation protection (TRS) at the INSTN, I joined the Ecole des Applications Militaire à l'Energie Atomique (EAMEA) where I taught radioactivity, radiation protection, dosimetry, and nuclear measurement. From that time on, to compensate for the obvious lack of tools, I started to create my own calculation tools.",
-				'In 2010, I joined the RDP of the Cherbourg Arsenal in charge of the 2SNM (Marine Nuclear Monitoring System), a system linked to the National Measurement Network (NMN). This experience allowed me, among other things, to create the Dosimex-I code, particularly on the atmospheric transfer option.',
-				"Since 2013, after having published in collaboration with Alain Vivier, the book 'Calculation of dose generated by ionizing radiation', I joined the radiation protection department of the Orano site at La Hague where I was confronted with most of the site's radiation protection problems:",
-				'In most of the radiation protection problems I had to face, the Dosimex tools were very useful to analyze the radiological risk. Conversely, feedback has allowed me to enrich these codes.',
-			],
-			timeline: [
-				'2013 - 2015: monitoring of the dismantling of the UP2-400 production unit in the High Activity sector.',
-				'2015 - 2017: dismantling advisor on the ELAN2B and STE2 (Effluent Treatment Station) perimeters, analysis of approaches.',
-				'2017 - 2018: responsible for the radiation protection level of the High Activity perimeter of the UP2-400 plant.',
-				'2018 - 2019: activity manager for the Conditioning Operational Unit: vitrification (R7/T7), waste treatment (AD2 and AD1/BDH) and hull compaction (ACC) workshops at the UP2-800 and UP3 plants at the La Hague site.',
-				"In 2019, I took over responsibility for the expertise division in charge of technical support and innovation for all the sector's activities in the fields of radiation protection and conventional safety.",
+				'I began my career in 1997 in the French Navy. After training in radiation protection, I joined the RPD at Ile Longue on nuclear submarines, then the EAMEA where I taught radioactivity, dosimetry and nuclear measurement. That is when I started building my own calculation tools for coursework.',
+				'In 2010, at the Cherbourg Arsenal RPD, I created the Dosimex-I code (atmospheric transfer). Since 2013, at the Orano La Hague radiation protection department, I have faced most of the site radiation protection challenges: dismantling, high activity, vitrification, waste treatment.',
+				'In all these situations, the Dosimex tools proved invaluable for analyzing radiological risk. Field experience has continuously fed back into improving the codes.',
 			],
 		},
 		alain: {
 			paragraphs: [
-				"After studying at the Ecole de l'Air (class of '80) and being assigned to a Mirage IV maintenance unit, I was designated to be a PCR for X-rays on canopies. Apart from the X-ray generator, I had neither a radiation meter nor any calculation tools at the time, so I had no idea of the radiological risk involved.",
-				'In 1990, I joined the Ecole Atomique de Cherbourg to do an atomic engineering degree. I was lucky enough to be able to stay there as a teacher.',
-				"Responsible for teaching nuclear physics and a measurement laboratory, I began to understand the phenomena of radiation-matter interaction and realized that it should be possible to calculate, not just measure, a dose rate from a 1 GBq source of Cesium 137 placed at 1 m.",
-				"My first modeling experience involved the calculation of the stopping power of charged particles, using Bethe's formula. I was then struck by the agreement between the theoretical prediction and the results of measurements with conversion electrons and thin copper targets. This cross validation between modeling and measurement was a revelation.",
-				"In 1998, I joined the CEA, first at the RDP in Cadarache at the AtPu (plutonium workshop), then in 2000, at the INSTN in Saclay. The first training course I created there was entitled 'dosimetry of ionizing radiation'.",
-				'During visits to the Ecole Atomique, I met Gérald Lopez. I quickly recognized his skills in modeling, his capacity for analysis associated with an extraordinary work capacity. At that time, he had already laid the foundations for what would become Dosimex-GX.',
-				'In 2010, when EDP agreed to publish a book on dose calculations, it became clear to me that such a book should be accompanied by calculation utilities, and especially that Gérald Lopez was essential to the realization of this project. This is how Dosimex was born.',
+				"After the Ecole de l'Air (class of '80), I was designated PCR for X-rays on Mirage IV canopies. With no radiation meter or calculation tools, I had no idea of the radiological risk involved. In 1990, at the Ecole Atomique de Cherbourg, I began teaching nuclear physics and understanding radiation-matter interaction.",
+				"My first modeling work — stopping power of charged particles using Bethe's formula — was a revelation: the agreement between theoretical prediction and measurements with conversion electrons was striking. At CEA then INSTN Saclay, I created the training course on dosimetry of ionizing radiation.",
+				'Meeting Gerald Lopez, I recognized his modeling skills and extraordinary work capacity. In 2010, when EDP agreed to publish our book on dose calculations, it was clear it needed to be accompanied by calculation utilities. This is how Dosimex was born.',
 			],
 		},
-		epilogue: 'Epilogue: it is thanks to Dosimex that I was finally able, 25 years later, to have an idea of the radiological risk incurred with X-ray generators, a risk that is far from negligible',
+		epilogue: 'Epilogue: it is thanks to Dosimex that I was finally able, 25 years later, to assess the radiological risk from X-ray generators — a risk that is far from negligible.',
+		cta: {
+			title: 'Discover our tools',
+			button: 'See the product',
+		},
 	},
 	books: {
 		header: { title: 'Readings' },
@@ -603,7 +610,7 @@ export const en = {
 	footer: {
 		col1: {
 			p: [
-				'Copyright © 2025 Designed by Dosimex',
+				'Copyright © 2026 Designed by Dosimex',
 				'All rights reserved',
 				'06 89 70 90 35',
 				'Follow us on social media',

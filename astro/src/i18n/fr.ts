@@ -49,20 +49,17 @@ export const fr = {
 		cardIcon: 'Ic\u00f4ne',
 	},
 	navbar: {
-		items: ['Notre produit', 'Formations', 'Documentation', 'Qui sommes-nous ?', 'Contact'],
-		button: 'Essai gratuit',
-		quoteButton: 'Demander un devis',
+		items: ['Logiciel', 'Produit', 'Formation', 'À propos', 'Contact'],
+		button: 'Essai gratuit 14 jours',
 	},
 	home: {
 		hero: {
-			title: 'Des outils de calculs radioprotection pour tous',
+			title: 'La radioprotection, calculée juste.',
 			subtitle:
-				"Ensemble d'outils de calculs pratiques, simples d'emploi, validés, et répondant à de nombreuses situations rencontrées en radioprotection. Ils vous permettront d'améliorer votre niveau d'expertise.",
-			promo:
-				'Nouveau : Dosismart, vos codes de calcul Dosimex en version web. Fonctionne dans le navigateur, sans installation.',
-			cta: 'Découvrir',
-			trialButton: 'Essai gratuit',
-			referencesButton: 'Publications',
+				"17 outils de calcul validés MCNP. Gamma, bêta, neutron, exposition interne, transfert atmosphérique. Prise en main immédiate.",
+			cta: 'Voir les outils',
+			trialButton: 'Essai gratuit 14 jours',
+			priceNote: 'Dosimex (Excel) + Dosismart (navigateur) — À partir de 500\u00A0€ HT/an',
 		},
 		partners: {
 			title: 'Nos partenaires',
@@ -80,35 +77,50 @@ export const fr = {
 			],
 		},
 		offers: {
-			title: 'Ce que nous proposons',
+			title: 'Ce que vous obtenez',
 			description:
-				"Un ensemble d'outils de calculs (17 au total) couvrant l'essentiel du champ en radioprotection: exposition externe gamma, b\u00eata, neutron, exposition interne, transfert atmosph\u00e9rique et plus encore. Vous trouverez sur le site des vid\u00e9os explicatives pour chaque outil ainsi que leurs dossiers de validation (pdf t\u00e9l\u00e9chargeable).",
+				"17 outils couvrant l'essentiel du champ en radioprotection. Chaque code est accompagné de sa vidéo explicative et de son dossier de validation téléchargeable.",
 			card1: {
 				title: 'Dosimex + Dosismart',
 				description:
 					'17 outils de calcul Dosimex (Excel) et Dosismart, leur version web utilisable dans le navigateur',
+				linkLabel: 'Voir les outils',
 			},
 			card2: {
 				title: 'Documentation',
 				description:
 					"Validé via MCNP, RayXpert, Microshield et Mercurad. Accéder à l'ensemble de la documentation associée à Dosimex-GX",
+				linkLabel: 'Télécharger',
 			},
 			card3: {
 				title: 'Formations',
 				description:
 					'Nous vous accompagnons pour prendre en mains ces outils de calculs en nous adaptant à vos problèmes spécifiques',
+				linkLabel: 'En savoir plus',
 			},
 		},
-		callToAction: {
-			title: 'Dosimex + Dosismart : Excel et web, même codes de calcul',
-			button: 'Demander un devis',
+		dosismart: {
+			title: 'Aussi disponible dans le navigateur',
+			text: 'Dosismart reprend les codes Dosimex en version web. Aucune installation, tout OS.',
+			button: 'Essayer gratuitement',
+		},
+		close: {
+			title: 'Prêt à essayer ?',
+			price: 'À partir de 500€ HT/an',
+			includes: 'Licence Excel + accès Dosismart + support technique',
+			quoteButton: 'Demander un devis',
 			trialButton: 'Essai gratuit 14 jours',
+		},
+		packs: {
+			title: 'Ce que contient Dosimex',
+			subtitle: 'Chaque code est validé (MCNP, RayXpert, Microshield) et accompagné de sa documentation complète.',
+			allTools: 'Voir tous les outils en détail',
 		},
 		numbers: {
 			items: [
 				{ value: '+30 ans', label: "d'expérience" },
-				{ value: '+1000', label: 'radioprotectionnistes convaincus' },
-				{ value: '35', label: "journées d'accompagnement réalisées" },
+				{ value: '+1000', label: 'utilisateurs sur le terrain' },
+				{ value: '17', label: 'codes de calcul' },
 			],
 		},
 		videoTitle: 'Présentation Dosimex',
@@ -120,7 +132,7 @@ export const fr = {
 		},
 		opinion: {
 			name: 'Jean-Lionel Trolet',
-			job: 'EAMEA',
+			job: "EAMEA — École des Applications Militaires de l'Énergie Atomique",
 			text: "J'utilise DOSIMEX, qui me donne totalement satisfaction, tant par la qualité de ses résultats que par sa facilité d'usage, dans les formations du personnel du ministère des armées. Il possède, entre autres, la force de tenir compte de situations courantes auxquelles sont confrontées les agents de MinArm, tant dans les rôles de PCR médicaux (merci au module de calcul X !) que les intervenants de tous niveaux dans le domaine industriel (du PNR à l'ingénieur). Enfin son usage est si simple que quasiment tous les PCR que nous formons l'ont adopté dans leurs unités.",
 			button: 'Tous les avis',
 		},
@@ -196,15 +208,19 @@ export const fr = {
 	contact: {
 		header: {
 			title: 'Devis ou démonstration',
-			subtitle:
-				'Décrivez votre besoin ci-dessous. Réponse sous 24h. Démonstration par visioconférence possible.',
+			subtitle: 'Décrivez votre besoin. Réponse sous 24h.',
+		},
+		info: {
+			responseTime: { label: 'Délai de réponse', value: 'Sous 24h' },
+			phone: { label: 'Téléphone', value: '06 89 70 90 35' },
+			demo: { label: 'Démonstration', value: 'Visioconférence disponible' },
 		},
 	},
 	software: {
 		header: {
-			title: 'Notre produit',
+			title: 'Outils de calcul',
 			description:
-				'Le pack DOSIMEX est votre solution numérique de référence pour tous les calculs en radioprotection. Il regroupe 17 utilitaires : des codes précis et fiables pour les calculs opérationnels, des modules pédagogiques clairs, riches et interactifs, et des utilitaires concernant les aspects mesures. Conçu pour être rapide, fiable et facile à utiliser, DOSIMEX devient un outil indispensable pour gagner du temps, travailler en toute sécurité et obtenir des résultats précis.',
+				"Le pack DOSIMEX regroupe 17 utilitaires de calcul en radioprotection : 6 codes opérationnels, 6 modules pédagogiques et 5 outils de mesure. Disponible sous Excel et en version web (Dosismart).",
 			anchors: [
 				{ label: 'Pack opérationnel', href: '#pack-ope' },
 				{ label: 'Pack pédagogique', href: '#pack-peda' },
@@ -466,33 +482,24 @@ export const fr = {
 		header: { title: 'Notre équipe' },
 		gerald: {
 			paragraphs: [
-				"J'ai commencé ma carrière, en 1997, dans la Marine Nationale en tant qu'électrotechnicien sur systèmes d'armement. Après une formation de technicien en radioprotection (TR), j'ai intégré le SPR de l'Ile Longue, avec diverses missions centrées sur les sous-marins nucléaires Lanceur d'engins (SNLE) : assistance radiologique, cartographies du compartiment réacteur, analyses radiologiques au laboratoire de moyenne activité, exercices de sécurité nucléaires...",
-				"En 2003, après une formation de technicien supérieur en radioprotection (TSR) à l'INSTN, j'ai rejoint l'Ecole des Applications Militaire à l'Energie Atomique (EAMEA) où j'ai enseigné la radioactivité, la radioprotection, la dosimétrie, la mesure nucléaire. A partir de cette époque, pour palier le manque flagrant d'outils, j'ai commencé à créer mes propres outils de calcul afin de réaliser simplement et rapidement des travaux dirigés dans le cadre de mes enseignements.",
-				"En 2010, J'ai intégré le SPR de l'Arsenal de Cherbourg en charge du 2SNM (Système de Surveillance Nucléaire Marine), système relié au Réseau Nationale de Mesure (RNM). Cette expérience m'a, entre autres, permis, de créer le code Dosimex-I, notamment sur l'option de transfert atmosphérique.",
-				"Depuis 2013, après avoir publié en collaboration avec Alain Vivier, l'ouvrage « Calcul de dose générée par les rayonnements ionisants, j'ai rejoint le service de radioprotection du site Orano de la Hague où j'ai été confronté à la plupart des problématiques de radioprotection du site :",
-				"Dans la plupart des problèmes de radioprotection que j'ai eu à rencontrer, les outils du pack Dosimex ont été d'une grande utilité pour analyser le risque radiologique. A l'inverse, le retour d'expérience m'a permis d'enrichir ces codes.",
-			],
-			timeline: [
-				"2013 - 2015 : suivi des chantiers de démantèlement de l'unité de production UP2-400 sur le secteur Haute activité.",
-				"2015 - 2017 : conseiller démantèlement sur les périmètres ELAN2B et STE2 (Station de traitement des Effluents), analyse des démarches.",
-				"2017 - 2018 : responsable de l'échelon radioprotection du périmètre Haute Activité de l'usine UP2-400.",
-				"2018 - 2019 : responsable d'activité de l'Unité Opérationnelle Conditionnement : ateliers de vitrification (R7/T7), de traitement des déchets (AD2 et AD1/BDH) de compactage des coques (ACC) des usines UP2-800 et UP3 du site de la Hague.",
-				"Courant 2019, j'ai pris la responsabilité du pôle expertise en charge du soutien technique et de l'innovation pour l'ensemble des activités du secteur dans les domaines de la radioprotection et de la sécurité conventionnelle.",
+				"J'ai commencé ma carrière en 1997 dans la Marine Nationale. Après une formation en radioprotection, j'ai intégré le SPR de l'Ile Longue sur les SNLE, puis l'EAMEA où j'ai enseigné la radioactivité, la dosimétrie et la mesure nucléaire. C'est à cette époque que j'ai commencé à créer mes propres outils de calcul pour réaliser des travaux dirigés.",
+				"En 2010, au SPR de l'Arsenal de Cherbourg, j'ai créé le code Dosimex-I (transfert atmosphérique). Depuis 2013, au service radioprotection d'Orano la Hague, j'ai été confronté à la plupart des problématiques du site : démantèlement, haute activité, vitrification, traitement des déchets.",
+				"Dans tous ces contextes, les outils Dosimex ont été d'une grande utilité pour analyser le risque radiologique. Le retour d'expérience terrain a permis d'enrichir les codes en continu.",
 			],
 		},
 		alain: {
 			paragraphs: [
-				"Après des études à l'Ecole de l'Air (promotion 80) et avoir été affecté à une unité de maintenance de Mirages IV, j'ai été désigné pour être PCR dans le cadre de radiographies sur les voilures. En dehors du générateur X, Je ne disposais alors ni du moindre radiamètre ni d'outils de calculs, n'ayant ainsi aucune idée du risque radiologique encouru.",
-				"En 1990, j'ai rejoint l'Ecole Atomique de Cherbourg pour y passer un génie atomique. J'ai eu la chance de pouvoir y rester en tant qu'enseignant.",
-				"Responsable de l'enseignement de la physique nucléaire et d'un laboratoire de mesures, je commençai à comprendre les phénomènes d'interaction rayonnement-matière et j'ai réalisé qu'il devait être possible de calculer, et non pas seulement mesurer, un débit de dose d'une source de 1 GBq de Césium 137 posée à 1 m.",
-				"Ma première expérience de modélisation concernait le calcul du pouvoir d'arrêt des particules chargées, à l'aide de la formule de Bethe. J'ai alors été frappé par l'adéquation entre la prédiction théorique et les résultats des mesures avec des électrons de conversion et des cibles minces en cuivre. Cette validation croisée entre modélisation et mesure a été une révélation.",
-				"En 1998, j'ai rejoint le CEA, tout d'abord au SPR de Cadarache à l'AtPu (Atelier plutonium), puis en 2000, à l'INSTN de Saclay. La première formation que j'y ai créée s'intitulait « dosimétrie des rayonnements ionisants ».",
-				"A l'occasion de visites à l'Ecole Atomique, j'ai rencontré Gérald Lopez. J'ai rapidement décelé ses compétences en modélisation, sa capacité d'analyse associée à une puissance de travail hors-norme. Il avait, déjà, à cette époque, jeté les bases de ce qui allait devenir Dosimex-GX.",
-				"En 2010, lorsque EDP a accepté d'éditer un ouvrage sur les calculs de doses, il m'est apparu clairement qu'un tel ouvrage devait être accompagné d'utilitaires de calculs, et surtout que Gérald Lopez était indispensable à la réalisation de ce projet. C'est ainsi qu'est né Dosimex.",
+				"Après l'Ecole de l'Air (promotion 80), j'ai été désigné PCR pour des radiographies sur voilures de Mirage IV. Sans radiamètre ni outil de calcul, je n'avais aucune idée du risque radiologique encouru. En 1990, à l'Ecole Atomique de Cherbourg, j'ai commencé à enseigner la physique nucléaire et à comprendre l'interaction rayonnement-matière.",
+				"Ma première modélisation — le pouvoir d'arrêt des particules chargées via la formule de Bethe — a été une révélation : l'adéquation entre prédiction théorique et mesures avec des électrons de conversion était frappante. Au CEA puis à l'INSTN de Saclay, j'ai créé la formation « dosimétrie des rayonnements ionisants ».",
+				"En rencontrant Gérald Lopez, j'ai reconnu ses compétences en modélisation et sa capacité de travail. En 2010, quand EDP a accepté d'éditer notre ouvrage sur les calculs de doses, il est devenu évident qu'il fallait l'accompagner d'utilitaires de calcul. C'est ainsi qu'est né Dosimex.",
 			],
 		},
 		epilogue:
-			"Epilogue : c'est grâce à Dosimex, que j'ai enfin pu avoir, 25 ans après, une idée du risque radiologique encouru avec les générateur X, risque qui est loin d'être négligeable",
+			"Epilogue : c'est grâce à Dosimex, que j'ai enfin pu avoir, 25 ans après, une idée du risque radiologique encouru avec les générateurs X — risque qui est loin d'être négligeable.",
+		cta: {
+			title: 'Découvrez nos outils',
+			button: 'Voir le produit',
+		},
 	},
 	books: {
 		header: { title: 'Lectures' },
@@ -604,7 +611,7 @@ export const fr = {
 	footer: {
 		col1: {
 			p: [
-				'Copyright © 2025 Designed by Dosimex',
+				'Copyright © 2026 Designed by Dosimex',
 				'Tous droits réservés',
 				'06 89 70 90 35',
 				'Retrouvez-nous sur nos réseaux',

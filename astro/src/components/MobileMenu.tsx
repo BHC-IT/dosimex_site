@@ -1,141 +1,116 @@
 import { useState, useEffect } from 'react'
-import { createPortal } from 'react-dom'
-import { Menu, X } from 'lucide-react'
-
-function trackEvent(event: string, properties?: Record<string, unknown>) {
-	if (typeof window !== 'undefined' && 'posthog' in window) {
-		const ph = (window as { posthog?: { capture: (e: string, p?: Record<string, unknown>) => void } }).posthog
-		if (!ph) return
-		const [, lang] = window.location.pathname.split('/')
-		ph.capture(event, {
-			locale: lang === 'en' ? 'en' : 'fr',
-			page: window.location.pathname,
-			...properties,
-		})
-	}
-}
 
 interface NavLink {
 	label: string
 	href: string
 }
 
-interface MobileMenuProps {
+interface Props {
 	navLinks: NavLink[]
-	trialButton: string
-	quoteButton: string
-	altLocaleHref: string
-	altLocaleLabel: string
-	productHref: string
+	alternateUrl: string
+	locale: string
 }
 
-export default function MobileMenu({
-	navLinks,
-	trialButton,
-	quoteButton,
-	altLocaleHref,
-	altLocaleLabel,
-	productHref,
-}: MobileMenuProps) {
+export default function MobileMenu({ navLinks, alternateUrl, locale }: Props) {
 	const [isOpen, setIsOpen] = useState(false)
-	const [mounted, setMounted] = useState(false)
 
 	useEffect(() => {
-		setMounted(true)
-	}, [])
+		if (isOpen) {
+			document.body.style.overflow = 'hidden'
+		} else {
+			document.body.style.overflow = ''
+		}
+		return () => {
+			document.body.style.overflow = ''
+		}
+	}, [isOpen])
 
-	const drawer = (
+	function toggleDarkMode() {
+		const isDark = document.documentElement.classList.toggle('dark')
+		localStorage.setItem('theme', isDark ? 'dark' : 'light')
+	}
+
+	return (
 		<>
+			{/* Hamburger / X button */}
+			<button
+				type="button"
+				aria-label={isOpen ? 'Close menu' : 'Open menu'}
+				aria-expanded={isOpen}
+				onClick={() => setIsOpen(!isOpen)}
+				className="relative w-6 h-6 flex flex-col justify-center items-center gap-1.5"
+				data-mobile-menu
+			>
+				<span
+					className={`block h-0.5 w-5 bg-slate-700 dark:bg-slate-300 transition-all duration-200 ${isOpen ? 'translate-y-[4px] rotate-45' : ''}`}
+				/>
+				<span
+					className={`block h-0.5 w-5 bg-slate-700 dark:bg-slate-300 transition-all duration-200 ${isOpen ? '-translate-y-[4px] -rotate-45' : ''}`}
+				/>
+			</button>
+
 			{/* Overlay */}
 			{isOpen && (
 				<div
-					className="fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm"
-					onClick={() => {
-						setIsOpen(false)
-						trackEvent('mobile_menu_toggle', { action: 'close' })
-					}}
+					className="fixed inset-0 z-40 bg-black/20"
+					onClick={() => setIsOpen(false)}
 				/>
 			)}
 
-			{/* Drawer */}
+			{/* Menu panel */}
 			<div
-				className={`fixed right-0 top-0 z-[110] h-full w-80 max-w-[85vw] transform shadow-2xl transition-transform duration-300 ${
-					isOpen ? 'translate-x-0' : 'translate-x-full'
-				}`}
-				style={{ backgroundColor: 'var(--color-background, #fff)' }}
+				className={`fixed top-0 right-0 bottom-0 z-50 w-full max-w-sm bg-[var(--color-background)] shadow-xl transition-transform duration-250 ease-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
 				data-mobile-menu
 			>
-				<div className="flex items-center justify-between border-b p-4">
-					<span className="text-lg font-bold font-lato">DOSIMEX</span>
+				{/* Close button */}
+				<div className="flex justify-end p-4">
 					<button
-						onClick={() => {
-							setIsOpen(false)
-							trackEvent('mobile_menu_toggle', { action: 'close' })
-						}}
-						className="rounded-md p-2 text-foreground/60 hover:bg-muted"
-						aria-label="Close menu"
 						type="button"
+						aria-label="Close menu"
+						onClick={() => setIsOpen(false)}
+						className="p-2 text-slate-500 hover:text-slate-700"
 					>
-						<X className="h-5 w-5" />
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+							<path d="M18 6L6 18M6 6l12 12" />
+						</svg>
 					</button>
 				</div>
 
-				<nav className="flex flex-col gap-1 p-4">
-					{navLinks.map((link) => (
+				{/* Nav links */}
+				<nav className="flex flex-col items-center gap-6 pt-8 px-6">
+					{navLinks.map((link, i) => (
 						<a
 							key={link.href}
 							href={link.href}
-							className="rounded-lg px-4 py-3 text-base font-medium text-foreground/70 transition-colors hover:bg-muted hover:text-foreground"
 							onClick={() => setIsOpen(false)}
+							className="text-xl font-medium text-slate-800 dark:text-slate-200 hover:text-primary-600 transition-colors"
+							style={{ animationDelay: `${(i + 1) * 50}ms` }}
 						>
 							{link.label}
 						</a>
 					))}
 				</nav>
 
-				<div className="border-t p-4 space-y-3">
+				{/* Bottom utilities */}
+				<div className="absolute bottom-8 left-0 right-0 flex flex-col items-center gap-4">
+					{/* Language switch */}
 					<a
-						href={altLocaleHref}
-						className="block rounded-md border border-border px-4 py-2 text-center text-sm font-bold text-foreground/60 transition-colors hover:text-foreground"
+						href={alternateUrl}
+						onClick={() => setIsOpen(false)}
+						className="text-sm font-medium text-slate-500 hover:text-slate-800"
 					>
-						{altLocaleLabel}
+						{locale === 'fr' ? 'English' : 'Français'}
 					</a>
-					<a
-						href={productHref}
-						className="block rounded-lg border border-primary px-4 py-3 text-center text-sm font-semibold text-primary transition-colors hover:bg-primary/10"
-						data-ph-cta="request_quote"
+					{/* Dark mode */}
+					<button
+						type="button"
+						onClick={toggleDarkMode}
+						className="text-sm text-slate-500 hover:text-slate-700"
 					>
-						{quoteButton}
-					</a>
-					<a
-						href="https://dosismart.com"
-						target="_blank"
-						rel="noopener noreferrer"
-						className="block rounded-lg bg-primary px-4 py-3 text-center text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-						data-ph-cta="try_dosismart"
-					>
-						{trialButton}
-					</a>
+						{locale === 'fr' ? 'Mode sombre' : 'Dark mode'}
+					</button>
 				</div>
 			</div>
-		</>
-	)
-
-	return (
-		<>
-			<button
-				onClick={() => {
-					setIsOpen(true)
-					trackEvent('mobile_menu_toggle', { action: 'open' })
-				}}
-				className="rounded-md p-2 text-foreground/60 transition-colors hover:bg-muted"
-				aria-label="Open menu"
-				type="button"
-			>
-				<Menu className="h-6 w-6" />
-			</button>
-
-			{mounted ? createPortal(drawer, document.body) : null}
 		</>
 	)
 }
