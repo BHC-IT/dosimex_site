@@ -1,6 +1,7 @@
 ---
 interface Slide {
 	src: string
+	srcSm?: string
 	alt: string
 	label: string
 	width: number
@@ -22,6 +23,8 @@ const { slides } = Astro.props
 				<div class="carousel-slide flex-shrink-0" style={`width: ${100 / slides.length}%`} data-lightbox data-lightbox-group="hero">
 					<img
 						src={slide.src}
+						srcset={slide.srcSm ? `${slide.srcSm} 640w, ${slide.src} 1280w` : undefined}
+						sizes={slide.srcSm ? '(max-width: 1024px) 100vw, 640px' : undefined}
 						alt={slide.alt}
 						width={slide.width}
 						height={slide.height}

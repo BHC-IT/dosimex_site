@@ -10,11 +10,11 @@ import { organizationSchema, websiteSchema } from '@/data/schemas'
 import heroImg from '@/assets/images/home_header_carousel.png'
 
 const heroSlides = [
-	{ src: '/Images/dosismart-screenshot.webp', alt: 'Dosismart — Calcul gamma dans le navigateur', label: 'Dosismart — Application web', width: 1280, height: 761 },
-	{ src: '/Images/ScreenCarousel2.webp', alt: 'DOSIMEX-GX — Générateur X', label: 'DOSIMEX-GX — Générateur X', width: 1280, height: 675 },
-	{ src: '/Images/ScreenCarousel3.webp', alt: 'DOSIMEX-GX — Source cylindrique', label: 'DOSIMEX-GX — Source cylindrique', width: 1280, height: 783 },
-	{ src: '/Images/ScreenCarousel1.webp', alt: 'DOSIMEX-B — Dose bêta', label: 'DOSIMEX-B — Dose bêta', width: 1280, height: 727 },
-	{ src: '/Images/ScreenCarousel4.webp', alt: 'DOSIMEX-N — Dose neutrons', label: 'DOSIMEX-N — Dose neutrons', width: 1280, height: 638 },
+	{ src: '/Images/dosismart-screenshot.webp', srcSm: '/Images/dosismart-screenshot-sm.webp', alt: 'Dosismart — Calcul gamma dans le navigateur', label: 'Dosismart — Application web', width: 1280, height: 761 },
+	{ src: '/Images/ScreenCarousel2.webp', srcSm: '/Images/ScreenCarousel2-sm.webp', alt: 'DOSIMEX-GX — Générateur X', label: 'DOSIMEX-GX — Générateur X', width: 1280, height: 675 },
+	{ src: '/Images/ScreenCarousel3.webp', srcSm: '/Images/ScreenCarousel3-sm.webp', alt: 'DOSIMEX-GX — Source cylindrique', label: 'DOSIMEX-GX — Source cylindrique', width: 1280, height: 783 },
+	{ src: '/Images/ScreenCarousel1.webp', srcSm: '/Images/ScreenCarousel1-sm.webp', alt: 'DOSIMEX-B — Dose bêta', label: 'DOSIMEX-B — Dose bêta', width: 1280, height: 727 },
+	{ src: '/Images/ScreenCarousel4.webp', srcSm: '/Images/ScreenCarousel4-sm.webp', alt: 'DOSIMEX-N — Dose neutrons', label: 'DOSIMEX-N — Dose neutrons', width: 1280, height: 638 },
 ]
 
 export const getStaticPaths = getLocalePaths
@@ -214,6 +214,8 @@ const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item)
 			<div class="order-2 lg:order-1" data-lightbox>
 				<img
 					src="/Images/dosismart-screenshot.webp"
+					srcset="/Images/dosismart-screenshot-sm.webp 640w, /Images/dosismart-screenshot.webp 1280w"
+					sizes="(max-width: 1024px) 100vw, 640px"
 					alt="Dosismart — Calcul gamma dans le navigateur"
 					width="1280"
 					height="761"

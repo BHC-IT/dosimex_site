@@ -97,7 +97,7 @@ const alternateUrl = getAlternateUrl(currentPath)
 				{locale === 'en' ? 'Trial' : 'Essai'}
 			</a>
 			<MobileMenu
-				client:idle
+				client:media="(max-width: 1023px)"
 				navLinks={navLinks.map((l) => ({ label: l.label, href: l.href }))}
 				alternateUrl={alternateUrl}
 				locale={locale}
