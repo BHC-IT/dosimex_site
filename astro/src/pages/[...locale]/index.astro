@@ -61,7 +61,7 @@ const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item)
 						href="https://dosismart.com"
 						target="_blank"
 						rel="noopener noreferrer"
-						class="inline-flex items-center gap-2 h-12 px-6 text-base font-heading font-semibold text-white bg-primary-600 hover:bg-primary-700 rounded-lg shadow-lg transition-colors duration-150"
+						class="inline-flex items-center gap-2 h-12 px-6 text-base font-heading font-semibold text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg shadow-lg transition-colors duration-150"
 						data-ph-cta="hero-trial"
 					>
 						{t.home.hero.trialButton}
@@ -87,22 +87,24 @@ const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item)
 	</section>
 
 	<!-- ══════════ PARTNER LOGOS ══════════ -->
-	<section id="partners" data-ph-section="partners" class="border-y bg-muted/30 py-10">
-		<div class="mx-auto max-w-7xl px-6">
-			<p class="text-center text-sm uppercase tracking-[0.1em] font-heading font-semibold text-muted-foreground mb-8">
+	<section id="partners" data-ph-section="partners" class="border-y bg-muted/30 py-12">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<h2 class="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-muted-foreground">
 				{locale === 'fr' ? 'Ils nous font confiance' : 'Trusted by'}
-			</p>
-			<div class="flex flex-wrap items-center justify-center gap-8 lg:gap-12 min-h-[40px]">
-				{partnerImages.map((img, i) => (
-					<Image
-						src={img}
-						alt={partnerLogoAlts[i]}
-						height={40}
-						width={120}
-						class="h-10 w-auto max-w-[120px] object-contain logo-grayscale"
-						loading="lazy"
-					/>
-				))}
+			</h2>
+			<div class="relative overflow-hidden">
+				<div class="partner-scroll flex items-center gap-12">
+					{[...partnerImages, ...partnerImages].map((img, i) => (
+						<Image
+							src={img}
+							alt={partnerLogoAlts[i % partnerImages.length]}
+							height={48}
+							width={120}
+							class="h-10 w-auto shrink-0 object-contain opacity-60 grayscale transition-all hover:opacity-100 hover:grayscale-0 sm:h-12"
+							loading="lazy"
+						/>
+					))}
+				</div>
 			</div>
 		</div>
 	</section>
@@ -127,7 +129,7 @@ const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item)
 						rel={'external' in card ? 'noopener noreferrer' : undefined}
 						class="group block bg-card border border-border rounded-xl p-8 hover:shadow-md hover:-translate-y-1 transition-all duration-200"
 					>
-						<div class="flex h-14 w-14 items-center justify-center rounded-lg bg-primary/10 text-primary-600 mb-4">
+						<div class="flex h-14 w-14 items-center justify-center rounded-lg bg-primary/10 text-primary mb-4">
 							{card.icon === 'calculator' && (
 								<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><line x1="16" x2="16" y1="10" y2="10"/><line x1="12" x2="12" y1="10" y2="10"/><line x1="8" x2="8" y1="10" y2="10"/><line x1="12" x2="12" y1="14" y2="14"/><line x1="8" x2="8" y1="14" y2="14"/><line x1="12" x2="12" y1="18" y2="18"/><line x1="8" x2="8" y1="18" y2="18"/></svg>
 							)}
@@ -140,7 +142,7 @@ const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item)
 						</div>
 						<h3 class="text-xl font-heading font-semibold text-foreground">{card.title}</h3>
 						<p class="mt-3 text-base text-muted-foreground">{card.description}</p>
-						<span class="mt-5 inline-flex items-center gap-1 text-primary-600 font-heading font-semibold">
+						<span class="mt-5 inline-flex items-center gap-1 text-primary font-heading font-semibold">
 							{card.linkLabel} <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
 						</span>
 					</a>
@@ -186,7 +188,7 @@ const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item)
 							href="https://dosismart.com"
 							target="_blank"
 							rel="noopener noreferrer"
-							class="mt-6 inline-flex items-center gap-2 h-12 px-6 text-base font-heading font-semibold text-white bg-primary-600 hover:bg-primary-700 rounded-lg shadow-lg transition-colors duration-150"
+							class="mt-6 inline-flex items-center gap-2 h-12 px-6 text-base font-heading font-semibold text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg shadow-lg transition-colors duration-150"
 							data-ph-cta="dosismart-trial"
 						>
 							{t.home.dosismart.button}
@@ -250,7 +252,7 @@ const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item)
 						</div>
 						<a
 							href={localePath(locale, '/software')}
-							class="mt-6 inline-flex items-center gap-1 text-primary-600 font-heading font-semibold hover:underline"
+							class="mt-6 inline-flex items-center gap-1 text-primary font-heading font-semibold hover:underline"
 						>
 							{t.home.packs.allTools} <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
 						</a>
@@ -274,7 +276,7 @@ const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item)
 					</p>
 				</blockquote>
 				<div class="mt-6 flex items-center gap-3">
-					<div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary-600 font-heading font-bold text-lg">
+					<div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary font-heading font-bold text-lg">
 						{t.home.opinion.name.charAt(0)}
 					</div>
 					<div>
@@ -306,7 +308,7 @@ const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item)
 							? 'Découvrez DOSIMEX en vidéo : présentation des outils, tutoriels et cas pratiques.'
 							: 'Discover DOSIMEX in video: tool presentations, tutorials and practical cases.'}
 					</p>
-					<a href={localePath(locale, '/videos')} class="inline-flex items-center gap-1 text-primary-600 font-heading font-semibold hover:underline">
+					<a href={localePath(locale, '/videos')} class="inline-flex items-center gap-1 text-primary font-heading font-semibold hover:underline">
 						{t.home.videos.button} <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
 					</a>
 				</div>
@@ -356,7 +358,7 @@ const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item)
 								</span>
 							)}
 						</div>
-						<span class="mt-4 inline-flex items-center gap-1 text-sm text-primary-600 font-heading font-semibold">
+						<span class="mt-4 inline-flex items-center gap-1 text-sm text-primary font-heading font-semibold">
 							{t.home.references.btnText} <svg class="w-3 h-3 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
 						</span>
 					</a>
@@ -366,18 +368,18 @@ const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item)
 	</section>
 
 	<!-- ══════════ CTA CLOSE ══════════ -->
-	<section id="cta-close" data-ph-section="cta-close" class="bg-[#0B0D17] bg-grid py-16 md:py-24">
+	<section id="cta-close" data-ph-section="cta-close" class="bg-foreground py-16 md:py-24">
 		<div class="mx-auto max-w-3xl px-6 text-center">
-			<h2 class="text-3xl font-heading font-bold text-white">
+			<h2 class="text-3xl font-heading font-bold text-background">
 				{t.home.close.title}
 			</h2>
-			<p class="mt-4 text-lg text-slate-400">
+			<p class="mt-4 text-lg text-background/60">
 				{t.home.close.price} &mdash; {t.home.close.includes}
 			</p>
 			<div class="mt-8 flex flex-wrap items-center justify-center gap-4">
 				<a
 					href={localePath(locale, '/contact')}
-					class="inline-flex items-center gap-2 h-12 px-6 text-base font-heading font-semibold text-white bg-primary-600 hover:bg-primary-700 rounded-lg shadow-lg transition-colors duration-150"
+					class="inline-flex items-center gap-2 h-12 px-6 text-base font-heading font-semibold text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg shadow-lg transition-colors duration-150"
 					data-ph-cta="close-quote"
 				>
 					{t.home.close.quoteButton}
@@ -387,14 +389,14 @@ const refsWithMeta = t.home.references.items.filter((item) => 'authors' in item)
 					href="https://dosismart.com"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="inline-flex items-center gap-2 h-12 px-6 text-base font-heading font-semibold text-slate-300 border border-slate-600 hover:bg-slate-800 rounded-lg transition-colors duration-150"
+					class="inline-flex items-center gap-2 h-12 px-6 text-base font-heading font-semibold text-background/80 border border-background/30 hover:bg-background/10 rounded-lg transition-colors duration-150"
 					data-ph-cta="close-trial"
 				>
 					{t.home.close.trialButton}
 					<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
 				</a>
 			</div>
-			<p class="mt-4 text-sm text-slate-600">
+			<p class="mt-4 text-sm text-background/50">
 				{t.home.close.dosismartNote}
 			</p>
 		</div>

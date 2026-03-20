@@ -3,65 +3,30 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-	/* Primary — Dosimex Red */
-	--color-primary-50: #FEF2F3;
-	--color-primary-100: #FDE3E5;
-	--color-primary-200: #FBC9CE;
-	--color-primary-300: #F8A3AB;
-	--color-primary-400: #F26E7B;
-	--color-primary-500: #E63E50;
-	--color-primary-600: #DB2132;
-	--color-primary-700: #B71828;
-	--color-primary-800: #981824;
-	--color-primary-900: #7F1A24;
-	--color-primary-950: #45080E;
-
-	/* Accent — Dosimex Gold */
-	--color-accent-50: #FFFBEB;
-	--color-accent-100: #FFF3C6;
-	--color-accent-200: #FFE588;
-	--color-accent-300: #FFD34A;
-	--color-accent-400: #FFC03D;
-	--color-accent-500: #F9A80D;
-	--color-accent-600: #DD7F02;
-	--color-accent-700: #B75A06;
-	--color-accent-800: #94450C;
-	--color-accent-900: #7A390D;
-	--color-accent-950: #461C02;
-
-	/* Neutrals — Warm Slate */
-	--color-slate-50: #F8F8F7;
-	--color-slate-100: #F0EFED;
-	--color-slate-150: #E8E6E3;
-	--color-slate-200: #D9D6D2;
-	--color-slate-300: #BCB7B0;
-	--color-slate-400: #9A9389;
-	--color-slate-500: #7D756B;
-	--color-slate-600: #6A6259;
-	--color-slate-700: #57504A;
-	--color-slate-800: #4A443F;
-	--color-slate-900: #403B37;
-	--color-slate-950: #22201E;
-
-	/* Semantic aliases */
+	/* Light mode colors — matching trunk */
 	--color-background: #FFFFFF;
 	--color-foreground: #0B0D17;
-	--color-muted: var(--color-slate-150);
-	--color-muted-foreground: var(--color-slate-500);
-	--color-border: var(--color-slate-200);
-	--color-input: var(--color-slate-200);
-	--color-ring: var(--color-primary-500);
-	--color-card: #FFFFFF;
-	--color-card-foreground: var(--color-slate-950);
-
-	/* Dark surface (fixed, doesn't invert) */
-	--color-dark: #0B0D17;
-	--color-dark-lighter: #141625;
-	--color-dark-text: #F0EFED;
-	--color-dark-muted: var(--color-slate-400);
-
-	/* Primary shorthand */
 	--color-primary: #DB2132;
+	--color-primary-foreground: #FFFFFF;
+	--color-secondary: hsl(0, 10%, 92%);
+	--color-secondary-foreground: hsl(0, 10%, 30%);
+	--color-muted: #F3F4FA;
+	--color-muted-foreground: hsl(229, 10%, 40%);
+	--color-accent: #FFC03D;
+	--color-accent-foreground: #0B0D17;
+	--color-card: #FFFFFF;
+	--color-card-foreground: #0B0D17;
+	--color-border: hsl(220, 13%, 91%);
+	--color-input: hsl(220, 13%, 91%);
+	--color-ring: #FF2532;
+	--color-destructive: hsl(3, 100%, 50%);
+
+	/* Primary scale (for explicit shade references) */
+	--color-primary-600: #DB2132;
+	--color-primary-700: #B71828;
+
+	/* Accent scale */
+	--color-accent-400: #FFC03D;
 
 	/* Semantic */
 	--color-success: #16A34A;
@@ -75,10 +40,10 @@
 	--font-mono: ui-monospace, 'SF Mono', 'Cascadia Code', 'Fira Mono', Menlo, monospace;
 
 	/* Border radius */
-	--radius-sm: 6px;
-	--radius-md: 8px;
-	--radius-lg: 12px;
-	--radius-xl: 16px;
+	--radius-sm: 0.375rem;
+	--radius-md: 0.5rem;
+	--radius-lg: 0.75rem;
+	--radius-xl: 1rem;
 
 	/* Shadows */
 	--shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
@@ -87,19 +52,26 @@
 	--shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.1), 0 8px 20px rgba(0, 0, 0, 0.06);
 }
 
-/* Dark mode overrides */
+/* Dark mode overrides — matching trunk */
 .dark {
 	--color-background: #0B0D17;
-	--color-foreground: #F0EFED;
-	--color-muted: #141625;
-	--color-muted-foreground: #9A9389;
-	--color-border: #1E2035;
-	--color-input: #1E2035;
-	--color-ring: #E63E50;
-	--color-card: #141625;
-	--color-card-foreground: #F0EFED;
+	--color-foreground: #F3F4FA;
+	--color-primary: #FF4D58;
+	--color-primary-foreground: #FFFFFF;
+	--color-secondary: hsl(229, 14%, 14%);
+	--color-secondary-foreground: hsl(229, 14%, 74%);
+	--color-muted: hsl(229, 15%, 14%);
+	--color-muted-foreground: hsl(229, 10%, 60%);
+	--color-accent: #FFC03D;
+	--color-accent-foreground: #0B0D17;
+	--color-card: hsl(229, 25%, 10%);
+	--color-card-foreground: #F3F4FA;
+	--color-border: hsl(229, 15%, 20%);
+	--color-input: hsl(229, 15%, 20%);
+	--color-ring: #FF4D58;
 
-	--color-primary-600: #E63E50;
+	--color-primary-600: #FF4D58;
+	--color-primary-700: #E63E50;
 	--color-accent-400: #FFD34A;
 }
 
@@ -148,8 +120,8 @@ details[open] .faq-chevron {
 
 /* Partner logos grayscale */
 .logo-grayscale {
+	opacity: 0.6;
 	filter: grayscale(100%);
-	opacity: 0.5;
 	transition: filter 300ms ease, opacity 300ms ease;
 }
 .logo-grayscale:hover {
@@ -174,4 +146,16 @@ details[open] .faq-chevron {
 }
 .nav-visible {
 	transform: translateY(0);
+}
+
+/* Partner logo scroll animation */
+@keyframes partner-scroll {
+	0% { transform: translateX(0); }
+	100% { transform: translateX(-50%); }
+}
+.partner-scroll {
+	animation: partner-scroll 30s linear infinite;
+}
+.partner-scroll:hover {
+	animation-play-state: paused;
 }

@@ -24,7 +24,7 @@ const alternateUrl = getAlternateUrl(currentPath)
 
 <header
 	id="site-nav"
-	class="sticky top-0 z-50 bg-white dark:bg-[#0B0D17] border-b border-slate-200 dark:border-[#1E2035] transition-transform duration-300"
+	class="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 transition-transform duration-300"
 >
 	<div class="mx-auto max-w-7xl px-6 flex items-center justify-between h-16">
 		<!-- Logo -->
@@ -40,22 +40,14 @@ const alternateUrl = getAlternateUrl(currentPath)
 
 		<!-- Desktop nav -->
 		<nav class="hidden lg:flex items-center gap-6" aria-label="Main navigation">
-			{navLinks.map((link) => {
-				const isActive = currentPath === link.href || currentPath === link.href + '/'
-				return (
+			{navLinks.map((link) => (
 					<a
 						href={link.href}
-						class:list={[
-							'text-sm font-medium font-heading transition-colors duration-150 relative pb-1',
-							isActive
-								? 'text-slate-950 dark:text-slate-100 border-b-2 border-primary-600'
-								: 'text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-slate-100',
-						]}
+						class="text-sm font-medium text-foreground/70 transition-colors hover:text-primary"
 					>
 						{link.label}
 					</a>
-				)
-			})}
+			))}
 		</nav>
 
 		<!-- Right cluster -->
@@ -63,20 +55,18 @@ const alternateUrl = getAlternateUrl(currentPath)
 			<!-- Language toggle -->
 			<a
 				href={alternateUrl}
-				class="text-sm font-heading"
+				class="rounded-md px-2 py-1 text-xs font-bold text-foreground/60 transition-colors hover:text-foreground border border-border"
 				aria-label={locale === 'fr' ? 'Switch to English' : 'Passer en français'}
 			>
-				<span class:list={[locale === 'fr' ? 'font-semibold text-slate-950 dark:text-slate-100' : 'text-slate-600 dark:text-slate-400 hover:text-slate-800']}>FR</span>
-				<span class="text-slate-300 mx-1">|</span>
-				<span class:list={[locale === 'en' ? 'font-semibold text-slate-950 dark:text-slate-100' : 'text-slate-600 dark:text-slate-400 hover:text-slate-800']}>EN</span>
+				{locale === 'fr' ? 'EN' : 'FR'}
 			</a>
 
 			<ThemeToggle />
 
 			<!-- CTA: Quote -->
 			<a
-				href={localePath(locale, '/contact')}
-				class="inline-flex items-center h-8 px-4 text-sm font-semibold font-heading text-foreground border border-border hover:bg-muted rounded-lg transition-colors duration-150"
+				href={localePath(locale, '/product')}
+				class="rounded-lg border border-primary px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary/10"
 				data-ph-cta="nav-quote"
 			>
 				{locale === 'en' ? 'Request a quote' : 'Demander un devis'}
@@ -87,7 +77,7 @@ const alternateUrl = getAlternateUrl(currentPath)
 				href="https://dosismart.com"
 				target="_blank"
 				rel="noopener noreferrer"
-				class="inline-flex items-center h-8 px-4 text-sm font-semibold font-heading text-white bg-primary-600 hover:bg-primary-700 rounded-lg shadow-lg transition-colors duration-150"
+				class="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
 				data-ph-cta="nav-trial"
 			>
 				{t.navbar.button}
