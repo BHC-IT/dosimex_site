@@ -4,87 +4,113 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Dosimex is a Next.js 15 website (Pages Router) for a radiation dosimetry software company. Multilingual (French/English) with typed translation interfaces, static site generation, and responsive design.
+Dosimex is an Astro 5 website for a radiation dosimetry software company. Bilingual (French/English), statically generated, with React islands for interactive components. The Astro app lives in the `astro/` directory.
+
+**The legacy Next.js app at the repository root is DEPRECATED. Do not modify, maintain, or reference it.**
 
 ## Commands
 
+All commands must be run from the `astro/` directory.
+
 ```bash
-pnpm dev              # Dev server on localhost:3000
-pnpm build            # Production build (outputs to build/)
-pnpm test:run         # Run tests once (NEVER use `pnpm test` - it hangs in watch mode)
-pnpm test:coverage    # Tests with coverage report
-pnpm lint:fix         # ESLint with auto-fix
-pnpm lint:check       # ESLint strict mode (0 warnings, used in CI)
-pnpm check-types      # TypeScript type checking
+pnpm dev              # Dev server
+pnpm build            # Production build (outputs to dist/)
+pnpm preview          # Preview production build locally
 ```
 
 Uses **pnpm** (not npm/yarn).
 
 ## Quality Rules
 
-- **NEVER use `any` type.** ESLint has `no-explicit-any` as `warn` but treat it as error. Use specific types, `unknown` with type guards, or generics.
-- **NEVER use `pnpm test`** - it starts Vitest in watch mode and will hang forever. Always use `pnpm test:run`.
-- **CI fails on**: any test failure, any lint warning (`--max-warnings 0`), any TypeScript error.
-- After making changes, run: `pnpm test:run && pnpm lint:fix && pnpm lint:check && pnpm check-types`
+- **NEVER use `any` type.** Use specific types, `unknown` with type guards, or generics.
+- TypeScript strict mode is enabled (extends `astro/tsconfigs/strict`).
 
 ## Architecture
 
-### Translation System (`src/lang/`)
+### i18n / Translation System (`src/i18n/`)
 
-- `interface.ts` defines `ILang` with page-keyed sections: `Home`, `Software`, `About`, `Books`, `Manuals`, `Product`, `Training`, `Videos`, `ContactForm`, `Footer`, `Navbar`, `altText`
-- `fr.ts` and `en.ts` export `const text: ILang` with all translations
-- `debug.ts` for debug locale
-- **Hook**: `useText(pageName: keyof ILang)` (in `src/Hooks/useText.ts`) detects locale from Next.js router and returns the page's translations
-- i18n config: locales `['fr', 'en-US', 'debug']`, default `fr`
+- `fr.ts` and `en.ts` export full translation objects with page-keyed sections (seo, navbar, footer, home, software, product, contact, about, training, books, manuals, videos, altText)
+- `utils.ts` provides helpers:
+  - `getTranslations(locale)` - Returns the full translation object for a locale
+  - `getLocaleFromUrl(url)` - Extracts locale from pathname (`/en/...` -> `'en'`, else `'fr'`)
+  - `getAlternateUrl(pathname)` - Flips between locale versions of a path
+  - `getLocalePaths()` - Returns static paths for `[...locale]` routes
+  - `localePath(locale, path)` - Prefixes path with `/en/` for English
+  - `getCanonicalUrl(site, pathname)` - Builds absolute canonical URLs
+- Routing: French is default (no prefix), English uses `/en/` prefix
+- Astro i18n config: `locales: ['fr', 'en']`, `defaultLocale: 'fr'`, `prefixDefaultLocale: false`
 
-### Hooks (`src/Hooks/`)
+### Pages (`src/pages/[...locale]/`)
 
-- **`useText(page)`** - Returns localized content for a page. Slices locale to 2 chars (`en-US` -> `en`).
-- **`useIsMobile`** - Exports `useIsMobile(stylesFn)`, `useMobile()`, `useTablet()`, `useDeviceType()`. Mobile < 768px. Uses resize listener, 10ms timeout for SSR safety.
-- **`useContactFormValidation`** - Form state management with validators, EmailJS integration, react-toastify notifications.
+Catch-all `[...locale]` route pattern. Each page calls `getLocalePaths()` for static path generation.
 
-Note: Despite CLAUDE.md previously mentioning HOCs (`withText`, `withIsMobile`), these do not exist. Components use hooks directly.
+Pages: `index.astro`, `about.astro`, `software.astro`, `product.astro`, `training.astro`, `manuals.astro`, `books.astro`, `videos.astro`, `contact.astro`
 
-### Pages (`src/pages/`)
+### Layout (`src/layouts/Layout.astro`)
 
-Next.js Pages Router with: `index.tsx`, `About.tsx`, `Books.tsx`, `Contact.tsx`, `Manuals.tsx`, `Product.tsx`, `Software.tsx`, `Training.tsx`, `Videos.tsx`. Layout wrapper in `_app.tsx` (Navbar, Footer, ErrorBoundary, ToastContainer).
+Master layout wrapping all pages. Includes Navbar, Footer, BaseHead (SEO meta), CookieConsent, global fonts/styles, dark mode init script, and PostHog tracking.
 
-### Components (`src/Components/`)
+Props: `title`, `description`, `ogImage?`, `robots?`, `jsonLd?`
 
-18 components including: `Navbar`, `Footer`, `Button`, `ErrorBoundary`, `ContactForm`, `Input`, `HeroBannerCarousel`, `PartnersCarousel`, `LanguageSwitch`, `SideBar`, `ItemNavbar`, `CardHome`, `OpinionHome`, `References`, `SquareGrid`, `ScrollButton`, `Book`.
+### Components (`src/components/`)
+
+Mix of `.astro` (static) and `.tsx` (React island) components:
+
+- **Astro components**: `BaseHead.astro` (SEO), `Navbar.astro`, `Footer.astro`, `CookieConsent.astro`, `ThemeToggle.astro`, `VideoEmbed.astro`
+- **React islands** (hydrated with `client:idle`): `MobileMenu.tsx`, `ContactForm.tsx`
+
+Only 2 interactive React components — the rest is static HTML.
+
+### Data (`src/data/`)
+
+- `videos.ts` - YouTube video IDs by category, partner logos, book images, manual PDFs
+- `schemas.ts` - JSON-LD structured data (Organization, WebSite schemas)
 
 ### Styling
 
-- **CSS Variables** in `src/styles/globals.css`: `--main` (#FF2532), `--dark` (#0B0D17), `--light` (#F3F4FA), `--flash` (#FFC03D), fonts `--lato`/`--nunito`
-- **Styling constants** in `src/types/styling.ts`: `BREAKPOINTS` (mobile: 1024, tablet: 1440, desktop: 1920), `STYLE_CONSTANTS` (colors, fonts, transitions, shadows, spacing)
-- **Inline CSS-in-JS** with typed `CSS.Properties` from `csstype`. Components export `styles` objects.
-- **Tailwind CSS** v4 is available (configured via PostCSS)
-- **styled-components** with SSR support enabled in `next.config.js`
+- **Tailwind CSS v4** via `@tailwindcss/vite` plugin
+- **CSS variables** defined in `@theme` block in `src/styles/global.css`
+- Colors: `--color-primary` (#DB2132), `--color-accent` (#FFC03D), `--color-background`, `--color-foreground`, etc.
+- **Dark mode**: `.dark` class on `<html>`, toggled by ThemeToggle, persisted in localStorage
+- **Fonts**: Lato (headings, `--font-lato`) + Nunito (body, `--font-nunito`) via `@fontsource`
+- Components use **inline Tailwind classes** primarily, with occasional scoped `<style>` blocks
 
-### Testing
+### SEO
 
-- **Framework**: Vitest + React Testing Library + jsdom
-- **Test locations**: `src/Components/__tests__/`, `src/Hooks/__tests__/`, `src/utils/__tests__/`, `src/__tests__/`
-- **Setup** (`src/test/setup.ts`) mocks: Next.js router (push/replace/back as `vi.fn()`), Next.js Link (renders as `<a>`), react-device-detect
-- **Patterns**: snapshot tests with `container.firstChild`, behavior tests with screen queries, `renderHook()` for hooks, `vi.mock()` for modules
+- Canonical URLs + hreflang alternates in `BaseHead.astro`
+- JSON-LD structured data (Organization, WebSite, SoftwareApplication, FAQ)
+- OpenGraph + Twitter Card meta tags
+- Per-page meta descriptions from translations
+- Auto-generated sitemap via `@astrojs/sitemap`
+- Critical CSS inlining via `astro-critters`
+
+### Analytics & GDPR
+
+- **PostHog** tracking with custom events (CTA clicks, PDF downloads, form engagement, section views, nav clicks, language switches)
+- Event tracking setup in `src/scripts/tracking.ts`
+- **Cookie consent** via `vanilla-cookieconsent` — analytics cookies only set on user acceptance
+
+### Contact Form
+
+- EmailJS integration (`@emailjs/browser`) — env vars in `.env` (PUBLIC_EMAILJS_*)
+- Phone validation via `react-phone-number-input`
+- Toast notifications via `react-toastify`
+- PostHog form engagement tracking
 
 ### Key Dependencies
 
-- Next.js 15.5.2, React 18.3.1, TypeScript 5.8.3
-- Icons: FontAwesome + MDI
-- Forms: react-phone-number-input, @emailjs/browser
-- UI: react-multi-carousel, react-parallax-tilt, react-burger-menu
-- Flags: country-flag-icons (for language switch)
+- Astro 5.7, React 18.3, TypeScript 5.8
+- Tailwind CSS v4, @tailwindcss/vite
+- @astrojs/react, @astrojs/sitemap, astro-critters
+- Icons: lucide-react
+- Forms: @emailjs/browser, react-phone-number-input, react-toastify
+- Analytics: PostHog (loaded via script), vanilla-cookieconsent
+- Images: sharp (optimization)
 
-### Build Config Notes
+### Build Config
 
-- Output directory: `build/` (not default `.next/`)
-- `typescript.ignoreBuildErrors: true` in next.config.js (temporary)
+- Site URL: `https://dosimex.fr`
+- Output: `dist/` (static HTML)
 - Path alias: `@/*` -> `./src/*`
-- Test files excluded from webpack build via ignore-loader
-
-### Known Technical Debt
-
-- ~120 existing lint warnings
-- Legacy `any` types in `src/types/jsx.d.ts` (module declarations with eslint-disable)
-- Fix `any` warnings when modifying affected files
+- `public/` is a symlink to `../public` (shared assets with legacy app)
+- No testing framework installed yet
