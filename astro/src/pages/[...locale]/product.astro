@@ -79,7 +79,7 @@ const faqSchema = {
 					</ul>
 					<a
 						href={localePath(locale, '/contact')}
-						class="mt-8 block w-full rounded-[8px] bg-primary-600 hover:bg-primary-700 text-white text-center h-12 leading-[3rem] font-heading font-semibold transition-colors"
+						class="mt-8 block w-full rounded-[8px] bg-primary-600 hover:bg-primary-700 text-white text-center h-12 leading-[3rem] font-heading font-semibold shadow-lg transition-all hover:shadow-xl"
 						data-ph-cta="request_quote"
 					>
 						{quoteLabel}
@@ -111,7 +111,7 @@ const faqSchema = {
 					</ul>
 					<a
 						href={localePath(locale, '/contact')}
-						class="mt-8 block w-full rounded-[8px] bg-primary-600 hover:bg-primary-700 text-white text-center h-12 leading-[3rem] font-heading font-semibold transition-colors"
+						class="mt-8 block w-full rounded-[8px] bg-primary-600 hover:bg-primary-700 text-white text-center h-12 leading-[3rem] font-heading font-semibold shadow-lg transition-all hover:shadow-xl"
 						data-ph-cta="request_quote"
 					>
 						{quoteLabel}
@@ -135,24 +135,26 @@ const faqSchema = {
 	</section>
 
 	<!-- ═══════════════════════════ TRIAL BANNER ═══════════════════════════ -->
-	<section class="bg-primary-50 dark:bg-primary-950/20 py-12 md:py-20">
+	<section class="py-12 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<h2 class="text-3xl font-semibold text-foreground font-heading">{p.trialBanner.title}</h2>
-			<p class="mt-4 max-w-2xl text-base text-slate-600 dark:text-slate-400">
-				{p.trialBanner.text}
-			</p>
-			<a
-				href="https://dosismart.com"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="mt-6 inline-flex items-center gap-2 rounded-[8px] bg-primary-600 hover:bg-primary-700 text-white h-12 px-6 font-heading font-semibold transition-colors"
-				data-ph-cta="try_dosismart"
-			>
-				{p.trialBanner.button}
-				<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-					<path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-				</svg>
-			</a>
+			<div class="rounded-2xl bg-gradient-to-r from-primary/15 via-accent/10 to-emerald-400/10 p-8 md:p-12">
+				<h2 class="text-3xl font-semibold text-foreground font-heading">{p.trialBanner.title}</h2>
+				<p class="mt-4 max-w-2xl text-base text-slate-600 dark:text-slate-400">
+					{p.trialBanner.text}
+				</p>
+				<a
+					href="https://dosismart.com"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="mt-6 inline-flex items-center gap-2 rounded-[8px] bg-primary-600 hover:bg-primary-700 text-white h-12 px-6 font-heading font-semibold shadow-lg transition-all hover:shadow-xl"
+					data-ph-cta="try_dosismart"
+				>
+					{p.trialBanner.button}
+					<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+					</svg>
+				</a>
+			</div>
 		</div>
 	</section>
 
@@ -220,32 +222,34 @@ const faqSchema = {
 	</section>
 
 	<!-- ═══════════════════════════ CONTACT CTA ═══════════════════════════ -->
-	<section class="bg-slate-950 py-12 md:py-20">
-		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-			<h2 class="text-3xl font-semibold text-white font-heading">{p.contact.title}</h2>
-			<p class="mx-auto mt-4 max-w-2xl text-slate-400">
-				{p.contact.text}
-				<a href="tel:+33689709035" class="font-semibold text-white hover:text-primary-400 transition-colors">
-					{p.contact.phone}
-				</a>
-			</p>
-			<div class="mt-8 flex flex-wrap items-center justify-center gap-4">
-				<a
-					href="https://dosismart.com"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="inline-flex items-center rounded-[8px] bg-primary-600 hover:bg-primary-700 text-white h-12 px-6 font-heading font-semibold transition-colors"
-					data-ph-cta="try_dosismart"
-				>
-					{trialLabel}
-				</a>
-				<a
-					href={localePath(locale, '/contact')}
-					class="inline-flex items-center rounded-[8px] border-[1.5px] border-slate-300 text-white h-12 px-6 font-heading font-semibold hover:bg-slate-800 transition-colors"
-					data-ph-cta="contact_us"
-				>
-					{quoteLabel}
-				</a>
+	<section class="py-12 md:py-20">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="rounded-2xl bg-gradient-to-r from-primary/8 via-accent/5 to-emerald-400/5 p-8 md:p-12 text-center">
+				<h2 class="text-3xl font-semibold text-foreground font-heading">{p.contact.title}</h2>
+				<p class="mx-auto mt-4 max-w-2xl text-slate-600 dark:text-slate-400">
+					{p.contact.text}
+					<a href="tel:+33689709035" class="font-semibold text-foreground hover:text-primary transition-colors">
+						{p.contact.phone}
+					</a>
+				</p>
+				<div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+					<a
+						href="https://dosismart.com"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="inline-flex items-center rounded-[8px] bg-primary-600 hover:bg-primary-700 text-white h-12 px-6 font-heading font-semibold shadow-lg transition-all hover:shadow-xl"
+						data-ph-cta="try_dosismart"
+					>
+						{trialLabel}
+					</a>
+					<a
+						href={localePath(locale, '/contact')}
+						class="inline-flex items-center rounded-[8px] border-[1.5px] border-border text-foreground h-12 px-6 font-heading font-semibold hover:bg-muted transition-colors"
+						data-ph-cta="contact_us"
+					>
+						{quoteLabel}
+					</a>
+				</div>
 			</div>
 		</div>
 	</section>
