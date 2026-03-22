@@ -15,6 +15,7 @@ interface Props {
 	ogImage?: string
 	robots?: string
 	jsonLd?: Record<string, unknown>[]
+	alternateUrl?: string
 }
 
 const locale = getLocaleFromUrl(Astro.url)
@@ -22,7 +23,7 @@ const t = getTranslations(locale)
 const defaultDescription = locale === 'en'
 	? 'Dosimex — Radiation protection calculation tools'
 	: 'Dosimex — Outils de calculs radioprotection'
-const { title, description = defaultDescription, ogImage, robots, jsonLd } = Astro.props
+const { title, description = defaultDescription, ogImage, robots, jsonLd, alternateUrl } = Astro.props
 ---
 
 <!doctype html>
@@ -32,7 +33,7 @@ const { title, description = defaultDescription, ogImage, robots, jsonLd } = Ast
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<title>{title}</title>
-		<BaseHead title={title} description={description} ogImage={ogImage} robots={robots} jsonLd={jsonLd} />
+		<BaseHead title={title} description={description} ogImage={ogImage} robots={robots} jsonLd={jsonLd} alternateUrl={alternateUrl} />
 		<!-- Dark mode: respect user choice, fall back to system preference -->
 		<script is:inline>
 			(function() {
@@ -49,7 +50,7 @@ const { title, description = defaultDescription, ogImage, robots, jsonLd } = Ast
 			<div class="absolute -top-24 left-1/2 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-primary/5 blur-3xl"></div>
 		</div>
 
-		<Navbar t={t} locale={locale} />
+		<Navbar t={t} locale={locale} alternateUrl={alternateUrl} />
 
 		<main class="relative">
 			<slot />

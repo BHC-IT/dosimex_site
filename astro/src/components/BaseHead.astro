@@ -7,12 +7,15 @@ interface Props {
 	ogImage?: string
 	robots?: string
 	jsonLd?: Record<string, unknown>[]
+	alternateUrl?: string
 }
 
-const { title, description, ogImage = '/og-default.png', robots, jsonLd } = Astro.props
+const { title, description, ogImage = '/og-default.png', robots, jsonLd, alternateUrl: alternateOverride } = Astro.props
 const site = Astro.site?.toString() ?? 'https://dosimex.fr'
 const canonicalUrl = getCanonicalUrl(site, Astro.url.pathname)
-const alternateUrl = getCanonicalUrl(site, getAlternateUrl(Astro.url.pathname))
+const alternateUrl = alternateOverride
+	? getCanonicalUrl(site, alternateOverride)
+	: getCanonicalUrl(site, getAlternateUrl(Astro.url.pathname))
 const isEn = Astro.url.pathname.startsWith('/en')
 const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${site.replace(/\/$/, '')}${ogImage}`
 ---

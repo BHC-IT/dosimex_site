@@ -6,9 +6,10 @@ import { localePath, getAlternateUrl, type Translations, type Locale } from '@/i
 interface Props {
 	t: Translations
 	locale: Locale
+	alternateUrl?: string
 }
 
-const { t, locale } = Astro.props
+const { t, locale, alternateUrl: alternateOverride } = Astro.props
 const currentPath = Astro.url.pathname
 
 const navLinks = [
@@ -17,9 +18,10 @@ const navLinks = [
 	{ label: t.navbar.items[2], href: localePath(locale, '/training') },
 	{ label: t.navbar.items[3], href: localePath(locale, '/about') },
 	{ label: t.navbar.items[4], href: localePath(locale, '/contact') },
+	{ label: t.navbar.items[5], href: localePath(locale, '/blog') },
 ]
 
-const alternateUrl = getAlternateUrl(currentPath)
+const alternateUrl = alternateOverride ?? getAlternateUrl(currentPath)
 ---
 
 <header
@@ -39,7 +41,7 @@ const alternateUrl = getAlternateUrl(currentPath)
 		</a>
 
 		<!-- Desktop nav -->
-		<nav class="hidden lg:flex items-center gap-6" aria-label="Main navigation">
+		<nav class="hidden lg:flex items-center gap-4" aria-label="Main navigation">
 			{navLinks.map((link) => (
 					<a
 						href={link.href}

@@ -36,6 +36,10 @@ export const en = {
 			title: 'Contact & Quote — Dosimex',
 			description: 'Contact Dosimex for a quote, demo or free Dosismart trial. Video conference demonstration available.',
 		},
+		blog: {
+			title: 'Blog — Dosimex',
+			description: 'Articles and news on radiation protection, dosimetry and Dosimex tools.',
+		},
 	},
 	altText: {
 		logo: 'DOSIMEX - Radiation Dosimetry Software',
@@ -49,7 +53,7 @@ export const en = {
 		cardIcon: 'Icon',
 	},
 	navbar: {
-		items: ['Software', 'Product', 'Training', 'About', 'Contact'],
+		items: ['Software', 'Product', 'Training', 'About', 'Contact', 'Blog'],
 		button: 'Free trial 14 days',
 	},
 	home: {

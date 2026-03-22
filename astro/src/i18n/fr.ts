@@ -36,6 +36,10 @@ export const fr = {
 			title: 'Contact & Devis — Dosimex',
 			description: 'Contactez Dosimex pour un devis, une démonstration ou un essai gratuit Dosismart. Démonstration par visioconférence possible.',
 		},
+		blog: {
+			title: 'Blog — Dosimex',
+			description: 'Articles et actualités sur la radioprotection, la dosimétrie et les outils Dosimex.',
+		},
 	},
 	altText: {
 		logo: 'DOSIMEX - Logiciel de dosim\u00e9trie des rayonnements',
@@ -49,7 +53,7 @@ export const fr = {
 		cardIcon: 'Ic\u00f4ne',
 	},
 	navbar: {
-		items: ['Logiciel', 'Produit', 'Formation', 'À propos', 'Contact'],
+		items: ['Logiciel', 'Produit', 'Formation', 'À propos', 'Contact', 'Blog'],
 		button: 'Essai gratuit 14 jours',
 	},
 	home: {
