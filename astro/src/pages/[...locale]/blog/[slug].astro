@@ -107,8 +107,28 @@ const jsonLd = {
 				<Content />
 			</div>
 
+			<!-- CTA -->
+			<div class="mt-12 rounded-2xl bg-gradient-to-r from-primary/15 via-accent/10 to-emerald-400/10 p-8 md:p-10 text-center">
+				<h2 class="text-2xl font-heading font-semibold text-foreground">
+					{locale === 'fr' ? 'Découvrez nos outils de radioprotection' : 'Discover our radiation protection tools'}
+				</h2>
+				<p class="mx-auto mt-3 max-w-xl text-base text-muted-foreground">
+					{locale === 'fr'
+						? '17 codes de calcul validés MCNP, disponibles en licence annuelle.'
+						: '17 MCNP-validated calculation codes, available as an annual license.'}
+				</p>
+				<a
+					href={localePath(locale, '/product')}
+					class="mt-6 inline-flex items-center gap-2 rounded-[8px] bg-primary-600 hover:bg-primary-700 text-white h-12 px-6 font-heading font-semibold shadow-lg transition-all hover:shadow-xl"
+					data-ph-cta="blog-product"
+				>
+					{locale === 'fr' ? "Découvrir l'offre" : 'See our offer'}
+					<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+				</a>
+			</div>
+
 			<!-- Back link -->
-			<div class="mt-12 pt-8 border-t">
+			<div class="mt-8 pt-8 border-t">
 				<a
 					href={localePath(locale, '/blog')}
 					class="inline-flex items-center gap-2 text-primary font-heading font-semibold hover:underline"
