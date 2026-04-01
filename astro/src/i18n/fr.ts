@@ -44,6 +44,10 @@ export const fr = {
 			title: 'Mentions légales — Dosimex',
 			description: 'Mentions légales du site dosimex.fr : éditeur, hébergeur, conditions d\'utilisation, propriété intellectuelle et données personnelles.',
 		},
+		testimonials: {
+			title: 'Retours utilisateurs — Dosimex',
+			description: "Découvrez les retours d'utilisateurs de Dosimex : IRSN, EDF, ORANO, CNRS, CHU et autres professionnels de la radioprotection partagent leur expérience.",
+		},
 	},
 	altText: {
 		logo: 'DOSIMEX - Logiciel de dosim\u00e9trie des rayonnements',
@@ -215,6 +219,18 @@ export const fr = {
 					journal: 'Rayonnements Ionisants, Techniques de Mesures et de Protection - INIS',
 				},
 			],
+		},
+	},
+	testimonials: {
+		header: {
+			title: 'Retours utilisateurs',
+			subtitle: "Extraits de retours utilisateurs obtenus dans le cadre d'une enquête réalisée en avril 2018.",
+			disclaimer: "Les avis exprimés ici n'engagent que leurs auteurs à titre personnel et pas la position de leurs institutions respectives.",
+		},
+		cta: {
+			title: 'Convaincu\u00A0?',
+			button: 'Demander un devis',
+			trialButton: 'Essayer Dosismart',
 		},
 	},
 	contact: {

@@ -44,6 +44,10 @@ export const en = {
 			title: 'Legal Notice — Dosimex',
 			description: 'Legal notice for dosimex.fr: publisher, hosting, terms of use, intellectual property and personal data.',
 		},
+		testimonials: {
+			title: 'User Feedback — Dosimex',
+			description: 'Discover feedback from Dosimex users: IRSN, EDF, ORANO, CNRS, university hospitals and other radiation protection professionals share their experience.',
+		},
 	},
 	altText: {
 		logo: 'DOSIMEX - Radiation Dosimetry Software',
@@ -215,6 +219,18 @@ export const en = {
 					journal: 'Ionizing Radiation, Measurement and Protection Techniques - INIS',
 				},
 			],
+		},
+	},
+	testimonials: {
+		header: {
+			title: 'User feedback',
+			subtitle: 'Excerpts from user feedback collected through a survey conducted in April 2018.',
+			disclaimer: 'The opinions expressed here are solely those of the authors in a personal capacity and do not represent the position of their respective institutions.',
+		},
+		cta: {
+			title: 'Convinced?',
+			button: 'Request a quote',
+			trialButton: 'Try Dosismart',
 		},
 	},
 	contact: {
