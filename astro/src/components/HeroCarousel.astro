@@ -28,7 +28,7 @@ const { slides } = Astro.props
 						alt={slide.alt}
 						width={slide.width}
 						height={slide.height}
-						class="w-full h-auto"
+						class="w-full h-auto rounded-xl"
 						loading={i === 0 ? 'eager' : 'lazy'}
 						fetchpriority={i === 0 ? 'high' : undefined}
 					/>

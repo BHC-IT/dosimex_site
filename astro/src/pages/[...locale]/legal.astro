@@ -1,0 +1,88 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { getTranslations, getLocalePaths, type Locale } from '@/i18n/utils'
+import { organizationSchema } from '@/data/schemas'
+
+export const getStaticPaths = getLocalePaths
+
+const { locale } = Astro.props as { locale: Locale }
+const t = getTranslations(locale)
+
+const isFr = locale === 'fr'
+---
+
+<Layout title={t.seo.legal.title} description={t.seo.legal.description} jsonLd={[organizationSchema]}>
+
+	<section class="py-12 md:py-20">
+		<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+			<h1 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground tracking-tight">
+				{isFr ? 'Mentions Légales' : 'Legal Notice'}
+			</h1>
+
+			<div class="mt-12 space-y-10 text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+
+				<!-- Éditeur -->
+				<div>
+					<h2 class="text-2xl md:text-3xl font-heading font-semibold text-foreground">
+						{isFr ? 'Éditeur' : 'Publisher'}
+					</h2>
+					<ul class="mt-4 space-y-2">
+						<li><strong class="text-foreground">DOSIMEX SAS</strong> — {isFr ? 'Capital social' : 'Share capital'}: 3 000 &euro;</li>
+						<li>63 Rue Hervé Mangon, 50100 Cherbourg-en-Cotentin, France</li>
+						<li>SIRET: 850 586 041 00020</li>
+						<li>RCS Cherbourg</li>
+						<li>TVA: FR87850586041</li>
+					</ul>
+				</div>
+
+				<!-- Directeur de la publication -->
+				<div>
+					<h2 class="text-2xl md:text-3xl font-heading font-semibold text-foreground">
+						{isFr ? 'Directeur de la publication' : 'Publication Director'}
+					</h2>
+					<p class="mt-4">Alain Vivier</p>
+				</div>
+
+				<!-- Webmaster -->
+				<div>
+					<h2 class="text-2xl md:text-3xl font-heading font-semibold text-foreground">
+						Webmaster
+					</h2>
+					<p class="mt-4">Alain Vivier</p>
+				</div>
+
+				<!-- Hébergement -->
+				<div>
+					<h2 class="text-2xl md:text-3xl font-heading font-semibold text-foreground">
+						{isFr ? 'Hébergement' : 'Hosting'}
+					</h2>
+					<p class="mt-4">Vercel Inc. — 440 N Barranca Ave #4133, Covina, CA 91723, USA</p>
+				</div>
+
+				<!-- Contact -->
+				<div>
+					<h2 class="text-2xl md:text-3xl font-heading font-semibold text-foreground">
+						Contact
+					</h2>
+					<p class="mt-4">
+						{isFr ? 'E-mail' : 'Email'}: <a href="mailto:contact@dosimex.com" class="text-primary-600 hover:underline">contact@dosimex.com</a>
+					</p>
+				</div>
+
+				<!-- Propriété intellectuelle -->
+				<div>
+					<h2 class="text-2xl md:text-3xl font-heading font-semibold text-foreground">
+						{isFr ? 'Propriété intellectuelle' : 'Intellectual Property'}
+					</h2>
+					<p class="mt-4">
+						{isFr
+							? "L'ensemble des contenus présents sur ce site (textes, images, logos, éléments graphiques, etc.) est la propriété exclusive de DOSIMEX SAS. Toute reproduction, représentation, modification, publication, transmission ou dénaturation, totale ou partielle du site ou de son contenu, par quelque procédé que ce soit, est interdite sans autorisation écrite préalable de DOSIMEX SAS."
+							: 'All content present on this site (texts, images, logos, graphic elements, etc.) is the exclusive property of DOSIMEX SAS. Any reproduction, representation, modification, publication, transmission or distortion, total or partial of the site or its content, by any process whatsoever, is prohibited without prior written permission from DOSIMEX SAS.'}
+					</p>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+</Layout>

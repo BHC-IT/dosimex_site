@@ -20,7 +20,7 @@ const readMoreLabel = locale === 'fr' ? 'Lire la suite' : 'Read more'
 	<!-- ═══════════════════════════ HERO ═══════════════════════════ -->
 	<section class="py-12 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-			<h1 class="text-3xl font-semibold tracking-tight text-foreground font-heading md:text-4xl lg:text-5xl">
+			<h1 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground tracking-tight">
 				{a.header.title}
 			</h1>
 		</div>
@@ -116,7 +116,7 @@ const readMoreLabel = locale === 'fr' ? 'Lire la suite' : 'Read more'
 	</section>
 
 	<!-- ═══════════════════════════ EPILOGUE ═══════════════════════════ -->
-	<section class="bg-[#E8E6E3] dark:bg-[#252320] py-12 md:py-20">
+	<section class="bg-muted/40 py-12 md:py-20">
 		<div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
 			<p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed italic">
 				{a.epilogue}
@@ -127,7 +127,7 @@ const readMoreLabel = locale === 'fr' ? 'Lire la suite' : 'Read more'
 	<!-- ═══════════════════════════ CTA ═══════════════════════════ -->
 	<section class="py-12 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-			<h2 class="text-3xl font-semibold text-foreground font-heading">{a.cta.title}</h2>
+			<h2 class="text-2xl md:text-3xl font-heading font-semibold text-foreground">{a.cta.title}</h2>
 			<a
 				href={localePath(locale, '/product')}
 				class="mt-6 inline-flex items-center rounded-[8px] bg-primary-600 hover:bg-primary-700 text-white h-12 px-6 font-heading font-semibold shadow-lg transition-all hover:shadow-xl"

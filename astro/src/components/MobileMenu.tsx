@@ -96,6 +96,7 @@ export default function MobileMenu({ navLinks, alternateUrl, locale }: Props) {
 					{/* Language switch */}
 					<a
 						href={alternateUrl}
+						data-lang-switch
 						onClick={() => setIsOpen(false)}
 						className="text-sm font-medium text-slate-600 hover:text-slate-800"
 					>

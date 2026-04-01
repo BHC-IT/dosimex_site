@@ -14,8 +14,8 @@ const currentPath = Astro.url.pathname
 
 const navLinks = [
 	{ label: t.navbar.items[0], href: localePath(locale, '/software') },
-	{ label: t.navbar.items[1], href: localePath(locale, '/product') },
-	{ label: t.navbar.items[2], href: localePath(locale, '/training') },
+	{ label: t.navbar.items[1], href: localePath(locale, '/training') },
+	{ label: t.navbar.items[2], href: localePath(locale, '/manuals') },
 	{ label: t.navbar.items[3], href: localePath(locale, '/about') },
 	{ label: t.navbar.items[4], href: localePath(locale, '/contact') },
 	{ label: t.navbar.items[5], href: localePath(locale, '/blog') },
@@ -57,6 +57,7 @@ const alternateUrl = alternateOverride ?? getAlternateUrl(currentPath)
 			<!-- Language toggle -->
 			<a
 				href={alternateUrl}
+				data-lang-switch
 				class="rounded-md px-2 py-1 text-xs font-bold text-foreground/60 transition-colors hover:text-foreground border border-border"
 				aria-label={locale === 'fr' ? 'Switch to English' : 'Passer en français'}
 			>
@@ -71,7 +72,7 @@ const alternateUrl = alternateOverride ?? getAlternateUrl(currentPath)
 				class="rounded-lg border border-primary px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary/10"
 				data-ph-cta="nav-quote"
 			>
-				{locale === 'en' ? 'Request a quote' : 'Demander un devis'}
+				{locale === 'en' ? 'Pricing & quote' : 'Tarifs & devis'}
 			</a>
 
 			<!-- CTA: Trial -->
@@ -133,4 +134,20 @@ const alternateUrl = alternateOverride ?? getAlternateUrl(currentPath)
 
 	initNavScroll()
 	document.addEventListener('astro:page-load', initNavScroll)
+
+	// Language switch: preserve scroll position
+	function initLangSwitch() {
+		document.querySelectorAll('[data-lang-switch]').forEach(link => {
+			link.addEventListener('click', () => {
+				sessionStorage.setItem('scrollY', String(window.scrollY))
+			})
+		})
+		const savedY = sessionStorage.getItem('scrollY')
+		if (savedY) {
+			sessionStorage.removeItem('scrollY')
+			requestAnimationFrame(() => window.scrollTo(0, parseInt(savedY)))
+		}
+	}
+	initLangSwitch()
+	document.addEventListener('astro:page-load', initLangSwitch)
 </script>

@@ -40,6 +40,10 @@ export const fr = {
 			title: 'Blog — Dosimex',
 			description: 'Articles et actualités sur la radioprotection, la dosimétrie et les outils Dosimex.',
 		},
+		legal: {
+			title: 'Mentions légales — Dosimex',
+			description: 'Mentions légales du site dosimex.fr : éditeur, hébergeur, conditions d\'utilisation, propriété intellectuelle et données personnelles.',
+		},
 	},
 	altText: {
 		logo: 'DOSIMEX - Logiciel de dosim\u00e9trie des rayonnements',
@@ -53,16 +57,17 @@ export const fr = {
 		cardIcon: 'Ic\u00f4ne',
 	},
 	navbar: {
-		items: ['Logiciel', 'Produit', 'Formation', 'À propos', 'Contact', 'Blog'],
-		button: 'Essai gratuit 14 jours',
+		items: ['Logiciel', 'Formation', 'Documentation', 'À propos', 'Contact', 'Blog'],
+		button: 'Essai gratuit Dosismart 14 jours',
 	},
 	home: {
 		hero: {
-			title: 'La radioprotection, calculée juste.',
+			title: 'Maîtrisez vos calculs de radioprotection',
+			badge: 'Nouveau : Dosismart, le calcul gamma dans le navigateur',
 			subtitle:
-				"17 outils validés MCNP sous Excel. Calcul gamma source ponctuelle déjà disponible dans le navigateur avec Dosismart — sources 3D et générateur X bientôt.",
+				"Un ensemble d'outils de calculs pratiques, simples d'emploi et validés qui répondent à de nombreuses situations rencontrées en radioprotection. Ils vous permettront d'améliorer votre niveau d'expertise.",
 			cta: 'Voir les outils',
-			trialButton: 'Essayer Dosismart',
+			trialButton: 'Découvrir le produit',
 			priceNote: 'À partir de 500\u00A0€ HT/an — Essai Dosismart gratuit',
 		},
 		partners: {
@@ -111,7 +116,7 @@ export const fr = {
 			button: 'Essayer gratuitement',
 		},
 		close: {
-			title: 'Prêt à calculer juste ?',
+			title: 'Obtenez Dosimex',
 			price: 'Dosimex : à partir de 500€ HT/an',
 			includes: '17 outils Excel + accès Dosismart + support technique',
 			dosismartNote: 'Dosismart est aussi disponible en essai gratuit',
@@ -120,13 +125,13 @@ export const fr = {
 		},
 		packs: {
 			title: 'Ce que contient Dosimex',
-			subtitle: 'Chaque code est validé (MCNP, RayXpert, Microshield) et accompagné de sa documentation complète.',
+			subtitle: 'Chaque code est validé (MCNP, RayXpert, Microshield) et accompagné de sa documentation complète. Le pack inclut également 11 documents de cours.',
 			allTools: 'Voir tous les outils en détail',
 		},
 		numbers: {
 			items: [
 				{ value: '+30 ans', label: "d'expérience" },
-				{ value: '+1000', label: 'utilisateurs sur le terrain' },
+				{ value: '+1500', label: 'utilisateur.rices sur le terrain' },
 				{ value: '17', label: 'codes de calcul' },
 			],
 		},
@@ -479,7 +484,7 @@ export const fr = {
 			],
 		},
 		contact: {
-			title: 'Devis, essai gratuit, questions ?',
+			title: 'Devis, essai gratuit Dosismart, questions ?',
 			text: "N'hésitez pas à nous contacter via le formulaire ci-dessous ou par téléphone au ",
 			phone: '06 89 70 90 35',
 		},

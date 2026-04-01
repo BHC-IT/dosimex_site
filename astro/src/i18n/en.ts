@@ -40,6 +40,10 @@ export const en = {
 			title: 'Blog — Dosimex',
 			description: 'Articles and news on radiation protection, dosimetry and Dosimex tools.',
 		},
+		legal: {
+			title: 'Legal Notice — Dosimex',
+			description: 'Legal notice for dosimex.fr: publisher, hosting, terms of use, intellectual property and personal data.',
+		},
 	},
 	altText: {
 		logo: 'DOSIMEX - Radiation Dosimetry Software',
@@ -53,16 +57,17 @@ export const en = {
 		cardIcon: 'Icon',
 	},
 	navbar: {
-		items: ['Software', 'Product', 'Training', 'About', 'Contact', 'Blog'],
-		button: 'Free trial 14 days',
+		items: ['Software', 'Training', 'Documentation', 'About', 'Contact', 'Blog'],
+		button: 'Free Dosismart trial 14 days',
 	},
 	home: {
 		hero: {
-			title: 'Radiation protection, calculated right.',
+			title: 'Master your radiation protection calculations',
+			badge: 'New: Dosismart, gamma calculation in the browser',
 			subtitle:
-				'17 MCNP-validated tools in Excel. Point source gamma calculation already available in the browser with Dosismart — 3D sources and X-ray coming soon.',
+				'A set of practical, easy-to-use, validated calculation tools that address many situations encountered in radiation protection. They will allow you to improve your expertise level.',
 			cta: 'View the tools',
-			trialButton: 'Try Dosismart',
+			trialButton: 'Discover the product',
 			priceNote: 'From €500/year excl. VAT — Free Dosismart trial',
 		},
 		partners: {
@@ -111,7 +116,7 @@ export const en = {
 			button: 'Try for free',
 		},
 		close: {
-			title: 'Ready to calculate right?',
+			title: 'Get Dosimex',
 			price: 'Dosimex: from \u20AC500/year excl. VAT',
 			includes: '17 Excel tools + Dosismart access + technical support',
 			dosismartNote: 'Dosismart is also available as a free trial',
@@ -120,13 +125,13 @@ export const en = {
 		},
 		packs: {
 			title: 'What Dosimex contains',
-			subtitle: 'Every code is validated (MCNP, RayXpert, Microshield) with full documentation included.',
+			subtitle: 'Every code is validated (MCNP, RayXpert, Microshield) with full documentation included. The pack also includes 11 course documents.',
 			allTools: 'See all tools in detail',
 		},
 		numbers: {
 			items: [
 				{ value: '+30 years', label: 'of experience' },
-				{ value: '+1000', label: 'users in the field' },
+				{ value: '+1500', label: 'users in the field' },
 				{ value: '17', label: 'calculation codes' },
 			],
 		},
@@ -479,7 +484,7 @@ export const en = {
 			],
 		},
 		contact: {
-			title: 'Quote, free trial, questions?',
+			title: 'Quote, free Dosismart trial, questions?',
 			text: 'Feel free to contact us via the form below or by phone at ',
 			phone: '06 89 70 90 35',
 		},

@@ -11,16 +11,16 @@ const { t, locale } = Astro.props
 const year = new Date().getFullYear()
 ---
 
-<footer class="mt-20 border-t bg-foreground text-background/70">
+<footer class="border-t bg-foreground text-background/70">
 	<div class="mx-auto max-w-7xl px-6 pt-16 pb-8">
-		<div class="grid grid-cols-1 md:grid-cols-3 gap-12 pb-8">
+		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 pb-8">
 			<!-- Column 1: Brand + Copyright + Social -->
 			<div>
-				<a href={localePath(locale, '/')} class="text-xl font-heading font-bold text-background tracking-wider">
-					DOSIMEX
+				<a href={localePath(locale, '/')}>
+					<img src="/Images/logo_dosimex_new.webp" alt="Dosimex" class="h-7 w-auto" loading="lazy" />
 				</a>
 				<p class="mt-4 text-sm text-background/60 max-w-xs">
-					{locale === 'fr' ? 'Outils de calculs radioprotection validés MCNP.' : 'MCNP-validated radiation protection calculation tools.'}
+					{locale === 'fr' ? 'Outils de calculs en radioprotection.' : 'Radiation protection calculation tools.'}
 				</p>
 				<div class="mt-6 flex items-center gap-4">
 					<!-- LinkedIn -->
@@ -37,7 +37,7 @@ const year = new Date().getFullYear()
 				</p>
 			</div>
 
-			<!-- Column 2: Software + Resources -->
+			<!-- Column 2: Software -->
 			<div>
 				<h3 class="text-sm font-heading font-semibold uppercase tracking-wider text-background/60 mb-4">
 					{locale === 'fr' ? 'Logiciel' : 'Software'}
@@ -63,6 +63,19 @@ const year = new Date().getFullYear()
 					<li><a href={localePath(locale, '/training')} class="hover:text-background transition-colors">{locale === 'fr' ? 'Formations' : 'Training'}</a></li>
 					<li><a href={localePath(locale, '/contact')} class="hover:text-background transition-colors">Contact</a></li>
 					<li>06 89 70 90 35</li>
+					<li><a href="mailto:contact@dosimex.fr" class="hover:text-background transition-colors">contact@dosimex.fr</a></li>
+				</ul>
+			</div>
+
+			<!-- Column 4: Legal -->
+			<div>
+				<h3 class="text-sm font-heading font-semibold uppercase tracking-wider text-background/60 mb-4">
+					{locale === 'fr' ? 'Légal' : 'Legal'}
+				</h3>
+				<ul class="space-y-3 text-sm">
+					<li><a href={localePath(locale, '/legal')} class="hover:text-background transition-colors">{locale === 'fr' ? 'Mentions légales' : 'Legal notice'}</a></li>
+					<li><a href={localePath(locale, '/privacy')} class="hover:text-background transition-colors">{locale === 'fr' ? 'Confidentialité' : 'Privacy policy'}</a></li>
+					<li><a href={localePath(locale, '/terms')} class="hover:text-background transition-colors">{locale === 'fr' ? 'CGU' : 'Terms of use'}</a></li>
 					<li><button id="manage-cookies-footer" type="button" class="hover:text-background transition-colors cursor-pointer">{t.footer.manageCookies}</button></li>
 				</ul>
 			</div>
@@ -71,12 +84,13 @@ const year = new Date().getFullYear()
 </footer>
 
 <script>
+	import * as CookieConsent from 'vanilla-cookieconsent'
+
 	function initFooterCookies() {
 		document.getElementById('manage-cookies-footer')?.addEventListener('click', () => {
-			if (typeof window !== 'undefined' && 'CookieConsent' in window) {
-				(window as Record<string, unknown>).CookieConsent
-			}
+			CookieConsent.showPreferences()
 		})
 	}
 	initFooterCookies()
+	document.addEventListener('astro:page-load', initFooterCookies)
 </script>

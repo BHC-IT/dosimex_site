@@ -157,7 +157,7 @@ details[open] .faq-chevron {
 	animation: partner-scroll 30s linear infinite;
 }
 .partner-scroll:hover {
-	animation-play-state: paused;
+	animation-play-state: running;
 }
 
 /* Blog prose typography */

@@ -19,7 +19,7 @@ const tr = t.training
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="grid items-center gap-10 lg:grid-cols-2">
 				<div>
-					<h1 class="text-4xl font-extrabold tracking-tight text-foreground font-lato md:text-5xl">
+					<h1 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground tracking-tight">
 						{tr.header.title}
 					</h1>
 					<p class="mt-6 text-lg text-foreground/70 leading-relaxed">
@@ -34,7 +34,7 @@ const tr = t.training
 	</section>
 
 	<!-- Section 1: Training Topics -->
-	<section class="bg-[#E8E6E3] dark:bg-[#252320] py-16 md:py-20">
+	<section class="bg-muted/40 py-16 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<h2 class="text-2xl font-heading font-semibold text-foreground md:text-3xl">
 				{tr.section1.title}
@@ -52,31 +52,45 @@ const tr = t.training
 	<!-- Section 2: Partner Training -->
 	<section class="py-16 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<h2 class="text-2xl font-heading font-semibold text-foreground md:text-3xl">
-				{tr.section2.title}
-			</h2>
-			<ul class="mt-8 space-y-3">
-				{tr.section2.items.map((item) => (
-					<li class="flex items-center gap-3 text-foreground/80">
-						<svg class="h-4 w-4 shrink-0 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-							<path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+			<div class="grid lg:grid-cols-2 gap-12 items-center">
+				<div>
+					<h2 class="text-2xl font-heading font-semibold text-foreground md:text-3xl">
+						{tr.section2.title}
+					</h2>
+					<ul class="mt-8 space-y-3">
+						{tr.section2.items.map((item) => (
+							<li class="flex items-center gap-3 text-foreground/80">
+								<svg class="h-4 w-4 shrink-0 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+									<path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+								</svg>
+								{item}
+							</li>
+						))}
+					</ul>
+					<a
+						href="/Folders/catalogue_formations.pdf"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="mt-8 inline-flex items-center gap-2 rounded-[8px] bg-primary-600 hover:bg-primary-700 h-12 px-6 font-heading font-semibold text-white shadow-lg transition-all hover:shadow-xl"
+						data-ph-cta="download_catalog"
+					>
+						{tr.section2.button}
+						<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
 						</svg>
-						{item}
-					</li>
-				))}
-			</ul>
-			<a
-				href="/Folders/catalogue_formations.pdf"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="mt-8 inline-flex items-center gap-2 rounded-[8px] bg-primary-600 hover:bg-primary-700 h-12 px-6 font-heading font-semibold text-white shadow-lg transition-all hover:shadow-xl"
-				data-ph-cta="download_catalog"
-			>
-				{tr.section2.button}
-				<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-					<path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-				</svg>
-			</a>
+					</a>
+				</div>
+				<div>
+					<img
+						src="/Images/formation.png"
+						alt={locale === 'fr' ? 'Formation Dosimex en radioprotection' : 'Dosimex radiation protection training'}
+						class="w-full rounded-xl shadow-md"
+						loading="lazy"
+						width="800"
+						height="600"
+					/>
+				</div>
+			</div>
 		</div>
 	</section>
 

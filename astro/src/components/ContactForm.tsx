@@ -290,7 +290,7 @@ export default function ContactForm({
 						<option value="">{labels.subject}</option>
 						<option value="quote">{locale === 'fr' ? 'Demande de devis' : 'Quote request'}</option>
 						<option value="demo">{locale === 'fr' ? 'Démonstration' : 'Demo request'}</option>
-						<option value="trial">{locale === 'fr' ? 'Essai gratuit' : 'Free trial'}</option>
+						<option value="trial">{locale === 'fr' ? 'Essai gratuit Dosismart' : 'Free trial Dosismart'}</option>
 						<option value="training">{locale === 'fr' ? 'Formation' : 'Training'}</option>
 						<option value="support">{locale === 'fr' ? 'Support technique' : 'Technical support'}</option>
 						<option value="other">{locale === 'fr' ? 'Autre' : 'Other'}</option>

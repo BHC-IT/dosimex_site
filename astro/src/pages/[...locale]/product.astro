@@ -9,7 +9,7 @@ const { locale } = Astro.props as { locale: Locale }
 const t = getTranslations(locale)
 const p = t.product
 
-const trialLabel = locale === 'fr' ? 'Essai gratuit 14 jours' : 'Free trial 14 days'
+const trialLabel = locale === 'fr' ? 'Essai gratuit Dosismart 14 jours' : 'Free Dosismart trial 14 days'
 const quoteLabel = locale === 'fr' ? 'Demander un devis' : 'Request a quote'
 const monthlyNote = locale === 'fr' ? 'Soit moins de 42\u20AC/mois' : 'Less than \u20AC42/month'
 
@@ -43,7 +43,7 @@ const faqSchema = {
 	<!-- ═══════════════════════════ HERO ═══════════════════════════ -->
 	<section class="py-12 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-			<h1 class="text-3xl font-semibold tracking-tight text-foreground font-heading md:text-4xl lg:text-5xl">
+			<h1 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground tracking-tight">
 				{p.title}
 			</h1>
 			<p class="mx-auto mt-6 max-w-3xl text-base text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -53,9 +53,9 @@ const faqSchema = {
 	</section>
 
 	<!-- ═══════════════════════════ PRICING CARDS ═══════════════════════════ -->
-	<section data-ph-section="pricing" class="bg-[#E8E6E3] dark:bg-[#252320] py-12 md:py-20">
+	<section data-ph-section="pricing" class="bg-muted/40 py-12 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<h2 class="text-center text-3xl font-semibold text-foreground font-heading">{p.pricing.title}</h2>
+			<h2 class="text-center text-2xl md:text-3xl font-heading font-semibold text-foreground">{p.pricing.title}</h2>
 			<p class="mt-2 text-center text-slate-600 dark:text-slate-400">{p.pricing.packageTitle}</p>
 
 			<div class="mt-12 grid gap-8 lg:grid-cols-2 max-w-4xl mx-auto">
@@ -87,7 +87,7 @@ const faqSchema = {
 				</div>
 
 				<!-- 3-year card (best value) -->
-				<div class="relative rounded-lg border-t-4 border-t-primary-600 border border-slate-200 dark:border-[#3D3A35] bg-white dark:bg-[#252320] p-8 hover:shadow-sm hover:-translate-y-0.5 transition">
+				<div class="relative rounded-lg border-t-4 border-t-primary-600 dark:border-t-primary-600 border border-slate-200 dark:border-[#3D3A35] bg-white dark:bg-[#252320] p-8 hover:shadow-sm hover:-translate-y-0.5 transition">
 					<div class="absolute -top-4 left-1/2 -translate-x-1/2">
 						<span class="inline-block rounded-full bg-accent-400 px-4 py-1 text-xs font-bold text-slate-950">
 							{locale === 'fr' ? 'Meilleure offre' : 'Best value'}
@@ -138,7 +138,7 @@ const faqSchema = {
 	<section class="py-12 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="rounded-2xl bg-gradient-to-r from-primary/15 via-accent/10 to-emerald-400/10 p-8 md:p-12">
-				<h2 class="text-3xl font-semibold text-foreground font-heading">{p.trialBanner.title}</h2>
+				<h2 class="text-2xl md:text-3xl font-heading font-semibold text-foreground">{p.trialBanner.title}</h2>
 				<p class="mt-4 max-w-2xl text-base text-slate-600 dark:text-slate-400">
 					{p.trialBanner.text}
 				</p>
@@ -161,7 +161,7 @@ const faqSchema = {
 	<!-- ═══════════════════════════ WHAT'S INCLUDED ═══════════════════════════ -->
 	<section class="py-12 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<h2 class="text-3xl font-semibold text-foreground font-heading">{p.partE.title}</h2>
+			<h2 class="text-2xl md:text-3xl font-heading font-semibold text-foreground">{p.partE.title}</h2>
 			<div class="mt-8 space-y-4">
 				{p.partE.items.map((item) => (
 					<div class="rounded-lg border border-slate-200 dark:border-[#3D3A35] bg-white dark:bg-[#252320] p-6 flex items-start gap-4">
@@ -190,9 +190,9 @@ const faqSchema = {
 	</section>
 
 	<!-- ═══════════════════════════ PREREQUISITES ═══════════════════════════ -->
-	<section class="bg-[#E8E6E3] dark:bg-[#252320] py-12 md:py-20">
+	<section class="bg-muted/40 py-12 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<h2 class="text-3xl font-semibold text-foreground font-heading">{p.prerequisites.title}</h2>
+			<h2 class="text-2xl md:text-3xl font-heading font-semibold text-foreground">{p.prerequisites.title}</h2>
 			<p class="mt-4 max-w-3xl text-base text-slate-600 dark:text-slate-400 leading-relaxed">
 				{p.prerequisites.text}
 			</p>
@@ -202,7 +202,7 @@ const faqSchema = {
 	<!-- ═══════════════════════════ FAQ ═══════════════════════════ -->
 	<section data-ph-section="faq" class="py-12 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<h2 class="text-center text-3xl font-semibold text-foreground font-heading">{p.faq.title}</h2>
+			<h2 class="text-center text-2xl md:text-3xl font-heading font-semibold text-foreground">{p.faq.title}</h2>
 			<div class="mx-auto mt-10 max-w-3xl space-y-4">
 				{p.faq.questions.map((item) => (
 					<details class="group rounded-lg border border-slate-200 dark:border-[#3D3A35] bg-white dark:bg-[#252320]">
@@ -225,7 +225,7 @@ const faqSchema = {
 	<section class="py-12 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="rounded-2xl bg-gradient-to-r from-primary/8 via-accent/5 to-emerald-400/5 p-8 md:p-12 text-center">
-				<h2 class="text-3xl font-semibold text-foreground font-heading">{p.contact.title}</h2>
+				<h2 class="text-2xl md:text-3xl font-heading font-semibold text-foreground">{p.contact.title}</h2>
 				<p class="mx-auto mt-4 max-w-2xl text-slate-600 dark:text-slate-400">
 					{p.contact.text}
 					<a href="tel:+33689709035" class="font-semibold text-foreground hover:text-primary transition-colors">
