@@ -1,6 +1,6 @@
 ---
 import ThemeToggle from './ThemeToggle.astro'
-import MobileMenu from './MobileMenu.tsx'
+import MobileMenu from './MobileMenu.astro'
 import { localePath, getAlternateUrl, type Translations, type Locale } from '@/i18n/utils'
 
 interface Props {
@@ -22,6 +22,9 @@ const navLinks = [
 ]
 
 const alternateUrl = alternateOverride ?? getAlternateUrl(currentPath)
+const quoteLabel = locale === 'en' ? 'Pricing & quote' : 'Tarifs & devis'
+const quoteHref = localePath(locale, '/product')
+const trialLabel = t.navbar.button
 ---
 
 <header
@@ -68,11 +71,11 @@ const alternateUrl = alternateOverride ?? getAlternateUrl(currentPath)
 
 			<!-- CTA: Quote -->
 			<a
-				href={localePath(locale, '/product')}
+				href={quoteHref}
 				class="rounded-lg border border-primary px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary/10"
 				data-ph-cta="nav-quote"
 			>
-				{locale === 'en' ? 'Pricing & quote' : 'Tarifs & devis'}
+				{quoteLabel}
 			</a>
 
 			<!-- CTA: Trial -->
@@ -83,26 +86,19 @@ const alternateUrl = alternateOverride ?? getAlternateUrl(currentPath)
 				class="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
 				data-ph-cta="nav-trial"
 			>
-				{t.navbar.button}
+				{trialLabel}
 			</a>
 		</div>
 
-		<!-- Mobile: trial + hamburger -->
-		<div class="flex lg:hidden items-center gap-3">
-			<a
-				href="https://dosismart.com"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="inline-flex items-center h-8 px-3 text-sm font-semibold font-heading text-white bg-primary-600 hover:bg-primary-700 rounded-[8px] transition-colors duration-150"
-				data-ph-cta="nav-trial-mobile"
-			>
-				{locale === 'en' ? 'Trial' : 'Essai'}
-			</a>
+		<!-- Mobile: hamburger -->
+		<div class="flex lg:hidden items-center">
 			<MobileMenu
-				client:media="(max-width: 1023px)"
-				navLinks={navLinks.map((l) => ({ label: l.label, href: l.href }))}
+				navLinks={navLinks}
 				alternateUrl={alternateUrl}
 				locale={locale}
+				quoteLabel={quoteLabel}
+				quoteHref={quoteHref}
+				trialLabel={trialLabel}
 			/>
 		</div>
 	</div>
