@@ -248,6 +248,7 @@ export const fr = {
 			title: 'Outils de calcul',
 			description:
 				"Le pack Dosimex regroupe 17 utilitaires de calcul en radioprotection sous Excel : 6 codes opérationnels, 6 modules pédagogiques et 5 outils de mesure. Le calcul gamma source ponctuelle est aussi disponible dans Dosismart (navigateur web).",
+			langNote: 'La plupart des outils sont disponibles en français et en anglais.',
 			anchors: [
 				{ label: 'Pack opérationnel', href: '#pack-ope' },
 				{ label: 'Pack pédagogique', href: '#pack-peda' },
@@ -276,28 +277,28 @@ export const fr = {
 					description:
 						'Code de calcul déterministe de débit de dose émetteur bêta et électrons monoénergétiques. Prise en compte sources volumiques (bécher, seringue) ou surfaciques (contamination peau)',
 					videoId: '4Cfya_rHa04',
-					frOnly: true,
+					frOnly: false,
 				},
 				{
 					name: 'DOSIMEX-N 3.2',
 					description:
 						'Code de calcul Monte-Carlo de débit de dose émetteur neutron (type Am/Be) avec protection biologique (eau, polyéthylène, Bore, Cadmium etc.). Module pédagogique avec visualisation trajectoire neutron',
 					videoId: '7emAJHES-fw',
-					frOnly: true,
+					frOnly: false,
 				},
 				{
 					name: 'DOSIMEX-I 3.2',
 					description:
 						"Code de calcul expositions interne. Conforme à l'arrêté du 16/11/23. Prise en compte cinétique fuite, renouvellement, dépôt au sol. Calculs de transfert atmosphérique. Calcul mélanges RAI/RAV/RCA",
 					videoId: 'CnqQhyB6cEo',
-					frOnly: true,
+					frOnly: false,
 				},
 				{
 					name: 'DOSIMEX-MN 3.2',
 					description:
 						"Utilitaire de gestion de données permettant de connaitre les doses absorbées par unité d'activité administrée pour les radiopharmaceutiques CIPR 53, 80, 106 et 128",
 					videoId: 'sj-FVjP87jA',
-					frOnly: true,
+					frOnly: false,
 				},
 				{
 					name: 'DOSIMEX-GAMMAGRAPHIE',
@@ -318,28 +319,28 @@ export const fr = {
 					description:
 						"Utilitaire mettant en oeuvre les principes d'interactions photon-matières dans les matériaux avec diverses applications : calcul de kerma, de dose, de libre parcours moyen, effet Compton, visualisation de trajectoires (Monte-Carlo)",
 					videoId: 'cBQ5-CiqqT4',
-					frOnly: true,
+					frOnly: false,
 				},
 				{
 					name: 'IRM particules chargées 3.2',
 					description:
 						"Utilitaire mettant en oeuvre les principes d'interactions particules chargées-matières dans les matériaux avec diverses applications : calcul de parcours, de coefficient fluence-dose, application aux spectres bêta",
 					videoId: 'vXT2h8GJ8Qk',
-					frOnly: true,
+					frOnly: false,
 				},
 				{
 					name: 'Serious Game 3.2',
 					description:
 						'Utilitaire à vocation pédagogique permettant de mettre en évidence les paramètres essentiels de la radioprotection : distance, temps, écran, activité, nature radionucléide',
 					videoId: 'pYbgwudKniA',
-					frOnly: true,
+					frOnly: false,
 				},
 				{
 					name: 'Coefficients ICRU 57 3.2',
 					description:
 						'Utilitaire permettant de connaitre les coefficients fluence-équivalents de dose et kerma air normalisés pour les électrons, les photons et les neutrons',
 					videoId: 'Ltk5x2dW_VI',
-					frOnly: true,
+					frOnly: false,
 				},
 				{
 					name: 'Compteur nucléaire',
@@ -366,27 +367,27 @@ export const fr = {
 					description:
 						"Code déterministe calculant le rendement d'absorption totale en spectrométrie gamma, avec correction de couches mortes (caractérisation), correction de coïncidence et rendement de pics sommes",
 					videoId: 'vSI75UZ_9UQ',
-					frOnly: true,
+					frOnly: false,
 				},
 				{
 					name: 'Code Co3',
 					description:
 						"Code de calcul de Coefficient de Conversion Contaminamètres permettant de calculer les rendements (Bq/cm2/cps) de divers ictomètres et d'obtenir les activités surfaciques versus la nature de la sonde et le spectre isotopique mesuré",
 					videoId: '2Mq-TR8cG-o',
-					frOnly: true,
+					frOnly: false,
 				},
 				{
 					name: 'Composition de variables aléatoires',
 					description:
 						"Utilitaire permettant de combiner par méthode Monte-Carlo jusqu'à 5 variables de types différents. Accompagné des documents de cours complets sur le sujet des calculs d'incertitudes",
-					frOnly: true,
+					frOnly: false,
 				},
 				{
 					name: 'Calcul de seuil de décision',
 					description:
 						'Utilitaire permettant de déterminer le seuil de décision et la limite de détection en mesure nucléaire. Accompagné des documents de cours',
 					videoId: 'aA4QUutuaJc',
-					frOnly: true,
+					frOnly: false,
 				},
 				{
 					name: "Droite d'étalonnage",

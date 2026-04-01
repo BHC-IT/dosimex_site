@@ -248,6 +248,7 @@ export const en = {
 			title: 'Calculation tools',
 			description:
 				'The Dosimex pack includes 17 radiation protection calculation utilities in Excel: 6 operational codes, 6 learning modules and 5 measurement tools. Point source gamma calculation is also available in Dosismart (web browser).',
+			langNote: 'Most tools are available in French and English.',
 			anchors: [
 				{ label: 'Operational pack', href: '#pack-ope' },
 				{ label: 'Learning pack', href: '#pack-peda' },
@@ -276,28 +277,28 @@ export const en = {
 					description:
 						'Deterministic calculation code of beta emitter dose rate and monoenergetic electrons. Taking into account volumetric sources (beaker, syringe) or surface sources (skin contamination)',
 					videoId: '4Cfya_rHa04',
-					frOnly: true,
+					frOnly: false,
 				},
 				{
 					name: 'DOSIMEX-N 3.2',
 					description:
 						'Monte-Carlo calculation code of neutron emitter dose rate (Am/Be type) with biological protection (water, polyethylene, Boron, Cadmium etc.). Pedagogical module with neutron trajectory visualization',
 					videoId: '7emAJHES-fw',
-					frOnly: true,
+					frOnly: false,
 				},
 				{
 					name: 'DOSIMEX-I 3.2',
 					description:
 						'Internal exposure calculation code. In accordance with the decree of November 16, 2023. Consideration of leakage kinetics, renewal, ground deposition. Atmospheric transfer calculations',
 					videoId: 'CnqQhyB6cEo',
-					frOnly: true,
+					frOnly: false,
 				},
 				{
 					name: 'DOSIMEX-MN 3.2',
 					description:
 						'Data management utility to know the absorbed doses per unit of activity administered for ICRP 53, 80, 106 and 128 radiopharmaceuticals',
 					videoId: 'sj-FVjP87jA',
-					frOnly: true,
+					frOnly: false,
 				},
 				{
 					name: 'DOSIMEX-GAMMAGRAPHY',
@@ -318,28 +319,28 @@ export const en = {
 					description:
 						'Utility implementing the principles of photon-matter interactions in materials with various applications: kerma calculation, dose, mean free path, Compton effect, trajectory visualization (Monte-Carlo)',
 					videoId: 'cBQ5-CiqqT4',
-					frOnly: true,
+					frOnly: false,
 				},
 				{
 					name: 'Charged Particles Interaction 3.2',
 					description:
 						'Utility implementing the principles of charged particle-matter interactions in materials with various applications: range calculation, fluence-dose coefficient, application to beta spectra',
 					videoId: 'vXT2h8GJ8Qk',
-					frOnly: true,
+					frOnly: false,
 				},
 				{
 					name: 'Serious Game 3.2',
 					description:
 						'Pedagogical utility allowing to highlight the essential parameters of radiation protection: distance, time, screen, activity, radionuclide nature',
 					videoId: 'pYbgwudKniA',
-					frOnly: true,
+					frOnly: false,
 				},
 				{
 					name: 'ICRU 57 Coefficients 3.2',
 					description:
 						'Utility allowing to know the fluence-dose equivalent coefficients and normalized air kerma for electrons, photons and neutrons',
 					videoId: 'Ltk5x2dW_VI',
-					frOnly: true,
+					frOnly: false,
 				},
 				{
 					name: 'Nuclear meter',
@@ -366,27 +367,27 @@ export const en = {
 					description:
 						'Deterministic code calculating the total absorption efficiency in gamma spectrometry, with dead layer correction (characterization), coincidence correction and efficiency of sum peaks',
 					videoId: 'vSI75UZ_9UQ',
-					frOnly: true,
+					frOnly: false,
 				},
 				{
 					name: 'Co3 code',
 					description:
 						'Code for calculating the Conversion Coefficient of Contaminameters allowing to calculate the efficiency (Bq/cm2/cps) of various instruments and to obtain the surface activities versus the nature of the probe and the isotopic spectrum measured',
 					videoId: '2Mq-TR8cG-o',
-					frOnly: true,
+					frOnly: false,
 				},
 				{
 					name: 'Random variables composition',
 					description:
 						'Utility allowing to combine up to 5 variables of different types by Monte-Carlo method. Accompanied by complete course documents on the subject of uncertainty calculations',
-					frOnly: true,
+					frOnly: false,
 				},
 				{
 					name: 'Decision threshold calculation',
 					description:
 						'Utility to determine the decision threshold and the detection limit in nuclear measurement. Accompanied by course materials',
 					videoId: 'aA4QUutuaJc',
-					frOnly: true,
+					frOnly: false,
 				},
 				{
 					name: 'Calibration line',
