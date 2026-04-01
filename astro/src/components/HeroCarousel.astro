@@ -24,7 +24,7 @@ const { slides } = Astro.props
 					<img
 						src={slide.src}
 						srcset={slide.srcSm ? `${slide.srcSm} 640w, ${slide.src} 1280w` : undefined}
-						sizes={slide.srcSm ? '(max-width: 1024px) 100vw, 640px' : undefined}
+						sizes={slide.srcSm ? '(max-width: 767px) 100vw, (max-width: 1024px) 672px, 640px' : undefined}
 						alt={slide.alt}
 						width={slide.width}
 						height={slide.height}
