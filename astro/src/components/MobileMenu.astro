@@ -105,20 +105,20 @@ const { navLinks, alternateUrl, locale, quoteLabel, quoteHref, trialLabel } = As
 		<!-- CTA buttons -->
 		<div class="flex flex-col gap-3 w-full max-w-xs mt-4">
 			<a
-				href={quoteHref}
-				class="mobile-menu-link flex items-center justify-center h-12 rounded-lg border border-primary text-sm font-heading font-semibold text-primary transition-colors hover:bg-primary/10"
-				data-ph-cta="nav-quote-mobile"
-			>
-				{quoteLabel}
-			</a>
-			<a
 				href="https://dosismart.com"
 				target="_blank"
 				rel="noopener noreferrer"
-				class="mobile-menu-link flex items-center justify-center h-12 rounded-lg bg-primary text-sm font-heading font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+				class="mobile-menu-link flex items-center justify-center h-12 rounded-lg border border-primary text-sm font-heading font-semibold text-primary transition-colors hover:bg-primary/10"
 				data-ph-cta="nav-trial-mobile"
 			>
 				{trialLabel}
+			</a>
+			<a
+				href={quoteHref}
+				class="mobile-menu-link flex items-center justify-center h-12 rounded-lg bg-primary text-sm font-heading font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+				data-ph-cta="nav-quote-mobile"
+			>
+				{quoteLabel}
 			</a>
 		</div>
 	</nav>

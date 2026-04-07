@@ -22,7 +22,7 @@ const navLinks = [
 ]
 
 const alternateUrl = alternateOverride ?? getAlternateUrl(currentPath)
-const quoteLabel = locale === 'en' ? 'Pricing & quote' : 'Tarifs & devis'
+const quoteLabel = locale === 'en' ? 'Get Dosimex' : 'Obtenir Dosimex'
 const quoteHref = localePath(locale, '/product')
 const trialLabel = t.navbar.button
 ---
@@ -69,24 +69,24 @@ const trialLabel = t.navbar.button
 
 			<ThemeToggle />
 
-			<!-- CTA: Quote -->
-			<a
-				href={quoteHref}
-				class="rounded-lg border border-primary px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary/10"
-				data-ph-cta="nav-quote"
-			>
-				{quoteLabel}
-			</a>
-
 			<!-- CTA: Trial -->
 			<a
 				href="https://dosismart.com"
 				target="_blank"
 				rel="noopener noreferrer"
-				class="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+				class="rounded-lg border border-primary px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary/10"
 				data-ph-cta="nav-trial"
 			>
 				{trialLabel}
+			</a>
+
+			<!-- CTA: Get Dosimex -->
+			<a
+				href={quoteHref}
+				class="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+				data-ph-cta="nav-quote"
+			>
+				{quoteLabel}
 			</a>
 		</div>
 
