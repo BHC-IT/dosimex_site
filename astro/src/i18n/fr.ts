@@ -70,8 +70,8 @@ export const fr = {
 			badge: 'Nouveau : Dosismart, le calcul gamma dans le navigateur',
 			subtitle:
 				"Un ensemble d'outils de calculs pratiques, simples d'emploi et validés qui répondent à de nombreuses situations rencontrées en radioprotection. Ils vous permettront d'améliorer votre niveau d'expertise.",
-			cta: 'Voir les outils',
-			trialButton: 'Découvrir le produit',
+			cta: 'Découvrir les outils',
+			trialButton: 'Nos formations',
 			priceNote: 'À partir de 500\u00A0€ HT/an — Essai Dosismart gratuit',
 		},
 		partners: {

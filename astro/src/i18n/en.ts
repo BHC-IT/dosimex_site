@@ -70,8 +70,8 @@ export const en = {
 			badge: 'New: Dosismart, gamma calculation in the browser',
 			subtitle:
 				'A set of practical, easy-to-use, validated calculation tools that address many situations encountered in radiation protection. They will allow you to improve your expertise level.',
-			cta: 'View the tools',
-			trialButton: 'Discover the product',
+			cta: 'Discover the tools',
+			trialButton: 'Training courses',
 			priceNote: 'From €500/year excl. VAT — Free Dosismart trial',
 		},
 		partners: {
