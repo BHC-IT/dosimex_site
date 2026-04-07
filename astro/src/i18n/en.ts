@@ -245,7 +245,7 @@ export const en = {
 	},
 	software: {
 		header: {
-			title: 'Calculation tools',
+			title: 'Radiation protection calculation tools for everyone',
 			description:
 				'The Dosimex pack includes 17 radiation protection calculation utilities in Excel: 6 operational codes, 6 learning modules and 5 measurement tools. Point source gamma calculation is also available in Dosismart (web browser).',
 			langNote: 'Most tools are available in French and English.',

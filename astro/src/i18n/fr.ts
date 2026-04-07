@@ -245,7 +245,7 @@ export const fr = {
 	},
 	software: {
 		header: {
-			title: 'Outils de calcul',
+			title: 'Outils de calcul en radioprotection pour tous',
 			description:
 				"Le pack Dosimex regroupe 17 utilitaires de calcul en radioprotection sous Excel : 6 codes opérationnels, 6 modules pédagogiques et 5 outils de mesure. Le calcul gamma source ponctuelle est aussi disponible dans Dosismart (navigateur web).",
 			langNote: 'La plupart des outils sont disponibles en français et en anglais.',
