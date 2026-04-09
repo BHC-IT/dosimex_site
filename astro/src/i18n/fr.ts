@@ -144,7 +144,7 @@ export const fr = {
 			title: 'Retrouvez-nous sur Youtube',
 			description:
 				"Nous vous y proposons d'autres vidéos consacrées à la physique nucléaire, à la radioactivité, à l'interaction rayonnement-matière, aux statistiques et à la métrologie...",
-			button: 'Découvrir les autres vidéos',
+			button: 'Notre chaîne YouTube',
 		},
 		opinion: {
 			name: 'Jean-Lionel Trolet',

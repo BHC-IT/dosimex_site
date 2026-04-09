@@ -144,7 +144,7 @@ export const en = {
 			title: 'Join us on YouTube',
 			description:
 				'We offer you other videos dedicated to nuclear physics, radioactivity, radiation-matter interaction, statistics and metrology...',
-			button: 'Check out the other videos',
+			button: 'Our YouTube channel',
 		},
 		opinion: {
 			name: 'Jean-Lionel Trolet',
