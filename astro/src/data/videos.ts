@@ -70,24 +70,24 @@ export const bookUrls = [
 	'https://www.edp-sciences.fr/livre/9782759818075-exercices-de-radioprotection-tome-1',
 ] as const
 
-export const manualPdfs = {
+export const getManualPdfs = (locale: 'fr' | 'en') => ({
 	manuals: [
-		'/Folders/Handbook_1.pdf',
-		'/Folders/Handbook_2.pdf',
-		'/Folders/Manuel_NFC15160.pdf',
-		'/Folders/Manuel_Radiologie.pdf',
+		locale === 'fr' ? '/Folders/1_Manuel_Radionucléide.pdf' : '/Folders/Handbook1_Radionucléide.pdf',
+		locale === 'fr' ? '/Folders/2_Manuel_Géné_X.pdf' : '/Folders/Handbook2_Xgenerator.pdf',
+		'/Folders/3_Manuel_Application_15_160.pdf',
+		'/Folders/Annexe_S_ radiologie.pdf',
 	],
 	validations: [
-		'/Folders/Validation_Gamma.pdf',
-		'/Folders/Validation_Gene_X.pdf',
-		'/Folders/Ref_MCNP_CEA.pdf',
-		'/Folders/Ref_MCNP_AREVA.pdf',
-		'/Folders/Ref_attenuation_X.pdf',
+		locale === 'fr' ? '/Folders/Validation_1_Radionucléide_3.0.pdf' : '/Folders/Validation1_Radionuclide.pdf',
+		locale === 'fr' ? '/Folders/Validation_2_Géné X_3.0.pdf' : '/Folders/Validation2_Xgenerator.pdf',
+		'/Folders/CEA-R-6452.pdf',
+		'/Folders/NT_101682_42_0001_A-DOSIMEX.pdf',
+		'/Folders/Article_facteur_transmission_L_Bourgois.pdf',
 	],
 	internships: [
-		'/Folders/Rapport1.pdf',
-		'/Folders/Rapport2.pdf',
-		'/Folders/Rapport3.pdf',
-		'/Folders/Rapport4.pdf',
+		'/Folders/Rapport_ULYSSE_reactor_dismantling.pdf',
+		'/Folders/Rapport_mémoire_AREVA.pdf',
+		'/Folders/Rapport_mémoire_SPR_Cadarache.pdf',
+		'/Folders/Rapport_CJ_AREVA_2016.pdf',
 	],
-} as const
+}) as const
