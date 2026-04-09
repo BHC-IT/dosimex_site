@@ -66,10 +66,10 @@ export const en = {
 	},
 	home: {
 		hero: {
-			title: 'Radiation protection calculation tools for everyone',
+			title: 'Radiation protection calculation tools — from calculation to understanding',
 			badge: 'New: Dosismart, gamma calculation in the browser',
 			subtitle:
-				'A set of practical, easy-to-use, validated calculation tools that address many situations encountered in radiation protection. They will allow you to improve your expertise level.',
+				'A set of practical, easy-to-use, validated calculation tools that address many situations encountered in radiation protection. To improve your expertise: educational modules, course documents, videos and training courses complete the package.',
 			cta: 'Discover the tools',
 			trialButton: 'Training courses',
 			priceNote: 'From €500/year excl. VAT — Free Dosismart trial',
@@ -94,21 +94,21 @@ export const en = {
 			description:
 				'17 tools covering the essentials of radiation protection. Each code comes with an explanatory video and downloadable validation files.',
 			card1: {
-				title: 'Dosimex',
+				title: 'Calculate',
 				description:
-					'17 calculation tools in Excel: gamma, beta, neutron, internal exposure, radiography, educational modules and measurement utilities.',
+					'17 calculation tools in Excel covering gamma, beta, neutron, internal exposure, radiography and measurement. Point source gamma calculation is also available in Dosismart, directly in the browser.',
 				linkLabel: 'See the tools',
 			},
 			card2: {
-				title: 'Dosismart',
+				title: 'Understand',
 				description:
-					'Your calculations in the browser. Point source gamma available now. 3D sources and X-ray generator under development.',
-				linkLabel: 'Try for free',
+					'6 interactive educational modules, 13 course documents on nuclear physics and metrology, plus appendices from the reference book. To deepen your understanding of the fundamentals at your own pace.',
+				linkLabel: 'See resources',
 			},
 			card3: {
-				title: 'Training',
+				title: 'Train',
 				description:
-					'Hands-on training adapted to your specific use cases and radiation protection problems.',
+					'1 to 3-day training courses adapted to your specific challenges. Hands-on tool training, practical exercises on real-world cases, skill development.',
 				linkLabel: 'Learn more',
 			},
 		},
@@ -118,6 +118,28 @@ export const en = {
 			available: 'Available now: point source gamma calculation.',
 			coming: 'Coming soon: 3D sources and X-ray generator.',
 			button: 'Try for free',
+		},
+		evolves: {
+			title: 'Dosimex evolves',
+			subtitle: 'We continuously improve the user experience and calculation capabilities.',
+			items: [
+				{
+					title: 'Downloadable single-user license',
+					text: 'Dosimex is now distributed as a downloadable single-user license. No more USB key: install, save your results, work at your own pace.',
+					icon: 'download',
+				},
+				{
+					title: 'Dosismart: calculations in the browser',
+					text: 'Point source gamma calculation is accessible anywhere, no installation required. 3D sources and X-ray generator under development.',
+					icon: 'globe',
+				},
+				{
+					title: 'New: gamma emission table creation',
+					text: '5 tools for creating and importing complex gamma emission tables into Dosimex-GX.',
+					icon: 'table',
+					link: { label: 'Read the article', href: '/blog/gamma-emission-tables' },
+				},
+			],
 		},
 		close: {
 			title: 'Get Dosimex',

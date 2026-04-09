@@ -66,10 +66,10 @@ export const fr = {
 	},
 	home: {
 		hero: {
-			title: 'Outils de calcul en radioprotection pour tous',
+			title: 'Outils de calcul en radioprotection — du calcul à la compréhension',
 			badge: 'Nouveau : Dosismart, le calcul gamma dans le navigateur',
 			subtitle:
-				"Un ensemble d'outils de calculs pratiques, simples d'emploi et validés qui répondent à de nombreuses situations rencontrées en radioprotection. Ils vous permettront d'améliorer votre niveau d'expertise.",
+				"Un ensemble d'outils de calculs pratiques, simples d'emploi et validés qui répondent à de nombreuses situations rencontrées en radioprotection. Pour améliorer votre niveau d'expertise\u00A0: modules pédagogiques, documents de cours, vidéos et formations complètent l'ensemble.",
 			cta: 'Découvrir les outils',
 			trialButton: 'Nos formations',
 			priceNote: 'À partir de 500\u00A0€ HT/an — Essai Dosismart gratuit',
@@ -94,21 +94,21 @@ export const fr = {
 			description:
 				"17 outils couvrant l'essentiel du champ en radioprotection. Chaque code est accompagné de sa vidéo explicative et de son dossier de validation téléchargeable.",
 			card1: {
-				title: 'Dosimex',
+				title: 'Calculer',
 				description:
-					'17 outils de calcul sous Excel : gamma, bêta, neutron, exposition interne, gammagraphie, modules pédagogiques et mesures.',
+					'17 outils de calcul sous Excel couvrant gamma, bêta, neutron, exposition interne, gammagraphie et mesures. Le calcul gamma source ponctuelle est aussi disponible dans Dosismart, directement dans le navigateur.',
 				linkLabel: 'Voir les outils',
 			},
 			card2: {
-				title: 'Dosismart',
+				title: 'Comprendre',
 				description:
-					"Vos calculs dans le navigateur. Source ponctuelle gamma disponible dès maintenant. Sources 3D et générateur X en cours de développement.",
-				linkLabel: 'Essayer gratuitement',
+					"6 modules pédagogiques interactifs, 13 documents de cours en physique nucléaire et métrologie, et les annexes de l'ouvrage de référence. Pour approfondir les fondamentaux à votre rythme.",
+				linkLabel: 'Voir les ressources',
 			},
 			card3: {
-				title: 'Formations',
+				title: 'Se former',
 				description:
-					'Nous vous accompagnons pour prendre en main ces outils de calculs en nous adaptant à vos problèmes spécifiques.',
+					'Formations de 1 à 3 jours adaptées à vos problématiques. Prise en main des outils, travaux dirigés sur cas concrets, perfectionnement.',
 				linkLabel: 'En savoir plus',
 			},
 		},
@@ -118,6 +118,28 @@ export const fr = {
 			available: 'Disponible maintenant : calcul source ponctuelle gamma.',
 			coming: 'Bientôt : sources 3D et générateur X.',
 			button: 'Essayer gratuitement',
+		},
+		evolves: {
+			title: 'Dosimex évolue',
+			subtitle: "Nous améliorons continuellement l'expérience utilisateur et les capacités de calcul.",
+			items: [
+				{
+					title: 'Licence mono-poste téléchargeable',
+					text: "Dosimex est désormais distribué sous forme de licence mono-poste téléchargeable. Plus de clé USB\u00A0: vous installez, vous sauvegardez vos résultats, vous travaillez à votre rythme.",
+					icon: 'download',
+				},
+				{
+					title: 'Dosismart\u00A0: le calcul dans le navigateur',
+					text: "Le calcul gamma source ponctuelle est accessible partout, sans installation. Sources 3D et générateur X en développement.",
+					icon: 'globe',
+				},
+				{
+					title: "Nouveau\u00A0: création de tables d'émissions gamma",
+					text: "5 outils pour créer et importer des tables d'émissions gamma complexes dans Dosimex-GX.",
+					icon: 'table',
+					link: { label: "Lire l'article", href: '/blog/tables-emissions-gamma' },
+				},
+			],
 		},
 		close: {
 			title: 'Obtenez Dosimex',
