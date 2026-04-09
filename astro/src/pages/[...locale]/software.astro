@@ -178,12 +178,23 @@ const s = t.software
 			<ul class="mt-6 space-y-3">
 				{s.more.links.map((link) => (
 					<li>
-						<a
-							href={localePath(locale, link.href)}
-							class="text-primary-600 font-heading font-semibold hover:underline"
-						>
-							{link.label} &rarr;
-						</a>
+						{'pdf' in link ? (
+							<a
+								href={link.href}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="text-primary-600 font-heading font-semibold hover:underline"
+							>
+								{link.label} &darr;
+							</a>
+						) : (
+							<a
+								href={localePath(locale, link.href)}
+								class="text-primary-600 font-heading font-semibold hover:underline"
+							>
+								{link.label} &rarr;
+							</a>
+						)}
 					</li>
 				))}
 			</ul>

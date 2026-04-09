@@ -400,11 +400,11 @@ export const en = {
 		more: {
 			title: 'More resources',
 			links: [
-				{ label: 'Dosimex-GX user manuals', href: '/manuals' },
-				{ label: 'Complete validation files', href: '/manuals' },
-				{ label: 'Gamma source validation extracts', href: '/manuals' },
-				{ label: 'X-ray generator validation', href: '/manuals' },
-				{ label: "What's new in Dosimex-GX 3.2", href: '/manuals' },
+				{ label: 'Dosimex-GX user manuals', href: '/manuals#manuals' },
+				{ label: 'Complete validation files', href: '/manuals#validations' },
+				{ label: 'Gamma source validation extracts', href: '/Folders/extrait_validation_gamma.pdf', pdf: true },
+				{ label: 'X-ray generator validation', href: '/Folders/extrait_validation_géné_X.pdf', pdf: true },
+				{ label: "What's new in Dosimex-GX 3.2", href: '/Folders/Modification_Dosimex GX_3.0.pdf', pdf: true },
 				{ label: 'Our reading selection', href: '/books' },
 			],
 		},
