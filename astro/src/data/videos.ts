@@ -12,6 +12,7 @@ export const videoIds = {
 	packPeda: ['Ltk5x2dW_VI', 'vXT2h8GJ8Qk', 'cBQ5-CiqqT4', 'pYbgwudKniA'],
 	packMes: ['vSI75UZ_9UQ', 'aA4QUutuaJc', '2Mq-TR8cG-o'],
 	presentation: 'q9QXG78ciXY',
+	training: 'l0bIZ201gLo',
 	channelUrl: 'https://www.youtube.com/channel/UCmijJyGaFfJte4xsTk90MVA',
 } as const
 
