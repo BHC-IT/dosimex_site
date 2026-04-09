@@ -30,7 +30,7 @@ const partnerImages = partnerLogos.map((filename) => {
 
 const offerCards = [
 	{ ...t.home.offers.card1, href: localePath(locale, '/software'), icon: 'calculator' as const },
-	{ ...t.home.offers.card2, href: 'https://dosismart.com', icon: 'globe' as const, external: true },
+	{ ...t.home.offers.card2, href: `${localePath(locale, '/software')}#pack-peda`, icon: 'book' as const },
 	{ ...t.home.offers.card3, href: localePath(locale, '/training'), icon: 'graduation' as const },
 ]
 
@@ -120,16 +120,14 @@ const refsWithMeta = t.home.references.items
 				{offerCards.map((card) => (
 					<a
 						href={card.href}
-						target={'external' in card ? '_blank' : undefined}
-						rel={'external' in card ? 'noopener noreferrer' : undefined}
 						class="group block bg-card border border-border rounded-xl p-8 hover:shadow-md hover:-translate-y-1 transition-all duration-200"
 					>
 						<div class="flex h-14 w-14 items-center justify-center rounded-lg bg-primary/10 text-primary mb-4">
 							{card.icon === 'calculator' && (
 								<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><line x1="16" x2="16" y1="10" y2="10"/><line x1="12" x2="12" y1="10" y2="10"/><line x1="8" x2="8" y1="10" y2="10"/><line x1="12" x2="12" y1="14" y2="14"/><line x1="8" x2="8" y1="14" y2="14"/><line x1="12" x2="12" y1="18" y2="18"/><line x1="8" x2="8" y1="18" y2="18"/></svg>
 							)}
-							{card.icon === 'globe' && (
-								<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+							{card.icon === 'book' && (
+								<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
 							)}
 							{card.icon === 'graduation' && (
 								<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
@@ -197,6 +195,47 @@ const refsWithMeta = t.home.references.items
 
 	<!-- ══════════ STATS COUNTER ══════════ -->
 	<StatsCounter items={t.home.numbers.items} />
+
+	<!-- ══════════ DOSIMEX EVOLVES ══════════ -->
+	<section id="evolves" data-ph-section="evolves" class="py-12 md:py-28">
+		<div class="mx-auto max-w-7xl px-6">
+			<div class="text-center max-w-2xl mx-auto">
+				<h2 class="text-2xl md:text-3xl font-heading font-semibold text-foreground">
+					{t.home.evolves.title}
+				</h2>
+				<p class="mt-4 text-base text-muted-foreground">
+					{t.home.evolves.subtitle}
+				</p>
+			</div>
+			<div class="mt-12 grid gap-8 lg:grid-cols-3">
+				{t.home.evolves.items.map((item) => (
+					<div class="bg-card border border-border rounded-xl p-8">
+						<div class="flex h-14 w-14 items-center justify-center rounded-lg bg-primary/10 text-primary mb-4">
+							{item.icon === 'download' && (
+								<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+							)}
+							{item.icon === 'globe' && (
+								<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+							)}
+							{item.icon === 'table' && (
+								<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 3v18"/><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/></svg>
+							)}
+						</div>
+						<h3 class="text-xl font-heading font-semibold text-foreground">{item.title}</h3>
+						<p class="mt-3 text-base text-muted-foreground">{item.text}</p>
+						{'link' in item && (
+							<a
+								href={localePath(locale, item.link.href)}
+								class="mt-5 inline-flex items-center gap-1 text-primary font-heading font-semibold hover:underline"
+							>
+								{item.link.label} <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+							</a>
+						)}
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
 
 	<!-- ══════════ TESTIMONIAL ══════════ -->
 	<section id="testimonial" data-ph-section="testimonial" class="py-12 md:py-28">
