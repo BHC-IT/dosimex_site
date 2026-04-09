@@ -13,8 +13,12 @@ const m = t.manuals
 
 const anchorIds = ['manuals', 'validations', 'internships'] as const
 
-const manualImages = ['/Images/manuel1.png', '/Images/manuel2.png', '/Images/manuel3.png', '/Images/manuel4.png']
-const validationImages = ['/Images/Validation1.png', '/Images/Validation2.png', '/Images/Validation3.png', '/Images/Validation4.png', '/Images/Validation5.png']
+const manualImages = locale === 'fr'
+	? ['/Images/manuel1.png', '/Images/manuel2.png', '/Images/manuel3.png', '/Images/manuel4.png']
+	: ['/Images/handbook1.png', '/Images/handbook2.png', '/Images/manuel3.png', '/Images/manuel4.png']
+const validationImages = locale === 'fr'
+	? ['/Images/Validation1.png', '/Images/Validation2.png', '/Images/Validation3.png', '/Images/Validation4.png', '/Images/Validation5.png']
+	: ['/Images/validation1en.png', '/Images/validation2en.png', '/Images/Validation3.png', '/Images/Validation4.png', '/Images/Validation5.png']
 const internshipImages = ['/Images/Rapport1.png', '/Images/Rapport2.png', '/Images/Rapport3.png', '/Images/Rapport4.png']
 ---
 
