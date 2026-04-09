@@ -199,40 +199,47 @@ const refsWithMeta = t.home.references.items
 	<!-- ══════════ DOSIMEX EVOLVES ══════════ -->
 	<section id="evolves" data-ph-section="evolves" class="py-12 md:py-28">
 		<div class="mx-auto max-w-7xl px-6">
-			<div class="text-center max-w-2xl mx-auto">
-				<h2 class="text-2xl md:text-3xl font-heading font-semibold text-foreground">
-					{t.home.evolves.title}
-				</h2>
-				<p class="mt-4 text-base text-muted-foreground">
-					{t.home.evolves.subtitle}
-				</p>
-			</div>
-			<div class="mt-12 grid gap-8 lg:grid-cols-3">
-				{t.home.evolves.items.map((item) => (
-					<div class="bg-card border border-border rounded-xl p-8">
-						<div class="flex h-14 w-14 items-center justify-center rounded-lg bg-primary/10 text-primary mb-4">
-							{item.icon === 'download' && (
-								<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
-							)}
-							{item.icon === 'globe' && (
-								<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-							)}
-							{item.icon === 'table' && (
-								<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 3v18"/><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/></svg>
-							)}
-						</div>
-						<h3 class="text-xl font-heading font-semibold text-foreground">{item.title}</h3>
-						<p class="mt-3 text-base text-muted-foreground">{item.text}</p>
-						{'link' in item && (
-							<a
-								href={localePath(locale, item.link.href)}
-								class="mt-5 inline-flex items-center gap-1 text-primary font-heading font-semibold hover:underline"
-							>
-								{item.link.label} <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-							</a>
-						)}
+			<div class="relative overflow-hidden rounded-2xl bg-muted/40 p-8 md:p-12">
+				<div class="absolute -top-20 -left-20 h-[400px] w-[400px] rounded-full bg-primary/5 blur-3xl" aria-hidden="true"></div>
+				<div class="relative">
+					<h2 class="text-2xl md:text-3xl font-heading font-semibold text-foreground">
+						{t.home.evolves.title}
+					</h2>
+					<p class="mt-2 text-base text-muted-foreground max-w-2xl">
+						{t.home.evolves.subtitle}
+					</p>
+					<div class="mt-10 grid gap-8 md:gap-10 lg:grid-cols-3">
+						{t.home.evolves.items.map((item) => (
+							<div class="flex gap-4">
+								<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+									{item.icon === 'download' && (
+										<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+									)}
+									{item.icon === 'globe' && (
+										<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+									)}
+									{item.icon === 'table' && (
+										<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 3v18"/><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/></svg>
+									)}
+								</div>
+								<div>
+									<h3 class="text-base font-heading font-semibold text-foreground">{item.title}</h3>
+									<p class="mt-1 text-base text-muted-foreground">{item.text}</p>
+									{'link' in item && (
+										<a
+											href={item.link.href.startsWith('http') ? item.link.href : localePath(locale, item.link.href)}
+											target={item.link.href.startsWith('http') ? '_blank' : undefined}
+											rel={item.link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+											class="mt-2 inline-flex items-center gap-1 text-sm text-primary font-heading font-semibold hover:underline"
+										>
+											{item.link.label} <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+										</a>
+									)}
+								</div>
+							</div>
+						))}
 					</div>
-				))}
+				</div>
 			</div>
 		</div>
 	</section>

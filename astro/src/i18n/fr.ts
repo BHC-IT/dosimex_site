@@ -90,9 +90,9 @@ export const fr = {
 			],
 		},
 		offers: {
-			title: 'Ce que vous obtenez',
+			title: 'Un écosystème dédié à la radioprotection',
 			description:
-				"17 outils couvrant l'essentiel du champ en radioprotection. Chaque code est accompagné de sa vidéo explicative et de son dossier de validation téléchargeable.",
+				"Outils de calcul, modules pédagogiques, documents de cours, vidéos et formations. Chaque code est accompagné de sa vidéo explicative et de son dossier de validation téléchargeable.",
 			card1: {
 				title: 'Calculer',
 				description:
@@ -132,6 +132,7 @@ export const fr = {
 					title: 'Dosismart\u00A0: le calcul dans le navigateur',
 					text: "Le calcul gamma source ponctuelle est accessible partout, sans installation. Sources 3D et générateur X en développement.",
 					icon: 'globe',
+					link: { label: 'Essayer Dosismart', href: 'https://dosismart.com' },
 				},
 				{
 					title: "Nouveau\u00A0: création de tables d'émissions gamma",

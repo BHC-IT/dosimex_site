@@ -90,9 +90,9 @@ export const en = {
 			],
 		},
 		offers: {
-			title: 'What you get',
+			title: 'A complete radiation protection ecosystem',
 			description:
-				'17 tools covering the essentials of radiation protection. Each code comes with an explanatory video and downloadable validation files.',
+				'Calculation tools, educational modules, course documents, videos and training. Each code comes with an explanatory video and downloadable validation files.',
 			card1: {
 				title: 'Calculate',
 				description:
@@ -132,6 +132,7 @@ export const en = {
 					title: 'Dosismart: calculations in the browser',
 					text: 'Point source gamma calculation is accessible anywhere, no installation required. 3D sources and X-ray generator under development.',
 					icon: 'globe',
+					link: { label: 'Try Dosismart', href: 'https://dosismart.com' },
 				},
 				{
 					title: 'New: gamma emission table creation',
