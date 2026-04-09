@@ -266,10 +266,17 @@ export const fr = {
 				"Ces outils de calculs permettent d'estimer à leurs justes hauteurs les risques radiologiques et de concevoir les protections nécessaires",
 			tools: [
 				{
-					name: 'DOSIMEX-GX 3.2',
+					name: 'DOSIMEX-GX 3.2 — Émetteurs gamma',
 					description:
-						'Code de calcul déterministe de débit de dose émetteurs gamma et générateur X, avec option feuille de calcul norme NF C15-160/2018. Avec de nombreuses options : effet de ciel, rayonnement de freinage, zonage, build-up',
+						'Code de calcul déterministe de débit de dose pour émetteurs gamma (sources volumiques, surfaciques…). Avec de nombreuses options : effet de ciel, rayonnement de freinage, zonage, build-up',
 					videoId: 'E5eWKTJaNxQ',
+					frOnly: false,
+				},
+				{
+					name: 'DOSIMEX-GX 3.2 — Générateur X',
+					description:
+						'Code de calcul déterministe de débit de dose pour générateur X (faisceau primaire et diffusé), avec option feuille de calcul norme NF C15-160/2018',
+					videoId: 'wkuVxTBXc8g',
 					frOnly: false,
 				},
 				{
@@ -346,7 +353,7 @@ export const fr = {
 					name: 'Compteur nucléaire',
 					description:
 						"Simulateur de compteur nucléaire permettant de retrouver de façon réaliste les aspects statistiques, le concept de rendement, d'incertitudes et de seuil de décision",
-					videoId: 'oJYfQDhBP68',
+					videoId: 'fIEWzgTzC2g',
 					frOnly: true,
 				},
 				{

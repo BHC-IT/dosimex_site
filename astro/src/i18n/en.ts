@@ -266,10 +266,17 @@ export const en = {
 				'These calculation tools enable to estimate the radiological risks at their correct levels and to design the necessary protections',
 			tools: [
 				{
-					name: 'DOSIMEX-GX 3.2',
+					name: 'DOSIMEX-GX 3.2 — Gamma emitters',
 					description:
-						'Deterministic calculation code of dose rate for gamma emitters and X-ray generators, with NF C15-160/2018 calculation worksheet option. With many options: skyshine, bremsstrahlung, zoning, build-up',
-					videoId: 'E5eWKTJaNxQ',
+						'Deterministic calculation code of dose rate for gamma emitters (volumic sources, surface source…). With many options: skyshine, bremsstrahlung, zoning, build-up',
+					videoId: 'oiYwIvxnxHU',
+					frOnly: false,
+				},
+				{
+					name: 'DOSIMEX-GX 3.2 — X-ray generators',
+					description:
+						'Deterministic calculation code of dose rate for X-ray generators (primary and scattered beam), with NF C15-160/2018 calculation worksheet option',
+					videoId: 'xriiq6v47oE',
 					frOnly: false,
 				},
 				{
@@ -346,7 +353,7 @@ export const en = {
 					name: 'Nuclear meter',
 					description:
 						'Nuclear meter simulator that realistically reproduces statistical aspects, efficiency concept, uncertainties, and decision thresholds',
-					videoId: 'oJYfQDhBP68',
+					videoId: 'fIEWzgTzC2g',
 					frOnly: true,
 				},
 				{
