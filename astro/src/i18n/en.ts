@@ -66,7 +66,8 @@ export const en = {
 	},
 	home: {
 		hero: {
-			title: 'Radiation protection calculation tools — from calculation to understanding',
+			title: 'Radiation protection calculation tools',
+			titleAccent: 'From calculation to understanding',
 			badge: 'New: Dosismart, gamma calculation in the browser',
 			subtitle:
 				'A set of practical, easy-to-use, validated calculation tools that address many situations encountered in radiation protection. To improve your expertise: educational modules, course documents, videos and training courses complete the package.',

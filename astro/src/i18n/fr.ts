@@ -66,7 +66,8 @@ export const fr = {
 	},
 	home: {
 		hero: {
-			title: 'Outils de calcul en radioprotection — du calcul à la compréhension',
+			title: 'Outils de calcul en radioprotection',
+			titleAccent: 'Du calcul à la compréhension',
 			badge: 'Nouveau : Dosismart, le calcul gamma dans le navigateur',
 			subtitle:
 				"Un ensemble d'outils de calculs pratiques, simples d'emploi et validés qui répondent à de nombreuses situations rencontrées en radioprotection. Pour améliorer votre niveau d'expertise\u00A0: modules pédagogiques, documents de cours, vidéos et formations complètent l'ensemble.",
