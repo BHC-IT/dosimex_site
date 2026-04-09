@@ -57,17 +57,17 @@ export const bookImages = [
 ] as const
 
 export const bookUrls = [
-	'https://www.edp-open.org/books/edp-open-books/381-la-radioprotection-des-travailleurs-des-patients-et-du-public',
-	'https://www.edp-open.org/books/edp-open-books/289-calcul-de-doses-generees-par-les-rayonnements-ionisants',
-	'https://www.edp-open.org/books/edp-open-books/299-personne-competente-en-radioprotection-principes-de-radioprotection-reglementation',
-	'https://www.edp-open.org/books/edp-open-books/300-personne-competente-en-radioprotection-secteur-medical',
-	'https://www.edp-open.org/books/edp-open-books/298-personne-competente-en-radioprotection-secteur-industrie-et-recherche',
-	'https://www.babelio.com/livres/Fernandez-De-latome-au-noyau--Une-approche-historique-de-la/110994',
-	'https://www.decitre.fr/livres/le-monde-subatomique-9782706108273.html',
-	'https://www.edp-sciences.fr/livre/9782759823888-techniques-de-blindage-et-de-radioprotection',
-	'https://www.edp-sciences.fr/livre/9782759823895-dosimetrie-des-rayonnements-ionisants-et-radioprotection',
-	'https://www.edp-open.org/books/edp-open-books/286-la-radioactivite-sous-surveillance',
-	'https://www.edp-sciences.fr/livre/9782759818075-exercices-de-radioprotection-tome-1',
+	'https://laboutique.edpsciences.fr/produit/1070/9782759823147/Physique%20nucleaire%20et%20radioprotection',
+	'https://laboutique.edpsciences.fr/produit/843/9782759816736',
+	'https://laboutique.edpsciences.fr/produit/29/9782759808458/Radioprotection%20pratique%20pour%20lindustrie%20et%20la%20recherche',
+	'https://laboutique.edpsciences.fr/produit/953/9782759819928',
+	'https://laboutique.edpsciences.fr/produit/43/9782759809363/Radioprotection%20pratique%20pour%20lindustrie%20et%20la%20recherche',
+	'https://www.editions-ellipses.fr/accueil/4133-de-l-atome-au-noyau-une-approche-historique-de-la-physique-atomique-et-de-la-physique-nucleaire-9782340025158.html',
+	'https://www.editions-hermann.fr/livre/9782705660437',
+	'https://www.lavoisier.fr/livre/physique/physique-appliquee-a-l-exposition-externe/antoni/descriptif_2649448',
+	'https://laboutique.edpsciences.fr/produit/1071/9782759823123/Resolutions%20de%20problemes%20sur%20les%20rayonnements%20ionisants',
+	'https://laboutique.edpsciences.fr/produit/617/9782759809929/La%20radioactivite%20sous%20surveillance',
+	'https://laboutique.edpsciences.fr/produit/1081/9782759823482/Exercices%20de%20radioprotection%20-%20Tome%203',
 ] as const
 
 export const getManualPdfs = (locale: 'fr' | 'en') => ({
