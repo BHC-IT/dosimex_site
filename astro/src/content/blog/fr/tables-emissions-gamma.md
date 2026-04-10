@@ -6,4 +6,24 @@ author: "Dosimex"
 tags: ["dosimex-gx", "gamma", "nouveauté"]
 ---
 
-Article à venir.
+## Les 5 outils
+
+### Condensation tables d'émissions gamma
+
+https://youtu.be/3rgJ9yH_x4U
+
+### Construction de spectres isotopiques
+
+https://youtu.be/c9n-FE4xytM
+
+### Spectre-type EDF S122
+
+https://youtu.be/LXPgjRHUov4
+
+### Spectre-type production Fluo
+
+https://youtu.be/v8OUrKB0ebE
+
+### Calcul filiation avec Laraweb
+
+https://youtu.be/ZvE5sQEhnuI
