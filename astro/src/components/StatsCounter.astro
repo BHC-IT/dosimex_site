@@ -35,6 +35,8 @@ const { items } = Astro.props
 
 <script>
 	function initCountUp() {
+		// The final values are server-rendered — under reduced motion, keep them as-is.
+		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 		const observer = new IntersectionObserver(
 			(entries) => {
 				for (const entry of entries) {
@@ -58,13 +60,14 @@ const { items } = Astro.props
 					const suffix = target.slice(target.indexOf(numStr) + numStr.length)
 					const duration = 1500
 					const startTime = performance.now()
+					const lang = document.documentElement.lang || 'fr'
 
 					function animate(now: number) {
 						const elapsed = now - startTime
 						const progress = Math.min(elapsed / duration, 1)
 						const eased = 1 - Math.pow(1 - progress, 3)
 						const current = Math.round(eased * targetNum)
-						const formatted = current.toLocaleString('fr-FR')
+						const formatted = current.toLocaleString(lang)
 						el.textContent = `${prefix}${formatted}${suffix}`
 						if (progress < 1) requestAnimationFrame(animate)
 					}

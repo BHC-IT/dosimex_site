@@ -41,6 +41,15 @@ const { title, description = defaultDescription, ogImage, robots, jsonLd, altern
 				document.documentElement.classList.toggle('dark', dark)
 			})()
 		</script>
+		<!-- Without JS the reveal observer never runs — show content immediately -->
+		<noscript>
+			<style>
+				.reveal {
+					opacity: 1 !important;
+					transform: none !important;
+				}
+			</style>
+		</noscript>
 	</head>
 	<body class="min-h-screen bg-background text-foreground font-body antialiased relative overflow-x-hidden">
 		<Navbar t={t} locale={locale} alternateUrl={alternateUrl} />

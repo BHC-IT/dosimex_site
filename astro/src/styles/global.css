@@ -192,6 +192,21 @@ details[open] .faq-chevron {
 	transform: translateY(0);
 }
 
+/* Reduced motion: show reveal content immediately, stop decorative animation */
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+	.reveal {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+	.partner-scroll {
+		animation: none;
+	}
+}
+
 /* Nav hide on scroll */
 .nav-hidden {
 	transform: translateY(-100%);

@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets'
 import Layout from '@/layouts/Layout.astro'
 import HeroCarousel from '@/components/HeroCarousel.astro'
+import StatsCounter from '@/components/StatsCounter.astro'
 import HeroGammaDemo from '@/components/previews/HeroGammaDemo.astro'
 import DashboardPreview from '@/components/previews/DashboardPreview.astro'
 import { getTranslations, getLocalePaths, localePath, type Locale } from '@/i18n/utils'
@@ -102,7 +103,7 @@ const arrow = 'M5 12h14M12 5l7 7-7 7'
 
 	<!-- ══════════ 2. EVOLUTION BRIDGE — how the suite and Dosismart relate (the anti-confusion keystone) ══════════ -->
 	<section id="evolution" data-ph-section="evolution" class="py-16 md:py-28">
-		<div class="mx-auto max-w-3xl px-6 text-center">
+		<div class="reveal mx-auto max-w-3xl px-6 text-center">
 			<p class="text-sm font-semibold uppercase tracking-widest text-primary">
 				{t.home.evolution.kicker}
 			</p>
@@ -117,7 +118,7 @@ const arrow = 'M5 12h14M12 5l7 7-7 7'
 
 	<!-- ══════════ 3. DOSISMART (web) — the product we sell now ══════════ -->
 	<section id="platform" data-ph-section="platform" class="py-16 md:py-32">
-		<div class="mx-auto max-w-7xl px-6">
+		<div class="reveal mx-auto max-w-7xl px-6">
 			<div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
 				<div class="lg:order-last">
 					<p class="text-sm font-semibold uppercase tracking-widest text-primary">Dosismart · Web</p>
@@ -169,7 +170,7 @@ const arrow = 'M5 12h14M12 5l7 7-7 7'
 
 	<!-- ══════════ 4. SUITE DOSIMEX (desktop) — the heritage; opens by picking up where the web stops ══════════ -->
 	<section id="suite" data-ph-section="suite" class="py-16 md:py-32">
-		<div class="mx-auto max-w-7xl px-6">
+		<div class="reveal mx-auto max-w-7xl px-6">
 			<div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
 				<div>
 					<p class="text-sm font-semibold uppercase tracking-widest text-primary">
@@ -226,7 +227,7 @@ const arrow = 'M5 12h14M12 5l7 7-7 7'
 
 	<!-- ══════════ 5. UNDERSTANDING — the third pillar, teased; detail lives on /learn ══════════ -->
 	<section id="understand" data-ph-section="understand" class="py-16 md:py-28">
-		<div class="mx-auto max-w-3xl px-6 text-center">
+		<div class="reveal mx-auto max-w-3xl px-6 text-center">
 			<p class="text-sm font-semibold uppercase tracking-widest text-primary">
 				{t.home.understand.kicker}
 			</p>
@@ -247,14 +248,16 @@ const arrow = 'M5 12h14M12 5l7 7-7 7'
 		</div>
 	</section>
 
-	<!-- ══════════ 6. PROOF — the names, then the voice; the dossiers live on /references ══════════ -->
+	<!-- ══════════ 6. PROOF — the numbers, the names, then the voice; the dossiers live on /references ══════════ -->
+	<StatsCounter items={t.home.numbers.items} />
+
 	<section id="proof" data-ph-section="proof" class="relative py-16 md:py-32">
 		<!-- Right-side glow bleeding down toward the close — same tint as the hero. -->
 		<div class="absolute inset-0 -z-10" aria-hidden="true">
 			<div class="absolute -bottom-[28rem] -right-[44rem] h-[680px] w-[900px] rounded-full bg-primary/20 blur-3xl dark:bg-primary/10"></div>
 			<div class="absolute -bottom-[38rem] -right-[40rem] h-[520px] w-[680px] rounded-full bg-brandred/[0.16] blur-3xl dark:bg-brandred/[0.14]"></div>
 		</div>
-		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+		<div class="reveal mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<h2 class="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-muted-foreground">
 				{isFr ? 'Ils calculent — et forment — avec Dosimex' : 'They calculate — and teach — with Dosimex'}
 			</h2>
@@ -266,7 +269,7 @@ const arrow = 'M5 12h14M12 5l7 7-7 7'
 							alt={partnerLogoAlts[i % partnerImages.length]}
 							height={48}
 							width={120}
-							class="h-10 w-auto shrink-0 object-contain opacity-60 grayscale transition-all hover:opacity-100 hover:grayscale-0 sm:h-12"
+							class="h-10 w-auto shrink-0 object-contain opacity-60 grayscale transition-all duration-200 hover:opacity-100 hover:grayscale-0 sm:h-12"
 							loading="lazy"
 						/>
 					))}
@@ -274,7 +277,7 @@ const arrow = 'M5 12h14M12 5l7 7-7 7'
 			</div>
 		</div>
 
-		<div class="mx-auto mt-16 max-w-3xl px-6 text-center md:mt-24">
+		<div class="reveal mx-auto mt-16 max-w-3xl px-6 text-center md:mt-24">
 			<svg class="mx-auto h-10 w-10 text-primary/25" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
 			<blockquote class="mt-6">
 				<p class="text-balance text-xl font-heading font-medium leading-relaxed text-foreground md:text-2xl md:leading-relaxed">
@@ -296,7 +299,7 @@ const arrow = 'M5 12h14M12 5l7 7-7 7'
 
 	<!-- ══════════ 7. PRICE + CTA CLOSE ══════════ -->
 	<section id="cta-close" data-ph-section="cta-close" class="py-16 md:py-24">
-		<div class="mx-auto max-w-7xl px-6">
+		<div class="reveal mx-auto max-w-7xl px-6">
 			<div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary/[0.12] via-primary/[0.05] to-transparent p-10 text-center md:p-14">
 				<div class="relative mx-auto max-w-2xl">
 					<h2 class="text-balance text-3xl font-heading font-bold tracking-tight text-foreground md:text-4xl">

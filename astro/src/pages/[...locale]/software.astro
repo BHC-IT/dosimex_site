@@ -74,7 +74,7 @@ const packs = [
 
 	<!-- ══════════ INCLUDED & PREREQUISITES ══════════ -->
 	<section class="pb-4 md:pb-8">
-		<div class="mx-auto max-w-7xl px-6">
+		<div class="reveal mx-auto max-w-7xl px-6">
 			<div class="grid gap-6 md:grid-cols-2">
 				{[s.included, s.prerequisites].map((item) => (
 					<div class="rounded-2xl border border-border bg-card p-6 shadow-sm">
@@ -88,7 +88,7 @@ const packs = [
 
 	<!-- ══════════ WHO NEEDS THE SUITE'S DEPTH ══════════ -->
 	<section class="py-10 md:py-14">
-		<div class="mx-auto max-w-7xl px-6">
+		<div class="reveal mx-auto max-w-7xl px-6">
 			<h2 class="text-sm font-heading font-semibold uppercase tracking-widest text-primary">{s.audience.title}</h2>
 			<ul class="mt-4 max-w-3xl space-y-2.5">
 				{s.audience.items.map((item) => (
@@ -104,8 +104,8 @@ const packs = [
 	<!-- ══════════ PACKS ══════════ -->
 	{packs.map((pack, packIndex) => (
 		<>
-			<section id={pack.id} class="py-16 md:py-24">
-				<div class="mx-auto max-w-7xl px-6">
+			<section id={pack.id} class="scroll-mt-24 py-16 md:py-24">
+				<div class="reveal mx-auto max-w-7xl px-6">
 					<div class="max-w-3xl">
 						<div class="flex items-center gap-3">
 							<span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
@@ -124,7 +124,7 @@ const packs = [
 
 					<div class="mt-12 grid gap-6 lg:grid-cols-2">
 						{pack.data.tools.map((tool) => (
-							<div class="group flex flex-col rounded-2xl bg-card p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:shadow-primary/5">
+							<div class="group flex flex-col rounded-2xl bg-card p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5">
 								<div class="flex items-start justify-between gap-3">
 									<h3 class="text-lg font-heading font-semibold text-foreground">{tool.name}</h3>
 									<span class:list={[
@@ -149,11 +149,11 @@ const packs = [
 			</section>
 
 			{packIndex === 0 && (
-				<section id="pack-peda" class="py-8 md:py-12">
-					<div class="mx-auto max-w-7xl px-6">
+				<section id="pack-peda" class="scroll-mt-24 py-8 md:py-12">
+					<div class="reveal mx-auto max-w-7xl px-6">
 						<a
 							href={localePath(locale, '/learn')}
-							class="group flex flex-col gap-6 rounded-2xl border border-primary/20 bg-primary/5 p-8 transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:shadow-primary/5 md:flex-row md:items-center md:justify-between"
+							class="group flex flex-col gap-6 rounded-2xl border border-primary/20 bg-primary/5 p-8 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5 md:flex-row md:items-center md:justify-between"
 							data-ph-cta="software_learn_pack"
 						>
 							<div class="flex items-start gap-4">
@@ -178,7 +178,7 @@ const packs = [
 
 	<!-- ══════════ DOSISMART: THE EVOLUTION ══════════ -->
 	<section class="py-8 md:py-12">
-		<div class="mx-auto max-w-7xl px-6">
+		<div class="reveal mx-auto max-w-7xl px-6">
 			<div class="flex flex-col gap-6 rounded-2xl border border-border bg-card p-8 shadow-sm md:flex-row md:items-center md:justify-between">
 				<div class="flex items-start gap-4">
 					<span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
@@ -203,7 +203,7 @@ const packs = [
 
 	<!-- ══════════ MORE RESOURCES ══════════ -->
 	<section class="py-16 md:py-24">
-		<div class="mx-auto max-w-7xl px-6">
+		<div class="reveal mx-auto max-w-7xl px-6">
 			<p class="text-sm font-semibold uppercase tracking-widest text-primary">{isFr ? 'Ressources' : 'Resources'}</p>
 			<h2 class="mt-3 text-3xl font-heading font-semibold tracking-tight text-foreground md:text-4xl">{s.more.title}</h2>
 			<ul class="mt-10 grid gap-x-8 gap-y-1 sm:grid-cols-2">
@@ -235,7 +235,7 @@ const packs = [
 
 	<!-- ══════════ CONTACT CTA ══════════ -->
 	<section class="py-16 md:py-24">
-		<div class="mx-auto max-w-7xl px-6">
+		<div class="reveal mx-auto max-w-7xl px-6">
 			<div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary/[0.12] via-primary/[0.05] to-transparent p-10 text-center md:p-14">
 				<div class="relative mx-auto max-w-2xl">
 					<h2 class="text-3xl font-heading font-bold tracking-tight text-foreground md:text-4xl">{s.ask.title}</h2>
