@@ -1,17 +1,19 @@
 # Dosimex
 
-> Radiation protection calculation tools — the Dosimex Suite (17 Excel modules: gamma, X-ray, beta, neutron, internal exposure, measurement) and Dosismart, the Dosimex web platform.
+> Radiation protection calculation tools — Dosismart, the Dosimex web platform, and the Dosimex Suite (17 Excel modules: gamma, X-ray, beta, neutron, internal exposure, measurement).
 
-Dosimex (dosimex.fr) publishes radiation protection calculation tools. The Dosimex Suite groups 17 MCNP-validated Excel modules covering operational dose calculations, educational modules, and measurement utilities. Dosismart (dosismart.com) is the Dosimex web platform: it is where users subscribe, download the suite, and manage their organization, and it also provides browser calculation (gamma dose rate with volumetric sources, skyshine, shield optimizer) plus calculation history and team collaboration. A single subscription covers the suite and the platform (Base plan €500/year excl. VAT; Compliance plan €1,350/year adds source inventory, zoning plans editor, workstation exposure studies, skyshine). Technical support included.
+Dosimex (dosimex.fr) publishes radiation protection calculation tools. Dosismart (dosismart.com) is the Dosimex web platform: it is where users subscribe, download the suite, and manage their organization, and it is a browser calculation tool in its own right — gamma dose rate with volumetric source geometries, X-ray generator with NF C15-160 support, sky-shine, and a shield optimizer, with calculation history and team collaboration. The Compliance tier adds source inventory with automatic decay, a 2D radiological zoning plan editor, and regulatory workstation exposure studies (études de poste). The Dosimex Suite groups 17 MCNP-validated Excel modules covering operational dose calculations, educational modules, and measurement utilities; it remains the reference for what the web app does not cover yet (beta, neutron, gammagraphy, internal exposure, measurement). A single subscription covers both tools (Base plan €500/year excl. VAT; Compliance plan €1,350/year excl. VAT). Free 14-day Dosismart trial, technical support included.
 
 ## Pages
 
-- [Home](https://dosimex.fr/): Overview of the Dosimex Suite and the Dosismart platform
-- [Dosimex Suite](https://dosimex.fr/software): Details on all 17 calculation modules — operational, educational, and measurement
-- [Product](https://dosimex.fr/product): Pricing (Base and Compliance plans), pack contents, FAQ
+- [Home](https://dosimex.fr/): Overview — Dosismart, the Dosimex web platform, and the Dosimex Suite
+- [Dosismart](https://dosimex.fr/dosismart): The web platform — browser calculations, history, source inventory, zoning plans, workstation studies
+- [Dosimex Suite](https://dosimex.fr/software): Details on the Excel calculation modules — operational codes and measurement utilities
+- [Pricing](https://dosimex.fr/product): Base and Compliance plans, how to subscribe, FAQ
+- [Learn](https://dosimex.fr/learn): Understanding radiation protection — 6 interactive learning modules, books, videos, training
+- [References](https://dosimex.fr/references): MCNP validation files, independent comparison reports, institutional users, user feedback
 - [Training](https://dosimex.fr/training): In-house training courses from 1 to 3 days
-- [Documentation](https://dosimex.fr/manuals): User manuals, MCNP validation files, and reports
-- [Videos](https://dosimex.fr/videos): Explanatory videos for each Dosimex tool
+- [Documentation](https://dosimex.fr/manuals): Dosimex-GX user manuals
 - [Books](https://dosimex.fr/books): Recommended readings on radiation protection and dosimetry
 - [About](https://dosimex.fr/about): Team and company background
-- [Contact](https://dosimex.fr/contact): Contact form for quotes and free trials
+- [Contact](https://dosimex.fr/contact): Contact form for quotes and demonstrations

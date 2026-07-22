@@ -18,13 +18,16 @@ function getPageName(): string {
 	const map: Record<string, string> = {
 		'/': 'home',
 		'/software': 'software',
+		'/dosismart': 'dosismart',
+		'/learn': 'learn',
+		'/references': 'references',
 		'/training': 'training',
 		'/manuals': 'manuals',
 		'/about': 'about',
 		'/contact': 'contact',
 		'/product': 'product',
-		'/videos': 'videos',
 		'/books': 'books',
+		'/testimonials': 'testimonials',
 	}
 	return map[path] ?? 'unknown'
 }

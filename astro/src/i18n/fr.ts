@@ -36,10 +36,6 @@ export const fr = {
 			title: 'Références & Validation — Dosimex',
 			description: "Dossiers de validation MCNP (code de référence CEA), comparaisons indépendantes Microshield et RayXpert, utilisateurs institutionnels et retours d'utilisateurs : les preuves derrière les codes Dosimex.",
 		},
-		videos: {
-			title: 'Vidéos & Tutoriels — Dosimex',
-			description: "Vidéos explicatives pour chaque outil Dosimex : pack opérationnel, pédagogique et mesures. Retrouvez-nous sur notre chaîne YouTube.",
-		},
 		about: {
 			title: 'Notre équipe — Dosimex',
 			description: "Découvrez Gérald Lopez et Alain Vivier, les créateurs de Dosimex. Plus de 30 ans d'expérience en radioprotection et dosimétrie.",
@@ -63,14 +59,7 @@ export const fr = {
 	},
 	altText: {
 		logo: 'DOSIMEX - Logiciel de dosim\u00e9trie des rayonnements',
-		flagUk: 'Drapeau du Royaume-Uni - DOSIMEX disponible en anglais',
-		decorativePattern: 'Motif g\u00e9om\u00e9trique d\u00e9coratif en arri\u00e8re-plan',
-		radiationSymbol: 'DOSIMEX symbole de s\u00e9curit\u00e9 radiologique - ic\u00f4ne tr\u00e8fle',
-		carouselMain: 'Interface du logiciel de dosim\u00e9trie DOSIMEX',
-		carouselScreens: '\u00c9cran de banni\u00e8re',
-		trainingMaterials: 'Mat\u00e9riel de formation DOSIMEX en s\u00e9curit\u00e9 radiologique',
 		manualCover: 'Couverture de manuel',
-		cardIcon: 'Ic\u00f4ne',
 	},
 	navbar: {
 		software: 'Logiciels',
@@ -553,7 +542,6 @@ export const fr = {
 	product: {
 		title: 'Un abonnement, deux outils',
 		schemaDescription: 'Abonnement annuel — suite Dosimex + Dosismart',
-		buttonKnowMore: 'En savoir plus',
 		description:
 			'La suite Dosimex sous Excel et Dosismart, la plateforme web — un seul abonnement annuel, support technique inclus.',
 		trialBanner: {
@@ -842,17 +830,6 @@ export const fr = {
 			text: "Pour un devis, n'hésitez pas à nous contacter ici ou par téléphone au 06 89 70 90 35",
 			button: 'Nous contacter',
 		},
-	},
-	videos: {
-		header: {
-			title: 'Toutes les vidéos',
-			description: "Vous trouverez ci-dessous l'ensemble des vidéos concernant les packs opérationnel, pédagogique et mesures. Nous proposons également sur notre chaîne YouTube d'autres vidéos consacrées à la physique nucléaire, à la radioactivité, à l'interaction rayonnement-matière, aux statistiques et à la métrologie...",
-			button: 'Notre chaîne YouTube',
-		},
-		packTitle: 'Vidéos du pack ',
-		packOpe: { name: 'opérationnel', label: 'pack opérationnel' },
-		packPeda: { name: 'pédagogique', label: 'pack pédagogique' },
-		packMes: { name: 'mesures', label: 'pack mesures' },
 	},
 	contactForm: {
 		title: 'Contactez-nous',

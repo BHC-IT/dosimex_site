@@ -36,10 +36,6 @@ export const en = {
 			title: 'References & Validation — Dosimex',
 			description: "MCNP validation files (the CEA's reference code), independent Microshield and RayXpert comparisons, institutional users and user feedback: the evidence behind the Dosimex codes.",
 		},
-		videos: {
-			title: 'Videos & Tutorials — Dosimex',
-			description: 'Explanatory videos for each Dosimex tool: operational, learning and measurement packs. Visit our YouTube channel for more.',
-		},
 		about: {
 			title: 'Our Team — Dosimex',
 			description: 'Meet Gérald Lopez and Alain Vivier, the creators of Dosimex. Over 30 years of experience in radiation protection and dosimetry.',
@@ -63,14 +59,7 @@ export const en = {
 	},
 	altText: {
 		logo: 'DOSIMEX - Radiation Dosimetry Software',
-		flagUk: 'UK flag - DOSIMEX available in English',
-		decorativePattern: 'Decorative geometric pattern background',
-		radiationSymbol: 'DOSIMEX radiation safety symbol - clover leaf icon',
-		carouselMain: 'DOSIMEX radiation dosimetry software interface mockup',
-		carouselScreens: 'Banner image',
-		trainingMaterials: 'DOSIMEX radiation safety training course materials',
 		manualCover: 'Manual cover',
-		cardIcon: 'Icon',
 	},
 	navbar: {
 		software: 'Software',
@@ -553,7 +542,6 @@ export const en = {
 	product: {
 		title: 'One subscription, two tools',
 		schemaDescription: 'Annual subscription — Dosimex Suite + Dosismart',
-		buttonKnowMore: 'Read more',
 		description:
 			'The Dosimex Suite in Excel and Dosismart, the web platform — one annual subscription, technical support included.',
 		trialBanner: {
@@ -841,17 +829,6 @@ export const en = {
 			text: 'Feel free to contact us via the form below or by phone at 06 89 70 90 35',
 			button: 'Contact us',
 		},
-	},
-	videos: {
-		header: {
-			title: 'Videos',
-			description: 'You will find below all the videos concerning the operational, learning and measurement packages. We also propose on our YouTube channel other videos dedicated to nuclear physics, radioactivity, radiation-matter interaction, statistics and metrology...',
-			button: 'Watch our YouTube channel',
-		},
-		packTitle: 'Videos from the pack ',
-		packOpe: { name: 'operational', label: 'operational pack' },
-		packPeda: { name: 'learning', label: 'learning pack' },
-		packMes: { name: 'measurement', label: 'measurement pack' },
 	},
 	contactForm: {
 		title: 'Contact us',
