@@ -428,7 +428,7 @@ export const en = {
 		header: {
 			title: 'The Dosimex Suite',
 			description:
-				'For 30 years, the Dosimex Suite has brought together the reference radiation protection calculation tools in Excel: 6 operational codes, 6 learning modules and 5 measurement tools. Every code is validated (MCNP, RayXpert, Microshield) and ships with its complete documentation.',
+				'For 30 years, the reference for operational radiation-protection calculation in Excel: 6 calculation codes, 6 learning modules and 5 measurement utilities, validated against MCNP, RayXpert and Microshield, and used by EDF, Orano, Apave and more than 1,500 professionals. New capabilities now ship in Dosismart; the suite remains the reference for everything the web does not cover yet — beta, neutron, gammagraphy, internal exposure and measurement utilities.',
 			langNote: 'Most tools are available in French and English.',
 			anchors: [
 				{ label: 'Operational pack', href: '#pack-ope' },
@@ -444,9 +444,17 @@ export const en = {
 			title: 'Prerequisites',
 			text: 'VBA/Excel — Windows XP to 11, Excel 2003 to 2024. Virtual machine required on Mac or Linux. Dosismart, for its part, runs in the browser: no installation.',
 		},
+		audience: {
+			title: 'Who needs this depth?',
+			items: [
+				'RPEs in industrial or nuclear settings: beta, neutron or internal-exposure calculations, beyond what the web covers today.',
+				'Measurement professionals: gamma-spectrometry efficiencies (TAGE), contamination meters (Co3), decision thresholds and uncertainties.',
+				'Schools and lecturers: the full physics toolbox for teaching — the institution equips, the students calculate.',
+			],
+		},
 		dosismartBanner: {
 			title: 'Dosismart: the evolution of the suite',
-			text: 'Dosismart is the Dosimex web platform. Over the years, the calculation codes of the suite are progressively ported to it — and validated with the same rigor (MCNP, OpenMC) as the suite’s own codes. Already online: gamma calculation, X-ray generator, skyshine and shield optimizer, with calculation history and team collaboration. The suite remains the reference for everything the platform does not cover yet.',
+			text: "The suite's codes are progressively ported to Dosismart, the Dosimex web platform, and validated with the same rigor (MCNP, OpenMC). Already online: gamma calculation, X-ray generator, skyshine and shield optimizer, with calculation history and team collaboration.",
 			button: 'Try Dosismart',
 		},
 		packOpe: {
@@ -557,6 +565,7 @@ export const en = {
 				{ label: 'Gamma source validation extracts', href: '/Folders/extrait_validation_gamma.pdf', pdf: true },
 				{ label: 'Dosimex-GX user manuals', href: '/manuals#manuals' },
 				{ label: "What's new in Dosimex-GX 3.2", href: '/Folders/Modification_Dosimex GX_3.0.pdf', pdf: true },
+				{ label: 'Pricing and subscription', href: '/product' },
 				{ label: 'Our reading selection', href: '/books' },
 			],
 		},
@@ -565,8 +574,6 @@ export const en = {
 			text: 'For a quote or to try Dosismart, contact us here or by phone at 06 89 70 90 35',
 			labelButton: 'Contact us',
 		},
-		watchVideo: 'Watch video on YouTube',
-		videosButton: 'Check out all videos',
 	},
 	learn: {
 		header: {
