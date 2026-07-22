@@ -20,6 +20,10 @@ export const fr = {
 			title: 'Formations radioprotection — Dosimex',
 			description: 'Formations intra-entreprise Dosimex de 1 à 3 jours : prise en main des outils de calcul, travaux dirigés appliqués aux cas concrets en radioprotection.',
 		},
+		learn: {
+			title: 'Comprendre la radioprotection — Dosimex',
+			description: "Du calcul à la compréhension : 6 modules pédagogiques interactifs (interaction photon-matière, particules chargées, coefficients ICRU, serious game, compteur nucléaire, décroissance radioactive), ouvrages, vidéos, documentation et formations.",
+		},
 		books: {
 			title: 'Lectures recommandées — Dosimex',
 			description: "Sélection d'ouvrages de référence en radioprotection, dosimétrie et physique nucléaire recommandés par les experts Dosimex.",
@@ -441,54 +445,10 @@ export const fr = {
 				},
 			],
 		},
-		packPeda: {
+		learnPeda: {
 			title: 'Pack pédagogique',
-			description:
-				"Ils permettent de mieux comprendre la physique de l'interaction rayonnement-matière, à l'origine des doses générées, ainsi que des capacités de protections des écrans susceptibles d'être mis en oeuvre",
-			tools: [
-				{
-					name: 'IRM photon 3.2',
-					description:
-						"Utilitaire mettant en oeuvre les principes d'interactions photon-matières dans les matériaux avec diverses applications : calcul de kerma, de dose, de libre parcours moyen, effet Compton, visualisation de trajectoires (Monte-Carlo)",
-					videoId: 'cBQ5-CiqqT4',
-					frOnly: false,
-				},
-				{
-					name: 'IRM particules chargées 3.2',
-					description:
-						"Utilitaire mettant en oeuvre les principes d'interactions particules chargées-matières dans les matériaux avec diverses applications : calcul de parcours, de coefficient fluence-dose, application aux spectres bêta",
-					videoId: 'vXT2h8GJ8Qk',
-					frOnly: false,
-				},
-				{
-					name: 'Serious Game 3.2',
-					description:
-						'Utilitaire à vocation pédagogique permettant de mettre en évidence les paramètres essentiels de la radioprotection : distance, temps, écran, activité, nature radionucléide',
-					videoId: 'pYbgwudKniA',
-					frOnly: false,
-				},
-				{
-					name: 'Coefficients ICRU 57 3.2',
-					description:
-						'Utilitaire permettant de connaitre les coefficients fluence-équivalents de dose et kerma air normalisés pour les électrons, les photons et les neutrons',
-					videoId: 'Ltk5x2dW_VI',
-					frOnly: false,
-				},
-				{
-					name: 'Compteur nucléaire',
-					description:
-						"Simulateur de compteur nucléaire permettant de retrouver de façon réaliste les aspects statistiques, le concept de rendement, d'incertitudes et de seuil de décision",
-					videoId: 'fIEWzgTzC2g',
-					frOnly: true,
-				},
-				{
-					name: 'Décroissance radioactive',
-					description:
-						'Outil de simulation permettant de comprendre les aspects probabilistes de la désintégration nucléaire : durée de vie, période, fluctuation, loi de décroissance',
-					videoId: 'v8RMSH0qryE',
-					frOnly: true,
-				},
-			],
+			text: "Les 6 modules pédagogiques interactifs de la suite — interaction photon-matière, interaction particules chargées, coefficients ICRU 57, serious game, compteur nucléaire et décroissance radioactive — sont présentés en détail sur la page Comprendre.",
+			linkLabel: 'Explorer les modules',
 		},
 		packMes: {
 			title: 'Pack mesures',
@@ -547,6 +507,92 @@ export const fr = {
 		},
 		watchVideo: 'Voir la vidéo sur YouTube',
 		videosButton: 'Voir toutes les vidéos',
+	},
+	learn: {
+		header: {
+			eyebrow: 'Comprendre',
+			title: 'Du calcul à la compréhension',
+			description:
+				"Un résultat de calcul ne vaut que si l'on comprend la physique qui le produit. Dosimex outille les professionnels qui veulent maîtriser ce que leurs outils calculent — et les écoles et centres de formation qui donnent à leurs étudiants de quoi construire une intuition physique solide.",
+			educationText: 'Vous dirigez un cursus ou un centre de formation ? Équiper une promotion se discute simplement.',
+			educationLink: 'Nous contacter',
+		},
+		modules: {
+			eyebrow: 'Six modules interactifs',
+			title: 'Pack pédagogique',
+			description:
+				"Ils permettent de mieux comprendre la physique de l'interaction rayonnement-matière, à l'origine des doses générées, ainsi que des capacités de protections des écrans susceptibles d'être mis en oeuvre",
+			suiteNote: 'Ces six modules font partie de la suite Dosimex.',
+			suiteLink: 'Découvrir la suite',
+			tools: [
+				{
+					name: 'IRM photon 3.2',
+					description:
+						"Utilitaire mettant en oeuvre les principes d'interactions photon-matières dans les matériaux avec diverses applications : calcul de kerma, de dose, de libre parcours moyen, effet Compton, visualisation de trajectoires (Monte-Carlo)",
+					videoId: 'cBQ5-CiqqT4',
+					frOnly: false,
+				},
+				{
+					name: 'IRM particules chargées 3.2',
+					description:
+						"Utilitaire mettant en oeuvre les principes d'interactions particules chargées-matières dans les matériaux avec diverses applications : calcul de parcours, de coefficient fluence-dose, application aux spectres bêta",
+					videoId: 'vXT2h8GJ8Qk',
+					frOnly: false,
+				},
+				{
+					name: 'Serious Game 3.2',
+					description:
+						'Utilitaire à vocation pédagogique permettant de mettre en évidence les paramètres essentiels de la radioprotection : distance, temps, écran, activité, nature radionucléide',
+					videoId: 'pYbgwudKniA',
+					frOnly: false,
+				},
+				{
+					name: 'Coefficients ICRU 57 3.2',
+					description:
+						'Utilitaire permettant de connaitre les coefficients fluence-équivalents de dose et kerma air normalisés pour les électrons, les photons et les neutrons',
+					videoId: 'Ltk5x2dW_VI',
+					frOnly: false,
+				},
+				{
+					name: 'Compteur nucléaire',
+					description:
+						"Simulateur de compteur nucléaire permettant de retrouver de façon réaliste les aspects statistiques, le concept de rendement, d'incertitudes et de seuil de décision",
+					videoId: 'fIEWzgTzC2g',
+					frOnly: true,
+				},
+				{
+					name: 'Décroissance radioactive',
+					description:
+						'Outil de simulation permettant de comprendre les aspects probabilistes de la désintégration nucléaire : durée de vie, période, fluctuation, loi de décroissance',
+					videoId: 'v8RMSH0qryE',
+					frOnly: true,
+				},
+			],
+		},
+		resources: {
+			eyebrow: 'Ressources',
+			title: 'Continuer à apprendre',
+			books: {
+				title: 'Lectures',
+				text: 'Les ouvrages publiés par les fondateurs chez EDP Sciences, et une sélection de références en physique nucléaire et radioprotection.',
+				link: 'Parcourir les lectures',
+			},
+			videos: {
+				title: 'Chaîne YouTube',
+				text: 'Physique nucléaire, interaction rayonnement-matière, statistiques, métrologie : des vidéos de cours et de démonstration qui prolongent les modules.',
+				link: 'Voir la chaîne',
+			},
+			manuals: {
+				title: 'Documentation',
+				text: "Manuels d'utilisation, dossiers de validation MCNP et rapports d'étude : comprendre, c'est aussi savoir ce que calcule un code et comment il est validé.",
+				link: 'Consulter la documentation',
+			},
+			training: {
+				title: 'Formations',
+				text: 'Des formations intra-entreprise de 1 à 3 jours, construites sur des travaux dirigés et des cas concrets du monde industriel et médical.',
+				link: 'Découvrir les formations',
+			},
+		},
 	},
 	product: {
 		title: 'Un abonnement, deux outils',

@@ -20,6 +20,10 @@ export const en = {
 			title: 'Radiation Protection Training — Dosimex',
 			description: 'Dosimex in-house training from 1 to 3 days: hands-on calculation tools, practical exercises applied to real radiation protection cases.',
 		},
+		learn: {
+			title: 'Understanding Radiation Protection — Dosimex',
+			description: 'From calculation to understanding: 6 interactive learning modules (photon-matter interaction, charged particles, ICRU coefficients, serious game, nuclear counter, radioactive decay), books, videos, documentation and training.',
+		},
 		books: {
 			title: 'Recommended Readings — Dosimex',
 			description: 'Curated selection of reference books on radiation protection, dosimetry and nuclear physics recommended by Dosimex experts.',
@@ -441,54 +445,10 @@ export const en = {
 				},
 			],
 		},
-		packPeda: {
+		learnPeda: {
 			title: 'Learning pack',
-			description:
-				'They provide a better understanding of the physics of radiation-matter interaction, which is the source of the generated doses, as well as of the protective capacities of the screens that can be used',
-			tools: [
-				{
-					name: 'Photon Interaction 3.2',
-					description:
-						'Utility implementing the principles of photon-matter interactions in materials with various applications: kerma calculation, dose, mean free path, Compton effect, trajectory visualization (Monte-Carlo)',
-					videoId: 'cBQ5-CiqqT4',
-					frOnly: false,
-				},
-				{
-					name: 'Charged Particles Interaction 3.2',
-					description:
-						'Utility implementing the principles of charged particle-matter interactions in materials with various applications: range calculation, fluence-dose coefficient, application to beta spectra',
-					videoId: 'vXT2h8GJ8Qk',
-					frOnly: false,
-				},
-				{
-					name: 'Serious Game 3.2',
-					description:
-						'Pedagogical utility allowing to highlight the essential parameters of radiation protection: distance, time, screen, activity, radionuclide nature',
-					videoId: 'pYbgwudKniA',
-					frOnly: false,
-				},
-				{
-					name: 'ICRU 57 Coefficients 3.2',
-					description:
-						'Utility allowing to know the fluence-dose equivalent coefficients and normalized air kerma for electrons, photons and neutrons',
-					videoId: 'Ltk5x2dW_VI',
-					frOnly: false,
-				},
-				{
-					name: 'Nuclear meter',
-					description:
-						'Nuclear meter simulator that realistically reproduces statistical aspects, efficiency concept, uncertainties, and decision thresholds',
-					videoId: 'fIEWzgTzC2g',
-					frOnly: true,
-				},
-				{
-					name: 'Radioactive decay',
-					description:
-						'Simulation tool for understanding the probabilistic aspects of nuclear decay: lifetime, period, fluctuation, decay law',
-					videoId: 'v8RMSH0qryE',
-					frOnly: true,
-				},
-			],
+			text: 'The 6 interactive learning modules of the suite — photon-matter interaction, charged-particle interaction, ICRU 57 coefficients, serious game, nuclear counter and radioactive decay — are presented in detail on the Learn page.',
+			linkLabel: 'Explore the modules',
 		},
 		packMes: {
 			title: 'Measurement pack',
@@ -547,6 +507,92 @@ export const en = {
 		},
 		watchVideo: 'Watch video on YouTube',
 		videosButton: 'Check out all videos',
+	},
+	learn: {
+		header: {
+			eyebrow: 'Learn',
+			title: 'From calculation to understanding',
+			description:
+				'A calculation result is only worth what you understand of the physics behind it. Dosimex equips professionals who want to master what their tools compute — and the schools and training centers that give their students the means to build solid physical intuition.',
+			educationText: 'Running a degree program or a training center? Equipping a class is a simple conversation.',
+			educationLink: 'Contact us',
+		},
+		modules: {
+			eyebrow: 'Six interactive modules',
+			title: 'Learning pack',
+			description:
+				'They provide a better understanding of the physics of radiation-matter interaction, which is the source of the generated doses, as well as of the protective capacities of the screens that can be used',
+			suiteNote: 'These six modules are part of the Dosimex Suite.',
+			suiteLink: 'Discover the suite',
+			tools: [
+				{
+					name: 'Photon Interaction 3.2',
+					description:
+						'Utility implementing the principles of photon-matter interactions in materials with various applications: kerma calculation, dose, mean free path, Compton effect, trajectory visualization (Monte-Carlo)',
+					videoId: 'cBQ5-CiqqT4',
+					frOnly: false,
+				},
+				{
+					name: 'Charged Particles Interaction 3.2',
+					description:
+						'Utility implementing the principles of charged particle-matter interactions in materials with various applications: range calculation, fluence-dose coefficient, application to beta spectra',
+					videoId: 'vXT2h8GJ8Qk',
+					frOnly: false,
+				},
+				{
+					name: 'Serious Game 3.2',
+					description:
+						'Pedagogical utility allowing to highlight the essential parameters of radiation protection: distance, time, screen, activity, radionuclide nature',
+					videoId: 'pYbgwudKniA',
+					frOnly: false,
+				},
+				{
+					name: 'ICRU 57 Coefficients 3.2',
+					description:
+						'Utility allowing to know the fluence-dose equivalent coefficients and normalized air kerma for electrons, photons and neutrons',
+					videoId: 'Ltk5x2dW_VI',
+					frOnly: false,
+				},
+				{
+					name: 'Nuclear meter',
+					description:
+						'Nuclear meter simulator that realistically reproduces statistical aspects, efficiency concept, uncertainties, and decision thresholds',
+					videoId: 'fIEWzgTzC2g',
+					frOnly: true,
+				},
+				{
+					name: 'Radioactive decay',
+					description:
+						'Simulation tool for understanding the probabilistic aspects of nuclear decay: lifetime, period, fluctuation, decay law',
+					videoId: 'v8RMSH0qryE',
+					frOnly: true,
+				},
+			],
+		},
+		resources: {
+			eyebrow: 'Resources',
+			title: 'Keep learning',
+			books: {
+				title: 'Readings',
+				text: 'The books the founders published with EDP Sciences, plus a curated selection of references on nuclear physics and radiation protection.',
+				link: 'Browse the readings',
+			},
+			videos: {
+				title: 'YouTube channel',
+				text: 'Nuclear physics, radiation-matter interaction, statistics, metrology: course and demonstration videos that extend the modules.',
+				link: 'Visit the channel',
+			},
+			manuals: {
+				title: 'Documentation',
+				text: 'User manuals, MCNP validation files and study reports: understanding also means knowing what a code computes and how it is validated.',
+				link: 'Browse the documentation',
+			},
+			training: {
+				title: 'Training',
+				text: 'In-house courses from 1 to 3 days, built on guided exercises and real cases from the industrial and medical world.',
+				link: 'Discover the courses',
+			},
+		},
 	},
 	product: {
 		title: 'One subscription, two tools',
