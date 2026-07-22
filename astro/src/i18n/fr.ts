@@ -97,44 +97,10 @@ export const fr = {
 			cta: 'Essayer Dosismart gratuitement — 14 jours',
 			trialButton: 'Nous contacter',
 		},
-		partners: {
-			title: 'Nos partenaires',
-			descriptions: [
-				'Une entreprise qui aime les projets. Nous aussi',
-				'Les premiers a avoir utilis\u00e9 Dosimex dans les formations PCR',
-				'Partenaire pour les formations en Radioprotection et utilisateur de Dosimex',
-				"Les seuls en France \u00e0 savoir crypter Excel ( et les autres produits Microsoft). Sans eux nous n'existerions simplement pas",
-				'Nous sommes fiers de les aider dans leurs missions',
-				"Notre \u00e9diteur historique pour l'ouvrage \u00ab calcul de doses g\u00e9n\u00e9r\u00e9es par les rayonnements ionisants \u00bb",
-				'Utilisent Dosimex \u00e0 gogo dans leurs calculs',
-				'Parmi les premiers \u00e0 nous soutenir. Et ils continuent. Merci',
-				'Notre partenaire de longue date pour les formations en spectrom\u00e9trie gamma et autres',
-				"Ils nous ont fait l'honneur d'appr\u00e9cier nos codes. Et nous recommandons chaudement le code RayXpert",
-			],
-		},
-		offers: {
-			title: 'Une mission : le calcul radioprotection à la portée de tous',
-			description:
-				'Depuis 30 ans, nous rendons le calcul accessible — et nous aidons à comprendre la physique, pas seulement à obtenir un chiffre. Dosismart poursuit cette mission sur le web : les mêmes calculs validés, dans votre navigateur.',
-			card1: {
-				title: 'Calculer',
-				description:
-					'Les 17 modules de calcul de la suite Dosimex, sous Excel — du débit de dose au zonage. Validés MCNP, chacun livré avec sa vidéo et son dossier de validation.',
-				linkLabel: 'Voir la suite',
-				packs: ['Pack opérationnel', 'Pack pédagogique', 'Pack mesures'],
-			},
-			card2: {
-				title: 'Comprendre',
-				description:
-					"6 modules pédagogiques interactifs, 13 documents de cours en physique nucléaire et métrologie, et les annexes de l'ouvrage de référence. Pour approfondir les fondamentaux à votre rythme.",
-				linkLabel: 'Voir les ressources',
-			},
-			card3: {
-				title: 'Se former',
-				description:
-					'Formations de 1 à 3 jours adaptées à vos problématiques. Prise en main des outils, travaux dirigés sur cas concrets, perfectionnement.',
-				linkLabel: 'En savoir plus',
-			},
+		evolution: {
+			kicker: 'De la suite Dosimex à Dosismart',
+			title: 'Trente ans de calcul validé, maintenant dans le navigateur',
+			text: "La suite Dosimex, ce sont 17 modules de calcul sous Excel, validés MCNP et éprouvés par plus de 1 500 professionnels. Dosismart reprend ces moteurs dans le navigateur — même physique validée, nouvel espace de travail. Un seul abonnement couvre les deux outils ; voici ce que chacun vous apporte.",
 		},
 		platform: {
 			title: 'Dosismart — la plateforme web de Dosimex',
@@ -148,7 +114,7 @@ export const fr = {
 		},
 		suite: {
 			title: 'La suite Dosimex — 17 modules de calcul sous Excel',
-			subtitle: "Depuis <strong>30 ans</strong>, la référence du calcul opérationnel en radioprotection : validée MCNP et utilisée par EDF, Orano, Apave et plus de <strong>1500</strong> professionnels. Ses codes rejoignent progressivement Dosismart, sur le web.",
+			subtitle: "Et tout ce que le web ne couvre pas encore reste ici. Depuis <strong>30 ans</strong>, la référence du calcul opérationnel en radioprotection : validée MCNP, utilisée par EDF, Orano, Apave et plus de <strong>1500</strong> professionnels.",
 			cta: 'Découvrir la suite Dosimex',
 			items: [
 				{
@@ -171,22 +137,6 @@ export const fr = {
 				},
 			],
 		},
-		close: {
-			title: 'Deux outils, un abonnement',
-			subtitle: "La suite Dosimex sur bureau et l'application web Dosismart — réunies, avec support technique inclus.",
-			bullets: ['Essai Dosismart gratuit de 14 jours', 'Support technique inclus', 'Sans carte bancaire'],
-			price: 'La suite Dosimex et Dosismart',
-			includes: 'un seul abonnement, support technique inclus',
-			pricingLink: 'Voir tous les tarifs',
-			dosismartNote: 'Essai gratuit 14 jours sur Dosismart',
-			quoteButton: 'Obtenir Dosimex',
-			trialButton: 'Essayer Dosismart',
-		},
-		packs: {
-			title: 'Ce que contient la suite Dosimex',
-			subtitle: 'Chaque code est validé (MCNP, RayXpert, Microshield) et accompagné de sa documentation complète. Le pack inclut également 11 documents de cours.',
-			allTools: 'Voir tous les outils en détail',
-		},
 		numbers: {
 			items: [
 				{ value: '+30 ans', label: "d'expérience" },
@@ -194,86 +144,25 @@ export const fr = {
 				{ value: '17', label: 'codes de calcul' },
 			],
 		},
-		videoTitle: 'Présentation Dosimex',
-		videos: {
-			title: 'Retrouvez-nous sur Youtube',
-			description:
-				"Nous vous y proposons d'autres vidéos consacrées à la physique nucléaire, à la radioactivité, à l'interaction rayonnement-matière, aux statistiques et à la métrologie...",
-			button: 'Notre chaîne YouTube',
+		understand: {
+			kicker: 'Comprendre',
+			title: 'Du calcul à la compréhension',
+			text: "Calculer juste, c'est aussi comprendre ce que l'on calcule. Ouvrages de référence, chaîne YouTube de physique, 6 modules d'apprentissage interactifs, formations : Dosimex transmet la physique derrière les chiffres — aux professionnels comme aux écoles qui forment les prochains radioprotectionnistes.",
+			link: 'Explorer les ressources',
+		},
+		close: {
+			title: 'Un abonnement, deux outils',
+			price: 'Offre Base 500 € HT/an, offre Conformité 1 350 € HT/an — chaque formule couvre la suite Dosimex et Dosismart.',
+			pricingLink: 'Voir les tarifs en détail',
+			bullets: ['Essai Dosismart gratuit de 14 jours', 'Support technique inclus', 'Sans carte bancaire'],
+			trialButton: 'Essayer Dosismart',
+			contactButton: 'Nous contacter',
 		},
 		opinion: {
 			name: 'Jean-Lionel Trolet',
 			job: "EAMEA — École des Applications Militaires de l'Énergie Atomique",
 			text: "J'utilise DOSIMEX, qui me donne totalement satisfaction, tant par la qualité de ses résultats que par sa facilité d'usage, dans les formations du personnel du ministère des armées. Il possède, entre autres, la force de tenir compte de situations courantes auxquelles sont confrontées les agents de MinArm, tant dans les rôles de PCR médicaux (merci au module de calcul X !) que les intervenants de tous niveaux dans le domaine industriel (du PNR à l'ingénieur). Enfin son usage est si simple que quasiment tous les PCR que nous formons l'ont adopté dans leurs unités.",
-			button: 'Tous les avis',
-		},
-		references: {
-			title: 'Publications et Références',
-			subtitle:
-				"DOSIMEX est cité dans de nombreuses publications scientifiques, articles de presse spécialisée et travaux de recherche. Découvrez comment nos outils contribuent à l'avancement de la recherche et de la pratique en radioprotection.",
-			btnText: 'Consulter',
-			internshipsText:
-				"Retrouvez \u00e9galement des rapports de stage de fin d'\u00e9tudes citant DOSIMEX dans leurs m\u00e9thodologies.",
-			internshipsBtn: 'Voir',
-			items: [
-				{
-					title: 'Le calcul prédictif de dose pour une meilleure protection',
-					description:
-						"Article SIH-Solutions sur l'utilisation de DOSIMEX à l'Institut Curie pour la prédiction des expositions en radiologie médicale.",
-					url: 'https://www.sih-solutions.fr/le-calcul-predictif-de-dose-pour-une-meilleure-protection',
-				},
-				{
-					title: "L'évaluation de la dose : un pré-requis de la gestion des risques",
-					description:
-						"Post LinkedIn sur l'utilisation de DOSIMEX dans les CHU de Nantes et Toulouse.",
-					url: 'https://www.linkedin.com/posts/sih-solutions_dosimex-activity-6940552424990380032-wsY9/?utm_source=linkedin_share&utm_medium=member_desktop_web',
-				},
-				{
-					title: "Étude de l'impact de couches de PMMA sur l'équilibre électronique",
-					description:
-						"Étudie l'impact de couches de PMMA sur l'équilibre électronique pour l'étalonnage d'instruments de radioprotection et modélise les faisceaux X/gamma avec DOSIMEX.",
-					url: 'https://www.sciencedirect.com/science/article/abs/pii/S0969804324004160',
-					authors: 'Zidouz T. et al.',
-					year: '2025',
-					journal: 'Radiation Physics and Chemistry',
-				},
-				{
-					title: 'Définition de qualités de faisceau en contexte médical',
-					description:
-						"Utilise DOSIMEX pour définir des qualités de faisceau (X et gamma) en contexte médical et analyser l'influence de l'épaisseur de PMMA sur les facteurs d'étalonnage.",
-					url: 'https://www.sciencedirect.com/science/article/abs/pii/S0969804324001532',
-					authors: 'Talbi A. et al.',
-					year: '2024',
-					journal: 'Radiation Physics and Chemistry',
-				},
-				{
-					title: "Travaux de radioprotection pour cellule d'examen - INB 164",
-					description:
-						"Travaux de radioprotection pour la mise en service d'une cellule d'examen : comparaison/usage de trois codes dont DOSIMEX aux côtés de MicroShield et RayXpert.",
-					url: 'https://inis.iaea.org/records/8q3yn-jja37',
-					authors: 'Etude CEDRA',
-					year: '2018',
-					journal: 'INIS - IAEA Database',
-				},
-				{
-					title: "Étude d'optimisation de la dosimétrie - Validation logicielle",
-					description:
-						"Étude d'optimisation de la dosimétrie ; simulations de faisceaux X réalisées avec DOSIMEX (description de l'argument de validation logicielle).",
-					url: 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4896352',
-					authors: 'Zidouz T. et al.',
-					year: '2025',
-					journal: 'SSRN - Prépublication',
-				},
-				{
-					title: 'DOSIMEX - Des codes de calcul de radioprotection à la portée de tous',
-					description:
-						'Article de présentation "Dosimex - des codes de calcul de radioprotection à la portée de tous" (référence-source sur le pack et ses modules). Utile à citer quand on justifie l\'emploi de DOSIMEX dans une méthode.',
-					url: 'https://inis.iaea.org/records/xaj40-pdm79',
-					authors: 'Vivier A., Lopez G.',
-					year: '2016',
-					journal: 'Rayonnements Ionisants, Techniques de Mesures et de Protection - INIS',
-				},
-			],
+			button: 'Toutes nos références',
 		},
 	},
 	testimonials: {
