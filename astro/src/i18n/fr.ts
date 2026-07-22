@@ -357,6 +357,48 @@ export const fr = {
 				},
 			],
 		},
+		personas: {
+			title: 'Pour qui ?',
+			description: 'Quatre métiers, quatre façons de s’en servir.',
+			items: [
+				{
+					title: 'PCR en établissement de santé',
+					pain: "La radioprotection n'est qu'une fraction de votre poste — et l'inspection n'attend pas.",
+					answer: "Calculez gamma et générateur X dans le navigateur, sans rien installer, avec des études de poste et un historique prêts à présenter.",
+					links: [
+						{ label: 'Calculs navigateur', href: '#modules' },
+						{ label: 'Études de poste', href: '#etude' },
+						{ label: 'Historique', href: '#history' },
+					],
+				},
+				{
+					title: 'Consultant OCR',
+					pain: 'Dix, vingt, cinquante sites clients — et le même travail à refaire proprement chez chacun.',
+					answer: 'Une organisation par client : inventaire de sources, plans de zonage et PDF réglementaires, au rythme du conseil.',
+					links: [
+						{ label: 'Organisations', href: '#plateforme' },
+						{ label: 'Inventaire', href: '#inventory' },
+						{ label: 'Zonage', href: '#zonage' },
+					],
+				},
+				{
+					title: 'PCR industriel',
+					pain: "Gammagraphie, sources mobiles, géométries qui changent d'un chantier à l'autre.",
+					answer: "Sources ponctuelles, linéiques ou surfaciques, écrans, effet de ciel — et le zonage des zones d'opération temporaires.",
+					links: [
+						{ label: 'Calculs', href: '#modules' },
+						{ label: 'Zonage', href: '#zonage' },
+					],
+				},
+				{
+					title: 'École et organisme de formation',
+					pain: "Équiper toute une promotion en outils de calcul, sans rien installer en salle informatique.",
+					answer: "Dosismart tourne dans le navigateur sur n'importe quel poste : gérez les accès des étudiants par groupes, tous les paramètres restent visibles — les étudiants voient la physique derrière les chiffres.",
+					links: [{ label: 'Pédagogie', href: '/learn' }],
+					cta: { label: 'Équiper une promotion', href: '/contact' },
+				},
+			],
+		},
 		dashboard: {
 			eyebrow: 'La plateforme',
 			title: 'Votre tableau de bord de radioprotection',
@@ -369,6 +411,11 @@ export const fr = {
 			growTitle: "Une plateforme qui s'enrichit avec le temps",
 			growText: 'Au fil des versions, les codes de calcul de la suite rejoignent Dosismart, avec la même physique validée MCNP éprouvée depuis 30 ans. La suite Dosimex reste la référence pour tout ce que la plateforme ne couvre pas encore.',
 			cta: 'Découvrir la suite Dosimex',
+		},
+		onprem: {
+			question: 'Contraintes de sécurité informatique ?',
+			text: "Un déploiement hors-ligne de Dosismart peut être étudié pour les organisations qui l'exigent —",
+			link: 'contactez-nous',
 		},
 		cta: {
 			title: 'Prêt à essayer Dosismart ?',

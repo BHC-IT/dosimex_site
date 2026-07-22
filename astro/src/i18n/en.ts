@@ -357,6 +357,48 @@ export const en = {
 				},
 			],
 		},
+		personas: {
+			title: 'Who it’s for',
+			description: 'Four jobs, four ways to put it to work.',
+			items: [
+				{
+					title: 'RP officer in a hospital or clinic',
+					pain: 'Radiation protection is only a fraction of your job — and the inspection won’t wait.',
+					answer: 'Run gamma and X-ray calculations in the browser, nothing to install, with workstation studies and a history ready to show.',
+					links: [
+						{ label: 'Browser calculations', href: '#modules' },
+						{ label: 'Workstation studies', href: '#etude' },
+						{ label: 'History', href: '#history' },
+					],
+				},
+				{
+					title: 'RP consultant',
+					pain: 'Ten, twenty, fifty client sites — and the same work to redo cleanly at each one.',
+					answer: 'One organization per client: source inventory, zoning plans and regulatory PDFs, at consulting speed.',
+					links: [
+						{ label: 'Organizations', href: '#plateforme' },
+						{ label: 'Inventory', href: '#inventory' },
+						{ label: 'Zoning', href: '#zonage' },
+					],
+				},
+				{
+					title: 'Industrial RP officer',
+					pain: 'Gammagraphy, mobile sources, geometries that change from one job site to the next.',
+					answer: 'Point, line or plane sources, shielding, skyshine — and zoning for temporary operation areas.',
+					links: [
+						{ label: 'Calculations', href: '#modules' },
+						{ label: 'Zoning', href: '#zonage' },
+					],
+				},
+				{
+					title: 'University or training center',
+					pain: 'Equipping a whole class with calculation tools, without installing anything in the computer room.',
+					answer: 'Dosismart runs in the browser on any machine: manage student access by groups, every parameter stays visible — students see the physics behind the numbers.',
+					links: [{ label: 'Learning', href: '/learn' }],
+					cta: { label: 'Equip a course', href: '/contact' },
+				},
+			],
+		},
 		dashboard: {
 			eyebrow: 'The platform',
 			title: 'Your radiation protection dashboard',
@@ -369,6 +411,11 @@ export const en = {
 			growTitle: 'A platform that grows richer over time',
 			growText: 'With each release, the Suite’s calculation codes move into Dosismart, with the same MCNP-validated physics proven over 30 years. The Dosimex Suite stays the reference for everything the platform does not cover yet.',
 			cta: 'Explore the Dosimex Suite',
+		},
+		onprem: {
+			question: 'IT security constraints?',
+			text: 'An offline deployment of Dosismart can be arranged for organizations that require it —',
+			link: 'contact us',
 		},
 		cta: {
 			title: 'Ready to try Dosismart?',
