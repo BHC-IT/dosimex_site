@@ -26,33 +26,43 @@ const year = new Date().getFullYear()
 			</div>
 
 			<!-- Link columns -->
-			<div class="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:gap-16">
+			<div class="grid grid-cols-2 gap-10 sm:grid-cols-4 lg:gap-16">
 				<!-- Software -->
 				<div>
 					<h3 class="mb-4 text-sm font-heading font-semibold text-foreground">
-						{locale === 'fr' ? 'Logiciel' : 'Software'}
+						{t.footer.columns.software}
 					</h3>
 					<ul class="space-y-3 text-sm">
-						<li><a href={localePath(locale, '/software')} class="text-muted-foreground transition-colors hover:text-primary">{locale === 'fr' ? 'Suite Dosimex' : 'Dosimex Suite'}</a></li>
-						<li><a href={localePath(locale, '/product')} class="text-muted-foreground transition-colors hover:text-primary">{locale === 'fr' ? 'Tarifs' : 'Pricing'}</a></li>
-						<li><a href={localePath(locale, '/dosismart')} class="text-muted-foreground transition-colors hover:text-primary">Dosismart</a></li>
+						<li><a href={localePath(locale, '/dosismart')} class="text-muted-foreground transition-colors hover:text-primary">{t.navbar.dosismart}</a></li>
+						<li><a href={localePath(locale, '/software')} class="text-muted-foreground transition-colors hover:text-primary">{t.navbar.suite}</a></li>
+						<li><a href={localePath(locale, '/product')} class="text-muted-foreground transition-colors hover:text-primary">{t.navbar.pricing}</a></li>
+					</ul>
+				</div>
+
+				<!-- Resources -->
+				<div>
+					<h3 class="mb-4 text-sm font-heading font-semibold text-foreground">
+						{t.footer.columns.resources}
+					</h3>
+					<ul class="space-y-3 text-sm">
+						<li><a href={localePath(locale, '/learn')} class="text-muted-foreground transition-colors hover:text-primary">{t.navbar.learn}</a></li>
+						<li><a href={localePath(locale, '/manuals')} class="text-muted-foreground transition-colors hover:text-primary">{t.navbar.documentation}</a></li>
+						<li><a href={localePath(locale, '/books')} class="text-muted-foreground transition-colors hover:text-primary">{t.navbar.books}</a></li>
+						<li><a href={localePath(locale, '/blog')} class="text-muted-foreground transition-colors hover:text-primary">{t.navbar.blog}</a></li>
 						<li><a href={videoIds.channelUrl} target="_blank" rel="noopener noreferrer" class="text-muted-foreground transition-colors hover:text-primary">YouTube</a></li>
-						<li><a href={localePath(locale, '/manuals')} class="text-muted-foreground transition-colors hover:text-primary">{locale === 'fr' ? 'Documentation' : 'Documentation'}</a></li>
-						<li><a href={localePath(locale, '/books')} class="text-muted-foreground transition-colors hover:text-primary">{locale === 'fr' ? 'Lectures' : 'Books'}</a></li>
-						<li><a href={localePath(locale, '/blog')} class="text-muted-foreground transition-colors hover:text-primary">Blog</a></li>
 					</ul>
 				</div>
 
 				<!-- Company -->
 				<div>
 					<h3 class="mb-4 text-sm font-heading font-semibold text-foreground">
-						{locale === 'fr' ? 'Entreprise' : 'Company'}
+						{t.footer.columns.company}
 					</h3>
 					<ul class="space-y-3 text-sm">
-						<li><a href={localePath(locale, '/about')} class="text-muted-foreground transition-colors hover:text-primary">{locale === 'fr' ? 'Qui sommes-nous' : 'About us'}</a></li>
-						<li><a href={localePath(locale, '/training')} class="text-muted-foreground transition-colors hover:text-primary">{locale === 'fr' ? 'Formations' : 'Training'}</a></li>
-						<li><a href={localePath(locale, '/contact')} class="text-muted-foreground transition-colors hover:text-primary">Contact</a></li>
-						<li class="text-muted-foreground">Alain Vivier</li>
+						<li><a href={localePath(locale, '/about')} class="text-muted-foreground transition-colors hover:text-primary">{t.navbar.story}</a></li>
+						<li><a href={localePath(locale, '/training')} class="text-muted-foreground transition-colors hover:text-primary">{t.navbar.training}</a></li>
+						<li><a href={localePath(locale, '/references')} class="text-muted-foreground transition-colors hover:text-primary">{t.navbar.references}</a></li>
+						<li><a href={localePath(locale, '/contact')} class="text-muted-foreground transition-colors hover:text-primary">{t.navbar.contact}</a></li>
 						<li><a href="tel:+33689709035" class="text-muted-foreground transition-colors hover:text-primary">06 89 70 90 35</a></li>
 						<li><ObfuscatedEmail user="alain.vivier" domain="dosimex.fr" class="text-muted-foreground transition-colors hover:text-primary" /></li>
 					</ul>

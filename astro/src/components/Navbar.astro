@@ -13,24 +13,46 @@ interface Props {
 const { t, locale, alternateUrl: alternateOverride } = Astro.props
 const currentPath = Astro.url.pathname
 
-// "Logiciels" dropdown groups the two products.
+interface NavLink {
+	label: string
+	href: string
+}
+type MenuEntry =
+	| { type: 'link'; label: string; href: string }
+	| { type: 'dropdown'; label: string; links: NavLink[] }
+
 // Logiciels dropdown — Dosismart first (the product we sell now), then the
 // Suite Dosimex (the heritage the codes evolve from).
-const productLinks = [
+const softwareLinks: NavLink[] = [
 	{ label: t.navbar.dosismart, href: localePath(locale, '/dosismart') },
-	{ label: t.navbar.items[0], href: localePath(locale, '/software') },
+	{ label: t.navbar.suite, href: localePath(locale, '/software') },
 ]
-// Tarifs (/product) is now a first-class nav item — it holds pricing + FAQ +
-// the existing-customer policy and must be reachable. items[3] is the story
-// page ("Histoire" / "Our story"), surfacing /about.
-const navLinks = [
-	{ label: t.navbar.tarifs, href: localePath(locale, '/product') },
-	{ label: t.navbar.items[1], href: localePath(locale, '/training') },
-	{ label: t.navbar.items[3], href: localePath(locale, '/about') },
-	{ label: t.navbar.items[2], href: localePath(locale, '/manuals') },
-	{ label: t.navbar.items[5], href: localePath(locale, '/blog') },
-	{ label: t.navbar.items[4], href: localePath(locale, '/contact') },
+// Ressources dropdown — pedagogy first (Comprendre), then the reference material.
+const resourceLinks: NavLink[] = [
+	{ label: t.navbar.learn, href: localePath(locale, '/learn') },
+	{ label: t.navbar.documentation, href: localePath(locale, '/manuals') },
+	{ label: t.navbar.blog, href: localePath(locale, '/blog') },
+	{ label: t.navbar.books, href: localePath(locale, '/books') },
 ]
+// Final top-level order: Logiciels ▾ · Tarifs · Ressources ▾ · Formations ·
+// Références · Histoire · Contact.
+const menu: MenuEntry[] = [
+	{ type: 'dropdown', label: t.navbar.software, links: softwareLinks },
+	{ type: 'link', label: t.navbar.pricing, href: localePath(locale, '/product') },
+	{ type: 'dropdown', label: t.navbar.resources, links: resourceLinks },
+	{ type: 'link', label: t.navbar.training, href: localePath(locale, '/training') },
+	{ type: 'link', label: t.navbar.references, href: localePath(locale, '/references') },
+	{ type: 'link', label: t.navbar.story, href: localePath(locale, '/about') },
+	{ type: 'link', label: t.navbar.contact, href: localePath(locale, '/contact') },
+]
+// Mobile: grouped sections (Logiciels, Ressources) then the flat links.
+const mobileGroups = [
+	{ label: t.navbar.software, links: softwareLinks },
+	{ label: t.navbar.resources, links: resourceLinks },
+]
+const mobileLinks: NavLink[] = menu.filter(
+	(entry): entry is Extract<MenuEntry, { type: 'link' }> => entry.type === 'link'
+)
 
 const alternateUrl = alternateOverride ?? getAlternateUrl(currentPath)
 // Primary CTA is Dosismart-first ("Essayer Dosismart"); the quote/founder path
@@ -66,38 +88,40 @@ const quoteHref = 'https://dosismart.com'
 
 		<!-- Desktop nav -->
 		<nav class="hidden lg:flex items-center gap-4" aria-label="Main navigation">
-			<!-- Products dropdown (Suite Dosimex + Dosismart) -->
-			<div class="relative group">
-				<button
-					type="button"
-					class="flex items-center gap-1 font-heading text-sm font-semibold text-foreground transition-colors hover:text-primary group-focus-within:text-primary"
-					aria-haspopup="true"
-					aria-expanded="false"
-				>
-					{t.navbar.products}
-					<svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180 group-focus-within:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-				</button>
-				<div class="invisible absolute left-0 top-full min-w-[12rem] pt-2 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-					<div class="rounded-lg border border-border bg-background p-1.5 shadow-lg">
-						{productLinks.map((link) => (
-							<a
-								href={link.href}
-								class="block rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-muted hover:text-primary"
-							>
-								{link.label}
-							</a>
-						))}
+			{menu.map((entry) =>
+				entry.type === 'dropdown' ? (
+					<div class="relative group">
+						<button
+							type="button"
+							class="flex items-center gap-1 font-heading text-sm font-semibold text-foreground transition-colors hover:text-primary group-focus-within:text-primary"
+							aria-haspopup="true"
+							aria-expanded="false"
+						>
+							{entry.label}
+							<svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180 group-focus-within:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+						</button>
+						<div class="invisible absolute left-0 top-full min-w-[12rem] pt-2 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+							<div class="rounded-lg border border-border bg-background p-1.5 shadow-lg">
+								{entry.links.map((link) => (
+									<a
+										href={link.href}
+										class="block rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-muted hover:text-primary"
+									>
+										{link.label}
+									</a>
+								))}
+							</div>
+						</div>
 					</div>
-				</div>
-			</div>
-			{navLinks.map((link) => (
+				) : (
 					<a
-						href={link.href}
+						href={entry.href}
 						class="font-heading text-sm font-semibold text-foreground transition-colors hover:text-primary"
 					>
-						{link.label}
+						{entry.label}
 					</a>
-			))}
+				)
+			)}
 		</nav>
 		</div>
 
@@ -122,8 +146,8 @@ const quoteHref = 'https://dosismart.com'
 		<!-- Mobile: hamburger -->
 		<div class="flex lg:hidden items-center">
 			<MobileMenu
-				productLinks={productLinks}
-				navLinks={navLinks}
+				groups={mobileGroups}
+				navLinks={mobileLinks}
 				alternateUrl={alternateUrl}
 				locale={locale}
 				quoteLabel={quoteLabel}

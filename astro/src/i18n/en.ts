@@ -73,10 +73,19 @@ export const en = {
 		cardIcon: 'Icon',
 	},
 	navbar: {
-		items: ['Dosimex Suite', 'Training', 'Documentation', 'Our story', 'Contact', 'Blog'],
-		products: 'Software',
+		software: 'Software',
 		dosismart: 'Dosismart',
-		tarifs: 'Pricing',
+		suite: 'Dosimex Suite',
+		pricing: 'Pricing',
+		resources: 'Resources',
+		learn: 'Learn',
+		documentation: 'Documentation',
+		blog: 'Blog',
+		books: 'Books',
+		training: 'Training',
+		references: 'References',
+		story: 'Our story',
+		contact: 'Contact',
 	},
 	home: {
 		hero: {
@@ -924,21 +933,10 @@ export const en = {
 		messageNotSent: 'Message not sent',
 	},
 	footer: {
-		col1: {
-			p: [
-				'Copyright © 2026 Designed by Dosimex',
-				'All rights reserved',
-				'06 89 70 90 35',
-				'Follow us on social media',
-			],
-		},
-		col2: {
-			title: 'Resources',
-			p: ['Dosismart', 'Video archives', 'Manuals and validations', 'Readings'],
-		},
-		col3: {
-			title: 'Company',
-			p: ['About us', 'Legal', 'Contact'],
+		columns: {
+			software: 'Software',
+			resources: 'Resources',
+			company: 'Company',
 		},
 		manageCookies: 'Manage cookies',
 	},

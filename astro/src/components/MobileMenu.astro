@@ -4,8 +4,13 @@ interface NavLink {
 	href: string
 }
 
+interface NavGroup {
+	label: string
+	links: NavLink[]
+}
+
 interface Props {
-	productLinks: NavLink[]
+	groups: NavGroup[]
 	navLinks: NavLink[]
 	alternateUrl: string
 	locale: string
@@ -13,7 +18,7 @@ interface Props {
 	quoteHref: string
 }
 
-const { productLinks, navLinks, alternateUrl, locale, quoteLabel, quoteHref } = Astro.props
+const { groups, navLinks, alternateUrl, locale, quoteLabel, quoteHref } = Astro.props
 ---
 
 <!-- Hamburger button -->
@@ -56,24 +61,34 @@ const { productLinks, navLinks, alternateUrl, locale, quoteLabel, quoteHref } = 
 		</button>
 	</div>
 
-	<!-- Nav links — centered -->
-	<nav class="flex-1 flex flex-col items-center justify-center gap-5 px-6">
-		{productLinks.map((link) => (
-			<a
-				href={link.href}
-				class="mobile-menu-link text-xl font-heading font-semibold text-foreground/80 hover:text-primary transition-colors"
-			>
-				{link.label}
-			</a>
+	<!-- Nav links — grouped sections, scrollable on short screens -->
+	<nav class="flex-1 overflow-y-auto flex flex-col items-center gap-6 px-6 py-8 min-h-0">
+		<div class="my-auto flex flex-col items-center gap-6 w-full">
+		{groups.map((group) => (
+			<div class="flex flex-col items-center gap-2">
+				<span class="text-xs font-heading font-semibold uppercase tracking-wider text-muted-foreground">
+					{group.label}
+				</span>
+				{group.links.map((link) => (
+					<a
+						href={link.href}
+						class="mobile-menu-link px-4 py-1 text-lg font-heading font-semibold text-foreground/80 hover:text-primary transition-colors"
+					>
+						{link.label}
+					</a>
+				))}
+			</div>
 		))}
+		<div class="flex flex-col items-center gap-2 border-t border-border/40 pt-5">
 		{navLinks.map((link) => (
 			<a
 				href={link.href}
-				class="mobile-menu-link text-xl font-heading font-semibold text-foreground/80 hover:text-primary transition-colors"
+				class="mobile-menu-link px-4 py-1 text-lg font-heading font-semibold text-foreground/80 hover:text-primary transition-colors"
 			>
 				{link.label}
 			</a>
 		))}
+		</div>
 
 		<!-- Lang + mode row -->
 		<div class="flex items-center gap-4 mt-2">
@@ -119,6 +134,7 @@ const { productLinks, navLinks, alternateUrl, locale, quoteLabel, quoteHref } = 
 			>
 				{quoteLabel}
 			</a>
+		</div>
 		</div>
 	</nav>
 </div>
