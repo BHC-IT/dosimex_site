@@ -56,7 +56,7 @@ steps:
           always "la suite Dosimex" / "the Dosimex Suite". No sunset/"deprecated" language about
           the Suite.
         files: [astro/src/i18n/fr.ts, astro/src/i18n/en.ts]
-        done: false
+        done: true
       - id: "1.2"
         summary: "De-dup pricing page: move Suite prerequisites/education to the Suite page"
         prompt: |
@@ -94,7 +94,7 @@ steps:
             astro/src/i18n/fr.ts,
             astro/src/i18n/en.ts,
           ]
-        done: false
+        done: true
   - name: "New pages"
     tasks:
       - id: "2.1"
@@ -154,7 +154,7 @@ steps:
             astro/src/i18n/en.ts,
             astro/src/data/videos.ts,
           ]
-        done: false
+        done: true
       - id: "2.2"
         summary: "Create /references (validation & trust) page; slim /manuals; absorb testimonials"
         prompt: |
@@ -206,7 +206,7 @@ steps:
             astro/src/i18n/en.ts,
             astro/src/data/videos.ts,
           ]
-        done: false
+        done: true
   - name: "Navigation"
     tasks:
       - id: "3.1"
@@ -254,7 +254,7 @@ steps:
             astro/src/i18n/fr.ts,
             astro/src/i18n/en.ts,
           ]
-        done: false
+        done: true
   - name: "Product page depth"
     tasks:
       - id: "4.1"
@@ -309,7 +309,7 @@ steps:
             astro/src/i18n/fr.ts,
             astro/src/i18n/en.ts,
           ]
-        done: false
+        done: true
       - id: "4.2"
         summary: "Suite page: heritage narrative + persona relevance, slimmed to operational identity"
         prompt: |
@@ -351,7 +351,7 @@ steps:
             astro/src/i18n/fr.ts,
             astro/src/i18n/en.ts,
           ]
-        done: false
+        done: true
   - name: "Home narrative"
     tasks:
       - id: "5.1"
@@ -407,7 +407,7 @@ steps:
             astro/src/i18n/fr.ts,
             astro/src/i18n/en.ts,
           ]
-        done: false
+        done: true
   - name: "Motion & polish"
     tasks:
       - id: "6.1"
@@ -449,7 +449,7 @@ steps:
             astro/src/layouts/Layout.astro,
             astro/src/components/StatsCounter.astro,
           ]
-        done: false
+        done: true
       - id: "6.2"
         summary: "Consistency sweep: SEO metadata, JSON-LD, llms.txt, stale cross-references"
         prompt: |
@@ -490,4 +490,4 @@ steps:
             astro/src/data/schemas.ts,
             public/llms.txt,
           ]
-        done: false
+        done: true
