@@ -288,7 +288,7 @@ export const en = {
 			subtitle: 'Your radiation protection workspace in the browser: calculate, keep a traceable record, collaborate and run your organization. A real dashboard, on any device, no installation.',
 			cta: 'Open Dosismart',
 			ctaSecondary: 'See pricing',
-			trialNote: 'Free 14-day trial, no credit card.',
+			trialNote: 'Free 14-day trial, Compliance features included. No credit card.',
 		},
 		whatsInside: {
 			title: 'What you find in Dosismart',
@@ -350,12 +350,12 @@ export const en = {
 				{ icon: 'team', title: 'Run your organization', text: 'Members, access and subscription — one account for the whole team.' },
 			],
 			growTitle: 'A platform that grows richer over time',
-			growText: 'With each release, the Suite’s calculation codes move into Dosismart, with the same MCNP-validated physics proven over 30 years. The Excel suite stays the reference for everything the platform does not cover yet.',
+			growText: 'With each release, the Suite’s calculation codes move into Dosismart, with the same MCNP-validated physics proven over 30 years. The Dosimex Suite stays the reference for everything the platform does not cover yet.',
 			cta: 'Explore the Dosimex Suite',
 		},
 		cta: {
 			title: 'Ready to try Dosismart?',
-			text: 'Free 14-day trial, no credit card. A question before you start? Let’s talk.',
+			text: 'Free 14-day trial, Compliance features included, no credit card. A question before you start? Let’s talk.',
 			button: 'Open Dosismart',
 			contact: 'Contact us',
 		},
@@ -374,7 +374,7 @@ export const en = {
 		},
 		dosismartBanner: {
 			title: 'Dosismart: the evolution of the suite',
-			text: 'Dosismart is the Dosimex web platform. Over the years, the calculation codes of the suite are progressively ported to it — and validated with the same rigor (MCNP, OpenMC) as those of Dosimex. Already online: gamma calculation, X-ray generator, skyshine and shield optimizer, with calculation history and team collaboration. The suite remains the reference for everything the platform does not cover yet.',
+			text: 'Dosismart is the Dosimex web platform. Over the years, the calculation codes of the suite are progressively ported to it — and validated with the same rigor (MCNP, OpenMC) as the suite’s own codes. Already online: gamma calculation, X-ray generator, skyshine and shield optimizer, with calculation history and team collaboration. The suite remains the reference for everything the platform does not cover yet.',
 			button: 'Try Dosismart',
 		},
 		packOpe: {
@@ -565,7 +565,7 @@ export const en = {
 		},
 		trialBanner: {
 			title: 'Try Dosismart free for 14 days',
-			text: 'The trial covers the Dosismart web application: gamma calculation, X-ray generator, skyshine, shield optimizer. The Dosimex Suite (Excel) requires the paid subscription. No credit card.',
+			text: 'The trial covers the full Dosismart web application, Compliance features included: calculations, source inventory, zoning plans, workstation studies. The Dosimex Suite (Excel) requires the paid subscription. No credit card.',
 			button: 'Start trial',
 		},
 		pricing: {
@@ -580,7 +580,7 @@ export const en = {
 				tagline: 'The same price as before — now for both tools',
 				features: [
 					'The complete Dosimex Suite: 17 calculation modules in Excel',
-					'Dosismart: gamma calculation, X-ray generator, cylinder shield optimizer',
+					'Dosismart: gamma calculation, X-ray generator, skyshine, cylinder shield optimizer',
 					'Calculation history, team collaboration, any device',
 					'Technical support included',
 				],
@@ -596,7 +596,6 @@ export const en = {
 					'Source inventory with automatic decay',
 					'Zoning plans editor (2D)',
 					'Workstation exposure studies generator (\u00E9tudes de poste)',
-					'Skyshine',
 				],
 			},
 			enterprise: {
@@ -618,13 +617,13 @@ export const en = {
 			quoteSecondary: 'or request a quote by email',
 			enterpriseButton: 'Contact us for a quote',
 			directNote:
-				"Subscribe directly on Dosismart with secure online payment in minutes — or, if you'd rather talk it through first, request a quote by email.",
+				"Subscribe directly on Dosismart: secure payment by card or by invoice (purchase order). If you'd rather talk it through first, request a quote by email.",
 			explainer: {
 				title: 'How it works',
 				items: [
 					{
 						title: 'Create your Dosismart account',
-						text: 'Dosismart is the Dosimex web platform. Create your account and start a free 14-day Dosismart trial — gamma calculation, history and more, right in the browser. No credit card.',
+						text: 'Dosismart is the Dosimex web platform. Create your account and start a free 14-day trial — the full web application, Compliance features included. No credit card.',
 					},
 					{
 						title: 'Subscribe, then download the Suite',
@@ -637,14 +636,14 @@ export const en = {
 				],
 			},
 		},
-		trialNote: 'The 14-day free trial covers the Dosismart web application. The Dosimex Suite (Excel) requires the paid subscription.',
+		trialNote: 'The 14-day free trial covers the full Dosismart web application, Compliance features included. The Dosimex Suite (Excel) requires the paid subscription.',
 		faq: {
 			title: 'Frequently Asked Questions',
 			questions: [
 				{
 					question: 'What is the difference between the Dosimex Suite and Dosismart?',
 					answer:
-						"The Dosimex Suite includes the 17 calculation modules in Excel (gamma, X-ray, beta, neutron, internal exposure, measurement). Dosismart is the Dosimex web platform: it is where you subscribe, download the suite and manage your organization — and it is also a calculation tool in the browser (gamma calculation, X-ray generator, skyshine, shield optimizer, history, team collaboration). A single subscription covers everything. New capabilities ship on Dosismart first; the Suite remains the reference for what web calculation doesn't cover yet.",
+						"The Dosimex Suite includes the 17 calculation modules in Excel (gamma, X-ray, beta, neutron, internal exposure, measurement). Dosismart is the Dosimex web platform: it is where you subscribe, download the suite and manage your organization — and it is also a calculation tool in the browser (gamma calculation, X-ray generator, skyshine, shield optimizer, history, team collaboration), with source inventory, zoning plans and workstation studies in the Compliance plan. A single subscription covers everything. New capabilities ship on Dosismart first; the Suite remains the reference for what web calculation doesn't cover yet.",
 				},
 				{
 					question: 'I have a current license (purchased since 2025) — how do I access Dosismart?',
@@ -659,7 +658,7 @@ export const en = {
 				{
 					question: 'How does the free trial work?',
 					answer:
-						'The trial is free for 14 days, with no commitment and no credit card. It covers the Dosismart web application. The Dosimex Suite (Excel) requires the paid subscription, which then covers both tools.',
+						'The trial is free for 14 days, with no commitment and no credit card. It covers the full Dosismart web application, including the Compliance features. The Dosimex Suite (Excel) requires the paid subscription, which then covers both tools.',
 				},
 				{
 					question: 'What are the prerequisites?',

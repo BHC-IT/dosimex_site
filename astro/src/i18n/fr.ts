@@ -288,7 +288,7 @@ export const fr = {
 			subtitle: "Votre espace de radioprotection dans le navigateur : calculez, assurez la traçabilité de vos calculs, collaborez et pilotez votre organisation. Un vrai tableau de bord, accessible depuis tout appareil, sans installation.",
 			cta: 'Ouvrir Dosismart',
 			ctaSecondary: 'Voir les tarifs',
-			trialNote: 'Essai gratuit 14 jours, sans carte bancaire.',
+			trialNote: 'Essai gratuit 14 jours, fonctionnalités Conformité comprises. Sans carte bancaire.',
 		},
 		whatsInside: {
 			title: 'Ce que vous trouvez dans Dosismart',
@@ -350,12 +350,12 @@ export const fr = {
 				{ icon: 'team', title: 'Pilotez votre organisation', text: "Membres, accès et abonnement — un seul compte pour toute l'équipe." },
 			],
 			growTitle: "Une plateforme qui s'enrichit avec le temps",
-			growText: 'Au fil des versions, les codes de calcul de la suite rejoignent Dosismart, avec la même physique validée MCNP éprouvée depuis 30 ans. La suite Excel reste la référence pour tout ce que la plateforme ne couvre pas encore.',
+			growText: 'Au fil des versions, les codes de calcul de la suite rejoignent Dosismart, avec la même physique validée MCNP éprouvée depuis 30 ans. La suite Dosimex reste la référence pour tout ce que la plateforme ne couvre pas encore.',
 			cta: 'Découvrir la suite Dosimex',
 		},
 		cta: {
 			title: 'Prêt à essayer Dosismart ?',
-			text: 'Essai gratuit 14 jours, sans carte bancaire. Une question avant de vous lancer ? Parlons-en.',
+			text: 'Essai gratuit 14 jours, fonctionnalités Conformité comprises, sans carte bancaire. Une question avant de vous lancer ? Parlons-en.',
 			button: 'Ouvrir Dosismart',
 			contact: 'Nous contacter',
 		},
@@ -374,7 +374,7 @@ export const fr = {
 		},
 		dosismartBanner: {
 			title: "Dosismart : l'évolution de la suite",
-			text: "Dosismart est la plateforme web de Dosimex. Au fil des années, les codes de calcul de la suite y sont progressivement portés — et validés avec la même rigueur (MCNP, OpenMC) que ceux de Dosimex. Déjà en ligne : calcul gamma, générateur X, effet de ciel et optimiseur d'écran, avec historique des calculs et travail en équipe. La suite reste la référence pour tout ce que la plateforme ne couvre pas encore.",
+			text: "Dosismart est la plateforme web de Dosimex. Au fil des années, les codes de calcul de la suite y sont progressivement portés — et validés avec la même rigueur (MCNP, OpenMC) que ceux de la suite. Déjà en ligne : calcul gamma, générateur X, effet de ciel et optimiseur d'écran, avec historique des calculs et travail en équipe. La suite reste la référence pour tout ce que la plateforme ne couvre pas encore.",
 			button: 'Essayer Dosismart',
 		},
 		packOpe: {
@@ -565,7 +565,7 @@ export const fr = {
 		},
 		trialBanner: {
 			title: 'Essayez Dosismart gratuitement pendant 14 jours',
-			text: "L'essai couvre l'application web Dosismart : calcul gamma, générateur X, effet de ciel, optimiseur d'écran. La suite Dosimex (Excel) nécessite l'abonnement payant. Sans carte bancaire.",
+			text: "L'essai couvre toute l'application web Dosismart, fonctionnalités Conformité comprises : calculs, inventaire de sources, plans de zonage, études de poste. La suite Dosimex (Excel) nécessite l'abonnement payant. Sans carte bancaire.",
 			button: "Démarrer l'essai",
 		},
 		pricing: {
@@ -580,7 +580,7 @@ export const fr = {
 				tagline: "Le même prix qu'avant — pour les deux outils",
 				features: [
 					'La suite Dosimex complète : 17 modules de calcul sous Excel',
-					"Dosismart : calcul gamma, générateur X, optimiseur d'écran cylindrique",
+					"Dosismart : calcul gamma, générateur X, effet de ciel, optimiseur d'écran cylindrique",
 					'Historique des calculs, travail en équipe, tout appareil',
 					'Support technique inclus',
 				],
@@ -596,7 +596,6 @@ export const fr = {
 					'Inventaire de sources avec décroissance automatique',
 					'Éditeur de plans de zonage (2D)',
 					"Générateur d'études de poste",
-					'Effet de ciel',
 				],
 			},
 			enterprise: {
@@ -618,13 +617,13 @@ export const fr = {
 			quoteSecondary: 'ou demander un devis par e-mail',
 			enterpriseButton: 'Nous contacter pour un devis',
 			directNote:
-				"Abonnez-vous directement sur Dosismart, paiement en ligne sécurisé en quelques minutes — ou, si vous préférez en discuter, demandez un devis par e-mail.",
+				"Abonnez-vous directement sur Dosismart : paiement sécurisé par carte ou sur facture (bon de commande). Si vous préférez en discuter d'abord, demandez un devis par e-mail.",
 			explainer: {
 				title: 'Comment ça marche',
 				items: [
 					{
 						title: 'Créez votre compte Dosismart',
-						text: "Dosismart est la plateforme web de Dosimex. Créez votre compte et démarrez un essai gratuit de 14 jours de Dosismart — calcul gamma, historique et plus, directement dans le navigateur. Sans carte bancaire.",
+						text: "Dosismart est la plateforme web de Dosimex. Créez votre compte et démarrez un essai gratuit de 14 jours — toute l'application web, fonctionnalités Conformité comprises. Sans carte bancaire.",
 					},
 					{
 						title: 'Abonnez-vous, puis téléchargez la suite',
@@ -637,14 +636,14 @@ export const fr = {
 				],
 			},
 		},
-		trialNote: "L'essai gratuit de 14 jours couvre l'application web Dosismart. La suite Dosimex (Excel) nécessite l'abonnement payant.",
+		trialNote: "L'essai gratuit de 14 jours couvre toute l'application web Dosismart, fonctionnalités Conformité comprises. La suite Dosimex (Excel) nécessite l'abonnement payant.",
 		faq: {
 			title: 'Questions fréquentes',
 			questions: [
 				{
 					question: 'Quelle différence entre la suite Dosimex et Dosismart ?',
 					answer:
-						"La suite Dosimex regroupe les 17 modules de calcul sous Excel (gamma, X, bêta, neutron, exposition interne, mesures). Dosismart est la plateforme web de Dosimex : c'est là que vous vous abonnez, téléchargez la suite et gérez votre organisation — et c'est aussi un outil de calcul dans le navigateur (calcul gamma, générateur X, effet de ciel, optimiseur d'écran, historique, travail en équipe). Un seul abonnement couvre l'ensemble. Les nouveautés arrivent d'abord sur Dosismart ; la suite reste la référence pour ce que le calcul web ne couvre pas encore.",
+						"La suite Dosimex regroupe les 17 modules de calcul sous Excel (gamma, X, bêta, neutron, exposition interne, mesures). Dosismart est la plateforme web de Dosimex : c'est là que vous vous abonnez, téléchargez la suite et gérez votre organisation — et c'est aussi un outil de calcul dans le navigateur (calcul gamma, générateur X, effet de ciel, optimiseur d'écran, historique, travail en équipe), avec l'inventaire de sources, les plans de zonage et les études de poste dans l'offre Conformité. Un seul abonnement couvre l'ensemble. Les nouveautés arrivent d'abord sur Dosismart ; la suite reste la référence pour ce que le calcul web ne couvre pas encore.",
 				},
 				{
 					question: "J'ai une licence en cours (achetée depuis 2025) — comment accéder à Dosismart ?",
@@ -659,7 +658,7 @@ export const fr = {
 				{
 					question: "Comment fonctionne l'essai gratuit ?",
 					answer:
-						"L'essai est gratuit pendant 14 jours, sans engagement et sans carte bancaire. Il couvre l'application web Dosismart. La suite Dosimex (Excel) nécessite l'abonnement payant, qui couvre ensuite les deux outils.",
+						"L'essai est gratuit pendant 14 jours, sans engagement et sans carte bancaire. Il couvre toute l'application web Dosismart, y compris les fonctionnalités Conformité. La suite Dosimex (Excel) nécessite l'abonnement payant, qui couvre ensuite les deux outils.",
 				},
 				{
 					question: 'Quels sont les prérequis ?',
