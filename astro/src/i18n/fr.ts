@@ -29,8 +29,12 @@ export const fr = {
 			description: "Sélection d'ouvrages de référence en radioprotection, dosimétrie et physique nucléaire recommandés par les experts Dosimex.",
 		},
 		manuals: {
-			title: 'Documentation & Validation — Dosimex',
-			description: "Manuels d'utilisation, dossiers de validation MCNP et rapports de stage pour Dosimex-GX. Documentation complète téléchargeable en PDF.",
+			title: "Manuels d'utilisation — Dosimex",
+			description: "Manuels d'utilisation de Dosimex-GX : dose gamma, générateur X, norme NF C15-160, grandeurs pratiques en radiologie. Téléchargeables en PDF.",
+		},
+		references: {
+			title: 'Références & Validation — Dosimex',
+			description: "Dossiers de validation MCNP (code de référence CEA), comparaisons indépendantes Microshield et RayXpert, utilisateurs institutionnels et retours d'utilisateurs : les preuves derrière les codes Dosimex.",
 		},
 		videos: {
 			title: 'Vidéos & Tutoriels — Dosimex',
@@ -493,7 +497,7 @@ export const fr = {
 			title: 'Plus de ressources',
 			links: [
 				{ label: 'Validation générateur X', href: '/Folders/extrait_validation_géné_X.pdf', pdf: true },
-				{ label: 'Dossiers de validation complets', href: '/manuals#validations' },
+				{ label: 'Dossiers de validation complets', href: '/references#validations' },
 				{ label: 'Extraits validation source gamma', href: '/Folders/extrait_validation_gamma.pdf', pdf: true },
 				{ label: "Manuels d'utilisation de Dosimex-GX", href: '/manuals#manuals' },
 				{ label: 'Les nouveautés dans Dosimex-GX 3.2', href: '/Folders/Modification_Dosimex GX_3.0.pdf', pdf: true },
@@ -778,21 +782,77 @@ export const fr = {
 	},
 	manuals: {
 		header: {
-			title: 'Documentation',
-			description: "Pour mieux vous permettre de juger des possibilités offertes avec Dosimex-GX, vous pouvez télécharger l'ensemble de la documentation associée à ce code :",
-			anchors: ["Les manuels d'utilisation", 'Les dossiers de validation', "Quelques rapports de stages de fin d'étude utilisant Dosimex"],
-		},
-		manuals: {
 			title: "Manuels d'utilisation",
-			items: ['Manuel dose gamma', 'Manuel générateur x', 'Manuel + Validation NF C15-160', 'Grandeurs pratiques en radiologie'],
+			description: "Pour mieux vous permettre de juger des possibilités offertes avec Dosimex-GX, vous pouvez télécharger les manuels d'utilisation associés à ce code :",
+			referencesNote: "Les dossiers de validation et les rapports de fin d'étude sont sur la page",
+			referencesLink: 'Références & Validation',
 		},
+		items: ['Manuel dose gamma', 'Manuel générateur x', 'Manuel + Validation NF C15-160', 'Grandeurs pratiques en radiologie'],
+	},
+	references: {
+		header: {
+			title: 'Références & Validation',
+			description:
+				"Un résultat de calcul n'a de valeur que s'il est vérifiable. Les codes Dosimex sont validés par comparaison avec MCNP, le code Monte-Carlo de référence du CEA, et confrontés à Microshield et RayXpert dans des travaux de fin d'étude indépendants. Les dossiers complets sont téléchargeables ci-dessous.",
+			anchors: ['Dossiers de validation', "Rapports de fin d'étude", 'Retours utilisateurs'],
+		},
+		stats: [
+			{ value: '+30 ans', label: "d'expérience" },
+			{ value: '+1500', label: 'professionnels utilisateurs' },
+			{ value: '17', label: 'modules de calcul' },
+		],
 		validations: {
 			title: 'Dossiers de validation et références MCNP',
+			description: "Chaque code est comparé point par point à MCNP. Les dossiers complets et les notes de référence sont publics :",
 			items: ['Dossier de validation émission gamma', 'Dossier de validation générateur X', 'Référence géné X MCNP/CEA', 'Référence radionucléide MCNP/AREVA', 'Référence atténuation X'],
 		},
 		internships: {
-			title: "Rapports de stages de fin d'étude vs Dosimex",
+			title: "Rapports de fin d'étude",
+			description: "Des travaux indépendants confrontent Dosimex à Microshield sur des cas industriels réels :",
 			items: ['Mémoire Ulysse', 'Mémoire Microshield vs Dosimex 1', 'Mémoire Microshield vs Dosimex 2', 'Mémoire Microshield vs Dosimex 3'],
+		},
+		institutions: {
+			title: 'Ils utilisent Dosimex',
+			note: "Organisations citées dans l'enquête utilisateurs de 2018 et dans les publications référençant Dosimex.",
+			names: ['EDF', 'Orano', 'CEA', 'IRSN', 'CNRS', 'Apave', 'SPRA', 'EAMEA', 'Veolia Nuclear Solutions', 'ONET', 'Institut Curie', 'CHU de Toulouse', 'CHU de Nîmes', 'Centre hospitalier public du Cotentin', 'Université de Strasbourg'],
+		},
+		testimonials: {
+			title: 'Retours utilisateurs',
+			subtitle: "Extraits d'une enquête réalisée auprès des utilisateurs en avril 2018.",
+			disclaimer: "Les avis exprimés ici n'engagent que leurs auteurs à titre personnel et pas la position de leurs institutions respectives.",
+			allLink: 'Tous les retours utilisateurs',
+			items: [
+				{
+					text: "Dosimex présente d'immenses qualités pédagogiques, tant par sa simplicité d'utilisation, sa clarté que par la qualité des explications dans le manuel. La rapidité d'exécution, la clarté des explications et la complétude des dossiers de validation apportent un intérêt opérationnel à Dosimex dans le cadre d'instructions de dossiers de sûreté.",
+					name: 'Jeremy Bez, Sophie Vecchiola, AYADI Ben Mekk Ayadi',
+					org: 'IRSN',
+				},
+				{
+					text: "Nous voyons un grand intérêt à l'utilisation de DOSIMEX. En effet, simple d'utilisation DOSIMEX permet de couvrir un très grand nombre de cas de calculs à réaliser en RP opérationnelle. C'est la calculette de l'ingénieur en RP et bien plus encore.",
+					name: 'Marc Lestang',
+					org: 'EDF',
+				},
+				{
+					text: "Un groupe de travail CNRS a été créé en 2016 pour travailler sur la mise en œuvre de la décision de l'ASN n°2013-DC-0349 et les difficultés d'application de la note de calcul défini dans la norme NFC15-160. L'outil Dosimex G a été utilisé pour proposer une démonstration théorique alternative. L'ASN a accepté cette approche. Une dizaine d'appareils de cristallographie ont ainsi pu été régularisé sur le campus CNRS d'Orléans.",
+					name: 'Sébastien Bouillon',
+					org: 'CNRS',
+				},
+				{
+					text: "J'ai d'abord et davantage fais confiance à mes propres validations plus qu'aux dossiers fournis. La validation croisée avec RayXpert a été un surcroît de confiance important. Cet outil joue maintenant le rôle qu'a joué le Delacroix et al. quand j'ai débuté.",
+					name: 'Sébastien Balduyck',
+					org: 'Unité de radiophysique et radioprotection, CHU de Toulouse',
+				},
+				{
+					text: "J'utilise Dosimex depuis 2014. Initialement pour l'application de la NFC 15-160. J'ai ensuite utilisé l'application GénéX. Il permet de calculer l'atténuation derrière un écran, quelle que soit sa composition, aussi bien pour le faisceau primaire que diffusé. Des études de postes avec estimation de la dose cristallin sont réalisées au bloc. Les résultats sont confirmés par dosimétrie.",
+					name: 'Dr Dominique Schiedts',
+					org: 'Centre hospitalier public du Cotentin',
+				},
+			],
+		},
+		cta: {
+			title: 'Des questions sur la validation ?',
+			contactButton: 'Nous contacter',
+			manualsButton: 'Consulter les manuels',
 		},
 	},
 	training: {

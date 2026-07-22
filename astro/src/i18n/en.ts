@@ -29,8 +29,12 @@ export const en = {
 			description: 'Curated selection of reference books on radiation protection, dosimetry and nuclear physics recommended by Dosimex experts.',
 		},
 		manuals: {
-			title: 'Documentation & Validation — Dosimex',
-			description: 'User manuals, MCNP validation files and internship reports for Dosimex-GX. Complete documentation available as downloadable PDFs.',
+			title: 'User Manuals — Dosimex',
+			description: 'Dosimex-GX user manuals: gamma dose, X-ray generator, NF C15-160 standard, practical values in radiology. Available as downloadable PDFs.',
+		},
+		references: {
+			title: 'References & Validation — Dosimex',
+			description: "MCNP validation files (the CEA's reference code), independent Microshield and RayXpert comparisons, institutional users and user feedback: the evidence behind the Dosimex codes.",
 		},
 		videos: {
 			title: 'Videos & Tutorials — Dosimex',
@@ -493,7 +497,7 @@ export const en = {
 			title: 'More resources',
 			links: [
 				{ label: 'X-ray generator validation', href: '/Folders/extrait_validation_géné_X.pdf', pdf: true },
-				{ label: 'Complete validation files', href: '/manuals#validations' },
+				{ label: 'Complete validation files', href: '/references#validations' },
 				{ label: 'Gamma source validation extracts', href: '/Folders/extrait_validation_gamma.pdf', pdf: true },
 				{ label: 'Dosimex-GX user manuals', href: '/manuals#manuals' },
 				{ label: "What's new in Dosimex-GX 3.2", href: '/Folders/Modification_Dosimex GX_3.0.pdf', pdf: true },
@@ -777,21 +781,77 @@ export const en = {
 	},
 	manuals: {
 		header: {
-			title: 'Documentation',
-			description: 'To help you evaluate the possibilities offered by Dosimex-GX, you can download all the documentation associated with this code:',
-			anchors: ['User manuals', 'The validation files', 'Some end of study internships reports using Dosimex'],
-		},
-		manuals: {
 			title: 'User manuals',
-			items: ['Gamma dose manual', 'Generator X-ray manual', 'Manual + Validation NF C15-160', 'Practical values in radiology'],
+			description: 'To help you evaluate the possibilities offered by Dosimex-GX, you can download the user manuals associated with this code:',
+			referencesNote: 'The validation files and end-of-study reports are on the',
+			referencesLink: 'References & Validation page',
 		},
+		items: ['Gamma dose manual', 'Generator X-ray manual', 'Manual + Validation NF C15-160', 'Practical values in radiology'],
+	},
+	references: {
+		header: {
+			title: 'References & Validation',
+			description:
+				"A calculation result is only worth what can be verified. The Dosimex codes are validated against MCNP, the CEA's reference Monte-Carlo code, and compared with Microshield and RayXpert in independent end-of-study works. The complete files are available below.",
+			anchors: ['Validation files', 'End-of-study reports', 'User feedback'],
+		},
+		stats: [
+			{ value: '+30 years', label: 'of experience' },
+			{ value: '+1500', label: 'professional users' },
+			{ value: '17', label: 'calculation modules' },
+		],
 		validations: {
 			title: 'Validation files and MCNP references',
+			description: 'Each code is compared point by point with MCNP. The complete files and reference notes are public:',
 			items: ['Gamma emission validation file', 'X-ray generator validation file', 'X-ray generator reference MCNP/CEA', 'MCNP/AREVA radionuclide reference', 'X attenuation reference'],
 		},
 		internships: {
-			title: 'End of study internships reports vs Dosimex',
+			title: 'End-of-study reports',
+			description: 'Independent works compare Dosimex with Microshield on real industrial cases:',
 			items: ['Ulysse research papers', 'Microshield vs Dosimex 1 research papers', 'Microshield vs Dosimex 2 research papers', 'Microshield vs Dosimex 3 research papers'],
+		},
+		institutions: {
+			title: 'They use Dosimex',
+			note: 'Organizations cited in the 2018 user survey and in publications referencing Dosimex.',
+			names: ['EDF', 'Orano', 'CEA', 'IRSN', 'CNRS', 'Apave', 'SPRA', 'EAMEA', 'Veolia Nuclear Solutions', 'ONET', 'Institut Curie', 'CHU de Toulouse', 'CHU de Nîmes', 'Centre hospitalier public du Cotentin', 'Université de Strasbourg'],
+		},
+		testimonials: {
+			title: 'User feedback',
+			subtitle: 'Excerpts from a survey conducted among users in April 2018.',
+			disclaimer: 'The opinions expressed here are solely those of the authors in a personal capacity and do not represent the position of their respective institutions.',
+			allLink: 'All user feedback',
+			items: [
+				{
+					text: 'Dosimex has immense educational qualities — its simplicity of use, its clarity, and the quality of the explanations in the manual. The speed of execution, the clarity of the explanations and the completeness of the validation files give Dosimex real operational value when reviewing safety case files.',
+					name: 'Jeremy Bez, Sophie Vecchiola, AYADI Ben Mekk Ayadi',
+					org: 'IRSN',
+				},
+				{
+					text: "We see great value in using DOSIMEX. Simple to use, it covers a very large number of the calculations required in operational radiation protection. It is the RP engineer's calculator — and much more.",
+					name: 'Marc Lestang',
+					org: 'EDF',
+				},
+				{
+					text: 'A CNRS working group was created in 2016 to work on implementing ASN decision no. 2013-DC-0349 and the difficulties of applying the calculation note defined in the NFC15-160 standard. The Dosimex G tool was used to propose an alternative theoretical demonstration. The ASN accepted this approach. Around ten crystallography devices were thus brought into compliance on the CNRS campus in Orléans.',
+					name: 'Sébastien Bouillon',
+					org: 'CNRS',
+				},
+				{
+					text: 'At first I trusted my own validations more than the files provided. The cross-validation with RayXpert brought a significant extra level of confidence. This tool now plays the role that Delacroix et al. played when I started out.',
+					name: 'Sébastien Balduyck',
+					org: 'Radiophysics and radiation protection unit, Toulouse University Hospital',
+				},
+				{
+					text: 'I have been using Dosimex since 2014, initially for applying NF C 15-160, then the GénéX application. It computes the attenuation behind a shield, whatever its composition, for both the primary and the scattered beam. Workstation studies with eye-lens dose estimates are carried out in the operating theatre. The results are confirmed by dosimetry.',
+					name: 'Dr Dominique Schiedts',
+					org: 'Cotentin public hospital',
+				},
+			],
+		},
+		cta: {
+			title: 'Questions about validation?',
+			contactButton: 'Contact us',
+			manualsButton: 'Browse the manuals',
 		},
 	},
 	training: {

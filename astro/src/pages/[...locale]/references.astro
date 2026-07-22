@@ -1,0 +1,184 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { getTranslations, getLocalePaths, localePath, type Locale } from '@/i18n/utils'
+import { getManualPdfs } from '@/data/videos'
+import { organizationSchema } from '@/data/schemas'
+
+export const getStaticPaths = getLocalePaths
+
+const { locale } = Astro.props as { locale: Locale }
+const t = getTranslations(locale)
+const r = t.references
+const pdfs = getManualPdfs(locale)
+
+const anchorIds = ['validations', 'internships', 'testimonials'] as const
+const arrow = 'M5 12h14M12 5l7 7-7 7'
+
+const validationImages = locale === 'fr'
+	? ['/Images/Validation1.png', '/Images/Validation2.png', '/Images/Validation3.png', '/Images/Validation4.png', '/Images/Validation5.png']
+	: ['/Images/validation1en.png', '/Images/validation2en.png', '/Images/Validation3.png', '/Images/Validation4.png', '/Images/Validation5.png']
+const internshipImages = ['/Images/Rapport1.png', '/Images/Rapport2.png', '/Images/Rapport3.png', '/Images/Rapport4.png']
+
+// The two document chapters share one card layout — only the icon, column
+// count and data differ (layout carried over from the former manuals page).
+const docSections = [
+	{ id: 'validations', data: r.validations, pdfs: pdfs.validations, images: validationImages, cols: 'lg:grid-cols-5', icon: 'shield' },
+	{ id: 'internships', data: r.internships, pdfs: pdfs.internships, images: internshipImages, cols: 'lg:grid-cols-4', icon: 'cap' },
+]
+---
+
+<Layout title={t.seo.references.title} description={t.seo.references.description} jsonLd={[organizationSchema]}>
+
+	<!-- ══════════ HERO ══════════ -->
+	<section class="relative py-20 lg:py-28">
+		<div class="absolute inset-0 -z-10" aria-hidden="true">
+			<div class="absolute -bottom-40 -right-[14rem] h-[380px] w-[500px] rounded-full bg-primary/20 blur-3xl dark:bg-primary/10"></div>
+			<div class="absolute -bottom-56 -right-[18rem] h-[280px] w-[360px] rounded-full bg-brandred/[0.16] blur-3xl dark:bg-brandred/[0.14]"></div>
+		</div>
+
+		<div class="relative mx-auto max-w-7xl px-6">
+			<h1 class="text-balance text-4xl font-heading font-bold tracking-tight text-foreground md:text-5xl">
+				{r.header.title}
+			</h1>
+			<p class="mt-6 max-w-3xl text-lg text-muted-foreground leading-relaxed">
+				{r.header.description}
+			</p>
+			<div class="mt-8 flex flex-wrap gap-3">
+				{r.header.anchors.map((label, i) => (
+					<a
+						href={`#${anchorIds[i]}`}
+						class="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-sm font-heading font-semibold text-primary transition-colors duration-150 hover:bg-primary/15"
+					>
+						{label}
+						<span aria-hidden="true">&darr;</span>
+					</a>
+				))}
+			</div>
+
+			<dl class="mt-12 grid max-w-3xl grid-cols-3 gap-6">
+				{r.stats.map((stat) => (
+					<div>
+						<dd class="text-2xl font-heading font-bold text-primary md:text-3xl">{stat.value}</dd>
+						<dt class="mt-1 text-sm text-muted-foreground">{stat.label}</dt>
+					</div>
+				))}
+			</dl>
+		</div>
+	</section>
+
+	<!-- ══════════ VALIDATION DOSSIERS + END-OF-STUDY REPORTS ══════════ -->
+	{docSections.map((section) => (
+		<section id={section.id} class="py-16 md:py-24">
+			<div class="mx-auto max-w-7xl px-6">
+				<div class="flex items-center gap-3">
+					<span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+						{section.icon === 'shield' && (
+							<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+						)}
+						{section.icon === 'cap' && (
+							<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 10 12 5 2 10l10 5z"/><path d="M6 12v5c3 2.5 9 2.5 12 0v-5"/><path d="M22 10v6"/></svg>
+						)}
+					</span>
+					<h2 class="text-2xl font-heading font-semibold tracking-tight text-foreground md:text-3xl">{section.data.title}</h2>
+				</div>
+				<p class="mt-4 max-w-3xl text-muted-foreground leading-relaxed">{section.data.description}</p>
+
+				<div class:list={['mt-10 grid gap-6 sm:grid-cols-2', section.cols]}>
+					{section.data.items.map((name, i) => (
+						<a
+							href={section.pdfs[i]}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-primary/30 hover:shadow-md hover:shadow-primary/5"
+							data-ph-cta="download_pdf"
+						>
+							<div class="relative overflow-hidden">
+								<img
+									src={section.images[i]}
+									alt={`${t.altText.manualCover} — ${name}`}
+									class="h-52 w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.03]"
+									loading="lazy"
+								/>
+								<div class="absolute inset-0 bg-gradient-to-t from-black/15 to-transparent" aria-hidden="true"></div>
+							</div>
+							<div class="flex items-center justify-between gap-3 p-4">
+								<p class="text-sm font-heading font-semibold text-foreground leading-snug">{name}</p>
+								<span class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+									<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+								</span>
+							</div>
+						</a>
+					))}
+				</div>
+			</div>
+		</section>
+	))}
+
+	<!-- ══════════ INSTITUTIONAL USERS ══════════ -->
+	<section id="institutions" class="py-16 md:py-24">
+		<div class="mx-auto max-w-7xl px-6 text-center">
+			<h2 class="text-2xl font-heading font-semibold tracking-tight text-foreground md:text-3xl">{r.institutions.title}</h2>
+			<ul class="mx-auto mt-10 flex max-w-4xl flex-wrap items-center justify-center gap-x-10 gap-y-4">
+				{r.institutions.names.map((name) => (
+					<li class="text-base font-heading font-semibold text-muted-foreground">{name}</li>
+				))}
+			</ul>
+			<p class="mx-auto mt-8 max-w-2xl text-sm text-muted-foreground">{r.institutions.note}</p>
+		</div>
+	</section>
+
+	<!-- ══════════ TESTIMONIALS (curated) ══════════ -->
+	<section id="testimonials" class="py-16 md:py-24">
+		<div class="mx-auto max-w-7xl px-6">
+			<div class="max-w-3xl">
+				<h2 class="text-2xl font-heading font-semibold tracking-tight text-foreground md:text-3xl">{r.testimonials.title}</h2>
+				<p class="mt-4 text-muted-foreground leading-relaxed">{r.testimonials.subtitle}</p>
+				<p class="mt-2 text-sm text-muted-foreground italic">{r.testimonials.disclaimer}</p>
+			</div>
+
+			<div class="mt-12 columns-1 gap-6 space-y-6 md:columns-2">
+				{r.testimonials.items.map((item) => (
+					<div class="break-inside-avoid rounded-2xl border border-border bg-card p-6 shadow-sm">
+						<div class="mb-4 flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary" aria-hidden="true">
+							<svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+						</div>
+						<blockquote>
+							<p class="text-sm italic leading-relaxed text-foreground md:text-base">{item.text}</p>
+						</blockquote>
+						<div class="mt-4">
+							<div class="text-sm font-heading font-semibold text-foreground">{item.name}</div>
+							<div class="text-xs text-muted-foreground">{item.org}</div>
+						</div>
+					</div>
+				))}
+			</div>
+
+			<div class="mt-10">
+				<a href={localePath(locale, '/testimonials')} class="inline-flex items-center gap-1 font-heading font-semibold text-primary hover:underline">
+					{r.testimonials.allLink}
+					<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d={arrow}/></svg>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- ══════════ CLOSE CTA ══════════ -->
+	<section class="py-16 md:py-24">
+		<div class="mx-auto max-w-7xl px-6">
+			<div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary/[0.12] via-primary/[0.05] to-transparent p-10 text-center md:p-14">
+				<h2 class="text-2xl font-heading font-bold text-foreground md:text-3xl">{r.cta.title}</h2>
+				<div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+					<a href={localePath(locale, '/contact')} class="btn btn-primary" data-ph-cta="references-contact">
+						{r.cta.contactButton}
+						<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d={arrow}/></svg>
+					</a>
+					<a href={localePath(locale, '/manuals')} class="btn btn-secondary" data-ph-cta="references-manuals">
+						{r.cta.manualsButton}
+						<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d={arrow}/></svg>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</Layout>
