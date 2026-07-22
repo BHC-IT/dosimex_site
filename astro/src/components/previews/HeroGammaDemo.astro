@@ -1,0 +1,213 @@
+---
+/**
+ * HeroGammaDemo — interactive point-source gamma dose-rate widget for the hero.
+ *
+ * NON-FUNCTIONAL VISUAL PLACEHOLDER. The dose-rate values below are illustrative
+ * and hard-coded ONLY to validate the design. Before public launch they MUST be
+ * replaced with real values from the Dosismart gamma engine (see
+ * product-research/features/hero-gamma-demo/spec.md). Distance uses the exact
+ * 1/d² point-source scaling, so the slider is physically correct as-is.
+ *
+ * One small single-purpose widget — the mission ("le calcul radioprotection à la
+ * portée de tous") made literal, and the top of the acquisition funnel. Framed in
+ * WindowFrame per CLAUDE.md › "Voice & UI › Visuals" (rebuilt preview, no screenshot).
+ */
+import WindowFrame from './WindowFrame.astro'
+import type { Locale } from '@/i18n/utils'
+
+interface Props {
+	locale: Locale
+	class?: string
+}
+
+const { locale, class: className = '' } = Astro.props
+const isFr = locale === 'fr'
+
+const t = {
+	activity: isFr ? 'Source ponctuelle · 1 GBq' : 'Point source · 1 GBq',
+	thickness: isFr ? 'Épaisseur 5 cm' : 'Thickness 5 cm',
+	isotope: isFr ? 'Radionucléide' : 'Radionuclide',
+	shield: isFr ? 'Écran' : 'Shield',
+	lead: isFr ? 'Plomb' : 'Lead',
+	concrete: isFr ? 'Béton' : 'Concrete',
+	distance: isFr ? 'Distance' : 'Distance',
+	behind: isFr ? "Débit de dose derrière l'écran" : 'Dose rate behind shield',
+	noShield: isFr ? 'sans écran' : 'no shield',
+	attenuation: isFr ? 'atténuation' : 'attenuation',
+	cta: isFr ? 'Faire le calcul complet dans Dosismart' : 'Run the full calculation in Dosismart',
+	demo: isFr ? 'Valeurs illustratives — démonstration' : 'Illustrative values — demo',
+}
+
+const isotopes = [
+	{ id: 'cs137', label: 'Cs-137' },
+	{ id: 'co60', label: 'Co-60' },
+	{ id: 'ir192', label: 'Ir-192' },
+]
+const shields = [
+	{ id: 'lead', label: t.lead },
+	{ id: 'concrete', label: t.concrete },
+]
+
+const seg = 'flex-1 rounded-md px-3 py-1.5 text-sm font-medium transition-colors'
+const segActive = 'bg-primary text-primary-foreground shadow-sm'
+const segIdle = 'text-muted-foreground hover:text-foreground'
+---
+
+<div id="hero-gamma-demo" class:list={['w-full max-w-md', className]}>
+	<WindowFrame label="dosismart.com/gamma">
+		<div class="space-y-5 p-5 sm:p-6">
+			<!-- eyebrow -->
+			<div class="flex items-center justify-between gap-3">
+				<span class="text-xs font-semibold uppercase tracking-widest text-primary">{t.activity}</span>
+				<span class="rounded-full border border-border bg-muted/40 px-2.5 py-0.5 text-xs text-muted-foreground">{t.thickness}</span>
+			</div>
+
+			<!-- isotope toggle -->
+			<div>
+				<p class="mb-1.5 text-xs font-medium text-muted-foreground">{t.isotope}</p>
+				<div class="inline-flex w-full rounded-lg border border-border bg-muted/40 p-1" role="group" aria-label={t.isotope}>
+					{isotopes.map((iso, i) => (
+						<button type="button" data-iso={iso.id} aria-pressed={i === 0 ? 'true' : 'false'}
+							class:list={[seg, i === 0 ? segActive : segIdle]}>{iso.label}</button>
+					))}
+				</div>
+			</div>
+
+			<!-- shield toggle -->
+			<div>
+				<p class="mb-1.5 text-xs font-medium text-muted-foreground">{t.shield}</p>
+				<div class="inline-flex w-full rounded-lg border border-border bg-muted/40 p-1" role="group" aria-label={t.shield}>
+					{shields.map((sh, i) => (
+						<button type="button" data-shield={sh.id} aria-pressed={i === 0 ? 'true' : 'false'}
+							class:list={[seg, i === 0 ? segActive : segIdle]}>{sh.label}</button>
+					))}
+				</div>
+			</div>
+
+			<!-- distance slider -->
+			<div>
+				<div class="mb-1.5 flex items-center justify-between">
+					<p class="text-xs font-medium text-muted-foreground">{t.distance}</p>
+					<span data-distance-label class="text-xs font-semibold text-foreground">1.0 m</span>
+				</div>
+				<input type="range" data-distance min="0.5" max="5" step="0.1" value="1"
+					class="h-1.5 w-full cursor-pointer appearance-none rounded-full bg-muted accent-primary"
+					aria-label={t.distance} />
+			</div>
+
+			<!-- result -->
+			<div class="rounded-lg border border-border bg-background p-4">
+				<div class="flex items-end justify-between gap-3">
+					<div>
+						<p class="text-xs text-muted-foreground">{t.behind}</p>
+						<p class="mt-0.5">
+							<span data-result class="font-heading text-2xl font-bold text-primary">0.80</span>
+							<span class="ml-1 text-sm text-muted-foreground">µSv/h</span>
+						</p>
+					</div>
+					<span class="inline-flex shrink-0 items-center gap-1 rounded-full border border-primary/20 bg-primary/10 px-2.5 py-0.5 text-xs font-semibold text-primary">
+						<span data-atten>×99</span> {t.attenuation}
+					</span>
+				</div>
+				<p class="mt-2 text-xs text-muted-foreground">
+					{t.noShield} : <span data-unshielded class="font-medium text-foreground/70">79</span> µSv/h
+				</p>
+			</div>
+
+			<!-- CTA + disclaimer -->
+			<div class="flex items-center justify-between gap-3">
+				<a href="https://dosismart.com" target="_blank" rel="noopener noreferrer"
+					class="inline-flex items-center gap-1 text-sm font-heading font-semibold text-primary hover:underline">
+					{t.cta}
+					<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+				</a>
+			</div>
+			<p class="text-[11px] italic text-muted-foreground/70">{t.demo}</p>
+		</div>
+	</WindowFrame>
+</div>
+
+<script>
+	// PLACEHOLDER data — illustrative only. Replace with real Dosismart gamma-engine
+	// values (3 isotopes × 2 shields + unshielded) at 1 GBq, 1 m, 5 cm before launch.
+	const DATA: Record<string, { unshielded: number; lead: number; concrete: number }> = {
+		cs137: { unshielded: 79, lead: 0.8, concrete: 55 },
+		co60: { unshielded: 308, lead: 34, concrete: 190 },
+		ir192: { unshielded: 130, lead: 0.7, concrete: 72 },
+	}
+
+	function fmt(v: number): string {
+		if (v >= 10) return v.toFixed(0)
+		if (v >= 1) return v.toFixed(1)
+		if (v >= 0.1) return v.toFixed(2)
+		return v.toFixed(3)
+	}
+	function fmtAtten(a: number): string {
+		return a >= 10 ? '×' + Math.round(a) : '×' + a.toFixed(1)
+	}
+
+	function initHeroGammaDemo() {
+		const root = document.getElementById('hero-gamma-demo')
+		if (!root || root.dataset.wired === 'true') return
+		root.dataset.wired = 'true'
+
+		let iso = 'cs137'
+		let shield: 'lead' | 'concrete' = 'lead'
+		let distance = 1
+
+		const resultEl = root.querySelector('[data-result]')!
+		const unshieldedEl = root.querySelector('[data-unshielded]')!
+		const attenEl = root.querySelector('[data-atten]')!
+		const distLabel = root.querySelector('[data-distance-label]')!
+		const isoBtns = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-iso]'))
+		const shieldBtns = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-shield]'))
+		const slider = root.querySelector<HTMLInputElement>('[data-distance]')!
+
+		const ACTIVE = ['bg-primary', 'text-primary-foreground', 'shadow-sm']
+		const IDLE = ['text-muted-foreground', 'hover:text-foreground']
+		function setActive(btns: HTMLButtonElement[], match: (b: HTMLButtonElement) => boolean) {
+			btns.forEach((b) => {
+				const on = match(b)
+				b.setAttribute('aria-pressed', on ? 'true' : 'false')
+				ACTIVE.forEach((c) => b.classList.toggle(c, on))
+				IDLE.forEach((c) => b.classList.toggle(c, !on))
+			})
+		}
+
+		function render() {
+			const row = DATA[iso]
+			const scale = 1 / (distance * distance)
+			const shielded = row[shield] * scale
+			const unshielded = row.unshielded * scale
+			const atten = row.unshielded / row[shield]
+			resultEl.textContent = fmt(shielded)
+			unshieldedEl.textContent = fmt(unshielded)
+			attenEl.textContent = fmtAtten(atten)
+			distLabel.textContent = distance.toFixed(1) + ' m'
+		}
+
+		isoBtns.forEach((b) =>
+			b.addEventListener('click', () => {
+				iso = b.dataset.iso!
+				setActive(isoBtns, (x) => x.dataset.iso === iso)
+				render()
+			}),
+		)
+		shieldBtns.forEach((b) =>
+			b.addEventListener('click', () => {
+				shield = b.dataset.shield as 'lead' | 'concrete'
+				setActive(shieldBtns, (x) => x.dataset.shield === shield)
+				render()
+			}),
+		)
+		slider.addEventListener('input', () => {
+			distance = parseFloat(slider.value)
+			render()
+		})
+
+		render()
+	}
+
+	initHeroGammaDemo()
+	document.addEventListener('astro:page-load', initHeroGammaDemo)
+</script>

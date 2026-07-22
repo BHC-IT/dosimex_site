@@ -1,0 +1,214 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { getTranslations, getLocalePaths, localePath, type Locale } from '@/i18n/utils'
+import { organizationSchema } from '@/data/schemas'
+import DashboardPreview from '@/components/previews/DashboardPreview.astro'
+import HistoryPreview from '@/components/previews/HistoryPreview.astro'
+import SourceInventoryPreview from '@/components/previews/SourceInventoryPreview.astro'
+import ZonagePreview from '@/components/previews/ZonagePreview.astro'
+import EtudePreview from '@/components/previews/EtudePreview.astro'
+
+export const getStaticPaths = getLocalePaths
+
+const { locale } = Astro.props as { locale: Locale }
+const t = getTranslations(locale)
+const d = t.dosismartPage
+
+// Map a spotlight's `preview` key to its rebuilt preview component (NOT a
+// screenshot — see CLAUDE.md › "Voice & UI › Visuals").
+const previews = {
+	history: HistoryPreview,
+	inventory: SourceInventoryPreview,
+	zonage: ZonagePreview,
+	etude: EtudePreview,
+} as const
+
+// Inner SVG paths (lucide, stroke-width 2), rendered via set:html.
+const icons: Record<string, string> = {
+	calc: '<rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><line x1="8" x2="8" y1="14" y2="14"/><line x1="12" x2="12" y1="14" y2="14"/><line x1="8" x2="8" y1="18" y2="18"/><line x1="12" x2="12" y1="18" y2="18"/><line x1="8" x2="8" y1="10" y2="10"/><line x1="12" x2="12" y1="10" y2="10"/><line x1="16" x2="16" y1="10" y2="10"/>',
+	history: '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
+	team: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+	inventory: '<rect x="2" y="3" width="20" height="5" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/>',
+	map: '<path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/>',
+	doc: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>',
+	download: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/>',
+}
+---
+
+<Layout title={t.seo.dosismart.title} description={t.seo.dosismart.description} jsonLd={[organizationSchema]}>
+
+	<!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+	<section class="py-12 md:py-20">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid items-center gap-12 lg:grid-cols-2">
+			<div>
+				<h1 class="text-balance text-4xl font-heading font-bold tracking-tight text-foreground md:text-5xl">
+					{d.hero.title}
+				</h1>
+				<p class="mt-6 max-w-xl text-lg text-muted-foreground leading-relaxed">
+					{d.hero.subtitle}
+				</p>
+				<div class="mt-8 flex flex-wrap items-center gap-4">
+					<a
+						href="https://dosismart.com"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="btn btn-primary"
+						data-ph-cta="dosismart-open"
+					>
+						{d.hero.cta}
+						<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
+					</a>
+					<a
+						href={localePath(locale, '/product')}
+						class="btn btn-secondary"
+						data-ph-cta="dosismart-pricing"
+					>
+						{d.hero.ctaSecondary}
+						<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+					</a>
+				</div>
+				<p class="mt-3 text-xs text-muted-foreground">{d.hero.trialNote}</p>
+			</div>
+			<div class="md:max-w-2xl md:mx-auto lg:max-w-none">
+				<DashboardPreview locale={locale} />
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════ THE DASHBOARD ═══════════════════════════ -->
+	<section class="py-12 md:py-20">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="max-w-3xl">
+				<span class="text-xs font-heading font-semibold uppercase tracking-wider text-primary">{d.dashboard.eyebrow}</span>
+				<h2 class="mt-3 text-2xl md:text-3xl font-heading font-semibold text-foreground tracking-tight">{d.dashboard.title}</h2>
+				<p class="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">{d.dashboard.lead}</p>
+			</div>
+
+			<div class="mt-10 grid gap-8 sm:grid-cols-3">
+				{d.dashboard.points.map((point) => (
+					<div>
+						<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+							<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" set:html={icons[point.icon]} />
+						</div>
+						<h3 class="mt-3 text-base font-heading font-semibold text-foreground">{point.title}</h3>
+						<p class="mt-1.5 text-sm text-muted-foreground leading-relaxed">{point.text}</p>
+					</div>
+				))}
+			</div>
+
+			<div class="mt-10 rounded-2xl bg-primary/[0.06] p-6 md:p-8">
+				<div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+					<div class="max-w-2xl">
+						<h3 class="text-lg font-heading font-semibold text-foreground">{d.dashboard.growTitle}</h3>
+						<p class="mt-2 text-base text-muted-foreground leading-relaxed">{d.dashboard.growText}</p>
+					</div>
+					<a
+						href={localePath(locale, '/software')}
+						class="inline-flex h-11 shrink-0 items-center gap-1.5 rounded-lg border border-border bg-background px-5 text-sm font-heading font-semibold text-foreground hover:bg-muted transition-colors duration-150"
+					>
+						{d.dashboard.cta}
+						<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════ WHAT'S INSIDE ═══════════════════════════ -->
+	<section class="py-12 md:py-20">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="max-w-2xl">
+				<h2 class="text-2xl md:text-3xl font-heading font-semibold text-foreground">{d.whatsInside.title}</h2>
+				<p class="mt-3 text-base text-muted-foreground">{d.whatsInside.description}</p>
+			</div>
+			<div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+				{d.whatsInside.items.map((item) => (
+					<div class="rounded-2xl bg-card p-6 shadow-sm">
+						<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary mb-3">
+							<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" set:html={icons[item.icon]} />
+						</div>
+						<div class="flex items-center gap-2">
+							<h3 class="text-base font-heading font-semibold text-foreground">{item.title}</h3>
+							{item.badge && (
+								<span class="rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-primary">{item.badge}</span>
+							)}
+						</div>
+						<p class="mt-2 text-sm text-muted-foreground">{item.text}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════ FEATURE SPOTLIGHTS ═══════════════════════════ -->
+	<section class="py-12 md:py-20">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="max-w-2xl">
+				<h2 class="text-2xl md:text-3xl font-heading font-semibold text-foreground">{d.spotlights.title}</h2>
+				<p class="mt-3 text-base text-muted-foreground">{d.spotlights.description}</p>
+			</div>
+
+			<div class="mt-12 space-y-16 md:space-y-24">
+				{d.spotlights.items.map((item, i) => {
+					const Preview = previews[item.preview as keyof typeof previews]
+					const flip = i % 2 === 1
+					return (
+						<div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+							<div class={flip ? 'lg:order-2' : ''}>
+								<div class="flex items-center gap-3">
+									<span class="text-xs font-heading font-semibold uppercase tracking-wider text-primary">{item.eyebrow}</span>
+									{item.badge && (
+										<span class="rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-primary">{item.badge}</span>
+									)}
+								</div>
+								<h3 class="mt-3 text-xl md:text-2xl font-heading font-semibold text-foreground tracking-tight">{item.title}</h3>
+								<p class="mt-4 text-base text-muted-foreground leading-relaxed">{item.text}</p>
+								<ul class="mt-5 space-y-2.5">
+									{item.bullets.map((b) => (
+										<li class="flex items-start gap-2.5 text-sm text-foreground">
+											<svg class="mt-0.5 h-4 w-4 shrink-0 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+											{b}
+										</li>
+									))}
+								</ul>
+							</div>
+							<div class={flip ? 'lg:order-1' : ''}>
+								<Preview locale={locale} />
+							</div>
+						</div>
+					)
+				})}
+			</div>
+		</div>
+	</section>
+
+	<!-- ═══════════════════════════ CTA ═══════════════════════════ -->
+	<section class="py-12 md:py-20">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary/[0.12] via-primary/[0.05] to-transparent p-10 text-center md:p-14">
+				<h2 class="text-2xl md:text-3xl font-heading font-semibold text-foreground">{d.cta.title}</h2>
+				<p class="mx-auto mt-4 max-w-2xl text-base text-muted-foreground">{d.cta.text}</p>
+				<div class="mt-6 flex flex-wrap items-center justify-center gap-4">
+					<a
+						href="https://dosismart.com"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="btn btn-primary"
+						data-ph-cta="dosismart-cta-open"
+					>
+						{d.cta.button}
+						<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
+					</a>
+					<a
+						href={localePath(locale, '/contact')}
+						class="btn btn-secondary"
+						data-ph-cta="dosismart-cta-contact"
+					>
+						{d.cta.contact}
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</Layout>

@@ -7,7 +7,7 @@ export const organizationSchema = {
 	url: 'https://dosimex.fr',
 	logo: 'https://dosimex.fr/Images/logo_dosimex_new.webp',
 	description:
-		'Dosimex — Outils de calculs professionnels pour la radioprotection. 17 codes de calcul validés.',
+		'Dosimex — Outils de calcul en radioprotection : la suite Dosimex (17 modules de calcul validés, Excel) et Dosismart (application web).',
 	contactPoint: {
 		'@type': 'ContactPoint',
 		telephone: '+33-6-89-70-90-35',

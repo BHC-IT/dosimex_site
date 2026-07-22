@@ -1,14 +1,14 @@
 # Dosimex
 
-> Professional radiation protection calculation software — 17 tools for gamma, beta, neutron dose calculations, internal exposure and atmospheric transfer.
+> Radiation protection calculation tools — the Dosimex Suite (17 Excel modules: gamma, X-ray, beta, neutron, internal exposure, measurement) and Dosismart, the Dosimex web platform.
 
-Dosimex is a suite of radiation protection calculation tools developed by Dosimex (dosimex.fr). It includes Dosimex-GX (17 Excel-based professional codes) and Dosismart (their web-based counterpart). The tools cover operational dose calculations, educational modules, and measurement utilities. Licensed annually for single-user workstations with technical support included.
+Dosimex (dosimex.fr) publishes radiation protection calculation tools. The Dosimex Suite groups 17 MCNP-validated Excel modules covering operational dose calculations, educational modules, and measurement utilities. Dosismart (dosismart.com) is the Dosimex web platform: it is where users subscribe, download the suite, and manage their organization, and it also provides browser calculation (gamma dose rate with volumetric sources, skyshine, shield optimizer) plus calculation history and team collaboration. A single subscription covers the suite and the platform (Base plan €500/year excl. VAT; Compliance plan €1,350/year adds source inventory, zoning plans editor, workstation exposure studies, skyshine). Technical support included.
 
 ## Pages
 
-- [Home](https://dosimex.fr/): Overview of Dosimex tools and offers
-- [Software](https://dosimex.fr/software): Details on all 17 calculation tools — operational, educational, and measurement
-- [Product](https://dosimex.fr/product): Product data sheet, pricing, and licensing information
+- [Home](https://dosimex.fr/): Overview of the Dosimex Suite and the Dosismart platform
+- [Dosimex Suite](https://dosimex.fr/software): Details on all 17 calculation modules — operational, educational, and measurement
+- [Product](https://dosimex.fr/product): Pricing (Base and Compliance plans), pack contents, FAQ
 - [Training](https://dosimex.fr/training): In-house training courses from 1 to 3 days
 - [Documentation](https://dosimex.fr/manuals): User manuals, MCNP validation files, and reports
 - [Videos](https://dosimex.fr/videos): Explanatory videos for each Dosimex tool

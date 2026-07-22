@@ -12,14 +12,15 @@ const { items } = Astro.props
 ---
 
 <section id="stats" data-ph-section="stats" class="relative overflow-hidden py-16 md:py-20">
-	<div class="absolute inset-0 -z-10" aria-hidden="true">
-		<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[800px] rounded-full bg-primary/5 blur-3xl"></div>
+	<div class="absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
+		<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[440px] w-[720px] rounded-full bg-primary/10 blur-3xl"></div>
+		<div class="bg-dots absolute inset-0 opacity-60 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]"></div>
 	</div>
 	<div class="mx-auto max-w-5xl px-6 grid grid-cols-1 sm:grid-cols-3 gap-10 text-center">
 		{items.map((item) => (
 			<div class="reveal">
 				<div
-					class="text-5xl md:text-6xl font-heading font-extrabold text-primary tabular-nums"
+					class="text-5xl md:text-6xl font-heading font-extrabold text-gradient tabular-nums"
 					data-count-target={item.value}
 				>
 					{item.value}

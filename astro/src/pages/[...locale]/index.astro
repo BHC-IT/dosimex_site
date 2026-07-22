@@ -2,25 +2,28 @@
 import { Image } from 'astro:assets'
 import Layout from '@/layouts/Layout.astro'
 import VideoEmbed from '@/components/VideoEmbed.astro'
-import StatsCounter from '@/components/StatsCounter.astro'
 import HeroCarousel from '@/components/HeroCarousel.astro'
+import HeroGammaDemo from '@/components/previews/HeroGammaDemo.astro'
+import DashboardPreview from '@/components/previews/DashboardPreview.astro'
 import { getTranslations, getLocalePaths, localePath, type Locale } from '@/i18n/utils'
 import { partnerLogos, partnerLogoAlts, videoIds } from '@/data/videos'
 import { organizationSchema, websiteSchema } from '@/data/schemas'
-import heroImg from '@/assets/images/home_header_carousel.png'
 
-const heroSlides = [
+// Desktop-suite screenshots only. The web app (Dosismart) is shown through
+// rebuilt live previews (DashboardPreview), never screenshots.
+// See CLAUDE.md › "Voice & UI › Visuals".
+const desktopSlides = [
 	{ src: '/Images/ScreenCarousel2.webp', srcSm: '/Images/ScreenCarousel2-sm.webp', alt: 'DOSIMEX-GX — Générateur X', label: 'DOSIMEX-GX — Générateur X', width: 1280, height: 675 },
 	{ src: '/Images/ScreenCarousel3.webp', srcSm: '/Images/ScreenCarousel3-sm.webp', alt: 'DOSIMEX-GX — Source cylindrique', label: 'DOSIMEX-GX — Source cylindrique', width: 1280, height: 783 },
 	{ src: '/Images/ScreenCarousel1.webp', srcSm: '/Images/ScreenCarousel1-sm.webp', alt: 'DOSIMEX-B — Dose bêta', label: 'DOSIMEX-B — Dose bêta', width: 1280, height: 727 },
 	{ src: '/Images/ScreenCarousel4.webp', srcSm: '/Images/ScreenCarousel4-sm.webp', alt: 'DOSIMEX-N — Dose neutrons', label: 'DOSIMEX-N — Dose neutrons', width: 1280, height: 638 },
-	{ src: '/Images/dosismart-screenshot.webp', srcSm: '/Images/dosismart-screenshot-sm.webp', alt: 'Dosismart — Calcul gamma dans le navigateur', label: 'Dosismart — Application web', width: 1280, height: 761 },
 ]
 
 export const getStaticPaths = getLocalePaths
 
 const { locale } = Astro.props as { locale: Locale }
 const t = getTranslations(locale)
+const isFr = locale === 'fr'
 
 const partnerGlob = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/logo_partenaires/*.webp', { eager: true })
 const partnerImages = partnerLogos.map((filename) => {
@@ -28,67 +31,83 @@ const partnerImages = partnerLogos.map((filename) => {
 	return match![1].default
 })
 
-const offerCards = [
-	{ ...t.home.offers.card1, href: localePath(locale, '/software'), icon: 'calculator' as const },
-	{ ...t.home.offers.card2, href: `${localePath(locale, '/software')}#pack-peda`, icon: 'book' as const },
-	{ ...t.home.offers.card3, href: localePath(locale, '/training'), icon: 'graduation' as const },
-]
-
 const refsWithMeta = t.home.references.items
+
+const arrow = 'M5 12h14M12 5l7 7-7 7'
 ---
 
 <Layout title={t.seo.home.title} description={t.seo.home.description} jsonLd={[organizationSchema, websiteSchema(locale)]}>
 
 	<!-- ══════════ HERO ══════════ -->
-	<section id="hero" data-ph-section="hero" class="relative overflow-hidden py-16 lg:py-44">
-		<div class="absolute -top-24 right-0 h-[400px] w-[600px] rounded-full bg-primary/5 blur-3xl" aria-hidden="true"></div>
-		<div class="mx-auto max-w-7xl px-6 grid lg:grid-cols-12 gap-12 items-center relative">
-			<div class="lg:col-span-7">
-				<a href="https://dosismart.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 mb-4 rounded-full bg-primary/10 text-primary px-4 py-1.5 text-sm font-heading font-semibold hover:bg-primary/15 transition-colors">
-					{t.home.hero.badge}
+	<section id="hero" data-ph-section="hero" class="relative py-20 lg:py-32">
+		<!-- Decorative backdrop. No overflow clip here (nor on the section) so the
+		     glow bleeds past the hero into the sections below — proton-style.
+		     `body { overflow-x: clip }` keeps it from causing a horizontal scrollbar. -->
+		<div class="absolute inset-0 -z-10" aria-hidden="true">
+			<div class="absolute -bottom-72 -left-[46rem] h-[680px] w-[900px] rounded-full bg-primary/20 blur-2xl dark:bg-primary/10"></div>
+			<div class="absolute -bottom-[22rem] -left-[40rem] h-[520px] w-[680px] rounded-full bg-brandred/[0.28] blur-2xl dark:bg-brandred/[0.22]"></div>
+			<div class="bg-dots absolute inset-0 opacity-70 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]"></div>
+		</div>
+
+		<div class="relative mx-auto max-w-6xl px-6">
+			<div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-10">
+			<div class="text-center lg:text-left">
+			<a
+				href="#suite"
+				class="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary transition-colors duration-150 hover:bg-primary/15"
+				data-ph-cta="hero-badge"
+			>
+				<span class="relative flex h-2 w-2" aria-hidden="true">
+					<span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
+					<span class="relative inline-flex h-2 w-2 rounded-full bg-primary"></span>
+				</span>
+				{t.home.hero.badge}
+			</a>
+			<h1 class="text-balance text-4xl font-heading font-bold tracking-tight text-foreground md:text-5xl">
+				{t.home.hero.title}
+			</h1>
+			<p class="mt-4 text-2xl font-heading font-semibold tracking-tight text-gradient md:text-3xl">
+				{t.home.hero.titleAccent}
+			</p>
+			<p class="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl lg:mx-0">
+				{t.home.hero.subtitle}
+			</p>
+			<div class="mt-9 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
+				<a
+					href="https://dosismart.com"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="btn btn-primary"
+					data-ph-cta="hero-trial"
+				>
+					{t.home.hero.cta}
+					<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d={arrow}/></svg>
 				</a>
-				<h1 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground tracking-tight">
-					{t.home.hero.title}
-				</h1>
-				<p class="mt-3 text-xl md:text-2xl lg:text-3xl font-heading font-semibold text-primary tracking-tight">
-					{t.home.hero.titleAccent}
-				</p>
-				<p class="mt-6 text-lg text-muted-foreground max-w-xl">
-					{t.home.hero.subtitle}
-				</p>
-				<div class="mt-8 flex flex-wrap items-center gap-4">
-					<a
-						href={localePath(locale, '/software')}
-						class="inline-flex items-center gap-2 h-12 px-6 text-base font-heading font-semibold text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg shadow-lg transition-all duration-150 hover:shadow-xl"
-						data-ph-cta="hero-tools"
-					>
-						{t.home.hero.cta}
-						<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-					</a>
-					<a
-						href={localePath(locale, '/training')}
-						class="inline-flex items-center gap-2 h-12 px-6 text-base font-heading font-semibold text-foreground border border-border hover:bg-muted rounded-lg transition-colors duration-150"
-						data-ph-cta="hero-training"
-					>
-						{t.home.hero.trialButton}
-						<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-					</a>
-				</div>
-				<p class="mt-4 text-sm text-muted-foreground">
-					{t.home.hero.priceNote}
-				</p>
+				<a
+					href={localePath(locale, '/contact')}
+					class="btn btn-secondary"
+					data-ph-cta="hero-contact"
+				>
+					{t.home.hero.trialButton}
+					<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d={arrow}/></svg>
+				</a>
 			</div>
-			<div class="md:max-w-2xl md:mx-auto lg:max-w-none lg:col-span-5">
-				<HeroCarousel slides={heroSlides} />
+			</div>
+
+			<!-- Hero showcase: live gamma dose-rate demo (visual placeholder — see
+			     components/previews/HeroGammaDemo.astro; numbers are illustrative). -->
+			<div class="relative flex justify-center lg:justify-end">
+				<HeroGammaDemo locale={locale} />
+			</div>
 			</div>
 		</div>
 	</section>
 
 	<!-- ══════════ PARTNER LOGOS ══════════ -->
-	<section id="partners" data-ph-section="partners" class="border-y bg-muted/40 py-12">
+	<section id="partners" data-ph-section="partners" class="py-12">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<h2 class="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-muted-foreground">
-				{locale === 'fr' ? 'Ils nous font confiance' : 'Trusted by'}
+				{isFr ? 'Ils nous font confiance' : 'Trusted by'}
 			</h2>
 			<div class="relative overflow-hidden">
 				<div class="partner-scroll flex items-center gap-12">
@@ -107,322 +126,401 @@ const refsWithMeta = t.home.references.items
 		</div>
 	</section>
 
-	<!-- ══════════ PRODUCT OVERVIEW CARDS ══════════ -->
-	<section id="offers" data-ph-section="offers" class="py-12 md:py-28">
+	<!-- ══════════ ECOSYSTEM OVERVIEW (bento — the whole world, up front) ══════════ -->
+	<section id="ecosystem" data-ph-section="ecosystem" class="py-16 md:py-28">
 		<div class="mx-auto max-w-7xl px-6">
-			<div class="text-center max-w-2xl mx-auto">
-				<h2 class="text-2xl md:text-3xl font-heading font-semibold text-foreground">
+			<div class="mx-auto max-w-2xl text-center">
+				<p class="text-sm font-semibold uppercase tracking-widest text-primary">
+					{isFr ? 'De Dosimex à Dosismart' : 'From Dosimex to Dosismart'}
+				</p>
+				<h2 class="mt-3 text-3xl font-heading font-semibold tracking-tight text-foreground md:text-4xl">
 					{t.home.offers.title}
 				</h2>
-				<p class="mt-4 text-base text-muted-foreground">
+				<p class="mt-4 text-lg text-muted-foreground">
 					{t.home.offers.description}
 				</p>
 			</div>
 
-			<div class="mt-12 grid gap-8 lg:grid-cols-3">
-				{offerCards.map((card) => (
-					<a
-						href={card.href}
-						class="group block bg-card border border-border rounded-xl p-8 hover:shadow-md hover:-translate-y-1 transition-all duration-200"
-					>
-						<div class="flex h-14 w-14 items-center justify-center rounded-lg bg-primary/10 text-primary mb-4">
-							{card.icon === 'calculator' && (
-								<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><line x1="16" x2="16" y1="10" y2="10"/><line x1="12" x2="12" y1="10" y2="10"/><line x1="8" x2="8" y1="10" y2="10"/><line x1="12" x2="12" y1="14" y2="14"/><line x1="8" x2="8" y1="14" y2="14"/><line x1="12" x2="12" y1="18" y2="18"/><line x1="8" x2="8" y1="18" y2="18"/></svg>
-							)}
-							{card.icon === 'book' && (
-								<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-							)}
-							{card.icon === 'graduation' && (
-								<svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
-							)}
-						</div>
-						<h3 class="text-xl font-heading font-semibold text-foreground">{card.title}</h3>
-						<p class="mt-3 text-base text-muted-foreground">{card.description}</p>
-						<span class="mt-5 inline-flex items-center gap-1 text-primary font-heading font-semibold">
-							{card.linkLabel} <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+			<div class="mt-14 grid grid-cols-1 gap-5 md:grid-cols-3">
+				<!-- Suite Dosimex (desktop) — the flagship users already know, spans two columns -->
+				<a
+					href={localePath(locale, '/software')}
+					class="group relative flex flex-col overflow-hidden rounded-2xl bg-card p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5 md:col-span-2"
+					data-ph-cta="eco-desktop"
+				>
+					<div class="relative flex items-center gap-3">
+						<span class="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
+							<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
 						</span>
-					</a>
-				))}
+						<div>
+							<p class="text-xs font-semibold uppercase tracking-widest text-primary">{isFr ? 'Bureau' : 'Desktop'}</p>
+							<h3 class="text-xl font-heading font-semibold text-foreground">{isFr ? 'Suite Dosimex' : 'Dosimex Suite'}</h3>
+						</div>
+					</div>
+					<p class="relative mt-4 max-w-xl text-base text-muted-foreground">
+						{t.home.offers.card1.description}
+					</p>
+					<ul class="relative mt-6 flex flex-wrap gap-2">
+						{t.home.offers.card1.packs.map((p) => (
+							<li class="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-sm font-heading font-semibold text-primary">
+								<svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+								{p}
+							</li>
+						))}
+					</ul>
+					<span class="relative mt-6 inline-flex items-center gap-1 font-heading font-semibold text-primary">
+						{t.home.offers.card1.linkLabel}
+						<svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d={arrow}/></svg>
+					</span>
+				</a>
+
+				<!-- Dosismart (web) — the modern companion -->
+				<a
+					href={localePath(locale, '/dosismart')}
+					class="group flex flex-col rounded-2xl bg-card p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
+					data-ph-cta="eco-web"
+				>
+					<span class="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
+						<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+					</span>
+					<p class="mt-4 text-xs font-semibold uppercase tracking-widest text-primary">{isFr ? 'Application web' : 'Web app'}</p>
+					<h3 class="mt-1 text-xl font-heading font-semibold text-foreground">Dosismart</h3>
+					<p class="mt-2 text-sm text-muted-foreground">{t.home.platform.tagline}</p>
+					<span class="mt-auto inline-flex items-center gap-1 pt-5 text-sm font-heading font-semibold text-primary">
+						{t.home.platform.learnMore}
+						<svg class="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d={arrow}/></svg>
+					</span>
+				</a>
+
+				<!-- Training -->
+				<a
+					href={localePath(locale, '/training')}
+					class="group flex flex-col rounded-2xl bg-card p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
+					data-ph-cta="eco-training"
+				>
+					<span class="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
+						<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
+					</span>
+					<h3 class="mt-4 text-xl font-heading font-semibold text-foreground">{t.home.offers.card3.title}</h3>
+					<p class="mt-2 text-sm text-muted-foreground line-clamp-3">{t.home.offers.card3.description}</p>
+					<span class="mt-auto inline-flex items-center gap-1 pt-5 text-sm font-heading font-semibold text-primary">
+						{t.home.offers.card3.linkLabel}
+						<svg class="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d={arrow}/></svg>
+					</span>
+				</a>
+
+				<!-- Books & manuals (resources) -->
+				<a
+					href={`${localePath(locale, '/software')}#pack-peda`}
+					class="group flex rounded-2xl bg-card p-8 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md md:col-span-2"
+					data-ph-cta="eco-resources"
+				>
+					<div class="flex items-start gap-4">
+						<span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+							<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+						</span>
+						<div>
+							<h3 class="text-xl font-heading font-semibold text-foreground">{t.home.offers.card2.title}</h3>
+							<p class="mt-2 text-sm text-muted-foreground">{t.home.offers.card2.description}</p>
+							<span class="mt-4 inline-flex items-center gap-1 text-sm font-heading font-semibold text-primary">
+								{t.home.offers.card2.linkLabel}
+								<svg class="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d={arrow}/></svg>
+							</span>
+						</div>
+					</div>
+				</a>
 			</div>
 		</div>
 	</section>
 
-	<!-- ══════════ DOSISMART BANNER ══════════ -->
-	<section id="dosismart" data-ph-section="dosismart" class="py-12 md:py-28">
+	<!-- ══════════ DOSISMART (web) — the product we sell now, leads the body ══════════ -->
+	<section id="platform" data-ph-section="platform" class="py-16 md:py-32">
 		<div class="mx-auto max-w-7xl px-6">
-			<div class="relative overflow-hidden rounded-2xl bg-muted/40 p-8 md:p-12">
-				<div class="absolute -top-20 -right-20 h-[400px] w-[400px] rounded-full bg-primary/5 blur-3xl" aria-hidden="true"></div>
-				<div class="relative grid lg:grid-cols-2 gap-12 items-center">
-					<div class="order-2 md:max-w-2xl md:mx-auto lg:max-w-none lg:order-1" data-lightbox>
-						<img
-							src="/Images/dosismart-screenshot.webp"
-							srcset="/Images/dosismart-screenshot-sm.webp 640w, /Images/dosismart-screenshot.webp 1280w"
-							sizes="(max-width: 767px) 100vw, (max-width: 1024px) 672px, 640px"
-							alt="Dosismart — Calcul gamma dans le navigateur"
-							width="1280"
-							height="761"
-							class="w-full rounded-xl"
-							loading="lazy"
-						/>
-					</div>
-					<div class="order-1 lg:order-2">
-						<h2 class="text-2xl md:text-3xl font-heading font-semibold text-foreground">
-							{t.home.dosismart.title}
-						</h2>
-						<p class="mt-4 text-base text-muted-foreground max-w-lg">
-							{t.home.dosismart.text}
-						</p>
-						<div class="mt-4 space-y-1">
-							<p class="text-sm font-heading font-semibold text-foreground">
-								<span class="inline-block w-2 h-2 rounded-full bg-success mr-2"></span>{t.home.dosismart.available}
-							</p>
-							<p class="text-sm font-heading text-muted-foreground">
-								<span class="inline-block w-2 h-2 rounded-full bg-accent-400 mr-2"></span>{t.home.dosismart.coming}
-							</p>
-						</div>
+			<div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+				<div class="lg:order-last">
+					<p class="text-sm font-semibold uppercase tracking-widest text-primary">Dosismart · Web</p>
+					<h2 class="mt-3 text-3xl font-heading font-semibold tracking-tight text-foreground md:text-4xl">
+						{t.home.platform.title}
+					</h2>
+					<p class="mt-4 text-lg text-muted-foreground">
+						{t.home.platform.intro}
+					</p>
+					<p class="mt-3 text-base text-muted-foreground">
+						{t.home.platform.deck}
+					</p>
+					<ul class="mt-6 flex flex-wrap gap-2">
+						{t.home.platform.highlights.map((h) => (
+							<li class="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-sm text-foreground/80">
+								<span class="h-1.5 w-1.5 rounded-full bg-primary/60" aria-hidden="true"></span>
+								{h}
+							</li>
+						))}
+					</ul>
+					<div class="mt-8 flex flex-wrap items-center gap-4">
+						<a
+							href={localePath(locale, '/dosismart')}
+							class="btn btn-primary"
+							data-ph-cta="platform-learn-more"
+						>
+							{t.home.platform.learnMore}
+							<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d={arrow}/></svg>
+						</a>
 						<a
 							href="https://dosismart.com"
 							target="_blank"
 							rel="noopener noreferrer"
-							class="mt-6 inline-flex items-center gap-2 h-12 px-6 text-base font-heading font-semibold text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg shadow-lg transition-all duration-150 hover:shadow-xl"
-							data-ph-cta="dosismart-trial"
+							class="btn btn-secondary"
+							data-ph-cta="platform-open"
 						>
-							{t.home.dosismart.button}
-							<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+							{t.home.platform.cta}
+							<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
 						</a>
 					</div>
+					<p class="mt-3 text-xs text-muted-foreground">{t.home.platform.trialNote}</p>
+				</div>
+				<div>
+					<DashboardPreview locale={locale} />
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- ══════════ STATS COUNTER ══════════ -->
-	<StatsCounter items={t.home.numbers.items} />
-
-	<!-- ══════════ DOSIMEX EVOLVES ══════════ -->
-	<section id="evolves" data-ph-section="evolves" class="py-12 md:py-28">
+	<!-- ══════════ SUITE DOSIMEX (desktop) — the heritage the codes evolve from ══════════ -->
+	<section id="suite" data-ph-section="suite" class="py-16 md:py-32">
 		<div class="mx-auto max-w-7xl px-6">
-			<div class="relative overflow-hidden rounded-2xl bg-muted/40 p-8 md:p-12">
-				<div class="absolute -top-20 -left-20 h-[400px] w-[400px] rounded-full bg-primary/5 blur-3xl" aria-hidden="true"></div>
-				<div class="relative">
-					<h2 class="text-2xl md:text-3xl font-heading font-semibold text-foreground">
-						{t.home.evolves.title}
-					</h2>
-					<p class="mt-2 text-base text-muted-foreground max-w-2xl">
-						{t.home.evolves.subtitle}
+			<div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+				<div>
+					<p class="text-sm font-semibold uppercase tracking-widest text-primary">
+						{isFr ? 'Suite Dosimex · Bureau' : 'Dosimex Suite · Desktop'}
 					</p>
-					<div class="mt-10 grid gap-8 md:gap-10 lg:grid-cols-3">
-						{t.home.evolves.items.map((item) => (
+					<h2 class="mt-3 text-3xl font-heading font-semibold tracking-tight text-foreground md:text-4xl lg:text-5xl">
+						{t.home.suite.title}
+					</h2>
+					<p class="mt-4 text-lg text-muted-foreground [&_strong]:font-bold [&_strong]:text-primary" set:html={t.home.suite.subtitle}></p>
+
+					<div class="mt-8 space-y-6">
+						{t.home.suite.items.map((item) => (
 							<div class="flex gap-4">
 								<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-									{item.icon === 'download' && (
-										<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+									{item.icon === 'calc' && (
+										<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><line x1="8" x2="8" y1="14" y2="14"/><line x1="12" x2="12" y1="14" y2="14"/><line x1="8" x2="8" y1="18" y2="18"/><line x1="12" x2="12" y1="18" y2="18"/></svg>
 									)}
-									{item.icon === 'globe' && (
-										<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+									{item.icon === 'book' && (
+										<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
 									)}
 									{item.icon === 'table' && (
-										<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 3v18"/><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/></svg>
+										<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 3v18"/><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/></svg>
 									)}
 								</div>
 								<div>
 									<h3 class="text-base font-heading font-semibold text-foreground">{item.title}</h3>
 									<p class="mt-1 text-base text-muted-foreground">{item.text}</p>
-									{'link' in item && (
-										<a
-											href={item.link.href.startsWith('http') ? item.link.href : localePath(locale, item.link.href)}
-											target={item.link.href.startsWith('http') ? '_blank' : undefined}
-											rel={item.link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-											class="mt-2 inline-flex items-center gap-1 text-sm text-primary font-heading font-semibold hover:underline"
-										>
-											{item.link.label} <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-										</a>
-									)}
+									<a
+										href={localePath(locale, item.link.href)}
+										class="mt-2 inline-flex items-center gap-1 text-sm font-heading font-semibold text-primary hover:underline"
+									>
+										{item.link.label}
+										<svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d={arrow}/></svg>
+									</a>
 								</div>
 							</div>
 						))}
 					</div>
+					<a
+						href={localePath(locale, '/software')}
+						class="mt-8 btn btn-primary"
+						data-ph-cta="suite-discover"
+					>
+						{t.home.suite.cta}
+						<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d={arrow}/></svg>
+					</a>
+				</div>
+				<div>
+					<HeroCarousel slides={desktopSlides} />
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- ══════════ TESTIMONIAL ══════════ -->
-	<section id="testimonial" data-ph-section="testimonial" class="py-12 md:py-28">
-		<div class="mx-auto max-w-2xl px-6">
-			<div class="relative rounded-2xl border bg-card p-6 shadow-sm md:p-8">
-				<!-- Quote icon -->
-				<div class="absolute -top-4 left-8 flex h-10 w-10 items-center justify-center rounded-full bg-primary-600 text-white" aria-hidden="true">
-					<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-				</div>
-				<blockquote class="mt-4">
-					<p class="text-base md:text-lg text-foreground italic leading-relaxed">
-						{t.home.opinion.text}
-					</p>
-				</blockquote>
-				<div class="mt-6 flex items-center gap-3">
-					<div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary font-heading font-bold text-lg">
-						{t.home.opinion.name.charAt(0)}
-					</div>
-					<div>
-						<div class="text-base font-heading font-semibold text-foreground">
-							{t.home.opinion.name}
-						</div>
-						<div class="text-sm text-muted-foreground">
-							{t.home.opinion.job}
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="mt-6 text-center">
-			<a href={localePath(locale, "/testimonials")} class="inline-flex items-center gap-1 text-primary font-heading font-semibold hover:underline">
-				{t.home.opinion.button} <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-			</a>
-		</div>
-	</section>
-
-	<!-- ══════════ YOUTUBE ══════════ -->
-	<section id="video" data-ph-section="video" class="py-12 md:py-28">
+	<!-- ══════════ YOUTUBE (split, no card) ══════════ -->
+	<section id="video" data-ph-section="video" class="py-16 md:py-32">
 		<div class="mx-auto max-w-7xl px-6">
-			<div class="relative overflow-hidden rounded-2xl bg-muted/40 p-8 md:p-12">
-				<div class="absolute -top-20 -right-20 h-[400px] w-[400px] rounded-full bg-primary/5 blur-3xl" aria-hidden="true"></div>
-				<div class="relative grid lg:grid-cols-2 gap-12 items-center">
-					<div class="md:max-w-2xl md:mx-auto lg:max-w-none">
+			<div class="grid items-center gap-12 lg:grid-cols-2">
+				<div class="md:mx-auto md:max-w-2xl lg:order-last lg:max-w-none">
+					<!-- Soft glow under the video, matching the Dosismart preview (WindowFrame) -->
+					<div class="relative">
+						<div class="absolute -inset-6 -z-10 rounded-[2rem] bg-primary/10 blur-3xl" aria-hidden="true"></div>
 						<VideoEmbed videoId={videoIds.presentation} title={t.home.videoTitle} />
 					</div>
-					<div>
-						<h2 class="text-2xl md:text-3xl font-heading font-semibold text-foreground mb-4">
-							{t.home.videos.title}
-						</h2>
-						<p class="text-base text-muted-foreground mb-6">
-							{t.home.videos.description}
-						</p>
-						<a
-							href={videoIds.channelUrl}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="inline-flex items-center gap-2 text-primary font-heading font-semibold hover:underline"
-						>
-							{t.home.videos.button}
-							<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-						</a>
-					</div>
+				</div>
+				<div>
+					<p class="text-sm font-semibold uppercase tracking-widest text-primary">YouTube</p>
+					<h2 class="mt-3 text-2xl font-heading font-semibold text-foreground md:text-3xl">
+						{t.home.videos.title}
+					</h2>
+					<p class="mt-4 text-base text-muted-foreground">
+						{t.home.videos.description}
+					</p>
+					<a
+						href={videoIds.channelUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="mt-6 inline-flex items-center gap-2 font-heading font-semibold text-primary hover:underline"
+					>
+						{t.home.videos.button}
+						<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+					</a>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- ══════════ REFERENCES ══════════ -->
-	<section id="references" data-ph-section="references" class="py-12 md:py-28 border-t">
-		<div class="mx-auto max-w-7xl px-6">
-			<h2 class="text-2xl font-heading font-semibold text-foreground mb-2">
-				{t.home.references.title}
-			</h2>
-			<p class="text-base text-muted-foreground mb-8 max-w-2xl">
-				{t.home.references.subtitle}
-			</p>
-			<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+	<!-- ══════════ PUBLICATIONS (rows that bloom into cards on hover) ══════════ -->
+	<section id="references" data-ph-section="references" class="relative py-16 md:py-32">
+		<!-- Right-side glow bleeding down into the gap before the review — same tint as the hero. -->
+		<div class="absolute inset-0 -z-10" aria-hidden="true">
+			<div class="absolute -bottom-[28rem] -right-[44rem] h-[680px] w-[900px] rounded-full bg-primary/20 blur-3xl dark:bg-primary/10"></div>
+			<div class="absolute -bottom-[38rem] -right-[40rem] h-[520px] w-[680px] rounded-full bg-brandred/[0.16] blur-3xl dark:bg-brandred/[0.14]"></div>
+		</div>
+		<div class="mx-auto max-w-6xl px-6">
+			<div class="mx-auto max-w-2xl text-center">
+				<p class="text-sm font-semibold uppercase tracking-widest text-primary">
+					{isFr ? 'Publications' : 'Publications'}
+				</p>
+				<h2 class="mt-3 text-3xl font-heading font-semibold tracking-tight text-foreground md:text-4xl">
+					{t.home.references.title}
+				</h2>
+				<p class="mt-4 text-lg text-muted-foreground">
+					{t.home.references.subtitle}
+				</p>
+			</div>
+
+			<!-- Each row is a compact line; on hover/focus it opens into the full card,
+			     revealing the publication's description (grid-rows 0fr→1fr = smooth height). -->
+			<ul class="mt-14 grid items-start gap-x-8 gap-y-1 sm:grid-cols-2">
 				{refsWithMeta.map((item) => (
-					<a
-						href={item.url}
-						target="_blank"
-						rel="noopener noreferrer"
-						class="group block border border-border bg-card rounded-xl p-6 hover:shadow-md hover:-translate-y-1 transition-all duration-200"
-					>
-						<h3 class="text-sm font-heading font-semibold text-foreground line-clamp-2">
-							{item.title}
-						</h3>
-						{'description' in item && (
-							<p class="mt-2 text-sm text-muted-foreground line-clamp-3">
-								{item.description}
-							</p>
-						)}
-						<div class="mt-3 flex flex-wrap gap-2">
-							{'authors' in item && (
-								<span class="inline-block text-xs bg-muted text-muted-foreground rounded-full px-2 py-0.5">
-									{item.authors}
-								</span>
+					<li>
+						<a
+							href={item.url}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="group block h-full rounded-2xl px-4 py-4 transition-all duration-200 hover:bg-card hover:shadow-md focus-within:bg-card focus-within:shadow-md md:px-6 md:py-5"
+						>
+							<div class="flex items-start justify-between gap-4">
+								<div class="min-w-0">
+									<h3 class="text-base font-heading font-semibold text-foreground transition-colors group-hover:text-primary md:text-lg">
+										{item.title}
+									</h3>
+									<div class="mt-1 flex flex-wrap gap-x-2 gap-y-0.5 text-xs text-muted-foreground">
+										{'authors' in item && <span>{item.authors}</span>}
+										{'authors' in item && 'journal' in item && <span class="italic">· {item.journal}</span>}
+										{'authors' in item && 'year' in item && <span>· {item.year}</span>}
+									</div>
+								</div>
+								<svg class="mt-1 h-4 w-4 shrink-0 text-primary transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d={arrow}/></svg>
+							</div>
+							{'description' in item && (
+								<div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out group-hover:grid-rows-[1fr] group-focus-within:grid-rows-[1fr]">
+									<div class="overflow-hidden">
+										<p class="mt-3 max-w-3xl text-sm text-muted-foreground">{item.description}</p>
+										<span class="mt-3 inline-flex items-center gap-1 text-sm font-heading font-semibold text-primary">
+											{t.home.references.btnText}
+											<svg class="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d={arrow}/></svg>
+										</span>
+									</div>
+								</div>
 							)}
-							{'year' in item && (
-								<span class="inline-block text-xs bg-muted text-muted-foreground rounded-full px-2 py-0.5">
-									{item.year}
-								</span>
-							)}
-							{'journal' in item && (
-								<span class="inline-block text-xs bg-muted text-muted-foreground rounded-full px-2 py-0.5 italic">
-									{item.journal}
-								</span>
-							)}
-						</div>
-						<span class="mt-4 inline-flex items-center gap-1 text-sm text-primary font-heading font-semibold">
-							{t.home.references.btnText} <svg class="w-3 h-3 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-						</span>
-					</a>
+						</a>
+					</li>
 				))}
+			</ul>
+
+			<!-- End-of-studies reports (rapports de stage) — content kept from dosimex.fr -->
+			<div class="mt-14 flex flex-col gap-4 rounded-2xl bg-primary/[0.04] p-6 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+				<div class="flex items-start gap-3">
+					<span class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary" aria-hidden="true">
+						<svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+					</span>
+					<p class="text-sm leading-relaxed text-muted-foreground">{t.home.references.internshipsText}</p>
+				</div>
+				<a
+					href={`${localePath(locale, '/manuals')}#internships`}
+					class="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-border bg-background px-4 py-2.5 text-sm font-heading font-semibold text-foreground transition-colors hover:bg-muted"
+				>
+					{t.home.references.internshipsBtn}
+					<svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d={arrow}/></svg>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- ══════════ REVIEW (editorial pull-quote) ══════════ -->
+	<section id="testimonial" data-ph-section="testimonial" class="relative overflow-hidden py-20 md:py-32">
+		<div class="absolute left-1/2 top-1/2 -z-10 h-[360px] w-[640px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-3xl" aria-hidden="true"></div>
+		<div class="mx-auto max-w-3xl px-6 text-center">
+			<svg class="mx-auto h-10 w-10 text-primary/25" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+			<blockquote class="mt-6">
+				<p class="text-balance text-xl font-heading font-medium leading-relaxed text-foreground md:text-2xl md:leading-relaxed">
+					{t.home.opinion.text}
+				</p>
+			</blockquote>
+			<div class="mt-8">
+				<div class="text-base font-heading font-semibold text-foreground">{t.home.opinion.name}</div>
+				<div class="mt-1 text-sm text-muted-foreground">{t.home.opinion.job}</div>
+			</div>
+			<div class="mt-8">
+				<a href={localePath(locale, "/testimonials")} class="inline-flex items-center gap-1 font-heading font-semibold text-primary hover:underline">
+					{t.home.opinion.button}
+					<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d={arrow}/></svg>
+				</a>
 			</div>
 		</div>
 	</section>
 
 	<!-- ══════════ CTA CLOSE ══════════ -->
 	<section id="cta-close" data-ph-section="cta-close" class="py-16 md:py-24">
-		<div class="mx-auto max-w-4xl px-6">
-			<div class="rounded-2xl bg-gradient-to-r from-primary/15 via-accent/10 to-emerald-400/10 p-8 md:p-12 text-center">
-				<h2 class="text-2xl md:text-3xl font-heading font-bold text-foreground">
-					{t.home.close.title}
-				</h2>
-				<p class="mt-4 text-lg text-muted-foreground">
-					{t.home.close.price} &mdash; {t.home.close.includes}
-				</p>
-				<div class="mt-8 flex flex-wrap items-center justify-center gap-4">
-					<a
-						href={localePath(locale, '/contact')}
-						class="inline-flex items-center gap-2 h-12 px-6 text-base font-heading font-semibold text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg shadow-lg transition-all duration-150 hover:shadow-xl"
-						data-ph-cta="close-quote"
-					>
-						{t.home.close.quoteButton}
-						<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-					</a>
-					<a
-						href="https://dosismart.com"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="inline-flex items-center gap-2 h-12 px-6 text-base font-heading font-semibold text-foreground border border-border hover:bg-muted rounded-lg transition-colors duration-150"
-						data-ph-cta="close-trial"
-					>
-						{t.home.close.trialButton}
-						<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-					</a>
+		<div class="mx-auto max-w-7xl px-6">
+			<div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary/[0.12] via-primary/[0.05] to-transparent p-10 text-center md:p-14">
+				<div class="relative mx-auto max-w-2xl">
+					<h2 class="text-balance text-3xl font-heading font-bold tracking-tight text-foreground md:text-4xl">
+						{t.home.close.title}
+					</h2>
+					<p class="mt-4 text-lg text-muted-foreground">
+						{t.home.close.subtitle}
+					</p>
+
+					<div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+						<a
+							href={localePath(locale, '/product')}
+							class="btn btn-primary"
+							data-ph-cta="close-quote"
+						>
+							{t.home.close.quoteButton}
+							<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d={arrow}/></svg>
+						</a>
+						<a
+							href="https://dosismart.com"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="btn btn-secondary"
+							data-ph-cta="close-trial"
+						>
+							{t.home.close.trialButton}
+							<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d={arrow}/></svg>
+						</a>
+					</div>
+
+					<ul class="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
+						{t.home.close.bullets.map((b) => (
+							<li class="inline-flex items-center gap-1.5">
+								<svg class="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+								{b}
+							</li>
+						))}
+					</ul>
 				</div>
 			</div>
 		</div>
 	</section>
 
 </Layout>
-
-<!-- Tab switching script -->
-<script>
-	function initTabs() {
-		const tabs = document.querySelectorAll<HTMLButtonElement>('[role="tab"]')
-		tabs.forEach((tab) => {
-			tab.addEventListener('click', () => {
-				const panelId = tab.getAttribute('aria-controls')
-				if (!panelId) return
-
-				tabs.forEach((t) => {
-					t.setAttribute('aria-selected', 'false')
-					t.classList.remove('border-primary-600', 'text-foreground')
-					t.classList.add('border-transparent', 'text-muted-foreground')
-				})
-				tab.setAttribute('aria-selected', 'true')
-				tab.classList.add('border-primary-600', 'text-foreground')
-				tab.classList.remove('border-transparent', 'text-muted-foreground')
-
-				document.querySelectorAll<HTMLElement>('[role="tabpanel"]').forEach((p) => p.classList.add('hidden'))
-				document.getElementById(panelId)?.classList.remove('hidden')
-			})
-		})
-	}
-	initTabs()
-	document.addEventListener('astro:page-load', initTabs)
-</script>

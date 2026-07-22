@@ -1,5 +1,8 @@
 ---
 import Layout from '@/layouts/Layout.astro'
+import ObfuscatedEmail from '@/components/ObfuscatedEmail.astro'
+import DashboardPreview from '@/components/previews/DashboardPreview.astro'
+import WindowFrame from '@/components/previews/WindowFrame.astro'
 import { getTranslations, getLocalePaths, localePath, type Locale } from '@/i18n/utils'
 import { organizationSchema } from '@/data/schemas'
 
@@ -8,23 +11,48 @@ export const getStaticPaths = getLocalePaths
 const { locale } = Astro.props as { locale: Locale }
 const t = getTranslations(locale)
 const p = t.product
+const isFr = locale === 'fr'
 
-const trialLabel = locale === 'fr' ? 'Essai gratuit Dosismart 14 jours' : 'Free Dosismart trial 14 days'
-const quoteLabel = locale === 'fr' ? 'Demander un devis' : 'Request a quote'
-const monthlyNote = locale === 'fr' ? 'Soit moins de 42\u20AC/mois' : 'Less than \u20AC42/month'
+const trialLabel = isFr ? 'Essayer Dosismart — 14 jours' : 'Try Dosismart free — 14 days'
+const quoteLabel = isFr ? 'Demander un devis' : 'Request a quote'
+
+const heroChips = isFr
+	? ['Essai Dosismart 14 jours', 'Support technique inclus', 'Sans engagement']
+	: ['14-day Dosismart trial', 'Technical support included', 'No commitment']
+
+// Placeholder spreadsheet mock for the Dosimex Suite (desktop/Excel) preview —
+// replace the inner grid with a real DOSIMEX-GX screenshot when available.
+const excelHeaders = isFr
+	? ['Radionucléide', 'Activité', 'Distance', 'Débit']
+	: ['Radionuclide', 'Activity', 'Distance', 'Rate']
+const excelRows = [
+	['Ir-192', '370 GBq', '100 cm', '1.24'],
+	['Co-60', '18.5 GBq', '150 cm', '0.86'],
+	['Cs-137', '74 GBq', '100 cm', '0.31'],
+	['Se-75', '1.11 TBq', '100 cm', '0.95'],
+	['Am-241', '370 MBq', '30 cm', '0.02'],
+]
 
 const softwareSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'SoftwareApplication',
-	name: 'Dosimex 3.2 + Dosismart',
+	name: 'Suite Dosimex + Dosismart',
 	applicationCategory: 'BusinessApplication',
 	operatingSystem: 'Windows, Web',
-	offers: {
-		'@type': 'Offer',
-		price: '500',
-		priceCurrency: 'EUR',
-		description: p.schemaDescription,
-	},
+	offers: [
+		{
+			'@type': 'Offer',
+			price: '500',
+			priceCurrency: 'EUR',
+			description: `${p.pricing.base.title} \u2014 ${p.schemaDescription}`,
+		},
+		{
+			'@type': 'Offer',
+			price: '1350',
+			priceCurrency: 'EUR',
+			description: `${p.pricing.compliance.title} \u2014 ${p.schemaDescription}`,
+		},
+	],
 }
 
 const faqSchema = {
@@ -41,100 +69,230 @@ const faqSchema = {
 <Layout title={t.seo.product.title} description={t.seo.product.description} jsonLd={[organizationSchema, softwareSchema, faqSchema]}>
 
 	<!-- ═══════════════════════════ HERO ═══════════════════════════ -->
-	<section class="py-12 md:py-20">
-		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-			<h1 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground tracking-tight">
-				{p.title}
-			</h1>
-			<p class="mx-auto mt-6 max-w-3xl text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-				{p.description}
-			</p>
+	<section class="py-16 md:py-20">
+		<div class="mx-auto max-w-7xl px-6">
+			<div class="mx-auto max-w-3xl text-center">
+				<h1 class="text-balance text-4xl font-heading font-bold tracking-tight text-foreground md:text-5xl">
+					{p.title}
+				</h1>
+				<p class="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
+					{p.description}
+				</p>
+				<ul class="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
+					{heroChips.map((chip) => (
+						<li class="inline-flex items-center gap-1.5">
+							<svg class="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+							{chip}
+						</li>
+					))}
+				</ul>
+			</div>
+
+			<!-- The two products, side by side: Dosismart (web) + Dosimex Suite (desktop) -->
+			<div class="mt-16 grid items-start gap-8 md:grid-cols-2 max-w-5xl mx-auto">
+				<figure>
+					<DashboardPreview locale={locale} />
+					<figcaption class="mt-5 text-center text-sm font-heading font-semibold text-foreground">
+						Dosismart <span class="font-normal text-muted-foreground">— {isFr ? 'la plateforme web' : 'the web platform'}</span>
+					</figcaption>
+				</figure>
+
+				<figure>
+					<!-- Placeholder Excel mock — swap the grid for a real DOSIMEX-GX screenshot later -->
+					<WindowFrame label="DOSIMEX-GX.xlsx">
+						<div class="p-3 sm:p-4">
+							<div class="overflow-hidden rounded-md border border-border text-[11px] tabular-nums">
+								<!-- column letters -->
+								<div class="grid grid-cols-[1.75rem_repeat(4,minmax(0,1fr))] bg-muted/60 text-center text-muted-foreground">
+									<div class="border-b border-r border-border py-1"></div>
+									{['A', 'B', 'C', 'D'].map((c) => (
+										<div class="border-b border-l border-border py-1 font-semibold">{c}</div>
+									))}
+								</div>
+								<!-- header row -->
+								<div class="grid grid-cols-[1.75rem_repeat(4,minmax(0,1fr))]">
+									<div class="border-b border-r border-border bg-muted/60 py-1.5 text-center text-muted-foreground">1</div>
+									{excelHeaders.map((h) => (
+										<div class="truncate border-b border-l border-border bg-primary/[0.06] px-2 py-1.5 font-heading font-semibold text-foreground">{h}</div>
+									))}
+								</div>
+								<!-- data rows -->
+								{excelRows.map((row, r) => (
+									<div class="grid grid-cols-[1.75rem_repeat(4,minmax(0,1fr))]">
+										<div class="border-b border-r border-border bg-muted/60 py-1.5 text-center text-muted-foreground">{r + 2}</div>
+										{row.map((cell, c) => (
+											<div class:list={[
+												'truncate border-b border-l border-border px-2 py-1.5 text-foreground',
+												c === 3 ? 'bg-primary/5 text-right font-semibold text-primary' : '',
+											]}>{cell}</div>
+										))}
+									</div>
+								))}
+							</div>
+						</div>
+					</WindowFrame>
+					<figcaption class="mt-5 text-center text-sm font-heading font-semibold text-foreground">
+						{isFr ? 'Suite Dosimex' : 'Dosimex Suite'} <span class="font-normal text-muted-foreground">— {isFr ? 'bureau · Excel' : 'desktop · Excel'}</span>
+					</figcaption>
+				</figure>
+			</div>
 		</div>
 	</section>
 
 	<!-- ═══════════════════════════ PRICING CARDS ═══════════════════════════ -->
-	<section data-ph-section="pricing" class="bg-muted/40 py-12 md:py-20">
+	<section data-ph-section="pricing" class="py-12 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<h2 class="text-center text-2xl md:text-3xl font-heading font-semibold text-foreground">{p.pricing.title}</h2>
-			<p class="mt-2 text-center text-slate-600 dark:text-slate-400">{p.pricing.packageTitle}</p>
+			<div class="mx-auto max-w-2xl text-center">
+				<h2 class="text-3xl font-heading font-semibold tracking-tight text-foreground md:text-4xl">{p.pricing.title}</h2>
+				<p class="mt-4 text-lg text-muted-foreground">{p.pricing.packageTitle}</p>
+			</div>
 
-			<div class="mt-12 grid gap-8 lg:grid-cols-2 max-w-4xl mx-auto">
-				<!-- Annual card -->
-				<div class="rounded-lg border border-slate-200 dark:border-[#3D3A35] bg-white dark:bg-[#252320] p-8 hover:shadow-sm hover:-translate-y-0.5 transition">
-					<h3 class="text-xl font-semibold text-foreground font-heading">{p.pricing.annual.title}</h3>
+			<div class="mt-14 grid items-start gap-8 lg:grid-cols-3 max-w-6xl mx-auto">
+				<!-- Base plan -->
+				<div class="flex h-full flex-col rounded-2xl border border-border bg-card p-8 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5">
+					<h3 class="text-xl font-semibold text-foreground font-heading">{p.pricing.base.title}</h3>
+					<p class="mt-1 text-sm font-semibold text-primary">{p.pricing.base.tagline}</p>
 					<div class="mt-6">
-						<span class="text-5xl font-bold text-foreground font-heading">{p.pricing.annual.price}</span>
-						<span class="ml-2 text-slate-500">{p.pricing.annual.duration}</span>
+						<span class="text-5xl font-bold text-foreground font-heading">{p.pricing.base.price}</span>
+						<span class="ml-2 text-muted-foreground">{p.pricing.base.duration}</span>
 					</div>
-					<p class="mt-2 text-sm text-slate-500">{monthlyNote}</p>
+					<p class="mt-2 text-sm text-muted-foreground">{p.pricing.base.alt}</p>
 					<ul class="mt-8 space-y-3">
-						{p.pricing.annual.features.map((feature) => (
+						{p.pricing.base.features.map((feature) => (
 							<li class="flex items-start gap-3">
-								<svg class="mt-0.5 h-5 w-5 shrink-0 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-									<path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-								</svg>
-								<span class="text-slate-600 dark:text-slate-400">{feature}</span>
+								<svg class="mt-0.5 h-5 w-5 shrink-0 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+								<span class="text-muted-foreground">{feature}</span>
 							</li>
 						))}
 					</ul>
-					<a
-						href={localePath(locale, '/contact')}
-						class="mt-8 block w-full rounded-[8px] bg-primary-600 hover:bg-primary-700 text-white text-center h-12 leading-[3rem] font-heading font-semibold shadow-lg transition-all hover:shadow-xl"
-						data-ph-cta="request_quote"
-					>
-						{quoteLabel}
-					</a>
+					<div class="mt-8 pt-2 flex-1 flex flex-col justify-end">
+						<a
+							href="https://dosismart.com/get-dosimex"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="btn btn-primary w-full"
+							data-ph-cta="subscribe_dosismart"
+						>
+							{p.pricing.subscribeButton} &rarr;
+						</a>
+						<a
+							href={localePath(locale, '/contact')}
+							class="mt-3 block text-center text-sm text-muted-foreground hover:text-primary hover:underline"
+							data-ph-cta="request_quote"
+						>
+							{p.pricing.quoteSecondary}
+						</a>
+					</div>
 				</div>
 
-				<!-- 3-year card (best value) -->
-				<div class="relative rounded-lg border-t-4 border-t-primary-600 dark:border-t-primary-600 border border-slate-200 dark:border-[#3D3A35] bg-white dark:bg-[#252320] p-8 hover:shadow-sm hover:-translate-y-0.5 transition">
-					<div class="absolute -top-4 left-1/2 -translate-x-1/2">
-						<span class="inline-block rounded-full bg-accent-400 px-4 py-1 text-xs font-bold text-slate-950">
-							{locale === 'fr' ? 'Meilleure offre' : 'Best value'}
-						</span>
-					</div>
-					<h3 class="text-xl font-semibold text-foreground font-heading">{p.pricing.triennial.title}</h3>
+				<!-- Compliance plan — recommended -->
+				<div class="relative flex h-full flex-col rounded-2xl border-2 border-primary bg-card p-8 shadow-lg shadow-primary/10 transition-all duration-200 hover:-translate-y-1 hover:shadow-xl lg:-mt-4">
+					<span class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-3 py-1 text-xs font-heading font-semibold uppercase tracking-wide text-primary-foreground">
+						{isFr ? 'Recommandé' : 'Recommended'}
+					</span>
+					<h3 class="text-xl font-semibold text-foreground font-heading">{p.pricing.compliance.title}</h3>
+					<p class="mt-1 text-sm font-semibold text-primary">{p.pricing.compliance.tagline}</p>
 					<div class="mt-6">
-						<span class="text-5xl font-bold text-foreground font-heading">{p.pricing.triennial.price}</span>
-						<span class="ml-2 text-slate-500">{p.pricing.triennial.duration}</span>
+						<span class="text-5xl font-bold text-foreground font-heading">{p.pricing.compliance.price}</span>
+						<span class="ml-2 text-muted-foreground">{p.pricing.compliance.duration}</span>
 					</div>
-					<p class="mt-2 text-sm font-semibold text-accent-600">{p.pricing.triennial.savings}</p>
+					<p class="mt-2 text-sm text-muted-foreground">{p.pricing.compliance.alt}</p>
 					<ul class="mt-8 space-y-3">
-						{p.pricing.triennial.features.map((feature) => (
+						{p.pricing.compliance.features.map((feature) => (
 							<li class="flex items-start gap-3">
-								<svg class="mt-0.5 h-5 w-5 shrink-0 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-									<path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-								</svg>
-								<span class="text-slate-600 dark:text-slate-400">{feature}</span>
+								<svg class="mt-0.5 h-5 w-5 shrink-0 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+								<span class="text-muted-foreground">{feature}</span>
 							</li>
 						))}
 					</ul>
-					<a
-						href={localePath(locale, '/contact')}
-						class="mt-8 block w-full rounded-[8px] bg-primary-600 hover:bg-primary-700 text-white text-center h-12 leading-[3rem] font-heading font-semibold shadow-lg transition-all hover:shadow-xl"
-						data-ph-cta="request_quote"
-					>
-						{quoteLabel}
-					</a>
+					<div class="mt-8 pt-2 flex-1 flex flex-col justify-end">
+						<a
+							href="https://dosismart.com/get-dosimex"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="btn btn-primary w-full"
+							data-ph-cta="subscribe_dosismart"
+						>
+							{p.pricing.subscribeButton} &rarr;
+						</a>
+						<a
+							href={localePath(locale, '/contact')}
+							class="mt-3 block text-center text-sm text-muted-foreground hover:text-primary hover:underline"
+							data-ph-cta="request_quote"
+						>
+							{p.pricing.quoteSecondary}
+						</a>
+					</div>
+				</div>
+
+				<!-- Enterprise plan (contact sales) -->
+				<div class="flex h-full flex-col rounded-2xl border border-border bg-card p-8 transition-all duration-200 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/5">
+					<h3 class="text-xl font-semibold text-foreground font-heading">{p.pricing.enterprise.title}</h3>
+					<p class="mt-1 text-sm font-semibold text-primary">{p.pricing.enterprise.tagline}</p>
+					<div class="mt-6">
+						<span class="text-3xl font-bold text-foreground font-heading">{p.pricing.enterprise.price}</span>
+					</div>
+					<ul class="mt-8 space-y-3">
+						{p.pricing.enterprise.features.map((feature) => (
+							<li class="flex items-start gap-3">
+								<svg class="mt-0.5 h-5 w-5 shrink-0 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+								<span class="text-muted-foreground">{feature}</span>
+							</li>
+						))}
+					</ul>
+					<div class="mt-8 pt-2 flex-1 flex flex-col justify-end">
+						<a
+							href={localePath(locale, '/contact')}
+							class="btn btn-secondary w-full"
+							data-ph-cta="request_quote"
+						>
+							{p.pricing.enterpriseButton}
+						</a>
+					</div>
 				</div>
 			</div>
 
-			<!-- Free trial link below cards -->
-			<div class="mt-8 text-center">
-				<a
-					href="https://dosismart.com"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="text-primary-600 font-heading font-semibold hover:underline"
-					data-ph-cta="try_dosismart"
-				>
-					{trialLabel} &rarr;
-				</a>
-			</div>
+			<!-- Two paths after seeing the price: subscribe directly, or ask for a quote -->
+			<p class="mx-auto mt-8 max-w-2xl text-center text-sm text-muted-foreground leading-relaxed">
+				{p.pricing.directNote}
+			</p>
 		</div>
 	</section>
 
+	<!-- ═══════════════════════════ SUBSCRIPTION EXPLAINER (prominent) ═══════════════════════════ -->
+	<section class="pb-12 md:pb-20">
+		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+			<div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary/[0.12] via-primary/[0.05] to-transparent p-8 md:p-12">
+				<div class="mx-auto max-w-2xl text-center">
+					<h2 class="text-2xl font-heading font-bold tracking-tight text-foreground md:text-3xl">{p.pricing.explainer.title}</h2>
+				</div>
 
+				<div class="mt-10 grid gap-8 md:grid-cols-3">
+					{p.pricing.explainer.items.map((item, i) => (
+						<div>
+							<span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary text-lg font-heading font-bold text-primary-foreground">
+								{i + 1}
+							</span>
+							<h3 class="mt-4 text-base font-heading font-semibold text-foreground">{item.title}</h3>
+							<p class="mt-2 text-sm text-muted-foreground leading-relaxed">{item.text}</p>
+						</div>
+					))}
+				</div>
+
+				<div class="mt-10 flex justify-center">
+					<a
+						href="https://dosismart.com"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="btn btn-secondary"
+						data-ph-cta="try_dosismart"
+					>
+						{trialLabel} &rarr;
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
 
 	<!-- ═══════════════════════════ WHAT'S INCLUDED ═══════════════════════════ -->
 	<section class="py-12 md:py-20">
@@ -142,24 +300,27 @@ const faqSchema = {
 			<h2 class="text-2xl md:text-3xl font-heading font-semibold text-foreground">{p.partE.title}</h2>
 			<div class="mt-8 space-y-4">
 				{p.partE.items.map((item) => (
-					<div class="rounded-lg border border-slate-200 dark:border-[#3D3A35] bg-white dark:bg-[#252320] p-6 flex items-start gap-4">
-						<svg class="mt-0.5 h-5 w-5 shrink-0 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+					<div class="rounded-2xl border border-border bg-card p-6 shadow-sm flex items-start gap-4">
+						<svg class="mt-0.5 h-5 w-5 shrink-0 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 							<path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
 						</svg>
-						<p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">{item}</p>
+						<p class="text-base text-muted-foreground leading-relaxed">{item}</p>
 					</div>
 				))}
 			</div>
+			<p class="mt-6 text-sm text-muted-foreground leading-relaxed">
+				{p.between}
+			</p>
 			<div class="mt-8 flex flex-wrap gap-4">
 				<a
 					href={localePath(locale, '/software')}
-					class="text-primary-600 font-heading font-semibold hover:underline"
+					class="text-primary font-heading font-semibold hover:underline"
 				>
 					{p.partE.softwareLink} &rarr;
 				</a>
 				<a
 					href={localePath(locale, '/manuals')}
-					class="text-primary-600 font-heading font-semibold hover:underline"
+					class="text-primary font-heading font-semibold hover:underline"
 				>
 					{p.partE.manualsLink} &rarr;
 				</a>
@@ -168,10 +329,10 @@ const faqSchema = {
 	</section>
 
 	<!-- ═══════════════════════════ PREREQUISITES ═══════════════════════════ -->
-	<section class="bg-muted/40 py-12 md:py-20">
+	<section class="py-12 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<h2 class="text-2xl md:text-3xl font-heading font-semibold text-foreground">{p.prerequisites.title}</h2>
-			<p class="mt-4 max-w-3xl text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+			<p class="mt-4 max-w-3xl text-base text-muted-foreground leading-relaxed">
 				{p.prerequisites.text}
 			</p>
 		</div>
@@ -183,15 +344,15 @@ const faqSchema = {
 			<h2 class="text-center text-2xl md:text-3xl font-heading font-semibold text-foreground">{p.faq.title}</h2>
 			<div class="mx-auto mt-10 max-w-3xl space-y-4">
 				{p.faq.questions.map((item) => (
-					<details class="group rounded-lg border border-slate-200 dark:border-[#3D3A35] bg-white dark:bg-[#252320]">
+					<details class="group rounded-2xl border border-border bg-card shadow-sm">
 						<summary class="flex items-center justify-between p-6 font-heading font-semibold text-foreground">
 							<span>{item.question}</span>
-							<svg class="faq-chevron h-5 w-5 shrink-0 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+							<svg class="faq-chevron h-5 w-5 shrink-0 text-muted-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
 								<path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
 							</svg>
 						</summary>
 						<div class="px-6 pb-6">
-							<p class="text-base text-slate-600 dark:text-slate-400 leading-relaxed">{item.answer}</p>
+							<p class="text-base text-muted-foreground leading-relaxed">{item.answer}</p>
 						</div>
 					</details>
 				))}
@@ -202,30 +363,32 @@ const faqSchema = {
 	<!-- ═══════════════════════════ CONTACT CTA ═══════════════════════════ -->
 	<section class="py-12 md:py-20">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="rounded-2xl bg-gradient-to-r from-primary/8 via-accent/5 to-emerald-400/5 p-8 md:p-12 text-center">
+			<div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary/[0.12] via-primary/[0.05] to-transparent p-10 text-center md:p-14">
 				<h2 class="text-2xl md:text-3xl font-heading font-semibold text-foreground">{p.contact.title}</h2>
-				<p class="mx-auto mt-4 max-w-2xl text-slate-600 dark:text-slate-400">
+				<p class="mx-auto mt-4 max-w-2xl text-muted-foreground">
 					{p.contact.text}
 					<a href="tel:+33689709035" class="font-semibold text-foreground hover:text-primary transition-colors">
 						{p.contact.phone}
 					</a>
+					{' — '}
+					<ObfuscatedEmail user="alain.vivier" domain="dosimex.fr" class="font-semibold text-foreground hover:text-primary transition-colors" />
 				</p>
 				<div class="mt-8 flex flex-wrap items-center justify-center gap-4">
 					<a
-						href="https://dosismart.com"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="inline-flex items-center rounded-[8px] bg-primary-600 hover:bg-primary-700 text-white h-12 px-6 font-heading font-semibold shadow-lg transition-all hover:shadow-xl"
-						data-ph-cta="try_dosismart"
-					>
-						{trialLabel}
-					</a>
-					<a
 						href={localePath(locale, '/contact')}
-						class="inline-flex items-center rounded-[8px] border-[1.5px] border-border text-foreground h-12 px-6 font-heading font-semibold hover:bg-muted transition-colors"
-						data-ph-cta="contact_us"
+						class="btn btn-primary"
+						data-ph-cta="request_quote"
 					>
 						{quoteLabel}
+					</a>
+					<a
+						href="https://dosismart.com/get-dosimex"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="btn btn-secondary"
+						data-ph-cta="subscribe_dosismart"
+					>
+						{p.pricing.subscribeButton}
 					</a>
 				</div>
 			</div>

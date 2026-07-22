@@ -1,0 +1,29 @@
+---
+/**
+ * Scrape-resistant email link. The address is split into data attributes and
+ * assembled client-side, so it never appears as a full mailto/plain string in
+ * the served HTML. Falls back to a human-readable "user [at] domain" text
+ * without JavaScript.
+ */
+interface Props {
+	user: string
+	domain: string
+	class?: string
+}
+
+const { user, domain, class: className } = Astro.props
+---
+
+<a href="#" data-em-u={user} data-em-d={domain} class={className}>{user}&#8202;[at]&#8202;{domain}</a>
+
+<script>
+	function assembleEmails() {
+		document.querySelectorAll<HTMLAnchorElement>('a[data-em-u]').forEach((a) => {
+			const address = `${a.dataset.emU}@${a.dataset.emD}`
+			a.href = `mailto:${address}`
+			a.textContent = address
+		})
+	}
+	assembleEmails()
+	document.addEventListener('astro:page-load', assembleEmails)
+</script>

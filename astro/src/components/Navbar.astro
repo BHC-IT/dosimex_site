@@ -1,5 +1,6 @@
 ---
 import ThemeToggle from './ThemeToggle.astro'
+import LanguageSwitcher from './LanguageSwitcher.astro'
 import MobileMenu from './MobileMenu.astro'
 import { localePath, getAlternateUrl, type Translations, type Locale } from '@/i18n/utils'
 
@@ -12,26 +13,39 @@ interface Props {
 const { t, locale, alternateUrl: alternateOverride } = Astro.props
 const currentPath = Astro.url.pathname
 
-const navLinks = [
+// "Logiciels" dropdown groups the two products.
+// Logiciels dropdown — Dosismart first (the product we sell now), then the
+// Suite Dosimex (the heritage the codes evolve from).
+const productLinks = [
+	{ label: t.navbar.dosismart, href: localePath(locale, '/dosismart') },
 	{ label: t.navbar.items[0], href: localePath(locale, '/software') },
+]
+// Tarifs (/product) is now a first-class nav item — it holds pricing + FAQ +
+// the existing-customer policy and must be reachable. items[3] is the story
+// page ("Histoire" / "Our story"), surfacing /about.
+const navLinks = [
+	{ label: t.navbar.tarifs, href: localePath(locale, '/product') },
 	{ label: t.navbar.items[1], href: localePath(locale, '/training') },
-	{ label: t.navbar.items[2], href: localePath(locale, '/manuals') },
 	{ label: t.navbar.items[3], href: localePath(locale, '/about') },
-	{ label: t.navbar.items[4], href: localePath(locale, '/contact') },
+	{ label: t.navbar.items[2], href: localePath(locale, '/manuals') },
 	{ label: t.navbar.items[5], href: localePath(locale, '/blog') },
+	{ label: t.navbar.items[4], href: localePath(locale, '/contact') },
 ]
 
 const alternateUrl = alternateOverride ?? getAlternateUrl(currentPath)
-const quoteLabel = locale === 'en' ? 'Get Dosimex' : 'Obtenir Dosimex'
-const quoteHref = localePath(locale, '/product')
-const trialLabel = t.navbar.button
+// Primary CTA is Dosismart-first ("Essayer Dosismart"); the quote/founder path
+// stays the secondary CTA on the home and contact pages.
+const quoteLabel = locale === 'en' ? 'Try Dosismart' : 'Essayer Dosismart'
+const quoteHref = 'https://dosismart.com'
 ---
 
 <header
 	id="site-nav"
-	class="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 transition-transform duration-300"
+	class="sticky top-0 z-50 bg-background transition-transform duration-300"
 >
-	<div class="mx-auto max-w-7xl px-6 flex items-center justify-between h-16">
+	<div class="w-full px-6 lg:px-16 flex items-center justify-between h-16">
+		<!-- Left: logo + page links -->
+		<div class="flex items-center gap-8">
 		<!-- Logo -->
 		<a href={localePath(locale, '/')} class="flex-shrink-0 flex items-center gap-2">
 			<img
@@ -52,46 +66,54 @@ const trialLabel = t.navbar.button
 
 		<!-- Desktop nav -->
 		<nav class="hidden lg:flex items-center gap-4" aria-label="Main navigation">
+			<!-- Products dropdown (Suite Dosimex + Dosismart) -->
+			<div class="relative group">
+				<button
+					type="button"
+					class="flex items-center gap-1 font-heading text-sm font-semibold text-foreground transition-colors hover:text-primary group-focus-within:text-primary"
+					aria-haspopup="true"
+					aria-expanded="false"
+				>
+					{t.navbar.products}
+					<svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180 group-focus-within:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+				</button>
+				<div class="invisible absolute left-0 top-full min-w-[12rem] pt-2 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+					<div class="rounded-lg border border-border bg-background p-1.5 shadow-lg">
+						{productLinks.map((link) => (
+							<a
+								href={link.href}
+								class="block rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-muted hover:text-primary"
+							>
+								{link.label}
+							</a>
+						))}
+					</div>
+				</div>
+			</div>
 			{navLinks.map((link) => (
 					<a
 						href={link.href}
-						class="text-sm font-medium text-foreground/70 transition-colors hover:text-primary"
+						class="font-heading text-sm font-semibold text-foreground transition-colors hover:text-primary"
 					>
 						{link.label}
 					</a>
 			))}
 		</nav>
+		</div>
 
 		<!-- Right cluster -->
-		<div class="hidden lg:flex items-center gap-4">
-			<!-- Language toggle -->
-			<a
-				href={alternateUrl}
-				data-lang-switch
-				class="rounded-md px-2 py-1 text-xs font-bold text-foreground/60 transition-colors hover:text-foreground border border-border"
-				aria-label={locale === 'fr' ? 'Switch to English' : 'Passer en français'}
-			>
-				{locale === 'fr' ? 'EN' : 'FR'}
-			</a>
+		<div class="hidden lg:flex items-center gap-3">
+			<LanguageSwitcher locale={locale} alternateUrl={alternateUrl} />
 
-			<ThemeToggle />
+			<ThemeToggle locale={locale} />
 
-			<!-- CTA: Trial -->
-			<a
-				href="https://dosismart.com"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="rounded-lg border border-primary px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary/10"
-				data-ph-cta="nav-trial"
-			>
-				{trialLabel}
-			</a>
-
-			<!-- CTA: Get Dosimex -->
+			<!-- CTA: Try Dosismart -->
 			<a
 				href={quoteHref}
-				class="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-				data-ph-cta="nav-quote"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-700"
+				data-ph-cta="nav-trial"
 			>
 				{quoteLabel}
 			</a>
@@ -100,12 +122,12 @@ const trialLabel = t.navbar.button
 		<!-- Mobile: hamburger -->
 		<div class="flex lg:hidden items-center">
 			<MobileMenu
+				productLinks={productLinks}
 				navLinks={navLinks}
 				alternateUrl={alternateUrl}
 				locale={locale}
 				quoteLabel={quoteLabel}
 				quoteHref={quoteHref}
-				trialLabel={trialLabel}
 			/>
 		</div>
 	</div>

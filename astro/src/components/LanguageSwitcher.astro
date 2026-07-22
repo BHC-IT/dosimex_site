@@ -1,0 +1,97 @@
+---
+/**
+ * Language switcher mirroring the Dosismart app's SwitchLanguage select:
+ * a bordered trigger with a globe icon and the current language name,
+ * opening a menu with both languages. Navigation happens via the alternate
+ * URL (static bilingual routing); `data-lang-switch` keeps the existing
+ * scroll-preservation behavior wired in Navbar.astro.
+ */
+interface Props {
+	locale: 'fr' | 'en'
+	alternateUrl: string
+}
+
+const { locale, alternateUrl } = Astro.props
+const currentLabel = locale === 'fr' ? 'Français' : 'English'
+const ariaLabel = locale === 'fr' ? 'Choisir la langue' : 'Select language'
+---
+
+<div class="relative" data-lang-menu>
+	<button
+		type="button"
+		data-lang-trigger
+		aria-haspopup="menu"
+		aria-expanded="false"
+		aria-label={ariaLabel}
+		class="inline-flex h-9 items-center gap-2 rounded-md border border-border bg-background px-3 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+	>
+		<svg class="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+			<circle cx="12" cy="12" r="10" />
+			<path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+			<path d="M2 12h20" />
+		</svg>
+		<span>{currentLabel}</span>
+		<svg class="h-3.5 w-3.5 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+			<path d="M6 9l6 6 6-6" />
+		</svg>
+	</button>
+
+	<div
+		data-lang-panel
+		role="menu"
+		class="absolute right-0 z-50 mt-2 hidden w-36 rounded-md border border-border bg-card p-1 shadow-md"
+	>
+		{
+			locale === 'fr' ? (
+				<>
+					<span role="menuitem" aria-current="true" class="block w-full rounded-sm bg-muted px-2 py-1.5 text-left text-sm font-medium text-card-foreground">Français</span>
+					<a role="menuitem" data-lang-switch href={alternateUrl} class="block w-full rounded-sm px-2 py-1.5 text-left text-sm text-card-foreground transition-colors hover:bg-muted">English</a>
+				</>
+			) : (
+				<>
+					<a role="menuitem" data-lang-switch href={alternateUrl} class="block w-full rounded-sm px-2 py-1.5 text-left text-sm text-card-foreground transition-colors hover:bg-muted">Français</a>
+					<span role="menuitem" aria-current="true" class="block w-full rounded-sm bg-muted px-2 py-1.5 text-left text-sm font-medium text-card-foreground">English</span>
+				</>
+			)
+		}
+	</div>
+</div>
+
+<script>
+	function closeAllLangPanels() {
+		document.querySelectorAll<HTMLElement>('[data-lang-panel]').forEach((p) => p.classList.add('hidden'))
+		document.querySelectorAll<HTMLElement>('[data-lang-trigger]').forEach((t) => t.setAttribute('aria-expanded', 'false'))
+	}
+
+	function initLangMenus() {
+		document.querySelectorAll<HTMLElement>('[data-lang-menu]').forEach((menu) => {
+			if (menu.dataset.init) return
+			menu.dataset.init = '1'
+
+			const trigger = menu.querySelector<HTMLButtonElement>('[data-lang-trigger]')
+			const panel = menu.querySelector<HTMLElement>('[data-lang-panel]')
+			if (!trigger || !panel) return
+
+			trigger.addEventListener('click', (e) => {
+				e.stopPropagation()
+				const isOpen = !panel.classList.contains('hidden')
+				closeAllLangPanels()
+				if (!isOpen) {
+					panel.classList.remove('hidden')
+					trigger.setAttribute('aria-expanded', 'true')
+				}
+			})
+		})
+
+		if (!document.documentElement.dataset.langMenuGlobal) {
+			document.documentElement.dataset.langMenuGlobal = '1'
+			document.addEventListener('click', closeAllLangPanels)
+			document.addEventListener('keydown', (e) => {
+				if (e.key === 'Escape') closeAllLangPanels()
+			})
+		}
+	}
+
+	initLangMenus()
+	document.addEventListener('astro:page-load', initLangMenus)
+</script>

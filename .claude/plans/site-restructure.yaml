@@ -1,0 +1,493 @@
+goal: "Restructure dosimex.fr per two-site strategy: home narrative rework, persona sections on product pages, pricing de-dup, Learn hub + References pages, nav restructure, motion pass, Dosismart v0.28 accuracy pass (FR+EN)"
+checks:
+  - name: build
+    command: "cd astro && pnpm build"
+steps:
+  - name: "Content accuracy & de-dup"
+    tasks:
+      - id: "1.1"
+        summary: "Dosismart v0.28 accuracy pass on all i18n copy"
+        prompt: |
+          Update the Dosimex marketing site copy so every claim about Dosismart (the web app)
+          matches what the app actually ships as of v0.28 (July 2026). Work in
+          astro/src/i18n/fr.ts and astro/src/i18n/en.ts — BOTH files, kept strictly in sync
+          (same keys, equivalent meaning). These are large page-keyed translation objects
+          (sections: home, dosismartPage, software, product, seo, ...). TypeScript strict mode;
+          never use `any`.
+
+          GROUND TRUTH — Dosismart v0.28 shipped scope:
+          - Web calculators (Base tier): Gamma dose (point AND plane/line/composite source
+            geometries, multi-layer shielding, inverse/forward), X-ray generator (dose rate,
+            equivalent thickness, NF C15-160 calculations, scatter), Sky-shine ("effet de ciel"),
+            Cylinder/shield optimizer (fixed-volume dose sweep, 3D graph).
+          - Compliance tier tools (SHIPPED, not "coming soon"): Source inventory (decay tracking,
+            SIGIS export, verification scheduling), Plans/Zonage editor (2D editor, dose-rate
+            heatmap, critical measurement points, zone classification per arrêté 2020-01-28,
+            PDF export), Études de poste (4-step wizard, 8-section regulatory PDF, worker
+            classification Cat A/B, annual dose).
+          - Workspace: calculation history (full parameter snapshot, CSV/PDF export), groups/
+            organizations with roles, 2FA (TOTP), guided onboarding tours.
+          - Commercial: 14-day free trial INCLUDING all Compliance features (no credit card);
+            two tiers only — Base €500/yr (€1000/3yr), Compliance €1350/yr (€2700/3yr), each
+            covering BOTH the web app and the Dosimex Suite; pay-by-invoice available alongside
+            card payment (fits institutional procurement).
+          - Still Suite-only (Excel desktop): beta, neutron, gammagraphy, internal exposure
+            calculators and the measurement utilities (TAGE, Co3, decision thresholds,
+            calibration, contamination). State this honestly as the Suite's continuing depth,
+            with the codes migrating to the web over the coming years.
+
+          WHAT TO DO:
+          1. Grep both i18n files for stale scope claims — e.g. "point source only", "3D coming
+            soon", "bientôt", "à venir", "coming soon", "pour l'instant", or any copy implying
+            inventory/zonage/études are future features. The old spec flagged stale strings
+            around fr.ts lines 100, 119, 134, 274, 284, 455, 475, 515, 530 (may have drifted).
+            Fix every one against the ground truth above.
+          2. Verify the trial copy mentions the trial covers Compliance features — add it where
+            the trial is pitched (product/pricing section, dosismartPage) if absent.
+          3. Verify pay-by-invoice ("paiement sur facture / bon de commande") is mentioned in
+            the pricing/product section for institutional buyers.
+          4. Do NOT restructure pages or move content between sections in this task — copy
+            corrections only.
+
+          COPY RULES (binding): tight and confident, one or two short sentences per helper text;
+          professional and verifiable, no marketing hype. Endorsed framing: one subscription
+          covers two tools ("un abonnement, deux outils"); NEVER "included with", NEVER framing
+          the two products as sold equals. Bare "Dosimex" = the brand; the Excel product is
+          always "la suite Dosimex" / "the Dosimex Suite". No sunset/"deprecated" language about
+          the Suite.
+        files: [astro/src/i18n/fr.ts, astro/src/i18n/en.ts]
+        done: false
+      - id: "1.2"
+        summary: "De-dup pricing page: move Suite prerequisites/education to the Suite page"
+        prompt: |
+          On the Dosimex Astro site (astro/ dir, Astro 5 + Tailwind v4, i18n in
+          astro/src/i18n/fr.ts + en.ts, both edited in sync, TypeScript strict, never `any`):
+
+          The pricing page astro/src/pages/[...locale]/product.astro currently carries product
+          education that belongs on the Suite presentation page: a section describing what the
+          Suite contains and the technical prerequisites (Excel/Windows for the Suite; browser
+          for Dosismart). Per the site's de-dup rule, /product must be TRANSACTION-ONLY: the two
+          tiers, what the subscription covers (one line), self-serve vs quote/PO, the
+          existing-customer policy, and the FAQ. Prices appear ONLY on this page.
+
+          WHAT TO DO:
+          1. Read product.astro and its i18n section (`product:` key in both locale files).
+            Identify the Suite-content and prerequisites blocks.
+          2. Move the prerequisites/system-requirements content to
+            astro/src/pages/[...locale]/software.astro (the Suite page) in a fitting place —
+            e.g. a compact "Prérequis" strip near the Suite intro. Add the strings under the
+            `software:` i18n key; remove them from `product:` (delete unused keys from BOTH
+            locale files and from product.astro markup).
+          3. Keep a single short line on /product stating the subscription covers both tools,
+            linking to /software and /dosismart for details (use the localePath(locale, path)
+            helper from @/i18n/utils for links; French default no prefix, English /en/ prefix).
+          4. Do not touch prices, tiers, FAQ content, or the trial banner.
+
+          STYLE: use semantic tokens only (text-primary, bg-muted, border-border,
+          text-muted-foreground...), never raw hex; must work in light AND dark mode (dark:
+          variants); match existing section rhythm (py-16 md:py-28, max-w-7xl). Copy tight —
+          this task should NET-DELETE words from /product.
+        files:
+          [
+            "astro/src/pages/[...locale]/product.astro",
+            "astro/src/pages/[...locale]/software.astro",
+            astro/src/i18n/fr.ts,
+            astro/src/i18n/en.ts,
+          ]
+        done: false
+  - name: "New pages"
+    tasks:
+      - id: "2.1"
+        summary: "Create /learn (Comprendre) hub and move pedagogical modules off /software"
+        prompt: |
+          Create a new "Comprendre" (Learn) hub page on the Dosimex Astro site — the landing
+          page for the pedagogy pillar ("Du calcul à la compréhension"): Dosimex's
+          differentiator is that it helps people actually understand the physics, not just run
+          cold software. AUDIENCE NUANCE (important): students benefit but do NOT buy — the
+          subscription is too expensive for an individual student. The buyer on the education
+          side is the INSTITUTION: universities, engineering schools, RP training centers
+          (EAMEA/INSTN-style) that equip their students. Address teachers and program heads,
+          never "buy this" to students.
+
+          CODEBASE CONVENTIONS (astro/ dir, Astro 5, Tailwind v4, TS strict, never `any`):
+          - Pages live in astro/src/pages/[...locale]/ with the catch-all pattern. Copy the
+            frame of an existing page (e.g. books.astro): `export const getStaticPaths =
+            getLocalePaths`, `const { locale } = Astro.props as { locale: Locale }`,
+            `const t = getTranslations(locale)`, wrapped in Layout with
+            title/description/jsonLd. Links between pages use localePath(locale, path).
+          - i18n: add a `learn:` section AND a `seo.learn` entry (title + description) to BOTH
+            astro/src/i18n/fr.ts and en.ts, kept in sync. FR is the primary voice; EN is a
+            faithful translation.
+          - Styling: semantic tokens only (no raw hex), light+dark via dark: variants, sections
+            py-16 md:py-28, max-w-7xl, generous whitespace (Proton-like air), soft
+            bg-primary/5–10 blur glows sparingly. Headings font-semibold tracking-tight.
+
+          PAGE CONTENT (file: astro/src/pages/[...locale]/learn.astro, URL /learn):
+          1. Hero: the Understanding pillar — "Du calcul à la compréhension" (FR accent).
+            Two audiences named in one tight line: professionals who want to master what their
+            tools compute, and schools/training centers giving their students real tools to
+            build physics intuition (speak to the institution, not the student wallet).
+            Include a quiet line for education institutions: equipping a class/course can be
+            discussed — link to /contact. No dedicated education pricing exists; do NOT invent
+            one.
+          2. The 6 pedagogical/learning modules currently presented on
+            astro/src/pages/[...locale]/software.astro (the "learning pack": photon
+            interaction, charged-particle interaction, ICRU coefficients, serious game, decay
+            simulator, etc. — read software.astro and the `software:` i18n key for the exact
+            list, titles, descriptions, video links). MOVE their primary presentation here:
+            reuse the existing i18n strings by relocating them under the `learn:` key. On
+            /software, replace the learning-pack catalog section with a compact one-line
+            cross-link ("6 modules pédagogiques interactifs → Comprendre" style) KEEPING the
+            module names visible in the text for SEO, linking to /learn.
+          3. Short router sections (2-3 sentences + link each, reuse existing imagery/patterns):
+            books (/books — the founders' published books + curated readings), the YouTube
+            physics channel (see astro/src/data/videos.ts and the videos i18n section),
+            documentation (/manuals), and training (/training — 1-3 day hands-on courses).
+          4. JSON-LD: organizationSchema from @/data/schemas is enough.
+
+          COPY RULES: tight, senior-colleague voice, no hype, one idea per section. Do NOT add
+          the page to the navbar/footer in this task (a later task restructures navigation).
+        files:
+          [
+            "astro/src/pages/[...locale]/software.astro",
+            astro/src/i18n/fr.ts,
+            astro/src/i18n/en.ts,
+            astro/src/data/videos.ts,
+          ]
+        done: false
+      - id: "2.2"
+        summary: "Create /references (validation & trust) page; slim /manuals; absorb testimonials"
+        prompt: |
+          Create a "Références & Validation" trust page on the Dosimex Astro site — the proof
+          page: cross-validation of the calculation engines, institutional users, and user
+          testimonials in one place.
+
+          CODEBASE CONVENTIONS (astro/ dir, Astro 5, Tailwind v4, TS strict, never `any`):
+          - Pages live in astro/src/pages/[...locale]/ with the catch-all pattern. Copy the
+            frame of an existing page (e.g. manuals.astro): `export const getStaticPaths =
+            getLocalePaths`, `const { locale } = Astro.props as { locale: Locale }`,
+            `const t = getTranslations(locale)`, Layout with title/description/jsonLd,
+            localePath(locale, path) for internal links.
+          - i18n: add a `references:` section AND `seo.references` entry to BOTH
+            astro/src/i18n/fr.ts and en.ts, in sync.
+          - Styling: semantic tokens only, light+dark modes, py-16 md:py-28, max-w-7xl.
+
+          PAGE CONTENT (file: astro/src/pages/[...locale]/references.astro, URL /references):
+          1. Hero: verifiable-claims voice — codes cross-validated against MCNP (CEA reference
+            Monte-Carlo code), compared with Microshield/RayXpert in independent end-of-study
+            works; 30 years, 1,500+ professionals.
+          2. Validation dossiers: MOVE the validation-files chapter (gamma, X-ray, MCNP/CEA
+            references, X attenuation PDFs) and the end-of-study internship reports chapter
+            (Microshield vs Dosimex comparisons) from
+            astro/src/pages/[...locale]/manuals.astro to this page — relocate their i18n
+            strings from the `manuals:` key into `references:`. Keep the PDF download links
+            working exactly as they are (assets under public/). Then slim manuals.astro to
+            user manuals only, and remove now-unused keys from the `manuals:` section in BOTH
+            locales.
+          3. Institutional users: the named organizations (EDF, Orano, CEA, IRSN/ASNR, CNRS,
+            Framatome, Apave, university hospitals...) — check the partner logos in
+            astro/src/data/videos.ts and the testimonials page for the accurate list. Present
+            as a sober logo/name strip, not a wall.
+          4. Testimonials: absorb the content of
+            astro/src/pages/[...locale]/testimonials.astro (2018 survey excerpts + the personal
+            -opinion disclaimer — keep the disclaimer). Curate the strongest few rather than
+            dumping all. KEEP the /testimonials page itself alive (bookmarks/SEO) — do not
+            delete it — but it will leave the nav in a later task.
+          5. Close CTA: quiet — "questions about validation? Contact us" + link to /manuals.
+
+          COPY RULES: professional, technical, verifiable claims only ("validé MCNP",
+          "17 modules", "30 ans") — this page convinces by evidence, not adjectives. Do NOT
+          add the page to navbar/footer in this task.
+        files:
+          [
+            "astro/src/pages/[...locale]/manuals.astro",
+            "astro/src/pages/[...locale]/testimonials.astro",
+            astro/src/i18n/fr.ts,
+            astro/src/i18n/en.ts,
+            astro/src/data/videos.ts,
+          ]
+        done: false
+  - name: "Navigation"
+    tasks:
+      - id: "3.1"
+        summary: "Restructure navbar, mobile menu, and footer around Ressources + Références"
+        prompt: |
+          Restructure the navigation of the Dosimex Astro site (astro/ dir) to this final
+          top-level layout (7 items + CTA):
+
+            Logiciels ▾ (Dosismart · Suite Dosimex) · Tarifs · Ressources ▾ (Comprendre ·
+            Documentation · Blog · Livres) · Formations · Références · Histoire · Contact
+            + primary CTA button "Essayer Dosismart" (external https://dosismart.com, kept as-is)
+
+          EN labels: Software ▾ (Dosismart · Dosimex Suite) · Pricing · Resources ▾ (Learn ·
+          Documentation · Blog · Books) · Training · References · Our story · Contact.
+
+          URL map (existing helper localePath(locale, path) from @/i18n/utils; FR default no
+          prefix, EN /en/ prefix): Dosismart→/dosismart, Suite→/software, Tarifs→/product,
+          Comprendre→/learn, Documentation→/manuals, Blog→/blog, Livres→/books,
+          Formations→/training, Références→/references, Histoire→/about, Contact→/contact.
+
+          FILES:
+          - astro/src/components/Navbar.astro — already has a "Logiciels" hover/focus dropdown
+            (relative group + invisible/opacity pattern around line 69). Reuse that exact
+            pattern for the new "Ressources" dropdown. Keep Dosismart first in Logiciels.
+          - astro/src/components/MobileMenu.astro — mirror the same structure for mobile
+            (grouped sections are fine; make sure every page above is reachable and tap targets
+            are comfortable). Verify open/close still works.
+          - astro/src/components/Footer.astro — update columns to match: a "Logiciels" column
+            (Dosismart, Suite Dosimex, Tarifs), a "Ressources" column (Comprendre,
+            Documentation, Livres, Blog, YouTube), a "Société" column (Histoire, Formations,
+            Références, Contact + phone/email), legal column unchanged. Remove any nav/footer
+            link to /testimonials (page stays alive, just unlinked; /references replaces it).
+          - astro/src/i18n/fr.ts + en.ts — add/rename the needed strings under `navbar:` and
+            `footer:` in BOTH locales, in sync. Remove unused label keys.
+
+          CONSTRAINTS: TS strict, never `any`. Semantic tokens only, light+dark modes.
+          Dropdown must stay keyboard-accessible (the existing pattern uses group-focus-within
+          — preserve it). Test that /learn and /references pages exist (created in earlier
+          tasks) — if they don't, stop and report instead of linking to 404s.
+        files:
+          [
+            astro/src/components/Navbar.astro,
+            astro/src/components/MobileMenu.astro,
+            astro/src/components/Footer.astro,
+            astro/src/i18n/fr.ts,
+            astro/src/i18n/en.ts,
+          ]
+        done: false
+  - name: "Product page depth"
+    tasks:
+      - id: "4.1"
+        summary: "Dosismart page: persona section + discreet on-prem FAQ"
+        prompt: |
+          Deepen astro/src/pages/[...locale]/dosismart.astro (the Dosismart product page) on
+          the Dosimex Astro site (astro/ dir, Astro 5, Tailwind v4, TS strict, never `any`,
+          i18n in astro/src/i18n/fr.ts + en.ts edited in sync under the `dosismartPage:` key).
+
+          1. ADD A "WHO IT'S FOR" SECTION — persona-shaped structure, NOT more paragraphs.
+            4 compact cards, each: persona title, ONE pain sentence, ONE sentence naming the
+            Dosismart features that answer it, features linked to the page's existing anchors
+            where they exist. Ground them in these real personas:
+            - PCR hospitalier (part-time RP officer in a hospital/clinic, chronically
+              time-starved, RP is 5-20% of their job): needs calculations without installing
+              anything and documents ready for inspection → gamma/X-ray in the browser,
+              études de poste PDFs, history for traceability.
+            - Consultant OCR (full-time consultant, 10-50+ client sites): needs repeatable
+              workflows across clients → organizations/groups, source inventories per client,
+              zonage plans + regulatory PDFs at consulting speed.
+            - PCR industriel (HSE engineer, gammagraphy/NDT, mobile sources, changing
+              geometries): needs quick dose calculations for varied configurations → source
+              geometries (point/line/plane), shielding, sky-shine, zonage for temporary zones.
+            - École / organisme de formation (university, engineering school, RP training
+              center — the INSTITUTION is the buyer, not the student; a subscription is too
+              expensive for an individual student): needs to equip a whole class with real
+              calculation tools, without installing anything in the computer room → runs in
+              the browser on any machine, organizations/groups to manage student access,
+              full parameter visibility so students see the physics behind the numbers, and
+              the pedagogy pillar (link to /learn via localePath(locale, '/learn')). CTA on
+              this card: contact us to equip a course (/contact), NOT the trial.
+          2. ADD THE DISCREET ON-PREM ANSWER: one FAQ-style item near the bottom of the page
+            (with the existing FAQ/questions block if the page has one; otherwise a small
+            muted Q&A strip before the closing CTA). FR wording in this spirit: "Contraintes
+            de sécurité informatique ? Un déploiement hors-ligne de Dosismart peut être étudié
+            pour les organisations qui l'exigent — contactez-nous." EN equivalent. This is
+            REAL (the app ships an on-prem license activation workflow) but must stay
+            low-visibility: no feature card, no nav mention, not in the hero — findable by
+            those who look, invisible to those who don't.
+          3. Sanity-check the page's feature claims against v0.28 shipped scope (gamma with
+            point/plane/line/composite geometries; X-ray incl. NF C15-160; sky-shine; shield
+            optimizer; Compliance tier: source inventory + SIGIS, zonage editor with heatmap
+            and arrêté-2020 zones, études de poste 8-section PDF; 2FA; trial includes
+            Compliance features). Fix mismatches; don't invent features beyond this list.
+
+          STYLE: semantic tokens only, light+dark modes, py-16 md:py-28 rhythm, copy tight
+          (senior-colleague voice, no hype). Cards: rounded-lg border bg-card shadow-sm with
+          gentle hover (hover:-translate-y-1 hover:shadow-lg transition-all duration-200).
+        files:
+          [
+            "astro/src/pages/[...locale]/dosismart.astro",
+            astro/src/i18n/fr.ts,
+            astro/src/i18n/en.ts,
+          ]
+        done: false
+      - id: "4.2"
+        summary: "Suite page: heritage narrative + persona relevance, slimmed to operational identity"
+        prompt: |
+          Rework astro/src/pages/[...locale]/software.astro (the Dosimex Suite page) on the
+          Dosimex Astro site (astro/ dir, Astro 5, Tailwind v4, TS strict, never `any`, i18n
+          under the `software:` key in astro/src/i18n/fr.ts + en.ts, edited in sync).
+
+          CONTEXT: earlier tasks moved the 6 pedagogical modules to /learn (a cross-link
+          remains) and moved the prerequisites strip here from the pricing page. The page's
+          identity is now: HERITAGE + DEPTH — 30 years, 17 modules, MCNP-validated, the
+          calculation breadth the web app doesn't cover yet, codes migrating to the web over
+          the coming years. The Suite is honored, not pushed as co-lead; never "deprecated",
+          no sunset date. Bare "Dosimex" = the brand; this product is "la suite Dosimex" /
+          "the Dosimex Suite".
+
+          1. INTRO/HERO: verify it reads as heritage + evolution (30 years, EDF/Orano/1500+
+            users, validated engines; Dosismart is where new capabilities ship, the Suite
+            remains the reference for what the web doesn't cover yet — beta, neutron,
+            gammagraphy, internal exposure, measurement utilities). Tighten if it drifts.
+          2. ADD A COMPACT "WHO STILL NEEDS THE SUITE'S DEPTH" ANGLE — 3 short use-case lines
+            (not a big card grid; this page is denser by design): PCR industriel/nucléaire
+            needing neutron, beta or internal-exposure calculations; measurement people
+            needing TAGE/Co3/decision-threshold utilities; schools and lecturers wanting the
+            full physics toolbox for their courses (the institution equips, students use).
+            One sentence each, woven near the pack catalogs.
+          3. Verify the operational (6 codes) and measurement (5 utilities) catalogs survived
+            the pedagogical-pack removal cleanly: no dangling i18n keys, no broken anchors
+            (grep both locale files and the page for orphans), the learning-pack cross-link to
+            /learn present with module names in text (SEO).
+          4. Check cross-links: /product for pricing (prices live ONLY there — remove any
+            price mention here), /dosismart for the web app, validation dossiers now on
+            /references (update any link that pointed at the moved /manuals chapters).
+
+          STYLE: semantic tokens only, light+dark, density is allowed here (spec/tool page)
+          but copy stays tight and verifiable. Use localePath(locale, path) for links.
+        files:
+          [
+            "astro/src/pages/[...locale]/software.astro",
+            astro/src/i18n/fr.ts,
+            astro/src/i18n/en.ts,
+          ]
+        done: false
+  - name: "Home narrative"
+    tasks:
+      - id: "5.1"
+        summary: "Rework home page into one connected story arc"
+        prompt: |
+          Rework astro/src/pages/[...locale]/index.astro (home) of the Dosimex Astro site
+          (astro/ dir, Astro 5, Tailwind v4, TS strict, never `any`, i18n under the `home:`
+          key in astro/src/i18n/fr.ts + en.ts, edited in sync) so the page reads as ONE story
+          instead of disconnected info blocks. The current problem: sections are individually
+          fine but nothing hands off to the next — it feels like "a drop of a lot of info
+          without links with each other".
+
+          THE STORY ARC (reorder/bridge existing sections — reuse existing components and
+          previews from astro/src/components/previews/, do not rebuild them):
+          1. Hero (keep the live gamma demo + CTA "Essayer Dosismart"): the through-line —
+            FR "Depuis 30 ans, Dosimex met le calcul en radioprotection à la portée de tous —
+            aujourd'hui sur le web avec Dosismart." / EN "For 30 years, Dosimex has put
+            radiation-protection calculation within everyone's reach — now on the web with
+            Dosismart." Verify the hero states or closely echoes this line.
+          2. Evolution bridge (short): 30 years of validated Excel codes → the same engines,
+            now in the browser. This section EXPLAINS THE RELATIONSHIP between the two
+            products in 2-3 sentences — it is the anti-confusion keystone for visitors who
+            only know "Dosimex".
+          3. Dosismart detail (the product-we-sell-now section, precedes the Suite section —
+            keep this order): workspace in the browser, previews, link to /dosismart.
+          4. Suite heritage: depth + provenance, link to /software. Its intro sentence should
+            pick up from the Dosismart section (e.g. "Et tout ce que le web ne couvre pas
+            encore reste dans la suite" spirit — write it properly).
+          5. Understanding pillar tease (NEW, short): "Du calcul à la compréhension" — books,
+            YouTube physics channel, 6 interactive learning modules, training; one paragraph +
+            link to /learn (localePath(locale, '/learn')). This is a differentiator vs cold
+            competitor software — for professionals AND for the schools training the next
+            generation of RP professionals (institutions equip their students; don't pitch
+            students as buyers).
+          6. Proof: testimonial + institutional names section, now linking to /references
+            (not /testimonials).
+          7. Price banner (one line, both tiers covered, link to /product) + close CTA
+            ("Essayer Dosismart" primary, contact secondary).
+
+          BRIDGING RULE: every section's first or last line should connect to its neighbor
+          (a handoff clause, not a headline restated). Prefer REWRITING existing i18n strings
+          over adding new ones; net word count should stay flat or drop. Remove any section
+          that duplicates what a detail page says better — home is a router, it explains
+          nothing in depth.
+
+          STYLE: semantic tokens only, light+dark modes, Proton-level air (py-16 md:py-28+,
+          one idea per section), copy tight and confident, framing rules: "un abonnement,
+          deux outils", never "included with", never equals; bare "Dosimex" = brand, Excel
+          product = "la suite Dosimex".
+        files:
+          [
+            "astro/src/pages/[...locale]/index.astro",
+            astro/src/i18n/fr.ts,
+            astro/src/i18n/en.ts,
+          ]
+        done: false
+  - name: "Motion & polish"
+    tasks:
+      - id: "6.1"
+        summary: "Motion pass: scroll reveals, animated counters, hover states across pages"
+        prompt: |
+          Apply a consistent, subtle motion pass across the Dosimex Astro site (astro/ dir).
+          EXISTING INFRASTRUCTURE — reuse, don't reinvent:
+          - `.reveal` / `.revealed` scroll-reveal classes in astro/src/styles/global.css
+            (~line 184), with the IntersectionObserver wired in astro/src/layouts/Layout.astro.
+          - astro/src/components/StatsCounter.astro — animated number counter.
+
+          WHAT TO DO:
+          1. Audit these pages and apply `.reveal` to major sections that lack it, so sections
+            fade in on scroll: index.astro, dosismart.astro, software.astro, learn.astro,
+            references.astro, product.astro, about.astro, training.astro (all under
+            astro/src/pages/[...locale]/). One reveal per section, optionally a small stagger
+            on card grids if the pattern already supports it — do NOT invent a new animation
+            system.
+          2. Use StatsCounter for headline numbers where they appear statically (30 years,
+            1500+ users, 17 modules...) on home, /references and /software — check its props
+            by reading the component first.
+          3. Normalize hover states on interactive cards/links to the house style:
+            transition-all duration-200, hover:-translate-y-1, hover:shadow-lg (cards);
+            hover:text-primary (links). Fix any card missing a transition.
+          4. HARD LIMITS: no bounce, no parallax, no spring/elastic easings, nothing on the
+            hero that delays content visibility. Respect prefers-reduced-motion — check
+            whether global.css/Layout already handles it for .reveal; if not, add a
+            `@media (prefers-reduced-motion: reduce)` rule that makes .reveal content visible
+            immediately and disables the counter animation.
+          5. RESPONSIVE CHECK: while touching each page, verify section paddings and grids
+            degrade cleanly at ~360px, 768px, 1024px widths (Tailwind sm/md/lg patterns
+            already in use — fix obvious overflow/cramped grids only, no redesign).
+
+          CONSTRAINTS: TS strict, never `any`; semantic tokens only; verify changed sections
+          in BOTH light and dark modes (grep for missing dark: variants on anything you add).
+        files:
+          [
+            astro/src/styles/global.css,
+            astro/src/layouts/Layout.astro,
+            astro/src/components/StatsCounter.astro,
+          ]
+        done: false
+      - id: "6.2"
+        summary: "Consistency sweep: SEO metadata, JSON-LD, llms.txt, stale cross-references"
+        prompt: |
+          Final consistency sweep of the Dosimex Astro site (astro/ dir) after a restructure
+          that: created /learn (Comprendre hub) and /references (validation & trust) pages,
+          moved pedagogical modules off /software, moved validation dossiers off /manuals,
+          de-linked /testimonials (page still exists), moved Suite prerequisites from /product
+          to /software, and reworked home/dosismart/software copy.
+
+          CHECK AND FIX:
+          1. Internal links: grep all .astro files under astro/src for links to /testimonials,
+            /manuals anchors, and /software anchors that may have moved. Every internal link
+            must resolve to an existing page/anchor. Use localePath(locale, path) for any you
+            touch.
+          2. i18n sync: compare the top-level keys and nested structure of
+            astro/src/i18n/fr.ts vs en.ts — they must have identical shapes. Remove orphaned
+            keys no page references (grep each suspicious key across astro/src), add any
+            missing counterpart translations.
+          3. SEO: /learn and /references must have seo entries (title + description) in both
+            locales and appear in the sitemap (auto via @astrojs/sitemap — verify they emit in
+            the build output astro/dist after `pnpm build`, look for learn/index.html and
+            references/index.html in dist and dist/en).
+          4. JSON-LD in astro/src/data/schemas.ts: the SoftwareApplication schema should
+            describe the subscription covering both tools (Dosismart web app + Dosimex Suite)
+            with the two real tiers (€500/yr Base, €1350/yr Compliance). Update if stale.
+          5. public/llms.txt: refresh the site map / product description to the new structure
+            (Dosismart-first, /learn, /references, accurate Dosismart v0.28 scope: gamma with
+            volumetric geometries, X-ray NF C15-160, sky-shine, shield optimizer, plus
+            Compliance tier: source inventory, zonage editor, études de poste).
+          6. Run a production build (cd astro && pnpm build) and fix anything it flags.
+
+          CONSTRAINTS: TS strict, never `any`. This is a sweep, not a redesign — smallest
+          possible diffs. Report anything you found-but-couldn't-fix rather than guessing.
+        files:
+          [
+            astro/src/i18n/fr.ts,
+            astro/src/i18n/en.ts,
+            astro/src/data/schemas.ts,
+            public/llms.txt,
+          ]
+        done: false

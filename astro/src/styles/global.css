@@ -3,40 +3,45 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-	/* Light mode colors — matching trunk */
-	--color-background: #FFFFFF;
-	--color-foreground: #0B0D17;
-	--color-primary: #DB2132;
+	/* Palette — Dosismart app colours as the base (blue hsl(229 100% 62%)),
+	   with the Dosimex logo red (#FF2532) as a sparing accent ("touch of red
+	   when coherent"). Light background is a soft blue tint (not pure white)
+	   so white cards read softly. */
+	--color-background: hsl(229, 24%, 98%);
+	--color-foreground: hsl(229, 63%, 4%);
+	--color-primary: hsl(229, 100%, 62%);
 	--color-primary-foreground: #FFFFFF;
-	--color-secondary: hsl(0, 10%, 92%);
-	--color-secondary-foreground: hsl(0, 10%, 30%);
-	--color-muted: #F3F4FA;
-	--color-muted-foreground: hsl(229, 10%, 40%);
-	--color-accent: #FFC03D;
-	--color-accent-foreground: #0B0D17;
+	--color-secondary: hsl(229, 20%, 90%);
+	--color-secondary-foreground: hsl(229, 20%, 30%);
+	--color-muted: hsl(229, 35%, 94%);
+	--color-muted-foreground: hsl(229, 10%, 37%);
+	--color-accent: hsl(229, 28%, 85%);
+	--color-accent-foreground: hsl(229, 28%, 25%);
 	--color-card: #FFFFFF;
-	--color-card-foreground: #0B0D17;
-	--color-border: hsl(220, 13%, 91%);
-	--color-input: hsl(220, 13%, 91%);
-	--color-ring: #FF2532;
-	--color-destructive: hsl(3, 100%, 50%);
+	--color-card-foreground: hsl(229, 63%, 3%);
+	--color-border: hsl(220, 13%, 89%);
+	--color-input: hsl(220, 13%, 89%);
+	--color-ring: hsl(229, 100%, 62%);
+	--color-destructive: hsl(356, 100%, 57%);
 
-	/* Primary scale (for explicit shade references) */
-	--color-primary-600: #DB2132;
-	--color-primary-700: #B71828;
+	/* Dosismart blue scale */
+	--color-primary-600: hsl(229, 100%, 62%);
+	--color-primary-700: hsl(229, 84%, 52%);
 
-	/* Accent scale */
-	--color-accent-400: #FFC03D;
+	/* Dosimex logo red — accent, used sparingly */
+	--color-brandred: #FF2532;
+	--color-brandred-hover: #E01E2A;
+	--color-accent-400: #FF2532;
 
 	/* Semantic */
 	--color-success: #16A34A;
 	--color-warning: #D97706;
-	--color-error: #DC2626;
+	--color-error: #DA261C;
 	--color-info: #2563EB;
 
-	/* Fonts */
-	--font-heading: 'Inter Variable', 'Inter', system-ui, -apple-system, sans-serif;
-	--font-body: 'Source Sans 3 Variable', 'Source Sans 3', 'Segoe UI', sans-serif;
+	/* Fonts — Inter for headings only; body matches the Dosismart app's system stack */
+	--font-heading: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+	--font-body: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 	--font-mono: ui-monospace, 'SF Mono', 'Cascadia Code', 'Fira Mono', Menlo, monospace;
 
 	/* Border radius */
@@ -52,27 +57,30 @@
 	--shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.1), 0 8px 20px rgba(0, 0, 0, 0.06);
 }
 
-/* Dark mode overrides — matching trunk */
+/* Dark mode — Dosismart app dark palette (blue primary on a deep blue base),
+   with the logo red slightly lifted for contrast. */
 .dark {
-	--color-background: #0B0D17;
-	--color-foreground: #F3F4FA;
-	--color-primary: #FF4D58;
+	--color-background: hsl(229, 41%, 4%);
+	--color-foreground: hsl(229, 23%, 99%);
+	--color-primary: hsl(229, 100%, 62%);
 	--color-primary-foreground: #FFFFFF;
-	--color-secondary: hsl(229, 14%, 14%);
+	--color-secondary: hsl(229, 14%, 10%);
 	--color-secondary-foreground: hsl(229, 14%, 74%);
-	--color-muted: hsl(229, 15%, 14%);
-	--color-muted-foreground: hsl(229, 10%, 60%);
-	--color-accent: #FFC03D;
-	--color-accent-foreground: #0B0D17;
-	--color-card: hsl(229, 25%, 10%);
-	--color-card-foreground: #F3F4FA;
-	--color-border: hsl(229, 15%, 20%);
-	--color-input: hsl(229, 15%, 20%);
-	--color-ring: #FF4D58;
+	--color-muted: hsl(229, 12%, 14%);
+	--color-muted-foreground: hsl(229, 10%, 63%);
+	--color-accent: hsl(229, 23%, 17%);
+	--color-accent-foreground: hsl(229, 23%, 77%);
+	--color-card: hsl(229, 30%, 8%);
+	--color-card-foreground: hsl(229, 23%, 99%);
+	--color-border: hsl(215, 28%, 17%);
+	--color-input: hsl(215, 28%, 17%);
+	--color-ring: hsl(229, 100%, 62%);
 
-	--color-primary-600: #FF4D58;
-	--color-primary-700: #E63E50;
-	--color-accent-400: #FFD34A;
+	--color-primary-600: hsl(229, 100%, 62%);
+	--color-primary-700: hsl(229, 84%, 52%);
+	--color-brandred: #FF3B47;
+	--color-brandred-hover: #FF2532;
+	--color-accent-400: #FF3B47;
 }
 
 /* Base styles */
@@ -87,15 +95,37 @@
 
 	body {
 		font-family: var(--font-body);
+		/* Clip (not hidden) so the hero glow can bleed past sections without a
+		   horizontal scrollbar. `clip` avoids creating a scroll container, so
+		   the sticky navbar keeps working (unlike overflow-x: hidden). */
+		overflow-x: clip;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
 		font-family: var(--font-heading);
+		font-weight: 600;
+		letter-spacing: -0.02em;
 	}
 
 	:focus-visible {
 		outline: 2px solid var(--color-ring);
 		outline-offset: 2px;
+	}
+}
+
+/* Canonical buttons — the whole site uses only these two.
+   .btn-primary  = blue fill, darker-blue hover
+   .btn-secondary = light fill, subtle border, slightly darker on hover
+   Layout-only utilities (mt-*, w-full) may be added alongside. */
+@layer components {
+	.btn {
+		@apply inline-flex h-12 items-center justify-center gap-2 rounded-lg px-6 text-base font-heading font-semibold transition-colors duration-150;
+	}
+	.btn-primary {
+		@apply bg-primary text-primary-foreground shadow-lg hover:bg-primary-700;
+	}
+	.btn-secondary {
+		@apply border border-border bg-background text-foreground hover:bg-muted;
 	}
 }
 
@@ -105,6 +135,24 @@
 		linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
 		linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
 	background-size: 48px 48px;
+}
+
+/* Gradient accent text — two shades of the Dosismart blue (blue → dark blue) */
+.text-gradient {
+	background-image: linear-gradient(100deg, hsl(229, 100%, 62%), hsl(229, 95%, 40%));
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
+.dark .text-gradient {
+	background-image: linear-gradient(100deg, hsl(229, 100%, 70%), hsl(229, 100%, 55%));
+}
+
+/* Faint dotted texture for section backgrounds (light + dark) */
+.bg-dots {
+	background-image: radial-gradient(currentColor 1px, transparent 1px);
+	background-size: 22px 22px;
+	color: color-mix(in srgb, var(--color-primary) 10%, transparent);
 }
 
 /* FAQ accordion */
@@ -160,8 +208,11 @@ details[open] .faq-chevron {
 .partner-scroll {
 	animation: partner-scroll 30s linear infinite;
 }
-.partner-scroll:hover {
-	animation-play-state: running;
+/* The marquee reads as sluggish on small screens — speed it up on mobile. */
+@media (max-width: 768px) {
+	.partner-scroll {
+		animation-duration: 16s;
+	}
 }
 
 /* Blog prose typography */

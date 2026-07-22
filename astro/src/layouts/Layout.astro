@@ -1,6 +1,5 @@
 ---
 import '@fontsource-variable/inter'
-import '@fontsource-variable/source-sans-3'
 import '@/styles/global.css'
 import Navbar from '@/components/Navbar.astro'
 import Footer from '@/components/Footer.astro'
@@ -34,22 +33,16 @@ const { title, description = defaultDescription, ogImage, robots, jsonLd, altern
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<title>{title}</title>
 		<BaseHead title={title} description={description} ogImage={ogImage} robots={robots} jsonLd={jsonLd} alternateUrl={alternateUrl} />
-		<!-- Dark mode: respect user choice, fall back to system preference -->
+		<!-- Dark mode (no-flash): 'light' | 'dark' | 'system' (default) stored in localStorage -->
 		<script is:inline>
 			(function() {
 				var t = localStorage.getItem('theme')
-				if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-					document.documentElement.classList.add('dark')
-				}
+				var dark = t === 'dark' || ((t === 'system' || !t) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+				document.documentElement.classList.toggle('dark', dark)
 			})()
 		</script>
 	</head>
 	<body class="min-h-screen bg-background text-foreground font-body antialiased relative overflow-x-hidden">
-		<!-- Decorative red aura background -->
-		<div aria-hidden="true" class="pointer-events-none fixed inset-0 overflow-hidden -z-10">
-			<div class="absolute -top-24 left-1/2 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-primary/5 blur-3xl"></div>
-		</div>
-
 		<Navbar t={t} locale={locale} alternateUrl={alternateUrl} />
 
 		<main class="relative">

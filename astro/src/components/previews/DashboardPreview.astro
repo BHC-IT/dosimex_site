@@ -1,0 +1,114 @@
+---
+/**
+ * DashboardPreview — a live, rebuilt glimpse of the Dosismart gamma calculator,
+ * framed in browser chrome on a soft glow backdrop (Proton pattern).
+ *
+ * This intentionally reuses the Dosismart app's real component idioms
+ * (card = `rounded-lg border bg-card shadow-sm`, result value = `text-2xl
+ * font-bold text-primary`, status dots, muted result boxes) so it reads as a
+ * true preview of the product — NOT a screenshot. All values are prop-driven so
+ * it stays a small edit (not a re-screenshot) when the real dashboard evolves.
+ *
+ * See CLAUDE.md › "Voice & UI › Visuals: NO screenshots — build live previews".
+ */
+import type { Locale } from '@/i18n/utils'
+import WindowFrame from './WindowFrame.astro'
+
+interface Props {
+	locale: Locale
+	/** Primary result, e.g. "1.24" */
+	doseRate?: string
+	doseUnit?: string
+	/** Operational quantity label shown under the result, e.g. "H*(10)" */
+	coefficient?: string
+	doseWithoutShield?: string
+	doseWithShield?: string
+	class?: string
+}
+
+const {
+	locale,
+	doseRate = '1.24',
+	doseUnit = 'mSv/h',
+	coefficient = 'H*(10)',
+	doseWithoutShield = '4.80',
+	doseWithShield = '1.24',
+	class: className = '',
+} = Astro.props
+
+const isFr = locale === 'fr'
+const l = {
+	params: isFr ? 'Paramètres' : 'Parameters',
+	radionuclide: isFr ? 'Radionucléide' : 'Radionuclide',
+	activity: isFr ? 'Activité' : 'Activity',
+	distance: isFr ? 'Distance' : 'Distance',
+	shield: isFr ? 'Écran' : 'Shield',
+	result: isFr ? 'Débit de dose' : 'Dose rate',
+	details: isFr ? 'Avec / sans écran' : 'With / without shield',
+	without: isFr ? 'Sans écran' : 'Without shield',
+	with: isFr ? 'Avec écran' : 'With shield',
+}
+
+const fields = [
+	{ label: l.radionuclide, value: 'Ir-192' },
+	{ label: l.activity, value: '370 GBq' },
+	{ label: l.distance, value: '100 cm' },
+	{ label: l.shield, value: 'Pb — 10 mm' },
+]
+---
+
+<WindowFrame class={className}>
+	<!-- app body -->
+	<div class="grid gap-4 p-4 sm:p-5 md:grid-cols-2">
+			<!-- inputs -->
+			<div class="rounded-lg border bg-card p-4 shadow-sm">
+				<h3 class="mb-3 flex items-center gap-2 text-sm font-semibold text-foreground">
+					<span class="h-2 w-2 rounded-full bg-slate-400" aria-hidden="true"></span>
+					{l.params}
+				</h3>
+				<div class="space-y-2.5">
+					{fields.map((f) => (
+						<div>
+							<div class="mb-1 text-xs text-muted-foreground">{f.label}</div>
+							<div class="flex h-9 items-center rounded-md border border-input bg-background px-3 text-sm text-foreground">
+								{f.value}
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+
+			<!-- results -->
+			<div class="space-y-4">
+				<div class="rounded-lg border bg-card p-4 shadow-sm">
+					<h3 class="mb-3 flex items-center gap-2 text-sm font-semibold text-foreground">
+						<span class="h-2 w-2 rounded-full bg-green-500" aria-hidden="true"></span>
+						{l.result}
+					</h3>
+					<div class="rounded-lg border bg-muted/50 p-4 text-center">
+						<p class="mb-1 text-2xl font-bold text-primary tabular-nums">
+							{doseRate}<span class="ml-1 text-base font-semibold text-muted-foreground">{doseUnit}</span>
+						</p>
+						<p class="text-xs text-muted-foreground">{coefficient}</p>
+					</div>
+				</div>
+
+				<div class="rounded-lg border bg-card p-4 shadow-sm">
+					<h3 class="mb-3 flex items-center gap-2 text-sm font-semibold text-foreground">
+						<span class="h-2 w-2 rounded-full bg-orange-500" aria-hidden="true"></span>
+						{l.details}
+					</h3>
+					<div class="grid grid-cols-2 gap-3">
+						<div class="rounded-lg bg-muted/30 p-3 text-center">
+							<p class="text-base font-semibold text-foreground tabular-nums">{doseWithoutShield}</p>
+							<p class="text-xs text-muted-foreground">{l.without}</p>
+						</div>
+						<div class="rounded-lg bg-muted/30 p-3 text-center">
+							<p class="text-base font-semibold text-foreground tabular-nums">{doseWithShield}</p>
+							<p class="text-xs text-muted-foreground">{l.with}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</WindowFrame>

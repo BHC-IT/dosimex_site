@@ -1,0 +1,97 @@
+---
+/**
+ * ZonagePreview — a rebuilt glimpse of the Dosismart plans editor / zonage
+ * canvas (Compliance tier). Rebuilds the editor layout: a floor plan with a
+ * color-coded dose overlay (concentric regulatory zones around a source), and
+ * the app's ZoneSummary legend card (colored swatch · zone label · area m²).
+ * Zone thresholds and colors follow the arrêté du 28 janvier 2020. Static,
+ * prop-free, bilingual, framed in WindowFrame. NOT a screenshot.
+ * See CLAUDE.md › "Voice & UI › Visuals".
+ */
+import type { Locale } from '@/i18n/utils'
+import WindowFrame from './WindowFrame.astro'
+
+interface Props {
+	locale: Locale
+	class?: string
+}
+
+const { locale, class: className = '' } = Astro.props
+const isFr = locale === 'fr'
+
+const l = {
+	title: isFr ? 'Plan de zonage' : 'Zoning plan',
+	subtitle: isFr ? 'arrêté du 28/01/2020' : 'French decree 28/01/2020',
+	legend: isFr ? 'Zones réglementaires' : 'Regulatory zones',
+	source: isFr ? 'Source' : 'Source',
+}
+
+// Regulatory zones (arrêté du 28 janvier 2020), high→low, with the app's
+// heat-map colors and illustrative floor areas.
+const zones = [
+	{ label: isFr ? 'Zone contrôlée orange' : 'Orange controlled', color: '#F97316', area: '4.2' },
+	{ label: isFr ? 'Zone contrôlée jaune' : 'Yellow controlled', color: '#EAB308', area: '11.8' },
+	{ label: isFr ? 'Zone contrôlée verte' : 'Green controlled', color: '#22C55E', area: '23.5' },
+	{ label: isFr ? 'Zone surveillée bleue' : 'Blue supervised', color: '#3B82F6', area: '38.0' },
+	{ label: isFr ? 'Zone publique' : 'Public', color: '#94A3B8', area: '—' },
+]
+
+// Concentric overlay radii (as % of the plan box), matching the legend order.
+const rings = [
+	{ color: '#3B82F6', r: 46 },
+	{ color: '#22C55E', r: 34 },
+	{ color: '#EAB308', r: 22 },
+	{ color: '#F97316', r: 12 },
+]
+---
+
+<WindowFrame class={className}>
+	<div class="p-4 sm:p-5">
+		<div class="mb-4 flex items-center justify-between gap-3">
+			<h3 class="flex items-center gap-2 text-sm font-semibold text-foreground">
+				<span class="h-2 w-2 rounded-full bg-primary" aria-hidden="true"></span>
+				{l.title}
+			</h3>
+			<span class="rounded-md bg-muted/60 px-2 py-1 text-[11px] text-muted-foreground">{l.subtitle}</span>
+		</div>
+
+		<div class="grid gap-4 sm:grid-cols-[1.4fr_1fr]">
+			<!-- plan canvas with concentric zone overlay -->
+			<div
+				class="relative aspect-[4/3] overflow-hidden rounded-lg border border-border bg-card"
+				style="background-image: repeating-linear-gradient(0deg, transparent, transparent 23px, var(--color-border) 23px, var(--color-border) 24px), repeating-linear-gradient(90deg, transparent, transparent 23px, var(--color-border) 23px, var(--color-border) 24px);"
+			>
+				<!-- room outline -->
+				<div class="absolute inset-3 rounded-md border-2 border-muted-foreground/30"></div>
+				<!-- dose zones, largest first so smaller ones stack on top -->
+				{rings.map((ring) => (
+					<span
+						class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"
+						style={`width:${ring.r * 2}%;height:${ring.r * 2}%;background:radial-gradient(circle, ${ring.color}e6 0%, ${ring.color}99 72%, ${ring.color}66 100%)`}
+						aria-hidden="true"
+					></span>
+				))}
+				<!-- source marker -->
+				<span class="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center gap-1">
+					<span class="h-2.5 w-2.5 rounded-full bg-destructive ring-2 ring-white"></span>
+				</span>
+			</div>
+
+			<!-- legend card (app ZoneSummary idiom) -->
+			<div class="rounded-lg border border-border bg-card p-4 shadow-sm">
+				<h4 class="mb-3 text-xs font-semibold text-foreground">{l.legend}</h4>
+				<ul class="space-y-2">
+					{zones.map((z) => (
+						<li class="flex items-center justify-between gap-2 text-xs">
+							<div class="flex items-center gap-2">
+								<span class="inline-block h-3 w-3 shrink-0 rounded-sm" style={`background-color:${z.color}`} aria-hidden="true"></span>
+								<span class="text-foreground">{z.label}</span>
+							</div>
+							<span class="tabular-nums text-muted-foreground">{z.area === '—' ? '—' : `${z.area} m²`}</span>
+						</li>
+					))}
+				</ul>
+			</div>
+		</div>
+	</div>
+</WindowFrame>

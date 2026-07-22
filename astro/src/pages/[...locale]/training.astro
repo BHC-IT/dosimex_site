@@ -9,60 +9,99 @@ export const getStaticPaths = getLocalePaths
 
 const { locale } = Astro.props as { locale: Locale }
 const t = getTranslations(locale)
+const isFr = locale === 'fr'
 const tr = t.training
+
+const arrow = 'M5 12h14M12 5l7 7-7 7'
+
+// Format facts — pulled from the intro copy so the hero states the practical
+// shape of a session at a glance (fits training content, not a software catalog).
+const facts = isFr
+	? ['1 à 3 jours', 'Intra-entreprise', 'Sur site ou visio', 'Travaux dirigés']
+	: ['1 to 3 days', 'On-premise', 'On-site or remote', 'Hands-on workshops']
 ---
 
 <Layout title={t.seo.training.title} description={t.seo.training.description} jsonLd={[organizationSchema]}>
 
-	<!-- Hero -->
-	<section class="py-16 md:py-24">
-		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="grid items-center gap-10 lg:grid-cols-2">
+	<!-- ══════════ HERO ══════════ -->
+	<section class="py-20 lg:py-28">
+		<div class="mx-auto max-w-7xl px-6">
+			<div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
 				<div>
-					<h1 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground tracking-tight">
+					<h1 class="text-balance text-4xl font-heading font-bold tracking-tight text-foreground md:text-5xl">
 						{tr.header.title}
 					</h1>
-					<p class="mt-6 text-lg text-foreground/70 leading-relaxed">
+					<p class="mt-6 max-w-xl text-lg text-muted-foreground leading-relaxed">
 						{tr.header.description}
 					</p>
+					<ul class="mt-8 flex flex-wrap gap-2">
+						{facts.map((fact) => (
+							<li class="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3.5 py-1.5 text-sm font-heading font-semibold text-foreground/80">
+								<span class="h-1.5 w-1.5 rounded-full bg-primary" aria-hidden="true"></span>
+								{fact}
+							</li>
+						))}
+					</ul>
+					<div class="mt-9 flex flex-wrap items-center gap-4">
+						<a
+							href={localePath(locale, '/contact')}
+							class="btn btn-primary"
+							data-ph-cta="training-quote"
+						>
+							{isFr ? 'Demander un devis' : 'Request a quote'}
+							<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d={arrow}/></svg>
+						</a>
+						<a href="#themes" class="btn btn-secondary">
+							{isFr ? 'Voir les thématiques' : 'See the topics'}
+							<span aria-hidden="true">&darr;</span>
+						</a>
+					</div>
 				</div>
-				<div class="md:max-w-2xl md:mx-auto lg:max-w-none">
+
+				<div class="relative">
+					<!-- Soft blue glow blooming under the video — Proton preview pattern. -->
+					<div class="pointer-events-none absolute -inset-8 -z-10 rounded-[2.5rem] bg-primary/20 blur-3xl" aria-hidden="true"></div>
+					<div class="pointer-events-none absolute -bottom-12 left-1/2 -z-10 h-44 w-4/5 -translate-x-1/2 rounded-full bg-primary/30 blur-3xl" aria-hidden="true"></div>
 					<VideoEmbed videoId={videoIds.training} title={tr.videoTitle} />
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- Section 1: Training Topics -->
-	<section class="bg-muted/40 py-16 md:py-20">
-		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<h2 class="text-2xl font-heading font-semibold text-foreground md:text-3xl">
-				{tr.section1.title}
-			</h2>
-			<div class="mt-8 grid gap-4 md:grid-cols-2">
-				{tr.section1.items.map((item) => (
-					<div class="border-l-4 border-primary/30 pl-4 py-2">
-						<p class="text-foreground/80">{item}</p>
-					</div>
-				))}
+	<!-- ══════════ THEMES (real-world cases) ══════════ -->
+	<section id="themes" class="py-16 md:py-24">
+		<div class="mx-auto max-w-7xl px-6">
+			<div class="max-w-3xl">
+				<h2 class="text-3xl font-heading font-semibold tracking-tight text-foreground md:text-4xl">
+					{isFr ? 'Thématiques abordées' : 'Topics we cover'}
+				</h2>
+				<p class="mt-4 text-lg text-muted-foreground leading-relaxed">{tr.section1.title}</p>
 			</div>
+
+			<ul class="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+				{tr.section1.items.map((item) => (
+					<li class="group flex items-start gap-3 rounded-xl border border-border bg-card px-4 py-3.5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-md hover:shadow-primary/5">
+						<svg class="mt-0.5 h-5 w-5 shrink-0 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+						<span class="text-sm text-foreground/80 leading-snug">{item}</span>
+					</li>
+				))}
+			</ul>
 		</div>
 	</section>
 
-	<!-- Section 2: Partner Training -->
-	<section class="py-16 md:py-20">
-		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="grid lg:grid-cols-2 gap-12 items-center">
+	<!-- ══════════ PARTNER (Veolia Nuclear Solutions) ══════════ -->
+	<section class="py-16 md:py-24">
+		<div class="mx-auto max-w-7xl px-6">
+			<div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
 				<div>
-					<h2 class="text-2xl font-heading font-semibold text-foreground md:text-3xl">
-						{tr.section2.title}
+					<h2 class="text-3xl font-heading font-semibold tracking-tight text-foreground md:text-4xl">
+						{isFr ? 'Avec Veolia Nuclear Solutions' : 'With Veolia Nuclear Solutions'}
 					</h2>
-					<ul class="mt-8 space-y-3">
+					<p class="mt-4 text-lg text-muted-foreground leading-relaxed">{tr.section2.title}</p>
+					<ul class="mt-8 grid gap-3 sm:grid-cols-2">
 						{tr.section2.items.map((item) => (
-							<li class="flex items-center gap-3 text-foreground/80">
-								<svg class="h-4 w-4 shrink-0 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-									<path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-								</svg>
+							<li class="flex items-center gap-3 rounded-xl bg-primary/[0.06] px-4 py-3 text-sm font-heading font-semibold text-foreground/80">
+								<svg class="h-4 w-4 shrink-0 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
 								{item}
 							</li>
 						))}
@@ -71,7 +110,7 @@ const tr = t.training
 						href="/Folders/Catalogue formation VNS v7.pdf"
 						target="_blank"
 						rel="noopener noreferrer"
-						class="mt-8 inline-flex items-center gap-2 rounded-[8px] bg-primary-600 hover:bg-primary-700 h-12 px-6 font-heading font-semibold text-white shadow-lg transition-all hover:shadow-xl"
+						class="btn btn-primary mt-8"
 						data-ph-cta="download_catalog"
 					>
 						{tr.section2.button}
@@ -80,11 +119,13 @@ const tr = t.training
 						</svg>
 					</a>
 				</div>
-				<div class="md:max-w-2xl md:mx-auto lg:max-w-none">
+
+				<div class="relative lg:order-last">
+					<div class="absolute -inset-6 -z-10 rounded-[2rem] bg-primary/10 blur-3xl" aria-hidden="true"></div>
 					<img
 						src="/Images/formation.png"
-						alt={locale === 'fr' ? 'Formation Dosimex en radioprotection' : 'Dosimex radiation protection training'}
-						class="w-full rounded-xl shadow-md"
+						alt={isFr ? 'Formation Dosimex en radioprotection' : 'Dosimex radiation protection training'}
+						class="w-full rounded-2xl shadow-xl shadow-primary/5"
 						loading="lazy"
 						width="800"
 						height="600"
@@ -94,23 +135,26 @@ const tr = t.training
 		</div>
 	</section>
 
-	<!-- Contact CTA -->
-	<section class="py-16 md:py-20">
-		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<div class="rounded-2xl bg-gradient-to-r from-primary/15 via-accent/10 to-emerald-400/10 p-8 md:p-12 text-center">
-				<h2 class="text-2xl font-heading font-semibold text-foreground md:text-3xl">
-					{tr.questions.title}
-				</h2>
-				<p class="mx-auto mt-4 max-w-2xl text-slate-600 dark:text-slate-400">
-					{tr.questions.text}
-				</p>
-				<a
-					href={localePath(locale, '/contact')}
-					class="mt-6 inline-flex items-center rounded-[8px] bg-primary-600 hover:bg-primary-700 h-12 px-6 font-heading font-semibold text-white shadow-lg transition-all hover:shadow-xl"
-					data-ph-cta="contact_us"
-				>
-					{tr.questions.button}
-				</a>
+	<!-- ══════════ CONTACT CTA ══════════ -->
+	<section class="py-16 md:py-24">
+		<div class="mx-auto max-w-7xl px-6">
+			<div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary/[0.12] via-primary/[0.05] to-transparent p-10 text-center md:p-14">
+				<div class="relative mx-auto max-w-2xl">
+					<h2 class="text-3xl font-heading font-bold tracking-tight text-foreground md:text-4xl">{tr.questions.title}</h2>
+					<p class="mx-auto mt-5 max-w-2xl text-lg text-muted-foreground">
+						{tr.questions.text}
+					</p>
+					<div class="mt-9 flex justify-center">
+						<a
+							href={localePath(locale, '/contact')}
+							class="btn btn-primary"
+							data-ph-cta="contact_us"
+						>
+							{tr.questions.button}
+							<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d={arrow}/></svg>
+						</a>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>

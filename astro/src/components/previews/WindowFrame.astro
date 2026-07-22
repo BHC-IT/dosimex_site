@@ -1,0 +1,40 @@
+---
+/**
+ * WindowFrame — shared browser/window chrome for product previews.
+ *
+ * Wraps any content (a rebuilt UI preview, or a framed desktop/Excel
+ * screenshot) in consistent chrome on a soft blue glow backdrop — the Proton
+ * pattern of showing product as "a glimpse through a window", never a bare
+ * image. See CLAUDE.md › "Voice & UI › Visuals".
+ */
+interface Props {
+	/** Optional address-bar / file-name label, e.g. "dosismart.com/gamma" or "DOSIMEX-GX.xlsx" */
+	label?: string
+	/** Show the soft glow backdrop (default true) */
+	glow?: boolean
+	class?: string
+}
+
+const { label = '', glow = true, class: className = '' } = Astro.props
+---
+
+<div class:list={['relative', className]}>
+	{glow && (
+		<div class="absolute -inset-6 -z-10 rounded-[2rem] bg-primary/10 blur-3xl" aria-hidden="true"></div>
+	)}
+	<div class="overflow-hidden rounded-xl border border-border bg-card shadow-2xl shadow-primary/10">
+		<div class="flex items-center gap-2 border-b border-border bg-muted/40 px-4 py-3">
+			<span class="flex gap-1.5" aria-hidden="true">
+				<span class="h-3 w-3 rounded-full bg-border"></span>
+				<span class="h-3 w-3 rounded-full bg-border"></span>
+				<span class="h-3 w-3 rounded-full bg-border"></span>
+			</span>
+			{label && (
+				<div class="ml-2 flex-1 truncate rounded-md bg-background px-3 py-1 text-xs text-muted-foreground">
+					{label}
+				</div>
+			)}
+		</div>
+		<slot />
+	</div>
+</div>

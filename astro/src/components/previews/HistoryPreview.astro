@@ -1,0 +1,61 @@
+---
+/**
+ * HistoryPreview — a rebuilt glimpse of the Dosismart calculation history /
+ * audit trail (a cloud-only differentiator over the desktop suite). Reuses the
+ * app's history-row idiom: label + tabular dose value + small colored zone
+ * badge. Static, prop-free, bilingual. See CLAUDE.md › "Voice & UI › Visuals".
+ */
+import type { Locale } from '@/i18n/utils'
+import WindowFrame from './WindowFrame.astro'
+
+interface Props {
+	locale: Locale
+	class?: string
+}
+
+const { locale, class: className = '' } = Astro.props
+const isFr = locale === 'fr'
+
+const title = isFr ? 'Historique des calculs' : 'Calculation history'
+const subtitle = isFr
+	? '5 calculs · synchronisés dans le cloud'
+	: '5 calculations · synced to the cloud'
+
+// Illustrative rows — realistic radionuclides / dose rates / zoning colors.
+const rows = [
+	{ nuclide: 'Ir-192', context: isFr ? 'Gammagraphie' : 'Gammagraphy', dose: '1.24 mSv/h', zone: isFr ? 'Zone orange' : 'Orange zone', color: '#F97316' },
+	{ nuclide: 'Co-60', context: isFr ? 'Irradiateur' : 'Irradiator', dose: '312 µSv/h', zone: isFr ? 'Zone jaune' : 'Yellow zone', color: '#EAB308' },
+	{ nuclide: 'Cs-137', context: isFr ? 'Source étalon' : 'Reference source', dose: '48 µSv/h', zone: isFr ? 'Zone verte' : 'Green zone', color: '#22C55E' },
+	{ nuclide: 'Se-75', context: isFr ? 'Contrôle soudure' : 'Weld inspection', dose: '96 µSv/h', zone: isFr ? 'Zone verte' : 'Green zone', color: '#22C55E' },
+]
+---
+
+<WindowFrame class={className}>
+	<div class="p-4 sm:p-5">
+		<div class="mb-4 flex items-center justify-between">
+			<h3 class="flex items-center gap-2 text-sm font-semibold text-foreground">
+				<span class="h-2 w-2 rounded-full bg-blue-500" aria-hidden="true"></span>
+				{title}
+			</h3>
+			<span class="text-xs text-muted-foreground">{subtitle}</span>
+		</div>
+
+		<ul class="space-y-2">
+			{rows.map((r) => (
+				<li class="flex items-center justify-between gap-3 rounded-lg border border-border bg-card px-3 py-2.5 shadow-sm">
+					<div class="min-w-0">
+						<div class="text-sm font-semibold text-foreground">{r.nuclide}</div>
+						<div class="truncate text-xs text-muted-foreground">{r.context}</div>
+					</div>
+					<div class="flex flex-col items-end gap-1">
+						<span class="text-sm font-semibold tabular-nums text-foreground">{r.dose}</span>
+						<span class="flex items-center gap-1">
+							<span class="inline-block h-2.5 w-2.5 shrink-0 rounded-sm" style={`background-color:${r.color}`} aria-hidden="true"></span>
+							<span class="text-xs text-muted-foreground">{r.zone}</span>
+						</span>
+					</div>
+				</li>
+			))}
+		</ul>
+	</div>
+</WindowFrame>

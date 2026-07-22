@@ -1,0 +1,92 @@
+---
+/**
+ * SourceInventoryPreview — a rebuilt glimpse of the Dosismart source inventory
+ * (Compliance tier). Reuses the app's SourceList idiom: a table of registered
+ * sources (name · nuclide · current activity · location · status badge) with
+ * the auto-decay note that sets this feature apart from a spreadsheet register.
+ * Static, prop-free, bilingual, framed in WindowFrame. NOT a screenshot.
+ * See CLAUDE.md › "Voice & UI › Visuals".
+ */
+import type { Locale } from '@/i18n/utils'
+import WindowFrame from './WindowFrame.astro'
+
+interface Props {
+	locale: Locale
+	class?: string
+}
+
+const { locale, class: className = '' } = Astro.props
+const isFr = locale === 'fr'
+
+const l = {
+	title: isFr ? 'Inventaire des sources' : 'Source inventory',
+	subtitle: isFr ? 'décroissance recalculée chaque jour' : 'decay recomputed daily',
+	name: isFr ? 'Source' : 'Source',
+	nuclide: isFr ? 'Radionucléide' : 'Nuclide',
+	activity: isFr ? 'Activité actuelle' : 'Current activity',
+	location: isFr ? 'Emplacement' : 'Location',
+	status: isFr ? 'Statut' : 'Status',
+	active: isFr ? 'Active' : 'Active',
+	expiring: isFr ? 'À vérifier' : 'Expiring',
+	disposed: isFr ? 'Éliminée' : 'Disposed',
+}
+
+// Illustrative register — realistic nuclides, half-life-consistent decayed
+// activities, and the three status variants used by the app's SourceStatusBadge.
+const rows = [
+	{ name: 'Gammagraphe A', nuclide: 'Ir-192', activity: '312 GBq', loc: isFr ? 'Casier 1' : 'Locker 1', status: 'active' },
+	{ name: isFr ? 'Source étalon' : 'Reference', nuclide: 'Cs-137', activity: '3.62 GBq', loc: isFr ? 'Labo métrologie' : 'Metrology lab', status: 'active' },
+	{ name: 'Irradiateur', nuclide: 'Co-60', activity: '18.4 GBq', loc: isFr ? 'Cellule blindée' : 'Shielded cell', status: 'expiring' },
+	{ name: isFr ? 'Contrôle soudure' : 'Weld control', nuclide: 'Se-75', activity: '0.44 GBq', loc: isFr ? 'Casier 2' : 'Locker 2', status: 'active' },
+	{ name: isFr ? 'Ancienne source' : 'Legacy source', nuclide: 'Am-241', activity: '9.1 MBq', loc: isFr ? 'Retour fournisseur' : 'Returned', status: 'disposed' },
+]
+
+const badge: Record<string, { cls: string; label: string }> = {
+	active: { cls: 'border-transparent bg-primary/90 text-primary-foreground', label: l.active },
+	expiring: { cls: 'border-transparent bg-secondary text-secondary-foreground', label: l.expiring },
+	disposed: { cls: 'border-transparent bg-destructive/90 text-white', label: l.disposed },
+}
+---
+
+<WindowFrame class={className}>
+	<div class="p-4 sm:p-5">
+		<div class="mb-4 flex items-center justify-between gap-3">
+			<h3 class="flex items-center gap-2 text-sm font-semibold text-foreground">
+				<span class="h-2 w-2 rounded-full bg-primary" aria-hidden="true"></span>
+				{l.title}
+			</h3>
+			<span class="rounded-md bg-muted/60 px-2 py-1 font-mono text-[11px] text-muted-foreground">
+				A = A₀·e<sup>−λt</sup> · <span class="text-foreground">{l.subtitle}</span>
+			</span>
+		</div>
+
+		<div class="overflow-hidden rounded-lg border border-border">
+			<table class="w-full text-sm">
+				<thead>
+					<tr class="border-b border-border bg-muted/40 text-left text-xs text-muted-foreground">
+						<th class="px-3 py-2 font-medium">{l.name}</th>
+						<th class="px-3 py-2 font-medium">{l.nuclide}</th>
+						<th class="px-3 py-2 text-right font-medium">{l.activity}</th>
+						<th class="hidden px-3 py-2 font-medium sm:table-cell">{l.location}</th>
+						<th class="px-3 py-2 text-right font-medium">{l.status}</th>
+					</tr>
+				</thead>
+				<tbody>
+					{rows.map((r) => (
+						<tr class="border-b border-border last:border-0">
+							<td class="px-3 py-2.5 font-medium text-foreground">{r.name}</td>
+							<td class="px-3 py-2.5 text-muted-foreground">{r.nuclide}</td>
+							<td class="px-3 py-2.5 text-right tabular-nums text-foreground">{r.activity}</td>
+							<td class="hidden px-3 py-2.5 text-muted-foreground sm:table-cell">{r.loc}</td>
+							<td class="px-3 py-2.5 text-right">
+								<span class={`inline-flex items-center rounded-full border px-2 py-0.5 text-[11px] font-semibold ${badge[r.status].cls}`}>
+									{badge[r.status].label}
+								</span>
+							</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</WindowFrame>

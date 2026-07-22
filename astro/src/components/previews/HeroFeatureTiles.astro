@@ -1,0 +1,166 @@
+---
+/**
+ * HeroFeatureTiles — the hero "isotope trefoil".
+ * A large, static, softly-blurred radiation trefoil (the radioactive logo) sits
+ * transparent behind the composition — blades filled with a white→blue gradient,
+ * a solid blue core. The Dosimex/Dosismart modules are grouped into its three
+ * blades: one arm for dose codes, one for physics & exposure, one for measurement
+ * & zoning. Each module is a frosted white card holding its short code (or an
+ * icon, where the code is just a word) with the name inside. Codes/descriptions
+ * come from the suite page (software).
+ *
+ * Desktop: cards are positioned onto each blade of the (square) trefoil.
+ * Tablet/mobile: the same cards fall back to a centered flex-wrap over the logo.
+ */
+import type { Locale } from '@/i18n/utils'
+
+interface Props {
+	locale: Locale
+	class?: string
+}
+
+const { locale, class: className = '' } = Astro.props
+const isFr = locale === 'fr'
+
+// Inner markup for each card's icon (stroke inherits from the <svg>).
+const icons: Record<string, string> = {
+	map: '<path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/>',
+}
+
+// Each module: short code + optional icon + name, `glyph` chooses what fills the
+// card ('code' letters by default, 'icon' where the code is just a word), and
+// its placement inside one of the three trefoil blades (mid = blade centre angle;
+// R = radius, off = angular offset from the blade axis — in the 0–100 SVG frame).
+const tiles: Array<{ code: string; icon?: string; name: string; glyph: 'code' | 'icon'; mid: number; R: number; off: number }> = [
+	// ── Blade ▼ — calcul de dose ────────────────────────────────
+	{ code: 'GX', glyph: 'code', name: 'Gamma', mid: 90, R: 12, off: 0 },
+	{ code: 'GenX', glyph: 'code', name: isFr ? 'Générateur X' : 'X-ray generator', mid: 90, R: 32, off: -33 },
+	{ code: 'B', glyph: 'code', name: isFr ? 'Bêta' : 'Beta', mid: 90, R: 32, off: 33 },
+	{ code: 'N', glyph: 'code', name: isFr ? 'Neutrons' : 'Neutron', mid: 90, R: 42, off: 0 },
+	// ── Blade ◤ — physique & exposition ─────────────────────────
+	{ code: 'I', glyph: 'code', name: isFr ? 'Exp. interne' : 'Internal exp.', mid: 210, R: 15, off: 0 },
+	{ code: 'IRM', glyph: 'code', name: 'Photons', mid: 210, R: 34, off: -30 },
+	{ code: 'IRM', glyph: 'code', name: isFr ? 'Part. chargées' : 'Charged part.', mid: 210, R: 34, off: 30 },
+	// ── Blade ◥ — mesure & zonage ───────────────────────────────
+	{ code: 'TAGE', glyph: 'code', name: isFr ? 'Spectrométrie γ' : 'Gamma spectro.', mid: 330, R: 15, off: 0 },
+	{ code: 'Co3', glyph: 'code', name: 'Contamination', mid: 330, R: 34, off: -30 },
+	{ code: 'Zonage', glyph: 'icon', icon: 'map', name: isFr ? 'Zonage' : 'Zoning', mid: 330, R: 34, off: 30 },
+]
+
+// Resolve each card's centre to a percentage position on the square field.
+const placed = tiles.map((t) => {
+	const a = ((t.mid + t.off) * Math.PI) / 180
+	return {
+		...t,
+		x: +(50 + t.R * Math.cos(a)).toFixed(2),
+		y: +(50 + t.R * Math.sin(a)).toFixed(2),
+	}
+})
+
+// Radiation trefoil: central disc + three wide annular blades at 90° / 210° /
+// 330°, on a 0–100 viewBox. Blades are deliberately large & fat (ri=9, ro=48,
+// ±38°) so each arm visually *contains* the ~4 cards fanned across it (cards
+// reach R42 at off ±33°). This trades icon fidelity for the "cards in the blade"
+// look the hero wants.
+const C = 50
+const polar = (r: number, deg: number) => {
+	const a = (deg * Math.PI) / 180
+	return `${(C + r * Math.cos(a)).toFixed(2)} ${(C + r * Math.sin(a)).toFixed(2)}`
+}
+const blade = (mid: number) => {
+	const ri = 11
+	const ro = 48
+	const h = 40
+	return `M ${polar(ri, mid - h)} A ${ri} ${ri} 0 0 1 ${polar(ri, mid + h)} L ${polar(ro, mid + h)} A ${ro} ${ro} 0 0 0 ${polar(ro, mid - h)} Z`
+}
+const blades = [90, 210, 330].map(blade)
+---
+
+<div class:list={['relative mx-auto max-w-2xl', className]}>
+	<!-- soft glow behind the composition -->
+	<div class="absolute inset-0 -z-10" aria-hidden="true">
+		<div class="absolute left-1/2 top-1/2 h-[460px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-3xl"></div>
+	</div>
+
+	<div class="constellation relative mx-auto flex flex-wrap items-start justify-center gap-x-3 gap-y-4">
+		<!-- the radioactive logo: large, transparent, static, softly blurred -->
+		<div class="pointer-events-none absolute inset-0 grid place-items-center" aria-hidden="true">
+			<svg
+				class="trefoil h-[72vw] w-[72vw] max-h-[22rem] max-w-[22rem] opacity-60 blur-[3px] dark:opacity-50 md:h-full md:w-full md:max-h-none md:max-w-none"
+				viewBox="0 0 100 100"
+				fill="none"
+			>
+				<defs>
+					<radialGradient id="trefoil-grad" gradientUnits="userSpaceOnUse" cx="50" cy="50" r="52">
+						<stop offset="0%" style="stop-color: var(--trefoil-core)" />
+						<stop offset="55%" style="stop-color: var(--trefoil-core)" />
+						<stop offset="100%" style="stop-color: var(--color-background)" />
+					</radialGradient>
+				</defs>
+				{blades.map((d) => <path d={d} fill="url(#trefoil-grad)" />)}
+				<circle cx="50" cy="50" r="6" style="fill: var(--trefoil-core)" />
+			</svg>
+		</div>
+
+		{placed.map((tile) => (
+			<div class="node" style={`--x:${tile.x}%;--y:${tile.y}%`}>
+				<div class="node-inner flex w-[4.75rem] flex-col items-center gap-0.5 rounded-2xl border border-white/50 bg-white/70 px-1.5 py-1.5 text-center shadow-lg shadow-primary/10 backdrop-blur-md transition-transform duration-200 hover:-translate-y-1 md:w-[5.5rem] md:gap-1 md:px-2 md:py-2">
+					{tile.glyph === 'icon' && tile.icon ? (
+						<svg
+							class="h-5 w-5 text-primary md:h-6 md:w-6"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.7"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							set:html={icons[tile.icon]}
+						/>
+					) : (
+						<span class="font-heading text-base font-bold leading-none text-primary md:text-lg">{tile.code}</span>
+					)}
+					<span class="whitespace-normal text-[0.56rem] font-medium leading-tight text-slate-600 md:text-[0.64rem]">
+						{tile.name}
+					</span>
+				</div>
+			</div>
+		))}
+	</div>
+</div>
+
+<style>
+	/* Trefoil glow core: a soft light blue in light mode, a deeper blue in dark
+	   mode — it fades out to the page background at the blade tips. */
+	.trefoil { --trefoil-core: hsl(229, 94%, 80%); }
+	:global(.dark) .trefoil { --trefoil-core: hsl(229, 58%, 30%); }
+
+	/* Tablet/mobile: cards flow in the flex-wrap; --x/--y unused. */
+	.node-inner { animation: hero-float 6s ease-in-out infinite; }
+	.node:nth-child(2n) .node-inner { animation-duration: 7s; animation-delay: -2s; }
+	.node:nth-child(3n) .node-inner { animation-duration: 8s; animation-delay: -4s; }
+	.node:nth-child(4n) .node-inner { animation-duration: 7.5s; animation-delay: -1s; }
+
+	/* Desktop: lay the cards onto the three blades of the (square) trefoil. */
+	@media (min-width: 768px) {
+		.constellation {
+			display: block;
+			width: min(34rem, 100%);
+			aspect-ratio: 1;
+		}
+		.node {
+			position: absolute;
+			left: var(--x);
+			top: var(--y);
+			transform: translate(-50%, -50%);
+		}
+	}
+
+	@keyframes hero-float {
+		0%, 100% { transform: translateY(0); }
+		50% { transform: translateY(-6px); }
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.node-inner { animation: none; }
+	}
+</style>

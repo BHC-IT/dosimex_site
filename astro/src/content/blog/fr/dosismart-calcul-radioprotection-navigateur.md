@@ -16,7 +16,7 @@ Dosismart répond à ces besoins :
 
 - **Accessible partout** — Aucune installation, aucun prérequis. Un navigateur web suffit, quel que soit le système d'exploitation (Windows, Mac, Linux, tablette).
 - **Historique des calculs** — Chaque calcul est enregistré avec ses paramètres complets. Vous retrouvez et comparez vos résultats à tout moment.
-- **Toujours à jour** — Les mises à jour sont automatiques. Pas de version à télécharger, pas de macro à réactiver.
+- **Rien à maintenir** — Pas de version à télécharger, pas de macro à réactiver.
 - **Export PDF** — Générez des rapports de calcul documentés, prêts pour vos dossiers de radioprotection.
 
 ## Ce qui est disponible aujourd'hui

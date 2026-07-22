@@ -5,15 +5,15 @@ interface NavLink {
 }
 
 interface Props {
+	productLinks: NavLink[]
 	navLinks: NavLink[]
 	alternateUrl: string
 	locale: string
 	quoteLabel: string
 	quoteHref: string
-	trialLabel: string
 }
 
-const { navLinks, alternateUrl, locale, quoteLabel, quoteHref, trialLabel } = Astro.props
+const { productLinks, navLinks, alternateUrl, locale, quoteLabel, quoteHref } = Astro.props
 ---
 
 <!-- Hamburger button -->
@@ -58,6 +58,14 @@ const { navLinks, alternateUrl, locale, quoteLabel, quoteHref, trialLabel } = As
 
 	<!-- Nav links — centered -->
 	<nav class="flex-1 flex flex-col items-center justify-center gap-5 px-6">
+		{productLinks.map((link) => (
+			<a
+				href={link.href}
+				class="mobile-menu-link text-xl font-heading font-semibold text-foreground/80 hover:text-primary transition-colors"
+			>
+				{link.label}
+			</a>
+		))}
 		{navLinks.map((link) => (
 			<a
 				href={link.href}
@@ -102,20 +110,11 @@ const { navLinks, alternateUrl, locale, quoteLabel, quoteHref, trialLabel } = As
 			</button>
 		</div>
 
-		<!-- CTA buttons -->
+		<!-- CTA button -->
 		<div class="flex flex-col gap-3 w-full max-w-xs mt-4">
 			<a
-				href="https://dosismart.com"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="mobile-menu-link flex items-center justify-center h-12 rounded-lg border border-primary text-sm font-heading font-semibold text-primary transition-colors hover:bg-primary/10"
-				data-ph-cta="nav-trial-mobile"
-			>
-				{trialLabel}
-			</a>
-			<a
 				href={quoteHref}
-				class="mobile-menu-link flex items-center justify-center h-12 rounded-lg bg-primary text-sm font-heading font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+				class="mobile-menu-link flex items-center justify-center h-12 rounded-lg bg-primary text-sm font-heading font-semibold text-primary-foreground transition-colors hover:bg-primary-700"
 				data-ph-cta="nav-quote-mobile"
 			>
 				{quoteLabel}

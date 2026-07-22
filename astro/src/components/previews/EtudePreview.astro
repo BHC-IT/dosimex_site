@@ -1,0 +1,110 @@
+---
+/**
+ * EtudePreview — a rebuilt glimpse of the Dosismart études de poste generator
+ * (Compliance tier). Rebuilds the EtudeWizard: a step indicator (Poste ·
+ * Scénarios · Résultats · Revue), the per-scenario results table (scenario ·
+ * dose rate · annual hours · annual dose) and the worker classification badge
+ * (Cat A / Cat B / non exposé), reusing the app's ClassificationBadge colors.
+ * Static, prop-free, bilingual, framed in WindowFrame. NOT a screenshot.
+ * See CLAUDE.md › "Voice & UI › Visuals".
+ */
+import type { Locale } from '@/i18n/utils'
+import WindowFrame from './WindowFrame.astro'
+
+interface Props {
+	locale: Locale
+	class?: string
+}
+
+const { locale, class: className = '' } = Astro.props
+const isFr = locale === 'fr'
+
+const l = {
+	title: isFr ? 'Étude de poste' : 'Workstation study',
+	subtitle: isFr ? 'PDF réglementaire prêt à signer' : 'ready-to-sign regulatory PDF',
+	scenario: isFr ? 'Scénario' : 'Scenario',
+	doseRate: isFr ? 'Débit' : 'Dose rate',
+	annualHours: isFr ? 'Heures/an' : 'Hours/yr',
+	annualDose: isFr ? 'Dose/an' : 'Dose/yr',
+	total: isFr ? 'Dose annuelle totale' : 'Total annual dose',
+	classification: isFr ? 'Classement' : 'Classification',
+	catB: isFr ? 'Catégorie B' : 'Category B',
+}
+
+const steps = isFr
+	? ['Poste', 'Scénarios', 'Résultats', 'Revue']
+	: ['Workstation', 'Scenarios', 'Results', 'Review']
+const currentStep = 2 // "Résultats" active
+
+const scenarios = [
+	{ label: isFr ? 'Manipulation source' : 'Source handling', rate: '1.24 mSv/h', hours: '48', dose: '0.60 mSv' },
+	{ label: isFr ? 'Contrôle en cellule' : 'Cell inspection', rate: '312 µSv/h', hours: '120', dose: '3.74 mSv' },
+	{ label: isFr ? 'Transport / stockage' : 'Transport / storage', rate: '18 µSv/h', hours: '210', dose: '0.38 mSv' },
+]
+---
+
+<WindowFrame class={className}>
+	<div class="p-4 sm:p-5">
+		<div class="mb-4 flex items-center justify-between gap-3">
+			<h3 class="flex items-center gap-2 text-sm font-semibold text-foreground">
+				<span class="h-2 w-2 rounded-full bg-primary" aria-hidden="true"></span>
+				{l.title}
+			</h3>
+			<span class="rounded-md bg-muted/60 px-2 py-1 text-[11px] text-muted-foreground">{l.subtitle}</span>
+		</div>
+
+		<!-- step indicator -->
+		<ol class="mb-4 flex items-center gap-2">
+			{steps.map((step, i) => (
+				<li class="flex items-center gap-2">
+					<span class:list={[
+						'flex h-6 w-6 items-center justify-center rounded-full text-[11px] font-semibold',
+						i < currentStep && 'bg-primary/15 text-primary',
+						i === currentStep && 'bg-primary text-primary-foreground',
+						i > currentStep && 'border border-border text-muted-foreground',
+					]}>{i < currentStep ? '✓' : i + 1}</span>
+					<span class:list={['hidden text-xs sm:inline', i === currentStep ? 'font-semibold text-foreground' : 'text-muted-foreground']}>{step}</span>
+					{i < steps.length - 1 && <span class="h-px w-4 bg-border" aria-hidden="true"></span>}
+				</li>
+			))}
+		</ol>
+
+		<!-- per-scenario results table -->
+		<div class="overflow-hidden rounded-lg border border-border">
+			<table class="w-full text-sm">
+				<thead>
+					<tr class="border-b border-border bg-muted/40 text-xs text-muted-foreground">
+						<th class="px-3 py-2 text-left font-medium">{l.scenario}</th>
+						<th class="px-3 py-2 text-right font-medium">{l.doseRate}</th>
+						<th class="hidden px-3 py-2 text-right font-medium sm:table-cell">{l.annualHours}</th>
+						<th class="px-3 py-2 text-right font-medium">{l.annualDose}</th>
+					</tr>
+				</thead>
+				<tbody>
+					{scenarios.map((s) => (
+						<tr class="border-b border-border last:border-0">
+							<td class="px-3 py-2 font-medium text-foreground">{s.label}</td>
+							<td class="px-3 py-2 text-right tabular-nums text-muted-foreground">{s.rate}</td>
+							<td class="hidden px-3 py-2 text-right tabular-nums text-muted-foreground sm:table-cell">{s.hours}</td>
+							<td class="px-3 py-2 text-right tabular-nums text-foreground">{s.dose}</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
+		</div>
+
+		<!-- total + classification -->
+		<div class="mt-3 flex items-center justify-between rounded-lg border border-border bg-muted/30 px-4 py-3">
+			<div>
+				<div class="text-xs text-muted-foreground">{l.total}</div>
+				<div class="text-lg font-bold tabular-nums text-primary">4.72 mSv</div>
+			</div>
+			<div class="text-right">
+				<div class="mb-1 text-xs text-muted-foreground">{l.classification}</div>
+				<span class="inline-flex items-center rounded-full border border-yellow-300 bg-yellow-100 px-2.5 py-0.5 text-xs font-medium text-yellow-800">
+					{l.catB}
+				</span>
+			</div>
+		</div>
+	</div>
+</WindowFrame>
