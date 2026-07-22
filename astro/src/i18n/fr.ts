@@ -372,6 +372,14 @@ export const fr = {
 				{ label: 'Pack mesures', href: '#pack-mes' },
 			],
 		},
+		included: {
+			title: 'Inclus avec la suite',
+			text: "En plus des 17 modules et de leur documentation : 11 documents de cours (physique nucléaire, mesure, interactions rayonnement-matière, incertitudes…) et les 19 annexes de l'ouvrage « Calcul de doses générées par les rayonnements ionisants » (EDP Sciences 2016).",
+		},
+		prerequisites: {
+			title: 'Prérequis',
+			text: 'VBA/Excel — Windows XP à 11, Excel 2003 à 2024. Machine virtuelle nécessaire sur Mac ou Linux. Dosismart, lui, tourne dans le navigateur : aucune installation.',
+		},
 		dosismartBanner: {
 			title: "Dosismart : l'évolution de la suite",
 			text: "Dosismart est la plateforme web de Dosimex. Au fil des années, les codes de calcul de la suite y sont progressivement portés — et validés avec la même rigueur (MCNP, OpenMC) que ceux de la suite. Déjà en ligne : calcul gamma, générateur X, effet de ciel et optimiseur d'écran, avec historique des calculs et travail en équipe. La suite reste la référence pour tout ce que la plateforme ne couvre pas encore.",
@@ -545,24 +553,7 @@ export const fr = {
 		schemaDescription: 'Abonnement annuel — suite Dosimex + Dosismart',
 		buttonKnowMore: 'En savoir plus',
 		description:
-			"L'abonnement Dosimex couvre la suite Dosimex — 17 modules de calcul sous Excel : 6 codes opérationnels (calculs de dose, zonage, protection), 6 modules pédagogiques interactifs, 5 utilitaires de mesure — et Dosismart, la plateforme web de Dosimex : calcul gamma et générateur X dans le navigateur, effet de ciel, optimiseur d'écran, gestion de votre organisation et de votre abonnement, téléchargement de la suite, historique des calculs. Support technique inclus.",
-		partE: {
-			title: 'Contenu de la suite Dosimex',
-			items: [
-				'Tous les codes et utilitaires (17) des packs opérationnel (6), pédagogique (6) et mesures (5) présentés sur ce site',
-				"La documentation associée : manuel d'emploi et dossier de validation de chaque code.",
-				"Des documents de cours (11) : physique nucléaire, mesure nucléaire, IRM particules chargées, IRM photon, IRM neutrons, grandeurs opérationnelles, seuil de décision : principes et application, statistiques : principes, incertitudes et test d'hypothèse.",
-				'Les annexes (19) de l\'ouvrage "Calcul de doses générées par les rayonnements ionisants" (EDP Sciences 2016).',
-			],
-			softwareLink: 'En savoir plus sur les outils',
-			manualsLink: 'Consulter la documentation',
-		},
-		between:
-			"Un sommaire g\u00e9n\u00e9ral (SOMMAIRE_GENERAL.pps) \u00e0 la racine des dossiers permet de naviguer sur l'ensemble de la suite Dosimex.",
-		prerequisites: {
-			title: 'Prérequis',
-			text: "La suite Dosimex : VBA/Excel, Windows XP à 11, Excel 2003 à 2024. Machine virtuelle nécessaire sur Mac/Linux. Dosismart : navigateur web (Chrome, Firefox, Edge, Safari), tout système d'exploitation, aucune installation.",
-		},
+			'La suite Dosimex sous Excel et Dosismart, la plateforme web — un seul abonnement annuel, support technique inclus.',
 		trialBanner: {
 			title: 'Essayez Dosismart gratuitement pendant 14 jours',
 			text: "L'essai couvre toute l'application web Dosismart, fonctionnalités Conformité comprises : calculs, inventaire de sources, plans de zonage, études de poste. La suite Dosimex (Excel) nécessite l'abonnement payant. Sans carte bancaire.",
@@ -570,7 +561,9 @@ export const fr = {
 		},
 		pricing: {
 			title: 'Tarification',
-			packageTitle: 'Trois offres. Chacune couvre les deux outils : la suite Dosimex et Dosismart.',
+			packageTitle: 'Deux formules. Chacune couvre les deux outils : la suite Dosimex et Dosismart.',
+			suiteLink: 'La suite en détail',
+			dosismartLink: 'Dosismart en détail',
 			coexistence: "Les nouveautés arrivent d'abord sur Dosismart. La suite Dosimex reste la référence pour ce que l'application web ne couvre pas encore.",
 			base: {
 				title: 'Offre Base',
@@ -601,7 +594,7 @@ export const fr = {
 			enterprise: {
 				title: 'Offre Entreprise',
 				price: 'Sur mesure',
-				tagline: 'Offres sur mesure et accompagnement dédié pour les grandes équipes',
+				tagline: 'Un besoin spécifique ? Contactez-nous : offre et accompagnement sur mesure',
 				features: [
 					"Tout le contenu de l'offre Conformité",
 					'Support prioritaire',
