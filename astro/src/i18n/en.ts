@@ -644,6 +644,11 @@ export const en = {
 						'The trial is free for 14 days, with no commitment and no credit card. It covers the full Dosismart web application, including the Compliance features. The Dosimex Suite (Excel) requires the paid subscription, which then covers both tools.',
 				},
 				{
+					question: 'Our IT security policy forbids online tools — any options?',
+					answer:
+						'An offline deployment of Dosismart can be arranged for organizations that require it. Contact us to discuss it.',
+				},
+				{
 					question: 'What are the prerequisites?',
 					answer:
 						'The Dosimex Suite: Excel 2003 to 2024, Windows (virtual machine on Mac/Linux). Dosismart: modern web browser (Chrome, Firefox, Edge, Safari), any OS, no installation.',

@@ -644,6 +644,11 @@ export const fr = {
 						"L'essai est gratuit pendant 14 jours, sans engagement et sans carte bancaire. Il couvre toute l'application web Dosismart, y compris les fonctionnalités Conformité. La suite Dosimex (Excel) nécessite l'abonnement payant, qui couvre ensuite les deux outils.",
 				},
 				{
+					question: 'Notre politique de sécurité informatique interdit les outils en ligne — des solutions ?',
+					answer:
+						"Un déploiement hors-ligne de Dosismart peut être étudié pour les organisations qui l'exigent. Contactez-nous pour en discuter.",
+				},
+				{
 					question: 'Quels sont les prérequis ?',
 					answer:
 						"La suite Dosimex : Excel 2003 à 2024, Windows (machine virtuelle sur Mac/Linux). Dosismart : navigateur web récent (Chrome, Firefox, Edge, Safari), tout OS, pas d'installation.",
