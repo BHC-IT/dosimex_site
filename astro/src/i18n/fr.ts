@@ -815,6 +815,11 @@ export const fr = {
 		validations: {
 			title: 'Dossiers de validation et références MCNP',
 			description: "Chaque code est comparé point par point à MCNP. Les dossiers complets et les notes de référence sont publics :",
+			dosismart: {
+				title: 'Et Dosismart ? Un dossier de validation en ligne',
+				text: "Les calculs web sont validés avec la même exigence : un dossier public, généré automatiquement à partir des tests de validation du moteur, compare chaque résultat Dosismart aux codes de référence, scénario par scénario, écarts affichés.",
+				link: 'Consulter le dossier de validation Dosismart',
+			},
 			items: ['Dossier de validation émission gamma', 'Dossier de validation générateur X', 'Référence géné X MCNP/CEA', 'Référence radionucléide MCNP/AREVA', 'Référence atténuation X'],
 		},
 		internships: {

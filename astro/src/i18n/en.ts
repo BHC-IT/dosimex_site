@@ -814,6 +814,11 @@ export const en = {
 		validations: {
 			title: 'Validation files and MCNP references',
 			description: 'Each code is compared point by point with MCNP. The complete files and reference notes are public:',
+			dosismart: {
+				title: 'And Dosismart? A validation dossier online',
+				text: 'The web calculations are validated with the same rigor: a public dossier, generated automatically from the engine’s validation tests, compares each Dosismart result to the reference codes, scenario by scenario, deviations shown.',
+				link: 'View the Dosismart validation dossier',
+			},
 			items: ['Gamma emission validation file', 'X-ray generator validation file', 'X-ray generator reference MCNP/CEA', 'MCNP/AREVA radionuclide reference', 'X attenuation reference'],
 		},
 		internships: {
