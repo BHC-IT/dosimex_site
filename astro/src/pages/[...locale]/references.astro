@@ -12,7 +12,7 @@ const t = getTranslations(locale)
 const r = t.references
 const pdfs = getManualPdfs(locale)
 
-const anchorIds = ['validations', 'internships', 'testimonials'] as const
+const anchorIds = ['validations', 'internships', 'publications', 'testimonials'] as const
 const arrow = 'M5 12h14M12 5l7 7-7 7'
 
 const validationImages = locale === 'fr'
@@ -109,6 +109,64 @@ const docSections = [
 			</div>
 		</section>
 	))}
+
+	<!-- ══════════ PUBLICATIONS ══════════ -->
+	<!-- Layout carried over unchanged from the former home-page publications section. -->
+	<section id="publications" data-ph-section="publications" class="relative scroll-mt-24 py-16 md:py-32">
+		<div class="mx-auto max-w-6xl px-6">
+			<div class="reveal mx-auto max-w-2xl text-center">
+				<p class="text-sm font-semibold uppercase tracking-widest text-primary">
+					Publications
+				</p>
+				<h2 class="mt-3 text-3xl font-heading font-semibold tracking-tight text-foreground md:text-4xl">
+					{r.publications.title}
+				</h2>
+				<p class="mt-4 text-lg text-muted-foreground">
+					{r.publications.subtitle}
+				</p>
+			</div>
+
+			<!-- Each row is a compact line; on hover/focus it opens into the full card,
+			     revealing the publication's description (grid-rows 0fr→1fr = smooth height). -->
+			<ul class="reveal mt-14 grid items-start gap-x-8 gap-y-1 sm:grid-cols-2">
+				{r.publications.items.map((item) => (
+					<li>
+						<a
+							href={item.url}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="group block h-full rounded-2xl px-4 py-4 transition-all duration-200 hover:bg-card hover:shadow-md focus-within:bg-card focus-within:shadow-md md:px-6 md:py-5"
+						>
+							<div class="flex items-start justify-between gap-4">
+								<div class="min-w-0">
+									<h3 class="text-base font-heading font-semibold text-foreground transition-colors group-hover:text-primary md:text-lg">
+										{item.title}
+									</h3>
+									<div class="mt-1 flex flex-wrap gap-x-2 gap-y-0.5 text-xs text-muted-foreground">
+										{'authors' in item && <span>{item.authors}</span>}
+										{'authors' in item && 'journal' in item && <span class="italic">· {item.journal}</span>}
+										{'authors' in item && 'year' in item && <span>· {item.year}</span>}
+									</div>
+								</div>
+								<svg class="mt-1 h-4 w-4 shrink-0 text-primary transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d={arrow}/></svg>
+							</div>
+							{'description' in item && (
+								<div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out group-hover:grid-rows-[1fr] group-focus-within:grid-rows-[1fr]">
+									<div class="overflow-hidden">
+										<p class="mt-3 max-w-3xl text-sm text-muted-foreground">{item.description}</p>
+										<span class="mt-3 inline-flex items-center gap-1 text-sm font-heading font-semibold text-primary">
+											{r.publications.btnText}
+											<svg class="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d={arrow}/></svg>
+										</span>
+									</div>
+								</div>
+							)}
+						</a>
+					</li>
+				))}
+			</ul>
+		</div>
+	</section>
 
 	<!-- ══════════ INSTITUTIONAL USERS ══════════ -->
 	<section id="institutions" class="scroll-mt-24 py-16 md:py-24">

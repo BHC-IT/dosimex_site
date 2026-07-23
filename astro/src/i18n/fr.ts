@@ -83,7 +83,7 @@ export const fr = {
 			titleAccent: 'à la portée de tous',
 			subtitle:
 				"Depuis 30 ans, Dosimex met le calcul à la portée des radioprotectionnistes — et aide à en comprendre la physique. Aujourd'hui sur le web avec Dosismart : les mêmes calculs validés, directement dans votre navigateur.",
-			cta: 'Découvrir Dosismart',
+			cta: 'Essayer Dosismart gratuitement — 14 jours',
 			trialButton: 'Découvrir la suite Dosimex',
 		},
 		evolution: {
@@ -734,13 +734,78 @@ export const fr = {
 			title: 'Références & Validation',
 			description:
 				"Un résultat de calcul n'a de valeur que s'il est vérifiable. Les codes Dosimex sont validés par comparaison avec MCNP, le code Monte-Carlo de référence du CEA, et confrontés à Microshield et RayXpert dans des travaux de fin d'étude indépendants. Les dossiers complets sont téléchargeables ci-dessous.",
-			anchors: ['Dossiers de validation', "Rapports de fin d'étude", 'Retours utilisateurs'],
+			anchors: ['Dossiers de validation', "Rapports de fin d'étude", 'Publications', 'Retours utilisateurs'],
 		},
 		stats: [
 			{ value: '+30 ans', label: "d'expérience" },
 			{ value: '+1500', label: 'professionnel.les utilisateur.rices' },
 			{ value: '17', label: 'modules de calcul' },
 		],
+		publications: {
+			title: 'Publications et Références',
+			subtitle:
+				"DOSIMEX est cité dans de nombreuses publications scientifiques, articles de presse spécialisée et travaux de recherche. Découvrez comment nos outils contribuent à l'avancement de la recherche et de la pratique en radioprotection.",
+			btnText: 'Consulter',
+			items: [
+				{
+					title: 'Le calcul prédictif de dose pour une meilleure protection',
+					description:
+						"Article SIH-Solutions sur l'utilisation de DOSIMEX à l'Institut Curie pour la prédiction des expositions en radiologie médicale.",
+					url: 'https://www.sih-solutions.fr/le-calcul-predictif-de-dose-pour-une-meilleure-protection',
+				},
+				{
+					title: "L'évaluation de la dose : un pré-requis de la gestion des risques",
+					description:
+						"Post LinkedIn sur l'utilisation de DOSIMEX dans les CHU de Nantes et Toulouse.",
+					url: 'https://www.linkedin.com/posts/sih-solutions_dosimex-activity-6940552424990380032-wsY9/?utm_source=linkedin_share&utm_medium=member_desktop_web',
+				},
+				{
+					title: "Étude de l'impact de couches de PMMA sur l'équilibre électronique",
+					description:
+						"Étudie l'impact de couches de PMMA sur l'équilibre électronique pour l'étalonnage d'instruments de radioprotection et modélise les faisceaux X/gamma avec DOSIMEX.",
+					url: 'https://www.sciencedirect.com/science/article/abs/pii/S0969804324004160',
+					authors: 'Zidouz T. et al.',
+					year: '2025',
+					journal: 'Radiation Physics and Chemistry',
+				},
+				{
+					title: 'Définition de qualités de faisceau en contexte médical',
+					description:
+						"Utilise DOSIMEX pour définir des qualités de faisceau (X et gamma) en contexte médical et analyser l'influence de l'épaisseur de PMMA sur les facteurs d'étalonnage.",
+					url: 'https://www.sciencedirect.com/science/article/abs/pii/S0969804324001532',
+					authors: 'Talbi A. et al.',
+					year: '2024',
+					journal: 'Radiation Physics and Chemistry',
+				},
+				{
+					title: "Travaux de radioprotection pour cellule d'examen - INB 164",
+					description:
+						"Travaux de radioprotection pour la mise en service d'une cellule d'examen : comparaison/usage de trois codes dont DOSIMEX aux côtés de MicroShield et RayXpert.",
+					url: 'https://inis.iaea.org/records/8q3yn-jja37',
+					authors: 'Etude CEDRA',
+					year: '2018',
+					journal: 'INIS - IAEA Database',
+				},
+				{
+					title: "Étude d'optimisation de la dosimétrie - Validation logicielle",
+					description:
+						"Étude d'optimisation de la dosimétrie ; simulations de faisceaux X réalisées avec DOSIMEX (description de l'argument de validation logicielle).",
+					url: 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4896352',
+					authors: 'Zidouz T. et al.',
+					year: '2025',
+					journal: 'SSRN - Prépublication',
+				},
+				{
+					title: 'DOSIMEX - Des codes de calcul de radioprotection à la portée de tous',
+					description:
+						'Article de présentation "Dosimex - des codes de calcul de radioprotection à la portée de tous" (référence-source sur le pack et ses modules). Utile à citer quand on justifie l\'emploi de DOSIMEX dans une méthode.',
+					url: 'https://inis.iaea.org/records/xaj40-pdm79',
+					authors: 'Vivier A., Lopez G.',
+					year: '2016',
+					journal: 'Rayonnements Ionisants, Techniques de Mesures et de Protection - INIS',
+				},
+			],
+		},
 		validations: {
 			title: 'Dossiers de validation et références MCNP',
 			description: "Chaque code est comparé point par point à MCNP. Les dossiers complets et les notes de référence sont publics :",
