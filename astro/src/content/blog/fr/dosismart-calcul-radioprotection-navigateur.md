@@ -31,7 +31,7 @@ Le calcul d'**exposition externe gamma** couvre les sources ponctuelles, linéiq
 - **Effet de ciel** — le calcul de sky-shine, écran diffuseur compris
 - **Optimiseur cylindre** — balayage de dose à volume fixé, avec visualisation 3D
 
-L'offre Conformité ajoute les outils réglementaires : **inventaire de sources** (décroissance automatique, export SIGIS), **plans de zonage** (éditeur 2D, zones calculées selon l'arrêté du 28 janvier 2020, export PDF) et **études de poste** (PDF réglementaire prêt à signer).
+L'offre Conformité ajoute les outils réglementaires : **inventaire de sources** (décroissance automatique, export SIGIS), **plans de zonage** (éditeur 2D, zones calculées selon l'arrêté du 28 janvier 2020, export PDF) et **études de poste** (le document de votre mise en conformité, prêt pour audits et inspections).
 
 ## Ce qui arrive
 

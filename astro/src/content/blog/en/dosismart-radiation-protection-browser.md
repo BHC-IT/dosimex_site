@@ -31,7 +31,7 @@ Dosismart addresses these needs:
 - **Sky-shine** — the sky-shine calculation, diffuser screen included
 - **Cylinder optimizer** — fixed-volume dose sweep with 3D visualization
 
-The Compliance plan adds the regulatory tools: **source inventory** (automatic decay, SIGIS export), **zoning plans** (2D editor, zones computed per the January 28, 2020 order, PDF export) and **workstation studies** (ready-to-sign regulatory PDF).
+The Compliance plan adds the regulatory tools: **source inventory** (automatic decay, SIGIS export), **zoning plans** (2D editor, zones computed per the January 28, 2020 order, PDF export) and **workstation studies** (your compliance document, ready for audits and inspections).
 
 ## What's coming next
 
