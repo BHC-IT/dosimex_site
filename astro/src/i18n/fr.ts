@@ -6,11 +6,11 @@ export const fr = {
 		},
 		software: {
 			title: 'La suite Dosimex — 17 modules de calcul',
-			description: 'La suite Dosimex sous Excel : 6 codes opérationnels (gamma, X, bêta, neutron, exposition interne, gammagraphie), 6 modules pédagogiques interactifs et 5 utilitaires de mesure. Validée MCNP, documentée, éprouvée depuis 30 ans.',
+			description: 'La suite Dosimex sous Excel : 6 codes opérationnels (exposition externe gamma, X, bêta, neutron, exposition interne, gammagraphie), 6 modules pédagogiques interactifs et 5 utilitaires de mesure. Validée MCNP, documentée, éprouvée depuis 30 ans.',
 		},
 		dosismart: {
 			title: 'Dosismart — la plateforme web de Dosimex',
-			description: "Dosismart, la plateforme web de Dosimex : calcul gamma et générateur X dans le navigateur, historique, inventaire de sources, plans de zonage et études de poste. Abonnez-vous, téléchargez la suite Dosimex et gérez votre organisation. Essai gratuit 14 jours.",
+			description: "Dosismart, la plateforme web de Dosimex : calcul exposition externe gamma et générateur X dans le navigateur, historique, inventaire de sources, plans de zonage et études de poste. Abonnez-vous, téléchargez la suite Dosimex et gérez votre organisation. Essai gratuit 14 jours.",
 		},
 		product: {
 			title: 'Tarifs — Suite Dosimex + Dosismart',
@@ -96,7 +96,7 @@ export const fr = {
 			intro: "Bien plus qu'un outil de calcul : Dosismart est votre espace Dosimex, où vous calculez dans le navigateur, assurez la traçabilité de vos calculs, collaborez et pilotez votre organisation.",
 			tagline: "Votre espace Dosimex, directement dans le navigateur.",
 			deck: "Et elle ne cesse de grandir : un même abonnement qui s'enrichit de nouvelles capacités au fil du temps.",
-			highlights: ['Calcul gamma', 'Historique', 'Inventaire de sources', 'Plans de zonage', 'Études de poste', 'Travail en équipe'],
+			highlights: ['Calcul exposition externe gamma', 'Historique', 'Inventaire de sources', 'Plans de zonage', 'Études de poste', 'Travail en équipe'],
 			learnMore: 'Découvrir Dosismart',
 			cta: 'Ouvrir Dosismart',
 			trialNote: 'Essai gratuit 14 jours, sans carte bancaire.',
@@ -108,7 +108,7 @@ export const fr = {
 			items: [
 				{
 					title: 'Pack opérationnel : 6 codes de calcul',
-					text: "Gamma, X, bêta, neutron, exposition interne, gammagraphie\u00A0: les calculs du quotidien.",
+					text: "Exposition externe gamma, X, bêta, neutron, exposition interne, gammagraphie\u00A0: les calculs du quotidien.",
 					icon: 'calc',
 					link: { label: 'Voir les codes', href: '/software#pack-ope' },
 				},
@@ -189,7 +189,7 @@ export const fr = {
 			title: 'Ce que vous trouvez dans Dosismart',
 			description: 'Vos calculs, vos données de radioprotection et votre équipe au même endroit.',
 			items: [
-				{ icon: 'calc', title: 'Calculs', text: "Calcul gamma, générateur X, effet de ciel et optimiseur d'écran, directement dans le navigateur. Des calculs validés, comme ceux de la suite Dosimex." },
+				{ icon: 'calc', title: 'Calculs', text: "Calcul exposition externe gamma, générateur X, effet de ciel et optimiseur, directement dans le navigateur. Des calculs validés, comme ceux de la suite Dosimex." },
 				{ icon: 'history', title: 'Historique et traçabilité', text: 'Chaque calcul est enregistré et documenté. Retrouvez-les et rejouez-les à tout moment.' },
 				{ icon: 'team', title: 'Travail en équipe', text: "Organisations, partage entre collègues, gestion des accès et de l'abonnement." },
 				{ icon: 'inventory', title: 'Inventaire de sources', text: 'Suivi des sources avec décroissance automatique.', badge: 'Conformité' },
@@ -242,7 +242,7 @@ export const fr = {
 				{
 					title: 'PCR en établissement de santé',
 					pain: "La radioprotection n'est qu'une fraction de votre poste — et l'inspection n'attend pas.",
-					answer: "Calculez gamma et générateur X dans le navigateur, sans rien installer, avec des études de poste et un historique prêts à présenter.",
+					answer: "Calculez exposition externe gamma et générateur X dans le navigateur, sans rien installer, avec des études de poste et un historique prêts à présenter.",
 					links: [
 						{ label: 'Calculs navigateur', href: '#modules' },
 						{ label: 'Études de poste', href: '#etude' },
@@ -283,7 +283,7 @@ export const fr = {
 			lead: "Dosismart est le tableau de bord de votre abonnement Dosimex. Vous vous abonnez ici, puis vous téléchargez la suite Excel Dosimex, vous calculez directement dans le navigateur, ou les deux — et vous pilotez votre organisation depuis le même écran.",
 			points: [
 				{ icon: 'download', title: 'Téléchargez la suite Dosimex', text: 'Les 17 modules Excel et votre clé de licence, directement depuis le tableau de bord.' },
-				{ icon: 'calc', title: 'Calculez dans le navigateur', text: "Calcul gamma, générateur X, effet de ciel et zonage, avec historique et traçabilité — sans quitter le navigateur." },
+				{ icon: 'calc', title: 'Calculez dans le navigateur', text: "Calcul exposition externe gamma, générateur X, effet de ciel et zonage, avec historique et traçabilité — sans quitter le navigateur." },
 				{ icon: 'team', title: 'Pilotez votre organisation', text: "Membres, accès et abonnement — travaillez en équipe et partagez vos calculs." },
 			],
 			growTitle: "Une plateforme qui s'enrichit avec le temps",
@@ -332,7 +332,7 @@ export const fr = {
 		},
 		dosismartBanner: {
 			title: "Dosismart : l'évolution de la suite",
-			text: "Les codes de la suite sont progressivement portés sur Dosismart, la plateforme web de Dosimex, et validés avec la même rigueur (MCNP, OpenMC). Déjà en ligne : calcul gamma, générateur X, effet de ciel et optimiseur d'écran, avec historique des calculs et travail en équipe.",
+			text: "Les codes de la suite sont progressivement portés sur Dosismart, la plateforme web de Dosimex, et validés avec la même rigueur (MCNP, OpenMC). Déjà en ligne : calcul exposition externe gamma, générateur X, effet de ciel et optimiseur, avec historique des calculs et travail en équipe.",
 			button: 'Essayer Dosismart',
 		},
 		packOpe: {
@@ -563,7 +563,7 @@ export const fr = {
 				tagline: "Le même prix qu'avant — pour les deux outils",
 				features: [
 					'La suite Dosimex complète : 17 modules de calcul sous Excel',
-					"Dosismart : calcul gamma, générateur X, effet de ciel, optimiseur d'écran cylindrique",
+					"Dosismart : calcul exposition externe gamma, générateur X, effet de ciel, optimiseur",
 					'Historique des calculs, travail en équipe, tout appareil',
 					'Support technique inclus',
 				],
@@ -626,7 +626,7 @@ export const fr = {
 				{
 					question: 'Quelle différence entre la suite Dosimex et Dosismart ?',
 					answer:
-						"La suite Dosimex regroupe les 17 modules de calcul sous Excel (gamma, X, bêta, neutron, exposition interne, mesures). Dosismart est la plateforme web de Dosimex : c'est là que vous vous abonnez, téléchargez la suite et gérez votre organisation — et c'est aussi un outil de calcul dans le navigateur (calcul gamma, générateur X, effet de ciel, optimiseur d'écran, historique, travail en équipe), avec l'inventaire de sources, les plans de zonage et les études de poste dans l'offre Conformité. Un seul abonnement couvre l'ensemble. Les nouveautés arrivent d'abord sur Dosismart ; la suite reste la référence pour ce que le calcul web ne couvre pas encore.",
+						"La suite Dosimex regroupe les 17 modules de calcul sous Excel (exposition externe gamma, X, bêta, neutron, exposition interne, mesures). Dosismart est la plateforme web de Dosimex : c'est là que vous vous abonnez, téléchargez la suite et gérez votre organisation — et c'est aussi un outil de calcul dans le navigateur (calcul exposition externe gamma, générateur X, effet de ciel, optimiseur, historique, travail en équipe), avec l'inventaire de sources, les plans de zonage et les études de poste dans l'offre Conformité. Un seul abonnement couvre l'ensemble. Les nouveautés arrivent d'abord sur Dosismart ; la suite reste la référence pour ce que le calcul web ne couvre pas encore.",
 				},
 				{
 					question: "J'ai une licence en cours (achetée depuis 2025) — comment accéder à Dosismart ?",

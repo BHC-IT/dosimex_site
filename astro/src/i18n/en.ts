@@ -6,11 +6,11 @@ export const en = {
 		},
 		software: {
 			title: 'The Dosimex Suite — 17 Calculation Modules',
-			description: 'The Dosimex Suite in Excel: 6 operational codes (gamma, X-ray, beta, neutron, internal exposure, gammagraphy), 6 interactive learning modules and 5 measurement utilities. MCNP-validated, documented, proven over 30 years.',
+			description: 'The Dosimex Suite in Excel: 6 operational codes (external gamma exposure, X-ray, beta, neutron, internal exposure, gammagraphy), 6 interactive learning modules and 5 measurement utilities. MCNP-validated, documented, proven over 30 years.',
 		},
 		dosismart: {
 			title: 'Dosismart — the Dosimex web platform',
-			description: 'Dosismart, the Dosimex web platform: gamma calculation and X-ray generator in the browser, history, source inventory, zoning plans and workstation studies. Subscribe, download the Dosimex Suite and manage your organization. Free 14-day trial.',
+			description: 'Dosismart, the Dosimex web platform: external gamma exposure calculation and X-ray generator in the browser, history, source inventory, zoning plans and workstation studies. Subscribe, download the Dosimex Suite and manage your organization. Free 14-day trial.',
 		},
 		product: {
 			title: 'Pricing — Dosimex Suite + Dosismart',
@@ -96,7 +96,7 @@ export const en = {
 			intro: 'Much more than a calculation tool: Dosismart is your Dosimex workspace, where you calculate in the browser, keep a traceable record, collaborate and run your organization.',
 			tagline: 'Your Dosimex workspace, right in the browser.',
 			deck: 'And it keeps growing: one subscription that expands with new capabilities over time.',
-			highlights: ['Gamma calculation', 'History', 'Source inventory', 'Zoning plans', 'Workstation studies', 'Team work'],
+			highlights: ['External gamma exposure calculation', 'History', 'Source inventory', 'Zoning plans', 'Workstation studies', 'Team work'],
 			learnMore: 'Discover Dosismart',
 			cta: 'Open Dosismart',
 			trialNote: 'Free 14-day trial, no credit card.',
@@ -108,7 +108,7 @@ export const en = {
 			items: [
 				{
 					title: 'Operational pack: 6 calculation codes',
-					text: 'Gamma, X-ray, beta, neutron, internal exposure, gammagraphy — the everyday calculations.',
+					text: 'External gamma exposure, X-ray, beta, neutron, internal exposure, gammagraphy — the everyday calculations.',
 					icon: 'calc',
 					link: { label: 'See the codes', href: '/software#pack-ope' },
 				},
@@ -189,7 +189,7 @@ export const en = {
 			title: 'What you find in Dosismart',
 			description: 'Your calculations, your radiation protection data and your team in one place.',
 			items: [
-				{ icon: 'calc', title: 'Calculations', text: 'Gamma calculation, X-ray generator, skyshine and shield optimizer, right in the browser. Calculations validated, just like the Dosimex Suite.' },
+				{ icon: 'calc', title: 'Calculations', text: 'External gamma exposure calculation, X-ray generator, skyshine and optimizer, right in the browser. Calculations validated, just like the Dosimex Suite.' },
 				{ icon: 'history', title: 'History and traceability', text: 'Every calculation is recorded and documented. Retrieve and replay your assessments.' },
 				{ icon: 'team', title: 'Team work', text: 'Organizations, sharing between colleagues, access and subscription management.' },
 				{ icon: 'inventory', title: 'Source inventory', text: 'Source tracking with automatic decay.', badge: 'Compliance' },
@@ -242,7 +242,7 @@ export const en = {
 				{
 					title: 'RP officer in a hospital or clinic',
 					pain: 'Radiation protection is only a fraction of your job — and the inspection won’t wait.',
-					answer: 'Run gamma and X-ray calculations in the browser, nothing to install, with workstation studies and a history ready to show.',
+					answer: 'Run external gamma exposure and X-ray calculations in the browser, nothing to install, with workstation studies and a history ready to show.',
 					links: [
 						{ label: 'Browser calculations', href: '#modules' },
 						{ label: 'Workstation studies', href: '#etude' },
@@ -283,7 +283,7 @@ export const en = {
 			lead: 'Dosismart is the dashboard for your Dosimex subscription. You subscribe here, then download the Dosimex Excel suite, calculate right in the browser, or both — and run your organization from the same place.',
 			points: [
 				{ icon: 'download', title: 'Download the Dosimex Suite', text: 'The 17 Excel modules and your license key, straight from the dashboard.' },
-				{ icon: 'calc', title: 'Calculate in the browser', text: 'Gamma calculation, X-ray generator, skyshine and zoning, with history and traceability — without leaving the browser.' },
+				{ icon: 'calc', title: 'Calculate in the browser', text: 'External gamma exposure calculation, X-ray generator, skyshine and zoning, with history and traceability — without leaving the browser.' },
 				{ icon: 'team', title: 'Run your organization', text: 'Members, access and subscription — work as a team and share your calculations.' },
 			],
 			growTitle: 'A platform that grows richer over time',
@@ -332,7 +332,7 @@ export const en = {
 		},
 		dosismartBanner: {
 			title: 'Dosismart: the evolution of the suite',
-			text: "The suite's codes are progressively ported to Dosismart, the Dosimex web platform, and validated with the same rigor (MCNP, OpenMC). Already online: gamma calculation, X-ray generator, skyshine and shield optimizer, with calculation history and team collaboration.",
+			text: "The suite's codes are progressively ported to Dosismart, the Dosimex web platform, and validated with the same rigor (MCNP, OpenMC). Already online: external gamma exposure calculation, X-ray generator, skyshine and optimizer, with calculation history and team collaboration.",
 			button: 'Try Dosismart',
 		},
 		packOpe: {
@@ -563,7 +563,7 @@ export const en = {
 				tagline: 'The same price as before — now for both tools',
 				features: [
 					'The complete Dosimex Suite: 17 calculation modules in Excel',
-					'Dosismart: gamma calculation, X-ray generator, skyshine, cylinder shield optimizer',
+					'Dosismart: external gamma exposure calculation, X-ray generator, skyshine, optimizer',
 					'Calculation history, team collaboration, any device',
 					'Technical support included',
 				],
@@ -626,7 +626,7 @@ export const en = {
 				{
 					question: 'What is the difference between the Dosimex Suite and Dosismart?',
 					answer:
-						"The Dosimex Suite includes the 17 calculation modules in Excel (gamma, X-ray, beta, neutron, internal exposure, measurement). Dosismart is the Dosimex web platform: it is where you subscribe, download the suite and manage your organization — and it is also a calculation tool in the browser (gamma calculation, X-ray generator, skyshine, shield optimizer, history, team collaboration), with source inventory, zoning plans and workstation studies in the Compliance plan. A single subscription covers everything. New capabilities ship on Dosismart first; the Suite remains the reference for what web calculation doesn't cover yet.",
+						"The Dosimex Suite includes the 17 calculation modules in Excel (external gamma exposure, X-ray, beta, neutron, internal exposure, measurement). Dosismart is the Dosimex web platform: it is where you subscribe, download the suite and manage your organization — and it is also a calculation tool in the browser (external gamma exposure calculation, X-ray generator, skyshine, optimizer, history, team collaboration), with source inventory, zoning plans and workstation studies in the Compliance plan. A single subscription covers everything. New capabilities ship on Dosismart first; the Suite remains the reference for what web calculation doesn't cover yet.",
 				},
 				{
 					question: 'I have a current license (purchased since 2025) — how do I access Dosismart?',
