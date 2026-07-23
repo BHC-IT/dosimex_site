@@ -27,11 +27,9 @@ Dosismart addresses these needs:
 - Forward calculation: radionuclide + activity + distance + shields → dose rate
 - Inverse calculations: minimum safe distance or shield thickness from a target dose rate
 
-And Dosismart is not limited to gamma:
-
 - **X-ray generator** — dose rate, equivalent thicknesses, NF C15-160 calculations and scattered radiation
 - **Sky-shine** — the sky-shine calculation, diffuser screen included
-- **Optimizer** — fixed-volume dose sweep with 3D visualization
+- **Cylinder optimizer** — fixed-volume dose sweep with 3D visualization
 
 The Compliance plan adds the regulatory tools: **source inventory** (automatic decay, SIGIS export), **zoning plans** (2D editor, zones computed per the January 28, 2020 order, PDF export) and **workstation studies** (ready-to-sign regulatory PDF).
 

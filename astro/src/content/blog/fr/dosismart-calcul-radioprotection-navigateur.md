@@ -27,11 +27,9 @@ Le calcul d'**exposition externe gamma** couvre les sources ponctuelles, linéiq
 - Calcul direct : radionucléide + activité + distance + écrans → débit de dose
 - Calculs inverses : distance minimale ou épaisseur d'écran à partir d'un débit de dose cible
 
-Et Dosismart ne se limite pas au gamma :
-
 - **Générateur X** — débit de dose, épaisseurs équivalentes, calculs NF C15-160 et rayonnement diffusé
 - **Effet de ciel** — le calcul de sky-shine, écran diffuseur compris
-- **Optimiseur** — balayage de dose à volume fixé, avec visualisation 3D
+- **Optimiseur cylindre** — balayage de dose à volume fixé, avec visualisation 3D
 
 L'offre Conformité ajoute les outils réglementaires : **inventaire de sources** (décroissance automatique, export SIGIS), **plans de zonage** (éditeur 2D, zones calculées selon l'arrêté du 28 janvier 2020, export PDF) et **études de poste** (PDF réglementaire prêt à signer).
 
