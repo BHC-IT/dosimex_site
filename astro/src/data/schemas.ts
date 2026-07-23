@@ -5,7 +5,7 @@ export const organizationSchema = {
 	'@type': 'Organization',
 	name: 'Dosimex',
 	url: 'https://dosimex.fr',
-	logo: 'https://dosimex.fr/Images/logo_dosimex_new.webp',
+	logo: 'https://dosimex.fr/Images/logo_dosimex_blue.webp',
 	description:
 		'Dosimex — Outils de calcul en radioprotection : la suite Dosimex (17 modules de calcul validés, Excel) et Dosismart (application web).',
 	contactPoint: {
