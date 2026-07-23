@@ -43,9 +43,16 @@ const { groups, navLinks, alternateUrl, locale, quoteLabel, quoteHref } = Astro.
 	<!-- Header row: logo + close -->
 	<div class="flex items-center justify-between h-16 px-6 border-b border-border/30">
 		<img
-			src="/Images/logo_dosimex_blue.webp"
+			src="/Images/logo_dosimex_ink.webp"
 			alt="Dosimex"
-			class="h-7"
+			class="h-7 dark:hidden"
+			width="140"
+			height="28"
+		/>
+		<img
+			src="/Images/logo_dosimex_ink_dark.webp"
+			alt="Dosimex"
+			class="hidden h-7 dark:block"
 			width="140"
 			height="28"
 		/>
