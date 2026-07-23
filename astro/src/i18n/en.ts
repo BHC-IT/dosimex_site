@@ -728,7 +728,7 @@ export const en = {
 	manuals: {
 		header: {
 			title: 'User manuals',
-			description: 'The Dosimex-GX user manuals are available for download below; the Dosismart documentation lives online.',
+			description: 'To help you evaluate the possibilities offered by Dosimex-GX, you can download the user manuals associated with this code. The Dosismart documentation lives online.',
 			referencesNote: 'The validation files and end-of-study reports are on the',
 			referencesLink: 'References & Validation page',
 		},
@@ -736,7 +736,7 @@ export const en = {
 		dosismart: {
 			title: 'The Dosismart documentation, online',
 			text: 'Dosismart has its own documentation, available online and updated along with the application.',
-			link: 'Open docs.dosismart.com',
+			link: 'Access the documentation',
 		},
 	},
 	references: {
