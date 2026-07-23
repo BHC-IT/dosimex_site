@@ -607,11 +607,11 @@ export const fr = {
 				items: [
 					{
 						title: 'Créez votre compte Dosismart',
-						text: "Dosismart est la plateforme web de Dosimex. Créez votre compte et démarrez un essai gratuit de 14 jours — toute l'application web, fonctionnalités Conformité comprises. Sans carte bancaire.",
+						text: "Dosismart est la plateforme web de Dosimex. Créez votre compte et démarrez un essai gratuit de 14 jours — les deux outils, fonctionnalités Conformité comprises. Sans carte bancaire.",
 					},
 					{
-						title: 'Abonnez-vous, puis téléchargez la suite',
-						text: "Une fois abonné, téléchargez la suite Dosimex — 17 modules de calcul sous Excel. La suite est disponible uniquement avec l'abonnement payant.",
+						title: 'Téléchargez la suite Dosimex',
+						text: 'Depuis votre tableau de bord, téléchargez la suite Dosimex — 17 modules de calcul sous Excel — et calculez aussi directement dans le navigateur.',
 					},
 					{
 						title: 'Utilisez les deux selon vos besoins',

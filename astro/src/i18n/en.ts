@@ -607,11 +607,11 @@ export const en = {
 				items: [
 					{
 						title: 'Create your Dosismart account',
-						text: 'Dosismart is the Dosimex web platform. Create your account and start a free 14-day trial — the full web application, Compliance features included. No credit card.',
+						text: 'Dosismart is the Dosimex web platform. Create your account and start a free 14-day trial — both tools, Compliance features included. No credit card.',
 					},
 					{
-						title: 'Subscribe, then download the Suite',
-						text: 'Once you subscribe, download the Dosimex Suite — 17 calculation modules in Excel. The Suite is available with the paid subscription only.',
+						title: 'Download the Dosimex Suite',
+						text: 'From your dashboard, download the Dosimex Suite — 17 calculation modules in Excel — and calculate right in the browser too.',
 					},
 					{
 						title: 'Use both, as your work requires',
