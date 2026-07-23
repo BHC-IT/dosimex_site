@@ -729,7 +729,7 @@ export const fr = {
 	manuals: {
 		header: {
 			title: "Manuels d'utilisation",
-			description: "Pour mieux vous permettre de juger des possibilités offertes avec Dosimex-GX, vous pouvez télécharger les manuels d'utilisation associés à ce code :",
+			description: "Les manuels d'utilisation de Dosimex-GX sont téléchargeables ci-dessous ; la documentation Dosismart, elle, se consulte en ligne.",
 			referencesNote: "Les dossiers de validation et les rapports de fin d'étude sont sur la page",
 			referencesLink: 'Références & Validation',
 		},
