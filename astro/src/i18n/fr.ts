@@ -183,7 +183,7 @@ export const fr = {
 			subtitle: "Votre espace de radioprotection dans le navigateur : calculez, assurez la traçabilité de vos calculs, collaborez et pilotez votre organisation. Un vrai tableau de bord, accessible depuis tout appareil, sans installation.",
 			cta: 'Ouvrir Dosismart',
 			ctaSecondary: 'Voir les tarifs',
-			trialNote: 'Essai gratuit 14 jours, sans carte bancaire.',
+			trialNote: 'Essai gratuit 14 jours, fonctionnalités Conformité comprises. Sans carte bancaire.',
 		},
 		whatsInside: {
 			title: 'Ce que vous trouvez dans Dosismart',
@@ -297,7 +297,7 @@ export const fr = {
 		},
 		cta: {
 			title: 'Prêt à essayer Dosismart ?',
-			text: 'Essai gratuit 14 jours, sans carte bancaire. Une question avant de vous lancer ? Parlons-en.',
+			text: 'Essai gratuit 14 jours, fonctionnalités Conformité comprises, sans carte bancaire. Une question avant de vous lancer ? Parlons-en.',
 			button: 'Ouvrir Dosismart',
 			contact: 'Nous contacter',
 		},
@@ -546,7 +546,7 @@ export const fr = {
 			'La suite Dosimex sous Excel et Dosismart, la plateforme web — un seul abonnement annuel, support technique inclus.',
 		trialBanner: {
 			title: 'Essayez Dosismart gratuitement pendant 14 jours',
-			text: "L'essai couvre l'application web Dosismart : calcul gamma, générateur X, effet de ciel, optimiseur d'écran. La suite Dosimex (Excel) nécessite l'abonnement payant. Sans carte bancaire.",
+			text: "L'essai couvre toute l'application web Dosismart, fonctionnalités Conformité comprises : calculs, inventaire de sources, plans de zonage, études de poste. La suite Dosimex (Excel) nécessite l'abonnement payant. Sans carte bancaire.",
 			button: "Démarrer l'essai",
 		},
 		pricing: {
@@ -606,7 +606,7 @@ export const fr = {
 				items: [
 					{
 						title: 'Créez votre compte Dosismart',
-						text: "Dosismart est la plateforme web de Dosimex. Créez votre compte et démarrez un essai gratuit de 14 jours de Dosismart — calcul gamma, historique et plus, directement dans le navigateur. Sans carte bancaire.",
+						text: "Dosismart est la plateforme web de Dosimex. Créez votre compte et démarrez un essai gratuit de 14 jours — toute l'application web, fonctionnalités Conformité comprises. Sans carte bancaire.",
 					},
 					{
 						title: 'Abonnez-vous, puis téléchargez la suite',
@@ -619,7 +619,7 @@ export const fr = {
 				],
 			},
 		},
-		trialNote: "L'essai gratuit de 14 jours couvre l'application web Dosismart. La suite Dosimex (Excel) nécessite l'abonnement payant.",
+		trialNote: "L'essai gratuit de 14 jours couvre toute l'application web Dosismart, fonctionnalités Conformité comprises. La suite Dosimex (Excel) nécessite l'abonnement payant.",
 		faq: {
 			title: 'Questions fréquentes',
 			questions: [
@@ -641,7 +641,7 @@ export const fr = {
 				{
 					question: "Comment fonctionne l'essai gratuit ?",
 					answer:
-						"L'essai est gratuit pendant 14 jours, sans engagement et sans carte bancaire. Il couvre l'application web Dosismart. La suite Dosimex (Excel) nécessite l'abonnement payant, qui couvre ensuite les deux outils.",
+						"L'essai est gratuit pendant 14 jours, sans engagement et sans carte bancaire. Il couvre toute l'application web Dosismart, y compris les fonctionnalités Conformité. La suite Dosimex (Excel) nécessite l'abonnement payant, qui couvre ensuite les deux outils.",
 				},
 				{
 					question: 'Quels sont les prérequis ?',
