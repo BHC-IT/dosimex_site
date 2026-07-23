@@ -183,7 +183,7 @@ export const en = {
 			subtitle: 'Your radiation protection workspace in the browser: calculate, keep a traceable record, collaborate and run your organization. A real dashboard, on any device, no installation.',
 			cta: 'Open Dosismart',
 			ctaSecondary: 'See pricing',
-			trialNote: 'Free 14-day trial, Compliance features included. No credit card.',
+			trialNote: 'Free 14-day trial, no credit card.',
 		},
 		whatsInside: {
 			title: 'What you find in Dosismart',
@@ -297,7 +297,7 @@ export const en = {
 		},
 		cta: {
 			title: 'Ready to try Dosismart?',
-			text: 'Free 14-day trial, Compliance features included, no credit card. A question before you start? Let’s talk.',
+			text: 'Free 14-day trial, no credit card. A question before you start? Let’s talk.',
 			button: 'Open Dosismart',
 			contact: 'Contact us',
 		},
@@ -546,7 +546,7 @@ export const en = {
 			'The Dosimex Suite in Excel and Dosismart, the web platform — one annual subscription, technical support included.',
 		trialBanner: {
 			title: 'Try Dosismart free for 14 days',
-			text: 'The trial covers the full Dosismart web application, Compliance features included: calculations, source inventory, zoning plans, workstation studies. The Dosimex Suite (Excel) requires the paid subscription. No credit card.',
+			text: 'The trial covers the Dosismart web application: gamma calculation, X-ray generator, skyshine, shield optimizer. The Dosimex Suite (Excel) requires the paid subscription. No credit card.',
 			button: 'Start trial',
 		},
 		pricing: {
@@ -606,7 +606,7 @@ export const en = {
 				items: [
 					{
 						title: 'Create your Dosismart account',
-						text: 'Dosismart is the Dosimex web platform. Create your account and start a free 14-day trial — the full web application, Compliance features included. No credit card.',
+						text: 'Dosismart is the Dosimex web platform. Create your account and start a free 14-day trial of Dosismart — gamma calculation, history and more, right in the browser. No credit card.',
 					},
 					{
 						title: 'Subscribe, then download the Suite',
@@ -619,7 +619,7 @@ export const en = {
 				],
 			},
 		},
-		trialNote: 'The 14-day free trial covers the full Dosismart web application, Compliance features included. The Dosimex Suite (Excel) requires the paid subscription.',
+		trialNote: 'The 14-day free trial covers the Dosismart web application. The Dosimex Suite (Excel) requires the paid subscription.',
 		faq: {
 			title: 'Frequently Asked Questions',
 			questions: [
@@ -641,7 +641,7 @@ export const en = {
 				{
 					question: 'How does the free trial work?',
 					answer:
-						'The trial is free for 14 days, with no commitment and no credit card. It covers the full Dosismart web application, including the Compliance features. The Dosimex Suite (Excel) requires the paid subscription, which then covers both tools.',
+						'The trial is free for 14 days, with no commitment and no credit card. It covers the Dosismart web application. The Dosimex Suite (Excel) requires the paid subscription, which then covers both tools.',
 				},
 				{
 					question: 'What are the prerequisites?',
