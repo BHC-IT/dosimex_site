@@ -199,13 +199,13 @@ export const fr = {
 		},
 		spotlights: {
 			title: 'En détail',
-			description: 'Ce que chaque module fait vraiment — reconstitué à partir de la vraie interface Dosismart.',
+			description: "Un aperçu de chaque module, tel qu'il apparaît dans Dosismart.",
 			items: [
 				{
 					preview: 'history',
 					eyebrow: 'Traçabilité',
-					title: 'Chaque calcul, gardé et rejouable',
-					text: "Le poste sous Excel ne garde rien. Dosismart enregistre chaque calcul avec l'intégralité de ses paramètres — vous retrouvez, rejouez et exportez n'importe quel calcul, des mois plus tard, à l'identique.",
+					title: 'Chaque calcul, enregistré et rejouable',
+					text: "Dosismart enregistre chaque calcul avec l'intégralité de ses paramètres — vous retrouvez, rejouez et exportez n'importe quel calcul, des mois plus tard, à l'identique.",
 					bullets: ['Instantané complet des paramètres', 'Export CSV et PDF', 'Nommage et favoris pour retrouver vite'],
 					badge: '',
 				},
@@ -250,7 +250,7 @@ export const fr = {
 					],
 				},
 				{
-					title: 'Consultant OCR',
+					title: 'Consultant.e OCR',
 					pain: 'Dix, vingt, cinquante sites clients — et le même travail à refaire proprement chez chacun.',
 					answer: 'Une organisation par client : inventaire de sources, plans de zonage et PDF réglementaires, au rythme du conseil.',
 					links: [
@@ -271,7 +271,7 @@ export const fr = {
 				{
 					title: 'École et organisme de formation',
 					pain: "Équiper toute une promotion en outils de calcul, sans rien installer en salle informatique.",
-					answer: "Dosismart tourne dans le navigateur sur n'importe quel poste : gérez les accès des étudiants par groupes, tous les paramètres restent visibles — les étudiants voient la physique derrière les chiffres.",
+					answer: "Dosismart tourne dans le navigateur sur n'importe quel poste : gérez les accès des étudiant.es par groupes, tous les paramètres restent visibles — les étudiant.es voient la physique derrière les chiffres.",
 					links: [{ label: 'Pédagogie', href: '/learn' }],
 					cta: { label: 'Équiper une promotion', href: '/contact' },
 				},
@@ -283,8 +283,8 @@ export const fr = {
 			lead: "Dosismart est le tableau de bord de votre abonnement Dosimex. Vous vous abonnez ici, puis vous téléchargez la suite Excel Dosimex, vous calculez directement dans le navigateur, ou les deux — et vous pilotez votre organisation depuis le même écran.",
 			points: [
 				{ icon: 'download', title: 'Téléchargez la suite Dosimex', text: 'Les 17 modules Excel et votre clé de licence, directement depuis le tableau de bord.' },
-				{ icon: 'calc', title: 'Calculez dans le navigateur', text: "Calcul gamma, générateur X, effet de ciel et optimiseur d'écran, avec historique et traçabilité — sans quitter le navigateur." },
-				{ icon: 'team', title: 'Pilotez votre organisation', text: "Membres, accès et abonnement — un seul compte pour toute l'équipe." },
+				{ icon: 'calc', title: 'Calculez dans le navigateur', text: "Calcul gamma, générateur X, effet de ciel et zonage, avec historique et traçabilité — sans quitter le navigateur." },
+				{ icon: 'team', title: 'Pilotez votre organisation', text: "Membres, accès et abonnement — travaillez en équipe et partagez vos calculs." },
 			],
 			growTitle: "Une plateforme qui s'enrichit avec le temps",
 			growText: 'Au fil des versions, les codes de calcul de la suite rejoignent Dosismart, avec la même physique validée MCNP éprouvée depuis 30 ans. La suite Dosimex reste la référence pour tout ce que la plateforme ne couvre pas encore.',

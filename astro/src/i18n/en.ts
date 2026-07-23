@@ -199,13 +199,13 @@ export const en = {
 		},
 		spotlights: {
 			title: 'In detail',
-			description: 'What each module actually does — rebuilt from the real Dosismart interface.',
+			description: 'A closer look at each module, as it appears in Dosismart.',
 			items: [
 				{
 					preview: 'history',
 					eyebrow: 'Traceability',
-					title: 'Every calculation, kept and replayable',
-					text: 'The Excel workstation keeps nothing. Dosismart records every calculation with its full set of parameters — retrieve, replay and export any assessment, months later, exactly as it was.',
+					title: 'Every calculation, saved and replayable',
+					text: 'Dosismart records every calculation with its full set of parameters — retrieve, replay and export any assessment, months later, exactly as it was.',
 					bullets: ['Full parameter snapshot', 'CSV and PDF export', 'Naming and favorites to find them fast'],
 					badge: '',
 				},
@@ -283,8 +283,8 @@ export const en = {
 			lead: 'Dosismart is the dashboard for your Dosimex subscription. You subscribe here, then download the Dosimex Excel suite, calculate right in the browser, or both — and run your organization from the same place.',
 			points: [
 				{ icon: 'download', title: 'Download the Dosimex Suite', text: 'The 17 Excel modules and your license key, straight from the dashboard.' },
-				{ icon: 'calc', title: 'Calculate in the browser', text: 'Gamma calculation, X-ray generator, skyshine and shield optimizer, with history and traceability — without leaving the browser.' },
-				{ icon: 'team', title: 'Run your organization', text: 'Members, access and subscription — one account for the whole team.' },
+				{ icon: 'calc', title: 'Calculate in the browser', text: 'Gamma calculation, X-ray generator, skyshine and zoning, with history and traceability — without leaving the browser.' },
+				{ icon: 'team', title: 'Run your organization', text: 'Members, access and subscription — work as a team and share your calculations.' },
 			],
 			growTitle: 'A platform that grows richer over time',
 			growText: 'With each release, the Suite’s calculation codes move into Dosismart, with the same MCNP-validated physics proven over 30 years. The Dosimex Suite stays the reference for everything the platform does not cover yet.',
