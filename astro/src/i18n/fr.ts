@@ -326,8 +326,8 @@ export const fr = {
 			title: 'Qui a besoin de cette profondeur ?',
 			items: [
 				"PCR en milieu industriel ou nucléaire : calculs bêta, neutron ou exposition interne, au-delà de ce que le web couvre aujourd'hui.",
-				'Professionnels de la mesure : rendements de spectrométrie (TAGE), contaminamètres (Co3), seuils de décision et incertitudes.',
-				"Écoles et enseignants : la boîte à outils physique complète pour les cours — l'établissement s'équipe, les étudiant.es calculent.",
+				'Professionnel.les de la mesure : rendements de spectrométrie (TAGE), contaminamètres (Co3), seuils de décision et incertitudes.',
+				"Écoles et enseignant.es : la boîte à outils physique complète pour les cours — l'établissement s'équipe, les étudiant.es calculent.",
 			],
 		},
 		dosismartBanner: {
