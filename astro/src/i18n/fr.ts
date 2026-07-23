@@ -734,6 +734,11 @@ export const fr = {
 			referencesLink: 'Références & Validation',
 		},
 		items: ['Manuel dose gamma', 'Manuel générateur x', 'Manuel + Validation NF C15-160', 'Grandeurs pratiques en radiologie'],
+		dosismart: {
+			title: 'La documentation Dosismart, en ligne',
+			text: "Dosismart a sa propre documentation, consultable en ligne et mise à jour au rythme de l'application.",
+			link: 'Ouvrir docs.dosismart.com',
+		},
 	},
 	references: {
 		header: {
