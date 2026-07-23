@@ -2,6 +2,7 @@
 title: "Dosismart: radiation protection calculations in the browser"
 description: "Dosismart is the new web application for radiation dose calculation. Accessible anywhere, no installation required, with a complete history of your calculations."
 pubDate: 2026-04-09
+updatedDate: 2026-07-23
 author: "Dosimex"
 tags: ["dosismart", "new-feature", "web-application"]
 ---
@@ -21,26 +22,27 @@ Dosismart addresses these needs:
 
 ## What's available today
 
-Dose rate calculation for **point source gamma** is already available in Dosismart:
+**External gamma exposure** calculation covers point, line, surface and volumetric sources, with multi-layer shielding:
 
 - Forward calculation: radionuclide + activity + distance + shields → dose rate
-- Inverse distance: target dose rate → minimum safe distance
-- Inverse shield thickness: target dose rate → required shielding thickness
+- Inverse calculations: minimum safe distance or shield thickness from a target dose rate
+
+And Dosismart no longer stops at gamma:
+
+- **X-ray generator** — dose rate, equivalent thicknesses, NF C15-160 calculations and scattered radiation
+- **Sky-shine** — the sky-shine calculation, diffuser screen included
+- **Optimizer** — fixed-volume dose sweep with 3D visualization
+
+The Compliance plan adds the regulatory tools: **source inventory** (automatic decay, SIGIS export), **zoning plans** (2D editor, zones computed per the January 28, 2020 order, PDF export) and **workstation studies** (ready-to-sign regulatory PDF).
 
 ## What's coming next
 
-The next development stages:
+The suite's remaining codes are progressively migrating to the web: beta, neutron, gammagraphy and internal exposure. Until then, the Dosimex Suite remains the reference for those calculations — and the subscription covers both tools.
 
-- **3D sources** — Volumetric, surface and linear sources
-- **X-ray generator** — Dose rate calculation for X-ray generators
-- **Beta calculation** — DOSIMEX-B equivalent in the browser
-- **Radiography** — Operational zoning calculation
-- **REST API** — To integrate calculations into your own tools and workflows
+## One subscription, two tools
 
-## Included with every new Dosimex license
+A single subscription covers the Dosimex Suite and Dosismart. You subscribe at [dosismart.com](https://dosismart.com), where you also download the suite and manage your organization.
 
-Dosismart is **included with every new Dosimex license purchase**. When you acquire a Dosimex license, you automatically get access to Dosismart — log in at [dosismart.com](https://dosismart.com).
-
-A **free 14-day trial** is available, with no commitment and no credit card required.
+A **free 14-day trial** is available, Compliance features included, with no commitment and no credit card required.
 
 [Try Dosismart for free →](https://dosismart.com)

@@ -2,6 +2,7 @@
 title: "Dosismart : le calcul de radioprotection dans le navigateur"
 description: "Dosismart est la nouvelle application web de calcul de dose en radioprotection. Accessible partout, sans installation, avec un historique complet de vos calculs."
 pubDate: 2026-04-09
+updatedDate: 2026-07-23
 author: "Dosimex"
 tags: ["dosismart", "nouveauté", "application web"]
 ---
@@ -21,26 +22,27 @@ Dosismart répond à ces besoins :
 
 ## Ce qui est disponible aujourd'hui
 
-Le calcul de débit de dose pour **source ponctuelle gamma** est d'ores et déjà disponible dans Dosismart :
+Le calcul d'**exposition externe gamma** couvre les sources ponctuelles, linéiques, surfaciques et volumiques, avec écrans multicouches :
 
 - Calcul direct : radionucléide + activité + distance + écrans → débit de dose
-- Calcul inverse de distance : débit de dose cible → distance minimale de sécurité
-- Calcul inverse d'épaisseur d'écran : débit de dose cible → épaisseur de protection nécessaire
+- Calculs inverses : distance minimale ou épaisseur d'écran à partir d'un débit de dose cible
+
+Et Dosismart ne s'arrête plus au gamma :
+
+- **Générateur X** — débit de dose, épaisseurs équivalentes, calculs NF C15-160 et rayonnement diffusé
+- **Effet de ciel** — le calcul de sky-shine, écran diffuseur compris
+- **Optimiseur** — balayage de dose à volume fixé, avec visualisation 3D
+
+L'offre Conformité ajoute les outils réglementaires : **inventaire de sources** (décroissance automatique, export SIGIS), **plans de zonage** (éditeur 2D, zones calculées selon l'arrêté du 28 janvier 2020, export PDF) et **études de poste** (PDF réglementaire prêt à signer).
 
 ## Ce qui arrive
 
-Les prochaines étapes du développement :
+Les codes restants de la suite migrent progressivement vers le web : bêta, neutron, gammagraphie et exposition interne. En attendant, la suite Dosimex reste la référence pour ces calculs — et l'abonnement couvre les deux outils.
 
-- **Sources 3D** — Sources volumiques, surfaciques et linéiques
-- **Générateur X** — Calcul de débit de dose pour les générateurs de rayons X
-- **Calcul bêta** — Équivalent de DOSIMEX-B dans le navigateur
-- **Gammagraphie** — Calcul de zonage opérationnel
-- **API REST** — Pour intégrer les calculs dans vos propres outils et workflows
+## Un abonnement, deux outils
 
-## Inclus dans toute nouvelle licence Dosimex
+Un seul abonnement couvre la suite Dosimex et Dosismart. Il se souscrit sur [dosismart.com](https://dosismart.com), où vous téléchargez aussi la suite et gérez votre organisation.
 
-Dosismart est **inclus dans toute nouvelle acquisition de licence Dosimex**. Lors de l'achat d'une licence Dosimex, vous bénéficiez automatiquement de l'accès à Dosismart — connectez-vous sur [dosismart.com](https://dosismart.com).
-
-Un **essai gratuit de 14 jours** est disponible, sans engagement et sans carte bancaire.
+Un **essai gratuit de 14 jours** est disponible, fonctionnalités Conformité comprises, sans engagement et sans carte bancaire.
 
 [Essayer Dosismart gratuitement →](https://dosismart.com)
