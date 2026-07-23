@@ -459,7 +459,7 @@ export const en = {
 			title: 'From calculation to understanding',
 			description:
 				'A calculation result is only worth what you understand of the physics behind it. Dosimex equips professionals who want to master what their tools compute — and the schools and training centers that give their students the means to build solid physical intuition.',
-			educationText: 'Running a degree program or a training center? Let’s talk about equipping your students.',
+			educationText: 'Running a degree program or a training center? Give your students the same tools as the professionals.',
 			educationLink: 'Contact us',
 		},
 		modules: {

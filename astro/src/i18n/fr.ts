@@ -459,7 +459,7 @@ export const fr = {
 			title: 'Du calcul à la compréhension',
 			description:
 				"Un résultat de calcul ne vaut que si l'on comprend la physique qui le produit. Dosimex outille les professionnel.les qui veulent maîtriser ce que leurs outils calculent — et les écoles et centres de formation qui donnent à leurs étudiant.es de quoi construire une intuition physique solide.",
-			educationText: 'Vous dirigez un cursus ou un centre de formation ? Parlons de l’équipement de vos étudiant.es.',
+			educationText: 'Vous dirigez un cursus ou un centre de formation ? Donnez à vos étudiant.es les mêmes outils que les professionnel.les.',
 			educationLink: 'Nous contacter',
 		},
 		modules: {
