@@ -199,7 +199,7 @@ export const en = {
 		},
 		spotlights: {
 			title: 'In detail',
-			description: 'A closer look at each module, as it appears in Dosismart.',
+			description: 'A glimpse of Dosismart’s features — and what they change day to day.',
 			items: [
 				{
 					preview: 'history',
