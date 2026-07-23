@@ -79,8 +79,8 @@ export const en = {
 	home: {
 		hero: {
 			badge: 'New: Dosismart, the Dosimex web platform',
-			title: 'Radiation protection calculation,',
-			titleAccent: 'within reach of everyone',
+			title: 'Radiation protection calculation tools,',
+			titleAccent: 'at your fingertips',
 			subtitle:
 				'For 30 years, Dosimex has put calculation within reach of radiation-protection professionals — and helped them understand the physics behind it. Now on the web with Dosismart: the same validated calculations, right in your browser.',
 			cta: 'Try Dosismart free — 14 days',

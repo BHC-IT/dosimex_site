@@ -79,8 +79,8 @@ export const fr = {
 	home: {
 		hero: {
 			badge: 'Nouveau : Dosismart, la plateforme web de Dosimex',
-			title: 'Le calcul en radioprotection,',
-			titleAccent: 'à la portée de tous',
+			title: 'Des outils de calcul radioprotection,',
+			titleAccent: 'à portée de main',
 			subtitle:
 				"Depuis 30 ans, Dosimex met le calcul à la portée des radioprotectionnistes — et aide à en comprendre la physique. Aujourd'hui sur le web avec Dosismart : les mêmes calculs validés, directement dans votre navigateur.",
 			cta: 'Essayer Dosismart gratuitement — 14 jours',
