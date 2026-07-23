@@ -54,7 +54,7 @@ export const fr = {
 		},
 		testimonials: {
 			title: 'Retours utilisateurs — Dosimex',
-			description: "Découvrez les retours d'utilisateurs de Dosimex : IRSN, EDF, ORANO, CNRS, CHU et autres professionnels de la radioprotection partagent leur expérience.",
+			description: "Découvrez les retours d'utilisateurs de Dosimex : IRSN, EDF, ORANO, CNRS, CHU et autres professionnel.les de la radioprotection partagent leur expérience.",
 		},
 	},
 	altText: {
@@ -83,13 +83,13 @@ export const fr = {
 			titleAccent: 'à la portée de tous',
 			subtitle:
 				"Depuis 30 ans, Dosimex met le calcul à la portée des radioprotectionnistes — et aide à en comprendre la physique. Aujourd'hui sur le web avec Dosismart : les mêmes calculs validés, directement dans votre navigateur.",
-			cta: 'Essayer Dosismart gratuitement — 14 jours',
-			trialButton: 'Nous contacter',
+			cta: 'Découvrir Dosismart',
+			trialButton: 'Découvrir la suite Dosimex',
 		},
 		evolution: {
 			kicker: 'De la suite Dosimex à Dosismart',
 			title: 'Trente ans de calcul validé, maintenant dans le navigateur',
-			text: "La suite Dosimex, ce sont 17 modules de calcul sous Excel, validés MCNP et éprouvés par plus de 1 500 professionnels. Dosismart reprend ces moteurs dans le navigateur — même physique validée, nouvel espace de travail. Un seul abonnement couvre les deux outils ; voici ce que chacun vous apporte.",
+			text: "La suite Dosimex, ce sont 17 modules de calcul sous Excel, validés MCNP et éprouvés par plus de 1 500 professionnel.les. Dosismart reprend ces moteurs dans le navigateur — même physique validée, nouvel espace de travail. Un seul abonnement couvre les deux outils ; voici ce que chacun vous apporte.",
 		},
 		platform: {
 			title: 'Dosismart — la plateforme web de Dosimex',
@@ -103,7 +103,7 @@ export const fr = {
 		},
 		suite: {
 			title: 'La suite Dosimex — 17 modules de calcul sous Excel',
-			subtitle: "Et tout ce que le web ne couvre pas encore reste ici. Depuis <strong>30 ans</strong>, la référence du calcul opérationnel en radioprotection : validée MCNP, utilisée par EDF, Orano, Apave et plus de <strong>1500</strong> professionnels.",
+			subtitle: "Ce que Dosismart ne couvre pas encore reste ici. Depuis <strong>30 ans</strong>, la référence du calcul opérationnel en radioprotection : validée MCNP, utilisée par EDF, Orano, Apave et plus de <strong>1500</strong> professionnel.les.",
 			cta: 'Découvrir la suite Dosimex',
 			items: [
 				{
@@ -114,7 +114,7 @@ export const fr = {
 				},
 				{
 					title: 'Pack pédagogique\u00A0: 6 modules interactifs',
-					text: "IRM photon, particules chargées, coefficients ICRU 57, statistiques de comptage.",
+					text: "IRM photon, particules chargées, coefficients ICRU 57, serious game, statistiques de comptage.",
 					icon: 'book',
 					link: { label: 'Voir les modules', href: '/software#pack-peda' },
 				},
@@ -136,7 +136,7 @@ export const fr = {
 		understand: {
 			kicker: 'Comprendre',
 			title: 'Du calcul à la compréhension',
-			text: "Calculer juste, c'est aussi comprendre ce que l'on calcule. Ouvrages de référence, chaîne YouTube de physique, 6 modules d'apprentissage interactifs, formations : Dosimex transmet la physique derrière les chiffres — aux professionnels comme aux écoles qui forment les prochains radioprotectionnistes.",
+			text: "Comprendre ce que l'on calcule compte autant que le résultat. Ouvrages de référence, chaîne YouTube de physique, 6 modules d'apprentissage interactifs, formations : Dosimex transmet la physique derrière les chiffres — aux professionnel.les comme aux écoles qui forment les prochains radioprotectionnistes.",
 			link: 'Explorer les ressources',
 		},
 		close: {
@@ -306,7 +306,7 @@ export const fr = {
 		header: {
 			title: 'La suite Dosimex',
 			description:
-				"Depuis 30 ans, la référence du calcul opérationnel en radioprotection sous Excel : 6 codes de calcul, 6 modules pédagogiques et 5 utilitaires de mesure, validés par comparaison MCNP, RayXpert et Microshield, utilisés par EDF, Orano, Apave et plus de 1500 professionnels. Les nouvelles capacités arrivent désormais sur Dosismart ; la suite reste la référence pour tout ce que le web ne couvre pas encore — bêta, neutron, gammagraphie, exposition interne et utilitaires de mesure.",
+				"Depuis 30 ans, la référence du calcul opérationnel en radioprotection sous Excel : 6 codes de calcul, 6 modules pédagogiques et 5 utilitaires de mesure, validés par comparaison MCNP, RayXpert et Microshield, utilisés par EDF, Orano, Apave et plus de 1500 professionnel.les. Les nouvelles capacités arrivent désormais sur Dosismart ; la suite reste la référence pour tout ce que le web ne couvre pas encore — bêta, neutron, gammagraphie, exposition interne et utilitaires de mesure.",
 			langNote: 'La plupart des outils sont disponibles en français et en anglais.',
 			anchors: [
 				{ label: 'Pack opérationnel', href: '#pack-ope' },
@@ -458,7 +458,7 @@ export const fr = {
 			eyebrow: 'Comprendre',
 			title: 'Du calcul à la compréhension',
 			description:
-				"Un résultat de calcul ne vaut que si l'on comprend la physique qui le produit. Dosimex outille les professionnels qui veulent maîtriser ce que leurs outils calculent — et les écoles et centres de formation qui donnent à leurs étudiants de quoi construire une intuition physique solide.",
+				"Un résultat de calcul ne vaut que si l'on comprend la physique qui le produit. Dosimex outille les professionnel.les qui veulent maîtriser ce que leurs outils calculent — et les écoles et centres de formation qui donnent à leurs étudiants de quoi construire une intuition physique solide.",
 			educationText: 'Vous dirigez un cursus ou un centre de formation ? Équiper une promotion se discute simplement.',
 			educationLink: 'Nous contacter',
 		},
@@ -738,7 +738,7 @@ export const fr = {
 		},
 		stats: [
 			{ value: '+30 ans', label: "d'expérience" },
-			{ value: '+1500', label: 'professionnels utilisateurs' },
+			{ value: '+1500', label: 'professionnel.les utilisateur.rices' },
 			{ value: '17', label: 'modules de calcul' },
 		],
 		validations: {

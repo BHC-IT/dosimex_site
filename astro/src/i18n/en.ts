@@ -83,8 +83,8 @@ export const en = {
 			titleAccent: 'within reach of everyone',
 			subtitle:
 				'For 30 years, Dosimex has put calculation within reach of radiation-protection professionals — and helped them understand the physics behind it. Now on the web with Dosismart: the same validated calculations, right in your browser.',
-			cta: 'Try Dosismart free — 14 days',
-			trialButton: 'Contact us',
+			cta: 'Discover Dosismart',
+			trialButton: 'Explore the Dosimex Suite',
 		},
 		evolution: {
 			kicker: 'From the Dosimex Suite to Dosismart',
@@ -103,7 +103,7 @@ export const en = {
 		},
 		suite: {
 			title: 'The Dosimex Suite — 17 calculation modules in Excel',
-			subtitle: 'And everything the web does not cover yet lives here. For <strong>30 years</strong>, the reference for operational radiation-protection calculation: MCNP-validated, used by EDF, Orano, Apave and over <strong>1,500</strong> professionals.',
+			subtitle: 'What Dosismart does not cover yet lives here. For <strong>30 years</strong>, the reference for operational radiation-protection calculation: MCNP-validated, used by EDF, Orano, Apave and over <strong>1,500</strong> professionals.',
 			cta: 'Explore the Dosimex Suite',
 			items: [
 				{
@@ -114,7 +114,7 @@ export const en = {
 				},
 				{
 					title: 'Learning pack: 6 interactive modules',
-					text: 'Photon and charged-particle interaction, ICRU 57 coefficients, counting statistics.',
+					text: 'Photon and charged-particle interaction, ICRU 57 coefficients, serious game, counting statistics.',
 					icon: 'book',
 					link: { label: 'See the modules', href: '/software#pack-peda' },
 				},
@@ -136,7 +136,7 @@ export const en = {
 		understand: {
 			kicker: 'Understand',
 			title: 'From calculation to understanding',
-			text: 'Getting the number right also means understanding it. Reference books, a physics YouTube channel, 6 interactive learning modules, training courses: Dosimex passes on the physics behind the figures — to professionals and to the schools training the next generation of RP professionals.',
+			text: 'Understanding what you calculate matters as much as the result. Reference books, a physics YouTube channel, 6 interactive learning modules, training courses: Dosimex passes on the physics behind the figures — to professionals and to the schools training the next generation of RP professionals.',
 			link: 'Explore the resources',
 		},
 		close: {
