@@ -547,7 +547,7 @@ export const en = {
 			'The Dosimex Suite in Excel and Dosismart, the web platform — one annual subscription, technical support included.',
 		trialBanner: {
 			title: 'Try Dosismart free for 14 days',
-			text: 'The trial covers the full Dosismart web application, Compliance features included: calculations, source inventory, zoning plans, workstation studies. The Dosimex Suite (Excel) requires the paid subscription. No credit card.',
+			text: 'The trial covers both tools: the full Dosismart web application, Compliance features included, and the Dosimex Suite (Excel). No credit card.',
 			button: 'Start trial',
 		},
 		pricing: {
@@ -620,7 +620,7 @@ export const en = {
 				],
 			},
 		},
-		trialNote: 'The 14-day free trial covers the full Dosismart web application, Compliance features included. The Dosimex Suite (Excel) requires the paid subscription.',
+		trialNote: 'The 14-day free trial covers both tools: the Dosismart web application, Compliance features included, and the Dosimex Suite (Excel).',
 		faq: {
 			title: 'Frequently Asked Questions',
 			questions: [
@@ -642,7 +642,7 @@ export const en = {
 				{
 					question: 'How does the free trial work?',
 					answer:
-						'The trial is free for 14 days, with no commitment and no credit card. It covers the full Dosismart web application, including the Compliance features. The Dosimex Suite (Excel) requires the paid subscription, which then covers both tools.',
+						'The trial is free for 14 days, with no commitment and no credit card. It covers both tools: the full Dosismart web application, including the Compliance features, and the Dosimex Suite (Excel).',
 				},
 				{
 					question: 'Our IT security policy forbids online tools — any options?',

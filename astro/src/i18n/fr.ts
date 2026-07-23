@@ -547,7 +547,7 @@ export const fr = {
 			'La suite Dosimex sous Excel et Dosismart, la plateforme web — un seul abonnement annuel, support technique inclus.',
 		trialBanner: {
 			title: 'Essayez Dosismart gratuitement pendant 14 jours',
-			text: "L'essai couvre toute l'application web Dosismart, fonctionnalités Conformité comprises : calculs, inventaire de sources, plans de zonage, études de poste. La suite Dosimex (Excel) nécessite l'abonnement payant. Sans carte bancaire.",
+			text: "L'essai couvre les deux outils : toute l'application web Dosismart, fonctionnalités Conformité comprises, et la suite Dosimex (Excel). Sans carte bancaire.",
 			button: "Démarrer l'essai",
 		},
 		pricing: {
@@ -620,7 +620,7 @@ export const fr = {
 				],
 			},
 		},
-		trialNote: "L'essai gratuit de 14 jours couvre toute l'application web Dosismart, fonctionnalités Conformité comprises. La suite Dosimex (Excel) nécessite l'abonnement payant.",
+		trialNote: "L'essai gratuit de 14 jours couvre les deux outils : l'application web Dosismart, fonctionnalités Conformité comprises, et la suite Dosimex (Excel).",
 		faq: {
 			title: 'Questions fréquentes',
 			questions: [
@@ -642,7 +642,7 @@ export const fr = {
 				{
 					question: "Comment fonctionne l'essai gratuit ?",
 					answer:
-						"L'essai est gratuit pendant 14 jours, sans engagement et sans carte bancaire. Il couvre toute l'application web Dosismart, y compris les fonctionnalités Conformité. La suite Dosimex (Excel) nécessite l'abonnement payant, qui couvre ensuite les deux outils.",
+						"L'essai est gratuit pendant 14 jours, sans engagement et sans carte bancaire. Il couvre les deux outils : toute l'application web Dosismart, y compris les fonctionnalités Conformité, et la suite Dosimex (Excel).",
 				},
 				{
 					question: 'Notre politique de sécurité informatique interdit les outils en ligne — des solutions ?',
