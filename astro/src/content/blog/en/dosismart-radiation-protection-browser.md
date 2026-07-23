@@ -27,7 +27,7 @@ Dosismart addresses these needs:
 - Forward calculation: radionuclide + activity + distance + shields → dose rate
 - Inverse calculations: minimum safe distance or shield thickness from a target dose rate
 
-And Dosismart no longer stops at gamma:
+And Dosismart is not limited to gamma:
 
 - **X-ray generator** — dose rate, equivalent thicknesses, NF C15-160 calculations and scattered radiation
 - **Sky-shine** — the sky-shine calculation, diffuser screen included

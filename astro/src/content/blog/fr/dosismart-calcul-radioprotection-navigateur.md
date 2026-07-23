@@ -27,7 +27,7 @@ Le calcul d'**exposition externe gamma** couvre les sources ponctuelles, linéiq
 - Calcul direct : radionucléide + activité + distance + écrans → débit de dose
 - Calculs inverses : distance minimale ou épaisseur d'écran à partir d'un débit de dose cible
 
-Et Dosismart ne s'arrête plus au gamma :
+Et Dosismart ne se limite pas au gamma :
 
 - **Générateur X** — débit de dose, épaisseurs équivalentes, calculs NF C15-160 et rayonnement diffusé
 - **Effet de ciel** — le calcul de sky-shine, écran diffuseur compris
