@@ -2,6 +2,17 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Digits-only slice of Inter, listed first in the heading stack so numbers
+   keep Inter's tabular clarity while letters fall through to Atkinson. */
+@font-face {
+	font-family: 'Inter Digits';
+	src: url('../../node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2') format('woff2-variations');
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+	unicode-range: U+0030-0039;
+}
+
 @theme {
 	/* Palette — Dosismart app colours as the base (blue hsl(229 100% 62%)),
 	   with the Dosimex logo red (#FF2532) as a sparing accent ("touch of red
@@ -39,9 +50,10 @@
 	--color-error: #DA261C;
 	--color-info: #2563EB;
 
-	/* Fonts — Inter for headings only; body matches the Dosismart app's system stack */
-	--font-heading: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
-	--font-body: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+	/* Fonts — Atkinson Hyperlegible Next for headings (digits stay Inter via
+	   the 'Inter Digits' unicode-range slice), Inter for body */
+	--font-heading: 'Inter Digits', 'Atkinson Hyperlegible Next Variable', ui-sans-serif, system-ui, sans-serif;
+	--font-body: 'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 	--font-mono: ui-monospace, 'SF Mono', 'Cascadia Code', 'Fira Mono', Menlo, monospace;
 
 	/* Border radius */
@@ -104,7 +116,7 @@
 	h1, h2, h3, h4, h5, h6 {
 		font-family: var(--font-heading);
 		font-weight: 600;
-		letter-spacing: -0.02em;
+		letter-spacing: -0.01em;
 	}
 
 	:focus-visible {
