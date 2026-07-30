@@ -21,20 +21,21 @@ const isFr = locale === 'fr'
 
 const l = {
 	title: isFr ? 'Étude de poste' : 'Workstation study',
-	subtitle: isFr ? 'Mise en conformité — PDF prêt pour audit' : 'compliance file — audit-ready PDF',
 	scenario: isFr ? 'Scénario' : 'Scenario',
 	doseRate: isFr ? 'Débit' : 'Dose rate',
 	annualHours: isFr ? 'Heures/an' : 'Hours/yr',
 	annualDose: isFr ? 'Dose/an' : 'Dose/yr',
 	total: isFr ? 'Dose annuelle totale' : 'Total annual dose',
-	classification: isFr ? 'Classement' : 'Classification',
-	catB: isFr ? 'Catégorie B' : 'Category B',
+	classification: 'Classification',
+	catB: 'Cat. B',
+	back: isFr ? 'Retour' : 'Back',
+	generate: isFr ? 'Générer le PDF' : 'Generate PDF',
 }
 
 const steps = isFr
 	? ['Poste', 'Scénarios', 'Résultats', 'Revue']
 	: ['Workstation', 'Scenarios', 'Results', 'Review']
-const currentStep = 2 // "Résultats" active
+const currentStep = 3 // "Revue" active — the recap before generating the PDF
 
 const scenarios = [
 	{ label: isFr ? 'Manipulation source' : 'Source handling', rate: '1.24 mSv/h', hours: '48', dose: '0.60 mSv' },
@@ -50,7 +51,6 @@ const scenarios = [
 				<span class="h-2 w-2 rounded-full bg-primary" aria-hidden="true"></span>
 				{l.title}
 			</h3>
-			<span class="rounded-md bg-muted/60 px-2 py-1 text-[11px] text-muted-foreground">{l.subtitle}</span>
 		</div>
 
 		<!-- step indicator -->
@@ -101,10 +101,20 @@ const scenarios = [
 			</div>
 			<div class="text-right">
 				<div class="mb-1 text-xs text-muted-foreground">{l.classification}</div>
-				<span class="inline-flex items-center rounded-full border border-yellow-300 bg-yellow-100 px-2.5 py-0.5 text-xs font-medium text-yellow-800">
+				<span class="inline-flex items-center rounded-full border border-transparent bg-secondary px-2.5 py-0.5 text-xs font-semibold text-secondary-foreground">
 					{l.catB}
 				</span>
 			</div>
+		</div>
+
+		<!-- wizard footer (app EtudeWizard buttons) -->
+		<div class="mt-3 flex items-center justify-end gap-2">
+			<span class="inline-flex h-8 items-center rounded-md border border-input bg-background px-3 text-xs font-medium text-foreground">
+				{l.back}
+			</span>
+			<span class="inline-flex h-8 items-center rounded-md bg-primary px-3 text-xs font-medium text-primary-foreground">
+				{l.generate}
+			</span>
 		</div>
 	</div>
 </WindowFrame>
