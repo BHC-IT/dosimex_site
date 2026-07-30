@@ -90,7 +90,7 @@ export const en = {
 			title: "Radiation Protection Certificate",
 			subtitle: "Certified Explorer",
 			body: "Full site sweep complete. Five sources located, area declared clean.",
-			dose: "Accumulated dose: {dose} µSv — about a handful of bananas.",
+			dose: "Accumulated dose: {dose} µSv — the equivalent of a few bananas.",
 			signature: "Issued by Dosi the Mascot",
 			serial: "No. {serial}",
 			close: "Close",

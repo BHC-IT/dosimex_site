@@ -90,7 +90,7 @@ export const fr = {
 			title: "Attestation de radioprotection",
 			subtitle: "Explorateur Certifié",
 			body: "Balayage complet du site. Cinq sources localisées, zone déclarée saine.",
-			dose: "Dose cumulée : {dose} µSv — l'équivalent d'une poignée de bananes.",
+			dose: "Dose cumulée : {dose} µSv — l'équivalent de quelques bananes.",
 			signature: "Délivré par le Bonhomme Dosi",
 			serial: "N° {serial}",
 			close: "Fermer",

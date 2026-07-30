@@ -166,12 +166,15 @@ const { t } = Astro.props
 
 	// ─── Constants ──────────────────────────────────────────────────────────
 	const STORAGE_KEY = 'dosimex-egghunt'
+	// Doses in µSv. One banana ≈ 100 nSv = 0.1 µSv (banana equivalent dose).
+	// Four real sources at ~0.1 µSv each → 0.4 µSv total = "a few bananas".
+	// RP Cirkus is 0 — it's a "source of information", not a radioactive one.
 	const SOURCE_DOSES: Record<SourceId, number> = {
 		banana: 0.1,
 		cats: 0.1,
-		zonage: 2.0,
+		zonage: 0.1,
 		rpcirkus: 0.0,
-		book: 0.3,
+		book: 0.1,
 	}
 	const TOTAL = 5
 
