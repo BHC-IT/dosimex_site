@@ -6,8 +6,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Dosimex is an Astro 5 website for a radiation dosimetry software company. Bilingual (French/English), statically generated, with React islands for interactive components. The Astro app lives in the `astro/` directory.
 
-**The legacy Next.js app at the repository root is DEPRECATED. Do not modify, maintain, or reference it.**
-
 ## Commands
 
 All commands must be run from the `astro/` directory.
@@ -175,5 +173,5 @@ Only 2 interactive React components — the rest is static HTML.
 - Site URL: `https://dosimex.fr`
 - Output: `dist/` (static HTML)
 - Path alias: `@/*` -> `./src/*`
-- `public/` is a symlink to `../public` (shared assets with legacy app)
+- `astro/public` is a symlink to the repo-root `../public` (shared static assets)
 - No testing framework installed yet
