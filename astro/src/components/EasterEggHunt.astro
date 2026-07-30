@@ -1,0 +1,564 @@
+---
+import type { Translations, Locale } from '@/i18n/utils'
+
+interface Props {
+	t: Translations
+	locale: Locale
+}
+
+const { t } = Astro.props
+---
+
+<!-- Easter Egg Hunt: serialised copy for the client script -->
+<script type="application/json" id="egg-copy" set:html={JSON.stringify(t.easterEgg)}></script>
+
+<!-- ─── INTRO MODAL ────────────────────────────────────────────────────── -->
+<div id="egg-intro-overlay" role="dialog" aria-modal="true" aria-labelledby="egg-intro-title"
+	class="hidden fixed inset-0 z-[70] bg-background/70 backdrop-blur-sm flex items-center justify-center p-4">
+	<div class="rounded-2xl border border-border bg-card p-6 shadow-xl max-w-sm w-full">
+		<div class="flex items-start gap-3 mb-4">
+			<img src="/Images/bonhomme_dosi.gif" alt="" class="h-12 w-12 flex-shrink-0" />
+			<h2 id="egg-intro-title" class="text-lg font-heading font-semibold text-foreground leading-tight"></h2>
+		</div>
+		<p id="egg-intro-body" class="text-sm text-muted-foreground mb-5"></p>
+		<button id="egg-intro-cta" type="button"
+			class="w-full bg-primary text-primary-foreground rounded-lg px-4 py-2 text-sm font-medium hover:bg-primary/90 transition-colors">
+		</button>
+	</div>
+</div>
+
+<!-- ─── GEIGER WIDGET ──────────────────────────────────────────────────── -->
+<div id="egg-widget" aria-label="Geiger counter"
+	class="hidden fixed bottom-4 right-4 z-[60] rounded-xl border border-border bg-card shadow-lg p-3 w-56">
+	<!-- Header -->
+	<div class="flex items-center justify-between mb-2">
+		<span id="egg-widget-label" class="text-xs font-heading font-semibold text-foreground uppercase tracking-wide"></span>
+		<span class="text-xs text-muted-foreground">
+			<span data-egg-count>0</span>/5
+			<span id="egg-widget-progress"></span>
+		</span>
+	</div>
+
+	<!-- Analog dial -->
+	<div class="flex justify-center my-1">
+		<svg viewBox="0 0 100 60" class="w-full max-w-[180px]" aria-hidden="true">
+			<!-- Background arc -->
+			<path
+				d="M10,55 A45,45 0 0,1 90,55"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="6"
+				stroke-linecap="round"
+				class="text-muted-foreground/30"
+			/>
+			<!-- Coloured arc segments: green → yellow → red -->
+			<path
+				d="M10,55 A45,45 0 0,1 37,16"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="6"
+				stroke-linecap="butt"
+				class="text-primary/20"
+			/>
+			<!-- Pivot dot -->
+			<circle cx="50" cy="55" r="3.5" fill="currentColor" class="text-foreground" />
+			<!-- Needle -->
+			<g data-egg-needle
+				style="transform-box: fill-box; transform-origin: 50% 100%; transform: rotate(var(--egg-angle, -80deg)); transition: transform 120ms ease-out;">
+				<line x1="50" y1="55" x2="50" y2="14"
+					stroke="currentColor"
+					stroke-width="2.5"
+					stroke-linecap="round"
+					class="text-primary" />
+				<circle cx="50" cy="14" r="2" fill="currentColor" class="text-primary" />
+			</g>
+		</svg>
+	</div>
+
+	<!-- Digital readout -->
+	<div class="text-center text-xs tabular-nums text-foreground mb-1">
+		<span data-egg-cps>0</span> cps
+	</div>
+	<div class="text-center text-xs tabular-nums text-muted-foreground mb-2">
+		<span id="egg-widget-dose-label"></span>: <span data-egg-dose>0.0</span> µSv
+	</div>
+
+	<!-- Hint -->
+	<p id="egg-widget-hint" class="text-xs text-muted-foreground text-center leading-tight"></p>
+</div>
+
+<!-- ─── REVEAL PANEL ───────────────────────────────────────────────────── -->
+<div id="egg-reveal-overlay" role="dialog" aria-modal="true" aria-labelledby="egg-reveal-title"
+	class="hidden fixed inset-0 z-[70] bg-background/70 backdrop-blur-sm flex items-center justify-center p-4">
+	<div class="rounded-2xl border border-border bg-card p-6 shadow-xl max-w-sm w-full">
+		<h3 id="egg-reveal-title" class="text-base font-heading font-semibold text-foreground mb-1"></h3>
+		<p id="egg-reveal-body" class="text-sm text-muted-foreground mb-4"></p>
+		<!-- Cats placeholder (shown only when id === 'cats') -->
+		<div id="egg-cats-block" class="hidden mb-4 flex flex-col items-center gap-2">
+			<div class="rounded-lg border border-border bg-muted aspect-[3/4] w-40 flex items-center justify-center text-4xl">
+				🐈
+			</div>
+			<p id="egg-cats-caption" class="text-xs text-muted-foreground"></p>
+		</div>
+		<button id="egg-reveal-next" type="button"
+			class="w-full bg-primary text-primary-foreground rounded-lg px-4 py-2 text-sm font-medium hover:bg-primary/90 transition-colors">
+		</button>
+	</div>
+</div>
+
+<!-- ─── CERTIFICATE MODAL ──────────────────────────────────────────────── -->
+<div id="egg-cert-overlay" role="dialog" aria-modal="true" aria-labelledby="egg-cert-title"
+	class="hidden fixed inset-0 z-[70] bg-background/70 backdrop-blur-sm flex items-center justify-center p-4">
+	<div class="rounded-2xl border border-border bg-card p-6 shadow-xl max-w-sm w-full text-center">
+		<div class="mb-1 flex justify-center">
+			<img src="/Images/bonhomme_dosi.gif" alt="" class="h-12 w-12" />
+		</div>
+		<h2 id="egg-cert-title" class="text-lg font-heading font-semibold text-foreground mt-2 mb-2"></h2>
+		<span id="egg-cert-subtitle"
+			class="inline-block rounded-full border border-border px-2.5 py-0.5 text-xs font-semibold text-primary mb-4">
+		</span>
+		<p id="egg-cert-body" class="text-sm text-muted-foreground mb-2"></p>
+		<p id="egg-cert-dose" class="text-sm font-medium text-foreground mb-1"></p>
+		<p id="egg-cert-signature" class="text-xs text-muted-foreground mb-1 italic"></p>
+		<p id="egg-cert-serial" class="text-xs text-muted-foreground mb-5 font-mono"></p>
+		<button id="egg-cert-close" type="button"
+			class="w-full bg-primary text-primary-foreground rounded-lg px-4 py-2 text-sm font-medium hover:bg-primary/90 transition-colors">
+		</button>
+	</div>
+</div>
+
+<script>
+	// ─── Types ──────────────────────────────────────────────────────────────
+	type SourceId = 'banana' | 'cats' | 'zonage' | 'rpcirkus' | 'book'
+	type HuntState = 'not-started' | 'armed' | 'done'
+
+	interface HuntData {
+		state: HuntState
+		found: SourceId[]
+	}
+
+	interface EggCopy {
+		intro: { title: string; body: string; cta: string }
+		widget: { label: string; progress: string; dose: string; hint: string; hintMobile: string }
+		reveal: { counter: string; next: string }
+		sources: Record<SourceId, string>
+		catsPlaceholder: string
+		certificate: {
+			title: string
+			subtitle: string
+			body: string
+			dose: string
+			signature: string
+			serial: string
+			close: string
+		}
+	}
+
+	// ─── Constants ──────────────────────────────────────────────────────────
+	const STORAGE_KEY = 'dosimex-egghunt'
+	const SOURCE_DOSES: Record<SourceId, number> = {
+		banana: 0.1,
+		cats: 0.1,
+		zonage: 2.0,
+		rpcirkus: 0.0,
+		book: 0.3,
+	}
+	const TOTAL = 5
+
+	// ─── Module-level guards ─────────────────────────────────────────────────
+	let docListenersWired = false
+	let pendingSourceId: SourceId | null = null
+	let afterRevealCallback: (() => void) | null = null
+
+	// ─── Storage helpers ─────────────────────────────────────────────────────
+	function load(): HuntData {
+		try {
+			const raw = localStorage.getItem(STORAGE_KEY)
+			if (!raw) return { state: 'not-started', found: [] }
+			const parsed: unknown = JSON.parse(raw)
+			if (
+				parsed !== null &&
+				typeof parsed === 'object' &&
+				'state' in parsed &&
+				'found' in parsed &&
+				Array.isArray((parsed as HuntData).found)
+			) {
+				return parsed as HuntData
+			}
+		} catch {
+			// ignore parse errors
+		}
+		return { state: 'not-started', found: [] }
+	}
+
+	function save(data: HuntData): void {
+		localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
+	}
+
+	function deriveDose(found: SourceId[]): number {
+		return found.reduce((acc, id) => acc + SOURCE_DOSES[id], 0)
+	}
+
+	// ─── DOM helpers ────────────────────────────────────────────────────────
+	function el<T extends HTMLElement>(id: string): T | null {
+		return document.getElementById(id) as T | null
+	}
+
+	function show(elem: HTMLElement | null): void {
+		elem?.classList.remove('hidden')
+	}
+
+	function hide(elem: HTMLElement | null): void {
+		elem?.classList.add('hidden')
+	}
+
+	function setText(id: string, text: string): void {
+		const elem = el(id)
+		if (elem) elem.textContent = text
+	}
+
+	// ─── Needle / cps update ────────────────────────────────────────────────
+	function setNeedle(angleDeg: number, cps: number): void {
+		const widget = el('egg-widget')
+		if (widget) {
+			widget.style.setProperty('--egg-angle', `${angleDeg}deg`)
+		}
+		const cpsEl = document.querySelector<HTMLElement>('[data-egg-cps]')
+		if (cpsEl) cpsEl.textContent = String(Math.round(cps))
+	}
+
+	function spikeNeedle(): void {
+		setNeedle(80, 250 + Math.random() * 50)
+		setTimeout(() => setNeedle(-20 + Math.random() * 20, Math.round(Math.random() * 30)), 800)
+	}
+
+	// ─── Count & dose display ───────────────────────────────────────────────
+	function updateCountDisplay(found: SourceId[]): void {
+		const countEl = document.querySelector<HTMLElement>('[data-egg-count]')
+		if (countEl) countEl.textContent = String(found.length)
+		const doseEl = document.querySelector<HTMLElement>('[data-egg-dose]')
+		if (doseEl) doseEl.textContent = deriveDose(found).toFixed(1)
+	}
+
+	// ─── Certificate ────────────────────────────────────────────────────────
+	function openCertificate(COPY: EggCopy, found: SourceId[]): void {
+		const overlay = el('egg-cert-overlay')
+		const serial = 'DSMX-' + Date.now().toString(36).toUpperCase().slice(-6)
+		const dose = deriveDose(found).toFixed(1)
+
+		setText('egg-cert-title', COPY.certificate.title)
+		setText('egg-cert-subtitle', COPY.certificate.subtitle)
+		setText('egg-cert-body', COPY.certificate.body)
+		setText('egg-cert-dose', COPY.certificate.dose.replace('{dose}', dose))
+		setText('egg-cert-signature', COPY.certificate.signature)
+		setText('egg-cert-serial', COPY.certificate.serial.replace('{serial}', serial))
+		setText('egg-cert-close', COPY.certificate.close)
+		show(overlay)
+	}
+
+	// ─── Reveal panel ───────────────────────────────────────────────────────
+	function openReveal(COPY: EggCopy, id: SourceId, onNext: () => void): void {
+		const overlay = el('egg-reveal-overlay')
+		const data = load()
+
+		const counterText = `${COPY.reveal.counter} ${data.found.length}/${TOTAL}`
+		setText('egg-reveal-title', counterText)
+		setText('egg-reveal-body', COPY.sources[id])
+		setText('egg-reveal-next', COPY.reveal.next)
+
+		const catsBlock = el('egg-cats-block')
+		if (id === 'cats') {
+			setText('egg-cats-caption', COPY.catsPlaceholder)
+			show(catsBlock)
+		} else {
+			hide(catsBlock)
+		}
+
+		afterRevealCallback = onNext
+		show(overlay)
+	}
+
+	// ─── Source activated ───────────────────────────────────────────────────
+	function onSourceActivated(COPY: EggCopy, id: SourceId): void {
+		const data = load()
+
+		if (data.state === 'not-started') {
+			pendingSourceId = id
+			startHunt(COPY)
+			return
+		}
+
+		if (data.found.includes(id)) return
+
+		data.found.push(id)
+		save(data)
+
+		show(el('egg-widget'))
+		updateCountDisplay(data.found)
+		spikeNeedle()
+
+		const isDone = data.found.length >= TOTAL
+
+		openReveal(COPY, id, () => {
+			if (isDone) {
+				data.state = 'done'
+				save(data)
+				openCertificate(COPY, data.found)
+			}
+		})
+	}
+
+	// ─── Start hunt ─────────────────────────────────────────────────────────
+	function startHunt(COPY: EggCopy): void {
+		const data = load()
+		if (data.state === 'done') return
+
+		data.state = 'armed'
+		save(data)
+
+		// Populate intro copy
+		setText('egg-intro-title', COPY.intro.title)
+		setText('egg-intro-body', COPY.intro.body)
+		setText('egg-intro-cta', COPY.intro.cta)
+
+		show(el('egg-intro-overlay'))
+	}
+
+	// ─── Init ────────────────────────────────────────────────────────────────
+	function init(): void {
+		// Parse copy from JSON script tag
+		const copyEl = document.getElementById('egg-copy')
+		const COPY: EggCopy | null = copyEl
+			? ((): EggCopy | null => {
+					try {
+						return JSON.parse(copyEl.textContent ?? '{}') as EggCopy
+					} catch {
+						return null
+					}
+				})()
+			: null
+
+		if (!COPY) return
+
+		// ── Populate static copy ───────────────────────────────────────────
+		const isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches
+
+		setText('egg-widget-label', COPY.widget.label)
+		setText('egg-widget-progress', COPY.widget.progress)
+		setText('egg-widget-dose-label', COPY.widget.dose)
+		setText('egg-widget-hint', isTouch ? COPY.widget.hintMobile : COPY.widget.hint)
+
+		// ── Restore state ─────────────────────────────────────────────────
+		const data = load()
+		if (data.state === 'armed' || data.state === 'done') {
+			show(el('egg-widget'))
+			updateCountDisplay(data.found)
+			setNeedle(-80, 0)
+		}
+
+		// ── Mascot triple-click ────────────────────────────────────────────
+		const mascot = document.querySelector<HTMLElement>('[data-egg-mascot]')
+		if (mascot && !mascot.dataset.eggBound) {
+			mascot.dataset.eggBound = '1'
+			let clickCount = 0
+			let lastClickTime = 0
+
+			mascot.addEventListener('click', (e) => {
+				const current = load()
+				if (current.state === 'done') return
+
+				e.preventDefault()
+				e.stopPropagation()
+
+				const now = Date.now()
+				if (now - lastClickTime > 1000) {
+					clickCount = 1
+				} else {
+					clickCount++
+				}
+				lastClickTime = now
+
+				if (clickCount >= 3) {
+					clickCount = 0
+					startHunt(COPY)
+				}
+			})
+		}
+
+		// ── Sources on this page ───────────────────────────────────────────
+		document.querySelectorAll<HTMLElement>('[data-egg-source]').forEach((sourceEl) => {
+			if (sourceEl.dataset.eggBound) return
+			sourceEl.dataset.eggBound = '1'
+
+			const id = sourceEl.dataset.eggSource as SourceId | undefined
+			if (!id || !(id in SOURCE_DOSES)) return
+
+			sourceEl.addEventListener('click', (e) => {
+				e.preventDefault()
+				e.stopPropagation()
+				onSourceActivated(COPY, id)
+			})
+		})
+
+		// ── Desktop proximity sweep ────────────────────────────────────────
+		if (!isTouch && !docListenersWired) {
+			docListenersWired = true
+
+			let rafPending = false
+
+			document.addEventListener('pointermove', (e) => {
+				if (rafPending) return
+				rafPending = true
+
+				requestAnimationFrame(() => {
+					rafPending = false
+
+					const currentData = load()
+					if (currentData.state === 'not-started') return
+
+					const unfoundSources = Array.from(
+						document.querySelectorAll<HTMLElement>('[data-egg-source]')
+					).filter((s) => {
+						const sid = s.dataset.eggSource as SourceId | undefined
+						return sid && !currentData.found.includes(sid)
+					})
+
+					if (unfoundSources.length === 0) {
+						setNeedle(-80, 0)
+						return
+					}
+
+					// Find nearest unfound source
+					let minDist = Infinity
+
+					for (const sourceEl of unfoundSources) {
+						const rect = sourceEl.getBoundingClientRect()
+						const cx = rect.left + rect.width / 2
+						const cy = rect.top + rect.height / 2
+						const dx = e.clientX - cx
+						const dy = e.clientY - cy
+						const dist = Math.sqrt(dx * dx + dy * dy)
+						if (dist < minDist) minDist = dist
+					}
+
+					// Map distance to angle and cps
+					const NEAR = 60
+					const FAR = 600
+					const clamped = Math.max(NEAR, Math.min(FAR, minDist))
+					// t=0 → near, t=1 → far
+					const t = (clamped - NEAR) / (FAR - NEAR)
+					// angle: -80 (far) to +80 (near)
+					const baseAngle = 80 - t * 160
+					// jitter when hot
+					const jitter = t < 0.2 ? (Math.random() - 0.5) * 12 : 0
+					const angle = baseAngle + jitter
+					// cps: 0 (far) to ~250 (near)
+					const cps = (1 - t) * (200 + Math.random() * 50)
+
+					setNeedle(angle, cps)
+				})
+			})
+		}
+
+		// ── Document-level listeners (once per document lifecycle) ─────────
+		if (!document.documentElement.dataset.eggDocWired) {
+			document.documentElement.dataset.eggDocWired = '1'
+
+			// Intro CTA
+			document.addEventListener('click', (e) => {
+				const target = e.target as HTMLElement | null
+				if (!target) return
+
+				// Intro CTA button
+				if (target.id === 'egg-intro-cta' || target.closest('#egg-intro-cta')) {
+					const copyEl2 = document.getElementById('egg-copy')
+					const copy2: EggCopy | null = copyEl2
+						? ((): EggCopy | null => {
+								try {
+									return JSON.parse(copyEl2.textContent ?? '{}') as EggCopy
+								} catch {
+									return null
+								}
+							})()
+						: null
+					if (!copy2) return
+
+					hide(el('egg-intro-overlay'))
+					show(el('egg-widget'))
+					updateCountDisplay(load().found)
+					setNeedle(-80, 0)
+
+					// If there's a pending source from a cold click, reveal it
+					if (pendingSourceId !== null) {
+						const sid = pendingSourceId
+						pendingSourceId = null
+						onSourceActivated(copy2, sid)
+					}
+				}
+
+				// Reveal next button
+				if (target.id === 'egg-reveal-next' || target.closest('#egg-reveal-next')) {
+					hide(el('egg-reveal-overlay'))
+					if (afterRevealCallback) {
+						const cb = afterRevealCallback
+						afterRevealCallback = null
+						cb()
+					}
+				}
+
+				// Certificate close button
+				if (target.id === 'egg-cert-close' || target.closest('#egg-cert-close')) {
+					hide(el('egg-cert-overlay'))
+				}
+
+				// Overlay click to close (but not if clicking the card itself)
+				const introOverlay = el('egg-intro-overlay')
+				const revealOverlay = el('egg-reveal-overlay')
+				const certOverlay = el('egg-cert-overlay')
+
+				if (introOverlay && !introOverlay.classList.contains('hidden') && target === introOverlay) {
+					hide(introOverlay)
+				}
+				if (revealOverlay && !revealOverlay.classList.contains('hidden') && target === revealOverlay) {
+					hide(revealOverlay)
+					if (afterRevealCallback) {
+						const cb = afterRevealCallback
+						afterRevealCallback = null
+						cb()
+					}
+				}
+				if (certOverlay && !certOverlay.classList.contains('hidden') && target === certOverlay) {
+					hide(certOverlay)
+				}
+			})
+
+			// Escape key closes open dialogs
+			document.addEventListener('keydown', (e) => {
+				if (e.key !== 'Escape') return
+				const introOverlay = el('egg-intro-overlay')
+				const revealOverlay = el('egg-reveal-overlay')
+				const certOverlay = el('egg-cert-overlay')
+
+				if (introOverlay && !introOverlay.classList.contains('hidden')) {
+					hide(introOverlay)
+					return
+				}
+				if (revealOverlay && !revealOverlay.classList.contains('hidden')) {
+					hide(revealOverlay)
+					if (afterRevealCallback) {
+						const cb = afterRevealCallback
+						afterRevealCallback = null
+						cb()
+					}
+					return
+				}
+				if (certOverlay && !certOverlay.classList.contains('hidden')) {
+					hide(certOverlay)
+				}
+			})
+		}
+	}
+
+	init()
+	document.addEventListener('astro:page-load', init)
+</script>
