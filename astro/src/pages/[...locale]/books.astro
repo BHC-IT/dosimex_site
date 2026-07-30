@@ -54,7 +54,7 @@ const bookSchemas = b.items.map((book, i) => ({
 		<div class="mx-auto max-w-7xl px-6">
 			<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 				{b.items.map((book, index) => (
-					<div class="rounded-2xl bg-card overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+					<div class:list={["rounded-2xl bg-card overflow-hidden shadow-sm hover:shadow-md transition-shadow", book.author?.includes('Vivier') && "cursor-pointer"]} data-egg-source={book.author?.includes('Vivier') ? 'book' : undefined}>
 						<div class="bg-muted dark:bg-secondary p-6 flex items-center justify-center" style="aspect-ratio: 3/4;">
 							<Image
 								src={bookImages[index]}

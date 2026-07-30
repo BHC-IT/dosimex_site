@@ -86,9 +86,12 @@ const year = new Date().getFullYear()
 
 		<!-- Bottom bar -->
 		<div class="mt-16 flex flex-col-reverse items-start gap-6 border-t border-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-			<p class="text-sm text-muted-foreground">
-				&copy; {year} Dosimex. {locale === 'fr' ? 'Tous droits réservés.' : 'All rights reserved.'}
-			</p>
+			<span class="flex items-center gap-2">
+				<p class="text-sm text-muted-foreground">
+					&copy; {year} Dosimex. {locale === 'fr' ? 'Tous droits réservés.' : 'All rights reserved.'}
+				</p>
+				<button type="button" data-egg-source="banana" aria-label="🍌" class="cursor-pointer text-sm leading-none text-muted-foreground/30 transition-opacity hover:text-muted-foreground/60">🍌</button>
+			</span>
 			<div class="flex items-center gap-4">
 				<!-- LinkedIn -->
 				<a href="https://www.linkedin.com/company/dosimex" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-muted-foreground transition-colors hover:text-primary">
