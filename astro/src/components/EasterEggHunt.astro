@@ -33,10 +33,16 @@ const { t } = Astro.props
 	<!-- Header -->
 	<div class="flex items-center justify-between mb-2">
 		<span id="egg-widget-label" class="text-xs font-heading font-semibold text-foreground uppercase tracking-wide"></span>
-		<span class="text-xs text-muted-foreground">
-			<span data-egg-count>0</span>/5
-			<span id="egg-widget-progress"></span>
-		</span>
+		<div class="flex items-center gap-2">
+			<span class="text-xs text-muted-foreground">
+				<span data-egg-count>0</span>/5
+				<span id="egg-widget-progress"></span>
+			</span>
+			<button id="egg-widget-close" type="button"
+				class="flex h-5 w-5 items-center justify-center rounded text-muted-foreground leading-none transition-colors hover:bg-muted hover:text-foreground">
+				<svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+			</button>
+		</div>
 	</div>
 
 	<!-- Analog dial -->
@@ -135,6 +141,7 @@ const { t } = Astro.props
 	interface HuntData {
 		state: HuntState
 		found: SourceId[]
+		dismissed?: boolean
 	}
 
 	interface EggCopy {
@@ -291,6 +298,8 @@ const { t } = Astro.props
 		if (data.found.includes(id)) return
 
 		data.found.push(id)
+		// Activating a source is intent to play — un-dismiss the HUD.
+		data.dismissed = false
 		save(data)
 
 		show(el('egg-widget'))
@@ -348,9 +357,14 @@ const { t } = Astro.props
 		setText('egg-widget-dose-label', COPY.widget.dose)
 		setText('egg-widget-hint', isTouch ? COPY.widget.hintMobile : COPY.widget.hint)
 
+		// Localised aria-label for the widget close button (reuse "Close" copy)
+		const closeBtn = el('egg-widget-close')
+		if (closeBtn) closeBtn.setAttribute('aria-label', COPY.certificate.close)
+
 		// ── Restore state ─────────────────────────────────────────────────
+		// Auto-show only if armed/done AND the user hasn't dismissed the HUD.
 		const data = load()
-		if (data.state === 'armed' || data.state === 'done') {
+		if ((data.state === 'armed' || data.state === 'done') && !data.dismissed) {
 			show(el('egg-widget'))
 			updateCountDisplay(data.found)
 			setNeedle(-80, 0)
@@ -484,8 +498,12 @@ const { t } = Astro.props
 					if (!copy2) return
 
 					hide(el('egg-intro-overlay'))
+					// Starting/resuming from the intro un-dismisses the HUD.
+					const introData = load()
+					introData.dismissed = false
+					save(introData)
 					show(el('egg-widget'))
-					updateCountDisplay(load().found)
+					updateCountDisplay(introData.found)
 					setNeedle(-80, 0)
 
 					// If there's a pending source from a cold click, reveal it
@@ -509,6 +527,14 @@ const { t } = Astro.props
 				// Certificate close button
 				if (target.id === 'egg-cert-close' || target.closest('#egg-cert-close')) {
 					hide(el('egg-cert-overlay'))
+				}
+
+				// Widget close button — hide the HUD and remember the choice
+				if (target.id === 'egg-widget-close' || target.closest('#egg-widget-close')) {
+					const dismissData = load()
+					dismissData.dismissed = true
+					save(dismissData)
+					hide(el('egg-widget'))
 				}
 
 				// Overlay click to close (but not if clicking the card itself)
