@@ -1,7 +1,7 @@
 {
 	"framework": "astro",
-	"installCommand": "cd astro && pnpm install",
-	"buildCommand": "cd astro && pnpm build",
+	"installCommand": "cd astro && npx -y pnpm@10.14.0 install",
+	"buildCommand": "cd astro && npx -y pnpm@10.14.0 build",
 	"outputDirectory": "astro/dist",
 	"headers": [
 		{
