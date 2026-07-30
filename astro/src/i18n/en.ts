@@ -82,7 +82,7 @@ export const en = {
 			title: 'Radiation protection calculation tools,',
 			titleAccent: 'at your fingertips',
 			subtitle:
-				'For 30 years, Dosimex has put calculation within reach of radiation-protection professionals — and helped them understand the physics behind it. Now on the web with Dosismart: the same validated calculations, right in your browser.',
+				'A set of practical, easy-to-use, validated calculation tools that address many situations encountered in radiation protection. They will allow you to improve your expertise level. Now on the web with Dosismart: calculate right in your browser.',
 			cta: 'Try Dosismart free — 14 days',
 			trialButton: 'Explore the Dosimex Suite',
 		},

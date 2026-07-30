@@ -82,7 +82,7 @@ export const fr = {
 			title: 'Des outils de calcul radioprotection,',
 			titleAccent: 'à portée de main',
 			subtitle:
-				"Depuis 30 ans, Dosimex met le calcul à la portée des radioprotectionnistes — et aide à en comprendre la physique. Aujourd'hui sur le web avec Dosismart : les mêmes calculs validés, directement dans votre navigateur.",
+				"Un ensemble d'outils de calcul pratiques, simples d'utilisation et validés, qui répondent à de nombreuses situations rencontrées en radioprotection. Ils vous permettront d'améliorer votre niveau d'expertise. Aujourd'hui sur le web avec Dosismart : calculez directement dans votre navigateur.",
 			cta: 'Essayer Dosismart gratuitement — 14 jours',
 			trialButton: 'Découvrir la suite Dosimex',
 		},
