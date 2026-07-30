@@ -61,6 +61,41 @@ export const en = {
 		logo: 'DOSIMEX - Radiation Dosimetry Software',
 		manualCover: 'Manual cover',
 	},
+	easterEgg: {
+		intro: {
+			title: "Dosi the Mascot",
+			body: "A colleague! Good. I was just doing my rounds. Five sources are hiding on the site — nothing dangerous, but rules are rules. Grab the counter, let's sweep together.",
+			cta: "Grab the counter",
+		},
+		widget: {
+			label: "Counter",
+			progress: "sources",
+			dose: "Accumulated dose",
+			hint: "Sweep to detect",
+			hintMobile: "Tap the hidden sources",
+		},
+		reveal: {
+			counter: "Source",
+			next: "Continue",
+		},
+		sources: {
+			banana: "Every RP pro knows it. The only source you'd happily eat as a snack.",
+			cats: "Source located. Guarded by Clem and Tess, Alain's assistants, feline dosimetry department. Dose rate: nominal. Do not disturb.",
+			zonage: "Well done. That one was the most obvious: a red dot dead-centre of a zoning plan. Can't get much clearer.",
+			rpcirkus: "False alarm: not a radioactive source, a source of information. RP Cirkus — serious about dose, never about themselves.",
+			book: "Nice catch. The source was hidden between two pages. Chapter 1: directly ionizing particles.",
+		},
+		catsPlaceholder: "Photo coming soon — Tess & Clem",
+		certificate: {
+			title: "Radiation Protection Certificate",
+			subtitle: "Certified Explorer",
+			body: "Full site sweep complete. Five sources located, area declared clean.",
+			dose: "Accumulated dose: {dose} µSv — about a handful of bananas.",
+			signature: "Issued by Dosi the Mascot",
+			serial: "No. {serial}",
+			close: "Close",
+		},
+	},
 	navbar: {
 		software: 'Software',
 		dosismart: 'Dosismart',

@@ -61,6 +61,41 @@ export const fr = {
 		logo: 'DOSIMEX - Logiciel de dosim\u00e9trie des rayonnements',
 		manualCover: 'Couverture de manuel',
 	},
+	easterEgg: {
+		intro: {
+			title: "Bonhomme Dosi",
+			body: "Un collègue ! Bien. Je faisais ma ronde. Cinq sources traînent sur le site — rien de dangereux, mais le règlement, c'est le règlement. Prends le compteur, on balaie ensemble.",
+			cta: "Prendre le compteur",
+		},
+		widget: {
+			label: "Compteur",
+			progress: "sources",
+			dose: "Dose cumulée",
+			hint: "Balayez pour détecter",
+			hintMobile: "Touchez les sources cachées",
+		},
+		reveal: {
+			counter: "Source",
+			next: "Continuer",
+		},
+		sources: {
+			banana: "Tout le monde en RP la connaît. La seule source qu'on ose manger au goûter.",
+			cats: "Source localisée. Gardée par Clem et Tess, les assistantes d'Alain, au service dosimétrie féline. Débit : nominal. Ne pas déranger.",
+			zonage: "Bravo. Celle-là, c'était la plus évidente : un point rouge au centre d'un plan de zonage. Difficile de faire plus clair.",
+			rpcirkus: "Fausse alerte : pas une source radioactive, une source d'information. Le RP Cirkus — sérieux sur la dose, jamais sur eux-mêmes.",
+			book: "Bien vu. La source était cachée entre deux pages. Chapitre 1 : les particules directement ionisantes.",
+		},
+		catsPlaceholder: "Photo à venir — Tess & Clem",
+		certificate: {
+			title: "Attestation de radioprotection",
+			subtitle: "Explorateur Certifié",
+			body: "Balayage complet du site. Cinq sources localisées, zone déclarée saine.",
+			dose: "Dose cumulée : {dose} µSv — l'équivalent d'une poignée de bananes.",
+			signature: "Délivré par le Bonhomme Dosi",
+			serial: "N° {serial}",
+			close: "Fermer",
+		},
+	},
 	navbar: {
 		software: 'Logiciels',
 		dosismart: 'Dosismart',
