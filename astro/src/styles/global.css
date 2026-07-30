@@ -109,7 +109,8 @@
 		font-family: var(--font-body);
 		/* Clip (not hidden) so the hero glow can bleed past sections without a
 		   horizontal scrollbar. `clip` avoids creating a scroll container, so
-		   the sticky navbar keeps working (unlike overflow-x: hidden). */
+		   the sticky navbar keeps working (unlike overflow-x: hidden). Never
+		   put overflow-x on html — it silently disables position: sticky. */
 		overflow-x: clip;
 	}
 
@@ -232,14 +233,10 @@ details[open] .faq-chevron {
 	0% { transform: translateX(0); }
 	100% { transform: translateX(-50%); }
 }
+/* The track is w-max (2× the logo set + trailing gap), so -50% is exactly one
+   set and the loop wraps seamlessly at every viewport width. */
 .partner-scroll {
 	animation: partner-scroll 30s linear infinite;
-}
-/* The marquee reads as sluggish on small screens — speed it up on mobile. */
-@media (max-width: 768px) {
-	.partner-scroll {
-		animation-duration: 16s;
-	}
 }
 
 /* Blog prose typography */

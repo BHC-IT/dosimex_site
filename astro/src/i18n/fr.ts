@@ -172,7 +172,7 @@ export const fr = {
 			subtitle: "Devis, démonstration ou question technique — l'équipe Dosimex vous répond directement, par téléphone ou par email.",
 		},
 		info: {
-			phone: { label: 'Téléphone', value: '06 89 70 90 35' },
+			phone: { label: 'Téléphone', value: '06 89 70 90 35' },
 			email: { label: 'Email' },
 			demo: { label: 'Démonstration', value: 'Visioconférence disponible' },
 		},
@@ -449,7 +449,7 @@ export const fr = {
 		},
 		ask: {
 			title: 'Des questions ?',
-			text: 'Pour un devis ou pour essayer Dosismart gratuitement, contactez-nous ici ou par téléphone au 06 89 70 90 35',
+			text: 'Pour un devis ou pour essayer Dosismart gratuitement, contactez-nous ici ou par téléphone au 06 89 70 90 35',
 			labelButton: 'Nous contacter',
 		},
 	},
@@ -659,7 +659,7 @@ export const fr = {
 		contact: {
 			title: 'Devis, démonstration, questions ?',
 			text: "Contactez l'équipe Dosimex via le formulaire ci-dessous ou par téléphone au ",
-			phone: '06 89 70 90 35',
+			phone: '06 89 70 90 35',
 		},
 	},
 	about: {
@@ -908,7 +908,7 @@ export const fr = {
 		},
 		questions: {
 			title: 'Des questions ?',
-			text: "Pour un devis, n'hésitez pas à nous contacter ici ou par téléphone au 06 89 70 90 35",
+			text: "Pour un devis, n'hésitez pas à nous contacter ici ou par téléphone au 06 89 70 90 35",
 			button: 'Nous contacter',
 		},
 	},

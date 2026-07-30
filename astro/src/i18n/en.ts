@@ -172,7 +172,7 @@ export const en = {
 			subtitle: 'Quote, demonstration or technical question — the Dosimex team answers you directly, by phone or email.',
 		},
 		info: {
-			phone: { label: 'Phone', value: '06 89 70 90 35' },
+			phone: { label: 'Phone', value: '06 89 70 90 35' },
 			email: { label: 'Email' },
 			demo: { label: 'Demo', value: 'Video conference available' },
 		},
@@ -449,7 +449,7 @@ export const en = {
 		},
 		ask: {
 			title: 'Any questions?',
-			text: 'For a quote or to try Dosismart, contact us here or by phone at 06 89 70 90 35',
+			text: 'For a quote or to try Dosismart, contact us here or by phone at 06 89 70 90 35',
 			labelButton: 'Contact us',
 		},
 	},
@@ -659,7 +659,7 @@ export const en = {
 		contact: {
 			title: 'Quote, demo, questions?',
 			text: 'Contact the Dosimex team via the form below or by phone at ',
-			phone: '06 89 70 90 35',
+			phone: '06 89 70 90 35',
 		},
 	},
 	about: {
@@ -907,7 +907,7 @@ export const en = {
 		},
 		questions: {
 			title: 'Any questions?',
-			text: 'Feel free to contact us via the form below or by phone at 06 89 70 90 35',
+			text: 'Feel free to contact us via the form below or by phone at 06 89 70 90 35',
 			button: 'Contact us',
 		},
 	},

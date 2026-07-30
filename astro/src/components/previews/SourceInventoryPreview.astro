@@ -50,7 +50,7 @@ const badge: Record<string, { cls: string; label: string }> = {
 
 <WindowFrame class={className}>
 	<div class="p-4 sm:p-5">
-		<div class="mb-4 flex items-center justify-between gap-3">
+		<div class="mb-4 flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
 			<h3 class="flex items-center gap-2 text-sm font-semibold text-foreground">
 				<span class="h-2 w-2 rounded-full bg-primary" aria-hidden="true"></span>
 				{l.title}
@@ -64,22 +64,25 @@ const badge: Record<string, { cls: string; label: string }> = {
 			<table class="w-full text-sm">
 				<thead>
 					<tr class="border-b border-border bg-muted/40 text-left text-xs text-muted-foreground">
-						<th class="px-3 py-2 font-medium">{l.name}</th>
-						<th class="px-3 py-2 font-medium">{l.nuclide}</th>
-						<th class="px-3 py-2 text-right font-medium">{l.activity}</th>
+						<th class="px-2 py-2 font-medium sm:px-3">{l.name}</th>
+						<th class="hidden px-2 py-2 font-medium sm:table-cell sm:px-3">{l.nuclide}</th>
+						<th class="hidden px-2 py-2 text-right font-medium sm:table-cell sm:px-3">{l.activity}</th>
 						<th class="hidden px-3 py-2 font-medium sm:table-cell">{l.location}</th>
-						<th class="px-3 py-2 text-right font-medium">{l.status}</th>
+						<th class="px-2 py-2 text-right font-medium sm:px-3">{l.status}</th>
 					</tr>
 				</thead>
 				<tbody>
 					{rows.map((r) => (
 						<tr class="border-b border-border last:border-0">
-							<td class="px-3 py-2.5 font-medium text-foreground">{r.name}</td>
-							<td class="px-3 py-2.5 text-muted-foreground">{r.nuclide}</td>
-							<td class="px-3 py-2.5 text-right tabular-nums text-foreground">{r.activity}</td>
+							<td class="px-2 py-2.5 font-medium text-foreground sm:px-3">
+								{r.name}
+								<span class="block text-xs font-normal text-muted-foreground sm:hidden">{r.nuclide} · {r.activity}</span>
+							</td>
+							<td class="hidden px-2 py-2.5 text-muted-foreground sm:table-cell sm:px-3">{r.nuclide}</td>
+							<td class="hidden whitespace-nowrap px-2 py-2.5 text-right tabular-nums text-foreground sm:table-cell sm:px-3">{r.activity}</td>
 							<td class="hidden px-3 py-2.5 text-muted-foreground sm:table-cell">{r.loc}</td>
-							<td class="px-3 py-2.5 text-right">
-								<span class={`inline-flex items-center rounded-full border px-2 py-0.5 text-[11px] font-semibold ${badge[r.status].cls}`}>
+							<td class="px-2 py-2.5 text-right sm:px-3">
+								<span class={`inline-flex items-center whitespace-nowrap rounded-full border px-2 py-0.5 text-[11px] font-semibold ${badge[r.status].cls}`}>
 									{badge[r.status].label}
 								</span>
 							</td>

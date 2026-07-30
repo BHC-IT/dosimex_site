@@ -16,8 +16,8 @@ const t = getTranslations(locale)
 	<!-- Hero -->
 	<section class="relative py-20 lg:py-28">
 		<div class="absolute inset-0 -z-10" aria-hidden="true">
-			<div class="absolute -bottom-40 -right-[14rem] h-[380px] w-[500px] rounded-full bg-primary/20 blur-3xl dark:bg-primary/10"></div>
-			<div class="absolute -bottom-56 -right-[18rem] h-[280px] w-[360px] rounded-full bg-brandred/[0.16] blur-3xl dark:bg-brandred/[0.14]"></div>
+			<div class="absolute -bottom-40 -right-[14rem] hidden h-[380px] w-[500px] rounded-full bg-primary/20 blur-3xl dark:bg-primary/10 lg:block"></div>
+			<div class="absolute -bottom-56 -right-[18rem] hidden h-[280px] w-[360px] rounded-full bg-brandred/[0.16] blur-3xl dark:bg-brandred/[0.14] lg:block"></div>
 		</div>
 
 		<div class="relative mx-auto max-w-7xl px-6">
@@ -67,7 +67,7 @@ const t = getTranslations(locale)
 								<div>
 									<p class="text-sm font-medium text-foreground">{t.contact.info.phone.label}</p>
 									<p class="text-sm text-foreground/70">
-										<a href="tel:+33689709035" class="hover:text-primary transition-colors">{t.contact.info.phone.value}</a>
+										<a href="tel:+33689709035" class="whitespace-nowrap hover:text-primary transition-colors">{t.contact.info.phone.value}</a>
 									</p>
 								</div>
 							</div>
