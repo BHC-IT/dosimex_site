@@ -746,11 +746,6 @@ export const en = {
 				"A calculation result is only worth what can be verified. The Dosimex codes are validated against MCNP, the CEA's reference Monte-Carlo code, and compared with Microshield and RayXpert in independent end-of-study works. The complete files are available below.",
 			anchors: ['Validation files', 'End-of-study reports', 'Publications', 'User feedback'],
 		},
-		stats: [
-			{ value: '+30 years', label: 'of experience' },
-			{ value: '+1500', label: 'professional users' },
-			{ value: '17', label: 'calculation modules' },
-		],
 		publications: {
 			title: 'Publications and References',
 			subtitle:

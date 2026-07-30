@@ -59,8 +59,9 @@ const docSections = [
 		</div>
 	</section>
 
-	<!-- Headline numbers — animated count-up (static values without JS / reduced motion) -->
-	<StatsCounter items={r.stats} />
+	<!-- Headline numbers — animated count-up (static values without JS / reduced motion);
+	     same figures and wording as the home page. -->
+	<StatsCounter items={t.home.numbers.items} />
 
 	<!-- ══════════ VALIDATION DOSSIERS + END-OF-STUDY REPORTS ══════════ -->
 	{docSections.map((section) => (
