@@ -1,5 +1,7 @@
 ---
 import type { Translations, Locale } from '@/i18n/utils'
+import { Image } from 'astro:assets'
+import catsImg from '@/assets/images/chats.png'
 
 interface Props {
 	t: Translations
@@ -126,9 +128,7 @@ const trefoilPath = ((): string => {
 		<p id="egg-reveal-body" class="text-sm text-muted-foreground mb-4"></p>
 		<!-- Cats placeholder (shown only when id === 'cats') -->
 		<div id="egg-cats-block" class="hidden mb-4 flex flex-col items-center gap-2">
-			<div class="rounded-lg border border-border bg-muted aspect-[3/4] w-40 flex items-center justify-center text-4xl">
-				🐈
-			</div>
+			<Image src={catsImg} alt="Tess & Clem" width={220} class="w-48 rounded-lg border border-border object-cover shadow-sm" loading="lazy" />
 			<p id="egg-cats-caption" class="text-xs text-muted-foreground"></p>
 		</div>
 		<button id="egg-reveal-next" type="button"

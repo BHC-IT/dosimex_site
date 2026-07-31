@@ -85,7 +85,7 @@ export const fr = {
 			rpcirkus: "Fausse alerte : pas une source radioactive, une source d'information. Le RP Cirkus — sérieux sur la dose, jamais sur eux-mêmes.",
 			book: "Bien vu. La source était cachée entre deux pages. Chapitre 1 : les particules directement ionisantes.",
 		},
-		catsPlaceholder: "Photo à venir — Tess & Clem",
+		catsPlaceholder: "Tess & Clem, gardiennes de la source.",
 		certificate: {
 			title: "Attestation de radioprotection",
 			subtitle: "Explorateur Certifié",

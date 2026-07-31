@@ -85,7 +85,7 @@ export const en = {
 			rpcirkus: "False alarm: not a radioactive source, a source of information. RP Cirkus — serious about dose, never about themselves.",
 			book: "Nice catch. The source was hidden between two pages. Chapter 1: directly ionizing particles.",
 		},
-		catsPlaceholder: "Photo coming soon — Tess & Clem",
+		catsPlaceholder: "Tess & Clem, guardians of the source.",
 		certificate: {
 			title: "Radiation Protection Certificate",
 			subtitle: "Certified Explorer",
