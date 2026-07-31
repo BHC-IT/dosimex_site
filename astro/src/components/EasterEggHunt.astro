@@ -285,7 +285,13 @@ const trefoilPath = ((): string => {
 			const rect = sourceEl.getBoundingClientRect()
 			const cx = rect.left + rect.width / 2
 			const cy = rect.top + rect.height / 2
-			const dist = Math.sqrt((px - cx) ** 2 + (py - cy) ** 2)
+			// The banana sits in the footer (bottom-left) and can never reach the
+			// screen centre; on touch, gauge it by its distance to the bottom of the
+			// viewport instead so scrolling to the footer drives the needle fully right.
+			const dist =
+				isTouchDevice && sourceEl.dataset.eggSource === 'banana'
+					? Math.abs(cy - window.innerHeight)
+					: Math.sqrt((px - cx) ** 2 + (py - cy) ** 2)
 			if (dist < minDist) minDist = dist
 		}
 		const NEAR = 60
