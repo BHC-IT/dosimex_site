@@ -80,12 +80,12 @@ export const en = {
 		},
 		sources: {
 			banana: "Every RP pro knows it. The only source you'd happily eat as a snack.",
-			cats: "Source located. Guarded by Clem and Tess, Alain's assistants, feline dosimetry department. Dose rate: nominal. Do not disturb.",
+			cats: "Source located. Under high protection by Alain's sworn guardians. No risk — except to anyone who dares interrupt the nap.",
 			zonage: "Well done. That one was the most obvious: a red dot dead-centre of a zoning plan. Can't get much clearer.",
 			rpcirkus: "False alarm: not a radioactive source, a source of information. RP Cirkus — serious about dose, never about themselves.",
 			book: "Nice catch. The source was hidden between two pages. Chapter 1: directly ionizing particles.",
 		},
-		catsPlaceholder: "Tess & Clem, guardians of the source.",
+		catsPlaceholder: "Clem and Tess, feline dosimetry officers",
 		certificate: {
 			title: "Radiation Protection Certificate",
 			subtitle: "Certified Explorer",

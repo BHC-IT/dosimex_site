@@ -80,12 +80,12 @@ export const fr = {
 		},
 		sources: {
 			banana: "Tout le monde en RP la connaît. La seule source qu'on ose manger au goûter.",
-			cats: "Source localisée. Gardée par Clem et Tess, les assistantes d'Alain, au service dosimétrie féline. Débit : nominal. Ne pas déranger.",
+			cats: "Source localisée. Sous haute protection par les gardiennes assermentées d'Alain. Aucun risque — sauf pour quiconque oserait interrompre la sieste.",
 			zonage: "Bravo. Celle-là, c'était la plus évidente : un point rouge au centre d'un plan de zonage. Difficile de faire plus clair.",
 			rpcirkus: "Fausse alerte : pas une source radioactive, une source d'information. Le RP Cirkus — sérieux sur la dose, jamais sur eux-mêmes.",
 			book: "Bien vu. La source était cachée entre deux pages. Chapitre 1 : les particules directement ionisantes.",
 		},
-		catsPlaceholder: "Tess & Clem, gardiennes de la source.",
+		catsPlaceholder: "Clem et Tess, responsables dosimétrie féline",
 		certificate: {
 			title: "Attestation de radioprotection",
 			subtitle: "Explorateur Certifié",
