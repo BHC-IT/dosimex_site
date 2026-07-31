@@ -285,12 +285,22 @@ const trefoilPath = ((): string => {
 		})
 		const mascot = document.querySelector<HTMLElement>('[data-egg-mascot]')
 		if (anyOpen && mascot) {
+			// The navbar auto-hides on scroll; snap it back into view (without its
+			// slide animation) so the mascot is on-screen and the spotlight aligns.
+			const nav = document.getElementById('site-nav')
+			if (nav) {
+				nav.style.transition = 'none'
+				nav.classList.remove('nav-hidden')
+				nav.classList.add('nav-visible')
+				void nav.offsetHeight
+			}
 			const r = mascot.getBoundingClientRect()
 			spot.style.top = `${r.top}px`
 			spot.style.left = `${r.left}px`
 			spot.style.width = `${r.width}px`
 			spot.style.height = `${r.height}px`
 			show(spot)
+			if (nav) requestAnimationFrame(() => { nav.style.transition = '' })
 		} else {
 			hide(spot)
 		}
