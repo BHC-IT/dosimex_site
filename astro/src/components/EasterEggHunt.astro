@@ -322,6 +322,16 @@ const trefoilPath = ((): string => {
 		show(overlay)
 	}
 
+	// Closing the certificate ends the hunt: tuck the counter away too and
+	// remember it so it stays hidden on later visits.
+	function closeCertificate(): void {
+		hide(el('egg-cert-overlay'))
+		hide(el('egg-widget'))
+		const data = load()
+		data.dismissed = true
+		save(data)
+	}
+
 	// ─── Reveal panel ───────────────────────────────────────────────────────
 	function openReveal(COPY: EggCopy, id: SourceId, onNext: () => void): void {
 		const overlay = el('egg-reveal-overlay')
@@ -596,7 +606,7 @@ const trefoilPath = ((): string => {
 
 				// Certificate close button
 				if (target.id === 'egg-cert-close' || target.closest('#egg-cert-close')) {
-					hide(el('egg-cert-overlay'))
+					closeCertificate()
 				}
 
 				// Widget close button — hide the HUD and remember the choice
@@ -624,7 +634,7 @@ const trefoilPath = ((): string => {
 					}
 				}
 				if (certOverlay && !certOverlay.classList.contains('hidden') && target === certOverlay) {
-					hide(certOverlay)
+					closeCertificate()
 				}
 			})
 
@@ -649,7 +659,7 @@ const trefoilPath = ((): string => {
 					return
 				}
 				if (certOverlay && !certOverlay.classList.contains('hidden')) {
-					hide(certOverlay)
+					closeCertificate()
 				}
 			})
 		}
