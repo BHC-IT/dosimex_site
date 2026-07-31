@@ -93,6 +93,7 @@ export const fr = {
 			dose: "Dose cumulée : {dose} µSv — l'équivalent de quelques bananes.",
 			signature: "Délivré par le Bonhomme Dosi",
 			serial: "N° {serial}",
+			replay: "Rejouer",
 			close: "Fermer",
 		},
 	},

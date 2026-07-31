@@ -150,9 +150,14 @@ const trefoilPath = ((): string => {
 		<p id="egg-cert-dose" class="text-sm font-medium text-foreground mb-1"></p>
 		<p id="egg-cert-signature" class="text-xs text-muted-foreground mb-1 italic"></p>
 		<p id="egg-cert-serial" class="text-xs text-muted-foreground mb-5 font-mono"></p>
-		<button id="egg-cert-close" type="button"
-			class="w-full bg-primary text-primary-foreground rounded-lg px-4 py-2 text-sm font-medium hover:bg-primary/90 transition-colors">
-		</button>
+		<div class="flex flex-col gap-2">
+			<button id="egg-cert-replay" type="button"
+				class="w-full bg-primary text-primary-foreground rounded-lg px-4 py-2 text-sm font-medium hover:bg-primary/90 transition-colors">
+			</button>
+			<button id="egg-cert-close" type="button"
+				class="w-full rounded-lg border border-border px-4 py-2 text-sm font-medium text-muted-foreground hover:bg-muted transition-colors">
+			</button>
+		</div>
 	</div>
 </div>
 
@@ -355,6 +360,7 @@ const trefoilPath = ((): string => {
 		setText('egg-cert-signature', COPY.certificate.signature)
 		setText('egg-cert-serial', COPY.certificate.serial.replace('{serial}', serial))
 		setText('egg-cert-close', COPY.certificate.close)
+		setText('egg-cert-replay', COPY.certificate.replay)
 		show(overlay)
 	}
 
@@ -366,6 +372,19 @@ const trefoilPath = ((): string => {
 		const data = load()
 		data.dismissed = true
 		save(data)
+	}
+
+	// "Play again": wipe progress and drop straight back into an armed hunt.
+	function replayGame(): void {
+		const data = load()
+		data.state = 'armed'
+		data.found = []
+		data.dismissed = false
+		save(data)
+		hide(el('egg-cert-overlay'))
+		show(el('egg-widget'))
+		updateCountDisplay([])
+		setNeedle(-80, 0)
 	}
 
 	// ─── Reveal panel ───────────────────────────────────────────────────────
@@ -485,7 +504,6 @@ const trefoilPath = ((): string => {
 
 			mascot.addEventListener('click', (e) => {
 				const current = load()
-				if (current.state === 'done') return
 
 				e.preventDefault()
 				e.stopPropagation()
@@ -500,7 +518,9 @@ const trefoilPath = ((): string => {
 
 				if (clickCount >= 3) {
 					clickCount = 0
-					startHunt(COPY)
+					// After finishing, triple-click re-opens the certificate.
+					if (current.state === 'done') openCertificate(COPY, current.found)
+					else startHunt(COPY)
 				}
 			})
 		}
@@ -610,6 +630,11 @@ const trefoilPath = ((): string => {
 				// Certificate close button
 				if (target.id === 'egg-cert-close' || target.closest('#egg-cert-close')) {
 					closeCertificate()
+				}
+
+				// Certificate "play again" button
+				if (target.id === 'egg-cert-replay' || target.closest('#egg-cert-replay')) {
+					replayGame()
 				}
 
 				// Widget close button — hide the HUD and remember the choice

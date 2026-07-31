@@ -93,6 +93,7 @@ export const en = {
 			dose: "Accumulated dose: {dose} µSv — the equivalent of a few bananas.",
 			signature: "Issued by Dosi the Mascot",
 			serial: "No. {serial}",
+			replay: "Play again",
 			close: "Close",
 		},
 	},
