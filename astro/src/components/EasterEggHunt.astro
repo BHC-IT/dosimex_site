@@ -203,6 +203,7 @@ const trefoilPath = ((): string => {
 	let pendingSourceId: SourceId | null = null
 	let afterRevealCallback: (() => void) | null = null
 	let spotlightObserved = false
+	let isTouchDevice = false
 
 	// ─── Storage helpers ─────────────────────────────────────────────────────
 	function load(): HuntData {
@@ -261,9 +262,44 @@ const trefoilPath = ((): string => {
 		if (cpsEl) cpsEl.textContent = String(Math.round(cps))
 	}
 
+	// Drive the needle from a point: nearest unfound source → higher reading.
+	// On desktop the point is the cursor; on touch it is the viewport centre.
+	function updateProximity(px: number, py: number): void {
+		const currentData = load()
+		if (currentData.state === 'not-started') return
+		const unfound = Array.from(document.querySelectorAll<HTMLElement>('[data-egg-source]')).filter((sourceEl) => {
+			const sid = sourceEl.dataset.eggSource as SourceId | undefined
+			return sid !== undefined && !currentData.found.includes(sid)
+		})
+		if (unfound.length === 0) {
+			setNeedle(-80, 0)
+			return
+		}
+		let minDist = Infinity
+		for (const sourceEl of unfound) {
+			const rect = sourceEl.getBoundingClientRect()
+			const cx = rect.left + rect.width / 2
+			const cy = rect.top + rect.height / 2
+			const dist = Math.sqrt((px - cx) ** 2 + (py - cy) ** 2)
+			if (dist < minDist) minDist = dist
+		}
+		const NEAR = 60
+		const FAR = 600
+		const t = (Math.max(NEAR, Math.min(FAR, minDist)) - NEAR) / (FAR - NEAR)
+		const jitter = t < 0.2 ? (Math.random() - 0.5) * 12 : 0
+		setNeedle(80 - t * 160 + jitter, (1 - t) * (200 + Math.random() * 50))
+	}
+
+	// After a spike, settle back: touch recomputes from the scroll position,
+	// desktop drops to idle (the next pointer move refines it).
+	function settleNeedle(): void {
+		if (isTouchDevice) updateProximity(window.innerWidth / 2, window.innerHeight / 2)
+		else setNeedle(-80, 0)
+	}
+
 	function spikeNeedle(): void {
 		setNeedle(80, 250 + Math.random() * 50)
-		setTimeout(() => setNeedle(-20 + Math.random() * 20, Math.round(Math.random() * 30)), 800)
+		setTimeout(settleNeedle, 800)
 	}
 
 	// ─── Count & dose display ───────────────────────────────────────────────
@@ -420,6 +456,7 @@ const trefoilPath = ((): string => {
 
 		// ── Populate static copy ───────────────────────────────────────────
 		const isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches
+		isTouchDevice = isTouch
 
 		setText('egg-widget-label', COPY.widget.label)
 		setText('egg-widget-progress', COPY.widget.progress)
@@ -483,65 +520,31 @@ const trefoilPath = ((): string => {
 			})
 		})
 
-		// ── Desktop proximity sweep ────────────────────────────────────────
-		if (!isTouch && !docListenersWired) {
+		// ── Proximity detection (cursor on desktop, scroll on touch) ───────
+		if (!docListenersWired) {
 			docListenersWired = true
-
 			let rafPending = false
-
-			document.addEventListener('pointermove', (e) => {
+			const schedule = (px: number, py: number): void => {
 				if (rafPending) return
 				rafPending = true
-
 				requestAnimationFrame(() => {
 					rafPending = false
-
-					const currentData = load()
-					if (currentData.state === 'not-started') return
-
-					const unfoundSources = Array.from(
-						document.querySelectorAll<HTMLElement>('[data-egg-source]')
-					).filter((s) => {
-						const sid = s.dataset.eggSource as SourceId | undefined
-						return sid && !currentData.found.includes(sid)
-					})
-
-					if (unfoundSources.length === 0) {
-						setNeedle(-80, 0)
-						return
-					}
-
-					// Find nearest unfound source
-					let minDist = Infinity
-
-					for (const sourceEl of unfoundSources) {
-						const rect = sourceEl.getBoundingClientRect()
-						const cx = rect.left + rect.width / 2
-						const cy = rect.top + rect.height / 2
-						const dx = e.clientX - cx
-						const dy = e.clientY - cy
-						const dist = Math.sqrt(dx * dx + dy * dy)
-						if (dist < minDist) minDist = dist
-					}
-
-					// Map distance to angle and cps
-					const NEAR = 60
-					const FAR = 600
-					const clamped = Math.max(NEAR, Math.min(FAR, minDist))
-					// t=0 → near, t=1 → far
-					const t = (clamped - NEAR) / (FAR - NEAR)
-					// angle: -80 (far) to +80 (near)
-					const baseAngle = 80 - t * 160
-					// jitter when hot
-					const jitter = t < 0.2 ? (Math.random() - 0.5) * 12 : 0
-					const angle = baseAngle + jitter
-					// cps: 0 (far) to ~250 (near)
-					const cps = (1 - t) * (200 + Math.random() * 50)
-
-					setNeedle(angle, cps)
+					updateProximity(px, py)
 				})
-			})
+			}
+			if (isTouch) {
+				// No cursor to sweep — "balayage" becomes scrolling: the needle
+				// climbs as an unfound source nears the middle of the screen.
+				const onScroll = (): void => schedule(window.innerWidth / 2, window.innerHeight / 2)
+				window.addEventListener('scroll', onScroll, { passive: true })
+				window.addEventListener('resize', onScroll)
+			} else {
+				document.addEventListener('pointermove', (e) => schedule(e.clientX, e.clientY))
+			}
 		}
+
+		// Reflect the current position right away (idles at -80 if nothing near).
+		if (isTouch) updateProximity(window.innerWidth / 2, window.innerHeight / 2)
 
 		// ── Spotlight: mirror any bubble open/close onto a bright mascot ────
 		if (!spotlightObserved) {
