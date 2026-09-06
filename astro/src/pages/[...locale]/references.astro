@@ -20,6 +20,11 @@ const validationImages = locale === 'fr'
 	: ['/Images/validation1en.png', '/Images/validation2en.png', '/Images/Validation3.png', '/Images/Validation4.png', '/Images/Validation5.png']
 const internshipImages = ['/Images/Rapport1.png', '/Images/Rapport2.png', '/Images/Rapport3.png', '/Images/Rapport4.png']
 
+// Curated quotes render in two stacked columns. The split is explicit rather
+// than CSS `columns-2` so the left/right grouping is deterministic: the tail of
+// the list sits on the left, the first two quotes on the right.
+const testimonialColumns = [r.testimonials.items.slice(2), r.testimonials.items.slice(0, 2)]
+
 // The two document chapters share one card layout — only the icon, column
 // count and data differ (layout carried over from the former manuals page).
 const docSections = [
@@ -92,7 +97,7 @@ const docSections = [
 							<div class="relative overflow-hidden">
 								<img
 									src={section.images[i]}
-									alt={`${t.altText.manualCover} — ${name}`}
+									alt={`${t.altText.manualCover} ${name}`}
 									class="h-52 w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.03]"
 									loading="lazy"
 								/>
@@ -218,8 +223,10 @@ const docSections = [
 				<p class="mt-2 text-sm text-muted-foreground italic">{r.testimonials.disclaimer}</p>
 			</div>
 
-			<div class="mt-12 columns-1 gap-6 space-y-6 md:columns-2">
-				{r.testimonials.items.map((item) => (
+			<div class="mt-12 grid grid-cols-1 items-start gap-6 md:grid-cols-2">
+				{testimonialColumns.map((column) => (
+					<div class="space-y-6">
+				{column.map((item) => (
 					<div class="break-inside-avoid rounded-2xl border border-border bg-card p-6 shadow-sm">
 						<div class="mb-4 flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary" aria-hidden="true">
 							<svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
@@ -231,6 +238,8 @@ const docSections = [
 							<div class="text-sm font-heading font-semibold text-foreground">{item.name}</div>
 							<div class="text-xs text-muted-foreground">{item.org}</div>
 						</div>
+					</div>
+				))}
 					</div>
 				))}
 			</div>

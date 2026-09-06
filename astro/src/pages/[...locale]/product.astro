@@ -13,44 +13,41 @@ const t = getTranslations(locale)
 const p = t.product
 const isFr = locale === 'fr'
 
-const trialLabel = isFr ? 'Essayer Dosismart — 14 jours' : 'Try Dosismart free — 14 days'
+const trialLabel = isFr ? 'Essayer gratuitement 14 jours' : 'Try free for 14 days'
 const quoteLabel = isFr ? 'Demander un devis' : 'Request a quote'
 
 const heroChips = isFr
 	? ['Essai Dosismart 14 jours', 'Support technique inclus', 'Sans engagement']
 	: ['14-day Dosismart trial', 'Technical support included', 'No commitment']
 
-// Placeholder spreadsheet mock for the Dosimex Suite (desktop/Excel) preview —
-// replace the inner grid with a real DOSIMEX-GX screenshot when available.
-const excelHeaders = isFr
-	? ['Radionucléide', 'Activité', 'Distance', 'Débit']
-	: ['Radionuclide', 'Activity', 'Distance', 'Rate']
-const excelRows = [
-	['Ir-192', '370 GBq', '100 cm', '1.24'],
-	['Co-60', '18.5 GBq', '150 cm', '0.86'],
-	['Cs-137', '74 GBq', '100 cm', '0.31'],
-	['Se-75', '1.11 TBq', '100 cm', '0.95'],
-	['Am-241', '370 MBq', '30 cm', '0.02'],
-]
+// Dosimex Suite (desktop/Excel) preview — the same DOSIMEX-GX shot that opens
+// the home page carousel, framed in window chrome (see CLAUDE.md › Visuals).
+const suiteShot = {
+	src: '/Images/ScreenCarousel2.webp',
+	srcSm: '/Images/ScreenCarousel2-sm.webp',
+	alt: 'DOSIMEX-GX · Générateur X',
+	width: 1280,
+	height: 675,
+}
 
 const softwareSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'SoftwareApplication',
-	name: 'Suite Dosimex + Dosismart',
+	name: 'Dosimex + Dosismart',
 	applicationCategory: 'BusinessApplication',
 	operatingSystem: 'Windows, Web',
 	offers: [
 		{
 			'@type': 'Offer',
-			price: '500',
+			price: '800',
 			priceCurrency: 'EUR',
-			description: `${p.pricing.base.title} \u2014 ${p.schemaDescription}`,
+			description: `${p.pricing.base.title} — ${p.schemaDescription}`,
 		},
 		{
 			'@type': 'Offer',
-			price: '1350',
+			price: '1125',
 			priceCurrency: 'EUR',
-			description: `${p.pricing.compliance.title} \u2014 ${p.schemaDescription}`,
+			description: `${p.pricing.compliance.title} — ${p.schemaDescription}`,
 		},
 	],
 }
@@ -89,50 +86,29 @@ const faqSchema = {
 			</div>
 
 			<!-- The two products, side by side: Dosismart (web) + Dosimex Suite (desktop) -->
-			<div class="mt-16 grid items-start gap-8 md:grid-cols-2 max-w-5xl mx-auto">
-				<figure>
+			<div class="mt-16 grid items-start gap-8 md:grid-cols-9 max-w-6xl mx-auto">
+				<figure class="md:col-span-4">
 					<DashboardPreview locale={locale} />
 					<figcaption class="mt-5 text-center text-sm font-heading font-semibold text-foreground">
-						Dosismart <span class="font-normal text-muted-foreground">— {isFr ? 'la plateforme web' : 'the web platform'}</span>
+						Dosismart <span class="font-normal text-muted-foreground">· {isFr ? 'la plateforme web' : 'the web platform'}</span>
 					</figcaption>
 				</figure>
 
-				<figure>
-					<!-- Placeholder Excel mock — swap the grid for a real DOSIMEX-GX screenshot later -->
+				<figure class="md:col-span-5">
 					<WindowFrame>
-						<div class="p-3 sm:p-4">
-							<div class="overflow-hidden rounded-md border border-border text-[11px] tabular-nums">
-								<!-- column letters -->
-								<div class="grid grid-cols-[1.75rem_repeat(4,minmax(0,1fr))] bg-muted/60 text-center text-muted-foreground">
-									<div class="border-b border-r border-border py-1"></div>
-									{['A', 'B', 'C', 'D'].map((c) => (
-										<div class="border-b border-l border-border py-1 font-semibold">{c}</div>
-									))}
-								</div>
-								<!-- header row -->
-								<div class="grid grid-cols-[1.75rem_repeat(4,minmax(0,1fr))]">
-									<div class="border-b border-r border-border bg-muted/60 py-1.5 text-center text-muted-foreground">1</div>
-									{excelHeaders.map((h) => (
-										<div class="truncate border-b border-l border-border bg-primary/[0.06] px-2 py-1.5 font-heading font-semibold text-foreground">{h}</div>
-									))}
-								</div>
-								<!-- data rows -->
-								{excelRows.map((row, r) => (
-									<div class="grid grid-cols-[1.75rem_repeat(4,minmax(0,1fr))]">
-										<div class="border-b border-r border-border bg-muted/60 py-1.5 text-center text-muted-foreground">{r + 2}</div>
-										{row.map((cell, c) => (
-											<div class:list={[
-												'truncate border-b border-l border-border px-2 py-1.5 text-foreground',
-												c === 3 ? 'bg-primary/5 text-right font-semibold text-primary' : '',
-											]}>{cell}</div>
-										))}
-									</div>
-								))}
-							</div>
-						</div>
+						<img
+							src={suiteShot.src}
+							srcset={`${suiteShot.srcSm} 640w, ${suiteShot.src} 1280w`}
+							sizes="(max-width: 767px) 100vw, 620px"
+							alt={suiteShot.alt}
+							width={suiteShot.width}
+							height={suiteShot.height}
+							class="w-full h-auto"
+							loading="lazy"
+						/>
 					</WindowFrame>
 					<figcaption class="mt-5 text-center text-sm font-heading font-semibold text-foreground">
-						{isFr ? 'Suite Dosimex' : 'Dosimex Suite'} <span class="font-normal text-muted-foreground">— {isFr ? 'bureau · Excel' : 'desktop · Excel'}</span>
+						Dosimex <span class="font-normal text-muted-foreground">· {isFr ? 'bureau · Excel' : 'desktop · Excel'}</span>
 					</figcaption>
 				</figure>
 			</div>
@@ -140,7 +116,7 @@ const faqSchema = {
 	</section>
 
 	<!-- ═══════════════════════════ PRICING CARDS ═══════════════════════════ -->
-	<section data-ph-section="pricing" class="py-12 md:py-20">
+	<section id="pricing" data-ph-section="pricing" class="scroll-mt-24 py-12 md:py-20">
 		<div class="reveal mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="mx-auto max-w-2xl text-center">
 				<h2 class="text-3xl font-heading font-semibold tracking-tight text-foreground md:text-4xl">{p.pricing.title}</h2>
@@ -161,7 +137,12 @@ const faqSchema = {
 						<span class="text-5xl font-bold text-foreground font-heading">{p.pricing.base.price}</span>
 						<span class="ml-2 text-muted-foreground">{p.pricing.base.duration}</span>
 					</div>
-					<p class="mt-2 text-sm text-muted-foreground">{p.pricing.base.alt}</p>
+					<p class="mt-3">
+						<span class="inline-block rounded-xl bg-primary/10 px-3 py-1.5 text-[13px] leading-relaxed tracking-[-0.02em] font-semibold text-primary">
+							<span class="mr-1 inline-block rounded-full bg-primary px-2 py-0.5 text-xs text-primary-foreground">{isFr ? '−20 %' : '−20%'}</span>
+							{p.pricing.base.alt}
+						</span>
+					</p>
 					<ul class="mt-8 space-y-3">
 						{p.pricing.base.features.map((feature) => (
 							<li class="flex items-start gap-3">
@@ -201,7 +182,12 @@ const faqSchema = {
 						<span class="text-5xl font-bold text-foreground font-heading">{p.pricing.compliance.price}</span>
 						<span class="ml-2 text-muted-foreground">{p.pricing.compliance.duration}</span>
 					</div>
-					<p class="mt-2 text-sm text-muted-foreground">{p.pricing.compliance.alt}</p>
+					<p class="mt-3">
+						<span class="inline-block rounded-xl bg-primary/10 px-3 py-1.5 text-[13px] leading-relaxed tracking-[-0.02em] font-semibold text-primary">
+							<span class="mr-1 inline-block rounded-full bg-primary px-2 py-0.5 text-xs text-primary-foreground">{isFr ? '−20 %' : '−20%'}</span>
+							{p.pricing.compliance.alt}
+						</span>
+					</p>
 					<ul class="mt-8 space-y-3">
 						{p.pricing.compliance.features.map((feature) => (
 							<li class="flex items-start gap-3">
@@ -257,10 +243,6 @@ const faqSchema = {
 				</div>
 			</div>
 
-			<!-- Two paths after seeing the price: subscribe directly, or ask for a quote -->
-			<p class="mx-auto mt-8 max-w-2xl text-center text-sm text-muted-foreground leading-relaxed">
-				{p.pricing.directNote}
-			</p>
 		</div>
 	</section>
 
@@ -331,7 +313,7 @@ const faqSchema = {
 					<a href="tel:+33689709035" class="font-semibold whitespace-nowrap text-foreground hover:text-primary transition-colors">
 						{p.contact.phone}
 					</a>
-					{' — '}
+					{' · '}
 					<ObfuscatedEmail user="alain.vivier" domain="dosimex.fr" class="font-semibold text-foreground hover:text-primary transition-colors" />
 				</p>
 				<div class="mt-8 flex flex-wrap items-center justify-center gap-4">

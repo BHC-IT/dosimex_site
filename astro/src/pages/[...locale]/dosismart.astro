@@ -137,6 +137,11 @@ const icons: Record<string, string> = {
 					</div>
 				))}
 			</div>
+			<p class="mt-8 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
+				<span class="rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-primary">{d.whatsInside.badgeLabel}</span>
+				{d.whatsInside.badgeNote}
+				<a href={`${localePath(locale, '/product')}#pricing`} class="font-semibold text-primary hover:underline" data-ph-cta="dosismart-plans-note">{d.whatsInside.badgeLink}</a>
+			</p>
 		</div>
 	</section>
 

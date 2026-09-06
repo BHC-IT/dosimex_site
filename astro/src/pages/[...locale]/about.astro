@@ -15,8 +15,8 @@ const a = t.about
 const arrow = 'M5 12h14M12 5l7 7-7 7'
 
 const founders = [
-	{ name: 'Gérald Lopez', img: geraldImg, path: a.gerald.path, intro: a.gerald.intro, timeline: a.gerald.timeline, outro: a.gerald.outro, paragraphs: null },
-	{ name: 'Alain Vivier', img: alainImg, path: a.alain.path, intro: null, timeline: null, outro: null, paragraphs: a.alain.paragraphs },
+	{ name: 'Gérald Lopez', img: geraldImg, path: a.gerald.path, intro: a.gerald.intro, outro: a.gerald.outro, paragraphs: null },
+	{ name: 'Alain Vivier', img: alainImg, path: a.alain.path, intro: null, outro: null, paragraphs: a.alain.paragraphs },
 ]
 ---
 
@@ -83,21 +83,6 @@ const founders = [
 								{founder.intro.map((paragraph) => (
 									<p class="text-base text-muted-foreground leading-relaxed">{paragraph}</p>
 								))}
-							</div>
-						)}
-
-						{founder.timeline && (
-							<div class="mt-8">
-								<h3 class="text-sm font-semibold uppercase tracking-widest text-primary">{a.timelineTitle}</h3>
-								<ol class="mt-6 space-y-6 border-l border-border pl-7">
-									{founder.timeline.map((role) => (
-										<li class="relative">
-											<span class="absolute -left-[calc(1.75rem+1px)] top-1.5 h-2.5 w-2.5 rounded-full bg-primary ring-4 ring-background" aria-hidden="true"></span>
-											<p class="font-heading text-sm font-bold text-primary">{role.period}</p>
-											<p class="mt-1.5 text-base text-muted-foreground leading-relaxed">{role.text}</p>
-										</li>
-									))}
-								</ol>
 							</div>
 						)}
 

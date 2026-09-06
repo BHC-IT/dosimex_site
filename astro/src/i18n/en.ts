@@ -2,19 +2,19 @@ export const en = {
 	seo: {
 		home: {
 			title: 'Dosimex — Radiation Protection Calculation Tools',
-			description: 'The Dosimex Suite (17 Excel calculation modules) and Dosismart, the Dosimex web platform: browser calculation, organization management, suite download. MCNP-validated, 30 years of experience.',
+			description: 'Dosimex (17 calculation codes in Excel) and Dosismart, the Dosimex web platform: online calculation, organization management, code downloads. MCNP-validated, 20 years of experience.',
 		},
 		software: {
-			title: 'The Dosimex Suite — 17 Calculation Modules',
-			description: 'The Dosimex Suite in Excel: 6 operational codes (external gamma exposure, X-ray, beta, neutron, internal exposure, gammagraphy), 6 interactive learning modules and 5 measurement utilities. MCNP-validated, documented, proven over 30 years.',
+			title: 'Dosimex — 17 Calculation Codes',
+			description: 'Dosimex: 6 operational codes (external gamma exposure, X-ray, beta, neutron, internal exposure, gammagraphy), 6 interactive learning modules and 5 measurement utilities, in Excel. MCNP-validated, documented, proven over 20 years.',
 		},
 		dosismart: {
 			title: 'Dosismart — the Dosimex web platform',
-			description: 'Dosismart, the Dosimex web platform: external gamma exposure calculation and X-ray generator in the browser, history, source inventory, zoning plans and workstation studies. Subscribe, download the Dosimex Suite and manage your organization. Free 14-day trial.',
+			description: 'Dosismart, the Dosimex web platform: external gamma exposure calculation and X-ray generator online, history, source inventory, radiological zoning, dose-rate mapping and workstation studies. Subscribe, download Dosimex and manage your organization. Free 14-day trial.',
 		},
 		product: {
-			title: 'Pricing — Dosimex Suite + Dosismart',
-			description: 'One subscription, two tools: the Dosimex Suite (17 Excel modules) and Dosismart (web app). Base plan €500/year excl. VAT, Compliance plan €1,350/year. Free 14-day trial.',
+			title: 'Pricing — Dosimex + Dosismart',
+			description: 'One subscription, two tools: Dosimex (17 calculation codes in Excel) and Dosismart (web app). Base plan from €640/year excl. VAT, Compliance plan from €900/year. Free 14-day trial.',
 		},
 		training: {
 			title: 'Radiation Protection Training — Dosimex',
@@ -34,7 +34,7 @@ export const en = {
 		},
 		references: {
 			title: 'References & Validation — Dosimex',
-			description: "MCNP validation files (the CEA's reference code), independent Microshield and RayXpert comparisons, institutional users and user feedback: the evidence behind the Dosimex codes.",
+			description: 'The evidence behind the Dosimex codes: validation against MCNP and RayXpert, reference Monte-Carlo codes, independent Microshield comparisons, institutional users and user feedback.',
 		},
 		about: {
 			title: 'Our Team — Dosimex',
@@ -42,7 +42,7 @@ export const en = {
 		},
 		contact: {
 			title: 'Contact & Quote — Dosimex',
-			description: 'Contact the Dosimex team for a quote or a demonstration of the Dosimex Suite and Dosismart. Video conference available.',
+			description: 'Contact the Dosimex team for a quote or a demonstration of Dosimex and Dosismart. Video conference available.',
 		},
 		blog: {
 			title: 'Blog — Dosimex',
@@ -54,7 +54,7 @@ export const en = {
 		},
 		testimonials: {
 			title: 'User Feedback — Dosimex',
-			description: 'Discover feedback from Dosimex users: IRSN, EDF, ORANO, CNRS, university hospitals and other radiation protection professionals share their experience.',
+			description: 'Discover feedback from Dosimex users: EDF, ORANO, CNRS, university hospitals and other radiation protection professionals share their experience.',
 		},
 	},
 	altText: {
@@ -63,8 +63,8 @@ export const en = {
 	},
 	easterEgg: {
 		intro: {
-			title: "Dosi the Mascot",
-			body: "A colleague! Good. I was just doing my rounds. Five sources are hiding on the site — nothing dangerous, but rules are rules. Grab the counter, let's sweep together.",
+			title: "Dosi",
+			body: "A colleague! Good. I was just doing my rounds. Five sources are hiding on the site. Nothing dangerous, but rules are rules. Grab the counter, let's sweep together.",
 			cta: "Grab the counter",
 		},
 		widget: {
@@ -80,9 +80,9 @@ export const en = {
 		},
 		sources: {
 			banana: "Every RP pro knows it. The only source you'd happily eat as a snack.",
-			cats: "Source located. Under high protection by Alain's sworn guardians. No risk — except to anyone who dares interrupt the nap.",
-			zonage: "Well done. That one was the most obvious: a red dot dead-centre of a zoning plan. Can't get much clearer.",
-			rpcirkus: "False alarm: not a radioactive source, a source of information. RP Cirkus — serious about dose, never about themselves.",
+			cats: "Source located. Under high protection by Alain's sworn guardians. No risk, except to anyone who dares interrupt the nap.",
+			zonage: "Well done. That one was the most obvious: a red dot dead-centre of a radiological zoning map. Can't get much clearer.",
+			rpcirkus: "False alarm: not a radioactive source, a source of information. RP Cirkus, serious about dose, never about themselves.",
 			book: "Nice catch. The source was hidden between two pages. Chapter 1: directly ionizing particles.",
 		},
 		catsPlaceholder: "Clem and Tess, feline dosimetry officers",
@@ -90,8 +90,8 @@ export const en = {
 			title: "Radiation Protection Certificate",
 			subtitle: "Certified Explorer",
 			body: "Full site sweep complete. Five sources located, area declared clean.",
-			dose: "Accumulated dose: {dose} µSv — the equivalent of a few bananas.",
-			signature: "Issued by Dosi the Mascot",
+			dose: "Accumulated dose: {dose} µSv, about the equivalent of a few bananas.",
+			signature: "Issued by Dosi",
 			serial: "No. {serial}",
 			replay: "Play again",
 			close: "Close",
@@ -100,7 +100,7 @@ export const en = {
 	navbar: {
 		software: 'Software',
 		dosismart: 'Dosismart',
-		suite: 'Dosimex Suite',
+		suite: 'Dosimex',
 		pricing: 'Pricing',
 		resources: 'Resources',
 		learn: 'Learn',
@@ -118,33 +118,32 @@ export const en = {
 			title: 'Radiation protection calculation tools,',
 			titleAccent: 'at your fingertips',
 			subtitle:
-				'A set of practical, easy-to-use, validated calculation tools that address many situations encountered in radiation protection. They will allow you to improve your expertise level. Now on the web with Dosismart: calculate right in your browser.',
-			cta: 'Try Dosismart free — 14 days',
-			trialButton: 'Explore the Dosimex Suite',
+				'A set of practical, easy-to-use, validated calculation tools that address many situations encountered in radiation protection. They will allow you to improve your expertise level. Now on the web with Dosismart: calculate on your computer or your smartphone.',
+			cta: 'Try free for 14 days',
+			trialButton: 'Explore Dosimex',
 		},
 		evolution: {
-			kicker: 'From the Dosimex Suite to Dosismart',
-			title: 'Thirty years of validated calculation, now in the browser',
-			text: 'The Dosimex Suite is 17 calculation modules in Excel, MCNP-validated and proven by more than 1,500 professionals. Dosismart brings those same engines to the browser — the same validated physics, a new workspace. One subscription covers both tools; here is what each brings you.',
+			kicker: 'From Dosimex to Dosismart',
+			title: 'Twenty years of validated calculation, now on the web',
+			text: 'Dosimex is 17 calculation codes in Excel, MCNP-validated and proven by more than 1,500 professionals. Dosismart brings those same engines to the web, with the same validated physics in a new workspace. One subscription covers both tools; here is what each brings you.',
 		},
 		platform: {
-			title: 'Dosismart — the Dosimex web platform',
-			intro: 'Much more than a calculation tool: Dosismart is your Dosimex workspace, where you calculate in the browser, keep a traceable record, collaborate and run your organization.',
-			tagline: 'Your Dosimex workspace, right in the browser.',
-			deck: 'And it keeps growing: one subscription that expands with new capabilities over time.',
-			highlights: ['External gamma exposure calculation', 'History', 'Source inventory', 'Zoning plans', 'Workstation studies', 'Team work'],
+			title: 'Dosismart, the Dosimex web platform',
+			intro: 'Dosismart is the web evolution of Dosimex: the calculations are ported with the same validated physics, and gain new features — radiological zoning and dose-rate mapping, traceability, collaboration, organization management.',
+			tagline: 'Your Dosimex workspace, right on the web.',
+			highlights: ['External gamma exposure calculation', 'History', 'Source inventory', 'Radiological zoning and dose-rate mapping', 'Workstation studies', 'Team work'],
 			learnMore: 'Discover Dosismart',
 			cta: 'Open Dosismart',
 			trialNote: 'Free 14-day trial, no credit card.',
 		},
 		suite: {
-			title: 'The Dosimex Suite — 17 calculation modules in Excel',
-			subtitle: 'What Dosismart does not cover yet lives here. For <strong>30 years</strong>, the reference for operational radiation-protection calculation: MCNP-validated, used by EDF, Orano, Apave and over <strong>1,500</strong> professionals.',
-			cta: 'Explore the Dosimex Suite',
+			title: 'Dosimex, 17 calculation codes in Excel',
+			subtitle: 'What Dosismart does not cover yet lives here. For <strong>20 years</strong>, the reference for operational radiation-protection calculation: MCNP-validated, used by EDF, Orano, Apave and over <strong>1,500</strong> professionals.',
+			cta: 'Explore Dosimex',
 			items: [
 				{
 					title: 'Operational pack: 6 calculation codes',
-					text: 'External gamma exposure, X-ray, beta, neutron, internal exposure, gammagraphy — the everyday calculations.',
+					text: 'External gamma exposure, X-ray, beta, neutron, internal exposure, gammagraphy: the everyday calculations.',
 					icon: 'calc',
 					link: { label: 'See the codes', href: '/software#pack-ope' },
 				},
@@ -164,7 +163,7 @@ export const en = {
 		},
 		numbers: {
 			items: [
-				{ value: '+30 years', label: 'of experience' },
+				{ value: '+20 years', label: 'of experience' },
 				{ value: '+1500', label: 'users in the field' },
 				{ value: '17', label: 'calculation codes' },
 			],
@@ -172,14 +171,14 @@ export const en = {
 		understand: {
 			kicker: 'Understand',
 			title: 'From calculation to understanding',
-			text: 'Understanding what you calculate matters as much as the result. Reference books, a physics YouTube channel, 6 interactive learning modules, training courses: Dosimex passes on the physics behind the figures — to professionals and to the schools training the next generation of RP professionals.',
+			text: 'Understanding what you calculate matters as much as the result. Through reference books, a physics YouTube channel, 6 interactive learning modules and training courses, Dosimex passes on the physics behind the figures, to professionals and to the schools training the next generation of RP professionals.',
 			link: 'Explore the resources',
 		},
 		close: {
 			title: 'One subscription, two tools',
-			price: 'Base plan €500/year, Compliance plan €1,350/year (excl. VAT) — each plan covers the Dosimex Suite and Dosismart.',
+			price: 'Base plan from €640/year, Compliance plan from €900/year (excl. VAT). Each plan covers Dosimex and Dosismart.',
 			pricingLink: 'See full pricing',
-			bullets: ['14-day free Dosismart trial', 'Technical support included', 'No credit card required'],
+			bullets: ['14-day free trial', 'Technical support included', 'No credit card required'],
 			trialButton: 'Try Dosismart',
 			contactButton: 'Contact us',
 		},
@@ -205,7 +204,7 @@ export const en = {
 	contact: {
 		header: {
 			title: 'Contact us',
-			subtitle: 'Quote, demonstration or technical question — the Dosimex team answers you directly, by phone or email.',
+			subtitle: 'For a quote, a demonstration or a technical question, the Dosimex team answers you directly, by phone or email.',
 		},
 		info: {
 			phone: { label: 'Phone', value: '06 89 70 90 35' },
@@ -215,8 +214,8 @@ export const en = {
 	},
 	dosismartPage: {
 		hero: {
-			title: 'Dosismart — the Dosimex web platform',
-			subtitle: 'Your radiation protection workspace in the browser: calculate, keep a traceable record, collaborate and run your organization. A real dashboard, on any device, no installation.',
+			title: 'Dosismart, the Dosimex web platform',
+			subtitle: 'The Dosimex calculations are coming to the web with the same validated physics, and new features: history, radiological zoning and dose-rate mapping, workstation studies, team work. On your computer or your smartphone, no installation.',
 			cta: 'Open Dosismart',
 			ctaSecondary: 'See pricing',
 			trialNote: 'Free 14-day trial, Compliance features included. No credit card.',
@@ -225,47 +224,50 @@ export const en = {
 			title: 'What you find in Dosismart',
 			description: 'Your calculations, your radiation protection data and your team in one place.',
 			items: [
-				{ icon: 'calc', title: 'Calculations', text: 'External gamma exposure calculation, X-ray generator, skyshine and optimizer, right in the browser. Calculations validated, just like the Dosimex Suite.' },
+				{ icon: 'calc', title: 'Calculations', text: 'External gamma exposure calculation, X-ray generator, skyshine and parametric study, all online. Calculations validated, just like Dosimex.' },
 				{ icon: 'history', title: 'History and traceability', text: 'Every calculation is recorded and documented. Retrieve and replay your assessments.' },
 				{ icon: 'team', title: 'Team work', text: 'Organizations, sharing between colleagues, access and subscription management.' },
 				{ icon: 'inventory', title: 'Source inventory', text: 'Source tracking with automatic decay.', badge: 'Compliance' },
-				{ icon: 'map', title: 'Zoning plans', text: '2D editor to draw your radiological zoning plans.', badge: 'Compliance' },
+				{ icon: 'map', title: 'Radiological zoning and dose-rate mapping', text: 'Your regulatory zones, computed on your floor plan.', badge: 'Compliance' },
 				{ icon: 'doc', title: 'Workstation studies', text: 'Generate your compliance documents, ready for audits and inspections.', badge: 'Compliance' },
 			],
+			badgeLabel: 'Compliance',
+			badgeNote: '= included in the Compliance plan. Everything else comes with the Base plan.',
+			badgeLink: 'See both plans',
 		},
 		spotlights: {
 			title: 'In detail',
-			description: 'A glimpse of Dosismart’s features — and what they change day to day.',
+			description: 'A glimpse of Dosismart’s features, and what they change day to day.',
 			items: [
 				{
 					preview: 'history',
 					eyebrow: 'Traceability',
 					title: 'Every calculation, saved and replayable',
-					text: 'Dosismart records every calculation with its full set of parameters — retrieve, replay and export any assessment, months later, exactly as it was.',
-					bullets: ['Full parameter snapshot', 'CSV and PDF export', 'Naming and favorites to find them fast'],
+					text: 'Dosismart records every calculation with its full set of parameters. Retrieve, replay and export any assessment, months later, exactly as it was.',
+					bullets: ['Full parameter snapshot', 'CSV and PDF export'],
 					badge: '',
 				},
 				{
 					preview: 'inventory',
 					eyebrow: 'Inventory',
-					title: 'A source inventory that keeps itself current',
-					text: 'Register your sources once. Dosismart recomputes the activity every day from radioactive decay (A = A₀·e^−λt), using a library of about 200 ICRP nuclides. No more spreadsheet quietly going stale.',
-					bullets: ['~200 built-in nuclides', 'Decay recomputed automatically', 'SIGIS export and source lifecycle'],
+					title: 'Your source inventory with decay tracking',
+					text: "Register your sources once. Dosismart recomputes the activity every day from each source's own half-life, using a library of about 800 nuclides. No more spreadsheet quietly going stale.",
+					bullets: ['~800 built-in nuclides', 'Decay recomputed automatically', 'SIGIS export and source lifecycle'],
 					badge: 'Compliance',
 				},
 				{
 					preview: 'zonage',
 					eyebrow: 'Zoning',
-					title: 'Zoning plans that are computed, not drawn',
-					text: 'Import a floor plan, place your sources: the 2D editor generates the regulatory zone overlay computed by the Dosismart engine, compliant with the French decree of 28 January 2020. PDF export with legend. Replaces Paint and Inkscape.',
-					bullets: ['Dose rate computed on a grid', 'Zones per the 28/01/2020 decree', 'PDF export with regulatory legend'],
+					title: 'From your floor plan to the regulatory zoning',
+					text: 'Import a floor plan, place your sources: the editor lets you visualize the regulatory zones, per the French decree of 28 January 2020. PDF export with legend. Replaces Paint and Inkscape.',
+					bullets: ['Zoning map of your premises', 'Zones per the 28/01/2020 decree', 'PDF export with regulatory legend'],
 					badge: 'Compliance',
 				},
 				{
 					preview: 'etude',
 					eyebrow: 'Documents',
-					title: 'Workstation studies generated, not retyped',
-					text: 'The wizard pulls in your sources and plans, computes the annual dose per exposure scenario, classifies the worker (Cat A / B / non-exposed) and produces the regulatory document for your compliance file — ready for audits and inspections.',
+					title: 'Workstation studies generated automatically',
+					text: 'Dosismart computes the annual dose per exposure scenario, classifies the worker (Cat A / B / non-exposed) and produces the regulatory document for your compliance file, ready for audits and inspections.',
 					bullets: ['Annual dose per scenario', 'Automatic worker classification', 'PDF ready for audits and inspections'],
 					badge: 'Compliance',
 				},
@@ -277,18 +279,18 @@ export const en = {
 			items: [
 				{
 					title: 'RP officer in a hospital or clinic',
-					pain: 'Radiation protection is only a fraction of your job — and the inspection won’t wait.',
-					answer: 'Run external gamma exposure and X-ray calculations in the browser, nothing to install, with workstation studies and a history ready to show.',
+					pain: 'Radiation protection is only a fraction of your job, and the inspection won’t wait.',
+					answer: 'Run external gamma exposure and X-ray calculations online, nothing to install, with workstation studies and a history ready to show.',
 					links: [
-						{ label: 'Browser calculations', href: '#modules' },
+						{ label: 'Web calculations', href: '#modules' },
 						{ label: 'Workstation studies', href: '#etude' },
 						{ label: 'History', href: '#history' },
 					],
 				},
 				{
 					title: 'RP consultant',
-					pain: 'Ten, twenty, fifty client sites — and the same work to redo cleanly at each one.',
-					answer: 'One organization per client: source inventory, zoning plans and regulatory PDFs, at consulting speed.',
+					pain: 'Ten, twenty, fifty client sites, and the same work to redo cleanly at each one.',
+					answer: 'One organization per client: source inventory, radiological zoning and regulatory PDFs, at consulting speed.',
 					links: [
 						{ label: 'Organizations', href: '#plateforme' },
 						{ label: 'Inventory', href: '#inventory' },
@@ -298,7 +300,7 @@ export const en = {
 				{
 					title: 'Industrial RP officer',
 					pain: 'Gammagraphy, mobile sources, geometries that change from one job site to the next.',
-					answer: 'Point, line or plane sources, shielding, skyshine — and zoning for temporary operation areas.',
+					answer: 'Point, line or plane sources, shielding, skyshine, and zoning for temporary operation areas.',
 					links: [
 						{ label: 'Calculations', href: '#modules' },
 						{ label: 'Zoning', href: '#zonage' },
@@ -307,7 +309,7 @@ export const en = {
 				{
 					title: 'University or training center',
 					pain: 'Equipping a whole class with calculation tools, without installing anything in the computer room.',
-					answer: 'Dosismart runs in the browser on any machine: manage student access by groups, every parameter stays visible — students see the physics behind the numbers.',
+					answer: 'Dosismart runs on the web on any machine: manage student access by groups, every parameter stays visible, so students see the physics behind the numbers.',
 					links: [{ label: 'Learning', href: '/learn' }],
 					cta: { label: 'Equip a course', href: '/contact' },
 				},
@@ -316,19 +318,19 @@ export const en = {
 		dashboard: {
 			eyebrow: 'The platform',
 			title: 'Your radiation protection dashboard',
-			lead: 'Dosismart is the dashboard for your Dosimex subscription. You subscribe here, then download the Dosimex Excel suite, calculate right in the browser, or both — and run your organization from the same place.',
+			lead: 'Dosismart is the dashboard for your subscription: download Dosimex, calculate online and manage your team.',
 			points: [
-				{ icon: 'download', title: 'Download the Dosimex Suite', text: 'The 17 Excel modules and your license key, straight from the dashboard.' },
-				{ icon: 'calc', title: 'Calculate in the browser', text: 'External gamma exposure calculation, X-ray generator, skyshine and zoning, with history and traceability — without leaving the browser.' },
-				{ icon: 'team', title: 'Run your organization', text: 'Members, access and subscription — work as a team and share your calculations.' },
+				{ icon: 'download', title: 'Download Dosimex', text: 'The 17 Excel calculation codes and your license key, ready to install.' },
+				{ icon: 'calc', title: 'Calculate online', text: 'External gamma exposure calculation, X-ray generator, skyshine, radiological zoning and dose-rate mapping, with history and traceability.' },
+				{ icon: 'team', title: 'Manage your team', text: 'Members, access and subscription. Share your calculations.' },
 			],
 			growTitle: 'A platform that grows richer over time',
-			growText: 'With each release, the Suite’s calculation codes move into Dosismart, with the same MCNP-validated physics proven over 30 years. The Dosimex Suite stays the reference for everything the platform does not cover yet.',
-			cta: 'Explore the Dosimex Suite',
+			growText: 'With each release, the Dosimex calculation codes move into Dosismart, with the same MCNP-validated physics proven over 20 years. Dosimex stays the reference for everything the platform does not cover yet.',
+			cta: 'Explore Dosimex',
 		},
 		onprem: {
 			question: 'IT security constraints?',
-			text: 'An offline deployment of Dosismart can be arranged for organizations that require it —',
+			text: 'An offline deployment of Dosismart can be arranged for organizations that require it. To discuss it,',
 			link: 'contact us',
 		},
 		cta: {
@@ -340,9 +342,9 @@ export const en = {
 	},
 	software: {
 		header: {
-			title: 'The Dosimex Suite',
+			title: 'Dosimex',
 			description:
-				'For 30 years, the reference for operational radiation-protection calculation in Excel: 6 calculation codes, 6 learning modules and 5 measurement utilities, validated against MCNP, RayXpert and Microshield, and used by EDF, Orano, Apave and more than 1,500 professionals. New capabilities now ship in Dosismart; the suite remains the reference for everything the web does not cover yet — beta, neutron, gammagraphy, internal exposure and measurement utilities.',
+				'For 20 years, the reference for operational radiation-protection calculation in Excel: 6 calculation codes, 6 learning modules and 5 measurement utilities, validated against MCNP and RayXpert, reference Monte-Carlo codes, and used by EDF, Orano, Apave and more than 1,500 professionals. New capabilities now ship in Dosismart; the Dosimex calculation codes remain the reference for everything the web does not cover yet, from beta, neutron and gammagraphy to internal exposure and the measurement utilities.',
 			langNote: 'Most tools are available in French and English.',
 			anchors: [
 				{ label: 'Operational pack', href: '#pack-ope' },
@@ -351,24 +353,24 @@ export const en = {
 			],
 		},
 		included: {
-			title: 'Included with the suite',
-			text: 'On top of the 17 modules and their documentation: 11 course documents (nuclear physics, nuclear measurement, radiation–matter interactions, uncertainties…) and the 19 appendices of the book "Calculation of doses generated by ionizing radiation" (EDP Sciences 2016).',
+			title: 'Included with Dosimex',
+			text: 'On top of the 17 calculation codes and their documentation: 11 course documents (nuclear physics, nuclear measurement, radiation–matter interactions, uncertainties…) and the 19 appendices of the book "Calculation of doses generated by ionizing radiation" (EDP Sciences 2016).',
 		},
 		prerequisites: {
 			title: 'Prerequisites',
-			text: 'VBA/Excel — Windows XP to 11, Excel 2003 to 2024. Virtual machine required on Mac or Linux. Dosismart, for its part, runs in the browser: no installation.',
+			text: 'VBA/Excel, Windows XP to 11, Excel 2003 to 2024. Virtual machine required on Mac or Linux. Dosismart, for its part, runs on the web: no installation.',
 		},
 		audience: {
-			title: 'Who needs this depth?',
+			title: 'Who is Dosimex for?',
 			items: [
 				'RPEs in industrial or nuclear settings: beta, neutron or internal-exposure calculations, beyond what the web covers today.',
 				'Measurement professionals: gamma-spectrometry efficiencies (TAGE), contamination meters (Co3), decision thresholds and uncertainties.',
-				'Schools and lecturers: the full physics toolbox for teaching — the institution equips, the students calculate.',
+				'Schools and lecturers: the full physics toolbox for teaching. The institution equips, the students calculate.',
 			],
 		},
 		dosismartBanner: {
-			title: 'Dosismart: the evolution of the suite',
-			text: "The suite's codes are progressively ported to Dosismart, the Dosimex web platform, and validated with the same rigor (MCNP, OpenMC). Already online: external gamma exposure calculation, X-ray generator, skyshine and optimizer, with calculation history and team collaboration.",
+			title: 'Dosismart, the evolution of Dosimex',
+			text: 'The calculation codes are progressively ported to Dosismart, the Dosimex web platform, and validated with the same rigor (MCNP, OpenMC). Already online: external gamma exposure calculation, X-ray generator, skyshine and parametric study, with calculation history and team collaboration.',
 			button: 'Try Dosismart',
 		},
 		packOpe: {
@@ -377,14 +379,14 @@ export const en = {
 				'These calculation tools enable to estimate the radiological risks at their correct levels and to design the necessary protections',
 			tools: [
 				{
-					name: 'DOSIMEX-GX 3.2 — Gamma emitters',
+					name: 'DOSIMEX-GX 3.2 · Gamma emitters',
 					description:
 						'Deterministic calculation code of dose rate for gamma emitters (volumic sources, surface source…). With many options: skyshine, bremsstrahlung, zoning, build-up',
 					videoId: 'oiYwIvxnxHU',
 					frOnly: false,
 				},
 				{
-					name: 'DOSIMEX-GX 3.2 — X-ray generators',
+					name: 'DOSIMEX-GX 3.2 · X-ray generators',
 					description:
 						'Deterministic calculation code of dose rate for X-ray generators (primary and scattered beam), with NF C15-160/2018 calculation worksheet option',
 					videoId: 'xriiq6v47oE',
@@ -429,7 +431,7 @@ export const en = {
 		},
 		learnPeda: {
 			title: 'Learning pack',
-			text: 'The 6 interactive learning modules of the suite — photon-matter interaction, charged-particle interaction, ICRU 57 coefficients, serious game, nuclear counter and radioactive decay — are presented in detail on the Learn page.',
+			text: 'The 6 interactive learning modules of Dosimex (photon-matter interaction, charged-particle interaction, ICRU 57 coefficients, serious game, nuclear counter and radioactive decay) are presented in detail on the Learn page.',
 			linkLabel: 'Explore the modules',
 		},
 		packMes: {
@@ -494,7 +496,7 @@ export const en = {
 			eyebrow: 'Learn',
 			title: 'From calculation to understanding',
 			description:
-				'A calculation result is only worth what you understand of the physics behind it. Dosimex equips professionals who want to master what their tools compute — and the schools and training centers that give their students the means to build solid physical intuition.',
+				'A calculation result is only worth what you understand of the physics behind it. Dosimex equips professionals who want to master what their tools compute, and the schools and training centers that give their students the means to build solid physical intuition.',
 			educationQuestion: 'Running a degree program or a training center?',
 			educationText: 'Give your students the same tools as the professionals.',
 			educationLink: 'Contact us',
@@ -504,8 +506,8 @@ export const en = {
 			title: 'Learning pack',
 			description:
 				'They provide a better understanding of the physics of radiation-matter interaction, which is the source of the generated doses, as well as of the protective capacities of the screens that can be used',
-			suiteNote: 'These six modules are part of the Dosimex Suite.',
-			suiteLink: 'Discover the suite',
+			suiteNote: 'These six modules are part of Dosimex.',
+			suiteLink: 'Discover Dosimex',
 			tools: [
 				{
 					name: 'Photon Interaction 3.2',
@@ -561,12 +563,12 @@ export const en = {
 			},
 			videos: {
 				title: 'YouTube channel',
-				text: 'Nuclear physics, radiation-matter interaction, statistics, metrology: course and demonstration videos that extend the modules.',
+				text: 'Nuclear physics, radiation-matter interaction, statistics, metrology. Course and demonstration videos that extend the modules.',
 				link: 'Visit the channel',
 			},
 			manuals: {
 				title: 'Documentation',
-				text: 'User manuals, MCNP validation files and study reports: understanding also means knowing what a code computes and how it is validated.',
+				text: 'User manuals, MCNP validation files and study reports. Understanding also means knowing what a code computes and how it is validated.',
 				link: 'Browse the documentation',
 			},
 			training: {
@@ -578,43 +580,43 @@ export const en = {
 	},
 	product: {
 		title: 'One subscription, two tools',
-		schemaDescription: 'Annual subscription — Dosimex Suite + Dosismart',
+		schemaDescription: 'Annual subscription — Dosimex + Dosismart',
 		description:
-			'The Dosimex Suite in Excel and Dosismart, the web platform — one annual subscription, technical support included.',
+			'Dosimex and Dosismart, the web platform, in one annual subscription with technical support included.',
 		trialBanner: {
 			title: 'Try Dosismart free for 14 days',
-			text: 'The trial covers both tools: the full Dosismart web application, Compliance features included, and the Dosimex Suite (Excel). No credit card.',
+			text: 'The trial covers both tools: the full Dosismart web application, Compliance features included, and Dosimex (Excel). No credit card.',
 			button: 'Start trial',
 		},
 		pricing: {
 			title: 'Pricing',
-			packageTitle: 'Two plans. Each covers both tools: the Dosimex Suite and Dosismart.',
-			suiteLink: 'The Suite in detail',
+			packageTitle: 'Two plans. Each covers both tools: Dosimex and Dosismart.',
+			suiteLink: 'Dosimex in detail',
 			dosismartLink: 'Dosismart in detail',
-			coexistence: "New capabilities ship on Dosismart first. The Dosimex Suite remains the reference for what the web app doesn't cover yet.",
+			coexistence: "New capabilities ship on Dosismart first. Dosimex remains the reference for what the web app doesn't cover yet.",
 			base: {
 				title: 'Base plan',
-				price: '\u20AC500 excl. VAT',
+				price: '\u20AC800 excl. VAT',
 				duration: 'per year',
-				alt: 'or €1,000 excl. VAT for 3 years',
-				tagline: 'The same price as before — now for both tools',
+				alt: 'with the 3-year commitment: €640/year (€1,920)',
+				tagline: 'Both tools, for your everyday calculations',
 				features: [
-					'The complete Dosimex Suite: 17 calculation modules in Excel',
-					'Dosismart: external gamma exposure calculation, X-ray generator, skyshine, optimizer',
-					'Calculation history, team collaboration, any device',
+					'The complete Dosimex: 17 calculation codes in Excel',
+					'Dosismart: external gamma exposure calculation, X-ray generator, skyshine, parametric study',
+					'Calculation history, team collaboration, on your computer or your smartphone',
 					'Technical support included',
 				],
 			},
 			compliance: {
 				title: 'Compliance plan',
-				price: '\u20AC1,350 excl. VAT',
+				price: '\u20AC1,125 excl. VAT',
 				duration: 'per year',
-				alt: 'or \u20AC2,700 excl. VAT for 3 years',
+				alt: 'with the 3-year commitment: \u20AC900/year (\u20AC2,700)',
 				tagline: 'The regulatory documents required of the RPO, on top of the Base plan',
 				features: [
 					'Everything in the Base plan',
-					'Source inventory with automatic decay',
-					'Zoning plans editor (2D)',
+					'Source inventory with decay tracking',
+					'Radiological zoning and dose-rate mapping',
 					'Workstation exposure studies generator (\u00E9tudes de poste)',
 				],
 			},
@@ -627,6 +629,7 @@ export const en = {
 					'Priority support',
 					'Custom onboarding',
 					'Tailored contract & pricing',
+					'Offline deployment considered on request',
 				],
 			},
 			orderTitle: 'How to order?',
@@ -636,59 +639,57 @@ export const en = {
 			subscribeButton: 'Subscribe on Dosismart',
 			quoteSecondary: 'or request a quote by email',
 			enterpriseButton: 'Contact us for a quote',
-			directNote:
-				"Subscribe directly on Dosismart: secure payment by card or by invoice (purchase order). If you'd rather talk it through first, request a quote by email.",
 			explainer: {
 				title: 'How it works',
 				items: [
 					{
-						title: 'Create your Dosismart account',
-						text: 'Dosismart is the Dosimex web platform. Create your account and start a free 14-day trial — both tools, Compliance features included. No credit card.',
+						title: 'Try it free for 14 days',
+						text: 'Create your account: the trial covers both tools, Compliance features included. No credit card.',
 					},
 					{
-						title: 'Download the Dosimex Suite',
-						text: 'From your dashboard, download the Dosimex Suite — 17 calculation modules in Excel — and calculate right in the browser too.',
+						title: "Subscribe when you're ready",
+						text: 'By card directly on Dosismart, or by invoice (purchase order) via a quote.',
 					},
 					{
-						title: 'Use both, as your work requires',
-						text: 'The Dosimex Suite is the reference for the full breadth of calculations; Dosismart keeps growing and will progressively enrich it. One subscription covers both.',
+						title: 'Calculate, in Excel and on the web',
+						text: 'Download Dosimex with your license key and calculate online on Dosismart.',
 					},
 				],
 			},
 		},
-		trialNote: 'The 14-day free trial covers both tools: the Dosismart web application, Compliance features included, and the Dosimex Suite (Excel).',
+		trialNote: 'The 14-day free trial covers both tools: the Dosismart web application, Compliance features included, and Dosimex (Excel).',
 		faq: {
 			title: 'Frequently Asked Questions',
 			questions: [
 				{
-					question: 'What is the difference between the Dosimex Suite and Dosismart?',
+					question: 'What is the difference between Dosimex and Dosismart?',
 					answer:
-						"The Dosimex Suite includes the 17 calculation modules in Excel (external gamma exposure, X-ray, beta, neutron, internal exposure, measurement). Dosismart is the Dosimex web platform: it is where you subscribe, download the suite and manage your organization — and it is also a calculation tool in the browser (external gamma exposure calculation, X-ray generator, skyshine, optimizer, history, team collaboration), with source inventory, zoning plans and workstation studies in the Compliance plan. A single subscription covers everything. New capabilities ship on Dosismart first; the Suite remains the reference for what web calculation doesn't cover yet.",
+						"Dosimex includes the 17 calculation codes in Excel (external gamma exposure, X-ray, beta, neutron, internal exposure, measurement). Dosismart is the Dosimex web platform: it is where you subscribe, download the calculation codes and manage your organization, and it is also an online calculation tool (external gamma exposure calculation, X-ray generator, skyshine, parametric study, history, team collaboration), with source inventory, radiological zoning and workstation studies in the Compliance plan. A single subscription covers everything. New capabilities ship on Dosismart first; Dosimex remains the reference for what web calculation doesn't cover yet.",
 				},
 				{
-					question: 'I have a current license (purchased since 2025) — how do I access Dosismart?',
+					question: 'I have a current license (purchased since 2025). How do I access Dosismart?',
 					answer:
-						'Contact us at alain.vivier@dosimex.fr: we will activate your Dosismart access. No new purchase is needed — your current license covers both tools.',
+						'Contact us at alain.vivier@dosimex.fr: we will activate your Dosismart access. No new purchase is needed, your current license covers both tools.',
 				},
 				{
-					question: 'I bought Dosimex before 2025 — is my license still valid?',
+					question: 'I bought Dosimex before 2025. Is my license still valid?',
 					answer:
-						'Yes, for life, and that does not change: your perpetual license remains valid and your suite keeps working as is. Dosismart, however, requires the subscription (€500/year excl. VAT), which covers both tools.',
+						'Yes, for life, and that does not change: your perpetual license remains valid and your calculation codes keep working as is. Dosismart, however, requires the subscription (from €640/year excl. VAT), which covers both tools.',
 				},
 				{
 					question: 'How does the free trial work?',
 					answer:
-						'The trial is free for 14 days, with no commitment and no credit card. It covers both tools: the full Dosismart web application, including the Compliance features, and the Dosimex Suite (Excel).',
+						'The trial is free for 14 days, with no commitment and no credit card. It covers both tools: the full Dosismart web application, including the Compliance features, and Dosimex (Excel).',
 				},
 				{
-					question: 'Our IT security policy forbids online tools — any options?',
+					question: 'Our IT security policy forbids online tools. Are there any options?',
 					answer:
 						'An offline deployment of Dosismart can be arranged for organizations that require it. Contact us to discuss it.',
 				},
 				{
 					question: 'What are the prerequisites?',
 					answer:
-						'The Dosimex Suite: Excel 2003 to 2024, Windows (virtual machine on Mac/Linux). Dosismart: modern web browser (Chrome, Firefox, Edge, Safari), any OS, no installation.',
+						'Dosimex runs on Excel 2003 to 2024 under Windows (virtual machine on Mac/Linux). Dosismart needs a modern web browser (Chrome, Firefox, Edge, Safari), on any OS, with no installation.',
 				},
 			],
 		},
@@ -702,23 +703,15 @@ export const en = {
 		header: {
 			title: 'Our team',
 			subtitle:
-				'Two radiation-protection specialists — from the French Navy and Air Force to the CEA and Orano — with over thirty years of combined field experience behind Dosimex.',
+				'Two radiation-protection specialists, from the French Navy and Air Force to the CEA and Orano, with over thirty years of combined field experience behind Dosimex.',
 		},
-		timelineTitle: 'Career at Orano La Hague',
 		gerald: {
 			path: ['French Navy', 'EAMEA', 'Cherbourg Arsenal', 'Orano La Hague'],
 			intro: [
 				'I began my career in 1997 in the French Navy as an electrical technician on weapons systems. After training as a radiation protection technician (RT), I joined the RPD at Ile Longue, with various missions focused on nuclear-armed ballistic missile submarines (SNLE): radiological assistance, reactor compartment mapping, radiological analyses in the medium activity laboratory, nuclear safety exercises…',
 				"In 2003, after training as a senior technician in radiation protection (TRS) at the INSTN, I joined the Ecole des Applications Militaire à l'Energie Atomique (EAMEA) where I taught radioactivity, radiation protection, dosimetry, and nuclear measurement. From that time on, to compensate for the obvious lack of tools, I started to create my own calculation tools in order to carry out simple and fast tutorials as part of my teaching.",
 				'In 2010, I joined the RDP of the Cherbourg Arsenal in charge of the 2SNM (Marine Nuclear Monitoring System), a system linked to the National Measurement Network (NMN). This experience allowed me, among other things, to create the Dosimex-I code, particularly on the atmospheric transfer option.',
-				"Since 2013, after having published in collaboration with Alain Vivier the book 'Calculation of dose generated by ionizing radiation', I joined the radiation protection department of the Orano site at La Hague where I was confronted with most of the site's radiation protection problems:",
-			],
-			timeline: [
-				{ period: '2013 – 2015', text: 'Monitoring of the dismantling of the UP2-400 production unit in the High Activity sector. Specific follow-up of the dismantling worksite of a fuel dissolver type UNGG.' },
-				{ period: '2015 – 2017', text: 'Dismantling advisor on the ELAN2B and STE2 (Effluent Treatment Station) perimeters, analysis of approaches.' },
-				{ period: '2017 – 2018', text: 'Responsible for the radiation protection level of the High Activity perimeter of the UP2-400 plant.' },
-				{ period: '2018 – 2019', text: 'Activity manager for the Conditioning Operational Unit: vitrification (R7/T7), waste treatment (AD2 and AD1/BDH) and hull compaction (ACC) workshops at the UP2-800 and UP3 plants at the La Hague site.' },
-				{ period: '2019', text: "Took over responsibility for the expertise division in charge, with a team, of technical support and innovation for all the sector's activities in the fields of radiation protection and conventional safety. Acquired solid experience in the area of mixed asbestos and radiological risks." },
+				"Since 2013, after publishing with Alain Vivier the book 'Calculation of dose generated by ionizing radiation', I have been with the radiation protection department of the Orano site at La Hague, where I have met most of the site's radiation protection challenges: dismantling of the UP2-400 unit and of a UNGG fuel dissolver, dismantling advisor on the ELAN2B and STE2 perimeters, then head of radiation protection for the High Activity perimeter and for the Conditioning Operational Unit of the UP2-800 and UP3 plants, covering vitrification, waste treatment and hull compaction. Since 2019, I have led the sector's expertise division, providing technical support and innovation in radiation protection and conventional safety, through to mixed asbestos and radiological risks.",
 			],
 			outro:
 				'In most of the radiation protection problems I had to face, the Dosimex tools were very useful to analyze the radiological risk. Conversely, feedback has allowed me to enrich these codes.',
@@ -738,7 +731,7 @@ export const en = {
 		epilogue: 'Epilogue: it is thanks to Dosimex that I was finally able, 25 years later, to have an idea of the radiological risk incurred with X-ray generators, a risk that is far from negligible.',
 		cta: {
 			title: 'The tools born from this story',
-			text: 'Thirty years of field experience, distilled into a proven, validated radiation-protection calculation suite.',
+			text: 'Thirty years of field experience, distilled into proven, validated radiation-protection calculation tools.',
 			button: 'Discover Dosimex',
 		},
 	},
@@ -779,7 +772,7 @@ export const en = {
 		header: {
 			title: 'References & Validation',
 			description:
-				"A calculation result is only worth what can be verified. The Dosimex codes are validated against MCNP, the CEA's reference Monte-Carlo code, and compared with Microshield and RayXpert in independent end-of-study works. The complete files are available below.",
+				'A calculation result is only worth what can be verified. The Dosimex codes are validated against MCNP and RayXpert, reference Monte-Carlo codes, and compared with Microshield in independent end-of-study works. The complete files are available below.',
 			anchors: ['Validation files', 'End-of-study reports', 'Publications', 'User feedback'],
 		},
 		publications: {
@@ -865,7 +858,7 @@ export const en = {
 		institutions: {
 			title: 'They use Dosimex',
 			note: 'Organizations cited in the 2018 user survey and in publications referencing Dosimex.',
-			names: ['EDF', 'Orano', 'CEA', 'IRSN', 'CNRS', 'Apave', 'SPRA', 'EAMEA', 'Veolia Nuclear Solutions', 'ONET', 'Institut Curie', 'CHU de Toulouse', 'CHU de Nîmes', 'Centre hospitalier public du Cotentin', 'Université de Strasbourg'],
+			names: ['EDF', 'Orano', 'CEA', 'CNRS', 'Apave', 'SPRA', 'EAMEA', 'Veolia Nuclear Solutions', 'ONET', 'Institut Curie', 'CHU de Toulouse', 'CHU de Nîmes', 'Centre hospitalier public du Cotentin', 'Université de Strasbourg'],
 		},
 		testimonials: {
 			title: 'User feedback',
@@ -879,24 +872,24 @@ export const en = {
 					org: 'IRSN',
 				},
 				{
-					text: "We see great value in using DOSIMEX. Simple to use, it covers a very large number of the calculations required in operational radiation protection. It is the RP engineer's calculator — and much more.",
-					name: 'Marc Lestang',
-					org: 'EDF',
-				},
-				{
 					text: 'A CNRS working group was created in 2016 to work on implementing ASN decision no. 2013-DC-0349 and the difficulties of applying the calculation note defined in the NFC15-160 standard. The Dosimex G tool was used to propose an alternative theoretical demonstration. The ASN accepted this approach. Around ten crystallography devices were thus brought into compliance on the CNRS campus in Orléans.',
 					name: 'Sébastien Bouillon',
 					org: 'CNRS',
 				},
 				{
-					text: 'At first I trusted my own validations more than the files provided. The cross-validation with RayXpert brought a significant extra level of confidence. This tool now plays the role that Delacroix et al. played when I started out.',
-					name: 'Sébastien Balduyck',
-					org: 'Radiophysics and radiation protection unit, Toulouse University Hospital',
+					text: "We see great value in using DOSIMEX. Simple to use, it covers a very large number of the calculations required in operational radiation protection. It is the RP engineer's calculator — and much more.",
+					name: 'Marc Lestang',
+					org: 'EDF',
 				},
 				{
-					text: 'I have been using Dosimex since 2014, initially for applying NF C 15-160, then the GénéX application. It computes the attenuation behind a shield, whatever its composition, for both the primary and the scattered beam. Workstation studies with eye-lens dose estimates are carried out in the operating theatre. The results are confirmed by dosimetry.',
-					name: 'Dr Dominique Schiedts',
-					org: 'Cotentin public hospital',
+					text: 'Beyond being a modelling tool, Dosimex is a substantial and useful database when you work in radiation protection. Its educational side also lets newcomers grasp and get familiar with physics and how particles interact with matter.',
+					name: 'Florian Veron',
+					org: 'APAVE',
+				},
+				{
+					text: 'Without Dosimex, I would never have started coding. Using Dosimex GX has often let me back up my radiation protection choices.',
+					name: 'Pauline Sarrus',
+					org: 'ORANO',
 				},
 			],
 		},

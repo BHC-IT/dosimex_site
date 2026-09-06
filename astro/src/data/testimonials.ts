@@ -43,7 +43,7 @@ export const testimonials: Testimonial[] = [
 		org: 'CNRS',
 	},
 	{
-		text: "9 PCRs de laboratoires CNRS de la délégation Centre Limousin Poitou Charentes ont suivi une formation Dosimex en mai 2015. Il est devenu un outil indispensable pour un grand nombre de laboratoires de recherche avec lequel je travaille. Un groupe de travail CNRS a été créé en 2016 pour travailler sur la mise en œuvre de la décision de l'ASN n°2013-DC-0349 et les difficultés d'application de la note de calcul défini dans la norme NFC15-160. L'outil Dosimex G a été utilisé pour proposer une démonstration théorique alternative. L'ASN a accepté cette approche. Une dizaine d'appareils de cristallographie ont ainsi pu été régularisé sur le campus CNRS d'Orléans.",
+		text: "9 PCRs de laboratoires CNRS de la délégation Centre Limousin Poitou Charentes ont suivi une formation Dosimex en mai 2015. Il est devenu un outil indispensable pour un grand nombre de laboratoires de recherche avec lequel je travaille. Un groupe de travail CNRS a été créé en 2016 pour travailler sur la mise en œuvre de la décision de l'ASN n°2013-DC-0349 et les difficultés d'application de la note de calcul défini dans la norme NFC15-160. L'outil Dosimex G a été utilisé pour proposer une démonstration théorique alternative. L'ASN a accepté cette approche. Une dizaine d'appareils de cristallographie ont ainsi pu être régularisés sur le campus CNRS d'Orléans.",
 		name: 'Sébastien Bouillon',
 		role: '',
 		org: 'CNRS',

@@ -13,10 +13,10 @@ import { organizationSchema, websiteSchema } from '@/data/schemas'
 // rebuilt live previews (DashboardPreview), never screenshots.
 // See CLAUDE.md › "Voice & UI › Visuals".
 const desktopSlides = [
-	{ src: '/Images/ScreenCarousel2.webp', srcSm: '/Images/ScreenCarousel2-sm.webp', alt: 'DOSIMEX-GX — Générateur X', label: 'DOSIMEX-GX — Générateur X', width: 1280, height: 675 },
-	{ src: '/Images/ScreenCarousel3.webp', srcSm: '/Images/ScreenCarousel3-sm.webp', alt: 'DOSIMEX-GX — Source cylindrique', label: 'DOSIMEX-GX — Source cylindrique', width: 1280, height: 783 },
-	{ src: '/Images/ScreenCarousel1.webp', srcSm: '/Images/ScreenCarousel1-sm.webp', alt: 'DOSIMEX-B — Dose bêta', label: 'DOSIMEX-B — Dose bêta', width: 1280, height: 727 },
-	{ src: '/Images/ScreenCarousel4.webp', srcSm: '/Images/ScreenCarousel4-sm.webp', alt: 'DOSIMEX-N — Dose neutrons', label: 'DOSIMEX-N — Dose neutrons', width: 1280, height: 638 },
+	{ src: '/Images/ScreenCarousel2.webp', srcSm: '/Images/ScreenCarousel2-sm.webp', alt: 'DOSIMEX-GX · Générateur X', label: 'DOSIMEX-GX · Générateur X', width: 1280, height: 675 },
+	{ src: '/Images/ScreenCarousel3.webp', srcSm: '/Images/ScreenCarousel3-sm.webp', alt: 'DOSIMEX-GX · Source cylindrique', label: 'DOSIMEX-GX · Source cylindrique', width: 1280, height: 783 },
+	{ src: '/Images/ScreenCarousel1.webp', srcSm: '/Images/ScreenCarousel1-sm.webp', alt: 'DOSIMEX-B · Dose bêta', label: 'DOSIMEX-B · Dose bêta', width: 1280, height: 727 },
+	{ src: '/Images/ScreenCarousel4.webp', srcSm: '/Images/ScreenCarousel4-sm.webp', alt: 'DOSIMEX-N · Dose neutrons', label: 'DOSIMEX-N · Dose neutrons', width: 1280, height: 638 },
 ]
 
 export const getStaticPaths = getLocalePaths
@@ -128,9 +128,6 @@ const arrow = 'M5 12h14M12 5l7 7-7 7'
 					<p class="mt-4 text-lg text-muted-foreground">
 						{t.home.platform.intro}
 					</p>
-					<p class="mt-3 text-base text-muted-foreground">
-						{t.home.platform.deck}
-					</p>
 					<ul class="mt-6 flex flex-wrap gap-2">
 						{t.home.platform.highlights.map((h) => (
 							<li class="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-sm text-foreground/80">
@@ -174,7 +171,7 @@ const arrow = 'M5 12h14M12 5l7 7-7 7'
 			<div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
 				<div>
 					<p class="text-sm font-semibold uppercase tracking-widest text-primary">
-						{isFr ? 'Suite Dosimex · Bureau' : 'Dosimex Suite · Desktop'}
+						{isFr ? 'Dosimex · Bureau' : 'Dosimex · Desktop'}
 					</p>
 					<h2 class="mt-3 text-3xl font-heading font-semibold tracking-tight text-foreground md:text-4xl lg:text-5xl">
 						{t.home.suite.title}
@@ -259,7 +256,7 @@ const arrow = 'M5 12h14M12 5l7 7-7 7'
 		</div>
 		<div class="reveal mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<h2 class="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-muted-foreground">
-				{isFr ? 'Ils calculent — et forment — avec Dosimex' : 'They calculate — and teach — with Dosimex'}
+				{isFr ? 'Ils calculent, et forment, avec Dosimex' : 'They calculate, and teach, with Dosimex'}
 			</h2>
 			<div class="relative overflow-hidden">
 				<div class="partner-scroll flex w-max items-center gap-12 pr-12">
