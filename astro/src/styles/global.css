@@ -200,7 +200,10 @@ html.dark .bg-primary\/10.text-primary {
    Layout-only utilities (mt-*, w-full) may be added alongside. */
 @layer components {
 	.btn {
-		@apply inline-flex h-12 items-center justify-center gap-2 rounded-lg px-6 text-base font-heading font-semibold transition-colors duration-150;
+		/* min-height + padding, not a fixed height: single-line buttons keep
+		   the 48px look, but a label that wraps to two lines grows the button
+		   instead of overflowing the border. */
+		@apply inline-flex min-h-12 items-center justify-center gap-2 rounded-lg px-6 py-2.5 text-center text-base font-heading font-semibold transition-colors duration-150;
 	}
 	.btn-primary {
 		@apply bg-primary text-primary-foreground shadow-lg hover:bg-primary-700;

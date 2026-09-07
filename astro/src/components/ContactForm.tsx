@@ -331,7 +331,7 @@ export default function ContactForm({
 					<button
 						type="submit"
 						disabled={isLoading}
-						className="w-full rounded-[8px] bg-primary-600 hover:bg-primary-700 h-12 px-6 font-heading font-semibold text-white shadow-lg transition-all hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+						className="w-full rounded-[8px] bg-primary-600 hover:bg-primary-700 min-h-12 px-6 py-2.5 font-heading font-semibold text-white shadow-lg transition-all hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
 					>
 						{isLoading ? sendingText : buttonText}
 					</button>
