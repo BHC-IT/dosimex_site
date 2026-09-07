@@ -52,7 +52,7 @@ const arrow = 'M5 12h14M12 5l7 7-7 7'
 			<div class="text-center lg:text-left">
 			<a
 				href="#platform"
-				class="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary transition-colors duration-150 hover:bg-primary/15"
+				class="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-[15px] font-medium text-primary transition-colors duration-150 hover:bg-primary/15"
 				data-ph-cta="hero-badge"
 			>
 				<span class="relative flex h-2 w-2" aria-hidden="true">
@@ -61,7 +61,7 @@ const arrow = 'M5 12h14M12 5l7 7-7 7'
 				</span>
 				{t.home.hero.badge}
 			</a>
-			<h1 class="text-balance text-4xl font-heading font-bold tracking-tight text-foreground md:text-5xl">
+			<h1 class="text-balance text-4xl font-heading font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl">
 				{t.home.hero.title}
 			</h1>
 			<p class="mt-4 text-2xl font-heading font-semibold tracking-tight text-gradient md:text-3xl">
@@ -156,7 +156,7 @@ const arrow = 'M5 12h14M12 5l7 7-7 7'
 							<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
 						</a>
 					</div>
-					<p class="mt-3 text-xs text-muted-foreground">{t.home.platform.trialNote}</p>
+					<p class="mt-3 text-sm text-muted-foreground">{t.home.platform.trialNote}</p>
 				</div>
 				<div>
 					<DashboardPreview locale={locale} />
@@ -173,7 +173,7 @@ const arrow = 'M5 12h14M12 5l7 7-7 7'
 					<p class="text-sm font-semibold uppercase tracking-widest text-primary">
 						{isFr ? 'Dosimex · Bureau' : 'Dosimex · Desktop'}
 					</p>
-					<h2 class="mt-3 text-3xl font-heading font-semibold tracking-tight text-foreground md:text-4xl lg:text-5xl">
+					<h2 class="mt-3 text-3xl font-heading font-semibold tracking-tight text-foreground md:text-4xl">
 						{t.home.suite.title}
 					</h2>
 					<p class="mt-4 text-lg text-muted-foreground [&_strong]:font-bold [&_strong]:text-primary" set:html={t.home.suite.subtitle}></p>
@@ -236,7 +236,7 @@ const arrow = 'M5 12h14M12 5l7 7-7 7'
 			</p>
 			<a
 				href={localePath(locale, '/learn')}
-				class="mt-8 inline-flex items-center gap-2 font-heading font-semibold text-primary hover:underline"
+				class="mt-8 inline-flex items-center gap-2 text-lg font-heading font-semibold text-primary hover:underline"
 				data-ph-cta="understand-learn"
 			>
 				{t.home.understand.link}
@@ -255,15 +255,18 @@ const arrow = 'M5 12h14M12 5l7 7-7 7'
 			<div class="absolute -bottom-[14rem] -right-[40rem] hidden h-[520px] w-[680px] rounded-full bg-brandred/[0.16] blur-3xl dark:bg-brandred/[0.14] lg:block"></div>
 		</div>
 		<div class="reveal mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-			<h2 class="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+			<h2 class="mb-8 text-center text-sm font-semibold uppercase tracking-widest text-primary">
 				{isFr ? 'Ils calculent, et forment, avec Dosimex' : 'They calculate, and teach, with Dosimex'}
 			</h2>
 			<div class="relative overflow-hidden">
 				<div class="partner-scroll flex w-max items-center gap-12 pr-12">
+					{/* Second copy of the set is purely for the seamless loop — hide it
+					    from assistive tech so partner names aren't announced twice. */}
 					{[...partnerImages, ...partnerImages].map((img, i) => (
 						<Image
 							src={img}
-							alt={partnerLogoAlts[i % partnerImages.length]}
+							alt={i < partnerImages.length ? partnerLogoAlts[i % partnerImages.length] : ''}
+							aria-hidden={i >= partnerImages.length ? 'true' : undefined}
 							height={48}
 							width={120}
 							class="h-10 w-auto shrink-0 object-contain opacity-60 grayscale transition-all duration-200 hover:opacity-100 hover:grayscale-0 sm:h-12"
@@ -287,7 +290,7 @@ const arrow = 'M5 12h14M12 5l7 7-7 7'
 				<div class="mt-1 text-sm text-muted-foreground">{t.home.opinion.job}</div>
 			</div>
 			<div class="mt-8">
-				<a href={localePath(locale, '/references')} class="inline-flex items-center gap-1 font-heading font-semibold text-primary hover:underline" data-ph-cta="proof-references">
+				<a href={localePath(locale, '/references')} class="inline-flex items-center gap-1 text-lg font-heading font-semibold text-primary hover:underline" data-ph-cta="proof-references">
 					{t.home.opinion.button}
 					<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d={arrow}/></svg>
 				</a>

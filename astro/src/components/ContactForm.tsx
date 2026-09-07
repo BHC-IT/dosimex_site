@@ -46,7 +46,7 @@ const EMAIL_REGEX =
 	/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 const inputClass =
-	'mt-1.5 block w-full bg-white dark:bg-secondary border-[1.5px] border-slate-300 dark:border-border rounded-[8px] px-4 py-3 text-foreground placeholder:text-foreground/40 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-100 dark:focus:ring-primary-500/20 transition-colors'
+	'mt-1.5 block w-full bg-white dark:bg-secondary border-[1.5px] border-input-strong aria-invalid:border-destructive rounded-[8px] px-4 py-3 text-foreground placeholder:text-foreground/40 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/25 transition-colors'
 const errorClass = 'mt-1 text-sm text-primary'
 const labelClass = 'block text-sm font-medium text-foreground'
 
@@ -200,10 +200,12 @@ export default function ContactForm({
 						onFocus={() => trackFieldFocus('name')}
 						onBlur={() => markTouched('name')}
 						required
+						aria-invalid={!!nameError}
+						aria-describedby={nameError ? 'name-error' : undefined}
 						className={inputClass}
 						placeholder={labels.name}
 					/>
-					{nameError && <p className={errorClass}>{nameError}</p>}
+					{nameError && <p id="name-error" className={errorClass}>{nameError}</p>}
 				</div>
 
 				{/* Email */}
@@ -219,10 +221,12 @@ export default function ContactForm({
 						onFocus={() => trackFieldFocus('email')}
 						onBlur={() => markTouched('email')}
 						required
+						aria-invalid={!!emailError}
+						aria-describedby={emailError ? 'email-error' : undefined}
 						className={inputClass}
 						placeholder={labels.email}
 					/>
-					{emailError && <p className={errorClass}>{emailError}</p>}
+					{emailError && <p id="email-error" className={errorClass}>{emailError}</p>}
 				</div>
 
 				{/* Phone */}
@@ -237,10 +241,14 @@ export default function ContactForm({
 						onChange={setPhone}
 						onFocus={() => trackFieldFocus('phone')}
 						onBlur={() => markTouched('phone')}
-						numberInputProps={{ id: 'phone' }}
+						numberInputProps={{
+							id: 'phone',
+							'aria-invalid': !!phoneError,
+							'aria-describedby': phoneError ? 'phone-error' : undefined,
+						}}
 						className={`${inputClass} [&_.PhoneInputInput]:border-none [&_.PhoneInputInput]:bg-transparent [&_.PhoneInputInput]:outline-none [&_.PhoneInputInput]:text-foreground`}
 					/>
-					{phoneError && <p className={errorClass}>{phoneError}</p>}
+					{phoneError && <p id="phone-error" className={errorClass}>{phoneError}</p>}
 				</div>
 
 				{/* Company */}
@@ -290,7 +298,7 @@ export default function ContactForm({
 						<option value="">{labels.subject}</option>
 						<option value="quote">{locale === 'fr' ? 'Demande de devis' : 'Quote request'}</option>
 						<option value="demo">{locale === 'fr' ? 'Démonstration' : 'Demo request'}</option>
-						<option value="trial">{locale === 'fr' ? 'Essai gratuit Dosismart' : 'Free trial Dosismart'}</option>
+						<option value="trial">{locale === 'fr' ? 'Essai gratuit 14 jours' : 'Free 14-day trial'}</option>
 						<option value="training">{locale === 'fr' ? 'Formation' : 'Training'}</option>
 						<option value="support">{locale === 'fr' ? 'Support technique' : 'Technical support'}</option>
 						<option value="other">{locale === 'fr' ? 'Autre' : 'Other'}</option>
@@ -310,10 +318,12 @@ export default function ContactForm({
 						onBlur={() => markTouched('message')}
 						rows={5}
 						required
+						aria-invalid={!!messageError}
+						aria-describedby={messageError ? 'message-error' : undefined}
 						className={`${inputClass} resize-y`}
 						placeholder={labels.message}
 					/>
-					{messageError && <p className={errorClass}>{messageError}</p>}
+					{messageError && <p id="message-error" className={errorClass}>{messageError}</p>}
 				</div>
 
 				{/* Submit */}

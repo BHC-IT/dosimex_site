@@ -65,9 +65,9 @@ const quoteHref = 'https://dosismart.com'
 	id="site-nav"
 	class="sticky top-0 z-50 bg-background transition-transform duration-300"
 >
-	<div class="w-full px-6 lg:px-16 flex items-center justify-between h-16">
+	<div class="w-full px-6 lg:px-8 flex items-center justify-between h-16">
 		<!-- Left: logo + page links -->
-		<div class="flex items-center gap-8">
+		<div class="flex items-center gap-5">
 		<!-- Logo -->
 		<a href={localePath(locale, '/')} class="flex-shrink-0 flex items-center gap-2">
 			<img
@@ -95,7 +95,7 @@ const quoteHref = 'https://dosismart.com'
 		</a>
 
 		<!-- Desktop nav -->
-		<nav class="hidden lg:flex items-center gap-4" aria-label="Main navigation">
+		<nav class="hidden xl:flex items-center gap-4" aria-label="Main navigation">
 			{menu.map((entry) =>
 				entry.type === 'dropdown' ? (
 					<div class="relative group">
@@ -134,7 +134,7 @@ const quoteHref = 'https://dosismart.com'
 		</div>
 
 		<!-- Right cluster -->
-		<div class="hidden lg:flex items-center gap-3">
+		<div class="hidden xl:flex items-center gap-2">
 			<LanguageSwitcher locale={locale} alternateUrl={alternateUrl} />
 
 			<ThemeToggle locale={locale} />
@@ -144,7 +144,7 @@ const quoteHref = 'https://dosismart.com'
 				href={quoteHref}
 				target="_blank"
 				rel="noopener noreferrer"
-				class="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-700"
+				class="whitespace-nowrap rounded-lg bg-primary px-3.5 py-2 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-700"
 				data-ph-cta="nav-trial"
 			>
 				{quoteLabel}
@@ -152,7 +152,7 @@ const quoteHref = 'https://dosismart.com'
 		</div>
 
 		<!-- Mobile: hamburger -->
-		<div class="flex lg:hidden items-center">
+		<div class="flex xl:hidden items-center">
 			<MobileMenu
 				groups={mobileGroups}
 				navLinks={mobileLinks}
@@ -191,6 +191,25 @@ const quoteHref = 'https://dosismart.com'
 
 	initNavScroll()
 	document.addEventListener('astro:page-load', initNavScroll)
+
+	// The dropdowns open via CSS (group-hover / group-focus-within); mirror
+	// that state onto aria-expanded so AT hears the real open/closed state.
+	function initNavDropdowns() {
+		document.querySelectorAll<HTMLElement>('#site-nav nav .group').forEach((group) => {
+			const btn = group.querySelector('button[aria-haspopup]')
+			if (!btn) return
+			const set = (open: boolean) => btn.setAttribute('aria-expanded', String(open))
+			group.addEventListener('mouseenter', () => set(true))
+			group.addEventListener('mouseleave', () => set(false))
+			group.addEventListener('focusin', () => set(true))
+			group.addEventListener('focusout', (e) => {
+				const next = (e as FocusEvent).relatedTarget
+				if (!(next instanceof Node) || !group.contains(next)) set(false)
+			})
+		})
+	}
+	initNavDropdowns()
+	document.addEventListener('astro:page-load', initNavDropdowns)
 
 	// Language switch: preserve scroll position
 	function initLangSwitch() {

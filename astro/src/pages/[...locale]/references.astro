@@ -167,7 +167,7 @@ const docSections = [
 									<h3 class="text-base font-heading font-semibold text-foreground transition-colors group-hover:text-primary md:text-lg">
 										{item.title}
 									</h3>
-									<div class="mt-1 flex flex-wrap gap-x-2 gap-y-0.5 text-xs text-muted-foreground">
+									<div class="mt-1 flex flex-wrap gap-x-2 gap-y-0.5 text-sm text-muted-foreground">
 										{'authors' in item && <span>{item.authors}</span>}
 										{'authors' in item && 'journal' in item && <span class="italic">· {item.journal}</span>}
 										{'authors' in item && 'year' in item && <span>· {item.year}</span>}
@@ -236,7 +236,7 @@ const docSections = [
 						</blockquote>
 						<div class="mt-4">
 							<div class="text-sm font-heading font-semibold text-foreground">{item.name}</div>
-							<div class="text-xs text-muted-foreground">{item.org}</div>
+							<div class="text-sm text-muted-foreground">{item.org}</div>
 						</div>
 					</div>
 				))}

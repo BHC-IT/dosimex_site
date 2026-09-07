@@ -68,6 +68,9 @@
 
 		let gallery: { src: string; alt: string }[] = []
 		let currentIndex = 0
+		// aria-modal implies focus stays inside: move it in on open, trap Tab,
+		// and hand it back to the trigger on close.
+		let opener: HTMLElement | null = null
 
 		function show(index: number) {
 			currentIndex = ((index % gallery.length) + gallery.length) % gallery.length
@@ -88,6 +91,9 @@
 			prevBtn?.classList.toggle('hidden', !hasMultiple)
 			nextBtn?.classList.toggle('hidden', !hasMultiple)
 			counter?.classList.toggle('hidden', !hasMultiple)
+
+			opener = document.activeElement instanceof HTMLElement ? document.activeElement : null
+			;(closeBtn as HTMLElement | null)?.focus()
 		}
 
 		function close() {
@@ -96,12 +102,28 @@
 			lightboxImg!.src = ''
 			gallery = []
 			document.body.style.overflow = ''
+			opener?.focus()
+			opener = null
 		}
 
 		// Collect lightbox groups: elements with [data-lightbox] that share the same
 		// [data-lightbox-group] value form a gallery. Ungrouped items open solo.
 		document.querySelectorAll<HTMLElement>('[data-lightbox]').forEach((el) => {
 			el.style.cursor = 'zoom-in'
+			// Triggers are plain divs/images — make them keyboard-operable so the
+			// dialog is reachable without a mouse (and focus has a home to return to).
+			if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0')
+			if (!el.hasAttribute('role')) el.setAttribute('role', 'button')
+			if (!el.hasAttribute('aria-label')) {
+				const alt = (el.tagName === 'IMG' ? (el as HTMLImageElement).alt : el.querySelector('img')?.alt) || ''
+				el.setAttribute('aria-label', alt ? `${alt} — agrandir` : 'Agrandir l’image')
+			}
+			el.addEventListener('keydown', (e) => {
+				if (e.key === 'Enter' || e.key === ' ') {
+					e.preventDefault()
+					el.click()
+				}
+			})
 			el.addEventListener('click', (e) => {
 				e.stopPropagation()
 				const groupName = el.dataset.lightboxGroup
@@ -144,6 +166,18 @@
 			if (e.key === 'Escape') close()
 			if (e.key === 'ArrowLeft') show(currentIndex - 1)
 			if (e.key === 'ArrowRight') show(currentIndex + 1)
+			if (e.key === 'Tab') {
+				const focusables = [closeBtn, prevBtn, nextBtn].filter(
+					(b): b is HTMLButtonElement => b instanceof HTMLElement && !b.classList.contains('hidden'),
+				)
+				if (!focusables.length) return
+				e.preventDefault()
+				const idx = focusables.indexOf(document.activeElement as HTMLButtonElement)
+				const next = e.shiftKey
+					? (idx <= 0 ? focusables.length - 1 : idx - 1)
+					: (idx === -1 || idx === focusables.length - 1 ? 0 : idx + 1)
+				focusables[next].focus()
+			}
 		})
 
 		// Swipe on lightbox image

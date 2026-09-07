@@ -32,12 +32,23 @@
 	--color-card-foreground: hsl(229, 63%, 3%);
 	--color-border: hsl(220, 13%, 89%);
 	--color-input: hsl(220, 13%, 89%);
+	/* Form-field border: unlike decorative borders, field boundaries must hit
+	   WCAG 1.4.11's 3:1 against the field fill (3.66:1 on white here). */
+	--color-input-strong: hsl(229, 10%, 55%);
 	--color-ring: hsl(229, 100%, 62%);
 	--color-destructive: hsl(356, 100%, 57%);
 
 	/* Dosismart blue scale */
 	--color-primary-600: hsl(229, 100%, 62%);
 	--color-primary-700: hsl(229, 84%, 52%);
+	/* Readable primary for TEXT on dark surfaces (WCAG AA). The brand blue at
+	   62% only reaches 4.15:1 on the dark background and 3.91:1 on dark cards
+	   — under the 4.5:1 floor for normal text. 70% reaches 5.93:1 / 5.58:1.
+	   Fills (buttons) keep --color-primary: white-on-primary is 4.83:1, and
+	   no single blue can pass both directions at once (4.5 × 4.5 > the 19.6:1
+	   total white-to-dark-bg contrast). Applied via the text overrides below
+	   the .dark block. */
+	--color-primary-bright: hsl(229, 100%, 70%);
 
 	/* Dosimex logo red — accent, used sparingly */
 	--color-brandred: #FF2532;
@@ -55,6 +66,16 @@
 	--font-heading: 'Inter Digits', 'Atkinson Hyperlegible Next Variable', ui-sans-serif, system-ui, sans-serif;
 	--font-body: 'Inter Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 	--font-mono: ui-monospace, 'SF Mono', 'Cascadia Code', 'Fira Mono', Menlo, monospace;
+
+	/* Type scale — readability bump over Tailwind defaults: xs 12→14px,
+	   sm 14→17px, base 16→18px, lg 18→20px, xl 20→21px. Headings (2xl+) keep
+	   the default scale. Product previews opt back into the compact scale via
+	   .preview-type below. Line heights are unitless ratios, so they follow. */
+	--text-xs: 0.875rem;
+	--text-sm: 1.0625rem;
+	--text-base: 1.125rem;
+	--text-lg: 1.25rem;
+	--text-xl: 1.3125rem;
 
 	/* Border radius */
 	--radius-sm: 0.375rem;
@@ -86,6 +107,7 @@
 	--color-card-foreground: hsl(229, 23%, 99%);
 	--color-border: hsl(215, 28%, 17%);
 	--color-input: hsl(215, 28%, 17%);
+	--color-input-strong: hsl(229, 12%, 45%); /* 3.34:1 vs the dark field fill */
 	--color-ring: hsl(229, 100%, 62%);
 
 	--color-primary-600: hsl(229, 100%, 62%);
@@ -93,6 +115,46 @@
 	--color-brandred: #FF3B47;
 	--color-brandred-hover: #FF2532;
 	--color-accent-400: #FF3B47;
+}
+
+/* ── WCAG AA contrast for primary-as-text ─────────────────────────────────
+   Dark mode: every text utility that renders the brand blue switches to the
+   brighter --color-primary-bright (see token comment). Unlayered on purpose
+   so it wins over Tailwind's layered utilities. Fills (bg-primary) are
+   untouched. */
+.dark :is(
+	.text-primary,
+	.hover\:text-primary:hover,
+	.group:hover .group-hover\:text-primary,
+	.group:focus-within .group-focus-within\:text-primary,
+	.aria-selected\:text-primary[aria-selected="true"]
+),
+.dark .\[\&_strong\]\:text-primary strong,
+.dark .prose a {
+	color: var(--color-primary-bright);
+}
+
+/* The badge idiom (bg-primary/10 + text-primary on the same element)
+   computes to 4.23:1 in light — under AA. The darker primary-700 reaches
+   5.98:1 on the same tint. Deepening the tint instead would LOWER contrast
+   (the tint is lighter than the text). The explicit dark counterpart is
+   deliberately last so it wins over this rule regardless of how the
+   browser scores the :is() rule above. */
+html:not(.dark) .bg-primary\/10.text-primary {
+	color: var(--color-primary-700);
+}
+html.dark .bg-primary\/10.text-primary {
+	color: var(--color-primary-bright);
+}
+
+/* Product previews (WindowFrame & co.) keep the app's compact type scale —
+   they mimic real UI chrome and should not grow with the site-wide bump. */
+.preview-type {
+	--text-xs: 0.75rem;
+	--text-sm: 0.875rem;
+	--text-base: 1rem;
+	--text-lg: 1.125rem;
+	--text-xl: 1.25rem;
 }
 
 /* Base styles */
@@ -110,7 +172,13 @@
 		/* Clip (not hidden) so the hero glow can bleed past sections without a
 		   horizontal scrollbar. `clip` avoids creating a scroll container, so
 		   the sticky navbar keeps working (unlike overflow-x: hidden). Never
-		   put overflow-x on html — it silently disables position: sticky. */
+		   put ANY overflow-x (even clip) on html — it silently disables
+		   position: sticky (verified in Chromium). The `hidden` line is a
+		   fallback for browsers without `clip` support, which would otherwise
+		   fall back to `visible` and allow horizontal scroll; with html left
+		   at `visible` it propagates to the viewport, so body never becomes
+		   a scroll container and sticky still works. */
+		overflow-x: hidden;
 		overflow-x: clip;
 	}
 
