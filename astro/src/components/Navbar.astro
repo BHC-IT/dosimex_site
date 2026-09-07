@@ -108,7 +108,10 @@ const quoteHref = 'https://dosismart.com'
 							{entry.label}
 							<svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180 group-focus-within:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
 						</button>
-						<div class="invisible absolute left-0 top-full min-w-[12rem] pt-2 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+						{/* transition-opacity, NOT transition-all: animating visibility keeps
+						    the links unfocusable during the fade, which breaks arrow-key
+						    navigation into the menu. */}
+						<div class="invisible absolute left-0 top-full min-w-[12rem] pt-2 opacity-0 transition-opacity duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
 							<div class="rounded-lg border border-border bg-background p-1.5 shadow-lg">
 								{entry.links.map((link) => (
 									<a
@@ -205,6 +208,23 @@ const quoteHref = 'https://dosismart.com'
 			group.addEventListener('focusout', (e) => {
 				const next = (e as FocusEvent).relatedTarget
 				if (!(next instanceof Node) || !group.contains(next)) set(false)
+			})
+			// Arrow keys walk the dropdown links (the panel opens via CSS
+			// focus-within as soon as anything in the group has focus)
+			group.addEventListener('keydown', (e) => {
+				const links = [...group.querySelectorAll<HTMLAnchorElement>('a')]
+				if (!links.length) return
+				const active = document.activeElement
+				const idx = links.indexOf(active as HTMLAnchorElement)
+				if (e.key === 'ArrowDown') {
+					e.preventDefault()
+					links[(idx + 1) % links.length]?.focus()
+				} else if (e.key === 'ArrowUp') {
+					e.preventDefault()
+					;(idx <= 0 ? links[links.length - 1] : links[idx - 1])?.focus()
+				} else if (e.key === 'Escape' && active !== btn) {
+					;(btn as HTMLElement).focus()
+				}
 			})
 		})
 	}
