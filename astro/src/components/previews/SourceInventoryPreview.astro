@@ -27,7 +27,7 @@ const l = {
 	location: isFr ? 'Emplacement' : 'Location',
 	status: isFr ? 'Statut' : 'Status',
 	active: 'Active',
-	expiring: isFr ? 'Bientôt à vérifier' : 'Verification due',
+	expiring: isFr ? 'À vérifier' : 'To verify',
 	disposed: isFr ? 'Éliminée' : 'Disposed',
 }
 
@@ -55,7 +55,7 @@ const badge: Record<string, { cls: string; label: string }> = {
 				<span class="h-2 w-2 rounded-full bg-primary" aria-hidden="true"></span>
 				{l.title}
 			</h3>
-			<span class="rounded-md bg-muted/60 px-2 py-1 font-mono text-[11px] text-muted-foreground">
+			<span class="rounded-md bg-muted/60 px-2 py-1 font-mono text-xs text-muted-foreground">
 				<span class="text-foreground">{l.subtitle}</span>
 			</span>
 		</div>
@@ -67,7 +67,10 @@ const badge: Record<string, { cls: string; label: string }> = {
 						<th class="px-2 py-2 font-medium sm:px-3">{l.name}</th>
 						<th class="hidden px-2 py-2 font-medium sm:table-cell sm:px-3">{l.nuclide}</th>
 						<th class="hidden px-2 py-2 text-right font-medium sm:table-cell sm:px-3">{l.activity}</th>
-						<th class="hidden px-3 py-2 font-medium sm:table-cell">{l.location}</th>
+						{/* Location: only when there's real room — single-column layouts
+						    (sm–lg) and very wide two-column (2xl+). In between, the frame
+						    sits beside the copy at half width and five columns clip. */}
+						<th class="hidden px-3 py-2 font-medium sm:table-cell lg:hidden 2xl:table-cell">{l.location}</th>
 						<th class="px-2 py-2 text-right font-medium sm:px-3">{l.status}</th>
 					</tr>
 				</thead>
@@ -80,9 +83,9 @@ const badge: Record<string, { cls: string; label: string }> = {
 							</td>
 							<td class="hidden px-2 py-2.5 text-muted-foreground sm:table-cell sm:px-3">{r.nuclide}</td>
 							<td class="hidden whitespace-nowrap px-2 py-2.5 text-right tabular-nums text-foreground sm:table-cell sm:px-3">{r.activity}</td>
-							<td class="hidden px-3 py-2.5 text-muted-foreground sm:table-cell">{r.loc}</td>
+							<td class="hidden px-3 py-2.5 text-muted-foreground sm:table-cell lg:hidden 2xl:table-cell">{r.loc}</td>
 							<td class="px-2 py-2.5 text-right sm:px-3">
-								<span class={`inline-flex items-center whitespace-nowrap rounded-full border px-2 py-0.5 text-[11px] font-semibold ${badge[r.status].cls}`}>
+								<span class={`inline-flex items-center whitespace-nowrap rounded-full border px-2 py-0.5 text-xs font-semibold ${badge[r.status].cls}`}>
 									{badge[r.status].label}
 								</span>
 							</td>
