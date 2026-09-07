@@ -1,6 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import { getTranslations, getLocalePaths, type Locale } from '@/i18n/utils'
+import { getTranslations, getLocalePaths, localePath, type Locale } from '@/i18n/utils'
 import { organizationSchema } from '@/data/schemas'
 
 export const getStaticPaths = getLocalePaths
@@ -11,7 +11,7 @@ const t = getTranslations(locale)
 const isFr = locale === 'fr'
 ---
 
-<Layout title={isFr ? "Conditions Générales d'Utilisation — Dosimex" : 'Terms of Use — Dosimex'} description={isFr ? "Conditions générales d'utilisation de la plateforme Dosismart et du site dosimex.fr." : 'Terms of use for the Dosismart platform and the dosimex.fr website.'} jsonLd={[organizationSchema]}>
+<Layout title={isFr ? "Conditions Générales d'Utilisation — Dosimex" : 'Terms of Use — Dosimex'} description={isFr ? "Conditions générales d'utilisation du site dosimex.fr, de la plateforme Dosismart et des codes de calcul Dosimex." : 'Terms of use for the dosimex.fr website, the Dosismart platform and the Dosimex calculation codes.'} jsonLd={[organizationSchema]}>
 
 	<section class="py-12 md:py-20">
 		<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
@@ -19,7 +19,7 @@ const isFr = locale === 'fr'
 				{isFr ? "Conditions Générales d'Utilisation" : 'Terms of Use'}
 			</h1>
 
-			<div class="mt-12 space-y-10 text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+			<div class="mt-12 space-y-10 text-base text-muted-foreground leading-relaxed">
 
 				<!-- Préambule -->
 				<div>
@@ -28,25 +28,42 @@ const isFr = locale === 'fr'
 					</h2>
 					<p class="mt-4">
 						{isFr
-							? "Les présentes Conditions Générales d'Utilisation (CGU) régissent l'accès et l'utilisation de la plateforme Dosismart. En utilisant ce service, vous acceptez pleinement et sans réserve les présentes CGU."
-							: 'These Terms of Use (TOU) govern access to and use of the Dosismart platform. By using this service, you fully and unreservedly accept these TOU.'}
+							? "Les présentes Conditions Générales d'Utilisation (CGU) régissent l'accès et l'utilisation du site www.dosimex.fr, de la plateforme Dosismart et des services associés, édités par DOSIMEX SAS. En utilisant le site ou les services, vous acceptez pleinement et sans réserve les présentes CGU."
+							: 'These Terms of Use (TOU) govern access to and use of the www.dosimex.fr website, the Dosismart platform and associated services, published by DOSIMEX SAS. By using the site or the services, you fully and unreservedly accept these TOU.'}
 					</p>
 				</div>
 
-				<!-- Description du service -->
+				<!-- Description des services -->
 				<div>
 					<h2 class="text-2xl md:text-3xl font-heading font-semibold text-foreground">
-						{isFr ? 'Description du service' : 'Service Description'}
+						{isFr ? 'Description des services' : 'Description of Services'}
 					</h2>
 					<p class="mt-4">
 						{isFr
-							? 'Dosismart est une plateforme de calcul de dosimétrie des rayonnements destinée aux professionnel.les de la radioprotection.'
-							: 'Dosismart is a radiation dosimetry calculation platform designed for radiation protection professionals.'}
+							? "Le site www.dosimex.fr présente les activités, outils et ressources de DOSIMEX SAS. Les informations qui y figurent sont données à titre indicatif, sont susceptibles d'évoluer et ne sont pas exhaustives."
+							: 'The www.dosimex.fr website presents the activities, tools and resources of DOSIMEX SAS. The information it contains is provided for information purposes, may change and is not exhaustive.'}
 					</p>
 					<p class="mt-3">
 						{isFr
-							? "Le service inclut : calculs de débit de dose, historique des calculs, gestion d'équipe et collaboration."
-							: 'The service includes: dose rate calculations, calculation history, team management and collaboration.'}
+							? "Dosismart est une plateforme de calcul de dosimétrie des rayonnements destinée aux professionnel.les de la radioprotection. Le service inclut notamment : calculs de dose en ligne, historique des calculs, gestion d'équipe et collaboration, ainsi que, selon l'offre souscrite, l'inventaire de sources, le zonage radiologique, la cartographie de débit de dose et la génération d'études de poste."
+							: 'Dosismart is a radiation dosimetry calculation platform designed for radiation protection professionals. The service includes: online dose calculations, calculation history, team management and collaboration, and, depending on the subscribed plan, source inventory, radiological zoning, dose-rate mapping and workstation study generation.'}
+					</p>
+					<p class="mt-3">
+						{isFr
+							? "L'abonnement donne également accès au téléchargement des codes de calcul Dosimex (sous Excel) et de leur clé de licence. Les codes Dosimex restent la propriété de DOSIMEX SAS ; leur utilisation est concédée sous licence, dans le cadre de l'abonnement en cours ou d'une licence perpétuelle acquise antérieurement."
+							: 'The subscription also gives access to downloading the Dosimex calculation codes (Excel) and their license key. The Dosimex codes remain the property of DOSIMEX SAS; their use is granted under license, within the scope of the current subscription or of a previously acquired perpetual license.'}
+					</p>
+				</div>
+
+				<!-- Accès au site -->
+				<div>
+					<h2 class="text-2xl md:text-3xl font-heading font-semibold text-foreground">
+						{isFr ? 'Accès et disponibilité' : 'Access and Availability'}
+					</h2>
+					<p class="mt-4">
+						{isFr
+							? "Le site et la plateforme sont normalement accessibles à tout moment. Une interruption pour maintenance technique peut toutefois être décidée par DOSIMEX SAS, qui s'efforcera de communiquer préalablement les dates et heures d'intervention. DOSIMEX SAS met tout en œuvre pour assurer la disponibilité et la fiabilité des services, sans pouvoir garantir une disponibilité totale et permanente."
+							: 'The site and the platform are normally accessible at all times. An interruption for technical maintenance may however be decided by DOSIMEX SAS, which will endeavour to communicate the dates and times of the intervention in advance. DOSIMEX SAS makes every effort to ensure the availability and reliability of the services, but cannot guarantee total and permanent availability.'}
 					</p>
 				</div>
 
@@ -56,7 +73,7 @@ const isFr = locale === 'fr'
 						{isFr ? 'Compte utilisateur' : 'User Account'}
 					</h2>
 					<ul class="mt-4 space-y-2 list-disc list-inside">
-						<li>{isFr ? "L'accès au service nécessite la création d'un compte" : 'Access to the service requires creating an account'}</li>
+						<li>{isFr ? "L'accès à la plateforme Dosismart nécessite la création d'un compte" : 'Access to the Dosismart platform requires creating an account'}</li>
 						<li>{isFr ? 'Vous êtes responsable de la confidentialité de vos identifiants' : 'You are responsible for the confidentiality of your credentials'}</li>
 						<li>{isFr ? 'Toute activité effectuée depuis votre compte est sous votre responsabilité' : 'Any activity performed from your account is under your responsibility'}</li>
 					</ul>
@@ -73,9 +90,22 @@ const isFr = locale === 'fr'
 					<ul class="mt-3 space-y-2 list-disc list-inside">
 						<li>{isFr ? 'Respecter les lois et règlements en vigueur' : 'Comply with applicable laws and regulations'}</li>
 						<li>{isFr ? 'Fournir des informations exactes et à jour' : 'Provide accurate and up-to-date information'}</li>
-						<li>{isFr ? 'Ne pas tenter de compromettre la sécurité du service' : 'Not attempt to compromise the security of the service'}</li>
-						<li>{isFr ? 'Ne pas utiliser le service à des fins illégales ou non autorisées' : 'Not use the service for illegal or unauthorized purposes'}</li>
+						<li>{isFr ? 'Ne pas tenter de compromettre la sécurité du site ou de la plateforme' : 'Not attempt to compromise the security of the site or the platform'}</li>
+						<li>{isFr ? 'Ne pas utiliser les services à des fins illégales ou non autorisées' : 'Not use the services for illegal or unauthorized purposes'}</li>
+						<li>{isFr ? "Accéder aux services avec un équipement exempt de programmes malveillants et un navigateur à jour" : 'Access the services with equipment free of malicious software and an up-to-date browser'}</li>
 					</ul>
+				</div>
+
+				<!-- Usage professionnel -->
+				<div>
+					<h2 class="text-2xl md:text-3xl font-heading font-semibold text-foreground">
+						{isFr ? 'Usage professionnel des résultats' : 'Professional Use of Results'}
+					</h2>
+					<p class="mt-4">
+						{isFr
+							? "Les codes de calcul Dosimex et la plateforme Dosismart sont des outils d'aide au calcul destinés à des professionnel.les qualifié.es de la radioprotection. Les résultats sont fournis à titre d'aide à la décision : leur interprétation, leur vérification et les décisions réglementaires ou opérationnelles qui en découlent restent de la responsabilité de l'utilisateur."
+							: 'The Dosimex calculation codes and the Dosismart platform are calculation-support tools intended for qualified radiation protection professionals. Results are provided as decision support: their interpretation, verification and any regulatory or operational decisions based on them remain the responsibility of the user.'}
+					</p>
 				</div>
 
 				<!-- Propriété intellectuelle -->
@@ -85,8 +115,8 @@ const isFr = locale === 'fr'
 					</h2>
 					<p class="mt-4">
 						{isFr
-							? 'Tous les droits de propriété intellectuelle relatifs à la plateforme et à son contenu appartiennent à Dosimex SAS. Toute utilisation non autorisée est strictement interdite.'
-							: 'All intellectual property rights relating to the platform and its content belong to Dosimex SAS. Any unauthorized use is strictly prohibited.'}
+							? "DOSIMEX SAS est propriétaire des droits de propriété intellectuelle ou détient les droits d'usage sur l'ensemble des éléments accessibles sur le site et la plateforme : textes, images, graphismes, logos, icônes, logiciels, codes de calcul et documentation. Toute reproduction, représentation, modification, publication ou adaptation de tout ou partie de ces éléments, quel que soit le moyen ou le procédé utilisé, est interdite sans autorisation écrite préalable de DOSIMEX SAS. Toute exploitation non autorisée sera considérée comme constitutive d'une contrefaçon et poursuivie conformément aux articles L.335-2 et suivants du Code de la propriété intellectuelle."
+							: 'DOSIMEX SAS owns the intellectual property rights or holds the usage rights over all elements accessible on the site and the platform: texts, images, graphics, logos, icons, software, calculation codes and documentation. Any reproduction, representation, modification, publication or adaptation of all or part of these elements, by any means or process whatsoever, is prohibited without prior written authorization from DOSIMEX SAS. Any unauthorized use will be considered an infringement and prosecuted in accordance with articles L.335-2 et seq. of the French Intellectual Property Code.'}
 					</p>
 				</div>
 
@@ -97,25 +127,48 @@ const isFr = locale === 'fr'
 					</h2>
 					<p class="mt-4">
 						{isFr
-							? "Dosimex met tout en œuvre pour assurer la disponibilité et la fiabilité du service, mais ne peut garantir une disponibilité totale et permanente."
-							: 'Dosimex makes every effort to ensure the availability and reliability of the service, but cannot guarantee total and permanent availability.'}
+							? "DOSIMEX SAS ne pourra être tenue responsable des omissions, inexactitudes ou carences dans la mise à jour des informations du site, qu'elles soient de son fait ou du fait de tiers, ni des dommages indirects (tels qu'une perte de marché ou perte d'une chance) consécutifs à l'utilisation ou à l'impossibilité d'utiliser le site ou les services."
+							: 'DOSIMEX SAS cannot be held liable for omissions, inaccuracies or shortcomings in updating the information on the site, whether attributable to it or to third parties, nor for indirect damages (such as loss of business or loss of opportunity) resulting from the use or inability to use the site or the services.'}
 					</p>
 					<p class="mt-3">
 						{isFr
-							? "En aucun cas Dosimex ne pourra être tenue responsable des dommages indirects résultant de l'utilisation ou de l'impossibilité d'utiliser le service."
-							: 'Under no circumstances shall Dosimex be held liable for indirect damages resulting from the use or inability to use the service.'}
+							? "Le fonctionnement des codes de calcul Dosimex dépend de l'environnement Microsoft Excel de l'utilisateur ; des évolutions de cet environnement, indépendantes de DOSIMEX SAS, peuvent en affecter le comportement."
+							: "The operation of the Dosimex calculation codes depends on the user's Microsoft Excel environment; changes to that environment, outside the control of DOSIMEX SAS, may affect their behaviour."}
 					</p>
 				</div>
 
-				<!-- Modification du service -->
+				<!-- Liens hypertextes -->
 				<div>
 					<h2 class="text-2xl md:text-3xl font-heading font-semibold text-foreground">
-						{isFr ? 'Modification du service' : 'Service Modification'}
+						{isFr ? 'Liens hypertextes' : 'Hyperlinks'}
 					</h2>
 					<p class="mt-4">
 						{isFr
-							? "Dosimex se réserve le droit de modifier, suspendre ou interrompre tout ou partie du service à tout moment, avec ou sans préavis."
-							: 'Dosimex reserves the right to modify, suspend or discontinue all or part of the service at any time, with or without notice.'}
+							? "Le site peut contenir des liens vers d'autres sites. DOSIMEX SAS n'a pas la possibilité d'en vérifier le contenu et n'assume aucune responsabilité de ce fait."
+							: 'The site may contain links to other websites. DOSIMEX SAS has no means of verifying their content and assumes no liability in this respect.'}
+					</p>
+				</div>
+
+				<!-- Données personnelles -->
+				<div>
+					<h2 class="text-2xl md:text-3xl font-heading font-semibold text-foreground">
+						{isFr ? 'Données personnelles et cookies' : 'Personal Data and Cookies'}
+					</h2>
+					<p class="mt-4">
+						{isFr ? 'Le traitement des données personnelles et l’utilisation des cookies sont décrits dans la ' : 'The processing of personal data and the use of cookies are described in the '}
+						<a href={localePath(locale, '/privacy')} class="text-primary hover:underline">{isFr ? 'politique de confidentialité' : 'privacy policy'}</a>.
+					</p>
+				</div>
+
+				<!-- Modification -->
+				<div>
+					<h2 class="text-2xl md:text-3xl font-heading font-semibold text-foreground">
+						{isFr ? 'Modification des services et des CGU' : 'Modification of Services and TOU'}
+					</h2>
+					<p class="mt-4">
+						{isFr
+							? "DOSIMEX SAS se réserve le droit de modifier, suspendre ou interrompre tout ou partie des services à tout moment, avec ou sans préavis. Les présentes CGU peuvent être modifiées à tout moment ; la version en vigueur est celle publiée sur cette page, et les utilisateurs sont invités à la consulter régulièrement."
+							: 'DOSIMEX SAS reserves the right to modify, suspend or discontinue all or part of the services at any time, with or without notice. These TOU may be modified at any time; the applicable version is the one published on this page, and users are invited to consult it regularly.'}
 					</p>
 				</div>
 
@@ -126,8 +179,9 @@ const isFr = locale === 'fr'
 					</h2>
 					<ul class="mt-4 space-y-2 list-disc list-inside">
 						<li>{isFr ? "L'utilisateur peut résilier son compte à tout moment" : 'The user may terminate their account at any time'}</li>
-						<li>{isFr ? 'Dosimex peut résilier ou suspendre un compte en cas de violation des CGU' : 'Dosimex may terminate or suspend an account in case of violation of the TOU'}</li>
+						<li>{isFr ? 'DOSIMEX SAS peut résilier ou suspendre un compte en cas de violation des CGU' : 'DOSIMEX SAS may terminate or suspend an account in case of violation of the TOU'}</li>
 						<li>{isFr ? 'La résiliation entraîne la suppression des données conformément à la politique de confidentialité' : 'Termination results in the deletion of data in accordance with the privacy policy'}</li>
+						<li>{isFr ? "La résiliation de l'abonnement est sans effet sur les licences perpétuelles Dosimex acquises antérieurement" : 'Termination of the subscription does not affect previously acquired perpetual Dosimex licenses'}</li>
 					</ul>
 				</div>
 
@@ -154,7 +208,7 @@ const isFr = locale === 'fr'
 							: 'For any questions regarding these terms:'}
 					</p>
 					<p class="mt-2">
-						<a href="mailto:legal@dosimex.com" class="text-primary-600 hover:underline">legal@dosimex.com</a>
+						<a href="mailto:legal@dosimex.com" class="text-primary hover:underline">legal@dosimex.com</a>
 					</p>
 				</div>
 
