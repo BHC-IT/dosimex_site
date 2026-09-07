@@ -29,7 +29,7 @@ export const fr = {
 			description: "Sélection d'ouvrages de référence en radioprotection, dosimétrie et physique nucléaire recommandés par les experts Dosimex.",
 		},
 		manuals: {
-			title: "Manuels d'utilisation — Dosimex",
+			title: 'Documentation — Dosimex',
 			description: "Manuels d'utilisation de Dosimex-GX : dose gamma, générateur X, norme NF C15-160, grandeurs pratiques en radiologie. Téléchargeables en PDF.",
 		},
 		references: {
@@ -758,16 +758,16 @@ export const fr = {
 	},
 	manuals: {
 		header: {
-			title: "Manuels d'utilisation",
-			description: "Pour mieux vous permettre de juger des possibilités offertes avec Dosimex-GX, vous pouvez télécharger les manuels d'utilisation associés à ce code. La documentation Dosismart, elle, se consulte en ligne.",
+			title: 'Documentation',
+			description: "Pour mieux vous permettre de juger des possibilités offertes avec Dosimex-GX, vous pouvez télécharger les manuels d'utilisation associés à ce code. La documentation Dosismart est consultable en ligne.",
 			referencesNote: "Les dossiers de validation et les rapports de fin d'étude sont sur la page",
 			referencesLink: 'Références & Validation',
 		},
 		items: ['Manuel dose gamma', 'Manuel générateur x', 'Manuel + Validation NF C15-160', 'Grandeurs pratiques en radiologie'],
 		dosismart: {
-			title: 'La documentation Dosismart, en ligne',
-			text: "Dosismart a sa propre documentation, consultable en ligne et mise à jour au rythme de l'application.",
-			link: 'Accéder à la documentation',
+			title: 'La documentation Dosismart',
+			text: "Dosismart a sa propre documentation, consultable en ligne et toujours à jour avec l'application.",
+			link: "Consulter le guide d'utilisation",
 		},
 	},
 	references: {
@@ -846,7 +846,7 @@ export const fr = {
 			title: 'Dossiers de validation et références MCNP',
 			description: "Chaque code est comparé point par point à MCNP. Les dossiers complets et les notes de référence sont publics :",
 			dosismart: {
-				title: 'Et Dosismart ? Un dossier de validation en ligne',
+				title: 'Un dossier de validation en ligne',
 				text: "Les calculs web sont validés avec la même exigence : un dossier public, généré automatiquement à partir des tests de validation du moteur, compare chaque résultat Dosismart aux codes de référence, scénario par scénario, écarts affichés.",
 				link: 'Consulter le dossier de validation Dosismart',
 			},
@@ -898,7 +898,7 @@ export const fr = {
 		cta: {
 			title: 'Des questions sur la validation ?',
 			contactButton: 'Nous contacter',
-			manualsButton: 'Consulter les manuels',
+			manualsButton: 'Consulter la documentation',
 		},
 	},
 	training: {

@@ -83,9 +83,12 @@ const docSections = [
 					</span>
 					<h2 class="text-2xl font-heading font-semibold tracking-tight text-foreground md:text-3xl">{section.data.title}</h2>
 				</div>
-				<p class="mt-4 max-w-3xl text-muted-foreground leading-relaxed">{section.data.description}</p>
+				<p class="mt-4 max-w-3xl text-lg text-muted-foreground leading-relaxed">{section.data.description}</p>
 
-				<div class:list={['mt-10 grid gap-6 sm:grid-cols-2', section.cols]}>
+				{section.id === 'validations' && (
+					<h3 class="mt-10 text-sm font-semibold uppercase tracking-widest text-primary">Dosimex</h3>
+				)}
+				<div class:list={[section.id === 'validations' ? 'mt-6' : 'mt-10', 'grid gap-6 sm:grid-cols-2', section.cols]}>
 					{section.data.items.map((name, i) => (
 						<a
 							href={section.pdfs[i]}
@@ -114,10 +117,12 @@ const docSections = [
 				</div>
 
 				{section.id === 'validations' && (
-					<div class="mt-10 flex flex-col gap-4 rounded-2xl bg-primary/[0.04] p-6 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+					<>
+					<h3 class="mt-16 md:mt-24 text-sm font-semibold uppercase tracking-widest text-primary">Dosismart</h3>
+					<div class="mt-8 flex flex-col gap-4 rounded-2xl bg-primary/[0.04] p-6 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
 						<div class="max-w-2xl">
-							<p class="font-heading font-semibold text-foreground">{r.validations.dosismart.title}</p>
-							<p class="mt-1 text-sm leading-relaxed text-muted-foreground">{r.validations.dosismart.text}</p>
+							<h4 class="text-lg font-heading font-semibold tracking-tight text-foreground">{r.validations.dosismart.title}</h4>
+							<p class="mt-1 text-base leading-relaxed text-muted-foreground">{r.validations.dosismart.text}</p>
 						</div>
 						<a
 							href="https://dosismart.com/validation-dossier"
@@ -130,6 +135,7 @@ const docSections = [
 							<svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d={arrow}/></svg>
 						</a>
 					</div>
+					</>
 				)}
 			</div>
 		</section>
@@ -219,7 +225,7 @@ const docSections = [
 		<div class="reveal mx-auto max-w-7xl px-6">
 			<div class="max-w-3xl">
 				<h2 class="text-2xl font-heading font-semibold tracking-tight text-foreground md:text-3xl">{r.testimonials.title}</h2>
-				<p class="mt-4 text-muted-foreground leading-relaxed">{r.testimonials.subtitle}</p>
+				<p class="mt-4 text-lg text-muted-foreground leading-relaxed">{r.testimonials.subtitle}</p>
 				<p class="mt-2 text-sm text-muted-foreground italic">{r.testimonials.disclaimer}</p>
 			</div>
 
@@ -245,7 +251,7 @@ const docSections = [
 			</div>
 
 			<div class="mt-10">
-				<a href={localePath(locale, '/testimonials')} class="inline-flex items-center gap-1 font-heading font-semibold text-primary hover:underline">
+				<a href={localePath(locale, '/testimonials')} class="inline-flex items-center gap-1 text-lg font-heading font-semibold text-primary hover:underline">
 					{r.testimonials.allLink}
 					<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d={arrow}/></svg>
 				</a>

@@ -42,7 +42,8 @@ const manualImages = locale === 'fr'
 	<!-- ══════════ USER MANUALS ══════════ -->
 	<section id="manuals" class="py-16 md:py-24">
 		<div class="mx-auto max-w-7xl px-6">
-			<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+			<h2 class="text-sm font-semibold uppercase tracking-widest text-primary">Dosimex</h2>
+			<div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
 				{m.items.map((name, i) => (
 					<a
 						href={manualPdfs.manuals[i]}
@@ -70,13 +71,14 @@ const manualImages = locale === 'fr'
 				))}
 			</div>
 
-			<div class="mt-10 flex flex-col gap-4 rounded-2xl bg-primary/[0.04] p-6 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+			<h2 class="mt-16 md:mt-24 text-sm font-semibold uppercase tracking-widest text-primary">Dosismart</h2>
+			<div class="mt-8 flex flex-col gap-4 rounded-2xl bg-primary/[0.04] p-6 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
 				<div class="max-w-2xl">
-					<p class="font-heading font-semibold text-foreground">{m.dosismart.title}</p>
-					<p class="mt-1 text-sm leading-relaxed text-muted-foreground">{m.dosismart.text}</p>
+					<h3 class="text-lg font-heading font-semibold tracking-tight text-foreground">{m.dosismart.title}</h3>
+					<p class="mt-1 text-base leading-relaxed text-muted-foreground">{m.dosismart.text}</p>
 				</div>
 				<a
-					href="https://docs.dosismart.com"
+					href="https://docs.dosismart.com/guide/getting-started"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-border bg-background px-4 py-2.5 text-sm font-heading font-semibold text-foreground transition-colors hover:bg-muted"

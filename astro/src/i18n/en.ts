@@ -29,7 +29,7 @@ export const en = {
 			description: 'Curated selection of reference books on radiation protection, dosimetry and nuclear physics recommended by Dosimex experts.',
 		},
 		manuals: {
-			title: 'User Manuals — Dosimex',
+			title: 'Documentation — Dosimex',
 			description: 'Dosimex-GX user manuals: gamma dose, X-ray generator, NF C15-160 standard, practical values in radiology. Available as downloadable PDFs.',
 		},
 		references: {
@@ -757,16 +757,16 @@ export const en = {
 	},
 	manuals: {
 		header: {
-			title: 'User manuals',
+			title: 'Documentation',
 			description: 'To help you evaluate the possibilities offered by Dosimex-GX, you can download the user manuals associated with this code. The Dosismart documentation lives online.',
 			referencesNote: 'The validation files and end-of-study reports are on the',
 			referencesLink: 'References & Validation page',
 		},
 		items: ['Gamma dose manual', 'Generator X-ray manual', 'Manual + Validation NF C15-160', 'Practical values in radiology'],
 		dosismart: {
-			title: 'The Dosismart documentation, online',
-			text: 'Dosismart has its own documentation, available online and updated along with the application.',
-			link: 'Access the documentation',
+			title: 'The Dosismart documentation',
+			text: 'Dosismart has its own documentation, available online and always up to date with the application.',
+			link: 'See the user guide',
 		},
 	},
 	references: {
@@ -845,7 +845,7 @@ export const en = {
 			title: 'Validation files and MCNP references',
 			description: 'Each code is compared point by point with MCNP. The complete files and reference notes are public:',
 			dosismart: {
-				title: 'And Dosismart? A validation dossier online',
+				title: 'A validation dossier online',
 				text: 'The web calculations are validated with the same rigor: a public dossier, generated automatically from the engine’s validation tests, compares each Dosismart result to the reference codes, scenario by scenario, deviations shown.',
 				link: 'View the Dosismart validation dossier',
 			},
@@ -897,7 +897,7 @@ export const en = {
 		cta: {
 			title: 'Questions about validation?',
 			contactButton: 'Contact us',
-			manualsButton: 'Browse the manuals',
+			manualsButton: 'Browse the documentation',
 		},
 	},
 	training: {
