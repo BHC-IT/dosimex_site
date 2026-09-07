@@ -46,7 +46,7 @@ const EMAIL_REGEX =
 	/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 const inputClass =
-	'mt-1.5 block w-full bg-white dark:bg-secondary border-[1.5px] border-input-strong aria-invalid:border-destructive rounded-[8px] px-4 py-3 text-foreground placeholder:text-foreground/40 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/25 transition-colors'
+	'mt-1.5 block w-full bg-white dark:bg-secondary border-[1.5px] border-input-strong aria-invalid:border-destructive rounded-[8px] px-4 py-3 text-foreground placeholder:text-foreground/55 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/25 transition-colors'
 const errorClass = 'mt-1 text-sm text-primary'
 const labelClass = 'block text-sm font-medium text-foreground'
 

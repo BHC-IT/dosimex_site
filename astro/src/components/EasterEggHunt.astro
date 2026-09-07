@@ -244,12 +244,32 @@ const trefoilPath = ((): string => {
 		return document.getElementById(id) as T | null
 	}
 
+	// aria-modal dialogs must own the focus: remember who opened them, move
+	// focus inside on open, and hand it back on close (Tab is trapped in the
+	// shared keydown listener below).
+	let dialogOpener: HTMLElement | null = null
+
 	function show(elem: HTMLElement | null): void {
 		elem?.classList.remove('hidden')
+		if (elem?.getAttribute('role') === 'dialog') {
+			dialogOpener = document.activeElement instanceof HTMLElement ? document.activeElement : null
+			const target = elem.querySelector<HTMLElement>('button, [href], [tabindex]:not([tabindex="-1"])')
+			if (target) {
+				target.focus()
+			} else {
+				elem.setAttribute('tabindex', '-1')
+				elem.focus()
+			}
+		}
 	}
 
 	function hide(elem: HTMLElement | null): void {
+		const wasOpenDialog = !!elem && elem.getAttribute('role') === 'dialog' && !elem.classList.contains('hidden')
 		elem?.classList.add('hidden')
+		if (wasOpenDialog) {
+			dialogOpener?.focus()
+			dialogOpener = null
+		}
 	}
 
 	function setText(id: string, text: string): void {
@@ -672,8 +692,24 @@ const trefoilPath = ((): string => {
 				}
 			})
 
-			// Escape key closes open dialogs
+			// Escape closes open dialogs; Tab is trapped inside the open one
 			document.addEventListener('keydown', (e) => {
+				if (e.key === 'Tab') {
+					const open = ['egg-intro-overlay', 'egg-reveal-overlay', 'egg-cert-overlay']
+						.map((id) => el(id))
+						.find((o): o is HTMLElement => !!o && !o.classList.contains('hidden'))
+					if (!open) return
+					const focusables = [...open.querySelectorAll<HTMLElement>('button, [href], [tabindex]:not([tabindex="-1"])')]
+						.filter((f) => f.offsetParent !== null)
+					e.preventDefault()
+					if (!focusables.length) return
+					const idx = focusables.indexOf(document.activeElement as HTMLElement)
+					const next = e.shiftKey
+						? (idx <= 0 ? focusables.length - 1 : idx - 1)
+						: (idx === -1 || idx === focusables.length - 1 ? 0 : idx + 1)
+					focusables[next].focus()
+					return
+				}
 				if (e.key !== 'Escape') return
 				const introOverlay = el('egg-intro-overlay')
 				const revealOverlay = el('egg-reveal-overlay')
