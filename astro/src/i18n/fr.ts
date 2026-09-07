@@ -151,7 +151,7 @@ export const fr = {
 					title: 'Pack pédagogique\u00A0: 6 modules interactifs',
 					text: "IRM photon, particules chargées, coefficients ICRU 57, serious game, statistiques de comptage.",
 					icon: 'book',
-					link: { label: 'Voir les modules', href: '/software#pack-peda' },
+					link: { label: 'Voir les modules', href: '/learn#modules' },
 				},
 				{
 					title: "Pack mesures\u00A0: 5 utilitaires",
@@ -218,7 +218,7 @@ export const fr = {
 			subtitle: "Les calculs Dosimex arrivent sur le web avec la même physique validée, et de nouvelles fonctionnalités : historique, zonage radiologique et cartographie de débit de dose, études de poste, travail en équipe. Sur ordinateur comme sur smartphone, sans installation.",
 			cta: 'Ouvrir Dosismart',
 			ctaSecondary: 'Voir les tarifs',
-			trialNote: 'Essai gratuit 14 jours, fonctionnalités Conformité comprises. Sans carte bancaire.',
+			trialNote: 'Essai gratuit 14 jours, fonctionnalités Conformité comprises.',
 		},
 		whatsInside: {
 			title: 'Ce que vous trouvez dans Dosismart',
@@ -237,38 +237,38 @@ export const fr = {
 		},
 		spotlights: {
 			title: 'En détail',
-			description: "Un aperçu des fonctionnalités Dosismart, et de ce qu'elles changent au quotidien.",
+			description: "Un aperçu des nouvelles fonctionnalités Dosismart, et de ce qu'elles changent au quotidien.",
 			items: [
 				{
 					preview: 'history',
 					eyebrow: 'Traçabilité',
 					title: 'Chaque calcul, enregistré et rejouable',
-					text: "Dosismart enregistre chaque calcul avec l'intégralité de ses paramètres. Vous retrouvez, rejouez et exportez n'importe quel calcul, des mois plus tard, à l'identique.",
-					bullets: ['Instantané complet des paramètres', 'Export CSV et PDF'],
+					text: '',
+					bullets: ['Instantané complet des paramètres', "Rejouable des mois plus tard, à l'identique", 'Export CSV et PDF'],
 					badge: '',
 				},
 				{
 					preview: 'inventory',
 					eyebrow: 'Inventaire',
 					title: 'Votre inventaire de sources avec suivi de décroissance',
-					text: "Enregistrez vos sources une fois. Dosismart recalcule l'activité chaque jour selon leur propre période, à partir d'une bibliothèque d'environ 800 radionucléides. Fini le tableur qui vieillit en silence.",
-					bullets: ['~800 radionucléides intégrés', 'Décroissance recalculée automatiquement', 'Export SIGIS et cycle de vie des sources'],
+					text: '',
+					bullets: ['~800 radionucléides intégrés', 'Décroissance recalculée automatiquement', 'Export SIGIS et cycle de vie des sources', 'Fini le tableur qui vieillit en silence'],
 					badge: 'Conformité',
 				},
 				{
 					preview: 'zonage',
 					eyebrow: 'Zonage',
 					title: 'Du plan de vos locaux au zonage réglementaire',
-					text: "Importez un plan, placez vos sources : l'éditeur permet de visualiser les zones réglementaires, conformément à l'arrêté du 28 janvier 2020. Export PDF avec légende. Remplace Paint et Inkscape.",
-					bullets: ['Cartographie du zonage', 'Zones de l’arrêté du 28/01/2020', 'Export PDF avec légende réglementaire'],
+					text: '',
+					bullets: ['Importez un plan, placez vos sources', 'Zones de l’arrêté du 28/01/2020', 'Export PDF avec légende réglementaire', 'Remplace Paint et Inkscape'],
 					badge: 'Conformité',
 				},
 				{
 					preview: 'etude',
 					eyebrow: 'Documents',
 					title: 'Des études de poste générées automatiquement',
-					text: "Dosismart calcule la dose annuelle par scénario d'exposition, classe le travailleur (Cat A / B / non exposé) et produit le document réglementaire de votre mise en conformité, prêt pour audits et inspections.",
-					bullets: ['Dose annuelle par scénario', 'Classement automatique du travailleur', 'PDF prêt pour audits et inspections'],
+					text: '',
+					bullets: ["Dose annuelle par scénario d'exposition", 'Classement automatique : Cat A / B / non exposé', 'PDF prêt pour audits et inspections'],
 					badge: 'Conformité',
 				},
 			],
@@ -290,17 +290,17 @@ export const fr = {
 				{
 					title: 'Consultant.e OCR',
 					pain: 'Dix, vingt, cinquante sites clients, et le même travail à refaire proprement chez chacun.',
-					answer: 'Une organisation par client : inventaire de sources, zonage radiologique et PDF réglementaires, au rythme du conseil.',
+					answer: "Des calculs et des documents réglementaires prêts pour vos missions, accessibles sur le web depuis n'importe quel site client.",
 					links: [
-						{ label: 'Organisations', href: '#plateforme' },
 						{ label: 'Inventaire', href: '#inventory' },
 						{ label: 'Zonage', href: '#zonage' },
+						{ label: 'Études de poste', href: '#etude' },
 					],
 				},
 				{
 					title: 'PCR industriel',
 					pain: "Gammagraphie, sources mobiles, géométries qui changent d'un chantier à l'autre.",
-					answer: "Sources ponctuelles, linéiques ou surfaciques, écrans, effet de ciel, et le zonage des zones d'opération temporaires.",
+					answer: "Sources ponctuelles, linéiques ou surfaciques, écrans, effet de ciel, et cartographie des zones d'opération temporaires.",
 					links: [
 						{ label: 'Calculs', href: '#modules' },
 						{ label: 'Zonage', href: '#zonage' },
@@ -309,7 +309,7 @@ export const fr = {
 				{
 					title: 'École et organisme de formation',
 					pain: "Équiper toute une promotion en outils de calcul, sans rien installer en salle informatique.",
-					answer: "Dosismart tourne sur le web, sur n'importe quel poste : gérez les accès des étudiant.es par groupes, tous les paramètres restent visibles, si bien que les étudiant.es voient la physique derrière les chiffres.",
+					answer: "Des accès par groupes pour toute la promotion, et les modules pédagogiques Dosimex pour transmettre la physique.",
 					links: [{ label: 'Pédagogie', href: '/learn' }],
 					cta: { label: 'Équiper une promotion', href: '/contact' },
 				},
@@ -344,7 +344,7 @@ export const fr = {
 		header: {
 			title: 'Dosimex',
 			description:
-				"Depuis 20 ans, la référence du calcul opérationnel en radioprotection sous Excel : 6 codes de calcul, 6 modules pédagogiques et 5 utilitaires de mesure, validés par comparaison avec MCNP et RayXpert, codes Monte-Carlo de référence, utilisés par EDF, Orano, Apave et plus de 1500 professionnel.les. Les nouvelles capacités arrivent désormais sur Dosismart ; les codes de calcul Dosimex restent la référence pour tout ce que le web ne couvre pas encore, du bêta au neutron, de la gammagraphie à l'exposition interne et aux utilitaires de mesure.",
+				"Depuis 20 ans, la référence du calcul opérationnel en radioprotection sous Excel : 6 codes de calcul, 6 modules pédagogiques et 5 utilitaires de mesure, validés par comparaison avec MCNP et RayXpert, codes Monte-Carlo de référence, utilisés par EDF, Orano, Apave et plus de 1500 professionnel.les. Les nouvelles capacités arrivent désormais sur Dosismart ; les codes de calcul Dosimex restent la référence pour tout ce que le web ne couvre pas encore, du bêta au neutron, de la gammagraphie à l'exposition interne et aux utilitaires de mesure.",
 			langNote: 'La plupart des outils sont disponibles en français et en anglais.',
 			anchors: [
 				{ label: 'Pack opérationnel', href: '#pack-ope' },
@@ -358,7 +358,7 @@ export const fr = {
 		},
 		prerequisites: {
 			title: 'Prérequis',
-			text: 'VBA/Excel, Windows XP à 11, Excel 2003 à 2024. Machine virtuelle nécessaire sur Mac ou Linux. Dosismart, lui, tourne sur le web : aucune installation.',
+			text: 'VBA/Excel, Windows XP à 11, Excel 2003 à 2024. Machine virtuelle nécessaire sur Mac ou Linux.',
 		},
 		audience: {
 			title: "À qui s'adresse Dosimex ?",
@@ -371,7 +371,7 @@ export const fr = {
 		dosismartBanner: {
 			title: "Dosismart, l'évolution de Dosimex",
 			text: "Les codes de calcul sont progressivement portés sur Dosismart, la plateforme web de Dosimex, et validés avec la même rigueur (MCNP, OpenMC). Déjà en ligne : calcul exposition externe gamma, générateur X, effet de ciel et étude paramétrique, avec historique des calculs et travail en équipe.",
-			button: 'Essayer Dosismart',
+			button: 'Découvrir Dosismart',
 		},
 		packOpe: {
 			title: 'Pack opérationnel',
@@ -479,7 +479,7 @@ export const fr = {
 				{ label: 'Validation générateur X', href: '/Folders/extrait_validation_géné_X.pdf', pdf: true },
 				{ label: 'Dossiers de validation complets', href: '/references#validations' },
 				{ label: 'Extraits validation source gamma', href: '/Folders/extrait_validation_gamma.pdf', pdf: true },
-				{ label: "Manuels d'utilisation de Dosimex-GX", href: '/manuals#manuals' },
+				{ label: "Manuels d'utilisation de Dosimex-GX", href: '/manuals' },
 				{ label: 'Les nouveautés dans Dosimex-GX 3.2', href: '/Folders/Modification_Dosimex GX_3.0.pdf', pdf: true },
 				{ label: 'Tarifs et abonnement', href: '/product' },
 				{ label: 'Notre sélection de lectures', href: '/books' },
@@ -580,11 +580,11 @@ export const fr = {
 	},
 	product: {
 		title: 'Un abonnement, deux outils',
-		schemaDescription: 'Abonnement annuel — Dosimex + Dosismart',
+		schemaDescription: 'Abonnement — Dosimex + Dosismart',
 		description:
-			'Dosimex et Dosismart, la plateforme web, dans un seul abonnement annuel, support technique inclus.',
+			'Dosimex et Dosismart, la plateforme web, dans un seul abonnement, support technique inclus.',
 		trialBanner: {
-			title: 'Essayez Dosismart gratuitement pendant 14 jours',
+			title: 'Essayez gratuitement pendant 14 jours',
 			text: "L'essai couvre les deux outils : toute l'application web Dosismart, fonctionnalités Conformité comprises, et Dosimex (Excel). Sans carte bancaire.",
 			button: "Démarrer l'essai",
 		},
@@ -602,8 +602,9 @@ export const fr = {
 				tagline: 'Les deux outils, pour tous vos calculs du quotidien',
 				features: [
 					'Dosimex complet : 17 codes de calcul sous Excel',
+					"Documentation, cours et annexes de l'ouvrage",
 					"Dosismart : calcul exposition externe gamma, générateur X, effet de ciel, étude paramétrique",
-					'Historique des calculs, travail en équipe, sur ordinateur comme sur smartphone',
+					'Historique des calculs, travail en équipe',
 					'Support technique inclus',
 				],
 			},
@@ -674,7 +675,7 @@ export const fr = {
 				{
 					question: "J'ai acheté Dosimex avant 2025. Ma licence est-elle toujours valable ?",
 					answer:
-						"Oui, à vie, cela ne change pas : votre licence perpétuelle reste valable et vos codes de calcul continuent de fonctionner tels quels. Dosismart, lui, nécessite l'abonnement (à partir de 640€ HT/an), qui couvre les deux outils.",
+						"Oui, à vie : votre licence perpétuelle reste valable, et vos codes de calcul avec elle. Leur environnement, en revanche, ne dépend pas de nous : des mises à jour de Microsoft Office peuvent affecter le comportement de certains codes. Dosismart, lui, nécessite l'abonnement (à partir de 640€ HT/an), qui couvre les deux outils.",
 				},
 				{
 					question: "Comment fonctionne l'essai gratuit ?",
