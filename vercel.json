@@ -29,7 +29,7 @@
 				},
 				{
 					"key": "Content-Security-Policy",
-					"value": "default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; frame-src https://www.youtube.com https://www.youtube-nocookie.com; connect-src 'self' https://api.emailjs.com https://g.dosismart.com; frame-ancestors 'self'"
+					"value": "default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; media-src 'self' blob:; worker-src 'self' blob:; frame-src https://www.youtube.com https://www.youtube-nocookie.com; connect-src 'self' https://api.emailjs.com https://g.dosismart.com https://f.dosismart.com https://*.i.posthog.com; frame-ancestors 'self'"
 				}
 			]
 		}

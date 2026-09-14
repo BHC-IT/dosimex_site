@@ -1,44 +1,16 @@
 /**
- * PostHog custom event tracking — centralized via event delegation + IntersectionObserver.
- * PostHog is initialized in Layout.astro <head> (auto-pageview already enabled).
+ * Entry point for client analytics: boots PostHog, then wires the custom event
+ * layer (CTAs, downloads, navigation, section views) via event delegation and an
+ * IntersectionObserver.
+ *
+ * Autocapture, pageviews, web vitals, rageclicks and exceptions are handled by
+ * PostHog itself — see `src/lib/analytics.ts`. Only events that need our own
+ * semantics live here.
  */
 
-declare const posthog: {
-	capture: (event: string, properties?: Record<string, unknown>) => void
-}
+import { capture, getLocale, initAnalytics } from '@/lib/analytics'
 
-function getLocale(): string {
-	const [, lang] = window.location.pathname.split('/')
-	return lang === 'en' ? 'en' : 'fr'
-}
-
-function getPageName(): string {
-	const path =
-		window.location.pathname.replace(/^\/en/, '').replace(/\/$/, '') || '/'
-	const map: Record<string, string> = {
-		'/': 'home',
-		'/software': 'software',
-		'/dosismart': 'dosismart',
-		'/learn': 'learn',
-		'/references': 'references',
-		'/training': 'training',
-		'/manuals': 'manuals',
-		'/about': 'about',
-		'/contact': 'contact',
-		'/product': 'product',
-		'/books': 'books',
-		'/testimonials': 'testimonials',
-	}
-	return map[path] ?? 'unknown'
-}
-
-function baseProps(): Record<string, unknown> {
-	return {
-		locale: getLocale(),
-		page: getPageName(),
-		path: window.location.pathname,
-	}
-}
+initAnalytics()
 
 function initClickTracking() {
 	document.body.addEventListener('click', (e) => {
@@ -47,13 +19,11 @@ function initClickTracking() {
 
 		const href = anchor.getAttribute('href') ?? ''
 		const text = (anchor.textContent ?? '').trim().slice(0, 100)
-		const props = baseProps()
 
 		// 1. Named CTA (data-ph-cta attribute)
 		const ctaName = anchor.dataset.phCta
 		if (ctaName) {
-			posthog.capture('cta_click', {
-				...props,
+			capture('cta_click', {
 				cta_name: ctaName,
 				href,
 				target_type: href.startsWith('#')
@@ -66,8 +36,7 @@ function initClickTracking() {
 
 		// 2. PDF download
 		if (href.toLowerCase().endsWith('.pdf')) {
-			posthog.capture('pdf_download', {
-				...props,
+			capture('pdf_download', {
 				href,
 				filename: href.split('/').pop() ?? href,
 			})
@@ -76,8 +45,7 @@ function initClickTracking() {
 
 		// 3. External link
 		if (anchor.hostname && anchor.hostname !== window.location.hostname) {
-			posthog.capture('external_link_click', {
-				...props,
+			capture('external_link_click', {
 				href,
 				link_text: text,
 				domain: anchor.hostname,
@@ -86,10 +54,7 @@ function initClickTracking() {
 
 		// 4. Anchor / in-page navigation
 		if (href.startsWith('#')) {
-			posthog.capture('anchor_click', {
-				...props,
-				anchor: href,
-			})
+			capture('anchor_click', { anchor: href })
 		}
 
 		// 5. Navigation area detection
@@ -101,8 +66,7 @@ function initClickTracking() {
 					? 'mobile_menu'
 					: null
 		if (navArea) {
-			posthog.capture('nav_click', {
-				...props,
+			capture('nav_click', {
 				link_text: text,
 				href,
 				nav_area: navArea,
@@ -111,8 +75,7 @@ function initClickTracking() {
 
 		// 6. Language switch
 		if (/^(FR|EN)$/i.test(text)) {
-			posthog.capture('language_switch', {
-				...props,
+			capture('language_switch', {
 				from_locale: getLocale(),
 				to_locale: getLocale() === 'fr' ? 'en' : 'fr',
 			})
@@ -132,10 +95,7 @@ function initScrollTracking() {
 				if (!key || observed.has(key)) continue
 				observed.add(key)
 
-				posthog.capture('section_viewed', {
-					...baseProps(),
-					section_id: key,
-				})
+				capture('section_viewed', { section_id: key })
 
 				observer.unobserve(el)
 			}
@@ -148,9 +108,14 @@ function initScrollTracking() {
 		.forEach((el) => observer.observe(el))
 }
 
+let clickTrackingReady = false
+
 function initTracking() {
-	if (typeof posthog === 'undefined') return
-	initClickTracking()
+	// Delegated on <body>, so it survives client-side navigation — bind once.
+	if (!clickTrackingReady) {
+		clickTrackingReady = true
+		initClickTracking()
+	}
 	initScrollTracking()
 }
 

@@ -4,8 +4,14 @@
 <script>
 	import 'vanilla-cookieconsent/dist/cookieconsent.css'
 	import * as CookieConsent from 'vanilla-cookieconsent'
+	import { setAnalyticsConsent } from '@/lib/analytics'
+
+	// Fires on every page load with the stored decision, and again on any change.
+	const syncConsent = () => setAnalyticsConsent(CookieConsent.acceptedCategory('analytics'))
 
 	CookieConsent.run({
+		onConsent: syncConsent,
+		onChange: syncConsent,
 		guiOptions: {
 			consentModal: { layout: 'box', position: 'bottom right' },
 		},

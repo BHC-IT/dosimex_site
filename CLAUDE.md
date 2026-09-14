@@ -147,9 +147,12 @@ Only 2 interactive React components — the rest is static HTML.
 
 ### Analytics & GDPR
 
-- **PostHog** tracking with custom events (CTA clicks, PDF downloads, form engagement, section views, nav clicks, language switches)
-- Event tracking setup in `src/scripts/tracking.ts`
-- **Cookie consent** via `vanilla-cookieconsent` — analytics cookies only set on user acceptance
+- **PostHog** via the `posthog-js` package, configured entirely from `PUBLIC_POSTHOG_*` env vars (see `.env.example`). No key set → analytics is a no-op.
+- `src/lib/analytics.ts` owns the config, consent gating and the typed `capture()` helper. PostHog is **dynamically imported and initialised only after the visitor accepts the `analytics` cookie category** — initialising it earlier, even opted out, still hits the ingestion host for remote config and extension bundles. Import `capture()` from here; never touch `window.posthog` directly.
+- PostHog handles pageviews, pageleave, autocapture, rageclicks, dead clicks, heatmaps, **web vitals** and unhandled exceptions. Feature flags, surveys and web experiments are switched off.
+- `src/scripts/tracking.ts` is the client entry point: it boots analytics, then adds the custom event layer (CTA clicks, PDF downloads, external links, nav clicks, section views, language switches) via event delegation + IntersectionObserver.
+- **Cookie consent** via `vanilla-cookieconsent`; `CookieConsent.astro` mirrors the decision into `setAnalyticsConsent()` on every load and on every change. Note it hides its banner from bots (`navigator.webdriver`), so headless testing needs that property masked.
+- A proxied `PUBLIC_POSTHOG_HOST` must also be listed in `connect-src` in `vercel.json`.
 
 ### Contact Form
 
@@ -165,7 +168,7 @@ Only 2 interactive React components — the rest is static HTML.
 - @astrojs/react, @astrojs/sitemap, astro-critters
 - Icons: lucide-react
 - Forms: @emailjs/browser, react-phone-number-input, react-toastify
-- Analytics: PostHog (loaded via script), vanilla-cookieconsent
+- Analytics: posthog-js (dynamically imported on consent), vanilla-cookieconsent
 - Images: sharp (optimization)
 
 ### Build Config

@@ -43,6 +43,9 @@ const { title, description = defaultDescription, ogImage, robots, jsonLd, altern
 				document.documentElement.classList.toggle('dark', dark)
 			})()
 		</script>
+		<!-- PostHog + custom events. Deferred module, but discovered early so the
+		     analytics queue is ready before the first interaction. -->
+		<script src="@/scripts/tracking.ts"></script>
 		<!-- Without JS the reveal observer never runs — show content immediately -->
 		<noscript>
 			<style>
@@ -65,7 +68,6 @@ const { title, description = defaultDescription, ogImage, robots, jsonLd, altern
 		<ImageLightbox />
 		<CookieConsent />
 		<EasterEggHunt t={t} locale={locale} />
-		<script src="@/scripts/tracking.ts"></script>
 
 		<!-- Scroll reveal observer -->
 		<script>

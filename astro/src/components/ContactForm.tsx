@@ -5,19 +5,7 @@ import PhoneInput, { isPossiblePhoneNumber } from 'react-phone-number-input'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-phone-number-input/style.css'
 import 'react-toastify/dist/ReactToastify.css'
-
-function trackEvent(event: string, properties?: Record<string, unknown>) {
-	if (typeof window !== 'undefined' && 'posthog' in window) {
-		const ph = (window as { posthog?: { capture: (e: string, p?: Record<string, unknown>) => void } }).posthog
-		if (!ph) return
-		const [, lang] = window.location.pathname.split('/')
-		ph.capture(event, {
-			locale: lang === 'en' ? 'en' : 'fr',
-			page: window.location.pathname,
-			...properties,
-		})
-	}
-}
+import { capture as trackEvent } from '@/lib/analytics'
 
 interface ContactFormProps {
 	locale: string
