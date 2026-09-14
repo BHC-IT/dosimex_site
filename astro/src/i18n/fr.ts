@@ -670,7 +670,7 @@ export const fr = {
 				{
 					question: "J'ai une licence en cours (achetée depuis 2025). Comment accéder à Dosismart ?",
 					answer:
-						"Contactez-nous à alain.vivier@dosimex.fr : nous activons votre accès Dosismart. Aucun nouvel achat n'est nécessaire, votre licence en cours couvre les deux outils.",
+						"Contactez-nous à alain.vivier@dosimex.fr : nous activons votre accès Dosismart. Aucun nouvel achat n'est nécessaire, votre licence en cours couvre les deux outils dans l'offre Base. Les fonctionnalités Conformité (inventaire de sources, zonage radiologique, études de poste) restent accessibles en passant à l'offre Conformité, en ne payant que la différence.",
 				},
 				{
 					question: "J'ai acheté Dosimex avant 2025. Ma licence est-elle toujours valable ?",

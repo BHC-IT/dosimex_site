@@ -670,7 +670,7 @@ export const en = {
 				{
 					question: 'I have a current license (purchased since 2025). How do I access Dosismart?',
 					answer:
-						'Contact us at alain.vivier@dosimex.fr: we will activate your Dosismart access. No new purchase is needed, your current license covers both tools.',
+						'Contact us at alain.vivier@dosimex.fr: we will activate your Dosismart access. No new purchase is needed, your current license covers both tools on the Base plan. The Compliance features (source inventory, radiological zoning, workstation studies) are available by upgrading to the Compliance plan, paying only the difference.',
 				},
 				{
 					question: 'I bought Dosimex before 2025. Is my license still valid?',
