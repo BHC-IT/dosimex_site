@@ -35,12 +35,17 @@ const l = {
 const steps = isFr
 	? ['Poste', 'Scénarios', 'Résultats', 'Revue']
 	: ['Workstation', 'Scenarios', 'Results', 'Review']
-const currentStep = 3 // "Revue" active — the recap before generating the PDF
+// 0-based index into `steps`. The view below is the per-scenario results table,
+// i.e. step 3 "Résultats" — so the active chip must read 3, not 4.
+const currentStep = 2
 
+// Rate × hours must equal dose, and the rows must sum to the total annual dose
+// shown in the footer (4.72 mSv → Cat. B). A PCR reads this table by multiplying
+// in their head, so the arithmetic has to hold on every edit.
 const scenarios = [
-	{ label: isFr ? 'Manipulation source' : 'Source handling', rate: '1.24 mSv/h', hours: '48', dose: '0.60 mSv' },
-	{ label: isFr ? 'Contrôle en cellule' : 'Cell inspection', rate: '312 µSv/h', hours: '120', dose: '3.74 mSv' },
-	{ label: isFr ? 'Transport / stockage' : 'Transport / storage', rate: '18 µSv/h', hours: '210', dose: '0.38 mSv' },
+	{ label: isFr ? 'Manipulation source' : 'Source handling', rate: '12.5 µSv/h', hours: '48', dose: '0.60 mSv' },
+	{ label: isFr ? 'Contrôle en cellule' : 'Cell inspection', rate: '31.2 µSv/h', hours: '120', dose: '3.74 mSv' },
+	{ label: isFr ? 'Transport / stockage' : 'Transport / storage', rate: '1.8 µSv/h', hours: '210', dose: '0.38 mSv' },
 ]
 ---
 

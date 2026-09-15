@@ -10,6 +10,13 @@
  * it stays a small edit (not a re-screenshot) when the real dashboard evolves.
  *
  * See CLAUDE.md › "Voice & UI › Visuals: NO screenshots — build live previews".
+ *
+ * The default dose rates are NOT invented: they come from the real Dosismart
+ * gamma engine for the `fields` below (Ir-192, 370 GBq, 100 cm, Pb 10 mm = 1 cm),
+ * H*(10), formatted exactly as the app formats them. If you change `fields`, you
+ * MUST recompute — POST /api/v1/calculator/gamma/dose-rate, coefID 1, shield id 1,
+ * thickness in **cm** (the API ignores the unit string; the app converts first).
+ * An RP professional will sanity-check these against a value they know.
  */
 import type { Locale } from '@/i18n/utils'
 import WindowFrame from './WindowFrame.astro'
@@ -28,11 +35,11 @@ interface Props {
 
 const {
 	locale,
-	doseRate = '1.24',
+	doseRate = '6.21',
 	doseUnit = 'mSv/h',
 	coefficient = 'H*(10)',
-	doseWithoutShield = '4.80',
-	doseWithShield = '1.24',
+	doseWithoutShield = '50.8',
+	doseWithShield = '6.21',
 	class: className = '',
 } = Astro.props
 

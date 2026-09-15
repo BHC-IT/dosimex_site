@@ -2,11 +2,15 @@
 /**
  * HeroGammaDemo — interactive point-source gamma dose-rate widget for the hero.
  *
- * NON-FUNCTIONAL VISUAL PLACEHOLDER. The dose-rate values below are illustrative
- * and hard-coded ONLY to validate the design. Before public launch they MUST be
- * replaced with real values from the Dosismart gamma engine (see
- * product-research/features/hero-gamma-demo/spec.md). Distance uses the exact
- * 1/d² point-source scaling, so the slider is physically correct as-is.
+ * The dose-rate table below is NOT invented: every value was computed by the real
+ * Dosismart gamma engine (POST /api/v1/calculator/gamma/dose-rate, H*(10), 1 GBq,
+ * point source, 5 cm shield) and is stored in nSv/h exactly as the API returns it.
+ * The display formatting mirrors the app (÷1e9 then engineering prefix), so the
+ * hero shows the same string a user sees inside Dosismart for the same inputs.
+ *
+ * Distance is a fixed 3-value toggle rather than a free slider: the engine includes
+ * air attenuation, so dose rate is NOT exactly 1/d² and interpolating would drift
+ * away from the app. Adding a distance means adding a measured column below.
  *
  * One small single-purpose widget — the mission ("le calcul radioprotection à la
  * portée de tous") made literal, and the top of the acquisition funnel. Framed in
@@ -25,17 +29,17 @@ const isFr = locale === 'fr'
 
 const t = {
 	activity: isFr ? 'Source ponctuelle · 1 GBq' : 'Point source · 1 GBq',
-	thickness: isFr ? 'Épaisseur 5 cm' : 'Thickness 5 cm',
 	isotope: isFr ? 'Radionucléide' : 'Radionuclide',
-	shield: isFr ? 'Écran' : 'Shield',
+	shield: isFr ? 'Écran (épaisseur 5 cm)' : 'Shield (5 cm thick)',
 	lead: isFr ? 'Plomb' : 'Lead',
 	concrete: isFr ? 'Béton' : 'Concrete',
 	distance: isFr ? 'Distance' : 'Distance',
 	behind: isFr ? "Débit de dose derrière l'écran" : 'Dose rate behind shield',
 	noShield: isFr ? 'sans écran' : 'no shield',
-	attenuation: isFr ? 'atténuation' : 'attenuation',
 	cta: isFr ? 'Faire le calcul complet dans Dosismart' : 'Run the full calculation in Dosismart',
-	demo: isFr ? 'Valeurs illustratives, démonstration' : 'Illustrative values, demo',
+	demo: isFr
+		? 'H*(10) - valeurs calculées par le moteur Dosismart - aperçu illustratif'
+		: 'H*(10) - values computed by the Dosismart engine - illustrative preview',
 }
 
 const isotopes = [
@@ -47,6 +51,11 @@ const shields = [
 	{ id: 'lead', label: t.lead },
 	{ id: 'concrete', label: t.concrete },
 ]
+const distances = [
+	{ id: '1', label: '1 m' },
+	{ id: '2', label: '2 m' },
+	{ id: '5', label: '5 m' },
+]
 
 const seg = 'flex-1 rounded-md px-3 py-1.5 text-sm font-medium transition-colors'
 const segActive = 'bg-primary text-primary-foreground shadow-sm'
@@ -57,10 +66,7 @@ const segIdle = 'text-muted-foreground hover:text-foreground'
 	<WindowFrame>
 		<div class="space-y-5 p-5 sm:p-6">
 			<!-- eyebrow -->
-			<div class="flex items-center justify-between gap-3">
-				<span class="text-xs font-semibold uppercase tracking-widest text-primary">{t.activity}</span>
-				<span class="rounded-full border border-border bg-muted/40 px-2.5 py-0.5 text-xs text-muted-foreground">{t.thickness}</span>
-			</div>
+			<span class="block text-xs font-semibold uppercase tracking-widest text-primary">{t.activity}</span>
 
 			<!-- isotope toggle -->
 			<div>
@@ -84,33 +90,27 @@ const segIdle = 'text-muted-foreground hover:text-foreground'
 				</div>
 			</div>
 
-			<!-- distance slider -->
+			<!-- distance toggle -->
 			<div>
-				<div class="mb-1.5 flex items-center justify-between">
-					<p class="text-xs font-medium text-muted-foreground">{t.distance}</p>
-					<span data-distance-label class="text-xs font-semibold text-foreground">1.0 m</span>
+				<p class="mb-1.5 text-xs font-medium text-muted-foreground">{t.distance}</p>
+				<div class="inline-flex w-full rounded-lg border border-border bg-muted/40 p-1" role="group" aria-label={t.distance}>
+					{distances.map((d, i) => (
+						<button type="button" data-distance={d.id} aria-pressed={i === 0 ? 'true' : 'false'}
+							class:list={[seg, i === 0 ? segActive : segIdle]}>{d.label}</button>
+					))}
 				</div>
-				<input type="range" data-distance min="0.5" max="5" step="0.1" value="1"
-					class="h-1.5 w-full cursor-pointer appearance-none rounded-full bg-muted accent-primary"
-					aria-label={t.distance} />
 			</div>
 
 			<!-- result -->
 			<div class="rounded-lg border border-border bg-background p-4">
-				<div class="flex items-end justify-between gap-3">
-					<div>
-						<p class="text-xs text-muted-foreground">{t.behind}</p>
-						<p class="mt-0.5">
-							<span data-result class="font-heading text-2xl font-bold text-primary">0.80</span>
-							<span class="ml-1 text-sm text-muted-foreground">µSv/h</span>
-						</p>
-					</div>
-					<span class="inline-flex shrink-0 items-center gap-1 rounded-full border border-primary/20 bg-primary/10 px-2.5 py-0.5 text-xs font-semibold text-primary">
-						<span data-atten>×99</span> {t.attenuation}
-					</span>
-				</div>
+				<p class="text-xs text-muted-foreground">{t.behind}</p>
+				<p class="mt-0.5">
+					<span data-result class="font-heading text-2xl font-bold text-primary">483.96</span>
+					<span data-result-unit class="ml-1 text-sm text-muted-foreground">nSv/h</span>
+				</p>
 				<p class="mt-2 text-xs text-muted-foreground">
-					{t.noShield} : <span data-unshielded class="font-medium text-foreground/70">79</span> µSv/h
+					{t.noShield} : <span data-unshielded class="font-medium text-foreground/70">91.51</span>
+					<span data-unshielded-unit>µSv/h</span>
 				</p>
 			</div>
 
@@ -129,22 +129,48 @@ const segIdle = 'text-muted-foreground hover:text-foreground'
 </div>
 
 <script>
-	// PLACEHOLDER data — illustrative only. Replace with real Dosismart gamma-engine
-	// values (3 isotopes × 2 shields + unshielded) at 1 GBq, 1 m, 5 cm before launch.
-	const DATA: Record<string, { unshielded: number; lead: number; concrete: number }> = {
-		cs137: { unshielded: 79, lead: 0.8, concrete: 55 },
-		co60: { unshielded: 308, lead: 34, concrete: 190 },
-		ir192: { unshielded: 130, lead: 0.7, concrete: 72 },
+	// Dose rates in nSv/h, exactly as the Dosismart API returns them, for
+	// H*(10) · point source · 1 GBq · 5 cm shield, at 1 / 2 / 5 m.
+	// Regenerate with POST /api/v1/calculator/gamma/dose-rate — never hand-edit.
+	type Row = Record<string, readonly [number, number, number]>
+	const DISTANCES = ['1', '2', '5'] as const
+	const DATA: Record<string, Row> = {
+		cs137: {
+			unshielded: [91507.79, 22638.91, 3510.44],
+			lead: [483.96, 119.78, 18.6],
+			concrete: [71806.61, 17772.21, 2759.04],
+		},
+		co60: {
+			unshielded: [346227.06, 85919.94, 13445.56],
+			lead: [28533.36, 7081.09, 1108.22],
+			concrete: [279271.8, 69304.29, 10845.39],
+		},
+		ir192: {
+			unshielded: [137303.32, 33884.02, 5216.22],
+			lead: [41.06, 10.16, 1.58],
+			concrete: [126088.45, 31126.81, 4795.16],
+		},
 	}
 
-	function fmt(v: number): string {
-		if (v >= 10) return v.toFixed(0)
-		if (v >= 1) return v.toFixed(1)
-		if (v >= 0.1) return v.toFixed(2)
-		return v.toFixed(3)
-	}
-	function fmtAtten(a: number): string {
-		return a >= 10 ? '×' + Math.round(a) : '×' + a.toFixed(1)
+	// Mirrors the app's dose-rate formatter: nSv/h → Sv/h, then engineering prefix.
+	const PREFIXES = ['n', 'µ', 'm', '', 'k'] as const
+	const BASE_INDEX = 3
+
+	function format(nanoSvPerHour: number): { value: string; unit: string } {
+		let value = nanoSvPerHour / 1e9
+		let power = 0
+		while (value >= 1000) {
+			value /= 1000
+			power++
+		}
+		while (value > 0 && value < 1) {
+			value *= 1000
+			power--
+		}
+		const prefix = PREFIXES[Math.min(Math.max(BASE_INDEX + power, 0), PREFIXES.length - 1)]
+		const decimals = Math.abs(value) < 0.01 ? 3 : 2
+		const text = value.toFixed(decimals).replace(/\.?0+$/, '') || '0'
+		return { value: text, unit: `${prefix}Sv/h` }
 	}
 
 	function initHeroGammaDemo() {
@@ -154,15 +180,15 @@ const segIdle = 'text-muted-foreground hover:text-foreground'
 
 		let iso = 'cs137'
 		let shield: 'lead' | 'concrete' = 'lead'
-		let distance = 1
+		let distanceIndex = 0
 
 		const resultEl = root.querySelector('[data-result]')!
+		const resultUnitEl = root.querySelector('[data-result-unit]')!
 		const unshieldedEl = root.querySelector('[data-unshielded]')!
-		const attenEl = root.querySelector('[data-atten]')!
-		const distLabel = root.querySelector('[data-distance-label]')!
+		const unshieldedUnitEl = root.querySelector('[data-unshielded-unit]')!
 		const isoBtns = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-iso]'))
 		const shieldBtns = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-shield]'))
-		const slider = root.querySelector<HTMLInputElement>('[data-distance]')!
+		const distBtns = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-distance]'))
 
 		const ACTIVE = ['bg-primary', 'text-primary-foreground', 'shadow-sm']
 		const IDLE = ['text-muted-foreground', 'hover:text-foreground']
@@ -177,14 +203,12 @@ const segIdle = 'text-muted-foreground hover:text-foreground'
 
 		function render() {
 			const row = DATA[iso]
-			const scale = 1 / (distance * distance)
-			const shielded = row[shield] * scale
-			const unshielded = row.unshielded * scale
-			const atten = row.unshielded / row[shield]
-			resultEl.textContent = fmt(shielded)
-			unshieldedEl.textContent = fmt(unshielded)
-			attenEl.textContent = fmtAtten(atten)
-			distLabel.textContent = distance.toFixed(1) + ' m'
+			const shielded = format(row[shield][distanceIndex])
+			const unshielded = format(row.unshielded[distanceIndex])
+			resultEl.textContent = shielded.value
+			resultUnitEl.textContent = shielded.unit
+			unshieldedEl.textContent = unshielded.value
+			unshieldedUnitEl.textContent = ' ' + unshielded.unit
 		}
 
 		isoBtns.forEach((b) =>
@@ -201,10 +225,13 @@ const segIdle = 'text-muted-foreground hover:text-foreground'
 				render()
 			}),
 		)
-		slider.addEventListener('input', () => {
-			distance = parseFloat(slider.value)
-			render()
-		})
+		distBtns.forEach((b) =>
+			b.addEventListener('click', () => {
+				distanceIndex = DISTANCES.indexOf(b.dataset.distance as (typeof DISTANCES)[number])
+				setActive(distBtns, (x) => x.dataset.distance === DISTANCES[distanceIndex])
+				render()
+			}),
+		)
 
 		render()
 	}
