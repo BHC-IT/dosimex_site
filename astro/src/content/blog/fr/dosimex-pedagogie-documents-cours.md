@@ -13,7 +13,7 @@ Cette vocation pédagogique est au coeur de Dosimex. Et pourtant, beaucoup d'uti
 
 ## Le pack pédagogique : comprendre avant de calculer
 
-En plus des 6 codes opérationnels et des 5 utilitaires de mesure, Dosimex inclut **6 modules pédagogiques interactifs** qui permettent de comprendre la physique derrière les calculs :
+En plus des 6 outils opérationnels et des 5 utilitaires de mesure, Dosimex inclut **6 modules pédagogiques interactifs** qui permettent de comprendre la physique derrière les calculs :
 
 - **IRM photon**. Interactions photon-matière : calcul de kerma, de dose, libre parcours moyen, effet Compton, visualisation de trajectoires Monte-Carlo
 - **IRM particules chargées**. Interactions particules chargées-matière : parcours, coefficient fluence-dose, application aux spectres bêta
@@ -54,6 +54,6 @@ C'est peut-être la ressource la moins connue du pack Dosimex. Avec votre licenc
 
 ## Apprendre, puis calculer, puis maîtriser
 
-L'idée fondamentale de Dosimex est que **la compréhension précède le calcul**. Un utilisateur qui comprend les mécanismes d'interaction rayonnement-matière sera un meilleur utilisateur des codes opérationnels. Il saura interpréter ses résultats, identifier les cas limites et adapter ses hypothèses.
+L'idée fondamentale de Dosimex est que **la compréhension précède le calcul**. Un utilisateur qui comprend les mécanismes d'interaction rayonnement-matière sera un meilleur utilisateur des outils opérationnels. Il saura interpréter ses résultats, identifier les cas limites et adapter ses hypothèses.
 
-C'est pourquoi nous encourageons tous les utilisateurs, y compris ceux qui ont acheté Dosimex uniquement pour les codes opérationnels, à explorer les modules pédagogiques et les documents de cours. Ils sont là, inclus dans votre licence, et ils peuvent transformer votre pratique de la radioprotection.
+C'est pourquoi nous encourageons tous les utilisateurs, y compris ceux qui ont acheté Dosimex uniquement pour les outils opérationnels, à explorer les modules pédagogiques et les documents de cours. Ils sont là, inclus dans votre licence, et ils peuvent transformer votre pratique de la radioprotection.

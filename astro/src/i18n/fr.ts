@@ -2,11 +2,11 @@ export const fr = {
 	seo: {
 		home: {
 			title: 'Dosimex — Outils de calcul en radioprotection',
-			description: "Dosimex (17 codes de calcul sous Excel) et Dosismart, la plateforme web de Dosimex : calcul en ligne, gestion d'organisation, téléchargement des codes. Validés MCNP, 20 ans d'expérience.",
+			description: "Dosimex (17 outils de calcul sous Excel) et Dosismart, la plateforme web de Dosimex : calcul en ligne, gestion d'organisation, téléchargement des outils. Validés MCNP, 20 ans d'expérience.",
 		},
 		software: {
-			title: 'Dosimex — 17 codes de calcul',
-			description: 'Dosimex : 6 codes opérationnels (exposition externe gamma, X, bêta, neutron, exposition interne, gammagraphie), 6 modules pédagogiques interactifs et 5 utilitaires de mesure, sous Excel. Validé MCNP, documenté, éprouvé depuis 20 ans.',
+			title: 'Dosimex — 17 outils de calcul',
+			description: 'Dosimex : 6 outils opérationnels (exposition externe gamma, X, bêta, neutron, exposition interne, gammagraphie), 6 modules pédagogiques interactifs et 5 utilitaires de mesure, sous Excel. Validé MCNP, documenté, éprouvé depuis 20 ans.',
 		},
 		dosismart: {
 			title: 'Dosismart — la plateforme web de Dosimex',
@@ -14,7 +14,7 @@ export const fr = {
 		},
 		product: {
 			title: 'Tarifs — Dosimex + Dosismart',
-			description: 'Un abonnement, deux outils : Dosimex (17 codes de calcul sous Excel) et Dosismart (application web). Offre Base à partir de 640€ HT/an, offre Conformité à partir de 900€ HT/an. Essai gratuit 14 jours.',
+			description: 'Un abonnement, deux outils : Dosimex (17 outils de calcul sous Excel) et Dosismart (application web). Offre Base à partir de 640€ HT/an, offre Conformité à partir de 900€ HT/an. Essai gratuit 14 jours.',
 		},
 		training: {
 			title: 'Formations radioprotection — Dosimex',
@@ -125,7 +125,7 @@ export const fr = {
 		evolution: {
 			kicker: 'De Dosimex à Dosismart',
 			title: 'Vingt ans de calcul validé, maintenant sur le web',
-			text: "Dosimex, ce sont 17 codes de calcul sous Excel, validés MCNP et éprouvés par plus de 1 500 professionnel.les. Dosismart reprend ces moteurs sur le web, avec la même physique validée dans un nouvel espace de travail. Un seul abonnement couvre les deux outils ; voici ce que chacun vous apporte.",
+			text: "Dosimex, ce sont 17 outils de calcul sous Excel, validés MCNP et éprouvés par plus de 1 500 professionnel.les. Dosismart reprend ces moteurs sur le web, avec la même physique validée dans un nouvel espace de travail. Un seul abonnement couvre les deux outils ; voici ce que chacun vous apporte.",
 		},
 		platform: {
 			title: 'Dosismart, la plateforme web de Dosimex',
@@ -137,15 +137,15 @@ export const fr = {
 			trialNote: 'Essai gratuit 14 jours, sans carte bancaire.',
 		},
 		suite: {
-			title: 'Dosimex, 17 codes de calcul sous Excel',
+			title: 'Dosimex, 17 outils de calcul sous Excel',
 			subtitle: "Ce que Dosismart ne couvre pas encore reste ici. Depuis <strong>20 ans</strong>, la référence du calcul opérationnel en radioprotection : validée MCNP, utilisée par EDF, Orano, Apave et plus de <strong>1500</strong> professionnel.les.",
 			cta: 'Découvrir Dosimex',
 			items: [
 				{
-					title: 'Pack opérationnel : 6 codes de calcul',
+					title: 'Pack opérationnel : 6 outils de calcul',
 					text: "Exposition externe gamma, X, bêta, neutron, exposition interne, gammagraphie\u00A0: les calculs du quotidien.",
 					icon: 'calc',
-					link: { label: 'Voir les codes', href: '/software#pack-ope' },
+					link: { label: 'Voir les outils', href: '/software#pack-ope' },
 				},
 				{
 					title: 'Pack pédagogique\u00A0: 6 modules interactifs',
@@ -165,7 +165,7 @@ export const fr = {
 			items: [
 				{ value: '+20 ans', label: "d'expérience" },
 				{ value: '+1500', label: 'utilisateur.rices sur le terrain' },
-				{ value: '17', label: 'codes de calcul' },
+				{ value: '17', label: 'outils de calcul' },
 			],
 		},
 		understand: {
@@ -320,12 +320,12 @@ export const fr = {
 			title: 'Votre tableau de bord de radioprotection',
 			lead: "Dosismart est le tableau de bord de votre abonnement : vous y téléchargez Dosimex, calculez en ligne et gérez votre équipe.",
 			points: [
-				{ icon: 'download', title: 'Téléchargez Dosimex', text: 'Les 17 codes de calcul Excel et votre clé de licence, prêts à installer.' },
+				{ icon: 'download', title: 'Téléchargez Dosimex', text: 'Les 17 outils de calcul Excel et votre clé de licence, prêts à installer.' },
 				{ icon: 'calc', title: 'Calculez en ligne', text: "Calcul exposition externe gamma, générateur X, effet de ciel, zonage radiologique et cartographie de débit de dose, avec historique et traçabilité." },
 				{ icon: 'team', title: 'Gérez votre équipe', text: "Membres, accès et abonnement. Partagez vos calculs." },
 			],
 			growTitle: "Une plateforme qui s'enrichit avec le temps",
-			growText: 'Au fil des versions, les codes de calcul Dosimex rejoignent Dosismart, avec la même physique validée MCNP éprouvée depuis 20 ans. Dosimex reste la référence pour tout ce que la plateforme ne couvre pas encore.',
+			growText: 'Au fil des versions, les outils de calcul Dosimex rejoignent Dosismart, avec la même physique validée MCNP éprouvée depuis 20 ans. Dosimex reste la référence pour tout ce que la plateforme ne couvre pas encore.',
 			cta: 'Découvrir Dosimex',
 		},
 		onprem: {
@@ -344,7 +344,7 @@ export const fr = {
 		header: {
 			title: 'Dosimex',
 			description:
-				"Depuis 20 ans, la référence du calcul opérationnel en radioprotection sous Excel : 6 codes de calcul, 6 modules pédagogiques et 5 utilitaires de mesure, validés par comparaison avec MCNP et RayXpert, codes Monte-Carlo de référence, utilisés par EDF, Orano, Apave et plus de 1500 professionnel.les. Les nouvelles capacités arrivent désormais sur Dosismart ; les codes de calcul Dosimex restent la référence pour tout ce que le web ne couvre pas encore, du bêta au neutron, de la gammagraphie à l'exposition interne et aux utilitaires de mesure.",
+				"Depuis 20 ans, la référence du calcul opérationnel en radioprotection sous Excel : 6 outils de calcul, 6 modules pédagogiques et 5 utilitaires de mesure, validés par comparaison avec MCNP et RayXpert, codes Monte-Carlo de référence, utilisés par EDF, Orano, Apave et plus de 1500 professionnel.les. Les nouvelles capacités arrivent désormais sur Dosismart ; les outils de calcul Dosimex restent la référence pour tout ce que le web ne couvre pas encore, du bêta au neutron, de la gammagraphie à l'exposition interne et aux utilitaires de mesure.",
 			langNote: 'La plupart des outils sont disponibles en français et en anglais.',
 			anchors: [
 				{ label: 'Pack opérationnel', href: '#pack-ope' },
@@ -354,7 +354,7 @@ export const fr = {
 		},
 		included: {
 			title: 'Inclus avec Dosimex',
-			text: "En plus des 17 codes de calcul et de leur documentation : 11 documents de cours (physique nucléaire, mesure, interactions rayonnement-matière, incertitudes…) et les 19 annexes de l'ouvrage « Calcul de doses générées par les rayonnements ionisants » (EDP Sciences 2016).",
+			text: "En plus des 17 outils de calcul et de leur documentation : 11 documents de cours (physique nucléaire, mesure, interactions rayonnement-matière, incertitudes…) et les 19 annexes de l'ouvrage « Calcul de doses générées par les rayonnements ionisants » (EDP Sciences 2016).",
 		},
 		prerequisites: {
 			title: 'Prérequis',
@@ -370,7 +370,7 @@ export const fr = {
 		},
 		dosismartBanner: {
 			title: "Dosismart, l'évolution de Dosimex",
-			text: "Les codes de calcul sont progressivement portés sur Dosismart, la plateforme web de Dosimex, et validés avec la même rigueur (MCNP, OpenMC). Déjà en ligne : calcul exposition externe gamma, générateur X, effet de ciel et étude paramétrique, avec historique des calculs et travail en équipe.",
+			text: "Les outils de calcul sont progressivement portés sur Dosismart, la plateforme web de Dosimex, et validés avec la même rigueur (MCNP, OpenMC). Déjà en ligne : calcul exposition externe gamma, générateur X, effet de ciel et étude paramétrique, avec historique des calculs et travail en équipe.",
 			button: 'Découvrir Dosismart',
 		},
 		packOpe: {
@@ -381,35 +381,35 @@ export const fr = {
 				{
 					name: 'DOSIMEX-GX 3.2 · Émetteurs gamma',
 					description:
-						"Code de calcul déterministe de débit de dose pour émetteurs gamma (sources volumiques, surfaciques…). Avec de nombreuses options : effet de ciel, rayonnement de freinage, zonage, build-up",
+						"Outil de calcul déterministe de débit de dose pour émetteurs gamma (sources volumiques, surfaciques…). Avec de nombreuses options : effet de ciel, rayonnement de freinage, zonage, build-up",
 					videoId: 'E5eWKTJaNxQ',
 					frOnly: false,
 				},
 				{
 					name: 'DOSIMEX-GX 3.2 · Générateur X',
 					description:
-						'Code de calcul déterministe de débit de dose pour générateur X (faisceau primaire et diffusé), avec option feuille de calcul norme NF C15-160/2018',
+						'Outil de calcul déterministe de débit de dose pour générateur X (faisceau primaire et diffusé), avec option feuille de calcul norme NF C15-160/2018',
 					videoId: 'wkuVxTBXc8g',
 					frOnly: false,
 				},
 				{
 					name: 'DOSIMEX-B 3.2',
 					description:
-						'Code de calcul déterministe de débit de dose émetteur bêta et électrons monoénergétiques. Prise en compte sources volumiques (bécher, seringue) ou surfaciques (contamination peau)',
+						'Outil de calcul déterministe de débit de dose émetteur bêta et électrons monoénergétiques. Prise en compte sources volumiques (bécher, seringue) ou surfaciques (contamination peau)',
 					videoId: '4Cfya_rHa04',
 					frOnly: false,
 				},
 				{
 					name: 'DOSIMEX-N 3.2',
 					description:
-						'Code de calcul Monte-Carlo de débit de dose émetteur neutron (type Am/Be) avec protection biologique (eau, polyéthylène, Bore, Cadmium etc.). Module pédagogique avec visualisation trajectoire neutron',
+						'Outil de calcul Monte-Carlo de débit de dose émetteur neutron (type Am/Be) avec protection biologique (eau, polyéthylène, Bore, Cadmium etc.). Module pédagogique avec visualisation trajectoire neutron',
 					videoId: '7emAJHES-fw',
 					frOnly: false,
 				},
 				{
 					name: 'DOSIMEX-I 3.2',
 					description:
-						"Code de calcul expositions interne. Conforme à l'arrêté du 16/11/23. Prise en compte cinétique fuite, renouvellement, dépôt au sol. Calculs de transfert atmosphérique. Calcul mélanges RAI/RAV/RCA",
+						"Outil de calcul expositions interne. Conforme à l'arrêté du 16/11/23. Prise en compte cinétique fuite, renouvellement, dépôt au sol. Calculs de transfert atmosphérique. Calcul mélanges RAI/RAV/RCA",
 					videoId: 'CnqQhyB6cEo',
 					frOnly: false,
 				},
@@ -601,7 +601,7 @@ export const fr = {
 				alt: "avec l'engagement 3 ans, soit 640€ HT/an (1 920€)",
 				tagline: 'Les deux outils, pour tous vos calculs du quotidien',
 				features: [
-					'Dosimex complet : 17 codes de calcul sous Excel',
+					'Dosimex complet : 17 outils de calcul sous Excel',
 					"Documentation, cours et annexes de l'ouvrage",
 					"Dosismart : calcul exposition externe gamma, générateur X, effet de ciel, étude paramétrique",
 					'Historique des calculs, travail en équipe',
@@ -665,7 +665,7 @@ export const fr = {
 				{
 					question: 'Quelle différence entre Dosimex et Dosismart ?',
 					answer:
-						"Dosimex regroupe les 17 codes de calcul sous Excel (exposition externe gamma, X, bêta, neutron, exposition interne, mesures). Dosismart est la plateforme web de Dosimex : c'est là que vous vous abonnez, téléchargez les codes de calcul et gérez votre organisation, et c'est aussi un outil de calcul en ligne (calcul exposition externe gamma, générateur X, effet de ciel, étude paramétrique, historique, travail en équipe), avec l'inventaire de sources, le zonage radiologique et les études de poste dans l'offre Conformité. Un seul abonnement couvre l'ensemble. Les nouveautés arrivent d'abord sur Dosismart ; Dosimex reste la référence pour ce que le calcul web ne couvre pas encore.",
+						"Dosimex regroupe les 17 outils de calcul sous Excel (exposition externe gamma, X, bêta, neutron, exposition interne, mesures). Dosismart est la plateforme web de Dosimex : c'est là que vous vous abonnez, téléchargez les outils de calcul et gérez votre organisation, et c'est aussi un outil de calcul en ligne (calcul exposition externe gamma, générateur X, effet de ciel, étude paramétrique, historique, travail en équipe), avec l'inventaire de sources, le zonage radiologique et les études de poste dans l'offre Conformité. Un seul abonnement couvre l'ensemble. Les nouveautés arrivent d'abord sur Dosismart ; Dosimex reste la référence pour ce que le calcul web ne couvre pas encore.",
 				},
 				{
 					question: "J'ai une licence en cours (achetée depuis 2025). Comment accéder à Dosismart ?",
@@ -675,7 +675,7 @@ export const fr = {
 				{
 					question: "J'ai acheté Dosimex avant 2025. Ma licence est-elle toujours valable ?",
 					answer:
-						"Oui, à vie : votre licence perpétuelle reste valable, et vos codes de calcul avec elle. Leur environnement, en revanche, ne dépend pas de nous : des mises à jour de Microsoft Office peuvent affecter le comportement de certains codes. Dosismart, lui, nécessite l'abonnement (à partir de 640€ HT/an), qui couvre les deux outils.",
+						"Oui, à vie : votre licence perpétuelle reste valable, et vos outils de calcul avec elle. Leur environnement, en revanche, ne dépend pas de nous : des mises à jour de Microsoft Office peuvent affecter le comportement de certains outils. Dosismart, lui, nécessite l'abonnement (à partir de 640€ HT/an), qui couvre les deux outils.",
 				},
 				{
 					question: "Comment fonctionne l'essai gratuit ?",
@@ -844,7 +844,7 @@ export const fr = {
 		},
 		validations: {
 			title: 'Dossiers de validation et références MCNP',
-			description: "Chaque code est comparé point par point à MCNP. Les dossiers complets et les notes de référence sont publics :",
+			description: "Chaque outil est comparé point par point à MCNP. Les dossiers complets et les notes de référence sont publics :",
 			dosismart: {
 				title: 'Un dossier de validation en ligne',
 				text: "Les calculs web sont validés avec la même exigence : un dossier public, généré automatiquement à partir des tests de validation du moteur, compare chaque résultat Dosismart aux codes de référence, scénario par scénario, écarts affichés.",

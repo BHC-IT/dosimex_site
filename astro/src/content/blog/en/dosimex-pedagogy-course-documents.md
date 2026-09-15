@@ -13,7 +13,7 @@ This educational purpose is at the heart of Dosimex. And yet, many users are una
 
 ## The educational pack: understanding before calculating
 
-In addition to the 6 operational codes and 5 measurement utilities, Dosimex includes **6 interactive educational modules** that help you understand the physics behind the calculations:
+In addition to the 6 operational tools and 5 measurement utilities, Dosimex includes **6 interactive educational modules** that help you understand the physics behind the calculations:
 
 - **Photon MRI**. Photon-matter interactions: kerma calculation, dose, mean free path, Compton effect, Monte-Carlo trajectory visualization
 - **Charged particles MRI**. Charged particle-matter interactions: range, fluence-dose coefficient, beta spectra applications
@@ -54,6 +54,6 @@ This is perhaps the least-known resource in the Dosimex pack. With your license,
 
 ## Learn, then calculate, then master
 
-The fundamental idea behind Dosimex is that **understanding comes before calculation**. A user who understands radiation-matter interaction mechanisms will be a better user of the operational codes. They will know how to interpret their results, identify edge cases, and adapt their assumptions.
+The fundamental idea behind Dosimex is that **understanding comes before calculation**. A user who understands radiation-matter interaction mechanisms will be a better user of the operational tools. They will know how to interpret their results, identify edge cases, and adapt their assumptions.
 
-That's why we encourage all users, including those who purchased Dosimex solely for the operational codes, to explore the educational modules and course documents. They're there, included in your license, and they can transform your radiation protection practice.
+That's why we encourage all users, including those who purchased Dosimex solely for the operational tools, to explore the educational modules and course documents. They're there, included in your license, and they can transform your radiation protection practice.

@@ -2,11 +2,11 @@ export const en = {
 	seo: {
 		home: {
 			title: 'Dosimex — Radiation Protection Calculation Tools',
-			description: 'Dosimex (17 calculation codes in Excel) and Dosismart, the Dosimex web platform: online calculation, organization management, code downloads. MCNP-validated, 20 years of experience.',
+			description: 'Dosimex (17 calculation tools in Excel) and Dosismart, the Dosimex web platform: online calculation, organization management, tool downloads. MCNP-validated, 20 years of experience.',
 		},
 		software: {
-			title: 'Dosimex — 17 Calculation Codes',
-			description: 'Dosimex: 6 operational codes (external gamma exposure, X-ray, beta, neutron, internal exposure, gammagraphy), 6 interactive learning modules and 5 measurement utilities, in Excel. MCNP-validated, documented, proven over 20 years.',
+			title: 'Dosimex — 17 Calculation Tools',
+			description: 'Dosimex: 6 operational tools (external gamma exposure, X-ray, beta, neutron, internal exposure, gammagraphy), 6 interactive learning modules and 5 measurement utilities, in Excel. MCNP-validated, documented, proven over 20 years.',
 		},
 		dosismart: {
 			title: 'Dosismart — the Dosimex web platform',
@@ -14,7 +14,7 @@ export const en = {
 		},
 		product: {
 			title: 'Pricing — Dosimex + Dosismart',
-			description: 'One subscription, two tools: Dosimex (17 calculation codes in Excel) and Dosismart (web app). Base plan from €640/year excl. VAT, Compliance plan from €900/year. Free 14-day trial.',
+			description: 'One subscription, two tools: Dosimex (17 calculation tools in Excel) and Dosismart (web app). Base plan from €640/year excl. VAT, Compliance plan from €900/year. Free 14-day trial.',
 		},
 		training: {
 			title: 'Radiation Protection Training — Dosimex',
@@ -125,7 +125,7 @@ export const en = {
 		evolution: {
 			kicker: 'From Dosimex to Dosismart',
 			title: 'Twenty years of validated calculation, now on the web',
-			text: 'Dosimex is 17 calculation codes in Excel, MCNP-validated and proven by more than 1,500 professionals. Dosismart brings those same engines to the web, with the same validated physics in a new workspace. One subscription covers both tools; here is what each brings you.',
+			text: 'Dosimex is 17 calculation tools in Excel, MCNP-validated and proven by more than 1,500 professionals. Dosismart brings those same engines to the web, with the same validated physics in a new workspace. One subscription covers both tools; here is what each brings you.',
 		},
 		platform: {
 			title: 'Dosismart, the Dosimex web platform',
@@ -137,15 +137,15 @@ export const en = {
 			trialNote: 'Free 14-day trial, no credit card.',
 		},
 		suite: {
-			title: 'Dosimex, 17 calculation codes in Excel',
+			title: 'Dosimex, 17 calculation tools in Excel',
 			subtitle: 'What Dosismart does not cover yet lives here. For <strong>20 years</strong>, the reference for operational radiation-protection calculation: MCNP-validated, used by EDF, Orano, Apave and over <strong>1,500</strong> professionals.',
 			cta: 'Explore Dosimex',
 			items: [
 				{
-					title: 'Operational pack: 6 calculation codes',
+					title: 'Operational pack: 6 calculation tools',
 					text: 'External gamma exposure, X-ray, beta, neutron, internal exposure, gammagraphy: the everyday calculations.',
 					icon: 'calc',
-					link: { label: 'See the codes', href: '/software#pack-ope' },
+					link: { label: 'See the tools', href: '/software#pack-ope' },
 				},
 				{
 					title: 'Learning pack: 6 interactive modules',
@@ -165,7 +165,7 @@ export const en = {
 			items: [
 				{ value: '+20 years', label: 'of experience' },
 				{ value: '+1500', label: 'users in the field' },
-				{ value: '17', label: 'calculation codes' },
+				{ value: '17', label: 'calculation tools' },
 			],
 		},
 		understand: {
@@ -320,12 +320,12 @@ export const en = {
 			title: 'Your radiation protection dashboard',
 			lead: 'Dosismart is the dashboard for your subscription: download Dosimex, calculate online and manage your team.',
 			points: [
-				{ icon: 'download', title: 'Download Dosimex', text: 'The 17 Excel calculation codes and your license key, ready to install.' },
+				{ icon: 'download', title: 'Download Dosimex', text: 'The 17 Excel calculation tools and your license key, ready to install.' },
 				{ icon: 'calc', title: 'Calculate online', text: 'External gamma exposure calculation, X-ray generator, skyshine, radiological zoning and dose-rate mapping, with history and traceability.' },
 				{ icon: 'team', title: 'Manage your team', text: 'Members, access and subscription. Share your calculations.' },
 			],
 			growTitle: 'A platform that grows richer over time',
-			growText: 'With each release, the Dosimex calculation codes move into Dosismart, with the same MCNP-validated physics proven over 20 years. Dosimex stays the reference for everything the platform does not cover yet.',
+			growText: 'With each release, the Dosimex calculation tools move into Dosismart, with the same MCNP-validated physics proven over 20 years. Dosimex stays the reference for everything the platform does not cover yet.',
 			cta: 'Explore Dosimex',
 		},
 		onprem: {
@@ -344,7 +344,7 @@ export const en = {
 		header: {
 			title: 'Dosimex',
 			description:
-				'For 20 years, the reference for operational radiation-protection calculation in Excel: 6 calculation codes, 6 learning modules and 5 measurement utilities, validated against MCNP and RayXpert, reference Monte-Carlo codes, and used by EDF, Orano, Apave and more than 1,500 professionals. New capabilities now ship in Dosismart; the Dosimex calculation codes remain the reference for everything the web does not cover yet, from beta, neutron and gammagraphy to internal exposure and the measurement utilities.',
+				'For 20 years, the reference for operational radiation-protection calculation in Excel: 6 calculation tools, 6 learning modules and 5 measurement utilities, validated against MCNP and RayXpert, reference Monte-Carlo codes, and used by EDF, Orano, Apave and more than 1,500 professionals. New capabilities now ship in Dosismart; the Dosimex calculation tools remain the reference for everything the web does not cover yet, from beta, neutron and gammagraphy to internal exposure and the measurement utilities.',
 			langNote: 'Most tools are available in French and English.',
 			anchors: [
 				{ label: 'Operational pack', href: '#pack-ope' },
@@ -354,7 +354,7 @@ export const en = {
 		},
 		included: {
 			title: 'Included with Dosimex',
-			text: 'On top of the 17 calculation codes and their documentation: 11 course documents (nuclear physics, nuclear measurement, radiation–matter interactions, uncertainties…) and the 19 appendices of the book "Calculation of doses generated by ionizing radiation" (EDP Sciences 2016).',
+			text: 'On top of the 17 calculation tools and their documentation: 11 course documents (nuclear physics, nuclear measurement, radiation–matter interactions, uncertainties…) and the 19 appendices of the book "Calculation of doses generated by ionizing radiation" (EDP Sciences 2016).',
 		},
 		prerequisites: {
 			title: 'Prerequisites',
@@ -370,7 +370,7 @@ export const en = {
 		},
 		dosismartBanner: {
 			title: 'Dosismart, the evolution of Dosimex',
-			text: 'The calculation codes are progressively ported to Dosismart, the Dosimex web platform, and validated with the same rigor (MCNP, OpenMC). Already online: external gamma exposure calculation, X-ray generator, skyshine and parametric study, with calculation history and team collaboration.',
+			text: 'The calculation tools are progressively ported to Dosismart, the Dosimex web platform, and validated with the same rigor (MCNP, OpenMC). Already online: external gamma exposure calculation, X-ray generator, skyshine and parametric study, with calculation history and team collaboration.',
 			button: 'Discover Dosismart',
 		},
 		packOpe: {
@@ -381,35 +381,35 @@ export const en = {
 				{
 					name: 'DOSIMEX-GX 3.2 · Gamma emitters',
 					description:
-						'Deterministic calculation code of dose rate for gamma emitters (volumic sources, surface source…). With many options: skyshine, bremsstrahlung, zoning, build-up',
+						'Deterministic calculation tool of dose rate for gamma emitters (volumic sources, surface source…). With many options: skyshine, bremsstrahlung, zoning, build-up',
 					videoId: 'oiYwIvxnxHU',
 					frOnly: false,
 				},
 				{
 					name: 'DOSIMEX-GX 3.2 · X-ray generators',
 					description:
-						'Deterministic calculation code of dose rate for X-ray generators (primary and scattered beam), with NF C15-160/2018 calculation worksheet option',
+						'Deterministic calculation tool of dose rate for X-ray generators (primary and scattered beam), with NF C15-160/2018 calculation worksheet option',
 					videoId: 'xriiq6v47oE',
 					frOnly: false,
 				},
 				{
 					name: 'DOSIMEX-B 3.2',
 					description:
-						'Deterministic calculation code of beta emitter dose rate and monoenergetic electrons. Taking into account volumetric sources (beaker, syringe) or surface sources (skin contamination)',
+						'Deterministic calculation tool of beta emitter dose rate and monoenergetic electrons. Taking into account volumetric sources (beaker, syringe) or surface sources (skin contamination)',
 					videoId: '4Cfya_rHa04',
 					frOnly: false,
 				},
 				{
 					name: 'DOSIMEX-N 3.2',
 					description:
-						'Monte-Carlo calculation code of neutron emitter dose rate (Am/Be type) with biological protection (water, polyethylene, Boron, Cadmium etc.). Pedagogical module with neutron trajectory visualization',
+						'Monte-Carlo calculation tool of neutron emitter dose rate (Am/Be type) with biological protection (water, polyethylene, Boron, Cadmium etc.). Pedagogical module with neutron trajectory visualization',
 					videoId: '7emAJHES-fw',
 					frOnly: false,
 				},
 				{
 					name: 'DOSIMEX-I 3.2',
 					description:
-						'Internal exposure calculation code. In accordance with the decree of November 16, 2023. Consideration of leakage kinetics, renewal, ground deposition. Atmospheric transfer calculations',
+						'Internal exposure calculation tool. In accordance with the decree of November 16, 2023. Consideration of leakage kinetics, renewal, ground deposition. Atmospheric transfer calculations',
 					videoId: 'CnqQhyB6cEo',
 					frOnly: false,
 				},
@@ -601,7 +601,7 @@ export const en = {
 				alt: 'with the 3-year commitment: €640/year (€1,920)',
 				tagline: 'Both tools, for your everyday calculations',
 				features: [
-					'The complete Dosimex: 17 calculation codes in Excel',
+					'The complete Dosimex: 17 calculation tools in Excel',
 					'Documentation, course materials and the book’s annexes',
 					'Dosismart: external gamma exposure calculation, X-ray generator, skyshine, parametric study',
 					'Calculation history, team collaboration',
@@ -665,7 +665,7 @@ export const en = {
 				{
 					question: 'What is the difference between Dosimex and Dosismart?',
 					answer:
-						"Dosimex includes the 17 calculation codes in Excel (external gamma exposure, X-ray, beta, neutron, internal exposure, measurement). Dosismart is the Dosimex web platform: it is where you subscribe, download the calculation codes and manage your organization, and it is also an online calculation tool (external gamma exposure calculation, X-ray generator, skyshine, parametric study, history, team collaboration), with source inventory, radiological zoning and workstation studies in the Compliance plan. A single subscription covers everything. New capabilities ship on Dosismart first; Dosimex remains the reference for what web calculation doesn't cover yet.",
+						"Dosimex includes the 17 calculation tools in Excel (external gamma exposure, X-ray, beta, neutron, internal exposure, measurement). Dosismart is the Dosimex web platform: it is where you subscribe, download the calculation tools and manage your organization, and it is also an online calculation tool (external gamma exposure calculation, X-ray generator, skyshine, parametric study, history, team collaboration), with source inventory, radiological zoning and workstation studies in the Compliance plan. A single subscription covers everything. New capabilities ship on Dosismart first; Dosimex remains the reference for what web calculation doesn't cover yet.",
 				},
 				{
 					question: 'I have a current license (purchased since 2025). How do I access Dosismart?',
@@ -675,7 +675,7 @@ export const en = {
 				{
 					question: 'I bought Dosimex before 2025. Is my license still valid?',
 					answer:
-						'Yes, for life: your perpetual license remains valid, and your calculation codes with it. Their environment, however, is not up to us: Microsoft Office updates can affect the behavior of some codes. Dosismart, for its part, requires the subscription (from €640/year excl. VAT), which covers both tools.',
+						'Yes, for life: your perpetual license remains valid, and your calculation tools with it. Their environment, however, is not up to us: Microsoft Office updates can affect the behavior of some tools. Dosismart, for its part, requires the subscription (from €640/year excl. VAT), which covers both tools.',
 				},
 				{
 					question: 'How does the free trial work?',
@@ -843,7 +843,7 @@ export const en = {
 		},
 		validations: {
 			title: 'Validation files and MCNP references',
-			description: 'Each code is compared point by point with MCNP. The complete files and reference notes are public:',
+			description: 'Each tool is compared point by point with MCNP. The complete files and reference notes are public:',
 			dosismart: {
 				title: 'A validation dossier online',
 				text: 'The web calculations are validated with the same rigor: a public dossier, generated automatically from the engine’s validation tests, compares each Dosismart result to the reference codes, scenario by scenario, deviations shown.',
