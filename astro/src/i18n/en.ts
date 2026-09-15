@@ -649,7 +649,7 @@ export const en = {
 					},
 					{
 						title: "Subscribe when you're ready",
-						text: 'By card directly on Dosismart, or by invoice (purchase order) via a quote.',
+						text: 'By card or SEPA direct debit on Dosismart, or by invoice (purchase order) via a quote.',
 					},
 					{
 						title: 'Calculate, in Excel and on the web',
@@ -681,6 +681,16 @@ export const en = {
 					question: 'How does the free trial work?',
 					answer:
 						'The trial is free for 14 days, with no commitment and no credit card. It covers both tools: the full Dosismart web application, including the Compliance features, and Dosimex (Excel).',
+				},
+				{
+					question: 'Can I generate a quote myself?',
+					answer:
+						'Yes. Create your account on Dosismart, pick your plan and choose "Pay by bank transfer": your quote PDF is generated immediately, and you can add your purchase order reference, which is then printed on the invoice. You can also request a quote by email or phone if you prefer.',
+				},
+				{
+					question: 'How does payment by invoice work?',
+					answer:
+						'As soon as you accept the quote, your access is active immediately and an invoice payable within 90 days by bank transfer is sent to you. Reminders are sent as the due date approaches. If payment has not been received by the end of those 90 days, access is suspended.',
 				},
 				{
 					question: 'Our IT security policy forbids online tools. Are there any options?',

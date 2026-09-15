@@ -649,7 +649,7 @@ export const fr = {
 					},
 					{
 						title: 'Abonnez-vous quand vous êtes prêt.e',
-						text: 'Par carte directement sur Dosismart, ou sur facture (bon de commande) via un devis.',
+						text: 'Par carte bancaire ou prélèvement SEPA directement sur Dosismart, ou sur facture (bon de commande) via un devis.',
 					},
 					{
 						title: 'Calculez, sur Excel comme sur le web',
@@ -681,6 +681,16 @@ export const fr = {
 					question: "Comment fonctionne l'essai gratuit ?",
 					answer:
 						"L'essai est gratuit pendant 14 jours, sans engagement et sans carte bancaire. Il couvre les deux outils : toute l'application web Dosismart, y compris les fonctionnalités Conformité, et Dosimex (Excel).",
+				},
+				{
+					question: 'Puis-je obtenir un devis automatiquement ?',
+					answer:
+						"Oui. Créez votre compte sur Dosismart, choisissez votre offre puis « Payer par virement » : votre devis PDF est généré immédiatement, et vous y ajoutez votre référence de bon de commande, qui sera imprimée sur la facture. Vous pouvez aussi nous demander votre devis par e-mail ou par téléphone si vous préférez.",
+				},
+				{
+					question: 'Comment se passe le paiement sur facture ?',
+					answer:
+						"Dès que vous acceptez le devis, votre accès est actif immédiatement et une facture payable sous 90 jours par virement bancaire vous est envoyée. Des rappels vous sont adressés à l'approche de l'échéance. En l'absence de règlement au terme de ces 90 jours, l'accès est suspendu.",
 				},
 				{
 					question: 'Notre politique de sécurité informatique interdit les outils en ligne. Existe-t-il des solutions ?',
