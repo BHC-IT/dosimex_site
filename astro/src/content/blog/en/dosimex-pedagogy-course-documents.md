@@ -1,7 +1,7 @@
 ---
 title: "Dosimex, much more than calculation software"
 description: "Dosimex was designed with a pedagogical mindset. Discover the educational modules, the serious game, and the 13 course documents included in the pack."
-pubDate: 2026-04-09
+pubDate: 2026-07-15
 author: "Dosimex"
 tags: ["pedagogy", "course documents", "serious game"]
 image: "/Images/docs_cours_dosimex.png"

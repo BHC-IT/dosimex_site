@@ -1,46 +1,45 @@
 ---
 title: "Dosismart : le calcul de radioprotection sur le web"
-description: "Dosismart est la nouvelle application web de calcul de dose en radioprotection. Accessible partout, sans installation, avec un historique complet de vos calculs."
-pubDate: 2026-04-09
-updatedDate: 2026-07-23
+description: "Dosismart est la plateforme web de Dosimex : calcul d'exposition externe gamma, générateur X, effet de ciel, historique, et les outils réglementaires de la PCR. Sans installation, avec un abonnement qui couvre les deux outils."
+pubDate: 2026-09-15
 author: "Dosimex"
 tags: ["dosismart", "nouveauté", "application web"]
 ---
 
-Dosimex évolue. Après plus de 20 ans d'outils de calcul sous Excel, nous lançons **Dosismart**, une application web qui rend le calcul de radioprotection accessible directement en ligne.
+Après plus de vingt ans d'outils de calcul sous Excel, Dosimex a désormais sa plateforme web : **Dosismart**. Même physique validée, nouvel espace de travail — et un abonnement unique qui couvre les deux.
 
 ## Pourquoi Dosismart ?
 
-Dosimex sous Excel a fait ses preuves auprès de plus de 1500 utilisateurs. Mais les usages évoluent : le besoin de travailler sur ordinateur comme sur smartphone, de collaborer en équipe et de conserver une traçabilité des calculs impose un outil moderne.
+Dosimex sous Excel a fait ses preuves auprès de plus de 1 500 professionnel·les. Mais les usages évoluent : travailler sur ordinateur comme sur smartphone, collaborer à plusieurs, garder une trace de ce qu'on a calculé et pouvoir le justifier six mois plus tard.
 
 Dosismart répond à ces besoins :
 
-- **Accessible partout**. Aucune installation, aucun prérequis. Un navigateur web suffit, quel que soit le système d'exploitation (Windows, Mac, Linux, tablette).
-- **Historique des calculs**. Chaque calcul est enregistré avec ses paramètres complets. Vous retrouvez et comparez vos résultats à tout moment.
-- **Rien à maintenir**. Pas de version à télécharger, pas de macro à réactiver.
-- **Export PDF**. Générez des rapports de calcul documentés, prêts pour vos dossiers de radioprotection.
+- **Accessible partout.** Aucune installation, aucun prérequis. Un navigateur récent suffit, quel que soit le système d'exploitation.
+- **Historique des calculs.** Chaque calcul est enregistré avec tous ses paramètres. Vous le retrouvez, le nommez, le mettez en favori, le rejouez ou l'exportez.
+- **Travail en équipe.** Vos collègues rejoignent votre organisation et partagent le même espace de travail.
+- **Rien à maintenir.** Pas de version à télécharger, pas de macro à réactiver. Les nouveautés arrivent en continu.
 
-## Ce qui est disponible aujourd'hui
+## Ce que vous calculez aujourd'hui
 
-Le calcul d'**exposition externe gamma** couvre les sources ponctuelles, linéiques, surfaciques et volumiques, avec écrans multicouches :
+Le calcul d'**exposition externe gamma** couvre la source ponctuelle et six géométries volumiques — sphère, cylindre axial et latéral, disque, ligne et parallélépipède — avec auto-absorption et écrans multicouches. Trois modes :
 
-- Calcul direct : radionucléide + activité + distance + écrans → débit de dose
-- Calculs inverses : distance minimale ou épaisseur d'écran à partir d'un débit de dose cible
+- **Calcul direct** : radionucléide, activité, distance et écrans → débit de dose
+- **Calculs inverses** : distance minimale ou épaisseur d'écran à partir d'un débit de dose cible
 
-- **Générateur X**, débit de dose, épaisseurs équivalentes, calculs NF C15-160 et rayonnement diffusé
-- **Effet de ciel**, le calcul de sky-shine, écran diffuseur compris
-- **Étude paramétrique cylindre**, balayage de dose à volume fixé, avec visualisation 3D
+S'y ajoutent, dans la même offre :
 
-L'offre Conformité ajoute les outils réglementaires : **inventaire de sources** (décroissance automatique, export SIGIS), **zonage radiologique et cartographie de débit de dose** (éditeur 2D, zones calculées selon l'arrêté du 28 janvier 2020, export PDF) et **études de poste** (le document de votre mise en conformité, prêt pour audits et inspections).
+- **Générateur X** — débit de dose, faisceau primaire et diffusé, épaisseurs équivalentes et feuille de calcul NF C 15-160
+- **Effet de ciel** — le calcul de sky-shine, écran diffuseur compris
+- **Optimiseur de cylindre** — à volume fixé, balayage de nombreuses géométries pour trouver la configuration la moins émettrice, avec visualisation 3D
+
+L'**offre Conformité** ajoute les documents réglementaires de la PCR : **inventaire de sources** avec décroissance automatique et export SIGIS, **zonage radiologique et cartographie de débit de dose** (éditeur de plans 2D, zones calculées selon l'arrêté du 28 janvier 2020, export PDF) et **générateur d'études de poste**, prêt pour vos audits et inspections.
 
 ## Ce qui arrive
 
-Les codes de calcul restants migrent progressivement vers le web : bêta, neutron, gammagraphie et exposition interne. En attendant, Dosimex reste la référence pour ces calculs, et l'abonnement couvre les deux outils.
+Les outils de calcul restants migrent progressivement vers le web : bêta, neutron, gammagraphie et exposition interne. En attendant, Dosimex reste la référence pour ces calculs — et votre abonnement le couvre déjà.
 
-## Un abonnement, deux outils
+## Comment s'abonner
 
-Un seul abonnement couvre Dosimex et Dosismart. Il se souscrit sur [dosismart.com](https://dosismart.com), où vous téléchargez aussi les codes de calcul et gérez votre organisation.
+Un seul abonnement donne accès à Dosimex et à Dosismart. Il se souscrit sur [dosismart.com](https://dosismart.com), par carte bancaire ou prélèvement SEPA, ou sur facture après un devis que vous pouvez générer vous-même depuis votre compte. C'est aussi là que vous téléchargez Dosimex, récupérez votre clé de licence et gérez votre organisation.
 
-Un **essai gratuit de 14 jours** est disponible, fonctionnalités Conformité comprises, sans engagement et sans carte bancaire.
-
-[Essayer Dosismart gratuitement →](https://dosismart.com)
+L'**essai est gratuit pendant 14 jours**, sans engagement et sans carte bancaire. Il couvre les deux outils, fonctionnalités Conformité comprises.

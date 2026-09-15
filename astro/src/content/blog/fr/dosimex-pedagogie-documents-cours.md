@@ -1,7 +1,7 @@
 ---
 title: "Dosimex, bien plus qu'un logiciel de calcul"
 description: "Dosimex a été conçu dans une logique pédagogique. Découvrez les modules éducatifs, le serious game et les 13 documents de cours inclus dans le pack."
-pubDate: 2026-04-09
+pubDate: 2026-07-15
 author: "Dosimex"
 tags: ["pédagogie", "documents de cours", "serious game"]
 image: "/Images/docs_cours_dosimex.png"
